@@ -1,0 +1,108 @@
+test rdi, rdi
+je 0x8007150
+push r15
+push r14
+push r13
+mov r13, rdi
+push r12
+push rbp
+push rbx
+sub rsp, 8
+mov r14, qword [rdi]
+test r14, r14
+je 0x800712d
+mov rax, qword [r14 + 0x80]
+test rax, rax
+je 0x8007038
+mov rdi, rax
+call qword [rax + 0x10]
+mov rax, qword [r14 + 0x78]
+test rax, rax
+je 0x8007047
+mov rdi, rax
+call qword [rax + 0x10]
+lea rdi, [r14 + 0x68]
+mov r8d, 1
+xor ecx, ecx
+xor edx, edx
+xor esi, esi
+call _ZN5boost6detail12set_tss_dataEPKvPFvPFvPvES3_ES5_S3_b
+lea rdi, [r14 + 0x60]
+call _ZN5boost3log12v2s_mt_posix13attribute_setD1Ev
+mov rbp, qword [r14 + 0x58]
+test rbp, rbp
+je 0x8007090
+lock sub dword [arg_8h], 1
+jne 0x8007090
+mov rax, qword [rbp]
+mov rdi, rbp
+call qword [rax + 0x10]
+lock sub dword [arg_ch], 1
+je 0x8007151
+nop word [rax + rax]
+mov rbx, qword [r14 + 0x40]
+mov r12, qword [r14 + 0x38]
+cmp rbx, r12
+je 0x8007104
+lea r15, [0x080070a4]
+jmp 0x80070b9
+nop word cs:[rax + rax]
+add r12, 0x10
+cmp rbx, r12
+je 0x8007100
+mov rbp, qword [r12 + 8]
+test rbp, rbp
+je 0x80070b0
+lock sub dword [arg_8h], 1
+jne 0x80070b0
+mov rax, qword [rbp]
+mov rdi, rbp
+call qword [rax + 0x10]
+lock sub dword [arg_ch], 1
+jne 0x80070b0
+mov rax, qword [rbp]
+mov rdi, rbp
+mov rdx, qword [rax + 0x18]
+cmp rdx, r15
+jne 0x8007170
+call qword [rax + 8]
+add r12, 0x10
+cmp rbx, r12
+jne 0x80070b9
+nop dword [rax + rax]
+mov r12, qword [r14 + 0x38]
+test r12, r12
+je 0x8007118
+mov rsi, qword [r14 + 0x48]
+mov rdi, r12
+sub rsi, r12
+call _ZdlPvm
+mov rdi, r14
+call pthread_rwlock_destroy
+mov esi, 0x88
+mov rdi, r14
+call _ZdlPvm
+add rsp, 8
+mov rdi, r13
+mov esi, 8
+pop rbx
+pop rbp
+pop r12
+pop r13
+pop r14
+pop r15
+jmp _ZdlPvm
+nop dword [rax + rax]
+ret
+mov rax, qword [rbp]
+lea rcx, [0x0800715c]
+mov rdi, rbp
+mov rdx, qword [rax + 0x18]
+cmp rdx, rcx
+jne 0x8007177
+call qword [rax + 8]
+jmp 0x8007090
+call rdx
+jmp 0x80070b0
+call rdx
+jmp 0x8007090

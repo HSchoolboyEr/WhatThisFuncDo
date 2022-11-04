@@ -1,0 +1,22 @@
+graph
+[
+hierarchic 1
+label ""
+directed 1
+  node [
+    id  0
+    label  "method.boost::filesystem.emit_error_int__boost::system::error_code__char_const_"
+  ]
+  node [
+    id  1
+    label  "0x08000ab0"
+  ]
+  edge [
+    source  0
+    target  1
+  ]
+  edge [
+    source  0
+    target  1
+  ]
+]

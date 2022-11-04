@@ -1,0 +1,11 @@
+sub rsp, 0x18
+lea rax, [rdi + 0x70]
+mov edx, dword [rdi + 0x70]
+mov edi, dword [rdi + 0x78]
+lea rcx, [var_4h]
+mov esi, 3
+mov qword [var_8h], rax
+mov dword [var_4h], 0x80000009
+call epoll_ctl
+add rsp, 0x18
+ret

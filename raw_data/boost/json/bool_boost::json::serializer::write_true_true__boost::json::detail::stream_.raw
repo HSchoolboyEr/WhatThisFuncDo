@@ -1,0 +1,92 @@
+push r13
+mov r13, rdi
+push r12
+mov r12, rsi
+push rbp
+push rbx
+sub rsp, 8
+mov rbx, qword [rsi]
+mov rax, qword [rsi + 8]
+cmp rax, rbx
+jbe 0x8019510
+lea rbp, [rbx + 1]
+mov byte [rbx], 0x74
+cmp rax, rbp
+jbe 0x8019550
+lea rbp, [rbx + 2]
+mov byte [rbx + 1], 0x72
+cmp rax, rbp
+jbe 0x8019580
+lea rbp, [rbx + 3]
+mov byte [rbx + 2], 0x75
+cmp rax, rbp
+jbe 0x80195b0
+mov byte [rbx + 3], 0x65
+lea rbp, [rbx + 4]
+mov eax, 1
+mov qword [r12], rbp
+add rsp, 8
+pop rbx
+pop rbp
+pop r12
+pop r13
+ret
+nop word [rax + rax]
+mov rax, qword [rdi + 0x40]
+lea rsi, [rax + 1]
+cmp rsi, qword [rdi + 0x38]
+jbe 0x801952b
+lea rdi, [rdi + 0x30]
+call .text
+mov rax, qword [r13 + 0x40]
+mov rdx, qword [r13 + 0x48]
+mov rbp, rbx
+mov byte [rdx + rax], 4
+xor eax, eax
+add qword [r13 + 0x40], 1
+mov qword [r12], rbp
+add rsp, 8
+pop rbx
+pop rbp
+pop r12
+pop r13
+ret
+nop dword [rax]
+mov rax, qword [rdi + 0x40]
+lea rsi, [rax + 1]
+cmp rsi, qword [rdi + 0x38]
+jbe 0x801956b
+lea rdi, [rdi + 0x30]
+call .text
+mov rax, qword [r13 + 0x40]
+mov rdx, qword [r13 + 0x48]
+mov byte [rdx + rax], 5
+xor eax, eax
+add qword [r13 + 0x40], 1
+jmp 0x80194fb
+nop
+mov rax, qword [rdi + 0x40]
+lea rsi, [rax + 1]
+cmp rsi, qword [rdi + 0x38]
+jbe 0x801959b
+lea rdi, [rdi + 0x30]
+call .text
+mov rax, qword [r13 + 0x40]
+mov rdx, qword [r13 + 0x48]
+mov byte [rdx + rax], 6
+xor eax, eax
+add qword [r13 + 0x40], 1
+jmp 0x80194fb
+nop
+mov rax, qword [rdi + 0x40]
+lea rsi, [rax + 1]
+cmp rsi, qword [rdi + 0x38]
+jbe 0x80195cb
+lea rdi, [rdi + 0x30]
+call .text
+mov rax, qword [r13 + 0x40]
+mov rdx, qword [r13 + 0x48]
+mov byte [rdx + rax], 7
+xor eax, eax
+add qword [r13 + 0x40], 1
+jmp 0x80194fb

@@ -1,0 +1,9 @@
+cmp byte [rsi], 0
+jne 0x80018d0
+ret
+nop word cs:[rax + rax]
+sub rsp, 8
+call _ZN5boost6detail23get_current_thread_dataEv
+mov byte [rax + 0x130], 1
+add rsp, 8
+ret

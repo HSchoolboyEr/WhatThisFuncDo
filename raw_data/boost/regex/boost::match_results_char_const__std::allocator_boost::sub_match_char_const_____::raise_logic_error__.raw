@@ -1,0 +1,18 @@
+push r12
+lea rsi, [0x0801ed49]
+push rbp
+sub rsp, 0x18
+mov rbp, rsp
+mov rdi, rbp
+call _ZNSt11logic_errorC1EPKc
+add byte [rax], al
+add byte [rax], al
+mov rdi, rbp
+call _ZN5boost15throw_exceptionISt11logic_errorEEvRKT_
+add byte [rax], al
+add byte [rax], al
+mov r12, rax
+mov rdi, rbp
+call _ZNSt11logic_errorD1Ev
+mov rdi, r12
+call _Unwind_Resume

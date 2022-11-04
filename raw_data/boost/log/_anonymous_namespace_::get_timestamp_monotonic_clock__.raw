@@ -1,0 +1,38 @@
+push rbx
+mov edi, 1
+sub rsp, 0x20
+mov rsi, rsp
+call clock_gettime
+test eax, eax
+jne __errno_location
+imul rax, qword [rsp], 0x3b9aca00
+add rax, qword [arg_8h]
+add rsp, 0x20
+pop rbx
+ret
+nop dword [rax]
+call __errno_location
+mov ecx, dword [rax]
+mov rbx, rax
+cmp ecx, 0x16
+jne 0x8000257
+lea rax, [method.boost::log::v2s_mt_posix::aux._anonymous_namespace_::get_timestamp_realtime_clock__]
+xor edi, edi
+lea rsi, [arg_10h]
+mov qword [0x08000224], rax
+call clock_gettime
+test eax, eax
+jne 0x800023d
+imul rax, qword [arg_10h], 0x3b9aca00
+add rax, qword [arg_18h]
+jmp 0x80001f3
+mov ecx, dword [rbx]
+lea rdx, [0x08000246]
+mov esi, 0xba
+lea rdi, [0x08000252]
+call _ZN5boost3log12v2s_mt_posix12system_error6throw_EPKcmS4_i
+lea rdx, [0x0800025e]
+mov esi, 0xd1
+lea rdi, [0x0800026a]
+call _ZN5boost3log12v2s_mt_posix12system_error6throw_EPKcmS4_i
+nop

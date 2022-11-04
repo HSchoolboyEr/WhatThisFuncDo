@@ -1,0 +1,18 @@
+mov r12, rax
+mov rdi, qword [arg_8h]
+lea rax, [arg_18h]
+cmp rdi, rax
+je 0x8004776
+mov rax, qword [arg_18h]
+lea rsi, [rax + 1]
+call _ZdlPvm
+mov rdi, rbp
+call _ZNSt6localeD1Ev
+mov rdi, r12
+call _Unwind_Resume
+mov rdi, qword [arg_28h]
+test rdi, rdi
+je 0x800475c
+mov rax, qword [rdi]
+call qword [rax + 0x70]
+jmp 0x800475c

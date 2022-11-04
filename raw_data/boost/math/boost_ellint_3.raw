@@ -1,0 +1,74 @@
+push rbp
+mov rbp, rsp
+sub rsp, 0x60
+movsd qword [var_18h], xmm0
+movsd xmm0, qword [0x08004c55]
+movsd qword [var_20h], xmm2
+subsd xmm0, xmm1
+movsd qword [var_8h], xmm1
+movsd qword [var_10h], xmm0
+fld qword [rbp - 0x10]
+fstp xword [rsp + 0x30]
+fld qword [rbp - 0x18]
+fstp xword [rsp + 0x20]
+fld qword [rbp - 0x20]
+fstp xword [rsp + 0x10]
+fld qword [rbp - 8]
+fstp xword [rsp]
+call sym._ZN5boost4math6detail13ellint_pi_impIeNS0_8policies6policyINS3_12domain_errorILNS3_17error_policy_typeE1EEENS3_10pole_errorILS
+fld st(0)
+add rsp, 0x40
+fabs
+fxch st(1)
+fst qword [rbp - 8]
+fld qword [0x08004c9b]
+fxch st(2)
+movsd xmm0, qword [var_8h]
+fcomi st(2)
+fstp st(2)
+ja 0x8004d00
+fldz
+fucomi st(1)
+jp 0x8004cd2
+fcompi st(1)
+fstp st(0)
+jne 0x8004ce0
+fld qword [0x08004cba]
+fcompi st(1)
+fstp st(0)
+jbe 0x8004cd0
+pxor xmm1, xmm1
+ucomisd xmm0, xmm1
+jp 0x8004d04
+comisd xmm0, xmm1
+jne 0x8004d04
+leave
+ret
+fstp st(0)
+fstp st(0)
+nop word cs:[rax + rax]
+pxor xmm4, xmm4
+ucomisd xmm0, xmm4
+jnp 0x8004d20
+fld qword [0x08004cf0]
+fcompi st(1)
+fstp st(0)
+jbe 0x8004cd0
+jmp 0x8004d04
+nop dword [rax + rax]
+fstp st(0)
+fstp st(0)
+movsd qword [var_8h], xmm0
+call __errno_location
+movsd xmm0, qword [var_8h]
+mov dword [rax], 0x22
+leave
+ret
+nop dword [rax + rax]
+jne 0x8004cea
+fstp st(0)
+call __errno_location
+pxor xmm0, xmm0
+mov dword [rax], 0x22
+leave
+ret

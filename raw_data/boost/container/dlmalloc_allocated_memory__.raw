@@ -1,0 +1,2 @@
+jmp boost_cont_allocated_memory
+nop word cs:[rax + rax]

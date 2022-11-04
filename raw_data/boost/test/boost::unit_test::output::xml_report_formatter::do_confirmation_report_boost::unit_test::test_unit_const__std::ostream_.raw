@@ -1,0 +1,49 @@
+push r13
+mov r13, rsi
+push r12
+mov r12, rdi
+push rbp
+mov rbp, rdx
+sub rsp, 0x10
+mov rax, qword [rdi]
+call qword [rax + 0x20]
+mov rax, qword [r12]
+lea rdx, [0x08000363]
+add byte [rax], al
+add byte [rax], al
+mov rax, qword [rax + 0x28]
+cmp rax, rdx
+jne 0x80003d0
+mov rdi, rbp
+mov edx, 2
+lea rsi, [0x0800037b]
+call _ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l
+xor edx, edx
+cmp dword [r13], 1
+mov rdi, rbp
+setne dl
+lea rax, [0x08000394]
+lea rsi, [0x0800039b]
+add rdx, 8
+cmp dword [r13], 1
+cmovne rsi, rax
+call _ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l
+lea rsi, [var_fh]
+mov rdi, rbp
+mov edx, 1
+mov byte [var_fh], 0x3e
+call _ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l
+add rsp, 0x10
+pop rbp
+pop r12
+pop r13
+ret
+nop
+add rsp, 0x10
+mov rdx, rbp
+mov rsi, r13
+mov rdi, r12
+pop rbp
+pop r12
+pop r13
+jmp rax

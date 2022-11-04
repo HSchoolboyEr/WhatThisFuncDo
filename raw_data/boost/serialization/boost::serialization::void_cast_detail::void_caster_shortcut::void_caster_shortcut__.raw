@@ -1,0 +1,11 @@
+lea rax, [0x080012b7]
+cmp byte [0x080012be], 0
+push rbp
+mov rbp, rdi
+mov qword [rdi], rax
+jne 0x80012cc
+call .text
+mov rdi, rbp
+mov esi, 0x30
+pop rbp
+jmp _ZdlPvm

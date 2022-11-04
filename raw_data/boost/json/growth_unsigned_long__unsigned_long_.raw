@@ -1,0 +1,15 @@
+cmp rdi, 0x7ffffffe
+ja 0x800b329
+mov edx, 0x7ffffffe
+mov eax, 0x7ffffffe
+sub rdx, rsi
+cmp rdx, rsi
+jb 0x800b328
+add rsi, rsi
+cmp rsi, rdi
+cmovae rdi, rsi
+mov rax, rdi
+ret
+push rax
+call method boost::json::detail::string_impl::growth(unsigned long, unsigned long) [clone .part.0]
+nop

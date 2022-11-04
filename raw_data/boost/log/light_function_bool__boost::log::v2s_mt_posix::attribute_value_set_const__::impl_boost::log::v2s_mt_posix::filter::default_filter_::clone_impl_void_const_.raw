@@ -1,0 +1,13 @@
+sub rsp, 8
+mov edi, 0x20
+call _Znwm
+lea rdx, [0x08003345]
+lea rcx, [0x0800334c]
+movq xmm0, rcx
+movq xmm1, rdx
+lea rsi, [0x0800335d]
+punpcklqdq xmm0, xmm1
+mov qword [rax + 0x10], rsi
+movups xmmword [rax], xmm0
+add rsp, 8
+ret

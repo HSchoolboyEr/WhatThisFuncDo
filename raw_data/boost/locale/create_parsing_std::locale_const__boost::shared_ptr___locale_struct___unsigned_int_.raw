@@ -1,0 +1,52 @@
+push r12
+mov r12, rdi
+sub rsp, 0x10
+cmp ecx, 1
+je 0x8000f78
+cmp ecx, 2
+je 0x8000fb8
+call _ZNSt6localeC1ERKS_
+add rsp, 0x10
+mov rax, r12
+pop r12
+ret
+nop word [rax + rax]
+movdqu xmm0, xmmword [rdx]
+mov rax, qword [rdx + 8]
+movaps xmmword [rsp], xmm0
+test rax, rax
+je 0x8000f8e
+lock add dword [rax + 8], 1
+mov rdx, rsp
+mov rdi, r12
+call _ZN5boost6locale10impl_posix19create_parsing_implIcEESt6localeRKS3_NS_10shared_ptrIP15__locale_structEE
+add byte [rax], al
+add byte [rax], al
+mov rdi, qword [var_8h]
+test rdi, rdi
+je 0x8000f68
+call _ZN5boost6detail15sp_counted_base7releaseEv
+add rsp, 0x10
+mov rax, r12
+pop r12
+ret
+nop word [rax + rax]
+movdqu xmm1, xmmword [rdx]
+mov rax, qword [rdx + 8]
+movaps xmmword [rsp], xmm1
+test rax, rax
+je 0x8000fce
+lock add dword [rax + 8], 1
+mov rdx, rsp
+mov rdi, r12
+call _ZN5boost6locale10impl_posix19create_parsing_implIwEESt6localeRKS3_NS_10shared_ptrIP15__locale_structEE
+add byte [rax], al
+add byte [rax], al
+mov rdi, qword [var_8h]
+test rdi, rdi
+je 0x8000f68
+call _ZN5boost6detail15sp_counted_base7releaseEv
+add rsp, 0x10
+mov rax, r12
+pop r12
+ret

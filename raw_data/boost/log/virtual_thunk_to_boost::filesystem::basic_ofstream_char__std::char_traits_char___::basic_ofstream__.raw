@@ -1,0 +1,39 @@
+push r12
+lea rdx, [0x08000b69]
+push rbp
+mov rbp, rdi
+movq xmm0, rdx
+sub rsp, 8
+mov rax, qword [rdi]
+add rbp, qword [rax - 0x18]
+lea rax, [0x08000b84]
+mov qword [arg_f8h], rax
+lea rax, [0x08000b92]
+lea rdi, [arg_8h]
+movq xmm1, rax
+lea r12, [arg_f8h]
+punpcklqdq xmm0, xmm1
+movups xmmword [rbp], xmm0
+call _ZNSt13basic_filebufIcSt11char_traitsIcEE5closeEv
+lea rdi, [arg_70h]
+call _ZNSt12__basic_fileIcED1Ev
+lea rax, [0x08000bbf]
+lea rdi, [arg_40h]
+mov qword [arg_8h], rax
+call _ZNSt6localeD1Ev
+lea rax, [0x08000bd3]
+mov rdi, r12
+mov qword [rbp], rax
+lea rax, [0x08000be1]
+mov qword [arg_f8h], rax
+call _ZNSt8ios_baseD2Ev
+add rsp, 8
+mov rdi, rbp
+mov esi, 0x200
+pop rbp
+pop r12
+jmp _ZdlPvm
+mov rdi, rax
+call __cxa_begin_catch
+call __cxa_end_catch
+jmp 0x8000baf

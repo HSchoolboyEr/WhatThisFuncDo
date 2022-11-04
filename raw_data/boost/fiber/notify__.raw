@@ -1,0 +1,25 @@
+push r12
+mov r12, rdi
+mov rdi, qword [rdi + 8]
+call _ZNK5boost6fibers7context15ready_is_linkedEv
+add byte [rax], al
+add byte [rax], al
+test al, al
+je 0x80000c0
+mov rdi, qword [r12 + 0x10]
+test rdi, rdi
+je .text.unlikely
+lea rdx, [0x08000097]
+lea rsi, [0x0800009e]
+xor ecx, ecx
+call __dynamic_cast
+mov rsi, qword [r12 + 8]
+mov rdx, r12
+pop r12
+mov rdi, rax
+mov rax, qword [rax]
+mov rax, qword [rax + 0x38]
+jmp rax
+nop dword [rax + rax]
+pop r12
+ret

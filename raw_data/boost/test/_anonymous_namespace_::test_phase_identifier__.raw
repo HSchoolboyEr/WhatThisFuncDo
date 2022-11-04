@@ -1,0 +1,28 @@
+push r12
+mov r12, rdi
+call _ZN5boost9unit_test9framework16test_in_progressEv
+add byte [rax], al
+add byte [rax], al
+test al, al
+je 0x80004e8
+call _ZN5boost9unit_test9framework17current_test_unitEv
+mov rdi, r12
+mov rsi, rax
+call _ZNK5boost9unit_test9test_unit9full_nameB5cxx11Ev
+add byte [rax], al
+add byte [rax], al
+mov rax, r12
+pop r12
+ret
+nop dword [rax]
+lea rax, [r12 + 0x10]
+mov byte [r12 + 0x1a], 0
+movabs rdx, 0x7465732074736554
+mov qword [r12], rax
+mov eax, 0x7075
+mov word [r12 + 0x18], ax
+mov rax, r12
+mov qword [r12 + 0x10], rdx
+mov qword [r12 + 8], 0xa
+pop r12
+ret

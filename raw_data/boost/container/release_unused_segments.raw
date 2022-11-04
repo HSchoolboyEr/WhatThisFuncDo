@@ -1,0 +1,268 @@
+push r15
+mov rdx, rdi
+push r14
+push r13
+push r12
+push rbp
+push rbx
+sub rsp, 0x28
+mov rbx, qword [rdi + 0x388]
+test rbx, rbx
+je 0x8000b40
+lea r14, [rdi + 0x378]
+xor r12d, r12d
+xor r11d, r11d
+jmp 0x8000893
+mov r14, rbp
+mov rbp, rbx
+add r12d, 1
+mov rbx, qword [rbx + 0x10]
+mov eax, dword [arg_18h]
+mov r15d, eax
+and r15d, 1
+je 0x80008e0
+test al, 8
+jne 0x80008e0
+mov rdi, qword [rbp]
+lea rax, [rdi + 0x10]
+mov r13, rdi
+test dil, 0xf
+je 0x80008c9
+neg rax
+and eax, 0xf
+lea r13, [rdi + rax]
+mov r8, qword [r13 + 8]
+mov rax, r8
+and eax, 3
+cmp rax, 1
+je 0x8000910
+nop dword [rax]
+test rbx, rbx
+jne 0x8000890
+cmp r12d, 0xfff
+mov eax, 0xfff
+cmovl r12d, eax
+movsxd r12, r12d
+mov qword [rdx + 0x38], r12
+add rsp, 0x28
+mov rax, r11
+pop rbx
+pop rbp
+pop r12
+pop r13
+pop r14
+pop r15
+ret
+nop
+mov rsi, qword [arg_8h]
+and r8, 0xfffffffffffffff8
+lea rcx, [r13 + r8]
+lea rax, [rdi + rsi - 0x50]
+cmp rcx, rax
+jb 0x80008e0
+cmp qword [rdx + 0x20], r13
+je 0x8000b50
+mov rax, qword [r13 + 0x30]
+mov rcx, qword [r13 + 0x18]
+mov qword [rsp], rax
+cmp rcx, r13
+je 0x8000a3e
+mov r9, qword [r13 + 0x10]
+mov rax, qword [rdx + 0x18]
+cmp rax, r9
+ja .text.unlikely
+cmp qword [r9 + 0x18], r13
+jne .text.unlikely
+cmp qword [rcx + 0x10], r13
+jne .text.unlikely
+mov qword [r9 + 0x18], rcx
+mov qword [rcx + 0x10], r9
+cmp qword [rsp], 0
+je 0x80009f5
+mov r9d, dword [r13 + 0x38]
+lea r10, [r9 + 0x4a]
+cmp qword [rdx + r9*8 + 0x258], r13
+je 0x8000b9d
+mov r10, qword [rsp]
+cmp r10, rax
+jb .text.unlikely
+cmp qword [r10 + 0x20], r13
+je 0x8000c39
+mov qword [r10 + 0x28], rcx
+test rcx, rcx
+je 0x80009f5
+cmp rcx, rax
+jb .text.unlikely
+mov r10, qword [rsp]
+mov r9, qword [r13 + 0x20]
+mov qword [rcx + 0x30], r10
+test r9, r9
+je 0x80009db
+cmp r9, rax
+jb .text.unlikely
+mov qword [rcx + 0x20], r9
+mov qword [r9 + 0x30], rcx
+mov r9, qword [r13 + 0x28]
+test r9, r9
+je 0x80009f5
+cmp r9, rax
+jb .text.unlikely
+mov qword [rcx + 0x28], r9
+mov qword [r9 + 0x30], rcx
+mov qword [var_10h], rdx
+mov qword [var_8h], r11
+mov qword [rsp], r8
+mov qword [var_18h], rsi
+call munmap
+mov r8, qword [rsp]
+mov r11, qword [var_8h]
+test eax, eax
+mov rdx, qword [var_10h]
+jne 0x8000ac8
+mov rsi, qword [var_18h]
+mov rbp, r14
+sub qword [rdx + 0x358], rsi
+mov qword [r14 + 0x10], rbx
+add r11, rsi
+jmp 0x80008e0
+mov rax, qword [r13 + 0x28]
+lea r9, [r13 + 0x28]
+test rax, rax
+jne 0x8000a88
+mov rax, qword [r13 + 0x20]
+test rax, rax
+jne 0x8000a7f
+cmp qword [rsp], 0
+je 0x80009f5
+mov eax, dword [r13 + 0x38]
+mov rcx, rax
+lea r9, [rax + 0x4a]
+cmp qword [rdx + rax*8 + 0x258], r13
+je 0x8000c6b
+mov rax, qword [rdx + 0x18]
+xor ecx, ecx
+jmp 0x8000990
+lea r9, [r13 + 0x20]
+nop dword [rax + rax]
+mov r10, r9
+mov rcx, rax
+lea r9, [rax + 0x28]
+mov rax, qword [rax + 0x28]
+test rax, rax
+jne 0x8000a88
+mov rax, qword [rcx + 0x20]
+lea r9, [rcx + 0x20]
+test rax, rax
+jne 0x8000a88
+mov rax, qword [rdx + 0x18]
+cmp rax, r10
+ja .text.unlikely
+mov qword [r10], 0
+jmp 0x8000973
+nop dword [rax]
+mov rax, r8
+mov esi, 0x258
+shr rax, 8
+mov ecx, eax
+test eax, eax
+je 0x8000af5
+cmp eax, 0xffff
+jbe 0x8000b65
+mov r15d, 0x80000000
+mov esi, 0x350
+mov ecx, 0x1f
+mov eax, dword [rdx + 4]
+pxor xmm0, xmm0
+mov dword [r13 + 0x38], ecx
+movups xmmword [r13 + 0x20], xmm0
+test eax, r15d
+jne 0x8000ba7
+movq xmm0, r13
+or eax, r15d
+add rsi, rdx
+punpcklqdq xmm0, xmm0
+mov dword [rdx + 4], eax
+mov qword [rdx + rcx*8 + 0x258], r13
+mov qword [r13 + 0x30], rsi
+movups xmmword [r13 + 0x10], xmm0
+jmp 0x80008e0
+nop word cs:[rax + rax]
+mov r12d, 0xfff
+xor r11d, r11d
+jmp 0x80008f8
+nop
+mov qword [rdx + 0x20], 0
+mov qword [rdx + 8], 0
+jmp 0x80009f5
+bsr eax, eax
+mov ecx, 0x26
+mov rsi, r8
+mov r15d, 1
+xor eax, 0x1f
+sub ecx, eax
+shr rsi, cl
+mov rcx, rsi
+mov esi, 0x1f
+sub esi, eax
+and ecx, 1
+lea ecx, [rcx + rsi*2]
+lea esi, [rcx + 0x4b]
+shl r15d, cl
+shl rsi, 3
+jmp 0x8000af5
+mov qword [rdx + r10*8 + 8], rcx
+jmp 0x80009b0
+mov eax, ecx
+mov rdi, r8
+mov rsi, qword [rdx + rax*8 + 0x258]
+cmp ecx, 0x1f
+je 0x8000bea
+mov eax, ecx
+mov ecx, 0x39
+shr eax, 1
+sub ecx, eax
+shl rdi, cl
+jmp 0x8000bea
+nop dword [rax]
+mov rax, rdi
+add rdi, rdi
+shr rax, 0x3f
+add rax, 4
+mov rcx, qword [rsi + rax*8]
+test rcx, rcx
+je 0x8000c42
+mov rsi, rcx
+mov rax, qword [rsi + 8]
+and rax, 0xfffffffffffffff8
+cmp rax, r8
+jne 0x8000bd0
+mov rax, qword [rsi + 0x10]
+mov rcx, qword [rdx + 0x18]
+cmp rcx, rax
+ja .text.unlikely
+cmp rcx, rsi
+ja .text.unlikely
+movq xmm0, rax
+movq xmm1, rsi
+mov qword [rax + 0x18], r13
+punpcklqdq xmm0, xmm1
+mov qword [rsi + 0x10], r13
+mov qword [r13 + 0x30], 0
+movups xmmword [r13 + 0x10], xmm0
+jmp 0x80008e0
+mov qword [r10 + 0x20], rcx
+jmp 0x80009ab
+lea rcx, [rsi + rax*8]
+cmp qword [rdx + 0x18], rcx
+ja .text.unlikely
+movq xmm0, r13
+mov qword [rsi + rax*8], r13
+punpcklqdq xmm0, xmm0
+mov qword [r13 + 0x30], rsi
+movups xmmword [r13 + 0x10], xmm0
+jmp 0x80008e0
+mov qword [rdx + r9*8 + 8], 0
+mov eax, 0xfffffffe
+rol eax, cl
+and dword [rdx + 4], eax
+jmp 0x80009f5

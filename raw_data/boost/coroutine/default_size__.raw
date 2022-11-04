@@ -1,0 +1,62 @@
+sub rsp, 0x18
+movzx eax, byte [0x0800013b]
+test al, al
+je 0x8000198
+cmp qword [0x08000147], 0xffffffffffffffff
+mov eax, 0x10000
+je 0x800016b
+movzx eax, byte [0x08000155]
+test al, al
+je 0x80001d8
+cmp qword [0x08000164], 0x10000
+jne 0x8000170
+mov eax, 0x10000
+add rsp, 0x18
+ret
+movzx eax, byte [0x08000177]
+test al, al
+je .bss
+mov rax, qword [0x08000186]
+cmp rax, 0xffff
+ja 0x8000166
+add rsp, 0x18
+ret
+nop dword [rax + rax]
+lea rdi, [0x0800019f]
+call __cxa_guard_acquire
+test eax, eax
+je 0x800013f
+mov rsi, rsp
+mov edi, 3
+call getrlimit
+mov rax, qword [var_8h]
+lea rdi, [0x080001c1]
+mov qword [0x080001c8], rax
+call __cxa_guard_release
+jmp .bss
+nop word [rax + rax]
+lea rdi, [0x080001df]
+call __cxa_guard_acquire
+test eax, eax
+je .bss
+mov rsi, rsp
+mov edi, 3
+call getrlimit
+mov rax, qword [var_8h]
+lea rdi, [0x08000205]
+mov qword [0x0800020c], rax
+call __cxa_guard_release
+jmp .bss
+nop word cs:[rax + rax]
+lea rdi, [0x08000227]
+call __cxa_guard_acquire
+test eax, eax
+je .bss
+mov rsi, rsp
+mov edi, 3
+call getrlimit
+mov rax, qword [var_8h]
+lea rdi, [0x0800024d]
+mov qword [0x08000254], rax
+call __cxa_guard_release
+jmp .bss

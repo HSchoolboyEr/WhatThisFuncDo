@@ -1,0 +1,10 @@
+cmp byte [rdi], 0
+jne 0x8001e70
+ret
+nop word cs:[rax + rax]
+sub rsp, 0x18
+mov rdi, qword [0x08001e7b]
+lea rsi, [var_fh]
+call _ZN5boost9unit_test15unit_test_log_tlsERKNS0_3log3endE
+add rsp, 0x18
+ret

@@ -1,0 +1,174 @@
+push r15
+push r14
+push r13
+push r12
+push rbp
+mov rbp, rdi
+push rbx
+sub rsp, 8
+cmp qword [0x08005869], 0
+je 0x80059a0
+mov rax, qword [0x08005876]
+cmp rax, 0x10
+jbe 0x8005980
+cmp rax, 0x20
+mov ebx, 0x20
+cmovae rbx, rax
+lea rdx, [rbx - 1]
+test rdx, rbx
+jne 0x80058c8
+mov rdx, 0xffffffffffffff80
+sub rdx, rbx
+cmp rbp, rdx
+jb 0x80058fa
+call __errno_location
+xor r12d, r12d
+mov dword [rax], 0xc
+add rsp, 8
+mov rax, r12
+pop rbx
+pop rbp
+pop r12
+pop r13
+pop r14
+pop r15
+ret
+nop dword [rax]
+cmp rax, 0x20
+jbe 0x8005af0
+mov eax, 0x20
+nop word [rax + rax]
+add rax, rax
+cmp rbx, rax
+ja 0x80058e0
+mov rdx, 0xffffffffffffff80
+mov rbx, rax
+sub rdx, rax
+cmp rbp, rdx
+jae __errno_location
+lea rax, [arg_17h]
+mov r13d, 0x20
+and rax, 0xfffffffffffffff0
+cmp rbp, 0x16
+cmova r13, rax
+lea rdi, [rbx + r13 + 0x18]
+call dlmalloc
+mov r12, rax
+test rax, rax
+je 0x80058b3
+lea r15, [rax - 0x10]
+test byte [0x0800592d], 2
+jne 0x8005a08
+lea rax, [rbx - 1]
+test r12, rax
+jne 0x80059b0
+mov rax, qword [r12 - 8]
+mov rbp, r15
+test al, 3
+je 0x800595c
+mov rdx, rax
+lea rcx, [r13 + 0x20]
+and rdx, 0xfffffffffffffff8
+cmp rdx, rcx
+ja 0x8005aa8
+test byte [0x08005963], 2
+je 0x80058b3
+mov dword [0x08005973], 0
+jmp 0x80058b3
+nop dword [rax + rax]
+add rsp, 8
+mov rdi, rbp
+pop rbx
+pop rbp
+pop r12
+pop r13
+pop r14
+pop r15
+jmp sym.dlmalloc
+nop word cs:[rax + rax]
+call sym.init_mparams.isra.0
+jmp .bss
+nop word [rax + rax]
+mov rbp, rbx
+add rax, r12
+neg rbp
+and rax, rbp
+lea rbp, [rax - 0x10]
+mov rdx, rbp
+sub rdx, r15
+cmp rdx, 0x1f
+ja 0x80059d5
+add rbp, rbx
+mov rdx, rbp
+sub rdx, r15
+mov rcx, qword [r12 - 8]
+lea rbx, [arg_10h]
+mov rax, rcx
+and rax, 0xfffffffffffffff8
+sub rax, rdx
+and ecx, 3
+jne 0x8005a58
+add rdx, qword [r12 - 0x10]
+mov qword [arg_8h], rax
+mov r12, rbx
+mov qword [rbp], rdx
+jmp 0x8005944
+nop word [rax + rax]
+mov eax, 1
+xchg dword [0x08005a13], eax
+test eax, eax
+je 0x8005933
+xor ebp, ebp
+mov r14d, 1
+nop dword [rax + rax]
+mov eax, dword [0x08005a2e]
+test eax, eax
+jne 0x8005a43
+mov eax, r14d
+xchg dword [0x08005a3b], eax
+test eax, eax
+je 0x8005933
+add ebp, 1
+test bpl, 0x3f
+jne 0x8005a28
+call sched_yield
+jmp 0x8005a28
+nop dword [rax + rax]
+mov rcx, qword [arg_8h]
+mov rsi, r15
+lea rdi, [0x08005a66]
+and ecx, 1
+or rcx, rax
+or rcx, 2
+mov qword [arg_8h], rcx
+or qword [rbp + rax + 8], 1
+mov rax, qword [r12 - 8]
+and eax, 1
+or rax, rdx
+or rax, 2
+mov qword [r12 - 8], rax
+mov r12, rbx
+or qword [r15 + rdx + 8], 1
+call sym.dispose_chunk
+mov rax, qword [arg_8h]
+jmp 0x8005944
+nop dword [rax]
+and eax, 1
+mov r8, rdx
+lea rsi, [rbp + r13]
+or rax, r13
+sub r8, r13
+lea rdi, [0x08005ac0]
+or rax, 2
+mov qword [arg_8h], rax
+mov rax, r8
+or rax, 3
+mov qword [rsi + 8], rax
+or qword [rbp + rdx + 8], 1
+mov rdx, r8
+call sym.dispose_chunk
+jmp .bss
+nop word cs:[rax + rax]
+mov rdx, 0xffffffffffffff60
+mov ebx, 0x20
+jmp 0x80058a0

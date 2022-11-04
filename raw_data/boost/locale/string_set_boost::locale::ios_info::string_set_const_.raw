@@ -1,0 +1,28 @@
+push rbp
+mov rbp, rdi
+push rbx
+sub rsp, 8
+cmp qword [rsi + 0x10], 0
+je 0x80000f8
+mov rdi, qword [rsi + 8]
+mov rbx, rsi
+call _Znam
+mov rdx, qword [rbx + 8]
+mov rsi, qword [rbx + 0x10]
+mov qword [arg_10h], rax
+mov rdi, rax
+mov rax, qword [rbx]
+mov qword [arg_8h], rdx
+mov qword [rbp], rax
+add rsp, 8
+pop rbx
+pop rbp
+jmp memcpy
+nop dword [rax]
+mov qword [rdi + 0x10], 0
+mov qword [rdi + 8], 0
+mov qword [rdi], 0
+add rsp, 8
+pop rbx
+pop rbp
+ret

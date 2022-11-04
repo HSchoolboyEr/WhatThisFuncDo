@@ -1,0 +1,8 @@
+mov rdi, qword [arg_20h]
+cmp rdi, rbx
+je 0x800ba2c
+mov rax, qword [arg_30h]
+lea rsi, [rax + 1]
+call _ZdlPvm
+mov rdi, rbp
+call method boost::re_detail_500::basic_regex_parser<wchar_t, boost::regex_traits<wchar_t, boost::cpp_regex_traits<wchar_t> > >::fail(boost::regex_constants::error_type, long, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) [clone .isra.0] [clone .cold]

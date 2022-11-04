@@ -1,0 +1,14 @@
+push r12
+push rbp
+sub rsp, 0x18
+mov rbp, rsp
+mov rdi, rbp
+call _ZN5boost9gregorian16bad_day_of_monthC1Ev
+mov rdi, rbp
+call _ZN5boost15throw_exceptionINS_9gregorian16bad_day_of_monthEEEvRKT_
+add byte [rax], al
+add byte [rax], al
+mov r12, rax
+jmp .text.unlikely
+nop word cs:[rax + rax]
+nop dword [rax]

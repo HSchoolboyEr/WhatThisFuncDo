@@ -1,0 +1,34 @@
+push r12
+push rbp
+sub rsp, 0x18
+mov rbp, qword [0x0800461e]
+test rbp, rbp
+je 0x8004638
+add rsp, 0x18
+mov rdi, rbp
+pop rbp
+pop r12
+jmp _ZSt9use_facetISt7codecvtIwc11__mbstate_tEERKT_RKSt6locale
+add byte [rax], al
+add byte [rax], al
+nop word [rax + rax]
+mov edi, 8
+call _Znwm
+lea rsi, [0x08004649]
+mov rdi, rax
+mov rbp, rax
+call _ZNSt6localeC1EPKc
+add byte [rax], al
+add byte [rax], al
+xor eax, eax
+lock cmpxchg qword [0x0800465f], rbp
+je 0x8004623
+mov rdi, rbp
+mov qword [arg_8h], rax
+call _ZNSt6localeD1Ev
+mov rdi, rbp
+mov esi, 8
+call _ZdlPvm
+mov rax, qword [arg_8h]
+mov rbp, rax
+jmp 0x8004623

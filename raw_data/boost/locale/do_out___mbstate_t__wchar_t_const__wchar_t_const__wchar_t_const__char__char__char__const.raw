@@ -1,0 +1,98 @@
+mov r11, qword [arg_8h]
+mov r10, qword [arg_10h]
+mov rdi, rcx
+cmp r9, r11
+jae 0x8001e16
+cmp rdx, rcx
+jae 0x8001e16
+mov eax, dword [rdx]
+cmp eax, 0x10ffff
+ja 0x8001de8
+lea ecx, [rax - 0xd800]
+cmp ecx, 0x7ff
+jbe 0x8001de8
+mov rsi, r11
+sub rsi, r9
+cmp eax, 0x7f
+jbe 0x8001df8
+cmp eax, 0x7ff
+jbe 0x8001e58
+cmp eax, 0xffff
+ja 0x8001e80
+cmp rsi, 2
+jg 0x8001e28
+mov qword [r8], rdx
+mov eax, 1
+mov qword [r10], r9
+ret
+nop dword [rax]
+mov qword [r8], rdx
+mov eax, 2
+mov qword [r10], r9
+ret
+nop dword [rax]
+test rsi, rsi
+jle 0x8001dd9
+mov byte [r9], al
+mov eax, 1
+add r9, rax
+add rdx, 4
+cmp r11, r9
+jbe 0x8001e16
+cmp rdi, rdx
+ja 0x8001d9b
+xor eax, eax
+cmp rdi, rdx
+mov qword [r8], rdx
+setne al
+mov qword [r10], r9
+ret
+nop dword [rax]
+mov esi, eax
+mov ecx, eax
+and eax, 0x3f
+shr esi, 6
+shr ecx, 0xc
+or eax, 0xffffff80
+and esi, 0x3f
+or ecx, 0xffffffe0
+mov byte [r9 + 2], al
+mov eax, 3
+or esi, 0xffffff80
+mov byte [r9], cl
+mov byte [r9 + 1], sil
+jmp 0x8001e05
+nop dword [rax + rax]
+cmp rsi, 1
+jle 0x8001dd9
+mov ecx, eax
+and eax, 0x3f
+shr ecx, 6
+or eax, 0xffffff80
+or ecx, 0xffffffc0
+mov byte [r9 + 1], al
+mov eax, 2
+mov byte [r9], cl
+jmp 0x8001e05
+nop
+cmp rsi, 3
+jle 0x8001dd9
+mov ecx, eax
+shr ecx, 0x12
+or ecx, 0xfffffff0
+mov byte [r9], cl
+mov ecx, eax
+shr ecx, 0xc
+and ecx, 0x3f
+or ecx, 0xffffff80
+mov byte [r9 + 1], cl
+mov ecx, eax
+and eax, 0x3f
+shr ecx, 6
+or eax, 0xffffff80
+and ecx, 0x3f
+mov byte [r9 + 3], al
+mov eax, 4
+or ecx, 0xffffff80
+mov byte [r9 + 2], cl
+jmp 0x8001e05

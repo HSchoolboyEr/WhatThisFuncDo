@@ -1,0 +1,64 @@
+mov edi, edi
+push r14
+push r13
+push r12
+push rbp
+push rbx
+mov rbx, rsi
+test rdi, rdi
+je 0x80001b0
+lea r12, [rdi*8]
+mov rdi, r12
+call _Znwm
+mov rdx, r12
+xor esi, esi
+mov rdi, rax
+lea r14, [rax + r12]
+call memset
+mov rcx, rax
+mov r13, qword [rbx]
+mov rbp, qword [rbx + 8]
+movq xmm0, rcx
+movq xmm1, r14
+punpcklqdq xmm0, xmm1
+mov r12, qword [rbx + 0x10]
+mov qword [rbx + 0x10], r14
+movups xmmword [rbx], xmm0
+mov rbx, r13
+cmp r13, rbp
+je 0x8000171
+nop word [rax + rax]
+mov rdi, qword [rbx]
+test rdi, rdi
+je 0x8000168
+lock sub qword [rdi + 8], 1
+je 0x8000190
+add rbx, 8
+cmp rbp, rbx
+jne 0x8000158
+test r13, r13
+je 0x80001a0
+mov rsi, r12
+pop rbx
+mov rdi, r13
+pop rbp
+sub rsi, r13
+pop r12
+pop r13
+pop r14
+jmp _ZdlPvm
+nop dword [rax]
+mov rax, qword [rdi]
+call qword [rax + 8]
+jmp 0x8000168
+nop dword [rax + rax]
+pop rbx
+pop rbp
+pop r12
+pop r13
+pop r14
+ret
+nop dword [rax]
+xor ecx, ecx
+xor r14d, r14d
+jmp 0x800012a

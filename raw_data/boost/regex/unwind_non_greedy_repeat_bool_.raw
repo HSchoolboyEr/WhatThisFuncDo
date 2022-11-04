@@ -1,0 +1,13 @@
+mov rdx, qword [rdi + 0xd8]
+mov eax, esi
+test sil, sil
+jne 0x80040ca
+mov rcx, qword [rdx + 0x10]
+mov qword [rdi + 0x28], rcx
+mov rcx, qword [rdx + 8]
+mov qword [rdi + 0x58], rcx
+mov rcx, qword [rdi + 0x80]
+add qword [rcx + 0x18], 1
+add rdx, 0x18
+mov qword [rdi + 0xd8], rdx
+ret

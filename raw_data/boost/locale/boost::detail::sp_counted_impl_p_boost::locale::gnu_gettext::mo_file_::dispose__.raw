@@ -1,0 +1,17 @@
+push rbp
+mov rbp, qword [rdi + 0x10]
+test rbp, rbp
+je 0x8001470
+mov rdi, qword [arg_20h]
+test rdi, rdi
+je 0x800145f
+mov rsi, qword [arg_30h]
+sub rsi, rdi
+call _ZdlPvm
+mov rdi, rbp
+mov esi, 0x48
+pop rbp
+jmp _ZdlPvm
+nop dword [rax]
+pop rbp
+ret

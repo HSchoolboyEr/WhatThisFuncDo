@@ -1,0 +1,3 @@
+mov rax, qword [0x080001b7]
+mov qword [rdi], rax
+ret

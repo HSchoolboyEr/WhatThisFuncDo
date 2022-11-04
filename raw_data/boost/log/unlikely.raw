@@ -1,0 +1,4 @@
+call __cxa_begin_catch
+call __cxa_end_catch
+jmp .text
+nop

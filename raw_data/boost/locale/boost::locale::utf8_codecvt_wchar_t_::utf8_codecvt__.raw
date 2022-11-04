@@ -1,0 +1,9 @@
+lea rax, [0x08001887]
+push rbp
+mov rbp, rdi
+mov qword [rdi], rax
+call _ZNSt7codecvtIwc11__mbstate_tED2Ev
+mov rdi, rbp
+mov esi, 0x18
+pop rbp
+jmp _ZdlPvm

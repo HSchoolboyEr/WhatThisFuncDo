@@ -1,0 +1,56 @@
+push rbp
+mov ebp, edi
+push rbx
+movsxd rbx, esi
+sub rsp, 8
+cmp qword [0x08005f13], 0
+je 0x8005f88
+cmp ebx, 0xffffffff
+je 0x8005f38
+cmp ebp, 0xfffffffe
+je 0x8005f90
+cmp ebp, 0xffffffff
+je 0x8005f6f
+xor eax, eax
+cmp ebp, 0xfffffffd
+je 0x8005f50
+add rsp, 8
+pop rbx
+pop rbp
+ret
+nop word [rax + rax]
+xor eax, eax
+cmp ebp, 0xfffffffe
+je 0x8005f2b
+cmp ebp, 0xffffffff
+je 0x8005f68
+cmp ebp, 0xfffffffd
+jne 0x8005f2b
+mov rbx, 0xffffffffffffffff
+mov qword [0x08005f57], rbx
+add rsp, 8
+mov eax, 1
+pop rbx
+pop rbp
+ret
+nop dword [rax + rax]
+mov rbx, 0xffffffffffffffff
+mov qword [0x08005f76], rbx
+add rsp, 8
+mov eax, 1
+pop rbx
+pop rbp
+ret
+nop word [rax + rax]
+call sym.init_mparams.isra.0
+jmp 0x8005f15
+nop
+xor eax, eax
+cmp rbx, qword [0x08005f99]
+jb 0x8005f2b
+lea rdx, [rbx - 1]
+test rdx, rbx
+jne 0x8005f2b
+mov qword [0x08005fab], rbx
+mov eax, 1
+jmp 0x8005f2b

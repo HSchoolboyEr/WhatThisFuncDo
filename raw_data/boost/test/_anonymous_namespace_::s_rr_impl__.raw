@@ -1,0 +1,47 @@
+movzx eax, byte [0x08000157]
+test al, al
+je 0x8000168
+lea rax, [0x08000162]
+ret
+nop dword [rax + rax]
+push rbp
+lea rdi, [0x08000170]
+call __cxa_guard_acquire
+test eax, eax
+jne 0x8000188
+lea rax, [0x08000180]
+pop rbp
+ret
+nop word [rax + rax]
+lea rax, [0x0800018f]
+lea rcx, [0x08000196]
+mov edi, 0x20
+movq xmm0, rcx
+movq xmm1, rax
+punpcklqdq xmm0, xmm1
+movaps xmmword [0x080001b0], xmm0
+call _Znwm
+mov edx, dword [0x080001bb]
+lea rsi, [0x080001c2]
+movdqu xmm2, xmmword [0x080001ca]
+mov edi, 0x18
+mov qword [rax], rsi
+mov dword [rax + 8], edx
+movups xmmword [rax + 0x10], xmm2
+mov qword [0x080001e0], rax
+mov dword [0x080001ea], 1
+call _Znwm
+lea rcx, [0x080001f6]
+mov qword [rax + 8], 0
+lea rdi, [0x08000205]
+mov qword [rax], rcx
+mov byte [rax + 0x10], 0
+mov qword [0x08000213], rax
+call __cxa_guard_release
+lea rdx, [0x0800021f]
+lea rsi, [0x08000226]
+lea rdi, [method.boost::unit_test::results_reporter._anonymous_namespace_::results_reporter_impl::results_reporter_impl__]
+call __cxa_atexit
+lea rax, [0x08000239]
+pop rbp
+ret

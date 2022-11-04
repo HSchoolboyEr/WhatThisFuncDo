@@ -1,0 +1,95 @@
+push r14
+mov r14d, edi
+push r13
+mov r13, rsi
+push r12
+push rbp
+lea rbp, [0x08000114]
+push rbx
+mov rbx, rbp
+sub rsp, 0x70
+call _ZN5boost9unit_test9framework17master_test_suiteEv
+add byte [rax], al
+add byte [rax], al
+mov r8d, 0xc
+lea rcx, [0x0800012e]
+xor esi, esi
+mov rdx, qword [rax + 0x98]
+lea rdi, [rax + 0x90]
+call _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE10_M_replaceEmmPKcm
+call _ZN5boost9unit_test9framework17master_test_suiteEv
+mov r12, rax
+nop dword [rax + rax]
+add rbx, 1
+cmp byte [rbx], 0
+jne 0x8000150
+lea rdi, [var_50h]
+lea rsi, [var_10h]
+mov dword [var_38h], r14d
+lea rax, [0x0800016f]
+add byte [rax], al
+add byte [rax], al
+mov qword [var_40h], r13
+or rax, 1
+mov qword [var_30h], rax
+lea rax, [0x08000184]
+lea rcx, [rax - 0x1e]
+movq xmm1, rax
+movq xmm0, rcx
+punpcklqdq xmm0, xmm1
+movaps xmmword [var_10h], xmm0
+call _ZN5boost9unit_test9ut_detail24normalize_test_case_nameB5cxx11ENS0_13basic_cstringIKcEE
+add byte [rax], al
+add byte [rax], al
+mov rax, qword [var_50h]
+add rax, qword [var_58h]
+mov edi, 0x138
+mov qword [var_20h], rbp
+movq xmm0, qword [var_50h]
+movq xmm2, rax
+mov qword [var_28h], rbx
+punpcklqdq xmm0, xmm2
+movaps xmmword [rsp], xmm0
+call _Znwm
+lea rdx, [var_20h]
+mov rsi, rsp
+lea r8, [var_30h]
+mov rdi, rax
+mov ecx, 0x38
+mov rbp, rax
+call _ZN5boost9unit_test9test_caseC1ENS0_13basic_cstringIKcEES4_mRKNS_8functionIFvvEEE
+mov rdi, qword [var_50h]
+lea rax, [var_60h]
+cmp rdi, rax
+je 0x800020b
+mov rax, qword [var_60h]
+lea rsi, [rax + 1]
+call _ZdlPvm
+xor ecx, ecx
+xor edx, edx
+mov rsi, rbp
+mov rdi, r12
+call _ZN5boost9unit_test10test_suite3addEPNS0_9test_unitEmj
+add byte [rax], al
+add byte [rax], al
+mov rax, qword [var_30h]
+test rax, rax
+je 0x8000243
+test al, 1
+jne 0x8000243
+and rax, 0xfffffffffffffffe
+mov rax, qword [rax]
+test rax, rax
+je 0x8000243
+lea rdi, [var_38h]
+mov edx, 2
+mov rsi, rdi
+call rax
+add rsp, 0x70
+xor eax, eax
+pop rbx
+pop rbp
+pop r12
+pop r13
+pop r14
+ret

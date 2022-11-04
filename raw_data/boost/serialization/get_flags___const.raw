@@ -1,0 +1,3 @@
+mov rax, qword [rdi + 0x20]
+mov eax, dword [rax]
+ret

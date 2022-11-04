@@ -1,0 +1,37 @@
+push r12
+lea rax, [0x080036a9]
+push rbp
+mov rbp, rdi
+sub rsp, 8
+mov r12, qword [rdi + 0x548]
+mov qword [rdi], rax
+test r12, r12
+je 0x80036c9
+lock sub dword [r12 + 8], 1
+je 0x80036e0
+add rsp, 8
+mov rdi, rbp
+pop rbp
+pop r12
+jmp _ZNSt5ctypeIwED2Ev
+add byte [rax], al
+add byte [rax], al
+nop dword [rax + rax]
+mov rax, qword [r12]
+mov rdi, r12
+call qword [rax + 0x10]
+lock sub dword [r12 + 0xc], 1
+jne 0x80036c9
+mov rax, qword [r12]
+lea rcx, [0x080036fe]
+add byte [rax], al
+add byte [rax], al
+mov rdi, r12
+mov rdx, qword [rax + 0x18]
+cmp rdx, rcx
+jne 0x8003710
+call qword [rax + 8]
+jmp 0x80036c9
+nop
+call rdx
+jmp 0x80036c9

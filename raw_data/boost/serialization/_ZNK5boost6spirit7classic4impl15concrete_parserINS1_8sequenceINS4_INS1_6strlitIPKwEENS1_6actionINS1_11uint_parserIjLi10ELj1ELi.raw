@@ -1,0 +1,123 @@
+push r15
+push r14
+push r13
+mov r13, rdi
+push r12
+push rbp
+mov rbp, rsi
+push rbx
+sub rsp, 0x28
+mov rcx, qword [rdi + 0x10]
+mov rsi, qword [rdi + 8]
+mov r12, qword [rbp]
+cmp rcx, rsi
+je 0x8005938
+mov rax, qword [r12]
+mov rdx, rsi
+jmp 0x8005917
+nop
+mov ebx, dword [rax]
+cmp dword [rdx], ebx
+jne 0x800591d
+add rax, 4
+add rdx, 4
+mov qword [r12], rax
+cmp rcx, rdx
+je 0x8005938
+cmp rax, qword [arg_8h]
+jne 0x8005900
+add rsp, 0x28
+mov rax, 0xffffffffffffffff
+pop rbx
+pop rbp
+pop r12
+pop r13
+pop r14
+pop r15
+ret
+nop dword [rax + rax]
+sub rcx, rsi
+mov rbx, rcx
+js 0x800591d
+mov r15, qword [r12]
+cmp r15, qword [arg_8h]
+je 0x800591d
+xor r14d, r14d
+xor r9d, r9d
+mov edx, dword [r15]
+mov qword [var_8h], r9
+mov edi, edx
+mov dword [var_10h], edx
+call iswdigit
+mov r9, qword [var_8h]
+test eax, eax
+je 0x80059a1
+cmp r14d, 0x19999999
+mov edx, dword [var_10h]
+ja 0x800591d
+sub edx, 0x30
+lea r14d, [r14 + r14*4]
+mov eax, edx
+add r14d, r14d
+not eax
+cmp r14d, eax
+ja 0x800591d
+add r15, 4
+add r14d, edx
+add r9, 1
+mov qword [r12], r15
+cmp qword [arg_8h], r15
+jne 0x8005950
+test r9, r9
+je 0x800591d
+js 0x800591d
+mov r15, qword [r13 + 0x20]
+mov rax, qword [r15 + 8]
+mov rdx, qword [r15]
+lea rcx, [r15 + 0x10]
+lea r10, [rax + 1]
+cmp rdx, rcx
+je 0x8005a63
+mov rcx, qword [r15 + 0x10]
+cmp r10, rcx
+ja 0x8005a24
+mov rcx, rbx
+mov dword [rdx + rax*4], r14d
+sar rcx, 2
+mov qword [r15 + 8], r10
+add rcx, r9
+mov dword [rdx + rax*4 + 4], 0
+mov rax, qword [r12]
+cmp rax, qword [arg_8h]
+je 0x800591d
+mov edi, dword [r13 + 0x28]
+cmp dword [rax], edi
+jne 0x800591d
+add rax, 4
+mov qword [r12], rax
+add rsp, 0x28
+lea rax, [rcx + 1]
+pop rbx
+pop rbp
+pop r12
+pop r13
+pop r14
+pop r15
+ret
+xor edx, edx
+mov rsi, rax
+mov r8d, 1
+xor ecx, ecx
+mov rdi, r15
+mov qword [var_18h], r10
+mov qword [var_10h], r9
+mov qword [var_8h], rax
+call _ZNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEE9_M_mutateEmmPKwm
+mov rdx, qword [r15]
+mov r12, qword [rbp]
+mov r10, qword [var_18h]
+mov r9, qword [var_10h]
+mov rax, qword [var_8h]
+jmp 0x80059d5
+mov ecx, 3
+jmp 0x80059d0

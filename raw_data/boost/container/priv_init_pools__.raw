@@ -1,0 +1,37 @@
+push r12
+mov edx, 0x10
+mov r12d, 0x3c
+push rbp
+mov rbp, rdi
+push rbx
+cmp qword [rdi + 8], 0x10
+cmovae rdx, qword [rdi + 8]
+mov rdi, qword [rdi + 0x10]
+lea rcx, [rdx - 1]
+bsr rax, rdx
+and rdx, rcx
+xor rax, 0x3f
+cmp rdx, 1
+cdqe
+sbb r12, 0xffffffffffffffff
+sub r12, rax
+mov rax, qword [rdi]
+lea rdx, [r12 + r12*2]
+lea rbx, [rdx*8]
+mov edx, 0x10
+mov rsi, rbx
+call qword [rax + 0x10]
+pxor xmm0, xmm0
+mov qword [arg_28h], rax
+lea rdx, [rax + rbx]
+nop word [rax + rax]
+mov qword [rax + 0x10], 1
+add rax, 0x18
+movups xmmword [rax - 0x18], xmm0
+cmp rax, rdx
+jne 0x8000238
+mov qword [arg_30h], r12
+pop rbx
+pop rbp
+pop r12
+ret

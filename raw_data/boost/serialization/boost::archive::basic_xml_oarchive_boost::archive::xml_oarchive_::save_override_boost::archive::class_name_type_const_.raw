@@ -1,0 +1,24 @@
+push r12
+push rbp
+sub rsp, 8
+mov r12, qword [rsi]
+test r12, r12
+je 0x80015e0
+mov rbp, rdi
+call _ZN5boost7archive28BOOST_ARCHIVE_XML_CLASS_NAMEEv
+add byte [rax], al
+add byte [rax], al
+add rsp, 8
+mov rdx, r12
+mov rdi, rbp
+mov rsi, rax
+pop rbp
+pop r12
+jmp _ZN5boost7archive18basic_xml_oarchiveINS0_12xml_oarchiveEE15write_attributeEPKcS5_
+add byte [rax], al
+add byte [rax], al
+nop dword [rax]
+add rsp, 8
+pop rbp
+pop r12
+ret

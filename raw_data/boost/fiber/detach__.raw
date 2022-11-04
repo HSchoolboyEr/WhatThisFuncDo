@@ -1,0 +1,29 @@
+push r12
+mov rax, rdi
+push rbp
+sub rsp, 8
+mov rdi, qword [rdi]
+test rdi, rdi
+je .text.unlikely
+mov qword [rax], 0
+lock sub qword [rdi + 8], 1
+je 0x80001f0
+add rsp, 8
+pop rbp
+pop r12
+ret
+nop dword [rax]
+mov rbp, qword [rdi + 0xd0]
+mov rax, qword [rdi]
+mov qword [rdi + 0xd0], 0
+call qword [rax]
+xor esi, esi
+mov rdi, rbp
+call jump_fcontext
+test rax, rax
+je 0x80001e5
+xor esi, esi
+mov rdi, rax
+lea rdx, [0x08000222]
+call ontop_fcontext
+jmp 0x80001e5

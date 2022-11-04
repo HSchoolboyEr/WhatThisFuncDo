@@ -1,0 +1,8 @@
+mov rdi, qword [rdi + 0x10]
+mov eax, dword [rdi]
+test eax, eax
+je 0x8004020
+call method std::pair<boost::json::key_value_pair*, unsigned long> boost::json::detail::find_in_object<boost::json::detail::pointer_token>(boost::json::object const&, boost::json::detail::pointer_token) [clone .isra.0]
+ret
+xor eax, eax
+ret

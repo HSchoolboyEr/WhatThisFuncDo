@@ -1,0 +1,25 @@
+mov rax, qword [rdi + 0x10]
+mov eax, dword [rax]
+test eax, eax
+jne 0x80038e0
+xor eax, eax
+ret
+nop dword [rax]
+push rbx
+mov rbx, rdi
+call _ZN5boost4json6detail14find_in_objectINS_4core17basic_string_viewIcEEEESt4pairIPNS0_14key_value_pairEmERKNS0_6objectET_
+test rax, rax
+je 0x8003910
+mov rdx, qword [rbx + 0x10]
+pop rbx
+mov ecx, dword [rdx]
+lea rcx, [rcx + rcx*4]
+lea rdx, [rdx + rcx*8 + 0x10]
+cmp rdx, rax
+mov edx, 0
+cmove rax, rdx
+ret
+nop dword [rax + rax]
+xor eax, eax
+pop rbx
+ret

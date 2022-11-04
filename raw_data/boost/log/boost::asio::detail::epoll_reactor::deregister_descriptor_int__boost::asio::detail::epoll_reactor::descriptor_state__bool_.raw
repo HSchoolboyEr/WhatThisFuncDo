@@ -1,0 +1,236 @@
+push r15
+push r14
+push r13
+push r12
+push rbp
+push rbx
+sub rsp, 0x48
+mov rbp, qword [rdx]
+test rbp, rbp
+je 0x800d720
+movzx r13d, byte [arg_58h]
+mov r12, rdi
+mov r15d, esi
+mov rbx, rdx
+mov r14d, ecx
+test r13b, r13b
+jne 0x800d878
+movzx r13d, byte [arg_a3h]
+test r13b, r13b
+jne 0x800d730
+mov rdx, rbp
+test r14b, r14b
+jne 0x800d608
+mov eax, dword [rdx + 0x6c]
+test eax, eax
+jne 0x800d8e6
+pxor xmm0, xmm0
+xor r10d, r10d
+lea r9, [0x0800d616]
+movaps xmmword [var_10h], xmm0
+movsxd r8, r10d
+lea rdi, [r8 + 7]
+shl rdi, 4
+mov rax, qword [rdx + rdi]
+test rax, rax
+je 0x800d69a
+shl r8, 4
+nop dword [rax + rax]
+mov dword [rax + 0x18], 0x7d
+mov qword [rax + 0x20], r9
+mov qword [rax + 0x28], 3
+mov rcx, qword [rbx]
+add rcx, r8
+mov rdx, qword [rcx + 0x70]
+test rdx, rdx
+je 0x800d671
+mov rsi, qword [rdx]
+mov qword [rcx + 0x70], rsi
+test rsi, rsi
+je 0x800d868
+mov qword [rdx], 0
+mov qword [rax], 0
+mov rdx, qword [var_18h]
+test rdx, rdx
+je 0x800d840
+mov qword [rdx], rax
+mov rdx, qword [rbx]
+mov qword [var_18h], rax
+mov rax, qword [rdx + rdi]
+test rax, rax
+jne 0x800d638
+add r10d, 1
+cmp r10d, 3
+jne 0x800d61b
+mov dword [rdx + 0x68], 0xffffffff
+mov rax, qword [rbx]
+mov byte [rax + 0xa3], 1
+test r13b, r13b
+je 0x800d6c8
+cmp byte [arg_58h], 0
+jne pthread_mutex_unlock
+mov rdx, qword [var_10h]
+test rdx, rdx
+je 0x800d720
+mov rbx, qword [r12 + 0x30]
+cmp byte [rbx + 0x28], 0
+je 0x800d750
+mov rax, qword fs:[0]
+test rax, rax
+jne 0x800d6f9
+jmp 0x800d750
+nop dword [rax]
+mov rax, qword [rax + 0x10]
+test rax, rax
+je 0x800d750
+cmp rbx, qword [rax]
+jne 0x800d6f0
+mov rax, qword [rax + 8]
+test rax, rax
+je 0x800d750
+mov rcx, qword [rax + 0x68]
+test rcx, rcx
+je 0x800d97d
+mov qword [rcx], rdx
+mov rdx, qword [var_18h]
+mov qword [rax + 0x68], rdx
+add rsp, 0x48
+pop rbx
+pop rbp
+pop r12
+pop r13
+pop r14
+pop r15
+ret
+nop
+mov qword [rdx], 0
+add rsp, 0x48
+pop rbx
+pop rbp
+pop r12
+pop r13
+pop r14
+pop r15
+ret
+nop word cs:[rax + rax]
+movzx ebp, byte [rbx + 0x60]
+test bpl, bpl
+jne pthread_mutex_lock
+mov rax, qword [rbx + 0xe8]
+test rax, rax
+je 0x800d971
+mov qword [rax], rdx
+mov rax, qword [var_18h]
+pxor xmm0, xmm0
+movaps xmmword [var_10h], xmm0
+mov qword [rbx + 0xe8], rax
+cmp byte [rbx + 0x60], 0
+je 0x800d920
+mov rax, qword [rbx + 0xa0]
+or rax, 1
+mov qword [rbx + 0xa0], rax
+cmp rax, 1
+je 0x800d920
+test bpl, bpl
+je pthread_cond_signal
+lea rdi, [rbx + 0x38]
+call pthread_mutex_unlock
+lea rdi, [rbx + 0x70]
+call pthread_cond_signal
+nop word cs:[rax + rax]
+mov rsi, qword [var_10h]
+test rsi, rsi
+je 0x800d720
+lea r14, [var_20h]
+jmp 0x800d825
+nop dword [rax]
+mov qword [rsi], 0
+mov rax, qword [rsi + 8]
+xor ecx, ecx
+mov rdx, r14
+mov qword [var_20h], 0
+xor edi, edi
+mov qword [var_28h], 0
+mov qword [var_30h], 0
+call rax
+mov rsi, qword [var_10h]
+test rsi, rsi
+je 0x800d720
+mov rax, qword [rsi]
+mov qword [var_10h], rax
+test rax, rax
+jne 0x800d7e8
+mov qword [var_18h], 0
+jmp 0x800d7e8
+nop dword [rax]
+movq xmm0, rax
+mov rdx, qword [rbx]
+punpcklqdq xmm0, xmm0
+movaps xmmword [var_10h], xmm0
+mov rax, qword [rdx + rdi]
+test rax, rax
+jne 0x800d638
+jmp 0x800d69a
+nop dword [rax + rax]
+mov qword [rcx + 0x78], 0
+jmp 0x800d66a
+nop dword [rax]
+lea rdi, [arg_30h]
+mov qword [var_8h], rdi
+call pthread_mutex_lock
+mov rdx, qword [rbx]
+cmp byte [rdx + 0xa3], 0
+je 0x800d5f8
+mov qword [rbx], 0
+mov rdi, qword [var_8h]
+add rsp, 0x48
+pop rbx
+pop rbp
+pop r12
+pop r13
+pop r14
+pop r15
+jmp pthread_mutex_unlock
+lea rdi, [rbx + 0x38]
+call pthread_mutex_lock
+mov rdx, qword [var_10h]
+test rdx, rdx
+je 0x800d785
+jmp 0x800d75d
+nop dword [rax]
+lea rdi, [arg_30h]
+call pthread_mutex_unlock
+jmp 0x800d6c8
+mov edi, dword [r12 + 0x78]
+lea r14, [var_20h]
+mov edx, r15d
+mov esi, 2
+mov rcx, r14
+mov dword [var_20h], 0
+mov qword [var_24h], 0
+call epoll_ctl
+mov rdx, qword [rbx]
+jmp 0x800d608
+nop dword [rax]
+cmp byte [rbx + 0xd0], 0
+jne 0x800d942
+mov rdi, qword [rbx + 0xa8]
+test rdi, rdi
+je 0x800d942
+mov byte [rbx + 0xd0], 1
+mov rax, qword [rdi]
+call qword [rax + 8]
+test bpl, bpl
+je 0x800d7d0
+cmp byte [rbx + 0x60], 0
+je 0x800d7d0
+lea rdi, [rbx + 0x38]
+call pthread_mutex_unlock
+jmp 0x800d7d0
+lea rdi, [rbx + 0x70]
+call pthread_cond_signal
+jmp 0x800d7d0
+mov qword [rbx + 0xe0], rdx
+jmp 0x800d770
+mov qword [rax + 0x60], rdx
+jmp 0x800d717

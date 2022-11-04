@@ -1,0 +1,9 @@
+andpd xmm0, xmmword [0x08000118]
+movsd xmm1, qword [0x08000120]
+ucomisd xmm1, xmm0
+setb al
+ucomisd xmm0, qword [0x0800012f]
+setb dl
+or eax, edx
+xor eax, 1
+ret

@@ -1,0 +1,41 @@
+push r13
+mov r13, rdx
+push r12
+mov r12, rdi
+mov rdi, rdx
+push rbp
+mov rbp, rsi
+call strlen
+mov rdx, rax
+movabs rax, 0x3fffffffffffffff
+sub rax, qword [var_8h]
+cmp rdx, rax
+ja 0x800219d
+mov rsi, r13
+mov rdi, rbp
+call _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_appendEPKcm
+lea rdx, [r12 + 0x10]
+mov qword [r12], rdx
+mov rcx, qword [rax]
+lea rdx, [rax + 0x10]
+cmp rcx, rdx
+je 0x8002190
+mov qword [r12], rcx
+mov rcx, qword [rax + 0x10]
+mov qword [r12 + 0x10], rcx
+mov rcx, qword [rax + 8]
+mov qword [rax], rdx
+mov qword [rax + 8], 0
+mov qword [r12 + 8], rcx
+mov byte [rax + 0x10], 0
+mov rax, r12
+pop rbp
+pop r12
+pop r13
+ret
+nop word [rax + rax]
+movdqu xmm0, xmmword [rax + 0x10]
+movups xmmword [r12 + 0x10], xmm0
+jmp 0x8002169
+lea rdi, [0x080021a4]
+call sym void boost::throw_exception<boost::system::system_error>(boost::system::system_error const&)

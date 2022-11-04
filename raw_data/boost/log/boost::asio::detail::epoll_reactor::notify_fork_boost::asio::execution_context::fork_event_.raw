@@ -1,0 +1,281 @@
+cmp esi, 2
+je 0x800cc40
+ret
+nop word cs:[rax + rax]
+push r15
+push r14
+push r13
+push r12
+push rbp
+push rbx
+mov rbx, rdi
+sub rsp, 0x98
+mov edi, dword [rdi + 0x78]
+cmp edi, 0xffffffff
+jne close
+mov dword [rbx + 0x78], 0xffffffff
+mov edi, 0x80000
+call epoll_create1
+mov ebp, eax
+cmp eax, 0xffffffff
+je __errno_location
+mov edi, dword [rbx + 0x7c]
+mov dword [rbx + 0x78], ebp
+cmp edi, 0xffffffff
+jne close
+mov dword [rbx + 0x7c], 0xffffffff
+mov esi, 0x80000
+mov edi, 1
+call timerfd_create
+mov ebp, eax
+cmp eax, 0xffffffff
+je __errno_location
+mov edi, dword [rbx + 0x74]
+mov eax, dword [rbx + 0x70]
+mov dword [rbx + 0x7c], ebp
+lea rbp, [rbx + 0x70]
+cmp edi, 0xffffffff
+je 0x800ccce
+cmp eax, edi
+je close
+call close
+mov eax, dword [rbx + 0x70]
+cmp eax, 0xffffffff
+jne close
+mov rax, qword [0x0800ccde]
+mov rdi, rbp
+lea r12, [var_14h]
+lea r13, [var_60h]
+mov qword [rbx + 0x70], rax
+call _ZN5boost4asio6detail26eventfd_select_interrupter16open_descriptorsEv
+add byte [rax], al
+add byte [rax], al
+mov edx, dword [rbx + 0x70]
+mov edi, dword [rbx + 0x78]
+mov rcx, r12
+mov esi, 1
+mov dword [var_14h], 0x80000009
+mov qword [var_18h], rbp
+call epoll_ctl
+mov edi, dword [rbx + 0x74]
+mov edx, 8
+mov rsi, r13
+mov qword [var_60h], 1
+call write
+mov edx, dword [rbx + 0x7c]
+cmp edx, 0xffffffff
+je 0x800cf60
+mov edi, dword [rbx + 0x78]
+lea rax, [rbx + 0x7c]
+mov rcx, r12
+mov esi, 1
+mov dword [var_14h], 9
+mov qword [var_18h], rax
+call epoll_ctl
+mov edi, dword [rbx + 0x7c]
+cmp edi, 0xffffffff
+je 0x800cf60
+mov rbp, qword [rbx + 0x80]
+pxor xmm0, xmm0
+movaps xmmword [var_40h], xmm0
+test rbp, rbp
+je 0x800d0c9
+mov esi, 0x11e1a300
+nop dword [rax]
+mov rax, qword [rbp]
+mov rdi, rbp
+call qword [rax + 0x20]
+mov rbp, qword [var_8h]
+mov rsi, rax
+test rbp, rbp
+jne 0x800cd88
+movabs rdx, 0x431bde82d7b634db
+xor r8d, r8d
+mov edi, dword [rbx + 0x7c]
+imul rdx
+mov rax, rsi
+sar rax, 0x3f
+sar rdx, 0x12
+sub rdx, rax
+test rsi, rsi
+mov eax, 1
+mov qword [var_50h], rdx
+sete r8b
+je 0x800cde3
+imul rdx, rdx, 0xf4240
+sub rsi, rdx
+imul rax, rsi, 0x3e8
+lea rdx, [var_40h]
+mov rcx, r13
+mov esi, r8d
+mov qword [var_58h], rax
+call timerfd_settime
+movzx r15d, byte [rbx + 0xc0]
+test r15b, r15b
+jne 0x800d060
+mov rbp, qword [rbx + 0xc8]
+test rbp, rbp
+je 0x800cf46
+lea rax, [0x0800ce20]
+lea rdx, [0x0800ce27]
+movq xmm1, rdx
+movq xmm3, rax
+lea r14, [0x0800ce38]
+punpcklqdq xmm1, xmm3
+movaps xmmword [rsp], xmm1
+mov eax, dword [arg_6ch]
+mov edx, dword [arg_68h]
+mov rcx, r12
+mov esi, 1
+mov edi, dword [rbx + 0x78]
+mov qword [var_18h], rbp
+mov dword [var_14h], eax
+call epoll_ctl
+test eax, eax
+je 0x800cf30
+call __errno_location
+movdqa xmm2, xmmword [rsp]
+mov qword [var_28h], r14
+mov edx, dword [rax]
+mov eax, 2
+movaps xmmword [var_40h], xmm2
+cmp edx, 1
+mov dword [var_20h], edx
+mov rdx, qword [0x0800ce90]
+sbb eax, 0xffffffff
+movsxd rcx, eax
+mov qword [var_50h], rdx
+mov qword [var_30h], rcx
+cmp eax, 2
+je 0x800cf30
+lea rsi, [var_20h]
+lea rdx, [0x0800ceb5]
+mov rdi, r13
+call _ZN5boost6system12system_errorC1ERKNS0_10error_codeEPKc
+lea rsi, [var_40h]
+mov rdi, r13
+call _ZN5boost15throw_exceptionINS_6system12system_errorEEEvRKT_RKNS_15source_locationE
+nop word [rax + rax]
+call close
+jmp 0x800cc60
+nop word [rax + rax]
+call close
+jmp 0x800cc8b
+nop word [rax + rax]
+call __errno_location
+cmp dword [rax], 0x16
+jne 0x800ccac
+xor esi, esi
+mov edi, 1
+call timerfd_create
+mov ebp, eax
+cmp eax, 0xffffffff
+je 0x800ccac
+mov edi, eax
+mov edx, 1
+mov esi, 2
+xor eax, eax
+call fcntl
+jmp 0x800ccac
+nop dword [rax]
+mov rbp, qword [var_bp_18h]
+test rbp, rbp
+jne 0x800ce40
+test r15b, r15b
+jne 0x800d0c0
+add rsp, 0x98
+pop rbx
+pop rbp
+pop r12
+pop r13
+pop r14
+pop r15
+ret
+nop dword [rax + rax]
+mov rax, qword [rbx]
+lea rdx, [0x0800cf6a]
+add byte [rax], al
+add byte [rax], al
+mov rax, qword [rax + 0x28]
+cmp rax, rdx
+jne 0x800d0b0
+mov edx, dword [rbx + 0x70]
+mov edi, dword [rbx + 0x78]
+mov rcx, r13
+mov esi, 3
+mov dword [var_60h], 0x80000009
+mov qword [var_64h], rbp
+call epoll_ctl
+jmp 0x800cdf8
+nop dword [rax]
+mov edi, eax
+call close
+jmp .LC10
+nop dword [rax]
+call __errno_location
+mov edx, dword [rax]
+mov r13, rax
+lea eax, [rdx - 0x16]
+and eax, 0xffffffef
+jne 0x800cfdc
+mov edi, 0x4e20
+call epoll_create
+mov r12d, eax
+cmp eax, 0xffffffff
+jne 0x800d090
+mov edx, dword [r13]
+cmp edx, 1
+mov eax, 2
+mov dword [var_20h], edx
+lea rdx, [0x0800cfef]
+sbb eax, 0xffffffff
+movq xmm4, rdx
+mov rdx, qword [0x0800cffe]
+movsxd rcx, eax
+mov qword [var_30h], rcx
+lea rcx, [0x0800d00d]
+mov qword [var_28h], rcx
+lea rcx, [0x0800d019]
+movq xmm0, rcx
+mov qword [var_50h], rdx
+punpcklqdq xmm0, xmm4
+movaps xmmword [var_40h], xmm0
+cmp eax, 2
+je 0x800cc7c
+lea rbp, [var_60h]
+lea rsi, [var_20h]
+mov rdi, rbp
+lea rdx, [0x0800d049]
+call _ZN5boost6system12system_errorC1ERKNS0_10error_codeEPKc
+lea rsi, [var_40h]
+mov rdi, rbp
+call _ZN5boost15throw_exceptionINS_6system12system_errorEEEvRKT_RKNS_15source_locationE
+nop dword [rax + rax]
+lea r14, [rbx + 0x98]
+mov rdi, r14
+call pthread_mutex_lock
+mov rbp, qword [rbx + 0xc8]
+test rbp, rbp
+jne .LC51
+mov rdi, r14
+call pthread_mutex_unlock
+jmp 0x800cf46
+nop dword [rax]
+mov edi, eax
+mov edx, 1
+mov esi, 2
+xor eax, eax
+call fcntl
+mov ebp, r12d
+jmp 0x800cc7c
+nop dword [rax + rax]
+mov rdi, rbx
+call rax
+jmp 0x800cdf8
+nop word [rax + rax]
+lea r14, [rbx + 0x98]
+jmp 0x800d07f
+mov qword [var_50h], 0x12c
+xor r8d, r8d
+xor eax, eax
+jmp 0x800cde3

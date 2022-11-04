@@ -1,0 +1,25 @@
+mov rax, qword [rsi]
+mov rcx, rdx
+mov rdx, qword [rsi + 8]
+mov qword [rdi], rax
+mov rax, qword [rax - 0x28]
+mov qword [rdi + rax], rdx
+mov eax, dword [rcx + 0x88]
+mov dword [rdi + 0x88], eax
+movdqu xmm0, xmmword [rcx + 8]
+movups xmmword [rdi + 8], xmm0
+movdqu xmm1, xmmword [rcx + 0x18]
+movups xmmword [rdi + 0x18], xmm1
+movdqu xmm2, xmmword [rcx + 0x28]
+movups xmmword [rdi + 0x28], xmm2
+movdqu xmm3, xmmword [rcx + 0x38]
+movups xmmword [rdi + 0x38], xmm3
+movdqu xmm4, xmmword [rcx + 0x48]
+movups xmmword [rdi + 0x48], xmm4
+movdqu xmm5, xmmword [rcx + 0x58]
+movups xmmword [rdi + 0x58], xmm5
+movdqu xmm6, xmmword [rcx + 0x68]
+movups xmmword [rdi + 0x68], xmm6
+movdqu xmm7, xmmword [rcx + 0x78]
+movups xmmword [rdi + 0x78], xmm7
+ret

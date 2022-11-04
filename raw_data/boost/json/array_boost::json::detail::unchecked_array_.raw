@@ -1,0 +1,61 @@
+push r12
+push rbp
+mov rbp, rdi
+push rbx
+mov rax, qword [rsi + 0x10]
+mov rbx, rsi
+mov rax, qword [rax]
+mov qword [rdi], rax
+test al, 1
+jne 0x8006000
+mov r12, qword [rbx + 8]
+mov byte [arg_8h], 6
+test r12, r12
+jne 0x8005fa8
+lea rax, [0x08005f9c]
+pop rbx
+mov qword [arg_10h], rax
+pop rbp
+pop r12
+ret
+nop dword [rax]
+cmp r12, 0x7ffffffe
+ja 0x8006026
+mov rax, qword [rbp]
+mov edx, 8
+mov rdi, rax
+and rdi, 0xfffffffffffffffc
+test rax, rax
+lea rax, [0x08005fcb]
+cmove rdi, rax
+lea rax, [r12 + r12*2]
+lea rsi, [rax*8 + 8]
+mov rax, qword [rdi]
+call qword [rax + 0x10]
+mov rdx, qword [rbx + 8]
+mov dword [rax + 4], r12d
+mov qword [arg_10h], rax
+mov dword [rax], edx
+test rdx, rdx
+jne 0x8006010
+mov qword [rbx], 0
+pop rbx
+pop rbp
+pop r12
+ret
+and rax, 0xfffffffffffffffc
+lock add qword [rax + 8], 1
+jmp 0x8005f88
+nop
+mov rsi, qword [rbx]
+lea rdx, [rdx + rdx*2]
+lea rdi, [rax + 8]
+shl rdx, 3
+call memcpy
+jmp 0x8005ff4
+call method boost::json::array::table::allocate(unsigned long, boost::json::storage_ptr const&) [clone .part.0]
+mov r12, rax
+jmp .text.unlikely
+nop
+nop word cs:[rax + rax]
+nop

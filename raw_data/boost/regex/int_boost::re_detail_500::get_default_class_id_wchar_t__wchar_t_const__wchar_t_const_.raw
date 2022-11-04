@@ -1,0 +1,10 @@
+push r12
+mov r9, rsi
+mov r10, rdi
+mov r12, rsi
+push rbp
+lea rbp, [0x0800b3e3]
+add byte [rax], al
+add byte [rax], al
+add byte [rcx + 0x29], cl
+stc

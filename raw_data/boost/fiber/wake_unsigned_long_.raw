@@ -1,0 +1,40 @@
+mov rax, rsi
+lea rdx, [rsi + 1]
+lock cmpxchg qword [rdi + 0x30], rdx
+jne 0x8001262
+push r12
+push rbp
+mov rbp, rdi
+sub rsp, 8
+cmp byte fs:[0], 0
+je 0x8001210
+mov rax, qword fs:[0]
+mov rdi, qword [arg_38h]
+mov rsi, rbp
+cmp rdi, qword [rax + 0x38]
+je _ZN5boost6fibers9scheduler8scheduleEPNS0_7contextE
+call _ZN5boost6fibers9scheduler20schedule_from_remoteEPNS0_7contextE
+add rsp, 8
+mov eax, 1
+pop rbp
+pop r12
+ret
+mov rax, qword fs:[0]
+lea r12, [rax]
+mov rdi, r12
+call _ZN5boost6fibers19context_initializerC1Ev
+lea rdx, [0x0800122f]
+mov rsi, r12
+mov byte fs:[0], 1
+lea rdi, [0x08001242]
+call __cxa_thread_atexit
+jmp 0x80011e8
+nop dword [rax]
+call _ZN5boost6fibers9scheduler8scheduleEPNS0_7contextE
+add rsp, 8
+mov eax, 1
+pop rbp
+pop r12
+ret
+xor eax, eax
+ret

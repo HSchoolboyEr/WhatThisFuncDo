@@ -1,0 +1,25 @@
+push rbx
+mov rbx, rdi
+mov rax, qword [rdi + 0x2048]
+cmp rax, qword [rdi + 0x2050]
+je 0x80006ab
+mov qword [rdi + 0x2050], rax
+mov rdi, rbx
+call _ZN5boost6nowide6detail25console_input_buffer_base4readEv
+add byte [rax], al
+add byte [rax], al
+lea rdx, [rbx + 0x40]
+movq xmm0, rdx
+add rdx, rax
+punpcklqdq xmm0, xmm0
+mov qword [rbx + 0x18], rdx
+movups xmmword [rbx + 8], xmm0
+test rax, rax
+je 0x80006e0
+movzx eax, byte [rbx + 0x40]
+pop rbx
+ret
+nop word cs:[rax + rax]
+mov eax, 0xffffffff
+pop rbx
+ret

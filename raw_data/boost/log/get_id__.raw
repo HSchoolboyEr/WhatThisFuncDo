@@ -1,0 +1,71 @@
+push r12
+lea rax, [0x080001c9]
+push rbp
+push rbx
+sub rsp, 0x10
+cmp byte [0x080001d6], 2
+mov qword [var_8h], rax
+jne 0x8000200
+mov edi, dword [0x080001e3]
+call pthread_getspecific
+mov r12, rax
+test rax, rax
+je 0x8000258
+add rsp, 0x10
+mov rax, r12
+pop rbx
+pop rbp
+pop r12
+ret
+nop dword [rax]
+lea r12, [var_8h]
+lea rbx, [method.boost::log::v2s_mt_posix::aux::this_thread._anonymous_namespace_::deleter_void_]
+mov rdi, r12
+call _ZNK5boost3log12v2s_mt_posix3aux17once_block_sentry16enter_once_blockEv
+add byte [rax], al
+add byte [rax], al
+test al, al
+jne 0x8000240
+mov rsi, rbx
+lea rdi, [0x08000222]
+call pthread_key_create
+test eax, eax
+jne 0x8000281
+mov rdi, r12
+call _ZN5boost3log12v2s_mt_posix3aux17once_block_sentry6commitEv
+add byte [rax], al
+add byte [rax], al
+mov rax, qword [var_8h]
+cmp byte [rax], 2
+je 0x80001dd
+jmp 0x800020c
+nop
+mov rax, qword [var_8h]
+cmp byte [rax], 2
+je 0x80001dd
+mov rdi, r12
+call _ZN5boost3log12v2s_mt_posix3aux17once_block_sentry8rollbackEv
+add byte [rax], al
+add byte [rax], al
+jmp 0x80001dd
+nop dword [rax]
+mov edi, 8
+call _Znwm
+mov r12, rax
+call pthread_self
+mov edi, dword [0x08000270]
+mov rsi, r12
+mov qword [r12], rax
+call pthread_setspecific
+jmp 0x80001f0
+mov ecx, eax
+lea rdx, [0x0800028a]
+mov esi, 0xd6
+lea rdi, [0x08000296]
+call _ZN5boost3log12v2s_mt_posix12system_error6throw_EPKcmS4_i
+add byte [rax], al
+add byte [rax], al
+mov rbp, rax
+jmp .text.unlikely
+nop word cs:[rax + rax]
+nop

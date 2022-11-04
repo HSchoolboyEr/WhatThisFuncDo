@@ -1,0 +1,22 @@
+sub rsp, 0x18
+lea rdx, [method.boost::context::detail::transfer_t_boost::context::detail::fiber_ontop_boost::context::fiber__boost::fibers::context.resume_std::unique_lock_boost::fibers::detail::spinlock_ttas__::lambda_boost::context::fiber_1__boost::fibers::context::resum]
+mov rax, qword fs:[0]
+mov qword fs:[0], rdi
+mov r8, qword [rdi + 0xd0]
+mov qword [var_8h], rsi
+mov rsi, rsp
+mov qword [rdi + 0xd0], 0
+mov rdi, r8
+mov qword [rsp], rax
+call ontop_fcontext
+test rax, rax
+jne 0x8000e20
+add rsp, 0x18
+ret
+nop dword [rax]
+lea rdx, [0x08000e27]
+xor esi, esi
+mov rdi, rax
+call ontop_fcontext
+add rsp, 0x18
+ret

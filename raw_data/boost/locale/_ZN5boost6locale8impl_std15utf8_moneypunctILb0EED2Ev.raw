@@ -1,0 +1,5 @@
+lea rax, [0x080030d7]
+mov qword [rdi], rax
+jmp _ZNSt7__cxx1110moneypunctIcLb0EED2Ev
+add byte [rax], al
+add byte [rax], al

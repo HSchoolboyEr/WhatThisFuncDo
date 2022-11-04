@@ -1,0 +1,35 @@
+push r13
+lea rax, [0x08000189]
+mov r13, rdi
+push r12
+lea r12, [0x08000195]
+push rbp
+push rbx
+sub rsp, 8
+mov rsi, qword [rdi + 8]
+mov rbp, qword [rdi + 0x10]
+mov qword [rdi], rax
+test rsi, rsi
+je 0x80001bf
+mov rax, qword [rbp]
+mov rbx, qword [rsi]
+mov rdx, qword [rsi + 8]
+mov rax, qword [rax + 0x18]
+cmp rax, r12
+jne 0x80001e0
+add rsp, 8
+mov rdi, r13
+mov esi, 0x40
+pop rbx
+pop rbp
+pop r12
+pop r13
+jmp _ZdlPvm
+nop word cs:[rax + rax]
+mov ecx, 0x10
+mov rdi, rbp
+call rax
+test rbx, rbx
+je 0x80001bf
+mov rsi, rbx
+jmp 0x80001ab

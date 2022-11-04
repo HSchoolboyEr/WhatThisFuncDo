@@ -1,0 +1,17 @@
+mov rdx, qword [rdi + 8]
+mov rax, rdi
+test rdx, rdx
+je 0x8000ffa
+mov rcx, qword [rdi]
+lea rsi, [rdx - 1]
+cmp byte [rcx + rdx - 1], 0x2f
+je 0x8001000
+ret
+nop dword [rax + rax]
+sub rsp, 0x18
+mov edx, 1
+mov qword [var_8h], rdi
+call _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8_M_eraseEmm
+mov rax, qword [var_8h]
+add rsp, 0x18
+ret

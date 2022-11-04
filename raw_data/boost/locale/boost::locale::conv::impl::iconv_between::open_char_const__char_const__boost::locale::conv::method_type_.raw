@@ -1,0 +1,27 @@
+push r13
+mov r13, rdx
+push r12
+mov r12, rsi
+push rbp
+mov ebp, ecx
+push rbx
+mov rbx, rdi
+sub rsp, 8
+mov rdi, qword [rdi + 8]
+cmp rdi, 0xffffffffffffffff
+je 0x800200c
+call iconv_close
+mov qword [rbx + 8], 0xffffffffffffffff
+mov rsi, r13
+mov rdi, r12
+call iconv_open
+mov dword [rbx + 0x10], ebp
+cmp rax, 0xffffffffffffffff
+mov qword [rbx + 8], rax
+setne al
+add rsp, 8
+pop rbx
+pop rbp
+pop r12
+pop r13
+ret

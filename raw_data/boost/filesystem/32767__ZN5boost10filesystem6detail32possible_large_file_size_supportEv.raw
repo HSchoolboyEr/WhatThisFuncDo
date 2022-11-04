@@ -1,0 +1,1 @@
+jmp method boost::filesystem::detail::(anonymous namespace)::syscall_initializer::syscall_initializer() [clone .constprop.0]

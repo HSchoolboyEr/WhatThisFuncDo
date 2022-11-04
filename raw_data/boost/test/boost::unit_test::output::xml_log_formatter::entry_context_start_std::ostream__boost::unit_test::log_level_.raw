@@ -1,0 +1,49 @@
+push r12
+push rbp
+mov rbp, rsi
+push rbx
+sub rsp, 0x20
+cmp byte [rdi + 0x20], 0
+lea rbx, [var_10h]
+je 0x8000730
+mov edx, 9
+mov rsi, rbx
+mov rdi, rbp
+mov qword [rsp], rbx
+movabs rax, 0x747865746e6f433c
+mov byte [var_18h], 0x3e
+mov qword [var_10h], rax
+mov qword [var_8h], 9
+mov byte [var_19h], 0
+call _ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l
+mov rdi, qword [rsp]
+cmp rdi, rbx
+je 0x8000723
+mov rax, qword [var_10h]
+lea rsi, [rax + 1]
+call _ZdlPvm
+add rsp, 0x20
+pop rbx
+pop rbp
+pop r12
+ret
+nop dword [rax]
+mov r12, rdi
+mov eax, 0x5d5d
+mov edx, 3
+mov rsi, rbx
+mov rdi, rbp
+mov qword [rsp], rbx
+mov word [var_10h], ax
+mov byte [var_12h], 0x3e
+mov qword [var_8h], 3
+mov byte [var_13h], 0
+call _ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l
+mov rdi, qword [rsp]
+cmp rdi, rbx
+je 0x800077b
+mov rax, qword [var_10h]
+lea rsi, [rax + 1]
+call _ZdlPvm
+mov byte [r12 + 0x20], 1
+jmp 0x80006d6

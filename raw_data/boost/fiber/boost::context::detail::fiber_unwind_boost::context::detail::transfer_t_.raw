@@ -1,0 +1,9 @@
+push rbx
+mov rbx, rdi
+mov edi, 8
+call __cxa_allocate_exception
+xor edx, edx
+lea rsi, [0x08001bc1]
+mov qword [rax], rbx
+mov rdi, rax
+call __cxa_throw

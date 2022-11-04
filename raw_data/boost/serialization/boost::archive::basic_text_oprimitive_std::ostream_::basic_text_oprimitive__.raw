@@ -1,0 +1,92 @@
+push r12
+push rbp
+push rbx
+mov rbx, rdi
+sub rsp, 0x10
+call _ZSt19uncaught_exceptionsv
+add byte [rax], al
+add byte [rax], al
+test eax, eax
+jne 0x80002c8
+mov r12, qword [rbx]
+mov rax, qword [r12]
+mov rax, qword [rax - 0x18]
+mov rbp, qword [r12 + rax + 0xf0]
+test rbp, rbp
+je _ZSt16__throw_bad_castv
+cmp byte [arg_38h], 0
+je _ZNKSt5ctypeIcE13_M_widen_initEv
+movsx esi, byte [arg_43h]
+mov rdi, r12
+lea rbp, [rbx + 0x50]
+lea r12, [var_8h]
+call _ZNSo3putEc
+add byte [rax], al
+add byte [rax], al
+mov rdi, rax
+call _ZNSo5flushEv
+add byte [rax], al
+add byte [rax], al
+mov rdi, qword [rbx + 0x48]
+call _ZNSo5flushEv
+mov rsi, qword [rbx + 0x48]
+mov rdx, rbp
+mov rdi, r12
+mov rax, qword [rsi]
+add rsi, qword [rax - 0x18]
+call _ZNSt9basic_iosIcSt11char_traitsIcEE5imbueERKSt6locale
+add byte [rax], al
+add byte [rax], al
+mov rdi, r12
+call _ZNSt6localeD1Ev
+add byte [rax], al
+add byte [rax], al
+mov rdi, rbp
+call _ZNSt6localeD1Ev
+lea rdi, [rbx + 0x40]
+call _ZNSt6localeD1Ev
+lea rax, [0x0800025a]
+lea rdi, [rbx + 0x28]
+mov qword [rbx + 0x28], rax
+call _ZNSt7codecvtIcc11__mbstate_tED2Ev
+mov rax, qword [rbx + 0x18]
+mov rdx, qword [rbx + 0x20]
+mov qword [rax + 8], rdx
+mov rax, qword [rbx + 8]
+mov edx, dword [rbx + 0x10]
+mov dword [rax + 0x18], edx
+add rsp, 0x10
+pop rbx
+pop rbp
+pop r12
+ret
+nop word cs:[rax + rax]
+mov rdi, rbp
+call _ZNKSt5ctypeIcE13_M_widen_initEv
+add byte [rax], al
+add byte [rax], al
+mov rax, qword [rbp]
+mov esi, 0xa
+lea rdx, [0x080002a8]
+add byte [rax], al
+add byte [rax], al
+mov rax, qword [rax + 0x30]
+cmp rax, rdx
+je 0x8000202
+mov rdi, rbp
+call rax
+movsx esi, al
+jmp 0x8000202
+nop word [rax + rax]
+mov rdi, qword [rbx + 0x48]
+lea rbp, [rbx + 0x50]
+lea r12, [var_8h]
+call _ZNSo5flushEv
+mov rsi, qword [rbx + 0x48]
+mov rdx, rbp
+mov rdi, r12
+mov rax, qword [rsi]
+add rsi, qword [rax - 0x18]
+call _ZNSt9basic_iosIcSt11char_traitsIcEE5imbueERKSt6locale
+jmp _ZNSt6localeD1Ev
+call _ZSt16__throw_bad_castv

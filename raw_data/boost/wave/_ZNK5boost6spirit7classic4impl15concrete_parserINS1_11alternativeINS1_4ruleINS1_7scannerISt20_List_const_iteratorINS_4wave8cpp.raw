@@ -1,0 +1,53 @@
+push r14
+mov r14, rsi
+push r13
+mov r13, rdx
+push r12
+mov r12, rdi
+push rbp
+push rbx
+sub rsp, 0x30
+mov rax, qword [rdx + 8]
+mov rsi, qword [rsi + 8]
+mov rbp, rsp
+mov rdi, rbp
+mov rbx, qword [rax]
+call _ZNK5boost6spirit7classic4impl9rule_baseINS1_4ruleINS1_7scannerISt20_List_const_iteratorINS_4wave8cpplexer9lex_tokenINS7_4util13file_positionINSA_11flex_stringIcSt11char_traitsIcESaIcENSA_9CowStringINSA_22AllocatorStringStorageIcSF_EEPcEEEEEEEEENS1_16sca
+mov rax, qword [rsp]
+test rax, rax
+js 0x800e210
+mov qword [r12], rax
+mov rax, r12
+mov byte [r12 + 8], 0
+add rsp, 0x30
+xor byte [rbx + 0x5d], bl
+pop r12
+pop r13
+pop r14
+ret
+nop
+mov rax, qword [r13 + 8]
+lea rdi, [r14 + 0x10]
+mov rsi, r13
+mov qword [rax], rbx
+call _ZNK5boost6spirit7classic8sequenceINS1_5chlitINS_4wave8token_idEEENS1_4ruleINS1_7scannerISt20_List_const_iteratorINS4_8cpplexer9lex_tokenINS4_4util13file_positionINSC_11flex_stringIcSt11char_traitsIcESaIcENSC_9CowStringINSC_22AllocatorStringStorageIcSH_E
+mov rbx, rax
+test rax, rax
+js 0x800e24e
+mov rdi, rbp
+lea rsi, [r14 + 0x20]
+mov rdx, r13
+call _ZNK5boost6spirit7classic11char_parserINS1_5chlitINS_4wave8token_idEEEE5parseINS1_7scannerISt20_List_const_iteratorINS4_8cpplexer9lex_tokenINS4_4util13file_positionINSD_11flex_stringIcSt11char_traitsIcESaIcENSD_9CowStringINSD_22AllocatorStringStorageIcSI
+cmp byte [var_8h], 0
+mov rbp, qword [rsp]
+sub al, 0x24
+jne 0x800e260
+lea rax, [rbx + rbp]
+test rbp, rbp
+jns 0x800e1f4
+mov rax, 0xffffffffffffffff
+jmp 0x800e1f4
+nop word [rax + rax]
+lea rdi, [var_10h]
+call _ZN5boost4wave8cpplexer9lex_tokenINS0_4util13file_positionINS3_11flex_stringIcSt11char_traitsIcESaIcENS3_9CowStringINS3_22AllocatorStringStorageIcS8_EEPcEEEEEEED1Ev
+jmp 0x800e245

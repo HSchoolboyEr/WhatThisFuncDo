@@ -1,0 +1,195 @@
+push r12
+mov r12, rdi
+push rbp
+push rbx
+sub rsp, 0x90
+mov rdi, qword [rdi + 0x30]
+mov rax, qword [rdi]
+mov rax, qword [rax - 0x18]
+test byte [rdi + rax + 0x20], 5
+jne 0x80030e1
+mov rbx, rsi
+mov esi, 0x20
+mov rbp, rdx
+call _ZNSt13basic_ostreamIwSt11char_traitsIwEE3putEw
+movsx esi, byte [rbx]
+test sil, sil
+je 0x8003086
+nop dword [rax]
+mov rdi, qword [r12 + 0x30]
+add rbx, 1
+call _ZNSt13basic_ostreamIwSt11char_traitsIwEE3putEw
+movsx esi, byte [rbx]
+test sil, sil
+jne 0x8003070
+lea rbx, [0x0800308d]
+mov esi, 0x3d
+nop word [rax + rax]
+mov rdi, qword [r12 + 0x30]
+add rbx, 1
+call _ZNSt13basic_ostreamIwSt11char_traitsIwEE3putEw
+movsx esi, byte [rbx]
+test sil, sil
+jne 0x8003098
+mov rdi, r12
+mov rsi, rbp
+call _ZN5boost7archive18xml_woarchive_implINS0_13xml_woarchiveEE4saveEPKc
+add byte [rax], al
+add byte [rax], al
+mov rdi, qword [r12 + 0x30]
+mov rax, qword [rdi]
+mov rax, qword [rax - 0x18]
+test byte [rdi + rax + 0x20], 5
+jne 0x80030fd
+add rsp, 0x90
+mov esi, 0x22
+pop rbx
+pop rbp
+pop r12
+jmp _ZNSt13basic_ostreamIwSt11char_traitsIwEE3putEw
+mov r12, rsp
+xor ecx, ecx
+xor edx, edx
+mov esi, 0xd
+mov rdi, r12
+call _ZN5boost7archive17archive_exceptionC1ENS1_14exception_codeEPKcS4_
+mov rdi, r12
+call _ZN5boost13serialization15throw_exceptionINS_7archive17archive_exceptionEEEvRKT_
+mov r12, rsp
+xor ecx, ecx
+xor edx, edx
+mov esi, 0xd
+mov rdi, r12
+call _ZN5boost7archive17archive_exceptionC1ENS1_14exception_codeEPKcS4_
+mov rdi, r12
+call _ZN5boost13serialization15throw_exceptionINS_7archive17archive_exceptionEEEvRKT_
+mov rbp, rax
+jmp 0x8003120
+jmp 0x8003119
+mov rdi, r12
+call _ZN5boost7archive17archive_exceptionD1Ev
+mov rdi, rbp
+call _Unwind_Resume
+cmp al, 0x3f
+js 0x80031a1
+insb byte [rdi], dx
+and byte [rsi + 0x65], dh
+jb 0x80031ad
+imul ebp, dword [rdi + 0x6e], 0x2e31223d
+xor byte [rdx], ah
+and byte [arg_6eh], ah
+invalid
+outsd dx, dword [rsi]
+imul ebp, dword fs:[rsi + 0x67], 0x5455223d
+sub eax, 0x73202238
+je 0x80031b9
+outsb dx, byte [rsi]
+invalid
+invalid
+insb byte [rdi], dx
+outsd dx, dword [rsi]
+outsb dx, byte [rsi]
+cmp eax, 0x73657922
+and ah, byte [rax]
+invalid
+or al, byte ds:[rax]
+add byte [rax], al
+add byte [rax], al
+add byte [rax], al
+cmp al, 0x21
+push r12
+pop rcx
+push rax
+and byte [r10 + 0x6f], r12b
+outsd dx, dword [rsi]
+jae 0x80031f3
+pop rdi
+jae 0x80031e7
+jb 0x80031ed
+invalid
+insb byte [rdi], dx
+imul edi, dword [rdx + 0x61], 0x6e6f6974
+or al, byte ds:[rax]
+cmp al, 0x62
+outsd dx, dword [rsi]
+outsd dx, dword [rsi]
+jae 0x800320a
+pop rdi
+jae 0x80031fe
+jb 0x8003204
+invalid
+insb byte [rdi], dx
+imul edi, dword [rdx + 0x61], 0x6e6f6974
+imul ebp, dword [rdi + 0x6e], 0xa3e00
+jae 0x8003213
+outsb dx, byte [esi]
+invalid
+je 0x8003224
+jb 0x8003216
+add byte [rsi + 0x65], dh
+jb 0x8003229
+imul ebp, dword [rdi + 0x6e], 0xffffff00
+invalid
+invalid
+call qword [rbp - 0x42]
+push rbp
+mov esi, 0x3c
+lea rbp, [0x080031cd]
+push rbx
+mov rbx, rdi
+sub rsp, 0x18
+nop dword [rax]
+mov rdi, qword [rbx + 0x30]
+add rbp, 1
+call _ZNSt13basic_ostreamIwSt11char_traitsIwEE3putEw
+movsx esi, byte [rbp]
+test sil, sil
+jne 0x80031d8
+mov esi, 0x3c
+lea rbp, [0x080031fa]
+nop word [rax + rax]
+mov rdi, qword [rbx + 0x30]
+add rbp, 1
+call _ZNSt13basic_ostreamIwSt11char_traitsIwEE3putEw
+movsx esi, byte [rbp]
+test sil, sil
+div byte [var_16h]
+lea rbp, [0x0800321d]
+mov esi, 0x3c
+nop word [rax + rax]
+mov rdi, qword [rbx + 0x30]
+mov edi, dword [rbx + 0x30]
+add rbp, 1
+call _ZNSt13basic_ostreamIwSt11char_traitsIwEE3putEw
+movsx esi, byte [rbp]
+test sil, sil
+jne 0x8003228
+call _ZN5boost7archive23BOOST_ARCHIVE_SIGNATUREEv
+lea rsi, [0x0800324a]
+mov rdi, rbx
+lea rbp, [0x08003254]
+mov rdx, rax
+call _ZN5boost7archive18basic_xml_oarchiveINS0_13xml_woarchiveEE15write_attributeEPKcS5_
+add byte [rax], al
+add byte [rax], al
+lea rdi, [var_eh]
+call _ZN5boost7archive21BOOST_ARCHIVE_VERSIONEv
+add byte [rax], al
+add byte [rax], al
+movzx edx, word [var_eh]
+lea rsi, [0x08003272]
+mov rdi, rbx
+lea rcx, [0x0800327c]
+call _ZN5boost7archive18basic_xml_oarchiveINS0_13xml_woarchiveEE15write_attributeEPKciS5_
+mov esi, 0x3e
+nop word cs:[rax + rax]
+mov rdi, qword [rbx + 0x30]
+add rbp, 1
+call _ZNSt13basic_ostreamIwSt11char_traitsIwEE3putEw
+movsx esi, byte [rbp]
+test sil, sil
+jne 0x8003290
+add rsp, 0x18
+pop rbx
+pop rbp
+ret

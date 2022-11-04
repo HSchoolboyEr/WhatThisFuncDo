@@ -1,0 +1,11 @@
+mov rax, qword [rdi - 8]
+mov r8, rax
+and eax, 3
+and r8, 0xfffffffffffffff8
+cmp rax, 1
+sbb rax, rax
+and eax, 8
+add rax, 8
+sub r8, rax
+mov rax, r8
+ret

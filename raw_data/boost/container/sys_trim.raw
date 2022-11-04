@@ -1,0 +1,123 @@
+push r13
+push r12
+push rbp
+mov rbp, rdi
+push rbx
+mov rbx, rsi
+sub rsp, 8
+cmp qword [0x08002ac8], 0
+je 0x8002b70
+cmp rbx, 0xffffffffffffff7f
+ja 0x8002b60
+mov rax, qword [arg_28h]
+test rax, rax
+je 0x8002b60
+mov rdx, qword [arg_10h]
+lea rsi, [rbx + 0x50]
+cmp rdx, rsi
+jbe 0x8002b30
+lea r9, [arg_378h]
+mov rbx, r9
+jmp 0x8002b0d
+nop dword [rax]
+mov rbx, qword [rbx + 0x10]
+test rbx, rbx
+je .text.unlikely
+mov rdi, qword [rbx]
+cmp rax, rdi
+jb 0x8002b00
+mov r8, qword [rbx + 8]
+lea rcx, [rdi + r8]
+cmp rax, rcx
+jae 0x8002b00
+mov eax, dword [rbx + 0x18]
+test al, 8
+je 0x8002b80
+nop dword [rax]
+xor r12d, r12d
+mov rdi, rbp
+call sym.release_unused_segments
+mov r8, rax
+mov eax, 1
+add r12, r8
+jne 0x8002b62
+mov rax, qword [arg_30h]
+cmp qword [arg_10h], rax
+jbe 0x8002b60
+mov qword [arg_30h], 0xffffffffffffffff
+nop word [rax + rax]
+xor eax, eax
+add rsp, 8
+pop rbx
+pop rbp
+pop r12
+pop r13
+ret
+nop dword [rax]
+call sym.init_mparams.isra.0
+jmp 0x8002ace
+nop word [rax + rax]
+test al, 1
+je 0x8002b30
+mov r10, qword [0x08002b8b]
+lea rax, [rdx + r10 - 1]
+xor edx, edx
+sub rax, rsi
+div r10
+lea r12, [rax - 1]
+imul r12, r10
+cmp r12, r8
+ja 0x8002b30
+nop dword [rax]
+cmp rdi, r9
+ja 0x8002bb6
+cmp rcx, r9
+ja 0x8002b30
+mov r9, qword [r9 + 0x10]
+test r9, r9
+jne 0x8002ba8
+mov r13, r8
+xor ecx, ecx
+xor eax, eax
+mov rsi, r8
+sub r13, r12
+mov rdx, r13
+call mremap
+cmp rax, 0xffffffffffffffff
+je 0x8002c43
+test r12, r12
+je 0x8002b30
+mov rdx, qword [arg_10h]
+mov rcx, qword [arg_28h]
+sub qword [rbx + 8], r12
+sub rdx, r12
+sub qword [arg_358h], r12
+lea rax, [rcx + 0x10]
+test cl, 0xf
+je 0x8002c3b
+neg rax
+mov rsi, rdx
+and eax, 0xf
+lea rdi, [rcx + rax]
+sub rsi, rax
+mov rax, qword [0x08002c19]
+mov qword [arg_10h], rsi
+or rsi, 1
+mov qword [arg_28h], rdi
+mov qword [rdi + 8], rsi
+mov qword [rcx + rdx + 8], 0x50
+mov qword [arg_30h], rax
+jmp 0x8002b33
+mov rsi, rdx
+mov rdi, rcx
+jmp 0x8002c12
+mov rdi, qword [rbx]
+mov rsi, r12
+add rdi, r13
+call munmap
+test eax, eax
+jne 0x8002b30
+jmp 0x8002bda
+jmp .text.unlikely
+nop word cs:[rax + rax]
+nop

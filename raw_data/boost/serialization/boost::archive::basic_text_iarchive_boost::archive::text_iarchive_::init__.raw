@@ -1,0 +1,96 @@
+push r12
+push rbp
+mov rbp, rdi
+push rbx
+sub rsp, 0xc0
+lea r12, [var_10h]
+lea rbx, [var_20h]
+mov byte [var_20h], 0
+mov rsi, r12
+mov qword [var_10h], rbx
+mov qword [var_18h], 0
+call _ZN5boost7archive18text_iarchive_implINS0_13text_iarchiveEE4loadERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE
+call _ZN5boost7archive23BOOST_ARCHIVE_SIGNATUREEv
+add byte [rax], al
+add byte [rax], al
+mov rsi, rax
+mov rdi, r12
+call _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc
+add byte [rax], al
+add byte [rax], al
+test eax, eax
+jne 0x8000ca0
+mov rdi, qword [arg_28h]
+xor eax, eax
+lea rsi, [var_eh]
+mov word [var_eh], ax
+call _ZNSi10_M_extractItEERSiRT_
+add byte [rax], al
+add byte [rax], al
+mov rdx, qword [rax]
+mov rdx, qword [rdx - 0x18]
+test byte [rax + rdx + 0x20], 5
+jne 0x8000cd7
+movzx eax, word [var_eh]
+lea r12, [var_30h]
+mov rdi, rbp
+mov rsi, r12
+mov word [var_30h], ax
+call _ZN5boost7archive6detail14basic_iarchive19set_library_versionENS_13serialization20library_version_typeE
+add byte [rax], al
+add byte [rax], al
+mov rdi, r12
+call _ZN5boost7archive21BOOST_ARCHIVE_VERSIONEv
+add byte [rax], al
+add byte [rax], al
+movzx eax, word [var_eh]
+cmp word [var_30h], ax
+jb 0x8000cbe
+mov rdi, qword [var_10h]
+cmp rdi, rbx
+je 0x8000c94
+mov rax, qword [var_20h]
+lea rsi, [rax + 1]
+call _ZdlPvm
+add rsp, 0xc0
+pop rbx
+pop rbp
+pop r12
+ret
+lea r12, [var_30h]
+xor ecx, ecx
+xor edx, edx
+mov esi, 3
+mov rdi, r12
+call _ZN5boost7archive17archive_exceptionC1ENS1_14exception_codeEPKcS4_
+mov rdi, r12
+call _ZN5boost13serialization15throw_exceptionINS_7archive17archive_exceptionEEEvRKT_
+mov rdi, r12
+xor ecx, ecx
+xor edx, edx
+mov esi, 4
+call _ZN5boost7archive17archive_exceptionC1ENS1_14exception_codeEPKcS4_
+mov rdi, r12
+call _ZN5boost13serialization15throw_exceptionINS_7archive17archive_exceptionEEEvRKT_
+lea r12, [var_30h]
+xor ecx, ecx
+xor edx, edx
+mov esi, 8
+mov rdi, r12
+call _ZN5boost7archive17archive_exceptionC1ENS1_14exception_codeEPKcS4_
+mov rdi, r12
+call _ZN5boost13serialization15throw_exceptionINS_7archive17archive_exceptionEEEvRKT_
+mov rbp, rax
+jmp 0x8000d05
+mov rbp, rax
+mov rdi, r12
+call _ZN5boost7archive17archive_exceptionD1Ev
+mov rdi, qword [var_10h]
+cmp rdi, rbx
+je 0x8000d1d
+mov rax, qword [var_20h]
+lea rsi, [rax + 1]
+call _ZdlPvm
+mov rdi, rbp
+call _Unwind_Resume
+jmp 0x8000cfa

@@ -1,0 +1,96 @@
+push r13
+push r12
+mov r12, rdi
+push rbp
+lea rbp, [rdi + 0x98]
+push rbx
+sub rsp, 0x28
+lea r13, [var_10h]
+mov dword [var_4h], esi
+mov rsi, rbp
+mov rdi, r13
+call _ZNSt13basic_ostreamIwSt11char_traitsIwEE6sentryC2ERS2_
+cmp byte [var_10h], 0
+je 0x8007a06
+mov rdi, rbp
+call _ZNSt13basic_ostreamIwSt11char_traitsIwEE5flushEv
+cmp qword [r12 + 0xb0], 1
+jg 0x8007a50
+cmp byte [r12 + 0x50], 0
+je 0x8007a68
+mov qword [r12 + 0xb0], 0
+mov rax, qword [var_18h]
+mov rdx, qword [rax]
+add rax, qword [rdx - 0x18]
+mov rbx, rax
+test byte [rax + 0x19], 0x20
+je 0x8007a3f
+call _ZSt18uncaught_exceptionv
+test al, al
+jne 0x8007a3f
+mov rdi, qword [rbx + 0xe8]
+test rdi, rdi
+je 0x8007a3f
+mov rax, qword [rdi]
+call qword [rax + 0x30]
+cmp eax, 0xffffffff
+je 0x8007ae0
+add rsp, 0x28
+mov rax, r12
+pop rbx
+pop rbp
+pop r12
+pop r13
+ret
+nop dword [rax]
+lea rsi, [var_4h]
+mov edx, 1
+mov rdi, r12
+call _ZN5boost3log12v2s_mt_posix24basic_formatting_ostreamIwSt11char_traitsIwESaIwEE13aligned_writeIDiEEvPKT_l
+jmp 0x80079fa
+nop dword [rax]
+lea rbp, [var_8h]
+lea rsi, [r12 + 0x170]
+mov rdi, rbp
+call _ZNSt6localeC1ERKS_
+mov rdi, qword [r12 + 0x40]
+mov rax, qword [rdi + 8]
+cmp qword [r12 + 0x48], rax
+jbe 0x8007ac0
+movabs rdx, 0xfffffffffffffff
+cmp rax, rdx
+je 0x8007afc
+lea rsi, [var_4h]
+mov edx, 1
+call _ZNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEE9_M_appendEPKwm
+mov rdi, rbp
+call _ZNSt6localeD1Ev
+jmp 0x80079fa
+nop dword [rax + rax]
+lea rsi, [var_4h]
+xor edx, edx
+call _ZNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEE9_M_appendEPKwm
+mov rdi, rbp
+call _ZNSt6localeD1Ev
+mov byte [r12 + 0x50], 1
+jmp 0x80079fa
+nop
+mov rdi, qword [var_18h]
+mov rax, qword [rdi]
+add rdi, qword [rax - 0x18]
+mov esi, dword [rdi + 0x20]
+or esi, 1
+call _ZNSt9basic_iosIwSt11char_traitsIwEE5clearESt12_Ios_Iostate
+jmp 0x8007a3f
+lea rdi, [0x08007b03]
+call _ZSt20__throw_length_errorPKc
+mov rbp, rax
+jmp 0x8007b1b
+mov rbx, rax
+mov rdi, rbp
+mov rbp, rbx
+call _ZNSt6localeD1Ev
+mov rdi, r13
+call _ZNSt13basic_ostreamIwSt11char_traitsIwEE6sentryD2Ev
+mov rdi, rbp
+call _Unwind_Resume

@@ -1,0 +1,83 @@
+push r12
+push rbp
+mov rbp, qword [0x080000ca]
+push rbx
+mov rbx, rdi
+test rbp, rbp
+je 0x80000e7
+lea rdi, [0x080000da]
+call pthread_mutex_lock
+test eax, eax
+jne _ZSt20__throw_system_errori
+mov rax, qword [0x080000ee]
+cmp qword [0x080000f5], rax
+je 0x8000198
+mov rcx, qword [0x08000102]
+mov r12, qword [rax]
+lea rdx, [rcx - 8]
+cmp rax, rdx
+je 0x8000148
+add rax, 8
+mov qword [0x08000119], rax
+test rbp, rbp
+je _ZN5boost6fibers7context6activeEv
+lea rdi, [0x08000125]
+call pthread_mutex_unlock
+call _ZN5boost6fibers7context6activeEv
+mov rsi, r12
+mov rdi, rax
+call _ZN5boost6fibers7context6attachEPS1_
+add byte [rax], al
+add byte [rax], al
+mov rax, r12
+pop rbx
+pop rbp
+pop r12
+ret
+nop word [rax + rax]
+mov rdi, qword [0x0800014f]
+mov esi, 0x200
+call _ZdlPvm
+mov rdx, qword [0x08000160]
+mov rax, qword [rdx + 8]
+add rdx, 8
+movq xmm1, rdx
+movq xmm0, rax
+add rax, 0x200
+punpcklqdq xmm0, xmm0
+movaps xmmword [0x08000183], xmm0
+movq xmm0, rax
+punpcklqdq xmm0, xmm1
+movaps xmmword [0x08000193], xmm0
+jmp 0x8000119
+nop dword [rax]
+test rbp, rbp
+je 0x80001a9
+lea rdi, [0x080001a4]
+call pthread_mutex_unlock
+mov rax, qword [rbx + 0x10]
+test rax, rax
+je 0x80001e0
+lea rdi, [rbx + 0x10]
+cmp rax, rdi
+je 0x80001e0
+mov rdx, qword [rax]
+mov rcx, qword [rax + 8]
+lea r12, [rax - 0xa0]
+pxor xmm0, xmm0
+mov qword [rcx], rdx
+mov qword [rdx + 8], rcx
+movups xmmword [rax], xmm0
+mov rax, r12
+pop rbx
+pop rbp
+pop r12
+ret
+nop
+xor r12d, r12d
+jmp 0x800013a
+mov edi, eax
+call _ZSt20__throw_system_errori
+add byte [rax], al
+add byte [rax], al
+nop

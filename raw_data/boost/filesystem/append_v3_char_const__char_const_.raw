@@ -1,0 +1,124 @@
+cmp rsi, rdx
+je 0x80003f8
+push r14
+push r13
+push r12
+mov r12, rsi
+push rbp
+mov rbp, rdi
+push rbx
+mov rbx, rdx
+sub rsp, 0x40
+mov rax, qword [rdi]
+mov rsi, qword [rdi + 8]
+cmp r12, rax
+jae 0x8000400
+cmp byte [r12], 0x2f
+jne 0x80003b0
+add rsp, 0x40
+sub rbx, r12
+mov rcx, r12
+mov rdi, rbp
+mov r8, rbx
+xor edx, edx
+pop rbx
+pop rbp
+pop r12
+pop r13
+pop r14
+jmp _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE10_M_replaceEmmPKcm
+test rsi, rsi
+je 0x8000391
+cmp byte [rax + rsi - 1], 0x2f
+je 0x8000391
+lea rdx, [var_10h]
+lea r13, [rsi + 1]
+cmp rax, rdx
+je 0x8000490
+mov rdx, qword [var_10h]
+cmp r13, rdx
+ja 0x80004a0
+mov byte [rax + rsi], 0x2f
+mov rax, qword [rbp]
+mov qword [var_bp_8h], r13
+mov byte [rax + r13], 0
+mov rsi, qword [var_bp_8h]
+jmp 0x8000391
+nop dword [rax]
+ret
+nop dword [rax]
+lea rdx, [rax + rsi]
+cmp r12, rdx
+jae 0x800038a
+lea r13, [var_30h]
+mov qword [var_20h], r13
+test rbx, rbx
+je 0x8000425
+test r12, r12
+je .LC3
+sub rbx, r12
+mov qword [var_18h], rbx
+cmp rbx, 0xf
+ja 0x80004e7
+cmp rbx, 1
+jne 0x80004c5
+movzx eax, byte [r12]
+lea r14, [var_20h]
+mov byte [var_30h], al
+mov rax, r13
+mov qword [var_28h], rbx
+mov rsi, r14
+mov rdi, rbp
+mov byte [rax + rbx], 0
+call _ZN5boost10filesystem4path9append_v3ERKS1_
+mov rdi, qword [var_20h]
+cmp rdi, r13
+je 0x800047e
+mov rax, qword [var_30h]
+lea rsi, [rax + 1]
+call _ZdlPvm
+add rsp, 0x40
+pop rbx
+pop rbp
+pop r12
+pop r13
+pop r14
+ret
+nop dword [rax + rax]
+mov edx, 0xf
+jmp 0x80003d1
+nop word [rax + rax]
+mov r8d, 1
+xor ecx, ecx
+xor edx, edx
+mov rdi, rbp
+mov qword [var_8h], rsi
+call _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_mutateEmmPKcm
+mov rax, qword [rbp]
+mov rsi, qword [var_8h]
+jmp 0x80003da
+mov rdi, r13
+lea r14, [var_20h]
+mov rdx, rbx
+mov rsi, r12
+call memcpy
+mov rbx, qword [var_18h]
+mov rax, qword [var_20h]
+jmp 0x8000452
+lea r14, [var_20h]
+lea rsi, [var_18h]
+xor edx, edx
+mov rdi, r14
+call _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm
+mov qword [var_20h], rax
+mov rdi, rax
+mov rax, qword [var_18h]
+mov qword [var_30h], rax
+jmp 0x80004cd
+lea rdi, [0x08000516]
+call _ZSt19__throw_logic_errorPKc
+mov rbp, rax
+jmp .text.unlikely
+nop
+nop word cs:[rax + rax]
+nop

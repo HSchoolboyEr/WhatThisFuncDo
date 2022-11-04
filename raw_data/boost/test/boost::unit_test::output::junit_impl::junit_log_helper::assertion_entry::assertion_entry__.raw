@@ -1,0 +1,27 @@
+push rbx
+mov rbx, rdi
+mov rdi, qword [rdi + 0x40]
+lea rax, [rbx + 0x50]
+cmp rdi, rax
+je 0x80079de
+mov rax, qword [rbx + 0x50]
+lea rsi, [rax + 1]
+call _ZdlPvm
+mov rdi, qword [rbx + 0x20]
+lea rax, [rbx + 0x30]
+cmp rdi, rax
+je 0x80079f8
+mov rax, qword [rbx + 0x30]
+lea rsi, [rax + 1]
+call _ZdlPvm
+mov rdi, qword [rbx]
+lea rax, [rbx + 0x10]
+cmp rdi, rax
+je 0x8007a18
+mov rsi, qword [rbx + 0x10]
+pop rbx
+add rsi, 1
+jmp _ZdlPvm
+nop word [rax + rax]
+pop rbx
+ret

@@ -1,0 +1,12 @@
+mov rdi, qword [rdi]
+test dil, 1
+jne 0x8014f10
+ret
+nop word [rax + rax]
+and rdi, 0xfffffffffffffffc
+lock sub qword [rdi + 8], 1
+jne 0x8014f09
+test rdi, rdi
+je 0x8014f09
+mov rax, qword [rdi]
+jmp qword [rax + 8]

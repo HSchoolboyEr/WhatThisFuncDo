@@ -1,0 +1,11 @@
+test rdi, rdi
+je 0x8003390
+push rbp
+mov rbp, rdi
+call _ZN5boost3log12v2s_mt_posix13attribute_setD1Ev
+mov rdi, rbp
+mov esi, 0x18
+pop rbp
+jmp _ZdlPvm
+nop dword [rax]
+ret

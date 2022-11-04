@@ -1,0 +1,7 @@
+mov rdi, qword [rdi + 0x10]
+test rdi, rdi
+je 0x8000ac8
+mov esi, 8
+jmp _ZdlPvm
+nop dword [rax + rax]
+ret

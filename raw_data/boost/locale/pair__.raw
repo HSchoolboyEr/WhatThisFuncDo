@@ -1,0 +1,52 @@
+push rbp
+push rbx
+mov rbx, rdi
+sub rsp, 8
+mov rbp, qword [rdi + 0x28]
+test rbp, rbp
+je 0x80049f9
+lock sub dword [arg_8h], 1
+je 0x8004a30
+mov rdi, qword [rbx]
+lea rax, [rbx + 0x10]
+cmp rdi, rax
+je 0x8004a20
+mov rsi, qword [rbx + 0x10]
+add rsp, 8
+pop rbx
+pop rbp
+add rsi, 1
+jmp _ZdlPvm
+nop dword [rax + rax]
+add rsp, 8
+pop rbx
+pop rbp
+ret
+nop word [rax + rax]
+mov rax, qword [rbp]
+lea rdx, [0x08004a3b]
+mov rax, qword [rax + 0x10]
+cmp rax, rdx
+jne 0x8004a90
+mov rdi, qword [arg_10h]
+test rdi, rdi
+je 0x8004a53
+mov rax, qword [rdi]
+call qword [rax + 8]
+lock sub dword [arg_ch], 1
+jne 0x80049f9
+mov rax, qword [rbp]
+lea rcx, [0x08004a65]
+mov rdi, rbp
+mov rdx, qword [rax + 0x18]
+cmp rdx, rcx
+jne 0x8004a80
+call qword [rax + 8]
+jmp 0x80049f9
+nop word cs:[rax + rax]
+call rdx
+jmp 0x80049f9
+nop word [rax + rax]
+mov rdi, rbp
+call rax
+jmp 0x8004a53

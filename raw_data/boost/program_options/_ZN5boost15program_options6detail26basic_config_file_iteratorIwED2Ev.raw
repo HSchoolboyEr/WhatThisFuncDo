@@ -1,0 +1,147 @@
+push r12
+lea rax, [0x08003cb9]
+push rbp
+push rbx
+mov rbp, qword [rdi + 0x100]
+mov rbx, rdi
+mov qword [rdi], rax
+test rbp, rbp
+je 0x8003cd8
+lock sub dword [arg_8h], 1
+je 0x8003e98
+lea rax, [0x08003cdf]
+mov rdi, qword [rbx + 0xd0]
+mov qword [rbx], rax
+lea rax, [rbx + 0xe0]
+cmp rdi, rax
+je 0x8003d05
+mov rax, qword [rbx + 0xe0]
+lea rsi, [rax + 1]
+call _ZdlPvm
+mov rbp, qword [rbx + 0xb0]
+test rbp, rbp
+je 0x8003d50
+mov rdi, qword [arg_18h]
+call .text
+mov rdi, qword [arg_20h]
+lea rax, [arg_30h]
+mov r12, qword [arg_10h]
+cmp rdi, rax
+je 0x8003d38
+mov rax, qword [arg_30h]
+lea rsi, [rax + 1]
+call _ZdlPvm
+mov esi, 0x40
+mov rdi, rbp
+call _ZdlPvm
+test r12, r12
+je 0x8003d50
+mov rbp, r12
+jmp 0x8003d11
+nop
+mov rbp, qword [rbx + 0x80]
+test rbp, rbp
+je 0x8003da0
+mov rdi, qword [arg_18h]
+call .text
+mov rdi, qword [arg_20h]
+lea rax, [arg_30h]
+mov r12, qword [arg_10h]
+cmp rdi, rax
+je 0x8003d83
+mov rax, qword [arg_30h]
+lea rsi, [rax + 1]
+call _ZdlPvm
+mov esi, 0x40
+mov rdi, rbp
+call _ZdlPvm
+test r12, r12
+je 0x8003da0
+mov rbp, r12
+jmp 0x8003d5c
+nop word [rax + rax]
+mov r12, qword [rbx + 0x58]
+mov rbp, qword [rbx + 0x50]
+cmp r12, rbp
+je 0x8003ddb
+nop dword [rax]
+mov rdi, qword [rbp]
+lea rax, [arg_10h]
+cmp rdi, rax
+je 0x8003e60
+mov rax, qword [arg_10h]
+add rbp, 0x20
+lea rsi, [rax + 1]
+call _ZdlPvm
+cmp r12, rbp
+jne 0x8003db0
+mov rbp, qword [rbx + 0x50]
+test rbp, rbp
+je 0x8003def
+mov rsi, qword [rbx + 0x60]
+mov rdi, rbp
+sub rsi, rbp
+call _ZdlPvm
+mov r12, qword [rbx + 0x40]
+mov rbp, qword [rbx + 0x38]
+cmp r12, rbp
+je 0x8003e27
+nop dword [rax]
+mov rdi, qword [rbp]
+lea rax, [arg_10h]
+cmp rdi, rax
+je 0x8003e78
+mov rax, qword [arg_10h]
+add rbp, 0x20
+lea rsi, [rax + 1]
+call _ZdlPvm
+cmp r12, rbp
+jne 0x8003e00
+mov rbp, qword [rbx + 0x38]
+test rbp, rbp
+je 0x8003e3b
+mov rsi, qword [rbx + 0x48]
+mov rdi, rbp
+sub rsi, rbp
+call _ZdlPvm
+mov rdi, qword [rbx + 0x10]
+lea rax, [rbx + 0x20]
+cmp rdi, rax
+je 0x8003e90
+mov rsi, qword [rbx + 0x20]
+pop rbx
+pop rbp
+pop r12
+add rsi, 1
+jmp _ZdlPvm
+nop dword [rax]
+add rbp, 0x20
+cmp r12, rbp
+jne 0x8003db0
+jmp 0x8003dd7
+nop word [rax + rax]
+add rbp, 0x20
+cmp r12, rbp
+jne 0x8003e00
+jmp 0x8003e23
+nop word [rax + rax]
+pop rbx
+pop rbp
+pop r12
+ret
+nop dword [rax]
+mov rax, qword [rbp]
+mov rdi, rbp
+call qword [rax + 0x10]
+lock sub dword [arg_ch], 1
+jne _ZTVN5boost15program_options6detail27common_config_file_iteratorE
+mov rax, qword [rbp]
+lea rcx, [0x08003eb8]
+mov rdi, rbp
+mov rdx, qword [rax + 0x18]
+cmp rdx, rcx
+jne 0x8003ecc
+call qword [rax + 8]
+jmp _ZTVN5boost15program_options6detail27common_config_file_iteratorE
+call rdx
+jmp _ZTVN5boost15program_options6detail27common_config_file_iteratorE

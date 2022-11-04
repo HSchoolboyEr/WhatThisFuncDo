@@ -1,0 +1,50 @@
+push rbp
+mov rbp, qword [rdi + 0x10]
+test rbp, rbp
+je 0x8006160
+mov rdi, qword [arg_178h]
+lea rax, [arg_188h]
+cmp rdi, rax
+je 0x80060c1
+mov rax, qword [arg_188h]
+lea rsi, [rax + 1]
+call _ZdlPvm
+lea rax, [0x080060c8]
+lea rcx, [0x080060cf]
+mov rdi, qword [arg_50h]
+mov qword [arg_70h], rax
+lea rax, [0x080060de]
+movq xmm0, rcx
+movq xmm1, rax
+lea rax, [arg_60h]
+punpcklqdq xmm0, xmm1
+movups xmmword [rbp], xmm0
+cmp rdi, rax
+je 0x8006106
+mov rax, qword [arg_60h]
+lea rsi, [rax + 1]
+call _ZdlPvm
+lea rax, [0x0800610d]
+lea rdi, [arg_40h]
+mov qword [arg_8h], rax
+call _ZNSt6localeD1Ev
+add byte [rax], al
+add byte [rax], al
+mov rax, qword [0x08006121]
+mov rdx, qword [0x08006128]
+lea rdi, [arg_70h]
+mov qword [rbp], rax
+mov rax, qword [rax - 0x18]
+mov qword [rbp + rax], rdx
+lea rax, [0x08006140]
+mov qword [arg_70h], rax
+call _ZNSt8ios_baseD2Ev
+add byte [rax], al
+add byte [rax], al
+mov rdi, rbp
+mov esi, 0x198
+pop rbp
+jmp _ZdlPvm
+nop word [rax + rax]
+pop rbp
+ret

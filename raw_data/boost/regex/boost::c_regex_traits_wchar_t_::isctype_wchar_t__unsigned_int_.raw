@@ -1,0 +1,149 @@
+push r12
+push rbp
+mov ebp, edi
+push rbx
+mov ebx, esi
+and esi, 1
+je 0x8009288
+call iswspace
+mov r12d, 1
+test eax, eax
+je 0x8009288
+mov eax, r12d
+pop rbx
+pop rbp
+pop r12
+ret
+nop dword [rax]
+test bl, 2
+je 0x800929e
+mov edi, ebp
+mov r12d, 1
+call iswprint
+test eax, eax
+jne 0x800927c
+test bl, 4
+jne 0x80093a0
+test bl, 8
+je 0x80092bd
+mov edi, ebp
+mov r12d, 1
+call iswupper
+test eax, eax
+jne 0x800927c
+test bl, 0x10
+je 0x80092d3
+mov edi, ebp
+mov r12d, 1
+call iswlower
+test eax, eax
+jne 0x800927c
+test bl, 0x20
+jne 0x80093c0
+test bl, 0x40
+je 0x80092f2
+mov edi, ebp
+mov r12d, 1
+call iswdigit
+test eax, eax
+jne 0x800927c
+test bl, 0x80
+je 0x800930c
+mov edi, ebp
+mov r12d, 1
+call iswpunct
+test eax, eax
+jne 0x800927c
+test bh, 1
+je 0x8009326
+mov edi, ebp
+mov r12d, 1
+call iswxdigit
+test eax, eax
+jne 0x800927c
+test bh, 2
+je 0x8009360
+mov edi, ebp
+call iswspace
+test eax, eax
+je 0x8009360
+lea eax, [var_ch]
+cmp eax, 1
+jbe 0x8009360
+cmp ebp, 0xa
+je 0x8009360
+lea eax, [rbp - 0x2028]
+cmp ax, 1
+jbe 0x8009360
+mov r12d, 1
+cmp bp, 0x85
+jne 0x800927c
+mov eax, ebx
+shr eax, 0xa
+cmp ebp, 0x5f
+sete r12b
+and r12b, al
+jne 0x800927c
+test bh, 8
+jne 0x80093e0
+test bh, 0x20
+je 0x80093f0
+lea eax, [var_ah]
+cmp eax, 3
+ja 0x8009448
+mov r12d, 1
+jmp 0x800927c
+nop word cs:[rax + rax]
+mov edi, ebp
+mov r12d, 1
+call iswcntrl
+test eax, eax
+je 0x80092a7
+mov eax, r12d
+pop rbx
+pop rbp
+pop r12
+ret
+nop dword [rax]
+mov edi, ebp
+mov r12d, 1
+call iswalpha
+test eax, eax
+jne 0x800927c
+jmp 0x80092dc
+nop word [rax + rax]
+test ebp, 0xffffff00
+jne 0x800938b
+jmp 0x800937a
+nop word [rax + rax]
+and bh, 0x10
+je 0x800927c
+mov edi, ebp
+call iswspace
+test eax, eax
+je 0x800927c
+lea eax, [var_ch]
+cmp eax, 1
+jbe 0x800927c
+cmp ebp, 0xa
+je 0x800927c
+lea eax, [rbp - 0x2028]
+cmp ax, 1
+setbe r12b
+cmp bp, 0x85
+sete al
+or r12d, eax
+xor r12d, 1
+cmp ebp, 0xb
+setne al
+and r12d, eax
+jmp 0x800927c
+lea eax, [rbp - 0x2028]
+cmp ax, 1
+setbe al
+cmp bp, 0x85
+sete dl
+or al, dl
+je 0x80093f0
+mov r12d, eax
+jmp 0x800927c

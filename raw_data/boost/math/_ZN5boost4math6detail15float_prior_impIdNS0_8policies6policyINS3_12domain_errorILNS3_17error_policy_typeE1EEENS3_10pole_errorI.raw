@@ -1,0 +1,130 @@
+push rbx
+sub rsp, 0x30
+movsd xmm1, qword [rdi]
+movapd xmm0, xmm1
+andpd xmm0, xmmword [0x080002e5]
+ucomisd xmm0, qword [0x080002ed]
+ja 0x8000350
+ucomisd xmm0, xmm0
+jp 0x8000350
+comisd xmm0, xmmword [0x080002fd]
+mov rbx, rdi
+jae 0x8000380
+pxor xmm2, xmm2
+ucomisd xmm1, xmm2
+jp .LC4
+jne .LC4
+movsd xmm0, qword [0x0800031e]
+comisd xmm0, xmm1
+jae __errno_location
+stmxcsr dword [rsp + 0x1c]
+movsd xmm0, qword [0x08000335]
+test dword [var_1ch], 0x8040
+jne 0x8000347
+movsd xmm0, qword [0x08000347]
+add rsp, 0x30
+pop rbx
+ret
+nop dword [rax]
+comisd xmm1, xmmword [0x08000358]
+movsd xmm0, qword [0x08000360]
+ja 0x8000347
+call __errno_location
+movsd xmm0, qword [0x0800036f]
+mov dword [rax], 0x21
+add rsp, 0x30
+pop rbx
+ret
+nop dword [rax + rax]
+movsd xmm2, qword [0x08000388]
+comisd xmm2, xmm1
+jae __errno_location
+pxor xmm2, xmm2
+ucomisd xmm1, xmm2
+jnp 0x80004b0
+movzx eax, byte [0x080003a3]
+test al, al
+je _ZGVZN5boost4math6detail19get_min_shift_valueIdEET_vE3val
+movsd xmm3, qword [0x080003b3]
+movsd xmm1, qword [rbx]
+comisd xmm3, xmm0
+jbe 0x800042e
+ucomisd xmm1, qword [0x080003c5]
+jp 0x80003d1
+comisd xmm1, xmmword [0x080003cf]
+je 0x800042e
+mov edi, 0x6a
+movapd xmm0, xmm1
+call ldexp
+lea rdi, [var_28h]
+movsd qword [var_28h], xmm0
+call sym._ZN5boost4math6detail15float_prior_impIdNS0_8policies6policyINS3_12domain_errorILNS3_17error_policy_typeE1EEENS3_10pole_errorI
+add rsp, 0x30
+mov edi, 0xffffff96
+pop rbx
+jmp ldexp
+nop
+call __errno_location
+movsd xmm0, qword [0x0800040d]
+mov dword [rax], 0x22
+add rsp, 0x30
+pop rbx
+ret
+nop dword [rax]
+movsd xmm0, qword [0x08000428]
+comisd xmm0, xmm1
+jae __errno_location
+lea rdi, [var_28h]
+movapd xmm0, xmm1
+movsd qword [var_8h], xmm2
+call frexp
+ucomisd xmm0, qword [0x0800044a]
+movsd xmm2, qword [var_8h]
+jp 0x80004c0
+jne 0x80004c0
+mov eax, dword [var_28h]
+lea edi, [rax - 1]
+movsd xmm0, qword [0x08000463]
+sub edi, 0x35
+movsd qword [var_8h], xmm2
+call ldexp
+movsd xmm2, qword [var_8h]
+movapd xmm1, xmm0
+ucomisd xmm0, xmm2
+jp 0x800049e
+jne 0x800049e
+stmxcsr dword [rsp + 0x1c]
+mov rax, qword [0x0800048f]
+movq xmm1, rax
+test dword [var_1ch], 0x8040
+je 0x80004d0
+movsd xmm0, qword [rbx]
+add rsp, 0x30
+pop rbx
+subsd xmm0, xmm1
+ret
+nop dword [rax]
+je 0x8000328
+jmp _ZGVZN5boost4math6detail19get_min_shift_valueIdEET_vE3val
+nop dword [rax + rax]
+mov edi, dword [var_28h]
+jmp 0x800045b
+nop word cs:[rax + rax]
+movsd xmm1, qword [0x080004d8]
+jmp 0x800049e
+nop word [rax + rax]
+lea rdi, [0x080004e7]
+movsd qword [var_10h], xmm2
+movsd qword [var_8h], xmm0
+call __cxa_guard_acquire
+movsd xmm0, qword [var_8h]
+movsd xmm2, qword [var_10h]
+test eax, eax
+je _ZZN5boost4math6detail19get_min_shift_valueIdEET_vE3val
+mov rax, qword [0x08000513]
+lea rdi, [0x0800051a]
+mov qword [0x08000521], rax
+call __cxa_guard_release
+movsd xmm2, qword [var_10h]
+movsd xmm0, qword [var_8h]
+jmp _ZZN5boost4math6detail19get_min_shift_valueIdEET_vE3val

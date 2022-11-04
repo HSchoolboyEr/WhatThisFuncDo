@@ -1,0 +1,4 @@
+mov rax, qword [rdi]
+add rdi, qword [rax - 0x20]
+lea rax, [rdi + 8]
+ret

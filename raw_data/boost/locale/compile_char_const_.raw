@@ -1,0 +1,53 @@
+push r12
+mov r12, rdi
+push rbp
+sub rsp, 0x48
+lea rbp, [var_20h]
+mov qword [var_20h], rsi
+mov qword [var_28h], 0
+mov rdi, rbp
+call method boost::locale::gnu_gettext::lambda::(anonymous namespace)::tokenizer::step()
+lea rdi, [var_10h]
+lea rsi, [var_8h]
+mov qword [var_8h], rbp
+call method boost::locale::gnu_gettext::lambda::(anonymous namespace)::parser::cond_expr()
+mov rax, qword [var_10h]
+mov rbp, qword [var_18h]
+test rax, rax
+je 0x8007ca0
+mov rdx, qword [var_8h]
+mov edx, dword [rdx + 0x10]
+test edx, edx
+je 0x8007ca0
+pxor xmm0, xmm0
+movups xmmword [r12], xmm0
+test rbp, rbp
+je 0x8007cb3
+lock sub dword [var_8h], 1
+jne 0x8007cb3
+mov rax, qword [rbp]
+mov rdi, rbp
+call qword [rax + 0x10]
+lock sub dword [var_ch], 1
+jne 0x8007cb3
+mov rax, qword [rbp]
+lea rcx, [0x08007c85]
+mov rdi, rbp
+mov rdx, qword [rax + 0x18]
+cmp rdx, rcx
+jne 0x8007cc0
+call qword [rax + 8]
+jmp 0x8007cb3
+nop word cs:[rax + rax]
+movq xmm0, rax
+movq xmm1, rbp
+punpcklqdq xmm0, xmm1
+movups xmmword [r12], xmm0
+add rsp, 0x48
+mov rax, r12
+pop rbp
+pop r12
+ret
+nop
+call rdx
+jmp 0x8007cb3

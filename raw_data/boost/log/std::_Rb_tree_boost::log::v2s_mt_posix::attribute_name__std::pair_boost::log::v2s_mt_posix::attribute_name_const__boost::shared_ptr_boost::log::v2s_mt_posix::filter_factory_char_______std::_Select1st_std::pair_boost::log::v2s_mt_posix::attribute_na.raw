@@ -1,0 +1,48 @@
+test rdi, rdi
+je 0x8000410
+push r13
+lea r13, [0x08000392]
+add byte [rax], al
+add byte [rax], al
+push r12
+push rbp
+push rbx
+mov rbx, rdi
+sub rsp, 8
+mov rdi, qword [rbx + 0x18]
+mov r12, rbx
+call method std::_Rb_tree<boost::log::v2s_mt_posix::attribute_name, std::pair<boost::log::v2s_mt_posix::attribute_name const, boost::shared_ptr<boost::log::v2s_mt_posix::filter_factory<char> > >, std::_Select1st<std::pair<boost::log::v2s_mt_posix::attribute_name const, boost::shared_ptr<boost::log::v2s_mt_posix::filter_factory<char> > > >, boost::log::v2s_mt_posix::(anonymous namespace)::filters_repository<char>::attribute_name_order, std::allocator<std::pair<boost::log::v2s_mt_posix::attribute_name const, boost::shared_ptr<boost::log::v2s_mt_posix::filter_factory<> > > > >::() [clone ]
+mov rbp, qword [r12 + 0x30]
+mov rbx, qword [rbx + 0x10]
+test rbp, rbp
+je 0x80003be
+lock sub dword [arg_8h], 1
+je 0x80003e0
+mov esi, 0x38
+mov rdi, r12
+call _ZdlPvm
+test rbx, rbx
+jne 0x800039d
+add rsp, 8
+pop rbx
+pop rbp
+pop r12
+pop r13
+ret
+nop dword [rax + rax]
+mov rax, qword [rbp]
+mov rdi, rbp
+call qword [rax + 0x10]
+lock sub dword [arg_ch], 1
+jne 0x80003be
+mov rax, qword [rbp]
+mov rdi, rbp
+mov rdx, qword [rax + 0x18]
+cmp rdx, r13
+jne 0x8000411
+call qword [rax + 8]
+jmp 0x80003be
+nop word cs:[rax + rax]
+ret
+call rdx
+jmp 0x80003be

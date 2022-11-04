@@ -1,0 +1,22 @@
+push r12
+xor r12d, r12d
+push rbp
+push rbx
+call _ZN5boost6detail23get_current_thread_dataEv
+test rax, rax
+je 0x800224d
+lea rbx, [rax + 0x30]
+mov rbp, rax
+mov rdi, rbx
+call _ZN5boost5mutex4lockEv
+movzx r12d, byte [arg_131h]
+nop dword [rax + rax]
+mov rdi, rbx
+call pthread_mutex_unlock
+cmp eax, 4
+je 0x8002240
+mov eax, r12d
+pop rbx
+pop rbp
+pop r12
+ret

@@ -1,0 +1,49 @@
+push rbp
+mov rbp, rdi
+push rbx
+sub rsp, 8
+mov rax, qword [rdi + 0x48]
+mov rdx, qword [rax]
+mov rax, qword [rdi + 0x28]
+lea rbx, [rdx + 0x54]
+cmp qword [rdi + 0x20], rax
+je 0x80212c8
+nop
+movsxd rdx, dword [rax]
+cmp edx, 0xff
+jbe 0x80212e0
+mov rdi, rbp
+call _ZN5boost13re_detail_50012perl_matcherIPKwSaINS_9sub_matchIS3_EEENS_14c_regex_traitsIwEEE12match_prefixEv
+test al, al
+jne 0x80212d4
+mov rax, qword [arg_28h]
+mov rdx, qword [arg_20h]
+cmp rax, rdx
+je 0x80212d2
+add rax, 4
+mov qword [arg_28h], rax
+cmp rax, rdx
+jne 0x8021290
+mov rax, qword [arg_48h]
+mov rdx, qword [rax]
+mov eax, dword [rdx + 0x154]
+test eax, eax
+jne 0x80212f8
+xor eax, eax
+add rsp, 8
+pop rbx
+pop rbp
+ret
+nop dword [rax + rax]
+test byte [rbx + rdx], 3
+jne 0x802129b
+add rax, 4
+mov rdx, qword [arg_20h]
+mov qword [arg_28h], rax
+jmp 0x80212bc
+nop dword [rax]
+add rsp, 8
+mov rdi, rbp
+pop rbx
+pop rbp
+jmp _ZN5boost13re_detail_50012perl_matcherIPKwSaINS_9sub_matchIS3_EEENS_14c_regex_traitsIwEEE12match_prefixEv

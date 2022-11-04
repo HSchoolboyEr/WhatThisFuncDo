@@ -1,0 +1,19 @@
+lea rdi, [arg_28h]
+call _ZN5boost9iostreams6detail4pathD1Ev
+mov rdi, rbp
+mov esi, 0x88
+call _ZdlPvm
+mov rdi, r12
+call _Unwind_Resume
+call __cxa_begin_catch
+mov rdi, rbp
+call _ZN5boost14checked_deleteINS_9iostreams6detail16mapped_file_implEEEvPT_
+call __cxa_rethrow
+mov rbp, rax
+call __cxa_end_catch
+mov rdi, qword [rbx + 8]
+test rdi, rdi
+je 0x80023d0
+call _ZN5boost6detail15sp_counted_base7releaseEv
+mov rdi, rbp
+call _Unwind_Resume

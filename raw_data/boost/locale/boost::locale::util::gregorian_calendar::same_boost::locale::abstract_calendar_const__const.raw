@@ -1,0 +1,37 @@
+test rsi, rsi
+je 0x80006b0
+push rbx
+xor ecx, ecx
+mov rbx, rdi
+lea rdx, [0x08000662]
+mov rdi, rsi
+lea rsi, [0x0800066c]
+call __dynamic_cast
+test rax, rax
+je 0x80006c0
+mov rcx, qword [rax + 0x88]
+xor r8d, r8d
+movabs rdx, 0xffffffff0000ff00
+and rcx, rdx
+and rdx, qword [rbx + 0x88]
+cmp rcx, rdx
+je 0x80006a0
+mov eax, r8d
+pop rbx
+ret
+nop
+mov ebx, dword [rbx + 8]
+cmp dword [rax + 8], ebx
+sete r8b
+pop rbx
+mov eax, r8d
+ret
+nop
+xor r8d, r8d
+mov eax, r8d
+ret
+nop word [rax + rax]
+xor r8d, r8d
+pop rbx
+mov eax, r8d
+ret

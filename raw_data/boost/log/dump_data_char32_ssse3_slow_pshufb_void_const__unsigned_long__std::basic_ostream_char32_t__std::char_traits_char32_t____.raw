@@ -1,0 +1,395 @@
+push r15
+push r14
+mov r14, rdx
+push r13
+push r12
+push rbp
+mov rbp, rdi
+push rbx
+sub rsp, 0x18e8
+mov qword [var_90h], rsi
+cmp rsi, 0xf
+jbe 0x80028b6
+lea rax, [var_18e0h]
+and rax, 0xfffffffffffffff0
+lea r15, [rax - 0x1830]
+lea rsi, [rax - 0x182c]
+lea r13, [rax - 0x30]
+mov rax, qword [rdx]
+mov rax, qword [rax - 0x18]
+test byte [rdx + rax + 0x19], 0x40
+jne .LC5
+movdqa xmm9, xmmword [0x08002602]
+mov rax, rbp
+neg rax
+and eax, 0xf
+mov rbx, rax
+jne 0x80028cc
+mov rax, qword [arg_90h]
+mov rcx, rax
+and ecx, 0x1ff
+shr rax, 9
+mov qword [arg_88h], rcx
+je 0x8002895
+shl rax, 9
+lea rdx, [arg_200h]
+movdqa xmm8, xmmword [0x0800264b]
+movdqa xmm7, xmmword [0x08002653]
+mov qword [arg_98h], rax
+lea rbx, [rdx + rax]
+movdqa xmm6, xmmword [0x08002667]
+pxor xmm4, xmm4
+movdqa xmm12, xmmword [0x08002674]
+movdqa xmm5, xmmword [0x0800267c]
+movdqa xmm11, xmmword [0x08002685]
+movdqa xmm10, xmmword [0x0800268e]
+nop
+lea r12, [rdx - 0x200]
+mov rax, r15
+pxor xmm2, xmm2
+nop
+movdqa xmm0, xmmword [r12]
+add r12, 0x10
+add rax, 0xc0
+movdqa xmm1, xmm0
+pand xmm0, xmm8
+movdqa xmm3, xmm0
+psrlw xmm1, 4
+paddb xmm0, xmm6
+pcmpgtb xmm3, xmm7
+pand xmm1, xmm8
+pand xmm3, xmm9
+paddb xmm3, xmm0
+movdqa xmm0, xmm1
+pcmpgtb xmm0, xmm7
+movdqa xmm13, xmm0
+movdqa xmm0, xmm1
+pand xmm13, xmm9
+paddb xmm0, xmm6
+paddb xmm0, xmm13
+movdqa xmm13, xmm0
+punpckhbw xmm0, xmm3
+punpcklbw xmm13, xmm3
+movdqa xmm1, xmm0
+pshufb xmm0, xmm10
+movdqa xmm3, xmm13
+palignr xmm1, xmm13, 0xa
+pmaxub xmm0, xmm5
+pshufb xmm3, xmm12
+pshufb xmm1, xmm11
+pmaxub xmm3, xmm5
+pmaxub xmm1, xmm5
+movdqa xmm13, xmm3
+punpckhbw xmm3, xmm4
+punpcklbw xmm13, xmm4
+movdqa xmm14, xmm13
+punpckhwd xmm13, xmm2
+movaps xmmword [rax - 0xb0], xmm13
+movdqa xmm13, xmm3
+punpckhwd xmm3, xmm2
+punpcklwd xmm14, xmm2
+movaps xmmword [rax - 0x90], xmm3
+movdqa xmm3, xmm1
+punpcklwd xmm13, xmm2
+punpckhbw xmm1, xmm4
+punpcklbw xmm3, xmm4
+movaps xmmword [rax - 0xa0], xmm13
+movdqa xmm13, xmm3
+punpckhwd xmm3, xmm2
+movaps xmmword [rax - 0xc0], xmm14
+movaps xmmword [rax - 0x70], xmm3
+movdqa xmm3, xmm1
+punpckhwd xmm1, xmm2
+punpcklwd xmm13, xmm2
+movaps xmmword [rax - 0x50], xmm1
+movdqa xmm1, xmm0
+punpcklwd xmm3, xmm2
+punpckhbw xmm0, xmm4
+punpcklbw xmm1, xmm4
+movaps xmmword [rax - 0x60], xmm3
+movdqa xmm3, xmm1
+punpckhwd xmm1, xmm2
+movaps xmmword [rax - 0x80], xmm13
+movaps xmmword [rax - 0x30], xmm1
+movdqa xmm1, xmm0
+punpcklwd xmm3, xmm2
+punpckhwd xmm0, xmm2
+punpcklwd xmm1, xmm2
+movaps xmmword [rax - 0x40], xmm3
+movaps xmmword [rax - 0x20], xmm1
+movaps xmmword [rax - 0x10], xmm0
+cmp r12, rdx
+jne 0x80026a0
+mov rdx, r13
+mov rdi, r14
+movaps xmmword [arg_70h], xmm6
+sub rdx, rsi
+movaps xmmword [arg_60h], xmm7
+sar rdx, 2
+movaps xmmword [arg_50h], xmm5
+movaps xmmword [arg_40h], xmm10
+movaps xmmword [arg_30h], xmm11
+movaps xmmword [arg_20h], xmm12
+movaps xmmword [arg_10h], xmm8
+movaps xmmword [rsp], xmm9
+call method std::basic_ostream<char32_t, std::char_traits<char32_t> >::write(char32_t const*, long) [clone .isra.0]
+movdqa xmm9, xmmword [rsp]
+pxor xmm4, xmm4
+lea rdx, [r12 + 0x200]
+cmp rbx, rdx
+movdqa xmm8, xmmword [arg_10h]
+movdqa xmm12, xmmword [arg_20h]
+movdqa xmm11, xmmword [arg_30h]
+movdqa xmm10, xmmword [arg_40h]
+movdqa xmm5, xmmword [arg_50h]
+movdqa xmm7, xmmword [arg_60h]
+movdqa xmm6, xmmword [arg_70h]
+je 0x800288a
+mov rsi, r15
+jmp 0x8002690
+movdqa xmm9, xmmword [0x08002885]
+jmp 0x8002602
+add rbp, qword [arg_98h]
+mov rsi, r15
+cmp qword [arg_88h], 0
+jne 0x8002a5d
+add rsp, 0x18e8
+pop rbx
+pop rbp
+pop r12
+pop r13
+pop r14
+pop r15
+ret
+add rsp, 0x18e8
+pop rbx
+pop rbp
+pop r12
+pop r13
+pop r14
+pop r15
+jmp _ZN5boost3log12v2s_mt_posix3aux17dump_data_genericIDiEEvPKvmRSt13basic_ostreamIT_St11char_traitsIS7_EE
+lddqu xmm1, xmmword [rbp]
+pxor xmm4, xmm4
+mov rdi, r14
+movdqa xmm8, xmmword [0x080028e1]
+movdqa xmm7, xmmword [0x080028e9]
+movdqa xmm6, xmmword [0x080028f1]
+lea rdx, [rax + rax*2 - 1]
+add rbp, rbx
+movdqa xmm0, xmm1
+movdqa xmm5, xmmword [0x08002905]
+movaps xmmword [rsp], xmm9
+psrlw xmm0, 4
+pand xmm0, xmm8
+pand xmm8, xmm1
+movdqa xmm2, xmm0
+movdqa xmm1, xmm8
+paddb xmm0, xmm6
+pcmpgtb xmm2, xmm7
+pcmpgtb xmm1, xmm7
+paddb xmm8, xmm6
+pand xmm2, xmm9
+pand xmm1, xmm9
+paddb xmm0, xmm2
+paddb xmm1, xmm8
+movdqa xmm2, xmm0
+punpckhbw xmm0, xmm1
+punpcklbw xmm2, xmm1
+movdqa xmm3, xmm0
+pshufb xmm0, xmmword [0x0800295f]
+movdqa xmm1, xmm2
+palignr xmm3, xmm2, 0xa
+pmaxub xmm0, xmm5
+pshufb xmm1, xmmword [0x08002976]
+pxor xmm2, xmm2
+pshufb xmm3, xmmword [0x08002983]
+pmaxub xmm1, xmm5
+pmaxub xmm3, xmm5
+movdqa xmm5, xmm1
+punpckhbw xmm1, xmm4
+punpcklbw xmm5, xmm4
+movdqa xmm6, xmm5
+punpckhwd xmm5, xmm2
+movaps xmmword [r15 + 0x10], xmm5
+movdqa xmm5, xmm1
+punpckhwd xmm1, xmm2
+punpcklwd xmm6, xmm2
+movaps xmmword [r15 + 0x30], xmm1
+movdqa xmm1, xmm3
+punpcklwd xmm5, xmm2
+punpcklbw xmm1, xmm4
+movaps xmmword [r15 + 0x20], xmm5
+movdqa xmm5, xmm1
+punpckhwd xmm1, xmm2
+movaps xmmword [r15], xmm6
+movaps xmmword [r15 + 0x50], xmm1
+movdqa xmm1, xmm3
+punpcklwd xmm5, xmm2
+punpckhbw xmm1, xmm4
+movaps xmmword [r15 + 0x40], xmm5
+movdqa xmm3, xmm1
+punpckhwd xmm1, xmm2
+movaps xmmword [r15 + 0x70], xmm1
+movdqa xmm1, xmm0
+punpcklwd xmm3, xmm2
+punpckhbw xmm0, xmm4
+punpcklbw xmm1, xmm4
+movaps xmmword [r15 + 0x60], xmm3
+movdqa xmm3, xmm1
+punpckhwd xmm1, xmm2
+movaps xmmword [r15 + 0x90], xmm1
+movdqa xmm1, xmm0
+punpcklwd xmm3, xmm2
+punpckhwd xmm0, xmm2
+punpcklwd xmm1, xmm2
+movaps xmmword [r15 + 0x80], xmm3
+movaps xmmword [r15 + 0xa0], xmm1
+movaps xmmword [r15 + 0xb0], xmm0
+call method std::basic_ostream<char32_t, std::char_traits<char32_t> >::write(char32_t const*, long) [clone .isra.0]
+sub qword [arg_90h], rbx
+movdqa xmm9, xmmword [rsp]
+mov rsi, r15
+jmp 0x8002614
+test qword [arg_90h], 0x1f0
+je 0x8002cd2
+mov rbx, qword [arg_88h]
+mov rax, r15
+mov rdx, rbp
+movdqa xmm8, xmmword [0x08002a86]
+movdqa xmm7, xmmword [0x08002a8e]
+pxor xmm4, xmm4
+movdqa xmm6, xmmword [0x08002a9a]
+pxor xmm2, xmm2
+movdqa xmm12, xmmword [0x08002aa7]
+movdqa xmm5, xmmword [0x08002aaf]
+lea rdi, [rbp + rbx]
+movdqa xmm11, xmmword [0x08002abd]
+movdqa xmm10, xmmword [0x08002ac6]
+movdqa xmm0, xmmword [rdx]
+mov rcx, rdi
+add rdx, 0x10
+add rax, 0xc0
+sub rcx, rdx
+movdqa xmm1, xmm0
+pand xmm0, xmm8
+movdqa xmm3, xmm0
+psrlw xmm1, 4
+paddb xmm0, xmm6
+pcmpgtb xmm3, xmm7
+pand xmm1, xmm8
+pand xmm3, xmm9
+paddb xmm3, xmm0
+movdqa xmm0, xmm1
+pcmpgtb xmm0, xmm7
+movdqa xmm13, xmm0
+movdqa xmm0, xmm1
+pand xmm13, xmm9
+paddb xmm0, xmm6
+paddb xmm0, xmm13
+movdqa xmm13, xmm0
+punpckhbw xmm0, xmm3
+punpcklbw xmm13, xmm3
+movdqa xmm1, xmm0
+pshufb xmm0, xmm10
+movdqa xmm3, xmm13
+palignr xmm1, xmm13, 0xa
+pmaxub xmm0, xmm5
+pshufb xmm3, xmm12
+pshufb xmm1, xmm11
+pmaxub xmm3, xmm5
+pmaxub xmm1, xmm5
+movdqa xmm13, xmm3
+punpckhbw xmm3, xmm4
+punpcklbw xmm13, xmm4
+movdqa xmm14, xmm13
+punpckhwd xmm13, xmm2
+movaps xmmword [rax - 0xb0], xmm13
+movdqa xmm13, xmm3
+punpckhwd xmm3, xmm2
+punpcklwd xmm14, xmm2
+movaps xmmword [rax - 0x90], xmm3
+movdqa xmm3, xmm1
+punpcklwd xmm13, xmm2
+punpckhbw xmm1, xmm4
+punpcklbw xmm3, xmm4
+movaps xmmword [rax - 0xa0], xmm13
+movdqa xmm13, xmm3
+punpckhwd xmm3, xmm2
+movaps xmmword [rax - 0xc0], xmm14
+movaps xmmword [rax - 0x70], xmm3
+movdqa xmm3, xmm1
+punpckhwd xmm1, xmm2
+punpcklwd xmm13, xmm2
+movaps xmmword [rax - 0x50], xmm1
+movdqa xmm1, xmm0
+punpcklwd xmm3, xmm2
+punpckhbw xmm0, xmm4
+punpcklbw xmm1, xmm4
+movaps xmmword [rax - 0x60], xmm3
+movdqa xmm3, xmm1
+punpckhwd xmm1, xmm2
+movaps xmmword [rax - 0x80], xmm13
+movaps xmmword [rax - 0x30], xmm1
+movdqa xmm1, xmm0
+punpcklwd xmm3, xmm2
+punpckhwd xmm0, xmm2
+punpcklwd xmm1, xmm2
+movaps xmmword [rax - 0x40], xmm3
+movaps xmmword [rax - 0x20], xmm1
+movaps xmmword [rax - 0x10], xmm0
+cmp rcx, 0xf
+ja 0x8002ac6
+mov rax, qword [arg_88h]
+mov rbx, qword [arg_90h]
+sub rax, 0x10
+shr rax, 4
+add rax, 1
+lea rdx, [rax + rax*2]
+shl rax, 4
+add rbp, rax
+mov rax, qword [r14]
+shl rdx, 6
+add r15, rdx
+lea rdx, [0x08002c54]
+mov rax, qword [rax - 0x18]
+mov eax, dword [r14 + rax + 0x18]
+shr eax, 0xe
+and eax, 1
+shl rax, 4
+add rax, rdx
+and ebx, 0xf
+mov qword [arg_88h], rbx
+je 0x8002cbb
+mov edi, 1
+sub edi, ebp
+movzx edx, byte [rbp]
+mov dword [r15], 0x20
+add r15, 0xc
+mov rcx, rdx
+and edx, 0xf
+shr rcx, 4
+and ecx, 0xf
+movsx ecx, byte [rax + rcx]
+mov dword [r15 - 8], ecx
+movsx edx, byte [rax + rdx]
+mov dword [r15 - 4], edx
+lea edx, [rdi + rbp]
+add rbp, 1
+cmp rdx, qword [arg_88h]
+jb 0x8002c7e
+mov rdx, r15
+mov rdi, r14
+sub rdx, rsi
+sar rdx, 2
+call method std::basic_ostream<char32_t, std::char_traits<char32_t> >::write(char32_t const*, long) [clone .isra.0]
+jmp 0x80028a4
+mov rax, qword [r14]
+lea rdx, [0x08002cdc]
+mov rax, qword [rax - 0x18]
+mov eax, dword [r14 + rax + 0x18]
+shr eax, 0xe
+and eax, 1
+shl rax, 4
+add rax, rdx
+jmp 0x8002c77

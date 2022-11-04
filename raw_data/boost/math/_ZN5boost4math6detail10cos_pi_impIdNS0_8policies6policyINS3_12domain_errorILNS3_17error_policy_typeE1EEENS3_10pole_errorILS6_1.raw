@@ -1,0 +1,91 @@
+movq xmm2, qword [0x08000448]
+movsd xmm7, qword [0x08000450]
+movapd xmm1, xmm0
+andpd xmm1, xmm2
+comisd xmm7, xmm1
+jbe 0x8000470
+mulsd xmm0, qword [0x08000466]
+jmp cos
+nop dword [rax + rax]
+pxor xmm3, xmm3
+push rbx
+comisd xmm3, xmm0
+ja .LC3
+movapd xmm1, xmm0
+movapd xmm5, xmm0
+movapd xmm4, xmm2
+movsd xmm9, qword [0x08000494]
+andpd xmm1, xmm2
+ucomisd xmm9, xmm1
+ja 0x8000570
+movsd xmm4, qword [0x080004ab]
+movapd xmm1, xmm5
+movapd xmm8, xmm2
+mulsd xmm1, xmm4
+movapd xmm6, xmm1
+andpd xmm6, xmm2
+ucomisd xmm9, xmm6
+ja 0x8000530
+addsd xmm1, xmm1
+subsd xmm0, xmm5
+subsd xmm1, xmm5
+andpd xmm1, xmm2
+comisd xmm1, xmmword [0x080004df]
+seta bl
+comisd xmm0, xmm4
+jbe 0x80004fb
+movsd xmm1, qword [0x080004f0]
+xor ebx, 1
+subsd xmm1, xmm0
+movapd xmm0, xmm1
+ucomisd xmm0, xmm4
+jnp 0x80005c0
+comisd xmm0, xmm7
+ja 0x80005d0
+mulsd xmm0, qword [0x08000517]
+call cos
+test bl, bl
+je 0x8000528
+xorpd xmm0, xmmword [0x08000528]
+pop rbx
+ret
+nop word [rax + rax]
+cvttsd2si rax, xmm1
+pxor xmm6, xmm6
+andnpd xmm8, xmm1
+movsd xmm10, qword [0x08000547]
+cvtsi2sd xmm6, rax
+movapd xmm9, xmm6
+cmpnlesd xmm9, xmm1
+andpd xmm9, xmm10
+subsd xmm6, xmm9
+orpd xmm6, xmm8
+movapd xmm1, xmm6
+jmp 0x80004c7
+nop
+cvttsd2si rax, xmm0
+pxor xmm1, xmm1
+movsd xmm6, qword [0x08000581]
+andnpd xmm4, xmm0
+cvtsi2sd xmm1, rax
+movapd xmm5, xmm1
+cmpnlesd xmm5, xmm0
+andpd xmm5, xmm6
+subsd xmm1, xmm5
+movapd xmm5, xmm1
+orpd xmm5, xmm4
+jmp .LC54
+nop dword [rax + rax]
+xorpd xmm0, xmmword [0x080005b8]
+jmp 0x800047f
+nop dword [rax]
+jne 0x8000505
+movapd xmm0, xmm3
+pop rbx
+ret
+nop dword [rax]
+subsd xmm4, xmm0
+mulsd xmm4, qword [0x080005dc]
+movapd xmm0, xmm4
+call sin
+jmp 0x800051c

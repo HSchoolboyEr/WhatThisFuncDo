@@ -1,0 +1,33 @@
+push r12
+push rbp
+push rbx
+mov rbx, rdi
+mov edi, 0x30
+call _Znwm
+pxor xmm0, xmm0
+mov edi, 0x80
+movups xmmword [rax], xmm0
+mov rbp, rax
+movups xmmword [rax + 0x10], xmm0
+movups xmmword [rax + 0x20], xmm0
+call _Znwm
+movq xmm0, rax
+lea rdx, [rax + 0x80]
+mov qword [rbx], rbp
+punpcklqdq xmm0, xmm0
+mov qword [arg_28h], rdx
+movups xmmword [arg_18h], xmm0
+pcmpeqd xmm0, xmm0
+movups xmmword [rax], xmm0
+movups xmmword [rax + 0x10], xmm0
+movups xmmword [rax + 0x20], xmm0
+movups xmmword [rax + 0x30], xmm0
+movups xmmword [rax + 0x40], xmm0
+movups xmmword [rax + 0x50], xmm0
+movups xmmword [rax + 0x60], xmm0
+movups xmmword [rax + 0x70], xmm0
+pop rbx
+mov qword [arg_20h], rdx
+pop rbp
+pop r12
+ret

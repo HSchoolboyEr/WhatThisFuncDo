@@ -1,0 +1,79 @@
+push r12
+pxor xmm0, xmm0
+push rbp
+mov rbp, rsi
+push rbx
+mov r12, qword [rsi + 8]
+mov rbx, rdi
+sub r12, qword [rsi]
+mov qword [rdi + 0x10], 0
+movups xmmword [rdi], xmm0
+je 0x8016470
+movabs rax, 0x7ffffffffffffff8
+cmp r12, rax
+ja _ZSt17__throw_bad_allocv
+mov rdi, r12
+call _Znwm
+mov rdi, rax
+movq xmm0, rdi
+add r12, rdi
+punpcklqdq xmm0, xmm0
+mov qword [rbx + 0x10], r12
+movups xmmword [rbx], xmm0
+mov rcx, qword [arg_8h]
+mov r8, qword [rbp]
+cmp rcx, r8
+je 0x80163fd
+mov rax, r8
+mov rdx, rdi
+nop word [rax + rax]
+movdqu xmm1, xmmword [rax]
+movzx esi, byte [rax + 0x10]
+add rax, 0x18
+add rdx, 0x18
+movups xmmword [rdx - 0x18], xmm1
+mov byte [rdx - 8], sil
+cmp rcx, rax
+jne 0x80163d0
+sub rcx, 0x18
+sub rcx, r8
+shr rcx, 3
+lea rdi, [rdi + rcx*8 + 0x18]
+mov rax, qword [arg_38h]
+pxor xmm0, xmm0
+mov qword [rbx + 8], rdi
+mov qword [rbx + 0x28], 0
+mov qword [rbx + 0x38], rax
+mov rax, qword [arg_40h]
+mov byte [rbx + 0x30], 0
+mov qword [rbx + 0x40], rax
+movups xmmword [rbx + 0x18], xmm0
+test rax, rax
+je 0x8016438
+cmp qword [0x08016432], 0
+jne 0x8016480
+add dword [rax + 8], 1
+mov eax, dword [arg_48h]
+mov dword [rbx + 0x48], eax
+movzx eax, byte [arg_4ch]
+mov byte [rbx + 0x4c], al
+test al, al
+jne 0x8016461
+mov rax, qword [arg_28h]
+movdqu xmm2, xmmword [arg_18h]
+mov qword [rbx + 0x28], rax
+movzx eax, byte [arg_30h]
+movups xmmword [rbx + 0x18], xmm2
+mov byte [rbx + 0x30], al
+pop rbx
+pop rbp
+pop r12
+ret
+nop word cs:[rax + rax]
+xor r12d, r12d
+xor edi, edi
+jmp 0x80163a4
+nop word [rax + rax]
+lock add dword [rax + 8], 1
+jmp 0x8016438
+call _ZSt17__throw_bad_allocv

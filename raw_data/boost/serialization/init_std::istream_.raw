@@ -1,0 +1,94 @@
+push r12
+push rbp
+mov rbp, rsi
+push rbx
+mov rbx, rdi
+sub rsp, 0xa0
+call _ZN5boost7archive17basic_xml_grammarIcE10init_chsetEv
+add byte [rax], al
+add byte [rax], al
+mov ecx, 0x3e
+mov rsi, rbp
+mov rdi, rbx
+lea rdx, [rbx + 0xb8]
+call _ZNK5boost7archive17basic_xml_grammarIcE8my_parseERSiRKNS_6spirit7classic4ruleINS5_7scannerIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENS5_16scanner_policiesINS5_16iteration_policyENS5_12match_policyENS5_13acti
+test al, al
+je 0x800659d
+lea rdx, [rbx + 0xc8]
+mov ecx, 0x3e
+mov rsi, rbp
+mov rdi, rbx
+call _ZNK5boost7archive17basic_xml_grammarIcE8my_parseERSiRKNS_6spirit7classic4ruleINS5_7scannerIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENS5_16scanner_policiesINS5_16iteration_policyENS5_12match_policyENS5_13acti
+test al, al
+je 0x8006584
+lea rdx, [rbx + 0x118]
+mov ecx, 0x3e
+mov rsi, rbp
+mov rdi, rbx
+call _ZNK5boost7archive17basic_xml_grammarIcE8my_parseERSiRKNS_6spirit7classic4ruleINS5_7scannerIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENS5_16scanner_policiesINS5_16iteration_policyENS5_12match_policyENS5_13acti
+test al, al
+je 0x800656b
+call _ZN5boost7archive23BOOST_ARCHIVE_SIGNATUREEv
+mov rdx, qword [rbx + 0x228]
+mov rsi, rax
+test rdx, rdx
+je 0x8006543
+mov rdi, qword [rbx + 0x220]
+call memcmp
+test eax, eax
+jne 0x800654f
+add rsp, 0xa0
+pop rbx
+pop rbp
+pop r12
+ret
+mov r12, rsp
+xor ecx, ecx
+xor edx, edx
+mov esi, 3
+mov rdi, r12
+call _ZN5boost7archive17archive_exceptionC1ENS1_14exception_codeEPKcS4_
+mov rdi, r12
+call _ZN5boost13serialization15throw_exceptionINS_7archive17archive_exceptionEEEvRKT_
+mov r12, rsp
+xor ecx, ecx
+xor edx, edx
+xor esi, esi
+mov rdi, r12
+call _ZN5boost7archive21xml_archive_exceptionC1ENS1_14exception_codeEPKcS4_
+mov rdi, r12
+call _ZN5boost13serialization15throw_exceptionINS_7archive21xml_archive_exceptionEEEvRKT_
+add byte [rax], al
+add byte [rax], al
+mov r12, rsp
+xor ecx, ecx
+xor edx, edx
+xor esi, esi
+mov rdi, r12
+call _ZN5boost7archive21xml_archive_exceptionC1ENS1_14exception_codeEPKcS4_
+mov rdi, r12
+call _ZN5boost13serialization15throw_exceptionINS_7archive21xml_archive_exceptionEEEvRKT_
+mov r12, rsp
+xor ecx, ecx
+xor edx, edx
+xor esi, esi
+mov rdi, r12
+call _ZN5boost7archive21xml_archive_exceptionC1ENS1_14exception_codeEPKcS4_
+mov rdi, r12
+call _ZN5boost13serialization15throw_exceptionINS_7archive21xml_archive_exceptionEEEvRKT_
+mov rbp, rax
+jmp 0x80065c0
+mov rbp, rax
+jmp 0x80065d4
+mov rdi, r12
+call _ZN5boost7archive17archive_exceptionD1Ev
+mov rdi, rbp
+call _Unwind_Resume
+jmp 0x80065bb
+jmp 0x80065bb
+mov rdi, r12
+call _ZN5boost7archive21xml_archive_exceptionD1Ev
+add byte [rax], al
+add byte [rax], al
+mov rdi, rbp
+call _Unwind_Resume

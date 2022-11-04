@@ -1,0 +1,256 @@
+movzx eax, byte [0x08000977]
+test al, al
+je 0x8000988
+lea rax, [0x08000982]
+ret
+nop dword [rax + rax]
+push r14
+lea rdi, [0x08000991]
+push r13
+push r12
+push rbp
+push rbx
+sub rsp, 0x50
+call __cxa_guard_acquire
+test eax, eax
+jne 0x80009c0
+add rsp, 0x50
+lea rax, [0x080009af]
+pop rbx
+pop rbp
+pop r12
+pop r13
+pop r14
+ret
+nop dword [rax + rax]
+lea rbx, [0x080009c7]
+mov esi, 0xc8
+mov qword [0x080009d7], 0
+lea rdi, [rbx - 0x10]
+mov qword [0x080009e6], 0
+mov qword [0x080009f1], 0
+mov qword [0x080009fc], 0
+mov qword [0x08000a07], 0
+mov qword [0x08000a12], 0
+mov qword [0x08000a19], rbx
+mov qword [0x08000a24], 0
+mov byte [0x08000a2b], 0
+call _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7reserveEm
+add byte [rax], al
+add byte [rax], al
+lea rax, [0x08000a37]
+mov edi, 0x18
+lea rbp, [0x08000a43]
+mov qword [0x08000a4e], 0
+movq xmm1, rax
+mov qword [0x08000a5a], rbp
+punpcklqdq xmm1, xmm1
+mov byte [0x08000a65], 0
+movaps xmmword [rsp], xmm1
+movaps xmmword [0x08000a70], xmm1
+call _Znwm
+mov dword [rax + 8], 4
+mov rsi, rax
+lea r12, [var_10h]
+lea rax, [0x08000a8b]
+mov qword [rsi], rax
+mov ecx, 1
+mov edx, 1
+mov rdi, r12
+mov byte [rsi + 0xc], 0
+mov dword [rsi + 0x10], 0
+call method boost::unit_test::(anonymous namespace)::unit_test_log_data_helper_impl::unit_test_log_data_helper_impl(boost::unit_test::unit_test_log_formatter*, boost::unit_test::output_format, bool)
+mov rsi, r12
+lea rdi, [var_88h]
+call method void std::vector<boost::unit_test::(anonymous namespace)::unit_test_log_data_helper_impl, std::allocator<boost::unit_test::(anonymous namespace)::unit_test_log_data_helper_impl> >::emplace_back<boost::unit_test::(anonymous namespace)::unit_test_log_data_helper_impl>(boost::unit_test::(anonymous namespace)::unit_test_log_data_helper_impl&&)
+mov r13, qword [var_38h]
+test r13, r13
+je 0x8000ad0
+lock sub dword [r13 + 8], 1
+je 0x8000d50
+mov r13, qword [var_28h]
+test r13, r13
+je 0x8000ae6
+lock sub dword [r13 + 8], 1
+je 0x8000d90
+mov edi, 0x28
+call _Znwm
+mov dword [rax + 8], 4
+mov rsi, rax
+xor ecx, ecx
+mov rdi, r12
+lea rax, [0x08000b06]
+movdqa xmm2, xmmword [rsp]
+mov edx, 2
+mov qword [rsi], rax
+movups xmmword [rsi + 0x10], xmm2
+call method boost::unit_test::(anonymous namespace)::unit_test_log_data_helper_impl::unit_test_log_data_helper_impl(boost::unit_test::unit_test_log_formatter*, boost::unit_test::output_format, bool)
+mov rsi, r12
+lea rdi, [0x08000b26]
+call method void std::vector<boost::unit_test::(anonymous namespace)::unit_test_log_data_helper_impl, std::allocator<boost::unit_test::(anonymous namespace)::unit_test_log_data_helper_impl> >::emplace_back<boost::unit_test::(anonymous namespace)::unit_test_log_data_helper_impl>(boost::unit_test::(anonymous namespace)::unit_test_log_data_helper_impl&&)
+mov r13, qword [var_38h]
+test r13, r13
+je 0x8000b41
+lock sub dword [r13 + 8], 1
+je 0x8000dc8
+mov r13, qword [var_28h]
+test r13, r13
+je 0x8000b57
+lock sub dword [r13 + 8], 1
+je 0x8000d10
+mov edi, 0xd0
+call _Znwm
+mov rsi, rax
+lea rax, [0x08000b6b]
+xor ecx, ecx
+mov rdi, r12
+mov qword [rsi], rax
+lea rax, [rsi + 0x18]
+mov edx, 3
+mov qword [rsi + 0x28], rax
+mov qword [rsi + 0x30], rax
+lea rax, [rsi + 0x40]
+movq xmm0, rax
+lea rax, [rsi + 0x58]
+mov dword [rsi + 0x18], 0
+punpcklqdq xmm0, xmm0
+mov qword [rsi + 0x20], 0
+movups xmmword [rsi + 0x40], xmm0
+movq xmm0, rax
+lea rax, [rsi + 0x80]
+punpcklqdq xmm0, xmm0
+mov qword [rsi + 0x70], rax
+lea rax, [rsi + 0xb0]
+movups xmmword [rsi + 0x58], xmm0
+pxor xmm0, xmm0
+movups xmmword [rsi + 0x90], xmm0
+movq xmm0, rax
+mov qword [rsi + 0x38], 0
+punpcklqdq xmm0, xmm0
+mov qword [rsi + 0x50], 0
+mov qword [rsi + 0x68], 0
+mov qword [rsi + 0x78], 0
+mov byte [rsi + 0x80], 0
+mov qword [rsi + 0xa0], 0
+mov byte [rsi + 0xa8], 0
+mov qword [rsi + 0xc0], 0
+mov byte [rsi + 0xc8], 0
+mov dword [rsi + 8], 0
+mov dword [rsi + 0xcc], 2
+movups xmmword [rsi + 0xb0], xmm0
+call method boost::unit_test::(anonymous namespace)::unit_test_log_data_helper_impl::unit_test_log_data_helper_impl(boost::unit_test::unit_test_log_formatter*, boost::unit_test::output_format, bool)
+mov rsi, r12
+lea rdi, [0x08000c4d]
+call method void std::vector<boost::unit_test::(anonymous namespace)::unit_test_log_data_helper_impl, std::allocator<boost::unit_test::(anonymous namespace)::unit_test_log_data_helper_impl> >::emplace_back<boost::unit_test::(anonymous namespace)::unit_test_log_data_helper_impl>(boost::unit_test::(anonymous namespace)::unit_test_log_data_helper_impl&&)
+mov rbp, qword [var_38h]
+test rbp, rbp
+je 0x8000c63
+lock sub dword [var_8h], 1
+je 0x8000cd8
+mov rbp, qword [var_28h]
+test rbp, rbp
+je 0x8000c74
+lock sub dword [var_8h], 1
+je 0x8000ca0
+lea rdi, [0x08000c7b]
+call __cxa_guard_release
+lea rdx, [0x08000c87]
+lea rsi, [0x08000c8e]
+lea rdi, [method.boost::unit_test._anonymous_namespace_::unit_test_log_impl::unit_test_log_impl__]
+call __cxa_atexit
+jmp 0x80009a4
+nop
+mov rax, qword [rbp]
+mov rdi, rbp
+call qword [rax + 0x10]
+lock sub dword [var_ch], 1
+jne 0x8000c74
+mov rax, qword [rbp]
+lea rcx, [0x08000cbc]
+mov rdi, rbp
+mov rdx, qword [rax + 0x18]
+cmp rdx, rcx
+jne 0x8000dfd
+call qword [rax + 8]
+jmp 0x8000c74
+nop dword [rax]
+mov rax, qword [rbp]
+mov rdi, rbp
+call qword [rax + 0x10]
+lock sub dword [var_ch], 1
+jne 0x8000c63
+mov rax, qword [rbp]
+lea rcx, [0x08000cf8]
+mov rdi, rbp
+mov rdx, qword [rax + 0x18]
+cmp rdx, rcx
+jne 0x8000e19
+call qword [rax + 8]
+jmp 0x8000c63
+mov rax, qword [r13]
+mov rdi, r13
+call qword [rax + 0x10]
+lock sub dword [r13 + 0xc], 1
+jne 0x8000b57
+mov rax, qword [r13]
+lea rcx, [0x08000d31]
+mov rdi, r13
+mov rdx, qword [rax + 0x18]
+cmp rdx, rcx
+jne 0x8000e0b
+call qword [rax + 8]
+jmp 0x8000b57
+nop dword [rax]
+mov rax, qword [r13]
+mov rdi, r13
+call qword [rax + 0x10]
+lock sub dword [r13 + 0xc], 1
+jne 0x8000ad0
+mov rax, qword [r13]
+lea rcx, [0x08000d71]
+mov rdi, r13
+mov rdx, qword [rax + 0x18]
+cmp rdx, rcx
+jne 0x8000e12
+call qword [rax + 8]
+jmp 0x8000ad0
+nop dword [rax]
+mov rax, qword [r13]
+mov rdi, r13
+call qword [rax + 0x10]
+lock sub dword [r13 + 0xc], 1
+jne 0x8000ae6
+mov rax, qword [r13]
+lea rcx, [0x08000db1]
+mov rdi, r13
+mov rdx, qword [rax + 0x18]
+cmp rdx, rcx
+jne 0x8000e20
+call qword [rax + 8]
+jmp 0x8000ae6
+nop dword [rax]
+mov rax, qword [r13]
+mov rdi, r13
+call qword [rax + 0x10]
+lock sub dword [r13 + 0xc], 1
+jne 0x8000b41
+mov rax, qword [r13]
+lea rcx, [0x08000de9]
+mov rdi, r13
+mov rdx, qword [rax + 0x18]
+cmp rdx, rcx
+jne 0x8000e04
+call qword [rax + 8]
+jmp 0x8000b41
+call rdx
+jmp .bss
+call rdx
+jmp 0x8000b41
+call rdx
+jmp 0x8000b57
+call rdx
+jmp 0x8000ad0
+call rdx
+jmp 0x8000c63
+call rdx
+jmp 0x8000ae6

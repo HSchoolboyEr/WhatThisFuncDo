@@ -1,0 +1,207 @@
+push r12
+push rbx
+sub rsp, 0x38
+movsd qword [var_8h], xmm0
+fld qword [rsp + 8]
+fld st(0)
+fabs
+fld xword [0x0800006b]
+fxch st(1)
+fucomi st(1)
+ja 0x80000a8
+pxor xmm1, xmm1
+seta dl
+ucomisd xmm0, xmm1
+setnp al
+cmovne eax, edx
+test al, al
+jne 0x80000b0
+fxch st(1)
+fucompi st(1)
+fstp st(0)
+jae 0x80000c0
+fstp st(0)
+call __errno_location
+movsd xmm0, qword [0x0800009d]
+mov dword [rax], 0x21
+jmp 0x80000b6
+nop dword [rax]
+fstp st(0)
+fstp st(0)
+fstp st(0)
+jmp 0x80000b6
+fstp st(0)
+fstp st(0)
+fstp st(0)
+add rsp, 0x38
+pop rbx
+pop r12
+ret
+nop
+comisd xmm1, xmm0
+ja 0x8000200
+mov dword [var_8h], 1
+lea rdi, [var_2ch]
+sub rsp, 0x10
+fld st(0)
+fstp xword [rsp]
+fstp xword [rsp + 0x20]
+call frexpl
+movsxd r12, dword [var_2ch]
+pop rcx
+fld st(0)
+pop rsi
+fld st(1)
+mov rbx, r12
+fmulp st(2)
+imul r12, r12, 0x55555556
+mov eax, ebx
+sar eax, 0x1f
+shr r12, 0x20
+fld st(1)
+fmul qword [0x08000111]
+sub r12d, eax
+fadd qword [0x0800011a]
+lea eax, [r12 + 0x3f]
+cmp eax, 0x7e
+fmul st(2)
+fadd qword [0x0800012a]
+fmulp st(1)
+fld st(1)
+fmul qword [0x08000134]
+fsub qword [0x0800013a]
+fmulp st(2)
+fxch st(1)
+fadd qword [0x08000144]
+faddp st(1)
+fld xword [rsp + 0x10]
+ja 0x8000290
+lea edx, [r12 + r12*2]
+mov eax, ebx
+sub eax, edx
+lea rdx, [0x0800015f]
+add eax, 2
+cdqe
+shl rax, 4
+fld xword [rdx + rax]
+cmp ebx, 2
+jle 0x8000210
+mov eax, 1
+mov ecx, r12d
+shl rax, cl
+mov qword [var_10h], rax
+fild qword [rsp + 0x10]
+test rax, rax
+js .LC9
+fmulp st(3)
+fmulp st(2)
+fld dword [0x0800019b]
+cmp ebx, 0x3ffc
+jle .LC11
+nop word [rax + rax]
+fld st(2)
+fmul st(3)
+fld st(2)
+fdiv st(4)
+fsubr st(1)
+fld st(4)
+fadd st(5)
+fxch st(2)
+fdivr st(4)
+faddp st(2)
+fdivrp st(1)
+fld st(0)
+fxch st(4)
+fsubrp st(1)
+fld st(0)
+fmul st(2)
+fxch st(4)
+fabs
+fcompi st(4)
+fstp st(3)
+ja 0x80001b0
+fstp st(0)
+fstp st(0)
+fild dword [rsp + 8]
+fmulp st(1)
+fstp qword [rsp + 8]
+movsd xmm0, qword [var_8h]
+add rsp, 0x38
+pop rbx
+pop r12
+ret
+nop word cs:[rax + rax]
+mov dword [var_8h], 0xffffffff
+fchs
+jmp 0x80000d2
+nop
+mov ecx, r12d
+mov eax, 1
+neg ecx
+shl rax, cl
+mov qword [var_10h], rax
+fild qword [rsp + 0x10]
+test rax, rax
+js .LC9
+fdivp st(3)
+fmulp st(2)
+jmp 0x800023a
+nop dword [rax]
+fstp st(0)
+fld dword [0x08000240]
+fld1
+nop word [rax + rax]
+fld st(3)
+fmul st(4)
+fmul st(4)
+fld st(3)
+fadd st(1)
+fadd st(4)
+fxch st(1)
+fadd st(0)
+fadd st(4)
+fdivp st(1)
+fld st(0)
+fxch st(5)
+fmulp st(1)
+fxch st(4)
+fsubr st(1)
+fabs
+fld st(2)
+fxch st(1)
+fcompi st(1)
+fstp st(0)
+ja 0x8000248
+fstp st(0)
+fstp st(0)
+fstp st(0)
+fild dword [rsp + 8]
+fmulp st(1)
+fstp qword [rsp + 8]
+movsd xmm0, qword [var_8h]
+jmp 0x80001ee
+nop dword [rax]
+fstp xword [rsp + 0x10]
+sub rsp, 0x10
+mov edi, r12d
+fstp xword [rsp]
+call ldexpl
+lea edx, [r12 + r12*2]
+mov eax, ebx
+sub eax, edx
+lea rdx, [0x080002b2]
+add eax, 2
+cdqe
+shl rax, 4
+fld xword [rdx + rax]
+pop rax
+pop rdx
+fld xword [rsp + 0x10]
+fxch st(1)
+jmp .LC11
+nop dword [rax + rax]
+fadd dword [0x080002d6]
+jmp 0x800022f
+nop dword [rax + rax]
+fadd dword [0x080002e6]
+jmp 0x8000191

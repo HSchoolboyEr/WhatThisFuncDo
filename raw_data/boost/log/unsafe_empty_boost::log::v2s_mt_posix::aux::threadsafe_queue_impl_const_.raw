@@ -1,0 +1,4 @@
+mov rax, qword [rdi + 0x80]
+cmp qword [rdi], rax
+sete al
+ret

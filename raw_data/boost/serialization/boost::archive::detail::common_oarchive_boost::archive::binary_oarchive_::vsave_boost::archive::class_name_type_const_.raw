@@ -1,0 +1,72 @@
+push r14
+push r13
+push r12
+push rbp
+push rbx
+sub rsp, 0x30
+mov r13, qword [rsi]
+lea rbp, [var_20h]
+mov qword [var_10h], rbp
+test r13, r13
+je .LC0
+mov rbx, rdi
+mov rdi, r13
+lea r12, [var_10h]
+call strlen
+mov qword [var_8h], rax
+mov r14, rax
+cmp rax, 0xf
+ja 0x8000e88
+cmp rax, 1
+jne 0x8000e78
+movzx edx, byte [r13]
+mov byte [var_20h], dl
+mov rdx, rbp
+mov qword [var_18h], rax
+mov rdi, rbx
+mov byte [rdx + rax], 0
+call _ZN5boost7archive6detail14basic_oarchive12end_preambleEv
+lea rdi, [rbx + 0x28]
+mov rsi, r12
+call _ZN5boost7archive23basic_binary_oprimitiveINS0_15binary_oarchiveEcSt11char_traitsIcEE4saveERKNSt7__cxx1112basic_stringIcS4_SaIcEEE
+mov rdi, qword [var_10h]
+cmp rdi, rbp
+je 0x8000e67
+mov rax, qword [var_20h]
+lea rsi, [rax + 1]
+call _ZdlPvm
+add rsp, 0x30
+pop rbx
+pop rbp
+pop r12
+pop r13
+pop r14
+ret
+nop dword [rax]
+test rax, rax
+jne 0x8000ecf
+mov rdx, rbp
+jmp 0x8000e32
+nop word [rax + rax]
+mov rdi, r12
+lea rsi, [var_8h]
+xor edx, edx
+call _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm
+add byte [rax], al
+add byte [rax], al
+mov qword [var_10h], rax
+mov rdi, rax
+mov rax, qword [var_8h]
+mov qword [var_20h], rax
+mov rdx, r14
+mov rsi, r13
+call memcpy
+mov rax, qword [var_8h]
+mov rdx, qword [var_10h]
+jmp 0x8000e32
+lea rdi, [0x08000eca]
+call _ZSt19__throw_logic_errorPKc
+add byte [rax], al
+add byte [rax], al
+mov rdi, rbp
+jmp 0x8000ea9

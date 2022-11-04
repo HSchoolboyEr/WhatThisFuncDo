@@ -1,0 +1,74 @@
+mov eax, 0xffffffff
+cmp esi, 0x10ffff
+ja 0x8001bee
+lea edi, [rsi - 0xd800]
+cmp edi, 0x7ff
+jbe 0x8001bee
+sub rcx, rdx
+cmp esi, 0x7f
+jbe 0x8001c20
+cmp esi, 0x7ff
+jbe 0x8001c30
+cmp esi, 0xffff
+ja 0x8001c50
+mov eax, 0xfffffffe
+cmp rcx, 2
+jg 0x8001bf0
+ret
+nop
+mov eax, esi
+shr eax, 0xc
+or eax, 0xffffffe0
+mov byte [rdx], al
+mov eax, esi
+and esi, 0x3f
+shr eax, 6
+or esi, 0xffffff80
+and eax, 0x3f
+mov byte [rdx + 2], sil
+or eax, 0xffffff80
+mov byte [rdx + 1], al
+mov eax, 3
+ret
+nop dword [rax + rax]
+test rcx, rcx
+jle 0x8001c91
+mov byte [rdx], sil
+mov eax, 1
+ret
+nop
+cmp rcx, 1
+jle 0x8001c91
+mov eax, esi
+and esi, 0x3f
+shr eax, 6
+or esi, 0xffffff80
+or eax, 0xffffffc0
+mov byte [rdx + 1], sil
+mov byte [rdx], al
+mov eax, 2
+ret
+mov eax, 0xfffffffe
+cmp rcx, 3
+jle 0x8001bee
+mov eax, esi
+shr eax, 0x12
+or eax, 0xfffffff0
+mov byte [rdx], al
+mov eax, esi
+shr eax, 0xc
+and eax, 0x3f
+or eax, 0xffffff80
+mov byte [rdx + 1], al
+mov eax, esi
+and esi, 0x3f
+shr eax, 6
+or esi, 0xffffff80
+and eax, 0x3f
+mov byte [rdx + 3], sil
+or eax, 0xffffff80
+mov byte [rdx + 2], al
+mov eax, 4
+ret
+mov eax, 0xfffffffe
+ret

@@ -1,0 +1,13 @@
+test rdi, rdi
+je 0x8000460
+push rbp
+mov rbp, rdi
+lea rdi, [rdi + 0x88]
+call pthread_mutex_destroy
+lea rdi, [arg_8h]
+call pthread_mutex_destroy
+mov rdi, rbp
+pop rbp
+jmp free
+nop word [rax + rax]
+ret

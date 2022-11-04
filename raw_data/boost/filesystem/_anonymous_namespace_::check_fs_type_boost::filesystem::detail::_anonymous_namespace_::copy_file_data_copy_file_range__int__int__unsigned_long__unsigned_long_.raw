@@ -1,0 +1,140 @@
+push r15
+push r14
+mov r14d, edi
+push r13
+push r12
+mov r12, rdx
+push rbp
+mov ebp, esi
+push rbx
+sub rsp, 0x98
+mov qword [rsp], rcx
+lea rbx, [var_10h]
+mov rsi, rbx
+mov edi, r14d
+call fstatfs64
+test eax, eax
+js __errno_location
+mov rax, qword [var_10h]
+cmp rax, 0x9fa0
+sete dl
+cmp rax, 0x62656572
+sete cl
+or edx, ecx
+cmp rax, 0x74726163
+sete cl
+or dl, cl
+jne 0x800046e
+cmp rax, 0x64626720
+je 0x800046e
+xor ebx, ebx
+mov r13d, 0x7ffff000
+test r12, r12
+jne 0x80003ec
+jmp 0x8000488
+nop dword [rax]
+add rbx, rax
+cmp r12, rbx
+jbe 0x8000488
+mov r15, r12
+mov r9, r13
+mov ecx, ebp
+mov esi, r14d
+sub r15, rbx
+mov edi, 0x146
+cmp r15, 0x7fffefff
+cmovbe r9, r15
+sub rsp, 8
+xor edx, edx
+xor r8d, r8d
+push 0
+xor eax, eax
+call syscall
+pop rdx
+pop rcx
+test rax, rax
+jns 0x80003e0
+call __errno_location
+mov r8, rax
+mov eax, dword [rax]
+cmp eax, 4
+je 0x80003e3
+test rbx, rbx
+jne 0x800044b
+cmp eax, 0x16
+je 0x8000490
+cmp eax, 0x5f
+je 0x8000490
+cmp eax, 0x12
+je 0x80004c0
+cmp eax, 0x26
+je 0x80004b2
+add rsp, 0x98
+pop rbx
+pop rbp
+pop r12
+pop r13
+pop r14
+pop r15
+ret
+nop dword [rax]
+call __errno_location
+cmp dword [rax], 4
+je 0x8000382
+mov rcx, qword [rsp]
+mov rdx, r12
+mov esi, ebp
+mov edi, r14d
+call method boost::filesystem::detail::(anonymous namespace)::copy_file_data_read_write(int, int, unsigned long, unsigned long)
+jmp 0x800044b
+nop dword [rax]
+xor eax, eax
+jmp 0x800044b
+nop dword [rax]
+mov rcx, qword [rsp]
+mov rdx, r15
+add rsp, 0x98
+mov esi, ebp
+mov edi, r14d
+pop rbx
+pop rbp
+pop r12
+pop r13
+pop r14
+pop r15
+jmp method boost::filesystem::detail::(anonymous namespace)::copy_file_data_read_write(int, int, unsigned long, unsigned long)
+lea rax, [method.int_boost::filesystem::detail._anonymous_namespace_::check_fs_type_boost::filesystem::detail::_anonymous_namespace_::copy_file_data_sendfile__int__int__unsigned_long__unsigned_long_]
+mov qword [0x080004c0], rax
+mov r12d, 0x7ffff000
+jmp 0x80004d8
+nop dword [rax + rax]
+add rbx, rax
+cmp r15, rbx
+jbe 0x8000488
+mov r13, r15
+mov rcx, r12
+mov esi, r14d
+mov edi, ebp
+sub r13, rbx
+mov qword [var_8h], r8
+cmp r13, 0x7fffefff
+cmovbe rcx, r13
+xor edx, edx
+call sendfile64
+mov r8, qword [var_8h]
+test rax, rax
+jns 0x80004d0
+mov eax, dword [r8]
+cmp eax, 4
+je 0x80004d3
+test rbx, rbx
+jne 0x800044b
+cmp eax, 0x16
+je 0x8000534
+cmp eax, 0x26
+jne 0x800044b
+lea rax, [method.boost::filesystem::detail._anonymous_namespace_::copy_file_data_read_write_int__int__unsigned_long__unsigned_long_]
+mov qword [0x08000534], rax
+mov rcx, qword [rsp]
+mov rdx, r13
+jmp 0x8000497

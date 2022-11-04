@@ -1,0 +1,17 @@
+mov rax, qword [rdi + 0xd8]
+mov ecx, esi
+xor ecx, 1
+mov rdx, qword [rax + 8]
+mov qword [rdi + 0x58], rdx
+mov rdx, qword [rax + 0x10]
+mov qword [rdi + 0x28], rdx
+movzx edx, byte [rax + 0x18]
+mov byte [rdi + 0xe5], 1
+test dl, dl
+cmovne ecx, esi
+add rax, 0x20
+mov qword [rdi + 0xd8], rax
+mov eax, edx
+mov byte [rdi + 0xe4], cl
+xor eax, esi
+ret

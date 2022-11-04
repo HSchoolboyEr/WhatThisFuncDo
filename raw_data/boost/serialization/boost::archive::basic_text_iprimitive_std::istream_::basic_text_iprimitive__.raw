@@ -1,0 +1,42 @@
+push r12
+push rbp
+push rbx
+mov rbx, rdi
+lea rbp, [rbx + 0x50]
+sub rsp, 0x10
+mov rdi, qword [rdi + 0x48]
+lea r12, [var_8h]
+call _ZNSi4syncEv
+add byte [rax], al
+add byte [rax], al
+mov rsi, qword [rbx + 0x48]
+mov rdx, rbp
+mov rdi, r12
+mov rax, qword [rsi]
+add rsi, qword [rax - 0x18]
+call _ZNSt9basic_iosIcSt11char_traitsIcEE5imbueERKSt6locale
+add byte [rax], al
+add byte [rax], al
+mov rdi, r12
+call _ZNSt6localeD1Ev
+add byte [rax], al
+add byte [rax], al
+mov rdi, rbp
+call _ZNSt6localeD1Ev
+lea rdi, [rbx + 0x40]
+call _ZNSt6localeD1Ev
+lea rax, [0x080003d3]
+lea rdi, [rbx + 0x28]
+mov qword [rbx + 0x28], rax
+call _ZNSt7codecvtIcc11__mbstate_tED2Ev
+mov rax, qword [rbx + 0x18]
+mov rdx, qword [rbx + 0x20]
+mov qword [rax + 8], rdx
+mov rax, qword [rbx + 8]
+mov edx, dword [rbx + 0x10]
+mov dword [rax + 0x18], edx
+add rsp, 0x10
+pop rbx
+pop rbp
+pop r12
+ret

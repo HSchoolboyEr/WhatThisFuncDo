@@ -1,0 +1,7 @@
+cmp byte [rdi + 0x10], 0
+jne 0x8001840
+cmp dword [rsi + 0xdc], 1
+je 0x8001840
+ret
+add qword [rdi + 8], 1
+ret

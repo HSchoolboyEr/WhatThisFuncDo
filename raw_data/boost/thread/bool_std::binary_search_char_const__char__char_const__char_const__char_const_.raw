@@ -1,0 +1,28 @@
+mov r8, rsi
+mov rsi, rdx
+mov rax, r8
+sub rax, rdi
+nop dword [rax]
+test rax, rax
+jle 0x800a9c8
+mov rdx, rax
+movzx r9d, byte [rsi]
+sar rdx, 1
+lea rcx, [rdi + rdx]
+cmp byte [rcx], r9b
+jge 0x800a9e0
+sub rax, rdx
+lea rdi, [rcx + 1]
+sub rax, 1
+test rax, rax
+jg 0x800a9a5
+xor eax, eax
+cmp r8, rdi
+je 0x800a9d7
+movzx eax, byte [rdi]
+cmp byte [rsi], al
+setge al
+ret
+nop dword [rax + rax]
+mov rax, rdx
+jmp 0x800a9a0

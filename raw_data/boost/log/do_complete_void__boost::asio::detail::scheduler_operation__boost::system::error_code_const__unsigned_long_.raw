@@ -1,0 +1,82 @@
+push rbp
+mov rbp, rdi
+mov rdi, rsi
+push rbx
+sub rsp, 0x38
+mov rbx, qword [rsi + 0x18]
+lea rax, [var_fh]
+mov qword [var_18h], rsi
+mov qword [var_10h], rax
+mov qword [var_20h], 0
+mov rax, qword fs:[0]
+test rax, rax
+je free
+mov rax, qword [rax + 8]
+test rax, rax
+je free
+cmp qword [rax], 0
+je 0x80119a0
+cmp qword [rax + 8], 0
+mov edx, 1
+je 0x80119a2
+call free
+mov qword [var_18h], 0
+test rbp, rbp
+je 0x8011980
+test rbx, rbx
+je 0x801191b
+mov esi, 1
+mov rdi, rbx
+call qword [rbx]
+mov rax, qword [var_20h]
+test rax, rax
+je 0x801193e
+mov rax, qword [rax + 0x18]
+test rax, rax
+je 0x8011935
+xor esi, esi
+mov rdi, rax
+call qword [rax]
+mov qword [var_20h], 0
+mov rdi, qword [var_18h]
+test rdi, rdi
+je 0x8011976
+mov rax, qword fs:[0]
+test rax, rax
+je free
+mov rax, qword [rax + 8]
+test rax, rax
+je free
+cmp qword [rax], 0
+je 0x8011990
+cmp qword [rax + 8], 0
+mov edx, 1
+je 0x8011992
+call free
+add rsp, 0x38
+pop rbx
+pop rbp
+ret
+nop dword [rax]
+test rbx, rbx
+je 0x80119b1
+xor esi, esi
+mov rdi, rbx
+call qword [rbx]
+jmp 0x801191b
+nop
+xor edx, edx
+movzx ecx, byte [rdi + 0x28]
+mov byte [rdi], cl
+mov qword [rax + rdx*8], rdi
+jmp 0x8011976
+nop
+xor edx, edx
+movzx ecx, byte [rdi + 0x28]
+mov byte [rdi], cl
+mov qword [rax + rdx*8], rdi
+jmp 0x80118fe
+mov rax, qword [var_20h]
+test rax, rax
+jne 0x8011925
+jmp 0x8011976

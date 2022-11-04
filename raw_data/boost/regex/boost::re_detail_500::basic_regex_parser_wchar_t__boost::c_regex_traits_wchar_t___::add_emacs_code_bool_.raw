@@ -1,0 +1,343 @@
+push r13
+push r12
+push rbp
+mov rbp, rdi
+push rbx
+sub rsp, 0xa8
+mov rdx, qword [rdi + 0x88]
+lea rcx, [rdx + 4]
+mov qword [rdi + 0x88], rcx
+cmp rcx, qword [rdi + 0x80]
+je 0x801b2e8
+lea rax, [var_18h]
+pxor xmm0, xmm0
+xor edi, edi
+mov byte [var_64h], 1
+mov qword [var_28h], rax
+mov qword [var_30h], rax
+lea rax, [var_70h]
+mov dword [var_18h], 0
+mov qword [var_20h], 0
+mov qword [var_38h], 0
+mov qword [var_50h], 0
+mov dword [var_70h], 0
+mov qword [var_78h], 0
+mov qword [var_80h], rax
+mov qword [var_88h], rax
+mov qword [var_90h], 0
+mov word [var_58h], di
+mov qword [var_5ch], 0
+movaps xmmword [var_40h], xmm0
+test sil, sil
+je 0x801adfb
+mov byte [var_58h], 1
+mov eax, dword [rdx + 4]
+sub eax, 0x20
+cmp eax, 0x57
+ja 0x801ae20
+lea rdx, [0x0801ae0d]
+movsxd rax, dword [rdx + rax*4]
+add rax, rdx
+jmp rax
+nop word cs:[rax + rax]
+sub rcx, qword [arg_78h]
+mov esi, 4
+mov rdi, rbp
+mov rdx, rcx
+lea r12, [var_10h]
+sar rdx, 2
+call _ZN5boost13re_detail_50018basic_regex_parserIwNS_14c_regex_traitsIwEEE4failENS_15regex_constants10error_typeEl
+xor r12d, r12d
+mov rbx, qword [var_78h]
+test rbx, rbx
+je 0x801ae69
+mov rdi, qword [rbx + 0x18]
+call .text
+mov rdi, rbx
+mov rbx, qword [rbx + 0x10]
+mov esi, 0x28
+call _ZdlPvm
+test rbx, rbx
+jne 0x801ae4a
+mov rdi, qword [var_40h]
+test rdi, rdi
+je 0x801ae80
+mov rsi, qword [var_50h]
+sub rsi, rdi
+call _ZdlPvm
+mov rbx, qword [var_20h]
+test rbx, rbx
+je 0x801aea9
+mov rdi, qword [rbx + 0x18]
+call .text
+mov rdi, rbx
+mov rbx, qword [rbx + 0x10]
+mov esi, 0x28
+call _ZdlPvm
+test rbx, rbx
+jne 0x801ae8a
+add rsp, 0xa8
+mov eax, r12d
+pop rbx
+pop rbp
+pop r12
+pop r13
+ret
+mov eax, dword [rbp + 0x54]
+mov byte [rsp + 0x64], 0
+lea r12, [rsp + 0x10]
+mov dword [rsp + 0x5c], eax
+nop dword [rax + rax]
+mov rsi, r12
+mov rdi, rbp
+call .text
+mov rdx, qword [rbp + 0x88]
+test rax, rax
+je 0x801b340
+add rdx, 4
+mov r12d, 1
+mov qword [rbp + 0x88], rdx
+jmp 0x801ae40
+mov rax, qword [0x0801af08]
+lea r13, [rsp + 8]
+lea r12, [rsp + 0x10]
+mov rsi, r13
+mov rdi, r12
+mov qword [rsp + 8], rax
+call _ZNSt8_Rb_treeIN5boost13re_detail_5007digraphIwEES3_St9_IdentityIS3_ESt4lessIS3_ESaIS3_EE16_M_insert_uniqueIRKS3_EESt4pairISt17_Rb_tree_iteratorIS3_EbEOT_
+mov ecx, dword [rsp + 0xc]
+test ecx, ecx
+jne 0x801b3be
+mov rax, qword [0x0801af35]
+mov rsi, r13
+mov rdi, r12
+mov byte [rsp + 0x64], 0
+mov qword [rsp + 8], rax
+call _ZNSt8_Rb_treeIN5boost13re_detail_5007digraphIwEES3_St9_IdentityIS3_ESt4lessIS3_ESaIS3_EE16_M_insert_uniqueIRKS3_EESt4pairISt17_Rb_tree_iteratorIS3_EbEOT_
+mov edx, dword [rsp + 0xc]
+test edx, edx
+jne 0x801b3b4
+mov rax, qword [0x0801af5d]
+mov rsi, r13
+mov rdi, r12
+mov byte [rsp + 0x64], 0
+mov qword [rsp + 8], rax
+call _ZNSt8_Rb_treeIN5boost13re_detail_5007digraphIwEES3_St9_IdentityIS3_ESt4lessIS3_ESaIS3_EE16_M_insert_uniqueIRKS3_EESt4pairISt17_Rb_tree_iteratorIS3_EbEOT_
+mov eax, dword [rsp + 0xc]
+test eax, eax
+jne 0x801b3aa
+mov rax, qword [0x0801af85]
+mov rsi, r13
+mov rdi, r12
+mov byte [rsp + 0x64], 0
+mov qword [rsp + 8], rax
+call _ZNSt8_Rb_treeIN5boost13re_detail_5007digraphIwEES3_St9_IdentityIS3_ESt4lessIS3_ESaIS3_EE16_M_insert_uniqueIRKS3_EESt4pairISt17_Rb_tree_iteratorIS3_EbEOT_
+mov eax, dword [rsp + 0xc]
+test eax, eax
+jne 0x801b3a0
+mov rax, qword [0x0801afad]
+mov rsi, r13
+mov rdi, r12
+mov byte [rsp + 0x64], 0
+mov qword [rsp + 8], rax
+call _ZNSt8_Rb_treeIN5boost13re_detail_5007digraphIwEES3_St9_IdentityIS3_ESt4lessIS3_ESaIS3_EE16_M_insert_uniqueIRKS3_EESt4pairISt17_Rb_tree_iteratorIS3_EbEOT_
+mov eax, dword [rsp + 0xc]
+test eax, eax
+jne 0x801b396
+mov rax, qword [0x0801afd5]
+mov rsi, r13
+mov rdi, r12
+mov byte [rsp + 0x64], 0
+mov qword [rsp + 8], rax
+call _ZNSt8_Rb_treeIN5boost13re_detail_5007digraphIwEES3_St9_IdentityIS3_ESt4lessIS3_ESaIS3_EE16_M_insert_uniqueIRKS3_EESt4pairISt17_Rb_tree_iteratorIS3_EbEOT_
+mov eax, dword [rsp + 0xc]
+test eax, eax
+jne 0x801b38c
+mov rax, qword [0x0801affd]
+mov rsi, r13
+mov rdi, r12
+mov byte [rsp + 0x64], 0
+mov qword [rsp + 8], rax
+call _ZNSt8_Rb_treeIN5boost13re_detail_5007digraphIwEES3_St9_IdentityIS3_ESt4lessIS3_ESaIS3_EE16_M_insert_uniqueIRKS3_EESt4pairISt17_Rb_tree_iteratorIS3_EbEOT_
+mov eax, dword [rsp + 0xc]
+test eax, eax
+jne 0x801b382
+mov rax, qword [0x0801b025]
+mov rsi, r13
+mov rdi, r12
+mov byte [rsp + 0x64], 0
+mov qword [rsp + 8], rax
+call _ZNSt8_Rb_treeIN5boost13re_detail_5007digraphIwEES3_St9_IdentityIS3_ESt4lessIS3_ESaIS3_EE16_M_insert_uniqueIRKS3_EESt4pairISt17_Rb_tree_iteratorIS3_EbEOT_
+nop word [rax + rax]
+mov eax, dword [rsp + 0xc]
+test eax, eax
+je 0x801b04d
+mov byte [rsp + 0x59], 1
+mov byte [rsp + 0x64], 0
+jmp 0x801aed0
+mov rax, qword [0x0801b05e]
+lea r13, [rsp + 8]
+lea r12, [rsp + 0x10]
+mov rsi, r13
+mov rdi, r12
+mov qword [rsp + 8], rax
+call _ZNSt8_Rb_treeIN5boost13re_detail_5007digraphIwEES3_St9_IdentityIS3_ESt4lessIS3_ESaIS3_EE16_M_insert_uniqueIRKS3_EESt4pairISt17_Rb_tree_iteratorIS3_EbEOT_
+mov edx, dword [rsp + 0xc]
+test edx, edx
+je 0x801b085
+mov byte [rsp + 0x59], 1
+mov rax, qword [0x0801b08c]
+mov rsi, r13
+mov rdi, r12
+mov byte [rsp + 0x64], 0
+mov qword [rsp + 8], rax
+call _ZNSt8_Rb_treeIN5boost13re_detail_5007digraphIwEES3_St9_IdentityIS3_ESt4lessIS3_ESaIS3_EE16_M_insert_uniqueIRKS3_EESt4pairISt17_Rb_tree_iteratorIS3_EbEOT_
+jmp 0x801b040
+mov eax, dword [rbp + 0x50]
+mov byte [rsp + 0x64], 0
+lea r12, [rsp + 0x10]
+mov dword [rsp + 0x5c], eax
+jmp 0x801aed0
+mov rax, qword [0x0801b0c0]
+lea r13, [rsp + 8]
+lea r12, [rsp + 0x10]
+mov rsi, r13
+mov rdi, r12
+mov qword [rsp + 8], rax
+call _ZNSt8_Rb_treeIN5boost13re_detail_5007digraphIwEES3_St9_IdentityIS3_ESt4lessIS3_ESaIS3_EE16_M_insert_uniqueIRKS3_EESt4pairISt17_Rb_tree_iteratorIS3_EbEOT_
+mov esi, dword [rsp + 0xc]
+test esi, esi
+jne 0x801b378
+mov rax, qword [0x0801b0ed]
+mov rsi, r13
+mov rdi, r12
+mov byte [rsp + 0x64], 0
+mov qword [rsp + 8], rax
+call _ZNSt8_Rb_treeIN5boost13re_detail_5007digraphIwEES3_St9_IdentityIS3_ESt4lessIS3_ESaIS3_EE16_M_insert_uniqueIRKS3_EESt4pairISt17_Rb_tree_iteratorIS3_EbEOT_
+mov ecx, dword [rsp + 0xc]
+test ecx, ecx
+je 0x801b10f
+mov byte [rsp + 0x59], 1
+mov rax, qword [0x0801b116]
+mov rsi, r13
+mov rdi, r12
+mov byte [rsp + 0x64], 0
+mov qword [rsp + 8], rax
+call _ZNSt8_Rb_treeIN5boost13re_detail_5007digraphIwEES3_St9_IdentityIS3_ESt4lessIS3_ESaIS3_EE16_M_insert_uniqueIRKS3_EESt4pairISt17_Rb_tree_iteratorIS3_EbEOT_
+jmp 0x801b040
+mov rax, qword [0x0801b137]
+lea r13, [rsp + 8]
+lea r12, [rsp + 0x10]
+mov rsi, r13
+mov rdi, r12
+mov qword [rsp + 8], rax
+call _ZNSt8_Rb_treeIN5boost13re_detail_5007digraphIwEES3_St9_IdentityIS3_ESt4lessIS3_ESaIS3_EE16_M_insert_uniqueIRKS3_EESt4pairISt17_Rb_tree_iteratorIS3_EbEOT_
+mov r8d, dword [rsp + 0xc]
+test r8d, r8d
+jne 0x801b36e
+mov rax, qword [0x0801b166]
+mov rsi, r13
+mov rdi, r12
+mov byte [rsp + 0x64], 0
+mov qword [rsp + 8], rax
+call _ZNSt8_Rb_treeIN5boost13re_detail_5007digraphIwEES3_St9_IdentityIS3_ESt4lessIS3_ESaIS3_EE16_M_insert_uniqueIRKS3_EESt4pairISt17_Rb_tree_iteratorIS3_EbEOT_
+mov edi, dword [rsp + 0xc]
+test edi, edi
+je 0x801b188
+mov byte [rsp + 0x59], 1
+mov rax, qword [0x0801b18f]
+mov rsi, r13
+mov rdi, r12
+mov byte [rsp + 0x64], 0
+mov qword [rsp + 8], rax
+call _ZNSt8_Rb_treeIN5boost13re_detail_5007digraphIwEES3_St9_IdentityIS3_ESt4lessIS3_ESaIS3_EE16_M_insert_uniqueIRKS3_EESt4pairISt17_Rb_tree_iteratorIS3_EbEOT_
+jmp 0x801b040
+mov rax, qword [0x0801b1b0]
+lea r12, [rsp + 0x10]
+lea rsi, [rsp + 8]
+mov rdi, r12
+mov qword [rsp + 8], rax
+call _ZNSt8_Rb_treeIN5boost13re_detail_5007digraphIwEES3_St9_IdentityIS3_ESt4lessIS3_ESaIS3_EE16_M_insert_uniqueIRKS3_EESt4pairISt17_Rb_tree_iteratorIS3_EbEOT_
+jmp 0x801b040
+lea rsi, [0x0801b1d3]
+add byte [rax], al
+add byte [rax], al
+lea r12, [rsp + 0x10]
+lea rdi, [rsi - 0x14]
+call _ZN5boost14c_regex_traitsIwE16lookup_classnameEPKwS3_
+or dword [rsp + 0x5c], eax
+mov byte [rsp + 0x64], 0
+jmp 0x801aed0
+mov rax, qword [0x0801b1f6]
+lea r13, [rsp + 8]
+lea r12, [rsp + 0x10]
+mov rsi, r13
+mov rdi, r12
+mov qword [rsp + 8], rax
+call _ZNSt8_Rb_treeIN5boost13re_detail_5007digraphIwEES3_St9_IdentityIS3_ESt4lessIS3_ESaIS3_EE16_M_insert_uniqueIRKS3_EESt4pairISt17_Rb_tree_iteratorIS3_EbEOT_
+mov r10d, dword [rsp + 0xc]
+test r10d, r10d
+jne 0x801b364
+mov rax, qword [0x0801b225]
+mov rsi, r13
+mov rdi, r12
+mov byte [rsp + 0x64], 0
+mov qword [rsp + 8], rax
+call _ZNSt8_Rb_treeIN5boost13re_detail_5007digraphIwEES3_St9_IdentityIS3_ESt4lessIS3_ESaIS3_EE16_M_insert_uniqueIRKS3_EESt4pairISt17_Rb_tree_iteratorIS3_EbEOT_
+mov r9d, dword [rsp + 0xc]
+test r9d, r9d
+je 0x801b249
+mov byte [rsp + 0x59], 1
+mov rax, qword [0x0801b250]
+mov rsi, r13
+mov rdi, r12
+mov byte [rsp + 0x64], 0
+mov qword [rsp + 8], rax
+call _ZNSt8_Rb_treeIN5boost13re_detail_5007digraphIwEES3_St9_IdentityIS3_ESt4lessIS3_ESaIS3_EE16_M_insert_uniqueIRKS3_EESt4pairISt17_Rb_tree_iteratorIS3_EbEOT_
+jmp 0x801b040
+mov rax, qword [0x0801b271]
+lea r13, [rsp + 8]
+lea r12, [rsp + 0x10]
+mov rsi, r13
+mov rdi, r12
+mov qword [rsp + 8], rax
+call _ZNSt8_Rb_treeIN5boost13re_detail_5007digraphIwEES3_St9_IdentityIS3_ESt4lessIS3_ESaIS3_EE16_M_insert_uniqueIRKS3_EESt4pairISt17_Rb_tree_iteratorIS3_EbEOT_
+mov ebx, dword [rsp + 0xc]
+test ebx, ebx
+jne 0x801b35a
+mov rax, qword [0x0801b29e]
+mov rsi, r13
+mov rdi, r12
+mov byte [rsp + 0x64], 0
+mov qword [rsp + 8], rax
+call _ZNSt8_Rb_treeIN5boost13re_detail_5007digraphIwEES3_St9_IdentityIS3_ESt4lessIS3_ESaIS3_EE16_M_insert_uniqueIRKS3_EESt4pairISt17_Rb_tree_iteratorIS3_EbEOT_
+mov r11d, dword [rsp + 0xc]
+test r11d, r11d
+je 0x801b2c2
+mov byte [rsp + 0x59], 1
+mov rax, qword [0x0801b2c9]
+mov rsi, r13
+mov rdi, r12
+mov byte [rsp + 0x64], 0
+mov qword [rsp + 8], rax
+call _ZNSt8_Rb_treeIN5boost13re_detail_5007digraphIwEES3_St9_IdentityIS3_ESt4lessIS3_ESaIS3_EE16_M_insert_uniqueIRKS3_EESt4pairISt17_Rb_tree_iteratorIS3_EbEOT_
+jmp 0x801b040
+nop dword [rax + rax]
+mov qword [rdi + 0x88], rdx
+lea rcx, [0x0801b2f6]
+jmp 0x801b30b
+nop dword [rax + rax]
+sub rdx, 4
+mov qword [arg_88h], rdx
+movsxd rax, dword [rdx]
+test eax, 0xffffff80
+jne 0x801b300
+cmp byte [rcx + rax], 0xc
+jne 0x801b300
+sub rdx, qword [arg_78h]
+mov esi, 5
+mov rdi, rbp
+xor r12d, r12d
+sar rdx, 2
+call _ZN5boost13re_detail_50018basic_regex_parserIwNS_14c_regex_traitsIwEEE4failENS_15regex_constants10error_typeEl
+jmp 0x801aea9

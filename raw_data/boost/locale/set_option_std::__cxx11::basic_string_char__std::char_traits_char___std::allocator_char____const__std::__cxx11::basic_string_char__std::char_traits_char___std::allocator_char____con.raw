@@ -1,0 +1,309 @@
+push r15
+push r14
+push r13
+push r12
+push rbp
+push rbx
+sub rsp, 0x58
+mov rcx, qword [rdi + 0x10]
+mov rax, qword [rdi + 8]
+mov qword [var_30h], rdi
+mov dword [var_8h], 0
+cmp rax, rcx
+je 0x8002df2
+mov r15, rdx
+mov rbx, rsi
+xor edx, edx
+mov r14, r15
+shl rdx, 4
+lea rdi, [0x08002a32]
+mov r15, qword [rax + rdx]
+mov rdx, qword [r15]
+mov r8, qword [rdx + 0x18]
+cmp r8, rdi
+jne 0x8002e6f
+mov rsi, qword [r15 + 0x10]
+mov rdx, qword [r15 + 8]
+cmp rdx, rsi
+je 0x8002dd6
+mov dword [var_ch], 0
+xor eax, eax
+mov r13, r14
+mov qword [var_38h], r15
+shl rax, 4
+lea rdi, [0x08002a74]
+mov r14, qword [rdx + rax]
+mov rax, qword [r14]
+mov rax, qword [rax + 0x18]
+cmp rax, rdi
+jne 0x8002e5f
+mov rdi, qword [r14 + 0x10]
+mov rcx, qword [r14 + 8]
+cmp rdi, rcx
+je 0x8002daa
+mov dword [var_10h], 0
+xor eax, eax
+mov qword [var_40h], r14
+shl rax, 4
+lea rsi, [0x08002ab3]
+mov r12, qword [rcx + rax]
+mov rax, qword [r12]
+mov rax, qword [rax + 0x18]
+cmp rax, rsi
+jne 0x8002e4f
+mov rsi, qword [r12 + 0x10]
+mov rax, qword [r12 + 8]
+cmp rsi, rax
+je 0x8002d81
+mov dword [var_14h], 0
+xor edx, edx
+mov r15, r12
+shl rdx, 4
+lea rdi, [0x08002af3]
+mov rbp, qword [rax + rdx]
+mov rdx, qword [rbp]
+mov rcx, qword [rdx + 0x18]
+cmp rcx, rdi
+jne 0x8002e1f
+mov rdi, qword [var_10h]
+mov rdx, qword [var_8h]
+cmp rdi, rdx
+je 0x8002d58
+mov dword [rsp], 0
+xor eax, eax
+mov qword [var_18h], r15
+mov r15, r13
+mov r13, rbx
+nop dword [rax]
+shl rax, 4
+lea rbx, [0x08002b3b]
+mov r12, qword [rdx + rax]
+mov rax, qword [r12]
+mov rax, qword [rax + 0x18]
+cmp rax, rbx
+jne 0x8002e37
+mov rsi, qword [r12 + 0x10]
+mov rax, qword [r12 + 8]
+cmp rsi, rax
+je 0x8002d2b
+mov qword [var_20h], rbp
+xor edx, edx
+mov r14, r13
+mov rbp, r15
+mov dword [var_4h], 0
+jmp 0x8002bb1
+nop word [rax + rax]
+mov rsi, r14
+mov rdx, rbp
+mov rdi, r13
+call rcx
+mov rsi, qword [r12 + 0x10]
+mov rax, qword [r12 + 8]
+mov rcx, rsi
+add dword [var_4h], 1
+mov edx, dword [var_4h]
+sub rcx, rax
+sar rcx, 4
+cmp rdx, rcx
+jae 0x8002d18
+shl rdx, 4
+lea rbx, [0x08002bbc]
+mov r13, qword [rax + rdx]
+mov rdx, qword [r13]
+mov rcx, qword [rdx + 0x18]
+cmp rcx, rbx
+jne 0x8002b80
+mov r8, qword [r13 + 0x10]
+mov rdx, qword [r13 + 8]
+cmp r8, rdx
+je 0x8002b95
+mov qword [var_28h], r12
+xor eax, eax
+xor ebx, ebx
+mov r15, r14
+mov r12, rbp
+jmp 0x8002c1c
+nop dword [rax + rax]
+mov rdx, r12
+mov rsi, r15
+mov rdi, rbp
+call rax
+mov r8, qword [r13 + 0x10]
+mov rdx, qword [r13 + 8]
+mov rcx, r8
+lea eax, [rbx + 1]
+sub rcx, rdx
+mov rbx, rax
+sar rcx, 4
+cmp rax, rcx
+jae 0x8002cf8
+shl rax, 4
+lea rcx, [0x08002c27]
+mov rbp, qword [rdx + rax]
+mov rax, qword [rbp]
+mov rax, qword [rax + 0x18]
+cmp rax, rcx
+jne 0x8002bf0
+mov r10, qword [var_10h]
+mov rcx, qword [var_8h]
+cmp r10, rcx
+je 0x8002c03
+mov dword [var_4ch], ebx
+mov r14, r15
+xor eax, eax
+mov r15, rbp
+mov dword [var_48h], 0
+mov rbx, r12
+jmp 0x8002c8f
+nop
+mov rdx, rbx
+mov rsi, r14
+mov rdi, rbp
+call rax
+mov r10, qword [r15 + 0x10]
+mov rcx, qword [r15 + 8]
+mov rdx, r10
+add dword [var_48h], 1
+mov eax, dword [var_48h]
+sub rdx, rcx
+sar rdx, 4
+cmp rax, rdx
+jae 0x8002e08
+shl rax, 4
+lea rdi, [0x08002c9a]
+mov rbp, qword [rcx + rax]
+mov rax, qword [rbp]
+mov rax, qword [rax + 0x18]
+cmp rax, rdi
+jne 0x8002c60
+mov rsi, qword [var_8h]
+cmp qword [var_10h], rsi
+je 0x8002c73
+xor edx, edx
+xor r12d, r12d
+nop word [rax + rax]
+shl rdx, 4
+mov rdi, qword [rsi + rdx]
+mov rdx, rbx
+mov rsi, r14
+mov rax, qword [rdi]
+call qword [rax + 0x18]
+mov rsi, qword [var_8h]
+mov rax, qword [var_10h]
+lea edx, [r12 + 1]
+mov r12, rdx
+sub rax, rsi
+sar rax, 4
+cmp rdx, rax
+jb 0x8002cc0
+jmp 0x8002c6b
+nop dword [rax]
+mov rbp, r12
+mov r12, qword [var_28h]
+mov r14, r15
+mov rsi, qword [r12 + 0x10]
+mov rax, qword [r12 + 8]
+jmp 0x8002b95
+nop word [rax + rax]
+mov r15, rbp
+mov rbp, qword [var_20h]
+mov r13, r14
+mov rdi, qword [var_10h]
+mov rdx, qword [var_8h]
+mov rsi, rdi
+add dword [rsp], 1
+mov eax, dword [rsp]
+sub rsi, rdx
+sar rsi, 4
+cmp rax, rsi
+jb 0x8002b30
+mov rbx, r13
+mov r13, r15
+mov r15, qword [var_18h]
+mov rsi, qword [r15 + 0x10]
+mov rax, qword [r15 + 8]
+mov rcx, rsi
+add dword [var_14h], 1
+mov edx, dword [var_14h]
+sub rcx, rax
+sar rcx, 4
+cmp rdx, rcx
+jb 0x8002ae8
+mov rax, qword [var_40h]
+mov rdi, qword [rax + 0x10]
+mov rcx, qword [rax + 8]
+mov rdx, rdi
+add dword [var_10h], 1
+mov eax, dword [var_10h]
+sub rdx, rcx
+sar rdx, 4
+cmp rax, rdx
+jb 0x8002aa8
+mov rax, qword [var_38h]
+mov rsi, qword [rax + 0x10]
+mov rdx, qword [rax + 8]
+mov rcx, rsi
+add dword [var_ch], 1
+mov eax, dword [var_ch]
+sub rcx, rdx
+sar rcx, 4
+cmp rax, rcx
+jb 0x8002a69
+mov rdi, qword [var_30h]
+mov r14, r13
+mov rax, qword [rdi + 8]
+mov rcx, qword [rdi + 0x10]
+mov rsi, rcx
+add dword [var_8h], 1
+mov edx, dword [var_8h]
+sub rsi, rax
+sar rsi, 4
+cmp rdx, rsi
+jb 0x8002a27
+add rsp, 0x58
+pop rbx
+pop rbp
+pop r12
+pop r13
+pop r14
+pop r15
+ret
+nop dword [rax]
+mov r12, rbx
+mov r8, qword [r13 + 0x10]
+mov ebx, dword [var_4ch]
+mov r15, r14
+mov rdx, qword [r13 + 8]
+jmp 0x8002c03
+mov rsi, rbx
+mov rdx, r13
+mov rdi, rbp
+call rcx
+mov rsi, qword [r15 + 0x10]
+mov rax, qword [r15 + 8]
+jmp 0x8002d58
+mov rdx, r15
+mov rdi, r12
+mov rsi, r13
+call rax
+mov rdi, qword [var_10h]
+mov rdx, qword [var_8h]
+jmp 0x8002d2b
+mov rdx, r13
+mov rsi, rbx
+mov rdi, r12
+call rax
+jmp 0x8002d74
+mov rdx, r13
+mov rsi, rbx
+mov rdi, r14
+call rax
+jmp 0x8002d9d
+mov rsi, rbx
+mov rdx, r14
+mov rdi, r15
+call r8
+mov rsi, qword [var_30h]
+mov rax, qword [rsi + 8]
+mov rcx, qword [rsi + 0x10]
+jmp 0x8002dd6

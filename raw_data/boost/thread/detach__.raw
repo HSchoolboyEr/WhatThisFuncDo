@@ -1,0 +1,37 @@
+push r12
+pxor xmm0, xmm0
+push rbp
+push rbx
+mov rbp, qword [rdi]
+mov r12, qword [rdi + 8]
+movups xmmword [rdi], xmm0
+test rbp, rbp
+je 0x8001fad
+lea rbx, [arg_30h]
+mov rdi, rbx
+call _ZN5boost5mutex4lockEv
+cmp byte [arg_b1h], 0
+je 0x8001fc0
+nop dword [rax]
+mov rdi, rbx
+call pthread_mutex_unlock
+cmp eax, 4
+je 0x8001fa0
+test r12, r12
+je 0x8001fba
+mov rdi, r12
+call _ZN5boost6detail15sp_counted_base7releaseEv
+pop rbx
+pop rbp
+pop r12
+ret
+nop
+mov rdi, qword [arg_28h]
+call pthread_detach
+mov eax, 0x101
+mov rdi, rbx
+mov word [arg_b1h], ax
+call pthread_mutex_unlock
+cmp eax, 4
+je 0x8001fa0
+jmp 0x8001fad

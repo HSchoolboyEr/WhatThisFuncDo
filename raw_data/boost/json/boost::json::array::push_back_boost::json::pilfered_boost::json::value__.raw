@@ -1,0 +1,103 @@
+push r15
+push r14
+push r13
+push r12
+mov r12, rsi
+push rbp
+push rbx
+mov rbx, rdi
+sub rsp, 0x28
+mov rdx, qword [rdi + 0x10]
+mov ebp, dword [rdx]
+mov eax, dword [rdx + 4]
+cmp eax, ebp
+ja 0x8009ef0
+lea edx, [arg_1h]
+mov r14, rdx
+cmp edx, 0x7ffffffe
+ja .text.unlikely
+mov rsi, rax
+mov ecx, 0x7ffffffe
+shr rsi, 1
+sub rcx, rsi
+cmp rax, rcx
+ja 0x8009ee0
+add rax, rsi
+cmp rdx, rax
+cmovb rdx, rax
+cmp rdx, 0x7ffffffe
+ja 0x8009f1f
+mov r13d, edx
+mov rax, qword [rbx]
+mov rdi, rax
+and rdi, 0xfffffffffffffffc
+test rax, rax
+lea rax, [0x08009e1c]
+cmove rdi, rax
+lea rax, [rdx + rdx*2]
+mov edx, 8
+lea rsi, [rax*8 + 8]
+mov rax, qword [rdi]
+call qword [rax + 0x10]
+lea rdx, [rbp + rbp*2]
+mov r15, qword [rbx + 0x10]
+mov dword [rax + 4], r13d
+shl rdx, 3
+mov qword [rbx + 0x10], rax
+movdqu xmm1, xmmword [r12]
+lea r13, [rax + rdx + 8]
+movups xmmword [r13], xmm1
+mov rax, qword [r12 + 0x10]
+mov qword [r13 + 0x10], rax
+mov rdi, qword [rbx + 0x10]
+mov qword [r12], 0
+mov byte [r12 + 8], 0
+test rbp, rbp
+je 0x8009e8d
+add rdi, 8
+lea rsi, [r15 + 8]
+call memmove
+mov rdi, qword [rbx + 0x10]
+mov eax, dword [r15 + 4]
+mov dword [rdi], r14d
+test eax, eax
+je 0x8009eca
+mov rdx, qword [rbx]
+lea rax, [rax + rax*2]
+mov ecx, 8
+mov rsi, r15
+mov rdi, rdx
+and rdi, 0xfffffffffffffffc
+test rdx, rdx
+lea rdx, [0x08009eb8]
+cmove rdi, rdx
+lea rdx, [rax*8 + 8]
+mov rax, qword [rdi]
+call qword [rax + 0x18]
+add rsp, 0x28
+mov rax, r13
+pop rbx
+pop rbp
+pop r12
+pop r13
+pop r14
+pop r15
+ret
+nop dword [rax]
+mov r13d, edx
+jmp 0x8009e08
+nop dword [rax + rax]
+movdqu xmm2, xmmword [rsi]
+lea rax, [rbp + rbp*2]
+lea r13, [rdx + rax*8 + 8]
+movups xmmword [r13], xmm2
+mov rax, qword [rsi + 0x10]
+mov qword [r13 + 0x10], rax
+mov rax, qword [rdi + 0x10]
+mov qword [rsi], 0
+mov byte [rsi + 8], 0
+add dword [rax], 1
+jmp 0x8009eca
+call method boost::json::array::table::allocate(unsigned long, boost::json::storage_ptr const&) [clone .part.0]
+nop word cs:[rax + rax]
+nop

@@ -1,0 +1,8 @@
+mov rax, qword [rsi]
+mov qword [rdi], rax
+mov rax, qword [rsi + 8]
+mov qword [rdi + 8], rax
+test rax, rax
+je 0x80001f8
+lock add dword [rax + 8], 1
+ret

@@ -1,0 +1,6 @@
+lea rax, [0x080000a7]
+mov qword [rdi], rax
+jmp _ZNSt7codecvtIwc11__mbstate_tED2Ev
+add byte [rax], al
+add byte [rax], al
+nop

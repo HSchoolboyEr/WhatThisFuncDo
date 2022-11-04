@@ -1,0 +1,58 @@
+push rbp
+lea rax, [0x08001868]
+push rbx
+mov rbx, rdi
+sub rsp, 8
+mov rbp, qword [rdi + 0x20]
+mov qword [rdi], rax
+test rbp, rbp
+je 0x8001883
+lock sub dword [arg_8h], 1
+je 0x80018d8
+mov rbp, qword [rbx + 0x10]
+test rbp, rbp
+je 0x8001893
+lock sub dword [arg_8h], 1
+je 0x80018a0
+add rsp, 8
+pop rbx
+pop rbp
+ret
+nop word [rax + rax]
+mov rax, qword [rbp]
+mov rdi, rbp
+call qword [rax + 0x10]
+lock sub dword [arg_ch], 1
+jne 0x8001893
+mov rax, qword [rbp]
+lea rcx, [0x080018bc]
+mov rdx, qword [rax + 0x18]
+cmp rdx, rcx
+jne 0x8001910
+mov rax, qword [rax + 8]
+add rsp, 8
+mov rdi, rbp
+pop rbx
+pop rbp
+jmp rax
+nop dword [rax]
+mov rax, qword [rbp]
+mov rdi, rbp
+call qword [rax + 0x10]
+lock sub dword [arg_ch], 1
+jne 0x8001883
+mov rax, qword [rbp]
+lea rcx, [0x080018f4]
+mov rdi, rbp
+mov rdx, qword [rax + 0x18]
+cmp rdx, rcx
+jne 0x8001920
+call qword [rax + 8]
+jmp 0x8001883
+nop dword [rax + rax]
+mov rdi, rbp
+call rdx
+jmp 0x8001893
+nop word [rax + rax]
+call rdx
+jmp 0x8001883

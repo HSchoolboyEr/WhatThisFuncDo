@@ -1,0 +1,42 @@
+push r12
+mov r12, rsi
+push rbp
+push rbx
+mov rbp, qword [rdi]
+mov rbx, rdi
+mov rdi, rbp
+call pthread_rwlock_wrlock
+mov rax, qword [rbx]
+mov rdx, r12
+mov rsi, qword [rax + 0x40]
+mov rdi, qword [rax + 0x38]
+call method __gnu_cxx::__normal_iterator<boost::shared_ptr<boost::log::v2s_mt_posix::sinks::sink>*, std::vector<boost::shared_ptr<boost::log::v2s_mt_posix::sinks::sink>, std::allocator<boost::shared_ptr<boost::log::v2s_mt_posix::sinks::sink> > > > std::__find_if<__gnu_cxx::__normal_iterator<boost::shared_ptr<boost::log::v2s_mt_posix::sinks::sink>*, std::vector<boost::shared_ptr<boost::log::v2s_mt_posix::sinks::sink>, std::allocator<boost::shared_ptr<boost::log::v2s_mt_posix::sinks::sink> > > >, <> >() [clone ]
+mov rdi, qword [rbx]
+mov rsi, qword [rdi + 0x40]
+cmp rsi, rax
+je 0x8001000
+pop rbx
+mov rdi, rbp
+pop rbp
+pop r12
+jmp pthread_rwlock_unlock
+cmp rsi, qword [rdi + 0x48]
+je 0x8001038
+mov rax, qword [r12]
+mov qword [rsi], rax
+mov rax, qword [r12 + 8]
+mov qword [rsi + 8], rax
+test rax, rax
+je 0x8001020
+lock add dword [rax + 8], 1
+add qword [rdi + 0x40], 0x10
+mov rdi, rbp
+pop rbx
+pop rbp
+pop r12
+jmp pthread_rwlock_unlock
+nop dword [rax]
+add rdi, 0x38
+mov rdx, r12
+call _ZNSt6vectorIN5boost10shared_ptrINS0_3log12v2s_mt_posix5sinks4sinkEEESaIS6_EE17_M_realloc_insertIJRKS6_EEEvN9__gnu_cxx17__normal_iteratorIPS6_S8_EEDpOT_
+jmp 0x8000ff4

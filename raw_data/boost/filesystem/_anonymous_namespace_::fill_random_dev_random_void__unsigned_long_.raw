@@ -1,0 +1,65 @@
+push r14
+xor eax, eax
+push r13
+push r12
+mov r12, rsi
+mov esi, 0x80000
+push rbp
+mov rbp, rdi
+lea rdi, [0x0800019b]
+push rbx
+call open64
+mov r13d, eax
+cmp eax, 0xffffffff
+je 0x8000220
+test r12, r12
+je 0x8000200
+xor ebx, ebx
+jmp 0x80001c3
+nop word [rax + rax]
+add rbx, rax
+add rbp, rax
+cmp rbx, r12
+jae 0x8000200
+mov rdx, r12
+mov rsi, rbp
+mov edi, r13d
+sub rdx, rbx
+call read
+cmp rax, 0xffffffffffffffff
+jne 0x80001b8
+call __errno_location
+mov r14d, dword [rax]
+cmp r14d, 4
+je 0x80001be
+mov edi, r13d
+call close
+pop rbx
+mov eax, r14d
+pop rbp
+pop r12
+pop r13
+pop r14
+ret
+nop dword [rax]
+mov edi, r13d
+xor r14d, r14d
+call close
+pop rbx
+mov eax, r14d
+pop rbp
+pop r12
+pop r13
+pop r14
+ret
+nop word [rax + rax]
+mov esi, 0x80000
+lea rdi, [0x0800022c]
+xor eax, eax
+call open64
+mov r13d, eax
+cmp eax, 0xffffffff
+jne 0x80001a9
+call __errno_location
+mov r14d, dword [rax]
+jmp 0x800020b

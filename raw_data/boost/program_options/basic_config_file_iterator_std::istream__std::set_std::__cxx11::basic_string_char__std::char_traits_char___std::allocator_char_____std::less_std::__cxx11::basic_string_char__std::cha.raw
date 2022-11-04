@@ -1,0 +1,53 @@
+push r12
+push rbp
+mov rbp, rdi
+push rbx
+mov rbx, rsi
+mov rsi, rdx
+movzx edx, cl
+call _ZN5boost15program_options6detail27common_config_file_iteratorC2ERKSt3setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIS9_ESaIS9_EEb
+lea rax, [0x0800582c]
+pxor xmm0, xmm0
+mov edi, 0x20
+mov qword [rbp], rax
+movups xmmword [arg_f8h], xmm0
+call _Znwm
+mov rdx, qword [0x0800584c]
+mov r12, qword [arg_100h]
+mov qword [rax + 0x10], rbx
+movq xmm0, rbx
+movq xmm1, rax
+lea rcx, [0x08005868]
+punpcklqdq xmm0, xmm1
+mov qword [rax + 8], rdx
+mov qword [rax], rcx
+movups xmmword [arg_f8h], xmm0
+test r12, r12
+je 0x8005888
+lock sub dword [r12 + 8], 1
+je 0x8005898
+mov rdi, rbp
+call _ZN5boost15program_options6detail27common_config_file_iterator3getEv
+add byte [rax], al
+add byte [rax], al
+pop rbx
+pop rbp
+pop r12
+ret
+nop dword [rax]
+mov rax, qword [r12]
+mov rdi, r12
+call qword [rax + 0x10]
+lock sub dword [r12 + 0xc], 1
+jne 0x8005888
+mov rax, qword [r12]
+lea rcx, [0x080058b6]
+mov rdi, r12
+mov rdx, qword [rax + 0x18]
+cmp rdx, rcx
+jne 0x80058d0
+call qword [rax + 8]
+jmp 0x8005888
+nop word [rax + rax]
+call rdx
+jmp 0x8005888

@@ -1,0 +1,30 @@
+push r13
+pxor xmm0, xmm0
+movsx edi, dil
+push r12
+push rbp
+sub rsp, 0x140
+movdqa xmm1, xmmword [0x0800037c]
+movdqa xmm2, xmmword [0x08000384]
+movups xmmword [var_a0h], xmm0
+movups xmmword [var_c0h], xmm1
+movdqa xmm1, xmmword [0x0800039c]
+movups xmmword [var_b0h], xmm0
+movups xmmword [var_d0h], xmm1
+movdqa xmm1, xmmword [0x080003b4]
+movups xmmword [var_f0h], xmm2
+movups xmmword [var_e0h], xmm1
+movups xmmword [var_100h], xmm1
+movdqa xmm1, xmmword [0x080003d4]
+movups xmmword [var_120h], xmm0
+movups xmmword [var_110h], xmm1
+movups xmmword [var_130h], xmm0
+cmp edi, 0x7f
+ja 0x80003ff
+cmp byte [rsp + rdi + 0xa0], 0
+je .text.unlikely
+add rsp, 0x140
+pop rbp
+pop r12
+pop r13
+ret

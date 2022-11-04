@@ -1,0 +1,50 @@
+push r13
+push r12
+push rbp
+push rbx
+mov rbx, rdi
+mov edi, 0x58
+push rax
+call __cxa_allocate_exception
+lea rsi, [rbx + 8]
+mov rbp, rax
+lea rax, [0x08001a40]
+lea r13, [arg_8h]
+mov qword [rbp], rax
+mov rdi, r13
+call _ZNSt13runtime_errorC2ERKS_
+add byte [rax], al
+add byte [rax], al
+mov rax, qword [rbx + 0x28]
+movups xmm1, xmmword [rbx + 0x18]
+mov rdi, qword [rbx + 0x38]
+mov qword [arg_28h], rax
+lea rax, [0x08001a67]
+mov qword [arg_8h], rax
+lea rax, [0x08001a72]
+mov qword [arg_30h], rax
+mov qword [arg_38h], rdi
+movups xmmword [arg_18h], xmm1
+test rdi, rdi
+jne 0x8001ace
+mov rax, qword [rbx + 0x50]
+movups xmm2, xmmword [rbx + 0x40]
+mov rdi, rbp
+lea rdx, [0x08001a95]
+add byte [rax], al
+add byte [rax], al
+lea rsi, [0x08001a9c]
+mov qword [arg_50h], rax
+lea rax, [0x08001aa7]
+lea rcx, [rax - 0x30]
+movq xmm3, rax
+add rax, 0x28
+movups xmmword [arg_40h], xmm2
+movq xmm0, rcx
+mov qword [arg_30h], rax
+punpcklqdq xmm0, xmm3
+movups xmmword [rbp], xmm0
+call __cxa_throw
+mov rax, qword [rdi]
+call qword [rax + 0x18]
+jmp 0x8001a83

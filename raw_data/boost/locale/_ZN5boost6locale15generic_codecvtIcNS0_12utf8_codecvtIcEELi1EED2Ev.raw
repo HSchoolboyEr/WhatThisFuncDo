@@ -1,0 +1,3 @@
+lea rax, [0x080016b7]
+mov qword [rdi], rax
+jmp _ZNSt7codecvtIcc11__mbstate_tED2Ev

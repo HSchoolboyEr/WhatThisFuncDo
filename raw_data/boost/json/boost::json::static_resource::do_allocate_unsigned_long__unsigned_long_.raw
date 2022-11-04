@@ -1,0 +1,26 @@
+sub rsp, 0x28
+mov rax, qword [rdi + 0x10]
+cmp rsi, rax
+ja .text.unlikely
+mov rcx, qword [rdi + 8]
+lea r8, [rcx + rdx - 1]
+neg rdx
+and r8, rdx
+mov rdx, r8
+sub rdx, rcx
+mov rcx, rax
+sub rcx, rsi
+cmp rdx, rcx
+ja .text.unlikely
+sub rax, rdx
+mov qword [rdi + 8], r8
+mov qword [rdi + 0x10], rax
+test r8, r8
+je .text.unlikely
+sub rax, rsi
+lea rdx, [r8 + rsi]
+mov qword [rdi + 0x10], rax
+mov rax, r8
+mov qword [rdi + 8], rdx
+add rsp, 0x28
+ret

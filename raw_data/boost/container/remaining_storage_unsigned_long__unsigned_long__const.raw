@@ -1,0 +1,15 @@
+mov rax, qword [rdi + 0x18]
+mov r8, rdx
+lea rdx, [rax + rsi - 1]
+neg rsi
+and rsi, rdx
+mov rcx, rsi
+sub rcx, rax
+mov qword [r8], rcx
+mov rdx, qword [rdi + 0x20]
+add rax, rdx
+sub rax, rsi
+cmp rcx, rdx
+mov edx, 0
+cmovae rax, rdx
+ret

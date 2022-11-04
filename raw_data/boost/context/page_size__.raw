@@ -1,0 +1,23 @@
+movzx eax, byte [0x080000c7]
+test al, al
+je 0x80000d8
+mov rax, qword [0x080000d2]
+ret
+nop dword [rax + rax]
+sub rsp, 8
+lea rdi, [0x080000e3]
+call __cxa_guard_acquire
+test eax, eax
+jne 0x8000100
+mov rax, qword [0x080000f3]
+add rsp, 8
+ret
+nop dword [rax + rax]
+mov edi, 0x1e
+call sysconf
+lea rdi, [0x08000111]
+mov qword [0x08000118], rax
+call __cxa_guard_release
+mov rax, qword [0x08000124]
+add rsp, 8
+ret

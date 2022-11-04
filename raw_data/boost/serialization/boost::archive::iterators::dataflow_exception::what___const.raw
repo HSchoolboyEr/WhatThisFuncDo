@@ -1,0 +1,24 @@
+cmp dword [rdi + 8], 4
+ja 0x8000498
+mov eax, dword [rdi + 8]
+lea rdx, [0x08000440]
+movsxd rax, dword [rdx + rax*4]
+add rax, rdx
+jmp rax
+nop dword [rax]
+lea rax, [0x08000457]
+ret
+nop dword [rax + rax]
+lea rax, [0x08000467]
+ret
+nop dword [rax + rax]
+lea rax, [0x08000477]
+ret
+nop dword [rax + rax]
+lea rax, [0x08000487]
+ret
+nop dword [rax + rax]
+lea rax, [0x08000497]
+ret
+lea rax, [0x0800049f]
+ret

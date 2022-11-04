@@ -1,0 +1,53 @@
+movzx ecx, byte [rsi]
+test cl, cl
+je 0x801487b
+sub rsp, 8
+mov rdx, qword [rdi + 0x88]
+jmp 0x80147f3
+nop dword [rax + rax]
+lea rax, [rdx + 1]
+mov qword [rdi + 0x88], rax
+cmp rax, qword [rdi + 0x80]
+je 0x8014850
+movzx ecx, byte [rsi + 1]
+add rsi, 1
+test cl, cl
+je 0x8014840
+mov rdx, rax
+movsx rax, byte [rdx]
+cmp al, cl
+je 0x80147d0
+lea rcx, [0x08014802]
+jmp 0x8014817
+nop dword [rax]
+sub rdx, 1
+mov qword [rdi + 0x88], rdx
+movsx rax, byte [rdx]
+test al, al
+js 0x8014808
+cmp byte [rcx + rax], 1
+jne 0x8014808
+sub rdx, qword [rdi + 0x78]
+mov esi, 0x14
+call _ZN5boost13re_detail_50018basic_regex_parserIcNS_14c_regex_traitsIcEEE4failENS_15regex_constants10error_typeEl
+xor eax, eax
+add rsp, 8
+ret
+nop word cs:[rax + rax]
+mov eax, 1
+add rsp, 8
+ret
+nop word [rax + rax]
+mov qword [rdi + 0x88], rdx
+lea rcx, [0x0801485e]
+jmp 0x801486b
+sub rdx, 1
+mov qword [rdi + 0x88], rdx
+movsx rax, byte [rdx]
+test al, al
+js 0x8014860
+cmp byte [rcx + rax], 1
+jne 0x8014860
+jmp 0x8014821
+mov eax, 1
+ret

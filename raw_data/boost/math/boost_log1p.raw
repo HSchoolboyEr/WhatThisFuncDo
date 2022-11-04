@@ -1,0 +1,20 @@
+sub rsp, 8
+movsd xmm1, qword [0x0800004c]
+comisd xmm1, xmm0
+ja __errno_location
+ucomisd xmm0, xmm1
+jp 0x8000090
+jne 0x8000090
+call __errno_location
+movsd xmm0, qword [0x08000067]
+mov dword [rax], 0x22
+add rsp, 8
+ret
+nop word [rax + rax]
+call __errno_location
+movsd xmm0, qword [0x08000085]
+mov dword [rax], 0x21
+add rsp, 8
+ret
+add rsp, 8
+jmp log1p

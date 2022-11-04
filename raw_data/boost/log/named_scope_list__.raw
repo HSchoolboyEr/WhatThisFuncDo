@@ -1,0 +1,11 @@
+cmp byte [rdi + 0x18], 0
+jne 0x8000390
+ret
+nop word [rax + rax]
+mov rax, qword [rdi + 0x10]
+mov rdi, qword [rdi + 8]
+lea rsi, [rax*8]
+sub rsi, rax
+shl rsi, 3
+jmp _ZdlPvm
+nop dword [rax]

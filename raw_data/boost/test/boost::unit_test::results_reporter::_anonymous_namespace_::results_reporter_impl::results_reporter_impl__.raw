@@ -1,0 +1,23 @@
+lea rax, [0x080002a7]
+push rbp
+mov rbp, rdi
+mov qword [rdi], rax
+mov rdi, qword [rdi + 0x20]
+test rdi, rdi
+je 0x80002bd
+mov rax, qword [rdi]
+call qword [rax + 8]
+mov rdi, qword [arg_10h]
+test rdi, rdi
+je 0x80002e2
+mov rax, qword [rdi]
+mov edx, dword [rdi + 8]
+mov esi, 0x20
+movdqu xmm0, xmmword [rdi + 0x10]
+mov dword [rax + 0x18], edx
+movups xmmword [rax + 8], xmm0
+call _ZdlPvm
+mov rdi, rbp
+mov esi, 0x28
+pop rbp
+jmp method boost::unit_test::results_reporter::set_level(boost::unit_test::report_level)

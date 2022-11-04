@@ -1,0 +1,60 @@
+push r13
+push r12
+push rbp
+mov rbp, rdi
+push rbx
+sub rsp, 0x48
+mov rbx, qword [rdi + 0x88]
+mov r12, qword [rdi + 0x80]
+cmp rbx, r12
+je 0x8010750
+movzx eax, byte [rbx]
+lea rsi, [rbx + 1]
+test al, al
+jns 0x8010720
+mov qword [arg_88h], rsi
+add rsp, 0x48
+pop rbx
+pop rbp
+pop r12
+pop r13
+ret
+nop dword [rax]
+movsx rdx, al
+lea rcx, [0x0801072b]
+add byte [rax], al
+add byte [rax], al
+movzx edx, byte [rcx + rdx]
+sub edx, 0x11
+cmp dl, 0x27
+ja 0x801070b
+lea rcx, [0x0801073e]
+movzx edx, dl
+movsxd rdx, dword [rcx + rdx*4]
+add rdx, rcx
+jmp rdx
+nop word [rax + rax]
+lea rdi, [var_20h]
+lea rsi, [0x0801075c]
+call .text
+mov r8, qword [var_28h]
+mov rcx, qword [var_20h]
+mov rdi, rbp
+mov rdx, qword [arg_88h]
+mov esi, 5
+sub rdx, qword [arg_78h]
+call .text
+mov rdi, qword [var_20h]
+lea rax, [var_30h]
+cmp rdi, rax
+je 0x80107a0
+mov rax, qword [var_30h]
+lea rsi, [rax + 1]
+call _ZdlPvm
+xor eax, eax
+add rsp, 0x48
+pop rbx
+pop rbp
+pop r12
+pop r13
+ret

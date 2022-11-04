@@ -1,0 +1,14 @@
+test rsi, rsi
+je 0x8000e95
+cmp rsi, qword [rdi + 8]
+jae 0x8000e95
+mov rax, qword [rdi]
+cmp byte [rax + rsi + 1], 0x2f
+je 0x8000ea0
+ret
+nop word cs:[rax + rax]
+mov edx, 1
+jmp _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8_M_eraseEmm
+add byte [rax], al
+add byte [rax], al
+nop word [rax + rax]

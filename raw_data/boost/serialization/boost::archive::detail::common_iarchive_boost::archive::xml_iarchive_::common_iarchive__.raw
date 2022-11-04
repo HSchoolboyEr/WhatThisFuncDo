@@ -1,0 +1,9 @@
+lea rax, [0x080004e7]
+push rbp
+mov rbp, rdi
+mov qword [rdi], rax
+call _ZN5boost7archive6detail14basic_iarchiveD2Ev
+mov rdi, rbp
+mov esi, 0x28
+pop rbp
+jmp _ZdlPvm

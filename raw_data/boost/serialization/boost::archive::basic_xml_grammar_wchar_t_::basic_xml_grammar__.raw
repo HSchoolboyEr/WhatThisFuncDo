@@ -1,0 +1,434 @@
+push rbp
+push rbx
+mov rbx, rdi
+lea rax, [rbx + 0x230]
+sub rsp, 8
+mov rdi, qword [rdi + 0x220]
+cmp rdi, rax
+je 0x8001460
+mov rax, qword [rbx + 0x230]
+lea rsi, [rax*4 + 4]
+call _ZdlPvm
+mov rdi, qword [rbx + 0x1f0]
+lea rax, [rbx + 0x200]
+cmp rdi, rax
+je 0x8001487
+mov rax, qword [rbx + 0x200]
+lea rsi, [rax*4 + 4]
+call _ZdlPvm
+mov rdi, qword [rbx + 0x1d0]
+lea rax, [rbx + 0x1e0]
+cmp rdi, rax
+je 0x80014ae
+mov rax, qword [rbx + 0x1e0]
+lea rsi, [rax*4 + 4]
+call _ZdlPvm
+mov rbp, qword [rbx + 0x1c8]
+test rbp, rbp
+je 0x80014c5
+lock sub dword [arg_8h], 1
+je 0x8001870
+mov rbp, qword [rbx + 0x1b8]
+test rbp, rbp
+je 0x80014dc
+lock sub dword [arg_8h], 1
+je 0x80018b0
+mov rbp, qword [rbx + 0x1a8]
+test rbp, rbp
+je 0x80014f3
+lock sub dword [arg_8h], 1
+je 0x80018f0
+mov rbp, qword [rbx + 0x198]
+test rbp, rbp
+je 0x800150a
+lock sub dword [arg_8h], 1
+je 0x8001930
+mov rbp, qword [rbx + 0x188]
+test rbp, rbp
+je 0x8001521
+lock sub dword [arg_8h], 1
+je 0x8001970
+mov rbp, qword [rbx + 0x178]
+test rbp, rbp
+je 0x8001538
+lock sub dword [arg_8h], 1
+je 0x80019b0
+mov rbp, qword [rbx + 0x168]
+test rbp, rbp
+je 0x800154f
+lock sub dword [arg_8h], 1
+je 0x80019f0
+mov rbp, qword [rbx + 0x158]
+test rbp, rbp
+je 0x8001566
+lock sub dword [arg_8h], 1
+je 0x8001a30
+mov rbp, qword [rbx + 0x148]
+test rbp, rbp
+je 0x800157d
+lock sub dword [arg_8h], 1
+je 0x8001830
+mov rdi, qword [rbx + 0x138]
+test rdi, rdi
+je 0x800158f
+mov rax, qword [rdi]
+call qword [rax + 8]
+mov rdi, qword [rbx + 0x130]
+test rdi, rdi
+je 0x80015a1
+mov rax, qword [rdi]
+call qword [rax + 8]
+mov rdi, qword [rbx + 0x128]
+test rdi, rdi
+je 0x80015b3
+mov rax, qword [rdi]
+call qword [rax + 8]
+mov rdi, qword [rbx + 0x120]
+test rdi, rdi
+je 0x80015c5
+mov rax, qword [rdi]
+call qword [rax + 8]
+mov rdi, qword [rbx + 0x118]
+test rdi, rdi
+je 0x80015d7
+mov rax, qword [rdi]
+call qword [rax + 8]
+mov rdi, qword [rbx + 0x110]
+test rdi, rdi
+je 0x80015e9
+mov rax, qword [rdi]
+call qword [rax + 8]
+mov rdi, qword [rbx + 0x108]
+test rdi, rdi
+je 0x80015fb
+mov rax, qword [rdi]
+call qword [rax + 8]
+mov rdi, qword [rbx + 0x100]
+test rdi, rdi
+je 0x800160d
+mov rax, qword [rdi]
+call qword [rax + 8]
+mov rdi, qword [rbx + 0xf8]
+test rdi, rdi
+je 0x800161f
+mov rax, qword [rdi]
+call qword [rax + 8]
+mov rdi, qword [rbx + 0xf0]
+test rdi, rdi
+je 0x8001631
+mov rax, qword [rdi]
+call qword [rax + 8]
+mov rdi, qword [rbx + 0xe8]
+test rdi, rdi
+je 0x8001643
+mov rax, qword [rdi]
+call qword [rax + 8]
+mov rdi, qword [rbx + 0xe0]
+test rdi, rdi
+je 0x8001655
+mov rax, qword [rdi]
+call qword [rax + 8]
+mov rdi, qword [rbx + 0xd8]
+test rdi, rdi
+je 0x8001667
+mov rax, qword [rdi]
+call qword [rax + 8]
+mov rdi, qword [rbx + 0xd0]
+test rdi, rdi
+je 0x8001679
+mov rax, qword [rdi]
+call qword [rax + 8]
+mov rdi, qword [rbx + 0xc8]
+test rdi, rdi
+je 0x800168b
+mov rax, qword [rdi]
+call qword [rax + 8]
+mov rdi, qword [rbx + 0xc0]
+test rdi, rdi
+je 0x800169d
+mov rax, qword [rdi]
+call qword [rax + 8]
+mov rdi, qword [rbx + 0xb8]
+test rdi, rdi
+je 0x80016af
+mov rax, qword [rdi]
+call qword [rax + 8]
+mov rdi, qword [rbx + 0xb0]
+test rdi, rdi
+je 0x80016c1
+mov rax, qword [rdi]
+call qword [rax + 8]
+mov rdi, qword [rbx + 0xa8]
+test rdi, rdi
+je 0x80016d3
+mov rax, qword [rdi]
+call qword [rax + 8]
+mov rdi, qword [rbx + 0xa0]
+test rdi, rdi
+je 0x80016e5
+mov rax, qword [rdi]
+call qword [rax + 8]
+mov rdi, qword [rbx + 0x98]
+test rdi, rdi
+je 0x80016f7
+mov rax, qword [rdi]
+call qword [rax + 8]
+mov rdi, qword [rbx + 0x90]
+test rdi, rdi
+je 0x8001709
+mov rax, qword [rdi]
+call qword [rax + 8]
+mov rdi, qword [rbx + 0x88]
+test rdi, rdi
+je 0x800171b
+mov rax, qword [rdi]
+call qword [rax + 8]
+mov rdi, qword [rbx + 0x80]
+test rdi, rdi
+je 0x800172d
+mov rax, qword [rdi]
+call qword [rax + 8]
+mov rdi, qword [rbx + 0x78]
+test rdi, rdi
+je 0x800173c
+mov rax, qword [rdi]
+call qword [rax + 8]
+mov rdi, qword [rbx + 0x70]
+test rdi, rdi
+je 0x800174b
+mov rax, qword [rdi]
+call qword [rax + 8]
+mov rdi, qword [rbx + 0x68]
+test rdi, rdi
+je 0x800175a
+mov rax, qword [rdi]
+call qword [rax + 8]
+mov rdi, qword [rbx + 0x60]
+test rdi, rdi
+je 0x8001769
+mov rax, qword [rdi]
+call qword [rax + 8]
+mov rdi, qword [rbx + 0x58]
+test rdi, rdi
+je 0x8001778
+mov rax, qword [rdi]
+call qword [rax + 8]
+mov rdi, qword [rbx + 0x50]
+test rdi, rdi
+je 0x8001787
+mov rax, qword [rdi]
+call qword [rax + 8]
+mov rdi, qword [rbx + 0x48]
+test rdi, rdi
+je 0x8001796
+mov rax, qword [rdi]
+call qword [rax + 8]
+mov rdi, qword [rbx + 0x40]
+test rdi, rdi
+je 0x80017a5
+mov rax, qword [rdi]
+call qword [rax + 8]
+mov rdi, qword [rbx + 0x38]
+test rdi, rdi
+je 0x80017b4
+mov rax, qword [rdi]
+call qword [rax + 8]
+mov rdi, qword [rbx + 0x30]
+test rdi, rdi
+je 0x80017c3
+mov rax, qword [rdi]
+call qword [rax + 8]
+mov rdi, qword [rbx + 0x28]
+test rdi, rdi
+je 0x80017d2
+mov rax, qword [rdi]
+call qword [rax + 8]
+mov rdi, qword [rbx + 0x20]
+test rdi, rdi
+je 0x80017e1
+mov rax, qword [rdi]
+call qword [rax + 8]
+mov rdi, qword [rbx + 0x18]
+test rdi, rdi
+je 0x80017f0
+mov rax, qword [rdi]
+call qword [rax + 8]
+mov rdi, qword [rbx + 0x10]
+test rdi, rdi
+je 0x80017ff
+mov rax, qword [rdi]
+call qword [rax + 8]
+mov rdi, qword [rbx + 8]
+test rdi, rdi
+je 0x800180e
+mov rax, qword [rdi]
+call qword [rax + 8]
+mov rdi, qword [rbx]
+test rdi, rdi
+je 0x8001828
+mov rax, qword [rdi]
+mov rax, qword [rax + 8]
+add rsp, 8
+pop rbx
+pop rbp
+jmp rax
+nop dword [rax]
+add rsp, 8
+pop rbx
+pop rbp
+ret
+nop
+mov rax, qword [rbp]
+mov rdi, rbp
+call qword [rax + 0x10]
+lock sub dword [arg_ch], 1
+jne 0x800157d
+mov rax, qword [rbp]
+lea rcx, [0x08001850]
+add byte [rax], al
+add byte [rax], al
+mov rdi, rbp
+mov rdx, qword [rax + 0x18]
+cmp rdx, rcx
+jne 0x8001aa0
+call qword [rax + 8]
+jmp 0x800157d
+nop dword [rax + rax]
+mov rax, qword [rbp]
+mov rdi, rbp
+call qword [rax + 0x10]
+lock sub dword [arg_ch], 1
+jne 0x80014c5
+mov rax, qword [rbp]
+lea rcx, [0x08001890]
+mov rdi, rbp
+mov rdx, qword [rax + 0x18]
+cmp rdx, rcx
+jne 0x8001a90
+call qword [rax + 8]
+jmp 0x80014c5
+nop dword [rax + rax]
+mov rax, qword [rbp]
+mov rdi, rbp
+call qword [rax + 0x10]
+lock sub dword [arg_ch], 1
+jne 0x80014dc
+mov rax, qword [rbp]
+lea rcx, [0x080018d0]
+mov rdi, rbp
+mov rdx, qword [rax + 0x18]
+cmp rdx, rcx
+jne 0x8001a80
+call qword [rax + 8]
+jmp 0x80014dc
+nop dword [rax + rax]
+mov rax, qword [rbp]
+mov rdi, rbp
+call qword [rax + 0x10]
+lock sub dword [arg_ch], 1
+jne 0x80014f3
+mov rax, qword [rbp]
+lea rcx, [0x08001910]
+mov rdi, rbp
+mov rdx, qword [rax + 0x18]
+cmp rdx, rcx
+jne 0x8001a70
+call qword [rax + 8]
+jmp 0x80014f3
+nop dword [rax + rax]
+mov rax, qword [rbp]
+mov rdi, rbp
+call qword [rax + 0x10]
+lock sub dword [arg_ch], 1
+jne 0x800150a
+mov rax, qword [rbp]
+lea rcx, [0x08001950]
+mov rdi, rbp
+mov rdx, qword [rax + 0x18]
+cmp rdx, rcx
+jne 0x8001ae0
+call qword [rax + 8]
+jmp 0x800150a
+nop dword [rax + rax]
+mov rax, qword [rbp]
+mov rdi, rbp
+call qword [rax + 0x10]
+lock sub dword [arg_ch], 1
+jne 0x8001521
+mov rax, qword [rbp]
+lea rcx, [0x08001990]
+mov rdi, rbp
+mov rdx, qword [rax + 0x18]
+cmp rdx, rcx
+jne 0x8001ad0
+call qword [rax + 8]
+jmp 0x8001521
+nop dword [rax + rax]
+mov rax, qword [rbp]
+mov rdi, rbp
+call qword [rax + 0x10]
+lock sub dword [arg_ch], 1
+jne 0x8001538
+mov rax, qword [rbp]
+lea rcx, [0x080019d0]
+mov rdi, rbp
+mov rdx, qword [rax + 0x18]
+cmp rdx, rcx
+jne 0x8001ac0
+call qword [rax + 8]
+jmp 0x8001538
+nop dword [rax + rax]
+mov rax, qword [rbp]
+mov rdi, rbp
+call qword [rax + 0x10]
+lock sub dword [arg_ch], 1
+jne 0x800154f
+mov rax, qword [rbp]
+lea rcx, [0x08001a10]
+mov rdi, rbp
+mov rdx, qword [rax + 0x18]
+cmp rdx, rcx
+jne 0x8001ab0
+call qword [rax + 8]
+jmp 0x800154f
+nop dword [rax + rax]
+mov rax, qword [rbp]
+mov rdi, rbp
+call qword [rax + 0x10]
+lock sub dword [arg_ch], 1
+jne 0x8001566
+mov rax, qword [rbp]
+lea rcx, [0x08001a50]
+mov rdi, rbp
+mov rdx, qword [rax + 0x18]
+cmp rdx, rcx
+jne 0x8001a68
+call qword [rax + 8]
+jmp 0x8001566
+nop dword [rax]
+call rdx
+jmp 0x8001566
+nop
+call rdx
+jmp 0x80014f3
+nop word [rax + rax]
+call rdx
+jmp 0x80014dc
+nop word [rax + rax]
+call rdx
+jmp 0x80014c5
+nop word [rax + rax]
+call rdx
+jmp 0x800157d
+nop word [rax + rax]
+call rdx
+jmp 0x800154f
+nop word [rax + rax]
+call rdx
+jmp 0x8001538
+nop word [rax + rax]
+call rdx
+jmp 0x8001521
+nop word [rax + rax]
+call rdx
+jmp 0x800150a

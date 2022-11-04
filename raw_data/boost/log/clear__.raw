@@ -1,0 +1,60 @@
+push r13
+push r12
+push rbp
+push rbx
+sub rsp, 8
+mov rbx, qword [rdi]
+mov rbp, qword [rbx + 0x10]
+lea r13, [rbx + 8]
+cmp rbp, r13
+je 0x800094e
+nop word [rax + rax]
+mov r12, rbp
+mov rbp, qword [arg_8h]
+mov rdi, qword [r12 + 0x18]
+test rdi, rdi
+je 0x800092e
+lock sub dword [rdi + 8], 1
+jne 0x800092e
+mov rax, qword [rdi]
+call qword [rax + 8]
+mov rax, qword [rbx + 0x58]
+cmp rax, 7
+ja 0x80009e0
+mov qword [rbx + rax*8 + 0x18], r12
+add rax, 1
+mov qword [rbx + 0x58], rax
+cmp r13, rbp
+jne 0x8000910
+movq xmm0, r13
+mov qword [rbx], 0
+punpcklqdq xmm0, xmm0
+movups xmmword [rbx + 8], xmm0
+pxor xmm0, xmm0
+movups xmmword [rbx + 0x60], xmm0
+movups xmmword [rbx + 0x70], xmm0
+movups xmmword [rbx + 0x80], xmm0
+movups xmmword [rbx + 0x90], xmm0
+movups xmmword [rbx + 0xa0], xmm0
+movups xmmword [rbx + 0xb0], xmm0
+movups xmmword [rbx + 0xc0], xmm0
+movups xmmword [rbx + 0xd0], xmm0
+movups xmmword [rbx + 0xe0], xmm0
+movups xmmword [rbx + 0xf0], xmm0
+movups xmmword [rbx + 0x100], xmm0
+movups xmmword [rbx + 0x110], xmm0
+movups xmmword [rbx + 0x120], xmm0
+movups xmmword [rbx + 0x130], xmm0
+movups xmmword [rbx + 0x140], xmm0
+movups xmmword [rbx + 0x150], xmm0
+add rsp, 8
+pop rbx
+pop rbp
+pop r12
+pop r13
+ret
+nop dword [rax + rax]
+mov esi, 0x20
+mov rdi, r12
+call _ZdlPvm
+jmp 0x8000949

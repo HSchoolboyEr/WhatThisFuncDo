@@ -1,0 +1,57 @@
+push r13
+push r12
+push rbp
+push rbx
+mov rbx, rdi
+sub rsp, 8
+cmp dword [rdi], 0x6fd7
+je 0x8001650
+mov dword [rbx], 0
+add rsp, 8
+pop rbx
+pop rbp
+pop r12
+pop r13
+ret
+nop word cs:[rax + rax]
+mov rbp, qword [rdi + 0x18]
+test rbp, rbp
+je 0x8001635
+mov r12, qword [arg_8h]
+test r12, r12
+je 0x8001680
+mov r13, qword [0x08001669]
+test r13, r13
+jne 0x80016c0
+mov eax, dword [r12 + 8]
+lea edx, [rax - 1]
+mov dword [r12 + 8], edx
+cmp eax, 1
+je 0x8001690
+mov esi, 0x10
+mov rdi, rbp
+call _ZdlPvm
+jmp 0x8001635
+nop
+mov rax, qword [r12]
+mov rdi, r12
+call qword [rax + 0x10]
+test r13, r13
+jne 0x80016d0
+mov eax, dword [r12 + 0xc]
+lea edx, [rax - 1]
+mov dword [r12 + 0xc], edx
+cmp eax, 1
+jne 0x8001680
+mov rax, qword [r12]
+mov rdi, r12
+call qword [rax + 0x18]
+jmp 0x8001680
+nop dword [rax]
+mov eax, 0xffffffff
+lock xadd dword [r12 + 8], eax
+jmp 0x800167b
+nop
+mov eax, 0xffffffff
+lock xadd dword [r12 + 0xc], eax
+jmp 0x80016ac

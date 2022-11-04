@@ -1,0 +1,26 @@
+push r12
+mov edx, 1
+push rbp
+sub rsp, 0x98
+mov rdi, qword [rdi + 0x28]
+mov rax, qword [rdi]
+call qword [rax + 0x40]
+cmp rax, 1
+jne 0x8000ada
+add rsp, 0x98
+pop rbp
+pop r12
+ret
+mov r12, rsp
+xor ecx, ecx
+xor edx, edx
+mov esi, 8
+mov rdi, r12
+call _ZN5boost7archive17archive_exceptionC1ENS1_14exception_codeEPKcS4_
+mov rdi, r12
+call _ZN5boost13serialization15throw_exceptionINS_7archive17archive_exceptionEEEvRKT_
+mov rbp, rax
+mov rdi, r12
+call _ZN5boost7archive17archive_exceptionD1Ev
+mov rdi, rbp
+call _Unwind_Resume

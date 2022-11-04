@@ -1,0 +1,77 @@
+push r14
+push r13
+mov r13d, edx
+push r12
+mov r12, rsi
+push rbp
+push rbx
+mov rbx, rdi
+mov edi, 8
+call _Znwm
+mov qword [rbx + 8], 0
+mov edi, 0x18
+mov rbp, rax
+mov rax, qword [0x08002652]
+mov qword [rbx], rbp
+mov qword [rbp], rax
+call _Znwm
+mov qword [rax + 0x10], rbp
+mov rdx, qword [0x08002669]
+lea rcx, [0x08002670]
+mov rbp, qword [rbx + 8]
+mov qword [rax], rcx
+mov qword [rax + 8], rdx
+mov qword [rbx + 8], rax
+test rbp, rbp
+je 0x800268b
+lock sub dword [arg_8h], 1
+je 0x80026a8
+mov edx, r13d
+mov rsi, r12
+mov rdi, rbx
+call _ZN5boost9iostreams20file_descriptor_sink4openEPKcSt13_Ios_Openmode
+add byte [rax], al
+add byte [rax], al
+pop rbx
+pop rbp
+pop r12
+pop r13
+pop r14
+ret
+nop word [rax + rax]
+mov rax, qword [rbp]
+lea rdx, [0x080026b3]
+mov rax, qword [rax + 0x10]
+cmp rax, rdx
+jne 0x8002720
+mov r14, qword [arg_10h]
+test r14, r14
+je 0x80026e1
+mov edi, dword [r14]
+cmp edi, 0xffffffff
+je 0x80026d4
+test byte [r14 + 4], 1
+jne close
+mov esi, 8
+mov rdi, r14
+call _ZdlPvm
+lock sub dword [arg_ch], 1
+jne 0x800268b
+mov rax, qword [rbp]
+lea rcx, [0x080026f3]
+mov rdi, rbp
+mov rdx, qword [rax + 0x18]
+cmp rdx, rcx
+jne 0x8002710
+call qword [rax + 8]
+jmp 0x800268b
+nop dword [rax]
+call close
+jmp 0x80026d4
+nop
+call rdx
+jmp 0x800268b
+nop word [rax + rax]
+mov rdi, rbp
+call rax
+jmp 0x80026e1

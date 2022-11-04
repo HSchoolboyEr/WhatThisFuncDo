@@ -1,0 +1,62 @@
+push rbp
+push rbx
+lea rbx, [0x08006db7]
+sub rsp, 0x18
+mov qword [var_8h], rbx
+call .text.unlikely
+mov rbp, rax
+lea rdi, [var_8h]
+mov qword [var_8h], rbx
+call _ZNSt9exceptionD2Ev
+mov rdi, rbp
+call _Unwind_Resume
+dec dword [rax - 0x75]
+mov rax, qword [rsi + 0x10]
+mov ecx, edx
+test rax, rax
+je 0x8006e50
+cmp rax, 1
+mov eax, 0
+je 0x8006e00
+cmp edx, dword [rsi]
+je 0x8006e70
+ret
+nop dword [rax + rax]
+movabs rdx, 0xb2ab117a257edfd2
+cmp qword [rdi + 8], rdx
+jne 0x8006dfa
+movabs rdx, 0x4800144005b3
+mov rdi, qword [rsi + 8]
+mov rax, rdi
+mul rdx
+mov rax, rdi
+sub rax, rdx
+shr rax, 1
+add rdx, rax
+shr rdx, 0x14
+imul rdx, rdx, 0x1ffff7
+sub rdi, rdx
+imul edi, edi, 0x3e8
+add edi, dword [rsi]
+cmp edi, ecx
+sete al
+ret
+nop dword [rax]
+test edx, edx
+jne 0x8006dfa
+movabs rax, 0xb2ab117a257edfd1
+cmp qword [rdi + 8], rax
+sete al
+ret
+nop word cs:[rax + rax]
+mov rdx, qword [rsi + 8]
+mov rax, qword [rdx + 8]
+test rax, rax
+jne 0x8006e88
+cmp rdi, rdx
+sete al
+ret
+nop dword [rax]
+cmp qword [rdi + 8], rax
+sete al
+ret

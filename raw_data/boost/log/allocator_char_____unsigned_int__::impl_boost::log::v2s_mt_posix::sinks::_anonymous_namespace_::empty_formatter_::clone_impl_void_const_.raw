@@ -1,0 +1,27 @@
+push r12
+push rbp
+push rbx
+mov rbx, rdi
+mov edi, 0x38
+call _Znwm
+mov rsi, qword [rbx + 0x18]
+mov rdx, qword [rbx + 0x20]
+lea rcx, [method.boost::log::v2s_mt_posix::aux::light_function_std::__cxx11::basic_string_char__std::char_traits_char___std.allocator_char_____unsigned_int__::impl_boost::log::v2s_mt_posix::sinks::_anonymous_namespace_::empty_formatter_::invoke_impl_void__unsigned]
+mov r12, rax
+lea rax, [method.boost::log::v2s_mt_posix::aux::light_function_std::__cxx11::basic_string_char__std::char_traits_char___std.allocator_char_____unsigned_int__::impl_boost::log::v2s_mt_posix::sinks::_anonymous_namespace_::empty_formatter_::clone_impl_void_const_]
+movq xmm0, rcx
+movq xmm1, rax
+lea rax, [method.boost::log::v2s_mt_posix::aux::light_function_std::__cxx11::basic_string_char__std::char_traits_char___std.allocator_char_____unsigned_int__::impl_boost::log::v2s_mt_posix::sinks::_anonymous_namespace_::empty_formatter_::destroy_impl_void_]
+lea rdi, [r12 + 0x18]
+add rdx, rsi
+mov qword [r12 + 0x10], rax
+punpcklqdq xmm0, xmm1
+lea rax, [r12 + 0x28]
+mov qword [r12 + 0x18], rax
+movups xmmword [r12], xmm0
+call method void std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >::_M_construct<char*>(char*, char*, std::forward_iterator_tag) [clone .constprop.0]
+mov rax, r12
+pop rbx
+pop rbp
+pop r12
+ret

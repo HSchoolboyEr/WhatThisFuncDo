@@ -1,0 +1,126 @@
+push r15
+xor eax, eax
+push r14
+push r13
+mov r13, rdi
+push r12
+push rbp
+xor ebp, ebp
+push rbx
+sub rsp, 0x48
+mov rcx, qword [rdi + 8]
+lea r15, [var_30h]
+lea rsi, [var_20h]
+mov byte [var_30h], 0
+mov qword [var_20h], r15
+mov qword [var_28h], 0
+mov qword [var_8h], rsi
+test rcx, rcx
+jne 0x80056e4
+jmp 0x8005740
+nop dword [rax]
+mov r14, qword [var_28h]
+mov rax, qword [var_20h]
+lea r12, [r14 + 1]
+cmp bl, 0x7a
+jle 0x8005730
+cmp rax, r15
+mov edx, 0xf
+cmovne rdx, qword [var_30h]
+cmp rdx, r12
+jb 0x8005710
+mov byte [rax + r14], bl
+mov rax, qword [var_20h]
+mov qword [var_28h], r12
+mov byte [rax + r12], 0
+mov rcx, qword [r13 + 8]
+lea eax, [var_1h]
+mov rbp, rax
+cmp rax, rcx
+jae 0x8005740
+mov rdx, qword [r13]
+movzx ebx, byte [rdx + rax]
+cmp bl, 0x60
+jg 0x8005698
+cmp bl, 0x20
+je 0x80056d9
+mov r14, qword [var_28h]
+mov rax, qword [var_20h]
+lea r12, [r14 + 1]
+jmp 0x80056af
+nop word cs:[rax + rax]
+mov rdi, qword [var_8h]
+mov r8d, 1
+xor ecx, ecx
+xor edx, edx
+mov rsi, r14
+call _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_mutateEmmPKcm
+mov rax, qword [var_20h]
+jmp 0x80056c2
+nop
+sub ebx, 0x20
+jmp 0x80056af
+nop dword [rax + rax]
+mov rdi, qword [var_8h]
+lea rcx, [0x0800574c]
+mov edx, 3
+xor esi, esi
+call _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEmmPKc
+mov rdi, qword [var_20h]
+test eax, eax
+jne 0x80057e0
+xor r12d, r12d
+cmp qword [var_28h], 3
+ja 0x8005798
+cmp rdi, r15
+je 0x800577f
+mov rax, qword [var_30h]
+lea rsi, [rax + 1]
+call _ZdlPvm
+add rsp, 0x48
+mov eax, r12d
+pop rbx
+pop rbp
+pop r12
+pop r13
+pop r14
+pop r15
+ret
+nop dword [rax]
+lea rbx, [rdi + 3]
+lea rbp, [var_18h]
+mov edx, 0xa
+mov qword [var_18h], 0
+mov rsi, rbp
+mov rdi, rbx
+call strtol
+mov rdx, rax
+mov rax, qword [var_18h]
+cmp rax, rbx
+je 0x80057ce
+imul r12d, edx, 0xe10
+cmp byte [rax], 0x3a
+je 0x800580d
+mov rdi, qword [var_20h]
+jmp 0x800576c
+nop word [rax + rax]
+mov rdi, qword [var_8h]
+lea rcx, [0x080057ec]
+mov edx, 3
+xor esi, esi
+call _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEmmPKc
+mov rdi, qword [var_20h]
+xor r12d, r12d
+test eax, eax
+je 0x8005761
+jmp 0x800576c
+lea rbx, [rax + 1]
+mov edx, 0xa
+mov rsi, rbp
+mov rdi, rbx
+call strtol
+cmp qword [var_18h], rbx
+je 0x80057d3
+imul eax, eax, 0x3c
+add r12d, eax
+jmp 0x80057d3

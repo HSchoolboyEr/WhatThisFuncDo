@@ -1,0 +1,17 @@
+push rbp
+mov rbp, qword [rdi + 8]
+test rbp, rbp
+je 0x8000170
+lea rdi, [arg_68h]
+call _ZNSt6localeD1Ev
+lea rdi, [arg_18h]
+call _ZN5boost6locale8ios_infoD1Ev
+add byte [rax], al
+add byte [rax], al
+mov rdi, rbp
+mov esi, 0x88
+pop rbp
+jmp _ZdlPvm
+nop word [rax + rax]
+pop rbp
+ret

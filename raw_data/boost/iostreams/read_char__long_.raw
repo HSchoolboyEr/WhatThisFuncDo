@@ -1,0 +1,33 @@
+push r13
+push r12
+mov r12, rdx
+push rbp
+mov rbp, rsi
+push rbx
+sub rsp, 8
+mov r13, qword [rdi]
+call __errno_location
+mov rdx, r12
+mov rsi, rbp
+mov dword [rax], 0
+mov edi, dword [r13]
+mov rbx, rax
+call read
+mov edx, dword [rbx]
+test edx, edx
+jne 0x8000399
+test rax, rax
+je 0x8000390
+add rsp, 8
+pop rbx
+pop rbp
+pop r12
+pop r13
+ret
+nop word cs:[rax + rax]
+mov rax, 0xffffffffffffffff
+jmp 0x800037b
+lea rdi, [0x080003a0]
+call _ZN5boost9iostreams6detail20throw_system_failureEPKc
+nop
+nop word cs:[rax + rax]

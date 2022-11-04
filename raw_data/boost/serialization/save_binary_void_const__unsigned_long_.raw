@@ -1,0 +1,18 @@
+push r12
+mov r12, rdx
+push rbp
+mov rbp, rsi
+push rbx
+mov rbx, rdi
+call _ZN5boost7archive18basic_xml_oarchiveINS0_13xml_woarchiveEE12end_preambleEv
+add byte [rax], al
+add byte [rax], al
+lea rdi, [rbx + 0x30]
+mov rdx, r12
+mov rsi, rbp
+call _ZN5boost7archive21basic_text_oprimitiveISt13basic_ostreamIwSt11char_traitsIwEEE11save_binaryEPKvm
+mov byte [rbx + 0x2d], 1
+pop rbx
+pop rbp
+pop r12
+ret

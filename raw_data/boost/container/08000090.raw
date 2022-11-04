@@ -1,0 +1,17 @@
+lea rax, [0x08000097]
+add rdi, 8
+mov qword [rdi - 8], rax
+jmp _ZN5boost9container3pmr13pool_resourceD1Ev
+nop word cs:[rax + rax]
+nop
+lea rax, [0x080000b7]
+push rbp
+mov rbp, rdi
+lea rdi, [rdi + 8]
+mov qword [rdi - 8], rax
+call _ZN5boost9container3pmr13pool_resourceD1Ev
+mov rdi, rbp
+mov esi, 0x40
+pop rbp
+jmp _ZdlPvm
+nop word cs:[rax + rax]

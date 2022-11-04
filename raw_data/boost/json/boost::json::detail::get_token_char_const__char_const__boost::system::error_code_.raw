@@ -1,0 +1,45 @@
+mov r9, rdi
+mov rcx, rdx
+cmp rdi, rsi
+jae 0x8004008
+mov rax, rdi
+movzx edx, byte [rax]
+cmp dl, 0x2f
+je 0x8003f9b
+lea r8, [rax + 1]
+cmp dl, 0x7e
+je 0x8003fa8
+mov rax, r8
+cmp rsi, rax
+ja 0x8003f82
+mov r8, rax
+mov rax, r9
+mov rdx, r8
+ret
+nop dword [rax]
+cmp rsi, r8
+je 0x8003fe6
+movsx edx, byte [rax + 1]
+sub edx, 0x30
+cmp edx, 1
+jbe 0x8003fe0
+lea rax, [0x08003fc0]
+mov dword [rcx], 0x13
+mov qword [rcx + 8], rax
+lea rax, [0x08003fd1]
+or rax, 1
+mov qword [rcx + 0x10], rax
+mov rax, r9
+mov rdx, r8
+ret
+add rax, 2
+jmp 0x8003f96
+lea rax, [0x08003fed]
+mov dword [rcx], 0x13
+mov qword [rcx + 8], rax
+lea rax, [0x08003ffe]
+or rax, 1
+mov qword [rcx + 0x10], rax
+jmp 0x8003fd9
+mov r8, rdi
+jmp 0x8003fd9

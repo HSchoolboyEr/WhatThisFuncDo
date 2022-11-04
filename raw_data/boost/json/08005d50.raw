@@ -1,0 +1,4 @@
+lea rax, [0x08005d57]
+mov qword [rdi + 8], 1
+mov qword [rdi], rax
+ret

@@ -1,0 +1,47 @@
+push rbx
+mov eax, dword [rdi + 0xe0]
+test eax, eax
+je 0x800e90b
+sub eax, 1
+mov rbx, rdi
+mov dword [rdi + 0xe0], eax
+movzx eax, byte [0x0800e862]
+test al, al
+je 0x800e8d0
+lea rdx, [0x0800e86d]
+xor ecx, ecx
+lea rsi, [rdx + 0x80]
+mov rax, qword [rdx]
+test rax, rax
+jne 0x800e898
+add rdx, 8
+cmp rdx, rsi
+jne 0x800e876
+mov edi, 0x1000
+call _Znwm
+jmp 0x800e89f
+nop dword [rax + rax]
+lock cmpxchg qword [rdx], rcx
+jne 0x800e87e
+movdqu xmm0, xmmword [rbx + 0xd0]
+mov dword [rax + 0xfe8], 6
+movups xmmword [rax + 0xff0], xmm0
+mov qword [rbx + 0xd0], rax
+add rax, 0xfe8
+mov qword [rbx + 0xd8], rax
+pop rbx
+ret
+nop
+lea rdi, [0x0800e8d7]
+call __cxa_guard_acquire
+test eax, eax
+je 0x800e866
+lea rdi, [0x0800e8e7]
+call __cxa_guard_release
+lea rdx, [0x0800e8f3]
+lea rsi, [0x0800e8fa]
+lea rdi, [0x0800e901]
+call __cxa_atexit
+jmp _ZZN5boost13re_detail_50015mem_block_cache8instanceEvE11block_cache
+mov edi, 0x13
+call .text

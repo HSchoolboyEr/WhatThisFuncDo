@@ -1,0 +1,473 @@
+push r15
+push r14
+push r13
+push r12
+push rbp
+mov rbp, rdi
+push rbx
+sub rsp, 0xd8
+mov rcx, qword [rdi + 0x88]
+mov rdx, qword [rdi + 0x80]
+lea r13, [rcx + 1]
+mov qword [rdi + 0x88], r13
+cmp r13, rdx
+je 0x801b9ac
+lea rax, [var_48h]
+pxor xmm0, xmm0
+xor esi, esi
+mov r15, r13
+mov qword [var_58h], rax
+lea rdi, [rcx + 2]
+lea rbx, [0x0801b2b4]
+mov qword [var_60h], rax
+lea rax, [var_a0h]
+mov qword [var_b0h], rax
+mov qword [var_b8h], rax
+mov rax, r13
+mov dword [var_48h], 0
+mov qword [var_50h], 0
+mov qword [var_68h], 0
+mov qword [var_80h], 0
+mov dword [var_a0h], 0
+mov qword [var_a8h], 0
+mov qword [var_c0h], 0
+mov word [var_88h], si
+mov qword [var_8ch], 0
+mov byte [var_94h], 1
+mov qword [var_8h], rdi
+movaps xmmword [var_70h], xmm0
+jmp 0x801b3be
+nop dword [rax]
+xor ecx, ecx
+mov word [var_1eh], cx
+movsx rcx, byte [rax]
+test cl, cl
+jns 0x801b4e0
+lea rcx, [rax + 1]
+mov qword [arg_88h], rcx
+movzx eax, byte [rax]
+mov byte [var_1eh], al
+cmp rdx, rcx
+je 0x801b540
+movsx rax, byte [rcx]
+test al, al
+jns 0x801b560
+lea r12, [var_40h]
+lea rsi, [var_1eh]
+mov rdi, r12
+call _ZNSt8_Rb_treeIN5boost13re_detail_5007digraphIcEES3_St9_IdentityIS3_ESt4lessIS3_ESaIS3_EE16_M_insert_uniqueIRKS3_EESt4pairISt17_Rb_tree_iteratorIS3_EbEOT_
+cmp byte [var_1fh], 0
+je 0x801b3a3
+mov byte [var_89h], 1
+mov byte [var_94h], 0
+mov rax, qword [arg_88h]
+mov rdx, qword [arg_80h]
+cmp rax, rdx
+je 0x801b416
+movsx rcx, byte [rax]
+test cl, cl
+js 0x801b348
+movzx ecx, byte [rbx + rcx]
+cmp cl, 0xa
+je 0x801b670
+ja 0x801b4a0
+cmp cl, 4
+je 0x801b6d0
+cmp cl, 9
+jne 0x801b348
+lea r12, [var_40h]
+mov rdi, rbp
+mov rsi, r12
+call _ZN5boost13re_detail_50018basic_regex_parserIcNS_14c_regex_traitsIcEEE15parse_inner_setERNS0_14basic_char_setIcS3_EE
+test al, al
+je 0x801b9a1
+mov rax, qword [arg_88h]
+mov rdx, qword [arg_80h]
+cmp rax, rdx
+jne 0x801b3be
+xor r12d, r12d
+mov rbx, qword [var_a8h]
+test rbx, rbx
+je 0x801b445
+mov rdi, qword [rbx + 0x18]
+call .text
+mov rdi, rbx
+mov rbx, qword [rbx + 0x10]
+mov esi, 0x28
+call _ZdlPvm
+test rbx, rbx
+jne 0x801b426
+mov rdi, qword [var_70h]
+test rdi, rdi
+je 0x801b45f
+mov rsi, qword [var_80h]
+sub rsi, rdi
+call _ZdlPvm
+mov rbx, qword [var_50h]
+test rbx, rbx
+je 0x801b488
+mov rdi, qword [rbx + 0x18]
+call .text
+mov rdi, rbx
+mov rbx, qword [rbx + 0x10]
+mov esi, 0x28
+call _ZdlPvm
+test rbx, rbx
+jne 0x801b469
+add rsp, 0xd8
+mov eax, r12d
+pop rbx
+pop rbp
+pop r12
+pop r13
+pop r14
+pop r15
+ret
+nop dword [rax]
+cmp cl, 0xc
+jne 0x801b348
+lea rdi, [rax + 1]
+mov qword [arg_88h], rdi
+movsx rdx, byte [rax + 1]
+test dl, dl
+jns _ZZN5boost13re_detail_50030get_default_escape_syntax_typeEcE11char_syntax
+mov qword [arg_88h], rax
+lea r12, [var_40h]
+mov rdi, rbp
+mov rsi, r12
+call _ZN5boost13re_detail_50018basic_regex_parserIcNS_14c_regex_traitsIcEEE17parse_set_literalERNS0_14basic_char_setIcS3_EE
+jmp 0x801b403
+nop dword [rax]
+movzx ecx, byte [rbx + rcx]
+cmp cl, 0xc
+je 0x801b750
+cmp cl, 0xe
+je 0x801b6f8
+cmp cl, 9
+jne 0x801b35b
+lea rcx, [rax + 1]
+mov qword [arg_88h], rcx
+cmp rdx, rcx
+je 0x801b913
+movsx rsi, byte [rax + 1]
+test sil, sil
+jns 0x801b8a0
+mov qword [arg_88h], rax
+movzx eax, byte [rax]
+mov qword [arg_88h], rcx
+mov byte [var_1eh], al
+cmp rdx, rcx
+jne 0x801b376
+nop
+sub rdx, qword [arg_78h]
+mov esi, 7
+mov rdi, rbp
+lea r12, [var_40h]
+call _ZN5boost13re_detail_50018basic_regex_parserIcNS_14c_regex_traitsIcEEE4failENS_15regex_constants10error_typeEl
+jmp 0x801b403
+nop dword [rax + rax]
+cmp byte [rbx + rax], 0xe
+jne 0x801b382
+lea rax, [rcx + 1]
+mov qword [arg_88h], rax
+cmp rdx, rax
+je 0x801b540
+movsx rax, byte [rcx + 1]
+test al, al
+jns 0x801b7b0
+lea r14, [var_20h]
+lea r12, [var_40h]
+mov rsi, rbp
+mov rdx, r12
+mov rdi, r14
+call _ZN5boost13re_detail_50018basic_regex_parserIcNS_14c_regex_traitsIcEEE20get_next_set_literalERNS0_14basic_char_setIcS3_EE
+mov rsi, qword [var_78h]
+mov rax, qword [var_80h]
+cmp rsi, rax
+je 0x801b930
+movzx edx, byte [var_1eh]
+add rsi, 2
+mov byte [rsi - 2], dl
+movzx edx, byte [var_1fh]
+mov byte [rsi - 1], dl
+mov qword [var_78h], rsi
+cmp rsi, rax
+je 0x801b958
+movzx eax, byte [var_20h]
+add rsi, 2
+mov byte [rsi - 2], al
+movzx eax, byte [var_21h]
+mov byte [rsi - 1], al
+mov qword [var_78h], rsi
+cmp byte [var_1fh], 0
+jne 0x801b838
+cmp byte [var_21h], 0
+jne 0x801b86f
+mov rax, qword [arg_88h]
+mov byte [var_94h], 0
+mov rdx, qword [arg_80h]
+movsx rcx, byte [rax]
+test cl, cl
+js 0x801b3b9
+cmp byte [rbx + rcx], 0xe
+jne 0x801b3b9
+lea rcx, [rax + 1]
+mov qword [arg_88h], rcx
+cmp rcx, rdx
+je 0x801ba4a
+movsx rsi, byte [rax + 1]
+test sil, sil
+jns 0x801ba04
+mov rdx, rcx
+mov esi, 0xb
+sub rdx, qword [arg_78h]
+mov rdi, rbp
+call _ZN5boost13re_detail_50018basic_regex_parserIcNS_14c_regex_traitsIcEEE4failENS_15regex_constants10error_typeEl
+jmp 0x801b403
+nop dword [rax]
+cmp rax, r15
+je 0x801b4c8
+add rax, 1
+lea r12, [var_40h]
+cmp byte [var_89h], 0
+mov rdi, rbp
+mov qword [arg_88h], rax
+mov rsi, r12
+je .text
+call .text
+test rax, rax
+jne 0x801b9a1
+mov rdx, qword [arg_88h]
+mov esi, 4
+sub rdx, qword [arg_78h]
+mov rdi, rbp
+call _ZN5boost13re_detail_50018basic_regex_parserIcNS_14c_regex_traitsIcEEE4failENS_15regex_constants10error_typeEl
+jmp 0x801b416
+nop dword [rax + rax]
+cmp r13, rax
+jne 0x801b4c8
+mov rax, qword [var_8h]
+mov byte [var_88h], 1
+mov qword [arg_88h], rax
+mov r15, rax
+jmp 0x801b3b9
+nop dword [rax]
+cmp byte [var_94h], 0
+jne 0x801b798
+lea rcx, [rax + 1]
+mov qword [arg_88h], rcx
+cmp rdx, rcx
+je 0x801b724
+movsx rsi, byte [rax + 1]
+test sil, sil
+jns 0x801b96a
+mov rdx, rcx
+mov esi, 0xb
+sub rdx, qword [arg_78h]
+mov rdi, rbp
+lea r12, [var_40h]
+call _ZN5boost13re_detail_50018basic_regex_parserIcNS_14c_regex_traitsIcEEE4failENS_15regex_constants10error_typeEl
+mov rcx, qword [arg_88h]
+mov rdx, qword [arg_80h]
+jmp 0x801b36d
+mov rsi, qword [rbp]
+lea rcx, [rax + 1]
+test byte [rsi + 0x2a], 1
+mov qword [arg_88h], rcx
+jne 0x801b366
+mov rdi, rbp
+lea r12, [var_40h]
+call _ZN5boost13re_detail_50018basic_regex_parserIcNS_14c_regex_traitsIcEEE18unescape_characterEv
+mov byte [var_1eh], al
+mov rcx, qword [arg_88h]
+mov byte [var_1fh], 0
+mov rdx, qword [arg_80h]
+jmp 0x801b36d
+nop word [rax + rax]
+mov rax, qword [arg_88h]
+lea rcx, [rax + 1]
+jmp 0x801b35f
+nop dword [rax + rax]
+cmp byte [rbx + rax], 0xa
+jne 0x801b587
+mov qword [arg_88h], rcx
+jmp 0x801b382
+nop word cs:[rax + rax]
+lea rsi, [0x0801b7d7]
+movzx edx, byte [rsi + rdx]
+cmp dl, 0x16
+je 0x801b979
+cmp dl, 0x17
+jne 0x801b4c1
+lea rsi, [rax + 2]
+lea r12, [var_40h]
+call _ZN5boost14c_regex_traitsIcE16lookup_classnameEPKcS3_
+mov edx, eax
+mov rax, qword [arg_88h]
+test edx, edx
+je 0x801b998
+add rax, 1
+or dword [var_90h], edx
+mov rdx, qword [arg_80h]
+mov byte [var_94h], 0
+mov qword [arg_88h], rax
+jmp 0x801b3b9
+nop word [rax + rax]
+lea rsi, [var_1eh]
+mov rdi, r12
+mov byte [var_89h], 1
+call _ZNSt8_Rb_treeIN5boost13re_detail_5007digraphIcEES3_St9_IdentityIS3_ESt4lessIS3_ESaIS3_EE16_M_insert_uniqueIRKS3_EESt4pairISt17_Rb_tree_iteratorIS3_EbEOT_
+cmp byte [var_1fh], 0
+je 0x801b85c
+mov byte [var_89h], 1
+cmp byte [var_21h], 0
+mov byte [var_94h], 0
+je 0x801b606
+mov rsi, r14
+mov rdi, r12
+mov byte [var_89h], 1
+call _ZNSt8_Rb_treeIN5boost13re_detail_5007digraphIcEES3_St9_IdentityIS3_ESt4lessIS3_ESaIS3_EE16_M_insert_uniqueIRKS3_EESt4pairISt17_Rb_tree_iteratorIS3_EbEOT_
+cmp byte [var_21h], 0
+je 0x801b606
+mov byte [var_89h], 1
+jmp 0x801b606
+nop word [rax + rax]
+cmp byte [rbx + rsi], 5
+jne 0x801b521
+lea r14, [rax + 2]
+mov qword [arg_88h], r14
+cmp rdx, r14
+je 0x801b913
+add rax, 3
+mov qword [arg_88h], rax
+cmp rdx, rax
+jne 0x801b8e0
+jmp 0x801b910
+nop dword [rax]
+add rax, 1
+mov qword [arg_88h], rax
+cmp rdx, rax
+je 0x801b910
+movsx rcx, byte [rax]
+test cl, cl
+js 0x801b8d0
+cmp byte [rbx + rcx], 5
+jne 0x801b8d0
+cmp rdx, rax
+je 0x801b910
+lea rcx, [rax + 1]
+mov qword [arg_88h], rcx
+cmp rdx, rcx
+je 0x801b910
+movsx rdx, byte [rax + 1]
+test dl, dl
+jns 0x801ba63
+mov rdx, r14
+sub rdx, qword [arg_78h]
+mov esi, 3
+mov rdi, rbp
+lea r12, [var_40h]
+call _ZN5boost13re_detail_50018basic_regex_parserIcNS_14c_regex_traitsIcEEE4failENS_15regex_constants10error_typeEl
+jmp 0x801b73d
+nop
+lea rdx, [var_1eh]
+lea rdi, [var_70h]
+call _ZNSt6vectorIN5boost13re_detail_5007digraphIcEESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_
+mov rsi, qword [var_78h]
+mov rax, qword [var_80h]
+cmp rsi, rax
+jne 0x801b5d7
+nop dword [rax]
+lea rdi, [var_70h]
+mov rdx, r14
+call _ZNSt6vectorIN5boost13re_detail_5007digraphIcEESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_
+jmp 0x801b5f0
+cmp byte [rbx + rsi], 0xa
+jne 0x801b724
+jmp 0x801b35f
+lea rsi, [rax + 2]
+lea r12, [var_40h]
+call _ZN5boost14c_regex_traitsIcE16lookup_classnameEPKcS3_
+mov edx, eax
+mov rax, qword [arg_88h]
+test edx, edx
+jne 0x801ba1a
+sub rax, 1
+jmp 0x801b4c1
+mov r12d, 1
+jmp 0x801b419
+lea rdi, [var_40h]
+lea rsi, [0x0801b9b8]
+add byte [rax], al
+add byte [rax], al
+call .text
+mov r8, qword [var_48h]
+mov rcx, qword [var_40h]
+mov rdi, rbp
+mov rdx, qword [arg_88h]
+mov esi, 7
+sub rdx, qword [arg_78h]
+call .text
+mov rdi, qword [var_40h]
+lea rax, [var_50h]
+cmp rdi, rax
+je 0x801b9fc
+mov rax, qword [var_50h]
+lea rsi, [rax + 1]
+call _ZdlPvm
+xor r12d, r12d
+jmp 0x801b488
+cmp byte [rbx + rsi], 0xa
+jne 0x801b654
+mov qword [arg_88h], rax
+jmp 0x801b3b9
+add rax, 1
+or dword [var_8ch], edx
+mov rdx, qword [arg_80h]
+mov byte [var_94h], 0
+mov qword [arg_88h], rax
+jmp 0x801b3b9
+call .text
+jmp 0x801b6a2
+mov rdx, rcx
+mov esi, 7
+sub rdx, qword [arg_78h]
+mov rdi, rbp
+call _ZN5boost13re_detail_50018basic_regex_parserIcNS_14c_regex_traitsIcEEE4failENS_15regex_constants10error_typeEl
+jmp 0x801b403
+cmp byte [rbx + rdx], 0xa
+jne 0x801b910
+lea rdx, [rax + 2]
+lea rdi, [var_20h]
+mov rsi, r14
+mov qword [arg_88h], rdx
+mov rdx, rax
+lea r12, [var_40h]
+call _ZN5boost14c_regex_traitsIcE18lookup_collatenameB5cxx11EPKcS3_
+mov rax, qword [var_28h]
+lea rdx, [rax - 1]
+cmp rdx, 1
+jbe 0x801bad6
+mov rdx, r14
+mov esi, 3
+sub rdx, qword [arg_78h]
+mov rdi, rbp
+call _ZN5boost13re_detail_50018basic_regex_parserIcNS_14c_regex_traitsIcEEE4failENS_15regex_constants10error_typeEl
+mov rdi, qword [var_20h]
+lea rax, [var_30h]
+cmp rdi, rax
+je 0x801b73d
+mov rax, qword [var_30h]
+lea rsi, [rax + 1]
+call _ZdlPvm
+jmp 0x801b73d
+mov rdi, qword [var_20h]
+movzx edx, byte [rdi]
+mov byte [var_1eh], dl
+cmp rax, 2
+je 0x801baef
+mov byte [var_1fh], 0
+jmp 0x801bab5
+movzx eax, byte [rdi + 1]
+mov byte [var_1fh], al
+jmp 0x801bab5

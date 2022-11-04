@@ -1,0 +1,120 @@
+push rbp
+push rbx
+mov rbx, rdi
+mov edi, 0x58
+push rax
+call __cxa_allocate_exception
+mov rsi, rbx
+mov rbp, rax
+lea rax, [0x080021c6]
+lea rdi, [arg_8h]
+mov qword [rbp], rax
+call _ZNSt13runtime_errorC2ERKS_
+mov rax, qword [rbx + 0x20]
+movups xmm1, xmmword [rbx + 0x10]
+mov rdi, rbp
+lea rdx, [0x080021e5]
+lea rsi, [0x080021ec]
+mov qword [arg_38h], 0
+mov qword [arg_28h], rax
+mov rax, qword [0x080021ff]
+mov qword [arg_40h], 0
+mov qword [arg_50h], rax
+lea rax, [0x08002212]
+lea rcx, [rax - 0x30]
+movq xmm2, rax
+add rax, 0x28
+movups xmmword [arg_18h], xmm1
+movq xmm0, rcx
+mov qword [arg_48h], 0
+punpcklqdq xmm0, xmm2
+mov qword [arg_30h], rax
+movups xmmword [rbp], xmm0
+call __cxa_throw
+and byte [rdx + 0x61], dh
+outsb dx, byte [rsi]
+outsd dx, dword fs:[rsi]
+insd dword [rdi], dx
+sub eax, 0x626d756e
+jb 0x8002270
+jo 0x80022c5
+jne 0x80022b9
+outsd dx, dword [rsi]
+sub eax, 0x69766564
+invalid
+and byte gs:[rax], al
+inc dword [rcx + 0x57]
+push r15
+push r14
+mov r14, rsi
+push r13
+mov r13, rdi
+push r12
+push rbp
+push rbx
+sub rsp, 0xc8
+call __errno_location
+lea rbp, [var_90h]
+lea r8, [var_10h]
+xor edx, edx
+mov rdi, r8
+mov rsi, rbp
+lea rbx, [var_20h]
+mov qword [var_8h], r8
+mov qword [var_10h], rbx
+mov r12d, dword [rax]
+lea r15, [var_30h]
+mov qword [var_90h], 0x16
+call _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm
+mov rdx, qword [var_90h]
+mov r8, qword [var_8h]
+or byte [rcx + rcx*4 - 1], cl
+movdqa xmm0, xmmword [0x080022d1]
+mov qword [var_10h], rax
+mov qword [var_20h], rdx
+mov edx, 0x203a
+mov rsi, r8
+movups xmmword [rax], xmm0
+mov word [rax + 0x14], dx
+mov rdx, qword [var_10h]
+mov dword [rax + 0x10], 0x65636976
+mov rax, qword [var_90h]
+mov qword [var_18h], rax
+mov byte [rdx + rax], 0
+mov rdx, r14
+call _ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EEOS8_PKS5_
+lea r14, [var_50h]
+lea rdx, [0x0800231b]
+mov rsi, r15
+mov rdi, r14
+call _ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EEOS8_PKS5_
+mov rdx, qword [r13 + 8]
+mov rsi, qword [r13]
+mov rdi, r14
+call _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_appendEPKcm
+lea r13, [var_80h]
+lea rdx, [rax + 0x10]
+mov qword [var_70h], r13
+mov rcx, qword [rax]
+cmp rcx, rdx
+je 0x8002397
+mov qword [var_70h], rcx
+mov rcx, qword [rax + 0x10]
+mov qword [var_80h], rcx
+mov rcx, qword [rax + 8]
+mov byte [rax + 0x10], 0
+mov esi, r12d
+mov rdi, rbp
+mov qword [var_78h], rcx
+lea rcx, [var_70h]
+mov qword [rax], rdx
+lea rdx, [0x08002382]
+mov qword [rax + 8], 0
+call _ZN5boost6system12system_errorC1EiRKNS0_14error_categoryERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE
+mov rdi, rbp
+call _ZN5boost15throw_exceptionINS_6system12system_errorEEEvRKT_
+add byte [rax], al
+add byte [rax], al
+movdqu xmm1, xmmword [rax + 0x10]
+movaps xmmword [var_80h], xmm1
+jmp 0x8002360

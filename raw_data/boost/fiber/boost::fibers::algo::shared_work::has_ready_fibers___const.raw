@@ -1,0 +1,36 @@
+push r12
+push rbp
+mov rbp, qword [0x080005da]
+push rbx
+mov rbx, rdi
+test rbp, rbp
+je 0x80005f3
+lea rdi, [0x080005ea]
+call pthread_mutex_lock
+test eax, eax
+jne 0x8000646
+mov rax, qword [0x080005fa]
+cmp qword [0x08000601], rax
+mov r12d, 1
+je 0x8000628
+test rbp, rbp
+je 0x800061a
+lea rdi, [0x08000615]
+call pthread_mutex_unlock
+mov eax, r12d
+pop rbx
+pop rbp
+pop r12
+ret
+nop word [rax + rax]
+mov rax, qword [rbx + 0x10]
+lea rdi, [rbx + 0x10]
+test rax, rax
+sete r12b
+cmp rax, rdi
+sete al
+or r12d, eax
+xor r12d, 1
+jmp 0x8000609
+mov edi, eax
+call _ZSt20__throw_system_errori

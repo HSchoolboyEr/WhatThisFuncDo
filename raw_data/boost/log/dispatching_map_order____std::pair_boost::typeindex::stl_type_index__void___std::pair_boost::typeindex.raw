@@ -1,0 +1,95 @@
+push r15
+push r14
+push r13
+push r12
+push rbp
+push rbx
+sub rsp, 0x28
+mov qword [var_18h], rsi
+cmp rdi, rsi
+je 0x80022a1
+lea rbx, [rdi + 0x10]
+mov r13, rdi
+cmp rsi, rbx
+je 0x80022a1
+nop dword [rax]
+mov rbp, qword [rbx]
+mov rax, qword [r13]
+mov rdi, qword [arg_8h]
+mov rsi, qword [rax + 8]
+movzx ecx, byte [rdi]
+cmp cl, 0x2a
+je 0x80022b0
+mov byte [var_17h], cl
+mov qword [var_8h], rdi
+call strcmp
+mov rdi, qword [var_8h]
+movzx ecx, byte [var_17h]
+shr eax, 0x1f
+lea r14, [rbx + 0x10]
+mov r12, qword [r14 - 8]
+test al, al
+je 0x800221e
+jmp 0x800225c
+nop dword [rax]
+call strcmp
+shr eax, 0x1f
+sub rbx, 0x10
+test al, al
+je 0x800223b
+mov rax, qword [rbx]
+mov qword [rbx + 0x10], rax
+mov rax, qword [rbx + 8]
+mov qword [rbx + 0x18], rax
+mov rdi, qword [arg_8h]
+movzx ecx, byte [rdi]
+mov rax, qword [rbx - 0x10]
+mov r15, rbx
+mov rsi, qword [rax + 8]
+cmp cl, 0x2a
+jne strcmp
+cmp rdi, rsi
+setb al
+cmp byte [rsi], 0x2a
+jne strcmp
+jmp 0x8002200
+movq xmm0, rbp
+movq xmm1, r12
+punpcklqdq xmm0, xmm1
+movups xmmword [r15], xmm0
+cmp qword [var_18h], r14
+je 0x80022a1
+mov rbx, r14
+jmp 0x80021b0
+mov rcx, rbx
+mov rsi, qword [r14 - 0x10]
+sub rcx, r13
+mov rax, rcx
+sar rax, 4
+test rcx, rcx
+jle 0x8002292
+nop word [rax + rax]
+mov rcx, qword [rbx - 0x10]
+sub rbx, 0x10
+mov qword [rbx + 0x10], rcx
+mov rcx, qword [rbx + 8]
+mov qword [rbx + 0x18], rcx
+sub rax, 1
+jne 0x8002278
+mov qword [r13], rsi
+mov qword [r13 + 8], r12
+cmp qword [var_18h], r14
+jne 0x8002254
+add rsp, 0x28
+pop rbx
+pop rbp
+pop r12
+pop r13
+pop r14
+pop r15
+ret
+cmp rdi, rsi
+setb al
+cmp byte [rsi], 0x2a
+jne 0x80021cb
+jmp 0x80021e6

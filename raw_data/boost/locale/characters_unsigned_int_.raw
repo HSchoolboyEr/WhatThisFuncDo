@@ -1,0 +1,3 @@
+mov rax, qword [rdi]
+mov dword [rax + 0x5c], esi
+ret

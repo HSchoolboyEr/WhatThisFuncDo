@@ -1,0 +1,95 @@
+push rbp
+lea rcx, [0x08000568]
+movq xmm0, rcx
+mov rbp, rsp
+push r14
+lea rax, [var_70h]
+push r13
+lea r13, [var_40h]
+push r12
+movq xmm3, rax
+lea rax, [0x0800058a]
+lea r12, [var_60h]
+push rbx
+lea rdx, [rax - 0x1f]
+movq xmm4, rax
+punpcklqdq xmm0, xmm3
+movq xmm2, rdx
+lea rbx, [0x080005a8]
+punpcklqdq xmm2, xmm4
+add rsp, 0xffffffffffffff80
+mov rsi, qword [rdi + 8]
+mov edi, dword [rdi]
+movaps xmmword [var_a0h], xmm0
+movaps xmmword [var_90h], xmm2
+call _Z9test_mainiPPc
+movq xmm1, rbx
+mov rcx, r12
+mov rsi, r13
+movdqa xmm2, xmmword [var_90h]
+mov r14d, eax
+punpcklqdq xmm1, xmm1
+mov edx, 0x25
+mov rdi, qword [0x080005ef]
+movaps xmmword [var_60h], xmm1
+movaps xmmword [var_40h], xmm2
+call _ZN5boost9unit_test15unit_test_log_t14set_checkpointENS0_13basic_cstringIKcEEmS4_
+test r14d, r14d
+lea rdx, [var_80h]
+lea rax, [0x0800060a]
+sete byte [var_60h]
+sub rsp, 8
+lea rbx, [rax - 0x40]
+xor r9d, r9d
+movdqa xmm0, xmmword [var_a0h]
+push 0
+mov rsi, r13
+mov rdi, r12
+movq xmm5, rax
+movq xmm1, rbx
+xor eax, eax
+mov byte [var_38h], 0
+lea rcx, [0x08000640]
+movdqa xmm2, xmmword [var_90h]
+punpcklqdq xmm1, xmm5
+movaps xmmword [var_30h], xmm0
+mov qword [var_40h], rcx
+pxor xmm0, xmm0
+mov r8d, 1
+mov ecx, 0x25
+movaps xmmword [var_80h], xmm2
+movaps xmmword [var_70h], xmm1
+movups xmmword [var_58h], xmm0
+call _ZN5boost10test_tools9tt_detail16report_assertionERKNS0_16assertion_resultERKNS_9unit_test12lazy_ostreamENS5_13basic_cstringIKcEEmNS1_10tool_levelENS1_10check_typeEmz
+pop rax
+mov rax, qword [var_50h]
+pop rdx
+mov rbx, rax
+test rax, rax
+je 0x8000689
+lock sub dword [rax + 8], 1
+je 0x80006a0
+lea rsp, [var_20h]
+pop rbx
+pop r12
+pop r13
+pop r14
+pop rbp
+ret
+nop word cs:[rax + rax]
+mov rax, qword [rax]
+mov rdi, rbx
+call qword [rax + 0x10]
+lock sub dword [rbx + 0xc], 1
+jne 0x8000689
+mov rax, qword [rbx]
+lea rcx, [0x080006ba]
+mov rdi, rbx
+mov rdx, qword [rax + 0x18]
+cmp rdx, rcx
+jne 0x80006d0
+call qword [rax + 8]
+jmp 0x8000689
+nop dword [rax + rax]
+call rdx
+jmp 0x8000689

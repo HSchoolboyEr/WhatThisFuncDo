@@ -1,0 +1,227 @@
+push r14
+lea rax, [0x0800baa9]
+push r13
+push r12
+push rbp
+push rbx
+mov rbx, rdi
+sub rsp, 0x20
+mov qword [rdi], rax
+mov rdi, qword [rdi + 0x58]
+test rdi, rdi
+je 0x800bd40
+lock sub qword [rdi + 0xd8], 1
+je _ZN5boost4asio6detail9scheduler4stopEv
+mov rbp, qword [rbx + 0x58]
+movzx r12d, byte [arg_60h]
+test r12b, r12b
+jne 0x800bd7f
+movzx r12d, byte [arg_d0h]
+mov byte [arg_f0h], 1
+test r12b, r12b
+je 0x800bcc0
+mov rbp, qword [rbx + 0x60]
+test rbp, rbp
+je 0x800bcf3
+cmp byte [arg_8h], 0
+je 0x800be58
+mov esi, 0x10
+mov rdi, rbp
+call _ZdlPvm
+mov rbp, qword [rbx + 0x58]
+mov qword [rbx + 0x60], 0
+test rbp, rbp
+je 0x800bd00
+mov rax, qword [rbp]
+lea rdx, [0x0800bb43]
+mov rdi, rbp
+mov rax, qword [rax + 8]
+cmp rax, rdx
+jne 0x800be90
+call _ZN5boost4asio6detail9schedulerD1Ev
+mov rdi, rbp
+mov esi, 0x100
+call _ZdlPvm
+mov rbp, qword [rbx + 0x60]
+mov qword [rbx + 0x58], 0
+test rbp, rbp
+je 0x800bd00
+cmp byte [arg_8h], 0
+je pthread_detach
+mov rdi, rbp
+mov esi, 0x10
+call _ZdlPvm
+mov rbp, qword [rbx + 0x58]
+test rbp, rbp
+je 0x800bd00
+mov rax, qword [rbp]
+lea rdx, [0x0800bba9]
+mov rax, qword [rax + 8]
+cmp rax, rdx
+jne 0x800bdc8
+cmp qword [arg_f8h], 0
+lea rax, [0x0800bbc5]
+lea r13, [arg_38h]
+mov qword [rbp], rax
+lea r14, [arg_70h]
+je 0x800bc50
+movzx r12d, byte [arg_60h]
+test r12b, r12b
+jne pthread_mutex_lock
+movzx r12d, byte [arg_d0h]
+mov eax, 0x101
+mov word [arg_f0h], ax
+test r12b, r12b
+jne 0x800bc30
+mov rdi, qword [arg_a8h]
+test rdi, rdi
+je 0x800bc13
+mov byte [arg_d0h], 1
+mov rax, qword [rdi]
+call qword [rax + 8]
+test r12b, r12b
+je 0x800bc30
+cmp byte [arg_60h], 0
+je 0x800bc30
+mov rdi, r13
+call pthread_mutex_unlock
+nop word cs:[rax + rax]
+mov r12, qword [arg_f8h]
+cmp byte [r12 + 8], 0
+je 0x800bdd8
+mov esi, 0x10
+mov rdi, r12
+call _ZdlPvm
+mov rsi, qword [arg_e0h]
+mov r12, rsp
+test rsi, rsi
+jne 0x800bca2
+jmp pthread_cond_destroy
+nop dword [rax]
+mov qword [rsi], 0
+mov rax, qword [rsi + 8]
+xor ecx, ecx
+mov rdx, r12
+mov qword [rsp], 0
+xor edi, edi
+mov qword [var_8h], 0
+mov qword [var_10h], 0
+call rax
+mov rsi, qword [arg_e0h]
+test rsi, rsi
+je 0x800bd18
+mov rax, qword [rsi]
+mov qword [arg_e0h], rax
+test rax, rax
+jne 0x800bc68
+mov qword [arg_e8h], 0
+jmp 0x800bc68
+nop
+mov rdi, qword [arg_a8h]
+test rdi, rdi
+je 0x800bcd9
+mov byte [arg_d0h], 1
+mov rax, qword [rdi]
+call qword [rax + 8]
+lea r13, [arg_38h]
+test r12b, r12b
+jne pthread_mutex_unlock
+mov rbp, qword [rbx + 0x60]
+test rbp, rbp
+jne 0x800bb0c
+mov rbp, qword [rbx + 0x58]
+test rbp, rbp
+jne 0x800bb38
+add rsp, 0x20
+lea rdi, [rbx + 0x30]
+pop rbx
+pop rbp
+pop r12
+pop r13
+pop r14
+jmp pthread_mutex_destroy
+nop dword [rax]
+mov rdi, r14
+call pthread_cond_destroy
+mov rdi, r13
+call pthread_mutex_destroy
+mov esi, 0x100
+mov rdi, rbp
+call _ZdlPvm
+jmp 0x800bd00
+nop word [rax + rax]
+mov rbp, qword [rbx + 0x60]
+test rbp, rbp
+je 0x800bd00
+cmp byte [arg_8h], 0
+jne 0x800bb84
+mov rdi, qword [rbp]
+call pthread_detach
+jmp 0x800bb84
+nop dword [rax]
+call _ZN5boost4asio6detail9scheduler4stopEv
+mov rbp, qword [rbx + 0x58]
+movzx r12d, byte [arg_60h]
+test r12b, r12b
+je 0x800bae7
+lea r13, [arg_38h]
+mov rdi, r13
+call pthread_mutex_lock
+cmp byte [arg_60h], 0
+mov byte [arg_f0h], 1
+je 0x800bda9
+or qword [arg_a0h], 1
+lea rdi, [arg_70h]
+call pthread_cond_broadcast
+cmp byte [arg_d0h], 0
+je 0x800bcc0
+mov rdi, r13
+call pthread_mutex_unlock
+jmp 0x800baff
+nop dword [rax + rax]
+mov rdi, rbp
+call rax
+jmp 0x800bd00
+nop word [rax + rax]
+mov rdi, qword [r12]
+xor esi, esi
+call pthread_join
+mov byte [r12 + 8], 1
+mov r12, qword [arg_f8h]
+test r12, r12
+je 0x800bc50
+cmp byte [r12 + 8], 0
+jne 0x800bc43
+mov rdi, qword [r12]
+call pthread_detach
+jmp 0x800bc43
+nop dword [rax + rax]
+mov rdi, r13
+call pthread_mutex_lock
+mov edx, 0x101
+cmp byte [arg_60h], 0
+mov word [arg_f0h], dx
+je 0x800be42
+or qword [arg_a0h], 1
+mov rdi, r14
+call pthread_cond_broadcast
+cmp byte [arg_d0h], 0
+jne 0x800bc18
+jmp 0x800bbfa
+nop dword [rax]
+mov rdi, qword [rbp]
+xor esi, esi
+call pthread_join
+mov byte [arg_8h], 1
+mov rbp, qword [rbx + 0x60]
+test rbp, rbp
+je 0x800bb23
+cmp byte [arg_8h], 0
+jne 0x800bb16
+mov rdi, qword [rbp]
+call pthread_detach
+jmp 0x800bb16
+nop dword [rax]
+call rax
+mov rbp, qword [rbx + 0x60]
+jmp 0x800bb69

@@ -1,0 +1,63 @@
+push r13
+push r12
+push rbp
+push rbx
+mov rbx, rsi
+sub rsp, 0x18
+mov rdx, qword [rdi]
+mov rax, qword [rdx + 8]
+lea rsi, [rdx + 0x10]
+sub rax, rsi
+cmp rax, rbx
+jae 0x8006a52
+mov r12, qword [rdx]
+lea r13, [0x080069ce]
+mov rbp, rdi
+mov qword [var_8h], r13
+sub r12, rsi
+test rbx, rbx
+je _ZN5boost4wave4util19SimpleStringStorageIcSaIcEE12emptyString_E
+mov rdi, rbx
+add rdi, 0x18
+js _ZSt17__throw_bad_allocv
+call _Znwm
+lea rdi, [rax + 0x10]
+mov r13, rax
+mov qword [var_8h], rax
+add rbx, rdi
+lea rax, [rdi + r12]
+movq xmm0, rax
+movq xmm1, rbx
+mov rax, qword [rbp]
+punpcklqdq xmm0, xmm1
+movups xmmword [r13], xmm0
+mov r12, qword [rax]
+lea rsi, [rax + 0x10]
+sub r12, rsi
+mov rdx, r12
+call memcpy
+mov rdi, qword [rbp]
+mov qword [rbp], r13
+mov rsi, qword [rdi + 8]
+lea rax, [rdi + 0x10]
+mov qword [var_8h], rdi
+cmp rsi, rax
+je 0x8006a52
+sub rsi, rax
+add rsi, 0x18
+call _ZdlPvm
+add rsp, 0x18
+pop rbx
+pop rbp
+pop r12
+pop r13
+ret
+nop dword [rax]
+lea rdi, [0x08006a67]
+jmp 0x8006a24
+call _ZSt17__throw_bad_allocv
+mov rbp, rax
+lea rdi, [var_8h]
+call _ZN5boost4wave4util22AllocatorStringStorageIcSaIcEED1Ev
+mov rdi, rbp
+call _Unwind_Resume

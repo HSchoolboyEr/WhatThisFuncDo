@@ -1,0 +1,9 @@
+mov rax, qword [rdi + 0xa0]
+test rax, rax
+je 0x8001445
+mov rdx, qword [rdi + 0xa8]
+pxor xmm0, xmm0
+mov qword [rdx], rax
+mov qword [rax + 8], rdx
+movups xmmword [rdi + 0xa0], xmm0
+ret

@@ -1,0 +1,12 @@
+push rbp
+mov rbp, qword [rdi + 0xb8]
+sub qword [rdi + 0xc0], 1
+mov rdi, rbp
+call _ZNSt8__detail15_List_node_base9_M_unhookEv
+add byte [rax], al
+add byte [rax], al
+mov rdi, rbp
+mov esi, 0x18
+pop rbp
+jmp _ZdlPvm
+nop word cs:[rax + rax]

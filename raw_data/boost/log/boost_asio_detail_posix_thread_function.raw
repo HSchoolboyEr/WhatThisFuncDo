@@ -1,0 +1,14 @@
+push r12
+push rbp
+mov rbp, rdi
+sub rsp, 8
+mov rax, qword [rdi]
+call qword [rax + 0x10]
+mov rax, qword [rbp]
+mov rdi, rbp
+call qword [rax + 8]
+add rsp, 8
+xor eax, eax
+pop rbp
+pop r12
+ret

@@ -1,0 +1,22 @@
+mov rax, qword [rdi + 0x10]
+mov rcx, qword [rsi + 0x38]
+cmp qword [rax + 0x30], rcx
+je 0x8009e50
+ret
+nop
+push rbx
+mov rsi, qword [rdi + 0x20]
+mov rbx, rdi
+xor ecx, ecx
+xor edx, edx
+call _ZNK5boost9unit_test6output19junit_result_helper25write_testcase_system_outERKNS1_10junit_impl16junit_log_helperEPKNS0_9test_unitEb
+mov rsi, qword [rbx + 0x20]
+mov rdi, rbx
+xor edx, edx
+xor ecx, ecx
+call _ZNK5boost9unit_test6output19junit_result_helper25write_testcase_system_errERKNS1_10junit_impl16junit_log_helperEPKNS0_9test_unitEPKNS0_12test_resultsE
+mov rdi, qword [rbx + 8]
+pop rbx
+mov edx, 0xc
+lea rsi, [0x08009e82]
+jmp _ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l

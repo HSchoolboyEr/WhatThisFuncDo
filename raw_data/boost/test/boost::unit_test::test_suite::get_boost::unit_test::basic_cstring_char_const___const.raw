@@ -1,0 +1,58 @@
+push r14
+push r13
+push r12
+push rbp
+push rbx
+mov rbx, qword [rdi + 0x120]
+mov r12, qword [rdi + 0x128]
+cmp r12, rbx
+je 0x8001240
+mov r14, rsi
+add rbx, 8
+jmp 0x80011d9
+nop dword [rax + rax]
+add rbx, 8
+cmp r12, rbp
+je 0x8001240
+mov r13, qword [rbx - 8]
+mov rbp, rbx
+mov rax, r13
+mov rdi, r13
+and eax, 0xffff0000
+cmp rax, 1
+sbb esi, esi
+and esi, 0xf
+add esi, 1
+call _ZN5boost9unit_test9framework3getEmNS0_14test_unit_typeE
+mov rcx, qword [r14]
+mov rdx, qword [r14 + 8]
+sub rdx, rcx
+cmp rdx, qword [rax + 0x90]
+jne 0x80011d0
+test rdx, rdx
+je 0x8001233
+mov rsi, qword [rax + 0x88]
+xor eax, eax
+nop dword [rax]
+movzx edi, byte [rcx + rax]
+cmp byte [rsi + rax], dil
+jne 0x80011d0
+add rax, 1
+cmp rdx, rax
+jne 0x8001220
+pop rbx
+mov rax, r13
+pop rbp
+pop r12
+pop r13
+pop r14
+ret
+nop
+mov r13d, 0xffffffff
+pop rbx
+pop rbp
+mov rax, r13
+pop r12
+pop r13
+pop r14
+ret

@@ -1,0 +1,48 @@
+push r12
+push rbp
+push rbx
+mov rbp, qword [rdi]
+mov rbx, rdi
+test rbp, rbp
+je _ZN5boost6fibers7context6activeEv
+mov rdi, rbp
+call _ZNK5boost6fibers7context6get_idEv
+add byte [rax], al
+add byte [rax], al
+mov rbp, rax
+call _ZN5boost6fibers7context6activeEv
+mov rdi, rax
+call _ZNK5boost6fibers7context6get_idEv
+cmp rbp, rax
+je .text.unlikely
+mov rdi, qword [rbx]
+test rdi, rdi
+je .text.unlikely
+call _ZN5boost6fibers7context4joinEv
+mov rdi, qword [rbx]
+mov qword [rbx], 0
+test rdi, rdi
+je 0x8000178
+lock sub qword [rdi + 8], 1
+je 0x8000180
+pop rbx
+pop rbp
+pop r12
+ret
+nop dword [rax]
+mov rbp, qword [rdi + 0xd0]
+mov rax, qword [rdi]
+mov qword [rdi + 0xd0], 0
+call qword [rax]
+xor esi, esi
+mov rdi, rbp
+call jump_fcontext
+test rax, rax
+je 0x8000178
+xor esi, esi
+mov rdi, rax
+lea rdx, [0x080001b2]
+add byte [rax], al
+add byte [rax], al
+call ontop_fcontext
+jmp 0x8000178

@@ -1,0 +1,89 @@
+push r12
+push rbp
+push rbx
+mov rbx, rdi
+mov edi, 0x38
+sub rsp, 0x10
+call _Znwm
+lea rdx, [0x0801409c]
+mov rbp, qword [rbx + 0x18]
+mov r12, rax
+lea rax, [0x080140aa]
+movq xmm0, rdx
+movq xmm1, rax
+lea rax, [0x080140bb]
+mov qword [r12 + 0x18], rbp
+punpcklqdq xmm0, xmm1
+mov qword [r12 + 0x10], rax
+movups xmmword [r12], xmm0
+test rbp, rbp
+je 0x80140e1
+mov rax, qword [rbp]
+mov rdi, rbp
+call qword [rax + 0x18]
+mov rbp, qword [rbx + 0x18]
+mov rdi, qword [rbx + 0x30]
+movdqu xmm2, xmmword [rbx + 0x20]
+mov rdx, qword [rbx + 0x20]
+mov rsi, qword [rbx + 0x28]
+mov eax, dword [rbx + 0x30]
+mov ecx, dword [rbx + 0x34]
+mov qword [r12 + 0x30], rdi
+lea rdi, [0x08014104]
+lea r8, [rdi - 0x30]
+movq xmm3, rdi
+add rdi, 0x28
+movups xmmword [r12 + 0x20], xmm2
+movq xmm0, r8
+mov qword [r12 + 0x10], rdi
+punpcklqdq xmm0, xmm3
+movups xmmword [r12], xmm0
+test rbp, rbp
+je 0x8014170
+mov rax, qword [rbp]
+lea rdi, [var_8h]
+mov rsi, rbp
+call qword [rax + 0x28]
+mov rbp, qword [var_8h]
+test rbp, rbp
+je 0x8014162
+mov rax, qword [rbp]
+mov rdi, rbp
+call qword [rax + 0x18]
+mov rdi, qword [var_8h]
+test rdi, rdi
+je 0x8014162
+mov rax, qword [rdi]
+call qword [rax + 0x20]
+mov rsi, qword [rbx + 0x28]
+mov eax, dword [rbx + 0x30]
+mov rdx, qword [rbx + 0x20]
+mov ecx, dword [rbx + 0x34]
+movq xmm0, rdx
+movq xmm4, rsi
+movd xmm5, ecx
+mov rdi, qword [r12 + 0x18]
+punpcklqdq xmm0, xmm4
+movups xmmword [r12 + 0x20], xmm0
+movd xmm0, eax
+punpckldq xmm0, xmm5
+movq qword [r12 + 0x30], xmm0
+test rdi, rdi
+je 0x80141a7
+mov rax, qword [rdi]
+call qword [rax + 0x20]
+mov qword [r12 + 0x18], rbp
+test rbp, rbp
+je 0x80141c5
+mov rax, qword [rbp]
+mov rdi, rbp
+call qword [rax + 0x18]
+mov rax, qword [rbp]
+mov rdi, rbp
+call qword [rax + 0x20]
+add rsp, 0x10
+mov rax, r12
+pop rbx
+pop rbp
+pop r12
+ret

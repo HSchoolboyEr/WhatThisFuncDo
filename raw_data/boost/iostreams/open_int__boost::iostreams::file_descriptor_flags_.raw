@@ -1,0 +1,31 @@
+push rbp
+mov r8d, edx
+sub rsp, 0x10
+mov rdx, qword [rdi]
+mov eax, dword [rdx]
+mov dword [var_8h], eax
+mov eax, dword [rdx + 4]
+add eax, eax
+and eax, 2
+mov dword [var_ch], eax
+mov dword [rdx], esi
+mov edi, dword [var_8h]
+mov dword [rdx + 4], r8d
+cmp edi, 0xffffffff
+je 0x8000610
+test eax, eax
+jne close
+add rsp, 0x10
+pop rbp
+ret
+nop word cs:[rax + rax]
+call close
+mov rdx, qword [0x0800062c]
+mov qword [arg_8h], rdx
+cmp eax, 0xffffffff
+jne 0x8000610
+lea rdi, [0x0800063d]
+call _ZN5boost9iostreams6detail20throw_system_failureEPKc
+mov rbp, rax
+jmp .text.unlikely
+nop word [rax + rax]

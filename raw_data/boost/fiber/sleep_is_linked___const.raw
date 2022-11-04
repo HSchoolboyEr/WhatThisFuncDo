@@ -1,0 +1,3 @@
+cmp qword [rdi + 0x70], 0
+setne al
+ret

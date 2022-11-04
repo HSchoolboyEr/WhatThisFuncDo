@@ -1,0 +1,140 @@
+push r15
+lea rax, [0x08000689]
+push r14
+push r13
+push r12
+push rbp
+push rbx
+sub rsp, 0x28
+cmp byte [0x0800069c], 2
+mov qword [var_18h], rax
+jne 0x80006d0
+movzx eax, byte [0x080006aa]
+test al, al
+je .bss
+mov rax, qword [0x080006b9]
+mov eax, dword [rax + 8]
+add rsp, 0x28
+pop rbx
+pop rbp
+pop r12
+pop r13
+pop r14
+pop r15
+ret
+nop dword [rax + rax]
+mov rbx, qword [0x080006d7]
+lea r12, [var_18h]
+lea r13, [0x080006e3]
+lea r14, [method.boost::detail::sp_counted_impl_p_boost::log::v2s_mt_posix::aux::default_attribute_names._anonymous_namespace_::names_::dispose__]
+lea r15, [0x080006f1]
+mov rdi, r12
+call _ZNK5boost3log12v2s_mt_posix3aux17once_block_sentry16enter_once_blockEv
+test al, al
+jne 0x8000830
+movzx eax, byte [0x08000708]
+test al, al
+je .bss
+mov edi, 0x1c
+call _Znwm
+lea rdi, [0x08000721]
+mov rbp, rax
+call _ZN5boost3log12v2s_mt_posix14attribute_name18get_id_from_stringEPKc
+mov dword [rbp], eax
+lea rdi, [0x08000733]
+call _ZN5boost3log12v2s_mt_posix14attribute_name18get_id_from_stringEPKc
+mov dword [arg_4h], eax
+lea rdi, [0x08000742]
+call _ZN5boost3log12v2s_mt_posix14attribute_name18get_id_from_stringEPKc
+mov dword [arg_8h], eax
+lea rdi, [0x08000751]
+call _ZN5boost3log12v2s_mt_posix14attribute_name18get_id_from_stringEPKc
+mov dword [arg_ch], eax
+lea rdi, [0x08000760]
+call _ZN5boost3log12v2s_mt_posix14attribute_name18get_id_from_stringEPKc
+mov dword [arg_10h], eax
+lea rdi, [0x0800076f]
+call _ZN5boost3log12v2s_mt_posix14attribute_name18get_id_from_stringEPKc
+mov dword [arg_14h], eax
+lea rdi, [0x0800077e]
+call _ZN5boost3log12v2s_mt_posix14attribute_name18get_id_from_stringEPKc
+mov dword [arg_18h], eax
+mov edi, 0x18
+call _Znwm
+mov r8, qword [0x08000797]
+movq xmm0, rbp
+movq xmm1, rax
+mov qword [rax + 8], rbx
+punpcklqdq xmm0, xmm1
+mov qword [rax], r13
+mov qword [rax + 0x10], rbp
+movaps xmmword [0x080007b7], xmm0
+test r8, r8
+je 0x80007c8
+lock sub dword [r8 + 8], 1
+je 0x8000890
+mov rdi, r12
+call _ZN5boost3log12v2s_mt_posix3aux17once_block_sentry6commitEv
+mov rax, qword [var_18h]
+cmp byte [rax], 2
+je .bss
+jmp _ZNK5boost3log12v2s_mt_posix3aux17once_block_sentry16enter_once_blockEv
+nop dword [rax + rax]
+lea rdi, [0x080007ef]
+call __cxa_guard_acquire
+test eax, eax
+je .bss
+lea rdi, [0x08000803]
+call __cxa_guard_release
+lea rdx, [0x0800080f]
+lea rsi, [0x08000816]
+lea rdi, [method.boost::shared_ptr_boost::log::v2s_mt_posix::aux::default_attribute_names._anonymous_namespace_::names_::shared_ptr__]
+call __cxa_atexit
+jmp .bss
+nop word [rax + rax]
+mov rax, qword [var_18h]
+cmp byte [rax], 2
+je .bss
+mov rdi, r12
+call _ZN5boost3log12v2s_mt_posix3aux17once_block_sentry8rollbackEv
+jmp .bss
+nop dword [rax + rax]
+lea rdi, [0x08000857]
+call __cxa_guard_acquire
+test eax, eax
+je 0x8000710
+lea rdi, [0x0800086b]
+call __cxa_guard_release
+lea rdx, [0x08000877]
+lea rsi, [0x0800087e]
+lea rdi, [method.boost::shared_ptr_boost::log::v2s_mt_posix::aux::default_attribute_names._anonymous_namespace_::names_::shared_ptr__]
+call __cxa_atexit
+jmp 0x8000710
+nop
+mov rax, qword [r8]
+mov rax, qword [rax + 0x10]
+cmp rax, r14
+jne 0x80008dc
+mov rdi, qword [r8 + 0x10]
+test rdi, rdi
+je 0x80008b9
+mov esi, 0x1c
+mov qword [var_8h], r8
+call _ZdlPvm
+mov r8, qword [var_8h]
+lock sub dword [r8 + 0xc], 1
+jne _ZN5boost3log12v2s_mt_posix3aux17once_block_sentry6commitEv
+mov rax, qword [r8]
+mov rdi, r8
+mov rdx, qword [rax + 0x18]
+cmp rdx, r15
+jne 0x80008ed
+call qword [rax + 8]
+jmp _ZN5boost3log12v2s_mt_posix3aux17once_block_sentry6commitEv
+mov qword [var_8h], r8
+mov rdi, r8
+call rax
+mov r8, qword [var_8h]
+jmp 0x80008b9
+call rdx
+jmp _ZN5boost3log12v2s_mt_posix3aux17once_block_sentry6commitEv

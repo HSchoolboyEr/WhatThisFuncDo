@@ -1,0 +1,127 @@
+push r15
+push r14
+push r13
+mov r13, rdi
+push r12
+mov r12, rsi
+push rbp
+push rbx
+sub rsp, 0x28
+mov rcx, qword [rdi + 0x10]
+mov rsi, qword [rdi + 8]
+mov rbx, qword [r12]
+cmp rcx, rsi
+je 0x8005ad8
+mov rax, qword [rbx]
+mov rdx, rsi
+jmp 0x8005ab6
+nop dword [rax]
+mov edi, dword [rax]
+cmp dword [rdx], edi
+jne 0x8005abd
+add rax, 4
+add rdx, 4
+mov qword [rbx], rax
+cmp rcx, rdx
+je 0x8005ad8
+cmp qword [r12 + 8], rax
+jne 0x8005aa0
+add rsp, 0x28
+mov rax, 0xffffffffffffffff
+pop rbx
+pop rbp
+pop r12
+pop r13
+pop r14
+pop r15
+ret
+nop dword [rax + rax]
+sub rcx, rsi
+mov qword [var_8h], rcx
+js 0x8005abd
+mov r14, qword [rbx]
+cmp r14, qword [r12 + 8]
+je 0x8005abd
+mov qword [var_10h], 0
+mov r15d, dword [r14]
+xor ebp, ebp
+mov edi, r15d
+call iswdigit
+test eax, eax
+jne 0x8005bf8
+mov edi, r15d
+call towlower
+lea ecx, [rax - 0x61]
+cmp ecx, 5
+jbe 0x8005ba4
+cmp qword [var_10h], 0
+je 0x8005abd
+js 0x8005abd
+mov r15, qword [r13 + 0x20]
+mov r14, qword [r15 + 8]
+mov rdx, qword [r15]
+lea rcx, [r15 + 0x10]
+lea r10, [r14 + 1]
+cmp rdx, rcx
+je 0x8005c29
+mov rcx, qword [r15 + 0x10]
+cmp r10, rcx
+ja 0x8005bfe
+mov rcx, qword [var_8h]
+mov rax, qword [rbx]
+mov dword [rdx + r14*4], ebp
+mov qword [r15 + 8], r10
+mov dword [rdx + r14*4 + 4], 0
+sar rcx, 2
+add rcx, qword [var_10h]
+cmp rax, qword [r12 + 8]
+je 0x8005abd
+mov esi, dword [r13 + 0x28]
+cmp dword [rax], esi
+jne 0x8005abd
+add rax, 4
+mov qword [rbx], rax
+add rsp, 0x28
+lea rax, [rcx + 1]
+pop rbx
+pop rbp
+pop r12
+pop r13
+pop r14
+pop r15
+ret
+lea r15d, [rax - 0x57]
+cmp ebp, 0xfffffff
+ja 0x8005abd
+mov r9d, ebp
+mov eax, r15d
+shl r9d, 4
+not eax
+cmp r9d, eax
+ja 0x8005abd
+add r14, 4
+add qword [var_10h], 1
+lea ebp, [r15 + r9]
+mov qword [rbx], r14
+cmp qword [r12 + 8], r14
+je 0x8005b1e
+mov r15d, dword [r14]
+mov edi, r15d
+call iswdigit
+test eax, eax
+je towlower
+sub r15d, 0x30
+jmp 0x8005ba8
+xor edx, edx
+mov r8d, 1
+xor ecx, ecx
+mov rsi, r14
+mov rdi, r15
+mov qword [var_18h], r10
+call _ZNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEE9_M_mutateEmmPKwm
+mov rdx, qword [r15]
+mov rbx, qword [r12]
+mov r10, qword [var_18h]
+jmp 0x8005b51
+mov ecx, 3
+jmp 0x8005b48

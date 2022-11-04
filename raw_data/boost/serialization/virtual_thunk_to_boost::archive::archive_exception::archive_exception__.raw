@@ -1,0 +1,13 @@
+push rbp
+mov rax, qword [rdi]
+mov rbp, rdi
+add rbp, qword [rax - 0x18]
+lea rax, [0x080013c2]
+mov qword [rbp], rax
+mov rdi, rbp
+call _ZNSt9exceptionD2Ev
+mov rdi, rbp
+mov esi, 0x90
+pop rbp
+jmp _ZdlPvm
+nop dword [rax]

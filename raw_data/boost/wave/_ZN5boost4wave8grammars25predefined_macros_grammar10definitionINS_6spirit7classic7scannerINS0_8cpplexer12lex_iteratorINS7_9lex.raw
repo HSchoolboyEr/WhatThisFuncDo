@@ -1,0 +1,106 @@
+push r12
+push rbp
+lea rbp, [rdi + 0x20]
+push rbx
+mov rbx, rdi
+sub rsp, 0x90
+mov qword [rdi + 8], 0
+mov qword [rdi + 0x18], 0
+mov qword [rdi + 0x28], 0
+mov qword [rdi], 5
+mov qword [rdi + 0x20], 6
+mov qword [rdi + 0x10], 7
+mov edi, 0x50
+mov dword [rsp], 0x804017c
+mov dword [var_8h], 0x10040000
+movdqa xmm1, xmmword [rsp]
+mov qword [var_10h], 0x7f840000
+mov dword [var_18h], 0x182c0000
+movdqa xmm2, xmmword [var_10h]
+mov qword [var_20h], 0x7ffc0000
+mov dword [var_28h], 0x22840000
+movdqa xmm3, xmmword [var_20h]
+mov qword [var_30h], 0x7f840000
+mov qword [var_38h], rbp
+movdqa xmm4, xmmword [var_30h]
+movaps xmmword [var_40h], xmm1
+movaps xmmword [var_50h], xmm2
+movaps xmmword [var_60h], xmm3
+movaps xmmword [var_70h], xmm4
+call _Znwm
+lea r12, [rbx + 0x10]
+movq xmm0, rbp
+mov dword [var_48h], 0x10040000
+mov rdi, qword [rbx + 8]
+movq xmm5, r12
+movdqa xmm6, xmmword [var_40h]
+mov qword [var_50h], 0x7f840000
+lea rcx, [0x08005995]
+punpcklqdq xmm0, xmm5
+mov dword [var_58h], 0x182c0000
+movdqa xmm7, xmmword [var_50h]
+movups xmmword [var_78h], xmm0
+mov rdx, qword [var_80h]
+mov qword [var_60h], 0x7ffc0000
+mov dword [var_68h], 0x22840000
+movdqa xmm1, xmmword [var_60h]
+mov qword [var_70h], 0x7f840000
+movdqa xmm2, xmmword [var_70h]
+mov qword [rax], rcx
+mov qword [rax + 0x48], rdx
+mov qword [rbx + 8], rax
+movups xmmword [rax + 8], xmm6
+movups xmmword [rax + 0x18], xmm7
+movups xmmword [rax + 0x28], xmm1
+movups xmmword [rax + 0x38], xmm2
+test rdi, rdi
+je 0x8005a00
+mov rax, qword [rdi]
+call qword [rax + 8]
+mov edi, 0x68
+call _Znwm
+mov rdx, qword [0x08005a11]
+mov rdi, qword [rbx + 0x28]
+lea rsi, [0x08005a1c]
+mov dword [rax + 0x10], 0x804017c
+mov qword [rax], rsi
+mov qword [rax + 8], rdx
+mov rdx, qword [0x08005a31]
+mov dword [rax + 0x18], 0x10040000
+mov qword [rax + 0x50], rdx
+mov rdx, qword [0x08005a43]
+mov qword [rax + 0x20], 0x7f840000
+mov dword [rax + 0x28], 0x182c0000
+mov qword [rax + 0x30], 0x7ffc0000
+mov dword [rax + 0x38], 0x22840000
+mov qword [rax + 0x40], 0x7f840000
+mov dword [rax + 0x48], 0x1804010e
+mov dword [rax + 0x58], 0x68000188
+mov qword [rax + 0x60], rdx
+mov qword [rbx + 0x28], rax
+test rdi, rdi
+je 0x8005a8a
+mov rax, qword [rdi]
+call qword [rax + 8]
+mov edi, 0x10
+call _Znwm
+mov rdi, qword [rbx + 0x18]
+lea rcx, [0x08005a9f]
+mov qword [rbx + 0x18], rax
+mov qword [rax], rcx
+mov dword [rax + 8], 0x18040102
+test rdi, rdi
+je 0x8005ad0
+mov rax, qword [rdi]
+mov rax, qword [rax + 8]
+add rsp, 0x90
+pop rbx
+pop rbp
+pop r12
+jmp rax
+nop word cs:[rax + rax]
+add rsp, 0x90
+pop rbx
+pop rbp
+pop r12
+ret

@@ -1,0 +1,12 @@
+push rbx
+mov rbx, rdi
+lea rdi, [0x080000eb]
+call pthread_mutex_lock
+mov rax, qword [rbx]
+lea rdi, [0x080000fa]
+mov byte [rax], 2
+call pthread_mutex_unlock
+lea rdi, [0x08000109]
+pop rbx
+jmp pthread_cond_broadcast
+nop

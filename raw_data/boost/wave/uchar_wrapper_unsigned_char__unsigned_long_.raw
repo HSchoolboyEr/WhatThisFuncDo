@@ -1,0 +1,3 @@
+mov qword [rdi], rsi
+mov qword [rdi + 8], rdx
+ret

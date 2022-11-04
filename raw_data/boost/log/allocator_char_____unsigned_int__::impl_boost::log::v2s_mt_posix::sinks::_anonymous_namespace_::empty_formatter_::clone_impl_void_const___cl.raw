@@ -1,0 +1,6 @@
+mov rdi, r12
+mov esi, 0x38
+call _ZdlPvm
+mov rdi, rbp
+call _Unwind_Resume
+nop

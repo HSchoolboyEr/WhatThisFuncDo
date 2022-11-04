@@ -1,0 +1,76 @@
+push r13
+push r12
+mov r12, rdi
+push rbp
+push rbx
+mov rbx, rsi
+sub rsp, 8
+mov rdx, qword [rdi + 8]
+mov rax, qword [rsi]
+mov rdi, qword [rdx]
+mov rbp, qword [rax]
+test rdi, rdi
+je 0x8004f00
+mov rax, qword [rdi]
+call qword [rax + 0x10]
+mov rdx, rax
+mov rax, qword [rbx]
+test rdx, rdx
+js 0x8004f00
+mov rbp, qword [rax]
+cmp qword [rbx + 8], rbp
+je 0x8004f0b
+movsx ecx, byte [r12 + 0x10]
+mov r13, 0xffffffffffffffff
+cmp dword [rbp], ecx
+je 0x8004ec0
+add rsp, 8
+mov rax, r13
+pop rbx
+pop rbp
+pop r12
+pop r13
+ret
+nop dword [rax]
+lea r13, [rdx + 1]
+mov rdx, qword [r12 + 0x18]
+add rbp, 4
+mov qword [rax], rbp
+mov rdi, qword [rdx]
+test rdi, rdi
+je 0x8004f23
+mov rax, qword [rdi]
+mov rsi, rbx
+call qword [rax + 0x10]
+test rax, rax
+js 0x8004f20
+add rsp, 8
+add r13, rax
+pop rbx
+mov rax, r13
+pop rbp
+pop r12
+pop r13
+ret
+nop word [rax + rax]
+mov qword [rax], rbp
+xor edx, edx
+cmp qword [rbx + 8], rbp
+jne 0x8004e9c
+add rsp, 8
+mov r13, 0xffffffffffffffff
+pop rbx
+mov rax, r13
+pop rbp
+pop r12
+pop r13
+ret
+mov rax, qword [rbx]
+mov qword [rax], rbp
+add rsp, 8
+mov rax, r13
+pop rbx
+pop rbp
+pop r12
+pop r13
+ret

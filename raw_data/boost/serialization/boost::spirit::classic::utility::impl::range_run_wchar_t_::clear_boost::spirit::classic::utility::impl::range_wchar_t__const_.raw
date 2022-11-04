@@ -1,0 +1,120 @@
+push r12
+mov r12, rdi
+push rbp
+push rbx
+sub rsp, 0x10
+mov rdi, qword [rdi + 8]
+mov r9, qword [r12]
+cmp r9, rdi
+je 0x8007498
+mov rax, rdi
+mov r8, rsi
+mov esi, dword [rsi]
+mov rbp, r9
+sub rax, r9
+sar rax, 3
+nop
+test rax, rax
+jle 0x8007438
+mov rdx, rax
+sar rdx, 1
+lea rcx, [rbp + rdx*8]
+cmp esi, dword [rcx]
+jle 0x80074e0
+sub rax, rdx
+lea rbp, [rcx + 8]
+sub rax, 1
+test rax, rax
+jg 0x8007415
+cmp r9, rbp
+je 0x800745e
+cmp esi, dword [var_8h]
+jl 0x8007459
+mov eax, dword [var_4h]
+cmp esi, eax
+jg 0x8007459
+lea edx, [rsi - 1]
+cmp dword [r8 + 4], eax
+mov dword [var_4h], edx
+jl 0x80074f7
+cmp rdi, rbp
+je 0x8007498
+mov rbx, rbp
+mov eax, dword [rbx]
+cmp esi, eax
+jg 0x80074a8
+mov ecx, dword [rbx + 4]
+cmp dword [r8 + 4], ecx
+jl 0x80074a8
+add rbx, 8
+cmp rdi, rbx
+jne 0x8007461
+nop dword [rax]
+cmp rbp, rbx
+je 0x8007498
+mov rax, rdi
+sub rax, rbx
+add rbp, rax
+cmp rbp, rdi
+je 0x8007498
+mov qword [r12 + 8], rbp
+add rsp, 0x10
+pop rbx
+pop rbp
+pop r12
+ret
+nop dword [rax]
+cmp rdi, rbx
+je 0x8007480
+mov edx, dword [r8 + 4]
+cmp edx, eax
+jl 0x80074ba
+cmp edx, dword [rbx + 4]
+jle 0x80074f0
+cmp rbp, rbx
+je 0x8007498
+sub rdi, rbx
+mov rsi, rbx
+mov rdx, rdi
+mov rdi, rbp
+call memmove
+mov rdi, qword [r12 + 8]
+jmp 0x8007485
+nop word [rax + rax]
+mov rax, rdx
+jmp 0x8007410
+nop dword [rax + rax]
+add edx, 1
+mov dword [rbx], edx
+jmp 0x80074ba
+mov edx, dword [r8 + 4]
+mov dword [var_ch], eax
+add edx, 1
+mov dword [var_sp_8h], edx
+cmp rdi, qword [r12 + 0x10]
+je 0x8007559
+lea rax, [rdi + 8]
+cmp rdi, rbp
+je 0x8007547
+mov rdx, qword [rdi - 8]
+mov qword [rdi], rdx
+lea rdx, [rdi - 8]
+mov qword [r12 + 8], rax
+cmp rbp, rdx
+je 0x8007539
+sub rdx, rbp
+mov rsi, rbp
+sub rdi, rdx
+call memmove
+mov rax, qword [var_sp_8h]
+mov qword [rbp], rax
+jmp 0x8007498
+mov rdx, qword [var_sp_8h]
+mov qword [rdi], rdx
+mov qword [r12 + 8], rax
+jmp 0x8007498
+lea rdx, [var_sp_8h]
+mov rsi, rbp
+mov rdi, r12
+call _ZNSt6vectorIN5boost6spirit7classic7utility4impl5rangeIwEESaIS6_EE17_M_realloc_insertIJS6_EEEvN9__gnu_cxx17__normal_iteratorIPS6_S8_EEDpOT_
+jmp 0x8007498

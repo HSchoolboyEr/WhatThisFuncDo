@@ -1,0 +1,44 @@
+push r13
+lea rax, [0x080052cd]
+lea r13, [0x080052d4]
+push r12
+movq xmm0, rax
+movq xmm1, r13
+push rbp
+punpcklqdq xmm0, xmm1
+push rbx
+mov rbx, rdi
+mov edi, 0x38
+sub rsp, 0x18
+movaps xmmword [rsp], xmm0
+call __cxa_allocate_exception
+movaps xmm0, xmmword [rsp]
+mov rdi, qword [rbx + 0x18]
+mov rbp, rax
+movups xmmword [rax], xmm0
+lea rax, [0x08005310]
+mov qword [arg_10h], rax
+mov qword [arg_18h], rdi
+test rdi, rdi
+jne 0x8005368
+mov rax, qword [rbx + 0x30]
+movups xmm2, xmmword [rbx + 0x20]
+mov rdi, rbp
+lea rdx, [0x0800532f]
+add byte [rax], al
+add byte [rax], al
+lea rsi, [0x08005336]
+mov qword [arg_30h], rax
+lea rax, [0x08005341]
+lea rcx, [rax - 0x30]
+movq xmm3, rax
+add rax, 0x28
+movups xmmword [arg_20h], xmm2
+movq xmm0, rcx
+mov qword [arg_10h], rax
+punpcklqdq xmm0, xmm3
+movups xmmword [rbp], xmm0
+call __cxa_throw
+mov rax, qword [rdi]
+call qword [rax + 0x18]
+jmp 0x800531d

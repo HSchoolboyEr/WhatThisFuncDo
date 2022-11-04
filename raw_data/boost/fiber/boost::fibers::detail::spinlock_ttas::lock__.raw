@@ -1,0 +1,108 @@
+push r13
+push r12
+push rbp
+mov rbp, rdi
+push rbx
+sub rsp, 0x13b8
+cmp byte fs:[0], 0
+je 0x8000798
+xor r12d, r12d
+xor r13d, r13d
+nop dword [rax]
+xor ebx, ebx
+nop word [rax + rax]
+mov eax, dword [rbp]
+test eax, eax
+jne 0x800070a
+cmp rbx, 0x1f
+ja 0x8000770
+add rbx, 1
+pause
+mov eax, dword [rbp]
+test eax, eax
+je 0x80006f7
+mov eax, r13d
+xchg dword [rbp], eax
+test eax, eax
+jne 0x800078a
+cmp r12, 0x10
+mov ecx, 0x10
+mov eax, 1
+mov qword [var_20h], 0
+cmovbe rcx, r12
+lea rsi, [var_20h]
+add r12, 1
+shl rax, cl
+mov qword [var_28h], rax
+mov rax, qword fs:[0]
+lea rdi, [rax]
+call _ZNSt24uniform_int_distributionImEclISt26linear_congruential_engineImLm48271ELm0ELm2147483647EEEEmRT_RKNS0_10param_typeE.isra.0
+mov rdx, rax
+xor eax, eax
+test rdx, rdx
+je 0x80006e8
+nop
+pause
+add rax, 1
+cmp rax, rdx
+jne 0x8000760
+jmp 0x80006e8
+cmp rbx, 0x3f
+ja sched_yield
+add rbx, 1
+jmp 0x80006f0
+nop
+call sched_yield
+jmp 0x80006f0
+add rsp, 0x13b8
+pop rbx
+pop rbp
+pop r12
+pop r13
+ret
+lea r12, [var_20h]
+lea rbx, [var_10h]
+mov eax, 0x6c75
+mov rsi, rsp
+mov rdi, r12
+mov qword [rsp], rbx
+mov dword [var_10h], 0x61666564
+mov word [var_14h], ax
+mov byte [var_16h], 0x74
+mov qword [var_8h], 7
+mov byte [var_17h], 0
+call _ZNSt13random_device7_M_initERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE
+add byte [rax], al
+add byte [rax], al
+mov rdi, qword [rsp]
+cmp rdi, rbx
+je 0x80007ed
+mov rax, qword [var_10h]
+lea rsi, [rax + 1]
+call _ZdlPvm
+mov rdi, r12
+call _ZNSt13random_device9_M_getvalEv
+add byte [rax], al
+add byte [rax], al
+mov rdi, r12
+movabs rdx, 0x200000005
+mov byte fs:[0], 1
+mov ecx, eax
+mov rax, rcx
+mul rdx
+mov rax, rcx
+sub rax, rdx
+shr rax, 1
+add rdx, rax
+shr rdx, 0x1e
+mov rax, rdx
+shl rax, 0x1f
+sub rax, rdx
+sub rcx, rax
+mov eax, 1
+cmovne rax, rcx
+mov qword fs:[0], rax
+call _ZNSt13random_device7_M_finiEv
+add byte [rax], al
+add byte [rax], al
+jmp 0x80006df

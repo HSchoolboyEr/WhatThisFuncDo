@@ -1,0 +1,30 @@
+cmp byte [rdi + 0x18], 0
+jne 0x8001290
+ret
+nop word [rax + rax]
+push rbp
+lea rcx, [rdi + 0x50]
+lea rbp, [rdi + 0x20]
+push rbx
+mov rbx, rdi
+sub rsp, 8
+mov rax, qword [rdi + 0x50]
+cmp rax, rcx
+je 0x80012c0
+pxor xmm0, xmm0
+nop
+mov rdx, rax
+mov rax, qword [rax]
+movups xmmword [rdx], xmm0
+cmp rcx, rax
+jne 0x80012b0
+nop
+mov rdi, rbp
+call pthread_mutex_destroy
+cmp eax, 4
+je 0x80012c0
+mov byte [rbx + 0x18], 0
+add rsp, 8
+pop rbx
+pop rbp
+ret

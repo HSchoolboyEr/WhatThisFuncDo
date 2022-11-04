@@ -1,0 +1,30 @@
+push rbp
+mov rbp, qword [rdi + 0x28]
+lea rax, [0x08003e9c]
+mov qword [rdi], rax
+test rbp, rbp
+je 0x8003eab
+lock sub dword [arg_8h], 1
+je 0x8003eb0
+pop rbp
+ret
+nop dword [rax]
+mov rax, qword [rbp]
+mov rdi, rbp
+call qword [rax + 0x10]
+lock sub dword [arg_ch], 1
+jne 0x8003eab
+mov rax, qword [rbp]
+lea rcx, [0x08003ecc]
+mov rdx, qword [rax + 0x18]
+cmp rdx, rcx
+jne 0x8003ee0
+mov rdi, rbp
+mov rax, qword [rax + 8]
+pop rbp
+jmp rax
+nop
+mov rdi, rbp
+call rdx
+pop rbp
+ret

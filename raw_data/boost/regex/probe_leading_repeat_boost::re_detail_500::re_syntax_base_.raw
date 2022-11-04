@@ -1,0 +1,12 @@
+lea rdx, [0x0800dca7]
+cmp dword [rsi], 0x19
+ja 0x800dcc9
+mov eax, dword [rsi]
+movsxd rax, dword [rdx + rax*4]
+add rax, rdx
+jmp rax
+nop word [rax + rax]
+mov rsi, qword [rsi + 8]
+test rsi, rsi
+jne 0x800dca7
+ret

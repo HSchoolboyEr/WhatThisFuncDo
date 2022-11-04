@@ -1,0 +1,267 @@
+push r15
+push r14
+push r13
+mov r13, rdi
+mov edi, 0x18
+push r12
+push rbp
+push rbx
+sub rsp, 0x18
+mov r12, qword [rsi]
+mov qword [rsp], rdx
+call _Znwm
+mov rbp, qword [r12 + 8]
+pxor xmm0, xmm0
+sub rbp, qword [r12]
+mov rbx, rax
+mov qword [rax + 0x10], 0
+movups xmmword [rax], xmm0
+je 0x8007360
+movabs rax, 0x7ffffffffffffff8
+cmp rbp, rax
+ja _ZSt17__throw_bad_allocv
+mov rdi, rbp
+call _Znwm
+mov rcx, rax
+movq xmm0, rcx
+add rbp, rcx
+punpcklqdq xmm0, xmm0
+mov qword [rbx + 0x10], rbp
+movups xmmword [rbx], xmm0
+mov rsi, qword [r12 + 8]
+mov rdi, qword [r12]
+cmp rsi, rdi
+je 0x8007134
+sub rsi, rdi
+xor eax, eax
+nop word [rax + rax]
+mov rdx, qword [rdi + rax]
+mov qword [rcx + rax], rdx
+add rax, 8
+cmp rsi, rax
+jne 0x8007120
+add rcx, rsi
+mov qword [rbx + 8], rcx
+mov edi, 0x18
+call _Znwm
+mov r15, rax
+mov r14, qword [0x0800714c]
+lea rax, [rax + 8]
+mov rbp, rbx
+mov qword [var_8h], rax
+lea rax, [0x0800715f]
+mov r12, r15
+mov qword [r15 + 8], r14
+mov qword [r15], rax
+mov qword [r15 + 0x10], rbx
+mov eax, dword [r15 + 8]
+cmp eax, 1
+je 0x8007238
+mov edi, 0x18
+call _Znwm
+mov rcx, qword [rbx + 8]
+mov rdi, qword [rbx]
+pxor xmm0, xmm0
+mov rbp, rax
+mov qword [rax + 0x10], 0
+mov r12, rcx
+movups xmmword [rax], xmm0
+sub r12, rdi
+je 0x8007370
+movabs rax, 0x7ffffffffffffff8
+cmp r12, rax
+ja _ZSt17__throw_bad_allocv
+mov rdi, r12
+call _Znwm
+mov rcx, qword [rbx + 8]
+mov rdi, qword [rbx]
+mov rsi, rax
+movq xmm0, rsi
+add r12, rsi
+punpcklqdq xmm0, xmm0
+mov qword [arg_10h], r12
+movups xmmword [rbp], xmm0
+cmp rcx, rdi
+je 0x8007204
+sub rcx, rdi
+xor eax, eax
+nop dword [rax]
+mov rdx, qword [rdi + rax]
+mov qword [rsi + rax], rdx
+add rax, 8
+cmp rcx, rax
+jne 0x80071f0
+add rsi, rcx
+mov qword [arg_8h], rsi
+mov edi, 0x18
+call _Znwm
+mov qword [rax + 8], r14
+mov r12, rax
+lea rax, [0x08007220]
+mov rcx, qword [var_8h]
+mov qword [r12], rax
+mov qword [r12 + 0x10], rbp
+lock sub dword [rcx], 1
+je 0x80073f0
+mov rax, qword [rsp]
+mov r15, qword [rax]
+mov rbx, qword [r15]
+cmp rbx, qword [r15 + 8]
+je 0x8007265
+nop dword [rax + rax]
+mov rsi, rbx
+mov rdi, rbp
+call _ZN5boost6spirit7classic7utility4impl9range_runIwE3setERKNS3_5rangeIwEE
+add rbx, 8
+cmp qword [r15 + 8], rbx
+jne 0x8007250
+mov edi, 0x18
+call _Znwm
+mov rcx, qword [arg_8h]
+mov rdi, qword [rbp]
+pxor xmm0, xmm0
+mov r15, rax
+mov qword [rax + 0x10], 0
+mov rbx, rcx
+movups xmmword [rax], xmm0
+sub rbx, rdi
+je 0x8007350
+movabs rax, 0x7ffffffffffffff8
+cmp rbx, rax
+ja _ZSt17__throw_bad_allocv
+mov rdi, rbx
+call _Znwm
+mov rcx, qword [arg_8h]
+mov rdi, qword [rbp]
+mov rsi, rax
+movq xmm0, rsi
+add rbx, rsi
+punpcklqdq xmm0, xmm0
+mov qword [r15 + 0x10], rbx
+movups xmmword [r15], xmm0
+cmp rcx, rdi
+je 0x80072f4
+sub rcx, rdi
+xor eax, eax
+nop dword [rax]
+mov rdx, qword [rdi + rax]
+mov qword [rsi + rax], rdx
+add rax, 8
+cmp rcx, rax
+jne 0x80072e0
+add rsi, rcx
+mov qword [r15 + 8], rsi
+mov edi, 0x18
+mov qword [r13], r15
+mov qword [r13 + 8], 0
+call _Znwm
+mov rbp, qword [r13 + 8]
+lea rcx, [0x08007319]
+mov qword [rax + 8], r14
+mov qword [rax], rcx
+mov qword [rax + 0x10], r15
+mov qword [r13 + 8], rax
+test rbp, rbp
+je 0x8007334
+lock sub dword [arg_8h], 1
+je 0x8007380
+lock sub dword [r12 + 8], 1
+je 0x80073b0
+add rsp, 0x18
+mov rax, r13
+pop rbx
+pop rbp
+pop r12
+pop r13
+pop r14
+pop r15
+ret
+nop
+xor esi, esi
+jmp 0x80072bb
+nop word [rax + rax]
+xor ecx, ecx
+jmp 0x80070f1
+nop word [rax + rax]
+xor esi, esi
+jmp 0x80071ce
+nop word [rax + rax]
+mov rax, qword [rbp]
+mov rdi, rbp
+call qword [rax + 0x10]
+lock sub dword [arg_ch], 1
+jne 0x8007334
+mov rax, qword [rbp]
+lea rcx, [0x0800739c]
+mov rdi, rbp
+mov rdx, qword [rax + 0x18]
+cmp rdx, rcx
+jne 0x8007423
+call qword [rax + 8]
+jmp 0x8007334
+nop dword [rax]
+mov rax, qword [r12]
+mov rdi, r12
+call qword [rax + 0x10]
+lock sub dword [r12 + 0xc], 1
+jne 0x800733d
+mov rax, qword [r12]
+lea rcx, [0x080073d2]
+mov rdi, r12
+mov rdx, qword [rax + 0x18]
+cmp rdx, rcx
+jne 0x800742a
+call qword [rax + 8]
+jmp 0x800733d
+nop word cs:[rax + rax]
+mov rax, qword [r15]
+mov rdi, r15
+call qword [rax + 0x10]
+lock sub dword [r15 + 0xc], 1
+jne 0x8007238
+mov rax, qword [r15]
+lea rcx, [0x0800740f]
+mov rdi, r15
+mov rdx, qword [rax + 0x18]
+cmp rdx, rcx
+jne 0x8007431
+call qword [rax + 8]
+jmp 0x8007238
+call rdx
+jmp 0x8007334
+call rdx
+jmp 0x800733d
+call rdx
+jmp 0x8007238
+call _ZSt17__throw_bad_allocv
+call _ZSt17__throw_bad_allocv
+call _ZSt17__throw_bad_allocv
+mov rbx, rax
+jmp 0x8007451
+mov rdi, rax
+jmp __cxa_begin_catch
+mov rdi, rbp
+mov esi, 0x18
+mov rbp, rbx
+mov r12, r15
+call _ZdlPvm
+mov rdi, r12
+call _ZN5boost6detail15sp_counted_base7releaseEv
+mov rdi, rbp
+call _Unwind_Resume
+call __cxa_begin_catch
+mov rdi, r15
+call _ZN5boost14checked_deleteINS_6spirit7classic11basic_chsetIwEEEEvPT_
+call __cxa_rethrow
+mov rbp, rax
+jmp __cxa_end_catch
+mov rbp, rax
+jmp 0x8007464
+mov rdi, rax
+jmp __cxa_begin_catch
+call __cxa_end_catch
+mov rdi, qword [r13 + 8]
+test rdi, rdi
+je 0x8007464
+call _ZN5boost6detail15sp_counted_base7releaseEv
+jmp 0x8007464

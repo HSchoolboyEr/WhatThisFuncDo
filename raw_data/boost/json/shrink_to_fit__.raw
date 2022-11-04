@@ -1,0 +1,71 @@
+cmp byte [rdi + 8], 0x85
+je 0x80069f8
+push rbx
+mov rbx, rdi
+sub rsp, 0x10
+mov rsi, qword [rdi + 0x10]
+mov eax, dword [rsi]
+cmp eax, 0xe
+jbe 0x80069b0
+cmp eax, dword [rsi + 4]
+jb 0x8006940
+add rsp, 0x10
+pop rbx
+ret
+nop dword [rax]
+mov esi, eax
+mov rdi, rsp
+mov rdx, rbx
+call method boost::json::detail::string_impl::string_impl(unsigned long, boost::json::storage_ptr const&) [clone .part.0]
+movzx eax, byte [rbx + 8]
+cmp al, 5
+je 0x8006a00
+movsx rcx, byte [rbx + 0x17]
+mov edx, 0xe
+lea rsi, [rbx + 9]
+sub rdx, rcx
+cmp al, 0x85
+je 0x8006976
+mov rsi, qword [rbx + 0x10]
+add rsi, 8
+cmp byte [rsp], 0x85
+lea rdi, [var_1h]
+je memcpy
+mov rax, qword [var_8h]
+lea rdi, [rax + 8]
+call memcpy
+lea rdi, [rbx + 8]
+mov rsi, rbx
+call _ZN5boost4json6detail11string_impl7destroyERKNS0_11storage_ptrE
+movdqu xmm0, xmmword [rsp]
+movups xmmword [rbx + 8], xmm0
+add rsp, 0x10
+pop rbx
+ret
+nop word [rax + rax]
+mov byte [rdi + 8], 0x85
+mov eax, 0xe
+sub al, byte [rsi]
+mov ecx, 4
+mov byte [rdi + 0x17], al
+mov eax, dword [rsi]
+mov byte [rdi + rax + 9], 0
+mov rax, qword [rdi]
+mov edx, dword [rsi + 4]
+mov rdi, rax
+and rdi, 0xfffffffffffffffc
+test rax, rax
+lea rax, [0x080069e1]
+cmove rdi, rax
+add rdx, 9
+mov rax, qword [rdi]
+call qword [rax + 0x18]
+add rsp, 0x10
+pop rbx
+ret
+nop dword [rax]
+ret
+nop dword [rax]
+mov rsi, qword [rbx + 0x10]
+mov edx, dword [rsi]
+jmp 0x8006972

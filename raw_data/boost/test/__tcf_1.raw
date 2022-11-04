@@ -1,0 +1,19 @@
+sub rsp, 8
+mov rdi, qword [0x080002cb]
+lea rax, [0x080002d2]
+cmp rdi, rax
+je 0x80002e7
+mov rax, qword [0x080002de]
+lea rsi, [rax + 1]
+call _ZdlPvm
+mov rdi, qword [0x080002ee]
+lea rax, [0x080002f5]
+cmp rdi, rax
+je 0x8000310
+mov rax, qword [0x08000301]
+add rsp, 8
+lea rsi, [rax + 1]
+jmp _ZdlPvm
+nop
+add rsp, 8
+ret

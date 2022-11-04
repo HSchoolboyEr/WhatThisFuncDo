@@ -1,0 +1,50 @@
+push rbx
+pxor xmm0, xmm0
+mov rbx, rdi
+movups xmmword [rdi], xmm0
+call _ZN5boost9container3pmr20get_default_resourceEv
+add byte [rax], al
+add byte [rax], al
+mov qword [rbx + 0x28], 0
+mov qword [rbx + 0x10], rax
+lea rax, [rbx + 0x18]
+mov qword [rbx + 0x18], rax
+mov qword [rbx + 0x20], rax
+mov rax, qword [rbx]
+mov qword [rbx + 0x30], 0
+test rax, rax
+jne 0x8000400
+mov qword [rbx], 0x20
+mov rdx, qword [rbx + 8]
+mov eax, 0x1000
+test rdx, rdx
+je 0x80003f8
+mov eax, 0x10
+cmp rdx, 0xf
+ja 0x8000418
+mov qword [rbx + 8], rax
+pop rbx
+ret
+nop
+cmp rax, 0x20
+mov edx, 0x20
+cmovae rax, rdx
+mov qword [rbx], rax
+jmp 0x80003df
+nop word [rax + rax]
+mov eax, 0x1000
+cmp rdx, 0xfff
+ja 0x80003f8
+lea rcx, [rdx - 1]
+bsr rax, rdx
+and rdx, rcx
+xor rax, 0x3f
+mov ecx, 0x3f
+cmp rdx, 1
+sbb rcx, 0xffffffffffffffff
+sub ecx, eax
+mov eax, 1
+shl rax, cl
+mov qword [rbx + 8], rax
+pop rbx
+ret

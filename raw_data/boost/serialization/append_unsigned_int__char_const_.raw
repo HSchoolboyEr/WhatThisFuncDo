@@ -1,0 +1,21 @@
+mov r8d, esi
+mov rcx, rdx
+cmp esi, 0x7e
+ja 0x80000f2
+mov esi, esi
+xor eax, eax
+add rsi, rdi
+jmp 0x80000ea
+nop dword [rax]
+add r8d, 1
+mov byte [rsi + rax + 8], dl
+add rax, 1
+cmp r8d, 0x7f
+je 0x80000f2
+movzx edx, byte [rcx + rax]
+test dl, dl
+jne 0x80000d8
+mov eax, r8d
+mov byte [rdi + rax + 8], 0
+mov eax, r8d
+ret

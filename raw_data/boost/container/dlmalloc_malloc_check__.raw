@@ -1,0 +1,2 @@
+jmp boost_cont_malloc_check
+nop word cs:[rax + rax]

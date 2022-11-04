@@ -1,0 +1,54 @@
+push r12
+push rbp
+push rbx
+mov rbx, rdi
+sub rsp, 0x30
+mov rdi, qword [rdi]
+test rdi, rdi
+je 0x8009c6b
+cmp byte [rbx + 8], 0
+jne 0x8009c95
+call _ZN5boost5mutex4lockEv
+mov byte [rbx + 8], 1
+add rsp, 0x30
+pop rbx
+pop rbp
+pop r12
+ret
+mov r12, rsp
+lea rdx, [0x08009c75]
+mov esi, 1
+mov rdi, r12
+call _ZN5boost16thread_exceptionC2EiPKc
+lea rax, [0x08009c89]
+mov rdi, r12
+mov qword [rsp], rax
+call _ZN5boost15throw_exceptionINS_10lock_errorEEEvRKT_
+mov rbp, rsp
+lea rdx, [0x08009c9f]
+mov esi, 0x23
+mov rdi, rbp
+call _ZN5boost16thread_exceptionC2EiPKc
+lea rax, [0x08009cb3]
+mov rdi, rbp
+mov qword [rsp], rax
+call _ZN5boost15throw_exceptionINS_10lock_errorEEEvRKT_
+mov rbp, rax
+jmp 0x8009cc9
+mov r12, rax
+jmp 0x8009ce4
+lea rax, [0x08009cd0]
+mov rdi, r12
+mov qword [rsp], rax
+call _ZNSt13runtime_errorD2Ev
+mov rdi, rbp
+call _Unwind_Resume
+lea rax, [0x08009ceb]
+mov rdi, rbp
+mov qword [rsp], rax
+call _ZNSt13runtime_errorD2Ev
+mov rdi, r12
+call _Unwind_Resume
+jmp qword [rdx + 0x6f]
+invalid
+outsd dx, dword [rsi]

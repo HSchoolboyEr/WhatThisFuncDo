@@ -1,0 +1,8 @@
+mov rdx, rsi
+mov esi, edi
+mov rdi, qword [0x08000b4c]
+jmp _ZN5boost21prg_exec_monitor_mainEPFiiPPcEiS1_
+add byte [rax], al
+add byte [rax], al
+nop word cs:[rax + rax]
+nop dword [rax]

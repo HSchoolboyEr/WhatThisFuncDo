@@ -1,0 +1,78 @@
+push r12
+push rbp
+push rbx
+mov rbx, rdi
+mov edi, 0x88
+call _Znwm
+xor esi, esi
+mov rbp, rax
+mov qword [rax], 0
+lea rax, [rax + 0x38]
+mov qword [rax - 0x30], 0
+mov rdi, rbp
+mov qword [rax - 0x28], 0xffffffffffffffff
+mov qword [rax - 0x20], 0
+mov qword [rax - 0x18], 0
+mov qword [arg_28h], rax
+lea rax, [arg_58h]
+mov qword [arg_30h], 0
+mov byte [arg_38h], 0
+mov qword [arg_48h], rax
+mov qword [arg_50h], 0
+mov dword [arg_58h], 0
+mov byte [arg_68h], 0
+call _ZN5boost9iostreams6detail16mapped_file_impl5clearEb
+mov qword [rbx], rbp
+mov edi, 0x18
+mov qword [rbx + 8], 0
+call _Znwm
+mov qword [rax + 0x10], rbp
+mov rdx, qword [0x08001744]
+lea rcx, [0x0800174b]
+mov rbp, qword [rbx + 8]
+mov qword [rax], rcx
+mov qword [rax + 8], rdx
+mov qword [rbx + 8], rax
+test rbp, rbp
+je 0x8001766
+lock sub dword [arg_8h], 1
+je 0x8001770
+pop rbx
+pop rbp
+pop r12
+ret
+nop dword [rax + rax]
+mov rax, qword [rbp]
+lea rdx, [0x0800177b]
+mov rax, qword [rax + 0x10]
+cmp rax, rdx
+jne 0x80017e0
+mov r12, qword [arg_10h]
+test r12, r12
+je 0x80017a2
+mov rdi, r12
+call _ZN5boost9iostreams6detail16mapped_file_implD1Ev
+mov esi, 0x88
+mov rdi, r12
+call _ZdlPvm
+lock sub dword [arg_ch], 1
+jne 0x8001766
+mov rax, qword [rbp]
+lea rcx, [0x080017b4]
+mov rdx, qword [rax + 0x18]
+cmp rdx, rcx
+jne 0x80017d0
+pop rbx
+mov rdi, rbp
+mov rax, qword [rax + 8]
+pop rbp
+pop r12
+jmp rax
+nop word [rax + rax]
+mov rdi, rbp
+call rdx
+jmp 0x8001766
+nop word [rax + rax]
+mov rdi, rbp
+call rax
+jmp 0x80017a2

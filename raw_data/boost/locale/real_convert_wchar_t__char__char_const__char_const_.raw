@@ -1,0 +1,157 @@
+push r15
+lea rax, [rdi + 0x10]
+push r14
+mov r14, rsi
+push r13
+push r12
+mov r12, rdi
+push rbp
+push rbx
+mov rbx, rdx
+sub rsp, 0x148
+mov qword [rdi], rax
+mov qword [rdi + 8], 0
+mov dword [rdi + 0x10], 0
+mov qword [var_8h], rcx
+sub rcx, rdx
+mov rsi, rcx
+mov qword [var_18h], rax
+call _ZNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEE7reserveEm
+lea rax, [var_30h]
+mov qword [var_20h], rbx
+xor r13d, r13d
+lea rbp, [var_40h]
+mov qword [var_10h], rax
+lea r15, [var_38h]
+jmp 0x8003197
+nop dword [rax + rax]
+cmp r13d, 1
+je 0x800325a
+mov rbx, qword [var_20h]
+mov rax, qword [var_8h]
+mov rdi, qword [r14]
+mov qword [var_38h], rbp
+mov qword [var_30h], 0x100
+sub rax, rbx
+mov qword [var_28h], rax
+test r13d, r13d
+jne 0x80031c3
+test rax, rax
+jne 0x8003270
+mov r8, qword [var_10h]
+mov rcx, r15
+xor edx, edx
+xor esi, esi
+call iconv
+mov rbx, rax
+mov r13d, 1
+call __errno_location
+mov rdx, qword [var_38h]
+mov eax, dword [rax]
+sub rdx, rbp
+mov dword [var_4h], eax
+lea rax, [rbx - 1]
+shr rdx, 2
+cmp rax, 0xfffffffffffffffd
+ja 0x8003209
+cmp dword [r14 + 8], 1
+je 0x80032ca
+movabs rax, 0xfffffffffffffff
+sub rax, qword [r12 + 8]
+cmp rdx, rax
+ja .LC4
+mov rsi, rbp
+mov rdi, r12
+call _ZNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEE9_M_appendEPKwm
+cmp rbx, 0xffffffffffffffff
+jne 0x8003188
+mov eax, dword [var_4h]
+cmp eax, 0x54
+je 0x8003290
+cmp eax, 0x16
+je 0x8003290
+cmp dword [var_4h], 7
+je 0x8003192
+cmp dword [r14 + 8], 1
+je 0x8003379
+add rsp, 0x148
+mov rax, r12
+pop rbx
+pop rbp
+pop r12
+pop r13
+pop r14
+pop r15
+ret
+nop
+mov r8, qword [var_10h]
+lea rdx, [var_28h]
+lea rsi, [var_20h]
+mov rcx, r15
+call iconv
+mov rbx, rax
+jmp __errno_location
+nop
+cmp dword [r14 + 8], 1
+je 0x800333c
+mov rax, qword [var_20h]
+mov rcx, qword [var_8h]
+cmp rax, rcx
+je 0x800325a
+add rax, 1
+mov qword [var_20h], rax
+cmp rax, rcx
+jb 0x8003188
+jmp 0x800325a
+lea rdi, [0x080032c5]
+call _ZSt20__throw_length_errorPKc
+mov edi, 0x10
+call __cxa_allocate_exception
+lea rsi, [0x080032db]
+mov rdi, rax
+mov r13, rax
+call _ZNSt13runtime_errorC2EPKc
+lea rax, [0x080032ed]
+lea rdx, [0x080032f4]
+mov rdi, r13
+mov qword [r13], rax
+lea rsi, [0x08003302]
+call __cxa_throw
+mov rbp, rax
+jmp 0x8003317
+mov rbp, rax
+mov rdi, r13
+call __cxa_free_exception
+mov rdi, qword [r12]
+cmp qword [var_18h], rdi
+je 0x8003334
+mov rax, qword [r12 + 0x10]
+lea rsi, [rax*4 + 4]
+call _ZdlPvm
+mov rdi, rbp
+call _Unwind_Resume
+mov edi, 0x10
+call __cxa_allocate_exception
+lea rsi, [0x0800334d]
+mov rdi, rax
+mov r13, rax
+call _ZNSt13runtime_errorC2EPKc
+lea rax, [0x0800335f]
+lea rdx, [0x08003366]
+mov rdi, r13
+mov qword [r13], rax
+lea rsi, [0x08003374]
+call __cxa_throw
+mov edi, 0x10
+call __cxa_allocate_exception
+lea rsi, [0x0800338a]
+mov rdi, rax
+mov r13, rax
+call _ZNSt13runtime_errorC2EPKc
+lea rax, [0x0800339c]
+lea rdx, [0x080033a3]
+mov rdi, r13
+mov qword [r13], rax
+lea rsi, [0x080033b1]
+call __cxa_throw
+jmp 0x800330c

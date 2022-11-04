@@ -1,0 +1,39 @@
+push r13
+push r12
+mov r12, rdi
+push rbp
+push rbx
+sub rsp, 8
+cmp rdi, rsi
+je 0x80001ad
+mov rbp, qword [rsi + 0x10]
+mov rbx, rsi
+test rbp, rbp
+je 0x80001c0
+mov rdi, qword [rsi + 8]
+call _Znam
+mov r13, qword [rbx + 8]
+mov rsi, qword [rbx + 0x10]
+mov rdi, rax
+mov rbp, qword [rbx]
+mov rdx, r13
+call memcpy
+mov rcx, rax
+mov rdi, qword [r12 + 0x10]
+mov qword [r12], rbp
+mov qword [r12 + 8], r13
+mov qword [r12 + 0x10], rcx
+test rdi, rdi
+je 0x80001ad
+call _ZdaPv
+add rsp, 8
+mov rax, r12
+pop rbx
+pop rbp
+pop r12
+pop r13
+ret
+nop dword [rax + rax]
+xor ecx, ecx
+xor r13d, r13d
+jmp 0x8000190

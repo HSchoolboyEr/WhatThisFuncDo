@@ -1,0 +1,9 @@
+imul rax, qword [rdi], 0x3b9aca00
+add rax, qword [rdi + 8]
+test rax, rax
+jg 0x80017f8
+ret
+nop dword [rax]
+xor esi, esi
+jmp nanosleep
+nop

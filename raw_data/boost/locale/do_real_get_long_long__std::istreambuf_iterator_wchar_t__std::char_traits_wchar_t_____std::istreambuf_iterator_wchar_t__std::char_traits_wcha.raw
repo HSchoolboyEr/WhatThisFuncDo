@@ -1,0 +1,192 @@
+push rbp
+mov rdi, r9
+mov rbp, rsp
+push r15
+push r14
+mov r14, rcx
+push r13
+mov r13, r8
+push r12
+mov r12, rsi
+push rbx
+mov rbx, r9
+sub rsp, 0x1f8
+mov rax, qword [arg_18h]
+mov r15, qword [arg_10h]
+mov qword [var_208h], rdx
+mov qword [var_210h], rax
+call _ZN5boost6locale8ios_info3getERSt8ios_base
+mov rdi, rax
+mov qword [var_200h], rax
+call _ZNK5boost6locale8ios_info13display_flagsEv
+test rax, rax
+je 0x800fb80
+cmp rax, 2
+mov rdi, qword [var_200h]
+je 0x800fd30
+mov rax, qword [var_210h]
+mov r9, r15
+mov r8, rbx
+mov rdx, r14
+mov rsi, qword [var_208h]
+mov rcx, r13
+mov rdi, r12
+mov qword [arg_10h], rax
+lea rsp, [var_28h]
+pop rbx
+pop r12
+pop r13
+pop r14
+pop r15
+pop rbp
+jmp _ZNKSt7num_getIwSt19istreambuf_iteratorIwSt11char_traitsIwEEE14_M_extract_intB5cxx11IxEES3_S3_S3_RSt8ios_baseRSt12_Ios_IostateRT_.isra.0
+nop word [rax + rax]
+lea rax, [var_1c0h]
+mov rdi, rax
+mov qword [var_220h], rax
+call _ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEC1Ev
+call _ZNSt6locale7classicEv
+lea rcx, [var_1c8h]
+mov rdx, rax
+lea rax, [var_140h]
+mov rsi, rax
+mov rdi, rcx
+mov qword [var_200h], rax
+mov qword [var_218h], rcx
+call _ZNSt9basic_iosIcSt11char_traitsIcEE5imbueERKSt6locale
+mov rdi, qword [var_218h]
+call _ZNSt6localeD1Ev
+mov eax, dword [rbx + 0x18]
+sub rsp, 8
+mov r9, r15
+mov r8, qword [var_200h]
+mov rdx, r14
+mov rcx, r13
+mov rdi, r12
+mov dword [var_128h], eax
+mov rax, qword [rbx + 8]
+push qword [var_210h]
+mov rsi, qword [var_208h]
+mov qword [var_138h], rax
+call _ZNKSt7num_getIwSt19istreambuf_iteratorIwSt11char_traitsIwEEE14_M_extract_intB5cxx11IxEES3_S3_S3_RSt8ios_baseRSt12_Ios_IostateRT_.isra.0
+mov r13, rax
+lea rax, [0x0800fc18]
+pop rdi
+mov r12, rdx
+mov qword [var_1c0h], rax
+add rax, 0x50
+lea rbx, [0x0800fc2e]
+pop r8
+mov qword [var_140h], rax
+lea rax, [0x0800fc3e]
+movq xmm0, rbx
+mov rdi, qword [var_160h]
+movq xmm1, rax
+lea rax, [var_150h]
+punpcklqdq xmm0, xmm1
+movaps xmmword [var_1b0h], xmm0
+cmp rdi, rax
+je 0x800fc76
+mov rax, qword [var_150h]
+lea rsi, [rax + 1]
+call _ZdlPvm
+lea rax, [0x0800fc7d]
+lea rdi, [var_170h]
+mov qword [var_1a8h], rax
+call _ZNSt6localeD1Ev
+mov rax, qword [0x0800fc97]
+mov rdx, qword [0x0800fc9e]
+mov rdi, qword [var_200h]
+mov rax, qword [rax - 0x18]
+mov qword [rbp + rax - 0x1c0], rdx
+mov rax, qword [0x0800fcb8]
+mov rdx, qword [0x0800fcbf]
+mov qword [var_1b0h], rax
+mov rax, qword [rax - 0x18]
+mov qword [rbp + rax - 0x1b0], rdx
+mov rax, qword [0x0800fcd9]
+mov rdx, qword [0x0800fce0]
+mov qword [var_1c0h], rax
+mov rax, qword [rax - 0x18]
+mov qword [rbp + rax - 0x1c0], rdx
+lea rax, [0x0800fcfa]
+mov qword [var_1b8h], 0
+mov qword [var_140h], rax
+call _ZNSt8ios_baseD2Ev
+lea rsp, [var_28h]
+mov rax, r13
+mov rdx, r12
+pop rbx
+pop r12
+pop r13
+pop r14
+pop r15
+pop rbp
+ret
+nop word cs:[rax + rax]
+fldz
+mov qword [var_200h], rdi
+fstp xword [rbp - 0x1c0]
+call _ZNK5boost6locale8ios_info14currency_flagsEv
+mov rdi, qword [var_200h]
+test rax, rax
+jne _ZNK5boost6locale8ios_info14currency_flagsEv
+sub rsp, 8
+mov r8, rbx
+mov rcx, r13
+mov rdi, r12
+lea rax, [var_1c0h]
+mov rbx, qword [var_208h]
+mov r9, r15
+mov rdx, r14
+movabs r12, 0xffffffff00000000
+push rax
+mov rsi, rbx
+and r12, rbx
+call .text
+pop rcx
+pop rsi
+mov rdi, rdx
+mov qword [var_1e0h], rax
+mov r13, rax
+mov qword [var_1d8h], rdi
+mov edx, dword [var_1d8h]
+or r12, rdx
+test byte [r15], 4
+jne 0x800fd11
+fnstcw word [rbp - 0x1f2]
+fld xword [rbp - 0x1c0]
+movzx eax, word [var_1f2h]
+or ah, 0xc
+mov word [var_1f4h], ax
+mov rax, qword [var_210h]
+fldcw word [rbp - 0x1f4]
+fistp qword [rax]
+fldcw word [rbp - 0x1f2]
+jmp 0x800fd11
+nop dword [rax + rax]
+call _ZNK5boost6locale8ios_info14currency_flagsEv
+cmp rax, 0x40
+je 0x800fd54
+sub rsp, 8
+mov r8, rbx
+mov rdi, r12
+mov rcx, r13
+lea rax, [var_1c0h]
+mov rbx, qword [var_208h]
+mov r9, r15
+mov rdx, r14
+movabs r12, 0xffffffff00000000
+push rax
+mov rsi, rbx
+and r12, rbx
+call .text
+mov rdi, rdx
+mov qword [var_1f0h], rax
+mov r13, rax
+pop rax
+mov qword [var_1e8h], rdi
+mov edx, dword [var_1e8h]
+or r12, rdx
+pop rdx
+jmp 0x800fdaa

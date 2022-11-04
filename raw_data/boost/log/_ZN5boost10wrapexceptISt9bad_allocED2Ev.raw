@@ -1,0 +1,60 @@
+lea rax, [0x080006d7]
+push rbx
+mov rbx, rdi
+lea rdx, [rax - 0x30]
+movq xmm1, rax
+lea rax, [0x080006eb]
+movq xmm0, rdx
+mov qword [rdi + 0x10], rax
+punpcklqdq xmm0, xmm1
+movups xmmword [rdi], xmm0
+mov rdi, qword [rdi + 0x18]
+test rdi, rdi
+je 0x800070a
+mov rax, qword [rdi]
+call qword [rax + 0x20]
+lea rdi, [rbx + 8]
+pop rbx
+jmp _ZNSt9bad_allocD2Ev
+add byte [rax], al
+add byte [rax], al
+nop word cs:[rax + rax]
+nop
+lea rax, [0x08000727]
+push rbx
+mov rbx, rdi
+lea rdx, [rax - 0x30]
+movq xmm1, rax
+lea rax, [0x0800073b]
+movq xmm0, rdx
+mov qword [rdi], rax
+punpcklqdq xmm0, xmm1
+movups xmmword [rdi - 0x10], xmm0
+mov rdi, qword [rdi + 8]
+test rdi, rdi
+je 0x800075a
+mov rax, qword [rdi]
+call qword [rax + 0x20]
+lea rdi, [rbx - 8]
+pop rbx
+jmp _ZNSt9bad_allocD2Ev
+nop word cs:[rax + rax]
+nop
+lea rax, [0x08000777]
+push rbp
+mov rbp, rdi
+lea rdx, [rax - 0x30]
+movq xmm1, rax
+lea rax, [0x0800078b]
+movq xmm0, rdx
+mov qword [rdi + 8], rax
+punpcklqdq xmm0, xmm1
+movups xmmword [rdi - 8], xmm0
+mov rdi, qword [rdi + 0x10]
+test rdi, rdi
+je 0x80007ab
+mov rax, qword [rdi]
+call qword [rax + 0x20]
+mov rdi, rbp
+pop rbp
+jmp _ZNSt9bad_allocD2Ev

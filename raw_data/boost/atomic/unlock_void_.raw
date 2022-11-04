@@ -1,0 +1,39 @@
+push rbp
+push rbx
+mov rbx, rdi
+sub rsp, 8
+mov eax, dword [rdi]
+mov ebp, eax
+and ebp, 0xfffffffe
+add ebp, 4
+lock cmpxchg dword [rbx], ebp
+jne 0x80004eb
+test al, 2
+jne 0x8000508
+add rsp, 8
+pop rbx
+pop rbp
+ret
+nop dword [rax]
+sub rsp, 8
+mov ecx, 1
+mov edx, 0x81
+xor eax, eax
+push 0
+xor r9d, r9d
+xor r8d, r8d
+mov rsi, rbx
+mov edi, 0xca
+call syscall
+pop rdx
+pop rcx
+test eax, eax
+jne 0x80004fd
+mov edx, ebp
+mov eax, ebp
+and edx, 0xfffffffd
+lock cmpxchg dword [rbx], edx
+add rsp, 8
+pop rbx
+pop rbp
+ret

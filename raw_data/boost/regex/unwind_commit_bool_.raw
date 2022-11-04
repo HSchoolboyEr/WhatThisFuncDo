@@ -1,0 +1,55 @@
+push r12
+mov r12, rdi
+push rbp
+mov ebp, esi
+push rbx
+mov rax, qword [rdi + 0xd8]
+lea rbx, [0x0800e937]
+add rax, 8
+mov qword [rdi + 0xd8], rax
+nop word [rax + rax]
+xor edx, edx
+mov byte [r12 + 0xe4], bpl
+movzx esi, bpl
+mov word [r12 + 0xe5], dx
+jmp 0x800e984
+nop dword [rax]
+mov rax, qword [rdi]
+call qword [rdx + rax - 1]
+test al, al
+je 0x800e9a2
+mov rax, qword [r12 + 0xd8]
+movzx esi, byte [r12 + 0xe4]
+mov eax, dword [rax]
+shl rax, 4
+add rax, rbx
+mov rdi, qword [rax + 8]
+mov rdx, qword [rax]
+add rdi, r12
+test dl, 1
+jne 0x800e968
+call rdx
+test al, al
+jne 0x800e973
+cmp qword [r12 + 0x58], 0
+je 0x800e9e2
+cmp byte [r12 + 0xe5], 0
+mov rax, qword [r12 + 0xd8]
+je 0x800e948
+mov byte [r12 + 0xe5], 0
+sub rax, 8
+cmp qword [r12 + 0xd0], rax
+ja 0x800e9ef
+mov dword [rax], 0x10
+mov qword [r12 + 0xd8], rax
+pop rbx
+xor eax, eax
+pop rbp
+mov byte [r12 + 0x7b], 0
+pop r12
+ret
+mov rdi, r12
+call _ZN5boost13re_detail_50012perl_matcherIPKwSaINS_9sub_matchIS3_EEENS_14c_regex_traitsIwEEE12extend_stackEv
+mov rax, qword [r12 + 0xd8]
+sub rax, 8
+jmp 0x800e9d4

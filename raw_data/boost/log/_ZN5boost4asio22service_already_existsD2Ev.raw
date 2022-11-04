@@ -1,0 +1,3 @@
+lea rax, [0x08005d07]
+mov qword [rdi], rax
+jmp _ZNSt11logic_errorD2Ev

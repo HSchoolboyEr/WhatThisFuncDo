@@ -1,0 +1,91 @@
+push r13
+push r12
+mov r12, rdi
+push rbp
+sub rsp, 0x20
+mov r13, qword [rsi + 8]
+test r13, r13
+je 0x8004f60
+mov rdi, rsi
+mov rbp, rsi
+call _ZNK5boost10filesystem4path19find_root_directoryEv
+test rdx, rdx
+je 0x8004fb0
+lea rdi, [r12 + 0x10]
+mov r13, qword [arg_8h]
+mov qword [r12], rdi
+mov rbp, qword [rbp]
+mov rax, rbp
+add rax, r13
+jne 0x8004f98
+mov qword [rsp], r13
+cmp r13, 0xf
+jbe 0x8004f80
+mov rsi, rsp
+xor edx, edx
+mov rdi, r12
+call _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm
+mov qword [r12], rax
+mov rdi, rax
+mov rax, qword [rsp]
+mov qword [r12 + 0x10], rax
+mov rdx, r13
+mov rsi, rbp
+call memcpy
+mov r13, qword [rsp]
+mov rdi, qword [r12]
+jmp 0x8004f68
+nop
+lea rdi, [rdi + 0x10]
+mov qword [r12], rdi
+mov qword [r12 + 8], r13
+mov rax, r12
+mov byte [rdi + r13], 0
+add rsp, 0x20
+pop rbp
+pop r12
+pop r13
+ret
+nop
+cmp r13, 1
+jne 0x8005016
+movzx eax, byte [rbp]
+mov byte [r12 + 0x10], al
+jmp 0x8004f68
+nop dword [rax]
+test rbp, rbp
+jne 0x8004f22
+lea rdi, [0x08004fa4]
+call _ZSt19__throw_logic_errorPKc
+nop dword [rax]
+mov r13, rsp
+xor esi, esi
+mov rdi, r13
+call _ZN5boost10filesystem6detail12current_pathEPNS_6system10error_codeE
+mov rsi, rbp
+mov rdi, r13
+call _ZN5boost10filesystem4path9append_v4ERKS1_
+lea rax, [r12 + 0x10]
+lea rdx, [var_10h]
+mov qword [r12], rax
+mov rax, qword [rsp]
+cmp rax, rdx
+je 0x8005008
+mov qword [r12], rax
+mov rax, qword [var_10h]
+mov qword [r12 + 0x10], rax
+mov rax, qword [var_8h]
+mov qword [r12 + 8], rax
+add rsp, 0x20
+mov rax, r12
+pop rbp
+pop r12
+pop r13
+ret
+nop dword [rax]
+movdqa xmm0, xmmword [var_10h]
+movups xmmword [r12 + 0x10], xmm0
+jmp 0x8004fed
+test r13, r13
+je 0x8004f68
+jmp 0x8004f49

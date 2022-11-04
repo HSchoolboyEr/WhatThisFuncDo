@@ -1,0 +1,86 @@
+push r12
+push rbp
+push rbx
+mov r12, qword [rdi + 8]
+mov rbx, qword [rdi]
+test r12, r12
+je 0x80012ea
+cmp byte [rbx], 0x2f
+je 0x80012f8
+mov rsi, r12
+xor edx, edx
+mov rax, r12
+jmp 0x80012a3
+nop
+mov rax, rcx
+cmp rax, rdx
+jbe 0x8001368
+cmp byte [rbx + rax - 1], 0x2f
+lea rcx, [rax - 1]
+jne 0x80012a0
+mov rcx, r12
+mov r12, rax
+sub rcx, rax
+jmp 0x80012d4
+nop word [rax + rax]
+cmp rax, rsi
+je 0x8001350
+mov r12, rax
+cmp r12, rdx
+jbe 0x8001371
+cmp byte [rbx + r12 - 1], 0x2f
+lea rax, [r12 - 1]
+je 0x80012c8
+mov rax, r12
+pop rbx
+pop rbp
+pop r12
+ret
+nop word [rax + rax]
+cmp r12, 1
+je 0x8001340
+cmp byte [rbx + 1], 0x2f
+jne 0x8001340
+cmp r12, 2
+je 0x8001385
+cmp byte [rbx + 2], 0x2f
+je 0x8001340
+lea rbp, [rbx + 2]
+lea rdx, [r12 - 2]
+mov esi, 0x2f
+mov rdi, rbp
+call memchr
+mov rsi, rax
+sub rsi, rbp
+add rsi, 2
+test rax, rax
+cmove rsi, r12
+mov rdx, rsi
+jmp 0x800129a
+nop
+xor edx, edx
+xor esi, esi
+jmp 0x800129a
+nop dword [rax]
+cmp rcx, 1
+pop rbx
+pop rbp
+sbb rsi, 0xffffffffffffffff
+mov r12, rsi
+mov rax, r12
+pop r12
+ret
+nop dword [rax + rax]
+mov rcx, r12
+mov r12, rax
+sub rcx, rax
+mov eax, 0
+test rcx, rcx
+pop rbx
+pop rbp
+cmove r12, rax
+mov rax, r12
+pop r12
+ret
+xor r12d, r12d
+jmp 0x80012ea

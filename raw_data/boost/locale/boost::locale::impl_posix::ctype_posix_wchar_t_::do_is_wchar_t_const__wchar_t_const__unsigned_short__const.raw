@@ -1,0 +1,108 @@
+push r15
+push r14
+push r13
+mov r13, rsi
+push r12
+push rbp
+push rbx
+sub rsp, 0x18
+mov qword [var_8h], rdx
+cmp rsi, rdx
+je 0x8002345
+mov r12, rdi
+mov r14, rcx
+nop dword [rax]
+mov rax, qword [r12 + 0x540]
+mov ebp, dword [r13]
+add r13, 4
+mov r15d, 2
+mov rsi, qword [rax]
+mov edi, ebp
+call iswspace_l
+mov ebx, eax
+test eax, eax
+je 0x8002239
+mov r15d, 0x2002
+mov ebx, 0x2000
+mov rax, qword [r12 + 0x540]
+mov edi, ebp
+mov rsi, qword [rax]
+call iswprint_l
+mov edi, ebp
+test eax, eax
+mov rax, qword [r12 + 0x540]
+cmovne ebx, r15d
+mov rsi, qword [rax]
+call iswcntrl_l
+mov edi, ebp
+mov r8d, eax
+mov eax, ebx
+or ah, 0x20
+test r8d, r8d
+cmovne ebx, eax
+mov rax, qword [r12 + 0x540]
+mov rsi, qword [rax]
+call iswupper_l
+mov edi, ebp
+mov r8d, eax
+mov eax, ebx
+or ah, 1
+test r8d, r8d
+cmovne ebx, eax
+mov rax, qword [r12 + 0x540]
+mov rsi, qword [rax]
+call iswlower_l
+mov edi, ebp
+mov r8d, eax
+mov eax, ebx
+or ah, 2
+test r8d, r8d
+cmovne ebx, eax
+mov rax, qword [r12 + 0x540]
+mov rsi, qword [rax]
+call iswalpha_l
+mov edi, ebp
+mov r8d, eax
+mov eax, ebx
+or ah, 4
+test r8d, r8d
+cmovne ebx, eax
+mov rax, qword [r12 + 0x540]
+mov rsi, qword [rax]
+call iswdigit_l
+mov edi, ebp
+mov r8d, eax
+mov eax, ebx
+or ah, 8
+test r8d, r8d
+cmovne ebx, eax
+mov rax, qword [r12 + 0x540]
+mov rsi, qword [rax]
+call iswxdigit_l
+mov edi, ebp
+mov r8d, eax
+mov eax, ebx
+or ah, 0x10
+test r8d, r8d
+cmovne ebx, eax
+mov rax, qword [r12 + 0x540]
+mov rsi, qword [rax]
+call iswpunct_l
+mov r8d, eax
+mov eax, ebx
+or eax, 4
+test r8d, r8d
+cmovne ebx, eax
+add r14, 2
+mov word [r14 - 2], bx
+cmp qword [var_8h], r13
+jne 0x8002208
+add rsp, 0x18
+mov rax, r13
+pop rbx
+pop rbp
+pop r12
+pop r13
+pop r14
+pop r15
+ret

@@ -1,0 +1,17 @@
+push r12
+mov r12, rdi
+mov rsi, r12
+sub rsp, 0x10
+lea rdi, [var_8h]
+call _ZN5boost4json5value7destroyEv
+add byte [rax], al
+add byte [rax], al
+mov rax, qword [var_8h]
+mov byte [r12 + 0x17], 0xe
+mov qword [r12], rax
+mov eax, 0x85
+mov word [r12 + 8], ax
+add rsp, 0x10
+mov rax, r12
+pop r12
+ret

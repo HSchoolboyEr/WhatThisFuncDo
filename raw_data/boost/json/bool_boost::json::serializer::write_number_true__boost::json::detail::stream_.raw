@@ -1,0 +1,134 @@
+push r15
+push r14
+push r13
+push r12
+mov r12, rdi
+push rbp
+mov rbp, rsi
+push rbx
+sub rsp, 0x28
+mov rdx, qword [rdi + 0x28]
+mov rbx, qword [rsi + 8]
+mov r14, qword [rsi]
+movzx eax, byte [rdx + 8]
+mov r13, rbx
+sub r13, r14
+and eax, 0x3f
+cmp al, 3
+je 0x8019320
+cmp al, 4
+je 0x8019348
+cmp r13, 0x1a
+jbe 0x8019398
+mov rsi, qword [rdx + 0x10]
+test rsi, rsi
+js 0x8019370
+cmp rsi, 9
+jbe 0x8019334
+mov rdi, r14
+call .text
+mov ebx, eax
+add rbx, r14
+mov eax, 1
+mov qword [rbp], rbx
+add rsp, 0x28
+pop rbx
+pop rbp
+pop r12
+pop r13
+pop r14
+pop r15
+ret
+nop word cs:[rax + rax]
+cmp r13, 0x1a
+jbe 0x8019438
+mov rsi, qword [rdx + 0x10]
+cmp rsi, 9
+ja 0x80192f1
+add esi, 0x30
+mov ebx, 1
+mov byte [r14], sil
+jmp 0x80192fb
+nop dword [rax]
+cmp r13, 0x1a
+jbe 0x8019460
+movsd xmm0, qword [rdx + 0x10]
+mov rdi, r14
+call _ZN5boost4json6detail3ryu14d2s_buffered_nEdPc
+add byte [rax], al
+add byte [rax], al
+mov ebx, eax
+mov eax, 1
+add rbx, r14
+jmp 0x8019303
+nop dword [rax + rax]
+neg rsi
+mov byte [r14], 0x2d
+cmp rsi, 9
+jbe 0x8019420
+lea rdi, [r14 + 1]
+call .text
+lea ebx, [rax + 1]
+jmp 0x80192fb
+nop word [rax + rax]
+lea r8, [rdi + 0x60]
+mov rsi, qword [rdx + 0x10]
+mov rdi, r8
+mov qword [var_8h], r8
+call _ZN5boost4json6detail12format_int64EPcl
+add byte [rax], al
+add byte [rax], al
+mov r8, qword [var_8h]
+mov r15d, eax
+add r15, r8
+mov qword [r12 + 0x50], r8
+mov qword [r12 + 0x58], r15
+sub r15, r8
+cmp r15, r13
+jbe 0x8019400
+mov rsi, r8
+mov rdi, r14
+mov rdx, r13
+call memcpy
+add qword [r12 + 0x50], r13
+lea rsi, [var_1fh]
+lea rdi, [r12 + 0x30]
+mov byte [var_1fh], 0x17
+call _ZN5boost4json6detail5stack4pushINS0_10serializer5stateEEEvRKT_
+xor eax, eax
+jmp 0x8019303
+nop dword [rax + rax]
+mov rdx, r15
+mov rsi, r8
+lea rbx, [r14 + r15]
+mov rdi, r14
+call memcpy
+mov eax, 1
+jmp 0x8019303
+nop dword [rax]
+add esi, 0x30
+mov ebx, 2
+mov byte [r14 + 1], sil
+jmp 0x80192fb
+nop dword [rax]
+mov rsi, qword [rdx + 0x10]
+lea r8, [rdi + 0x60]
+cmp rsi, 9
+jbe 0x8019480
+mov rdi, r8
+mov qword [var_8h], r8
+call .text
+mov r8, qword [var_8h]
+mov r15d, eax
+jmp 0x80193b5
+lea r8, [rdi + 0x60]
+movsd xmm0, qword [rdx + 0x10]
+mov rdi, r8
+mov qword [var_8h], r8
+call _ZN5boost4json6detail3ryu14d2s_buffered_nEdPc
+jmp 0x80193ad
+nop dword [rax + rax]
+add esi, 0x30
+mov r15d, 1
+mov byte [rdi + 0x60], sil
+jmp 0x80193b5

@@ -1,0 +1,6 @@
+push r12
+mov r12, rdi
+call boost_cont_malloc_stats
+mov rax, r12
+pop r12
+ret

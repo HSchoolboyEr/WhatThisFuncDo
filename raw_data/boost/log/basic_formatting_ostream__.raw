@@ -1,0 +1,19 @@
+push rbx
+cmp qword [rdi + 0x40], 0
+mov rbx, rdi
+je 0x8004497
+lea rdi, [rdi + 0x98]
+call _ZNSt13basic_ostreamIwSt11char_traitsIwEE5flushEv
+lea rax, [0x0800449e]
+lea rdx, [0x080044a5]
+movq xmm1, rax
+movq xmm0, rdx
+lea rdi, [rbx + 0xa0]
+punpcklqdq xmm0, xmm1
+movups xmmword [rbx + 0x98], xmm0
+call _ZNSt8ios_baseD2Ev
+lea rax, [0x080044cd]
+lea rdi, [rbx + 0x38]
+mov qword [rbx], rax
+pop rbx
+jmp _ZNSt6localeD1Ev

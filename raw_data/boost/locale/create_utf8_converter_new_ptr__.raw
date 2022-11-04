@@ -1,0 +1,7 @@
+sub rsp, 8
+mov edi, 8
+call _Znwm
+lea rdx, [0x08000bc5]
+mov qword [rax], rdx
+add rsp, 8
+ret

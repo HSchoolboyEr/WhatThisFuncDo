@@ -1,0 +1,14 @@
+push rbp
+mov rbp, rdi
+push rbx
+mov rbx, rsi
+sub rsp, 8
+call _ZN5boost3log12v2s_mt_posix20basic_record_ostreamIcE18detach_from_recordEv
+mov qword [arg_178h], rbx
+add rsp, 8
+mov rdi, rbp
+pop rbx
+pop rbp
+jmp _ZN5boost3log12v2s_mt_posix20basic_record_ostreamIcE11init_streamEv
+add byte [rax], al
+add byte [rax], al

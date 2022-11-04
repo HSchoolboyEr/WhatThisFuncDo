@@ -1,0 +1,93 @@
+push r15
+push r14
+lea r14, [rdi + 0x10]
+push r13
+push r12
+mov r12, rdi
+push rbp
+mov ebp, ecx
+push rbx
+mov rbx, rsi
+sub rsp, 0x28
+mov qword [rdi], r14
+mov rsi, qword [rdx]
+mov rax, qword [rdx + 8]
+lea r13, [var_10h]
+add rax, rsi
+mov rdx, rax
+call method void std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >::_M_construct<char*>(char*, char*, std::forward_iterator_tag) [clone .constprop.0]
+mov rdx, qword [rbx + 0x68]
+lea rdi, [rbx + 0x60]
+xor r8d, r8d
+mov rcx, r13
+xor esi, esi
+mov qword [rsp], r13
+mov qword [var_8h], 0
+mov byte [var_10h], 0
+call _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE10_M_replaceEmmPKcm
+lea r15, [rbx + 0x18]
+xor ecx, ecx
+test byte [rbx + 0x58], 3
+je 0x80014eb
+mov rcx, qword [rbx + 0x68]
+mov rsi, qword [rbx + 0x60]
+xor edx, edx
+mov rdi, r15
+call _ZNSt7__cxx1115basic_stringbufIcSt11char_traitsIcESaIcEE7_M_syncEPcmm
+mov rdi, qword [rsp]
+cmp rdi, r13
+je 0x8001510
+mov rax, qword [var_10h]
+lea rsi, [rax + 1]
+call _ZdlPvm
+mov rax, qword [rbx + 8]
+mov esi, ebp
+lea rdi, [rbx + 0x10]
+mov qword [rbx + 0x90], rax
+call _ZNSo9_M_insertImEERSoT_
+add byte [rax], al
+add byte [rax], al
+mov rdi, rsp
+mov rsi, r15
+call _ZNKSt7__cxx1115basic_stringbufIcSt11char_traitsIcESaIcEE3strEv
+add byte [rax], al
+add byte [rax], al
+mov rsi, qword [rbx]
+mov rcx, qword [r12 + 8]
+mov r8, qword [var_8h]
+mov r9, qword [rsp]
+cmp rsi, rcx
+ja 0x800157d
+mov rcx, r9
+xor edx, edx
+mov rdi, r12
+call _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE10_M_replaceEmmPKcm
+mov rdi, qword [rsp]
+cmp rdi, r13
+je 0x800156b
+mov rax, qword [var_10h]
+lea rsi, [rax + 1]
+call _ZdlPvm
+add rsp, 0x28
+mov rax, r12
+pop rbx
+pop rbp
+pop r12
+pop r13
+pop r14
+pop r15
+ret
+mov rdx, rsi
+lea rdi, [0x08001587]
+xor eax, eax
+lea rsi, [0x08001590]
+call _ZSt24__throw_out_of_range_fmtPKcz
+add byte [rax], al
+add byte [rax], al
+mov rbp, rax
+jmp .text.unlikely
+mov rbp, rax
+jmp .text.unlikely
+mov rbp, rax
+jmp .text.unlikely
+nop dword [rax]

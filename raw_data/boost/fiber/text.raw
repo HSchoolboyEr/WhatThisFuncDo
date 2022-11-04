@@ -1,0 +1,126 @@
+push rbp
+lea rax, [0x080000b8]
+push rbx
+mov rbx, rdi
+sub rsp, 8
+mov qword [rdi], rax
+mov byte [rdi + 0x88], 1
+call _ZN5boost6fibers7context6activeEv
+add byte [rax], al
+add byte [rax], al
+mov rdi, rax
+call _ZN5boost6fibers7context7suspendEv
+add byte [rax], al
+add byte [rax], al
+call _ZN5boost6fibers7context12reset_activeEv
+add byte [rax], al
+add byte [rax], al
+mov rdi, qword [rbx + 0x78]
+mov qword [rbx + 0x78], 0
+test rdi, rdi
+je 0x80001f0
+lock sub qword [rdi + 8], 1
+je 0x8000210
+mov qword [rbx + 0x80], 0
+mov rdi, qword [rbx + 0x78]
+test rdi, rdi
+je 0x800011d
+lock sub qword [rdi + 8], 1
+je 0x8000250
+mov rax, qword [rbx + 0x68]
+test rax, rax
+je 0x8000142
+nop word cs:[rax + rax]
+mov rdx, rax
+mov rax, qword [rax]
+mov qword [rdx], 0
+test rax, rax
+jne 0x8000130
+mov rax, qword [rbx + 0x50]
+lea rcx, [rbx + 0x50]
+pxor xmm0, xmm0
+cmp rax, rcx
+je 0x8000166
+nop dword [rax + rax]
+mov rdx, rax
+mov rax, qword [rax]
+movups xmmword [rdx], xmm0
+cmp rcx, rax
+jne 0x8000158
+mov rax, qword [rbx + 0x30]
+test rax, rax
+je 0x80001b0
+pxor xmm0, xmm0
+mov rdx, qword [rax + 8]
+test rdx, rdx
+je 0x8000194
+mov rcx, qword [rdx + 0x10]
+mov qword [rax + 8], rcx
+mov qword [rdx + 0x10], rax
+mov rax, rdx
+mov rdx, qword [rax + 8]
+test rdx, rdx
+jne 0x800017c
+mov rdx, qword [rax + 0x10]
+movups xmmword [rax], xmm0
+mov qword [rax + 0x10], 0
+test rdx, rdx
+je 0x80001b0
+mov rax, rdx
+jmp 0x8000173
+nop dword [rax]
+mov rdi, qword [rbx + 0x28]
+test rdi, rdi
+je 0x80001c1
+lock sub qword [rdi + 8], 1
+je 0x8000200
+mov rax, qword [rbx + 0x18]
+test rax, rax
+je 0x80001e2
+nop word [rax + rax]
+mov rdx, rax
+mov rax, qword [rax]
+mov qword [rdx], 0
+test rax, rax
+jne 0x80001d0
+add rsp, 8
+pop rbx
+pop rbp
+ret
+nop dword [rax]
+mov qword [rbx + 0x80], 0
+jmp 0x800011d
+mov rax, qword [rdi]
+call qword [rax + 8]
+jmp 0x80001c1
+nop dword [rax + rax]
+mov rbp, qword [rdi + 0xd0]
+mov rax, qword [rdi]
+mov qword [rdi + 0xd0], 0
+call qword [rax]
+xor esi, esi
+mov rdi, rbp
+call jump_fcontext
+test rax, rax
+je 0x80000fd
+xor esi, esi
+mov rdi, rax
+lea rdx, [0x08000246]
+add byte [rax], al
+add byte [rax], al
+call ontop_fcontext
+jmp 0x80000fd
+mov rbp, qword [rdi + 0xd0]
+mov rax, qword [rdi]
+mov qword [rdi + 0xd0], 0
+call qword [rax]
+xor esi, esi
+mov rdi, rbp
+call jump_fcontext
+test rax, rax
+je 0x800011d
+xor esi, esi
+mov rdi, rax
+lea rdx, [0x08000286]
+call ontop_fcontext
+jmp 0x800011d

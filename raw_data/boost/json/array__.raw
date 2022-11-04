@@ -1,0 +1,18 @@
+push rbx
+mov rbx, rdi
+call _ZN5boost4json5array7destroyEv
+mov rdi, qword [rbx]
+test dil, 1
+jne 0x8002d08
+pop rbx
+ret
+nop dword [rax]
+and rdi, 0xfffffffffffffffc
+lock sub qword [rdi + 8], 1
+jne 0x8002d02
+test rdi, rdi
+je 0x8002d02
+mov rax, qword [rdi]
+pop rbx
+mov rax, qword [rax + 8]
+jmp rax

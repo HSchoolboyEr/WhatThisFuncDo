@@ -1,0 +1,83 @@
+push r15
+push r14
+push r13
+mov r13, rdx
+push r12
+mov r12, rsi
+push rbp
+mov rbp, rdi
+push rbx
+sub rsp, 0x28
+call method boost::unit_test::(anonymous namespace)::s_log_impl()
+mov rdx, qword [rax + 0x68]
+mov qword [rax + 0x70], 0
+mov qword [rax + 0x60], rdx
+lea rdx, [var_10h]
+mov qword [rsp], rdx
+mov byte [var_10h], 0
+mov rcx, qword [rax + 0x78]
+mov qword [rax + 0x80], 0
+mov byte [rcx], 0
+mov rax, qword [rsp]
+mov qword [var_8h], 0
+mov byte [rax], 0
+mov rdi, qword [rsp]
+cmp rdi, rdx
+je 0x8001633
+mov rax, qword [var_10h]
+lea rsi, [rax + 1]
+call _ZdlPvm
+call method boost::unit_test::(anonymous namespace)::s_log_impl()
+mov rdx, rax
+mov rax, qword [rax + 0x18]
+mov rcx, qword [rdx + 0x20]
+cmp rcx, rax
+ja 0x8001659
+jmp 0x800166d
+nop word [rax + rax]
+add rax, 8
+cmp rcx, rax
+jbe 0x800166d
+mov rdx, qword [rax]
+cmp byte [rdx + 0x30], 0
+je 0x8001650
+mov rsi, rsp
+mov rdi, rbp
+call _ZN5boost9unit_test15unit_test_log_tlsERKNS0_3log3endE
+call method boost::unit_test::(anonymous namespace)::s_log_impl()
+mov rbx, qword [rax + 0x18]
+mov r14, qword [rax + 0x20]
+cmp r14, rbx
+jbe 0x80016d0
+lea r15, [0x08001686]
+jmp 0x80016b5
+nop dword [rax + rax]
+mov eax, dword [rdi + 8]
+cmp eax, 1
+jg 0x80016ac
+mov rdi, qword [arg_20h]
+mov rsi, qword [arg_8h]
+mov rcx, r13
+mov rdx, r12
+mov rax, qword [rdi]
+call qword [rax + 0x30]
+add rbx, 8
+cmp r14, rbx
+jbe 0x80016d0
+mov rbp, qword [rbx]
+mov rdi, qword [arg_20h]
+mov rax, qword [rdi]
+mov rax, qword [rax + 0xa8]
+cmp rax, r15
+je 0x8001690
+call rax
+jmp 0x8001693
+nop
+add rsp, 0x28
+pop rbx
+pop rbp
+pop r12
+pop r13
+pop r14
+pop r15
+ret

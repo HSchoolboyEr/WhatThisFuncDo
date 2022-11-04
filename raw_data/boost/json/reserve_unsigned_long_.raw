@@ -1,0 +1,46 @@
+cmp qword [rdi + 8], rsi
+jae 0x800b140
+push r12
+mov edx, 0x10
+push rbp
+mov rbp, rsi
+push rbx
+mov rax, qword [rdi]
+mov rbx, rdi
+mov rdi, rax
+and rdi, 0xfffffffffffffffc
+test rax, rax
+lea rax, [0x0800b0e9]
+cmove rdi, rax
+mov rax, qword [rdi]
+call qword [rax + 0x10]
+mov rsi, qword [rbx + 0x18]
+mov r12, rax
+test rsi, rsi
+je 0x800b12f
+mov rdx, qword [rbx + 0x10]
+test rdx, rdx
+jne 0x800b148
+mov rax, qword [rbx]
+mov rdx, qword [rbx + 8]
+mov ecx, 0x10
+mov rdi, rax
+and rdi, 0xfffffffffffffffc
+test rax, rax
+lea rax, [0x0800b125]
+cmove rdi, rax
+mov rax, qword [rdi]
+call qword [rax + 0x18]
+mov qword [rbx + 0x18], r12
+mov qword [rbx + 8], rbp
+pop rbx
+pop rbp
+pop r12
+ret
+nop dword [rax]
+ret
+nop dword [rax]
+mov rdi, rax
+call memcpy
+mov rsi, qword [rbx + 0x18]
+jmp 0x800b108

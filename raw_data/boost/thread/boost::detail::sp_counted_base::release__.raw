@@ -1,0 +1,5 @@
+lock sub dword [rdi + 8], 1
+je .text
+ret
+nop dword [rax + rax]
+jmp .text

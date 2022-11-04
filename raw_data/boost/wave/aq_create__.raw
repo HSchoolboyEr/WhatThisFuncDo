@@ -1,0 +1,22 @@
+push r12
+mov edi, 0x28
+call malloc
+mov r12, rax
+test rax, rax
+je 0x80002d6
+mov qword [rax + 0x18], 8
+mov edi, 0x40
+call malloc
+mov qword [r12 + 0x20], rax
+test rax, rax
+je 0x80002dc
+movdqa xmm0, xmmword [0x080002c8]
+mov qword [r12 + 0x10], 0
+movups xmmword [r12], xmm0
+mov rax, r12
+pop r12
+ret
+mov rdi, r12
+xor r12d, r12d
+call free
+jmp 0x80002d6

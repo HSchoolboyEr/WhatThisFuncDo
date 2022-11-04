@@ -1,0 +1,31 @@
+push rbp
+lea rax, [0x08016508]
+push rbx
+mov rbx, rdi
+mov edi, 0x38
+sub rsp, 0x18
+mov qword [var_8h], rax
+call __cxa_allocate_exception
+lea rdx, [0x08016526]
+lea rsi, [0x0801652d]
+mov qword [rax + 0x18], 0
+mov rdi, rax
+lea rax, [0x0801653f]
+lea rcx, [rax - 0x30]
+movq xmm1, rax
+add rax, 0x28
+mov qword [rdi + 0x10], rax
+movq xmm0, rcx
+mov rax, qword [rbx + 0x10]
+punpcklqdq xmm0, xmm1
+movups xmmword [rdi], xmm0
+movups xmm0, xmmword [rbx]
+mov qword [rdi + 0x30], rax
+shufpd xmm0, xmm0, 1
+movups xmmword [rdi + 0x20], xmm0
+call __cxa_throw
+mov rbp, rax
+lea rdi, [var_8h]
+call _ZNSt9bad_allocD1Ev
+mov rdi, rbp
+call method boost::json::static_resource::do_allocate(unsigned long, unsigned long) [clone .cold]

@@ -1,0 +1,23 @@
+push rbp
+mov rbp, rsi
+push rbx
+mov rbx, rdi
+sub rsp, 8
+call _ZNSt13runtime_errorC2ERKS_
+add byte [rax], al
+add byte [rax], al
+mov rax, qword [arg_20h]
+movdqu xmm0, xmmword [arg_10h]
+mov qword [rbx + 0x20], rax
+lea rax, [0x08000535]
+mov qword [rbx], rax
+movups xmmword [rbx + 0x10], xmm0
+mov rax, qword [arg_28h]
+mov qword [rbx + 0x28], rax
+test rax, rax
+je 0x800054d
+lock add dword [rax], 1
+add rsp, 8
+pop rbx
+pop rbp
+ret

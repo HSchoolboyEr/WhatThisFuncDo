@@ -1,0 +1,110 @@
+movzx eax, byte [rsi + 8]
+and eax, 0x3f
+cmp al, 7
+ja .text.unlikely
+push r12
+lea rcx, [0x08007f58]
+movzx eax, al
+push rbp
+mov rbp, rdi
+sub rsp, 0x18
+movsxd rax, dword [rcx + rax*4]
+add rax, rcx
+jmp rax
+nop dword [rax]
+mov rax, qword [rdx]
+mov qword [rdx], 0
+lea r12, [rsp + 8]
+mov rdx, r12
+mov qword [rsp + 8], rax
+call _ZN5boost4json5arrayC1ERKS1_NS0_11storage_ptrE
+add byte [rax], al
+add byte [rax], al
+mov rdi, r12
+call _ZNK5boost4json11storage_ptr7releaseEv
+add byte [rax], al
+add byte [rax], al
+add rsp, 0x18
+pop rbp
+pop r12
+ret
+nop dword [rax]
+mov rax, qword [rdx]
+mov qword [rdx], 0
+lea r12, [rsp + 8]
+mov rdx, r12
+mov qword [rsp + 8], rax
+call _ZN5boost4json6objectC1ERKS1_NS0_11storage_ptrE
+add byte [rax], al
+add byte [rax], al
+jmp 0x8007f8c
+nop
+mov rax, qword [rdx]
+mov qword [rdx], 0
+mov byte [rdi + 8], 0
+mov qword [rdi], rax
+add rsp, 0x18
+pop rbp
+pop r12
+ret
+nop dword [rax]
+mov rcx, qword [rdx]
+mov qword [rdx], 0
+movzx eax, byte [rsi + 0x10]
+mov byte [rdi + 8], 1
+mov qword [rdi], rcx
+mov byte [rdi + 0x10], al
+add rsp, 0x18
+pop rbp
+pop r12
+ret
+mov rcx, qword [rdx]
+mov qword [rdx], 0
+mov rax, qword [rsi + 0x10]
+mov byte [rdi + 8], 2
+mov qword [rdi], rcx
+mov qword [rdi + 0x10], rax
+add rsp, 0x18
+pop rbp
+pop r12
+ret
+nop dword [rax]
+mov rcx, qword [rdx]
+mov qword [rdx], 0
+mov rax, qword [rsi + 0x10]
+mov byte [rdi + 8], 3
+mov qword [rdi], rcx
+mov qword [rdi + 0x10], rax
+add rsp, 0x18
+pop rbp
+pop r12
+ret
+nop dword [rax]
+mov rax, qword [rdx]
+mov qword [rdx], 0
+movsd xmm0, qword [rsi + 0x10]
+mov byte [rdi + 8], 4
+mov qword [rdi], rax
+movsd qword [rdi + 0x10], xmm0
+add rsp, 0x18
+pop rbp
+pop r12
+ret
+nop dword [rax + rax]
+mov rax, qword [rdx]
+mov byte [rdi + 0x17], 0xe
+mov qword [rdx], 0
+mov qword [rdi], rax
+mov eax, 0x85
+mov word [rdi + 8], ax
+mov qword [rsp + 8], 0
+call _ZN5boost4json6string6assignERKS1_
+add byte [rax], al
+add byte [rax], al
+lea rdi, [rsp + 8]
+call _ZNK5boost4json11storage_ptr7releaseEv
+add rsp, 0x18
+pop rbp
+pop r12
+ret
+ret

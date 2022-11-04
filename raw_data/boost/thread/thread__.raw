@@ -1,0 +1,3 @@
+pxor xmm0, xmm0
+movups xmmword [rdi], xmm0
+ret

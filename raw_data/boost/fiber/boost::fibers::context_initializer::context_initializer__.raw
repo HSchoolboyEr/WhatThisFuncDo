@@ -1,0 +1,176 @@
+mov rax, qword fs:[0]
+lea rdx, [rax + 1]
+mov qword fs:[0], rdx
+test rax, rax
+je 0x8002360
+ret
+nop dword [rax]
+push r14
+mov edi, 0xe8
+push r13
+movabs r13, 0x7fffffffffffffff
+push r12
+push rbp
+push rbx
+sub rsp, 0x10
+call _Znwm
+mov edi, 0x90
+mov qword [rax + 8], 1
+mov rbx, rax
+lea rax, [rax + 0x20]
+mov qword [rax - 0x10], 0
+mov dword [rax - 8], 1
+mov byte [rax - 4], 0
+movq xmm0, rax
+lea rax, [rbx + 0x48]
+mov qword [rbx + 0x58], rax
+punpcklqdq xmm0, xmm0
+mov qword [rbx + 0x60], rax
+mov rax, qword [0x080023c3]
+movups xmmword [rbx + 0x20], xmm0
+pxor xmm0, xmm0
+mov qword [rbx + 0xe0], rax
+lea rax, [0x080023d9]
+movups xmmword [rbx + 0x70], xmm0
+movups xmmword [rbx + 0xa0], xmm0
+movups xmmword [rbx + 0xb0], xmm0
+movups xmmword [rbx + 0xc0], xmm0
+mov qword [rbx + 0x30], 0
+mov qword [rbx + 0x38], 0
+mov dword [rbx + 0x48], 0
+mov qword [rbx + 0x50], 0
+mov qword [rbx + 0x68], 0
+mov qword [rbx + 0x80], 0
+mov qword [rbx + 0x90], 0
+mov qword [rbx + 0x98], 0
+mov qword [rbx + 0xd0], 0
+mov qword [rbx + 0xd8], r13
+mov qword [rbx], rax
+call _Znwm
+mov r14, rax
+mov rdi, rax
+call _ZN5boost6fibers9schedulerC1Ev
+add byte [rax], al
+add byte [rax], al
+mov rsi, rbx
+mov rdi, r14
+call _ZN5boost6fibers9scheduler19attach_main_contextEPNS0_7contextE
+add byte [rax], al
+add byte [rax], al
+call _ZN5boost7context12stack_traits12default_sizeEv
+add byte [rax], al
+add byte [rax], al
+mov rdi, rax
+mov r12, rax
+call malloc
+pxor xmm0, xmm0
+test rax, rax
+je 0x8002653
+add rax, r12
+lea rbp, [rax - 0xe8]
+xor bpl, bpl
+lea rdx, [arg_48h]
+lea rcx, [arg_20h]
+mov qword [arg_d8h], r13
+mov qword [arg_58h], rdx
+movq xmm1, rcx
+lea rcx, [0x080024b3]
+lea r13, [var_100h]
+mov qword [arg_60h], rdx
+punpcklqdq xmm1, xmm1
+lea rdi, [r13 - 0x40]
+mov rdx, qword [0x080024cd]
+mov qword [rbp], rcx
+lea rcx, [0x080024d8]
+add byte [rax], al
+add byte [rax], al
+mov qword [arg_e0h], rdx
+lea rdx, [0x080024e6]
+mov qword [arg_8h], 0
+mov qword [arg_10h], 0
+mov dword [arg_18h], 1
+mov byte [arg_1ch], 0
+mov qword [arg_30h], 0
+mov qword [arg_38h], 0
+mov dword [arg_48h], 0
+mov qword [arg_50h], 0
+mov qword [arg_68h], 0
+mov qword [arg_80h], 0
+mov qword [arg_90h], 0
+mov qword [arg_98h], 0
+mov qword [arg_d0h], 0
+movaps xmmword [arg_20h], xmm1
+movaps xmmword [arg_70h], xmm0
+movaps xmmword [arg_a0h], xmm0
+movaps xmmword [arg_b0h], xmm0
+movaps xmmword [arg_c0h], xmm0
+mov qword [r13], r12
+mov qword [r13 + 0x10], r12
+sub r12, rax
+mov qword [r13 + 8], rax
+lea rsi, [r12 + rdi]
+mov qword [r13 + 0x18], rcx
+mov qword [r13 + 0x20], 0
+mov qword [r13 + 0x28], rbp
+call make_fcontext
+mov rdi, rax
+mov rsi, r13
+call jump_fcontext
+mov rdi, qword [arg_d0h]
+mov qword [arg_d0h], rax
+test rdi, rdi
+jne _ZN5boost7context6detail12fiber_unwindENS1_10transfer_tE
+mov qword [var_8h], rbp
+test rbp, rbp
+je 0x80025cb
+lock add qword [arg_8h], 1
+mov rdi, r14
+lea rsi, [var_8h]
+call _ZN5boost6fibers9scheduler25attach_dispatcher_contextENS_13intrusive_ptrINS0_7contextEEE
+add byte [rax], al
+add byte [rax], al
+mov rdi, qword [var_8h]
+test rdi, rdi
+je 0x80025ea
+lock sub qword [rdi + 8], 1
+je 0x8002600
+mov qword fs:[0], rbx
+add rsp, 0x10
+pop rbx
+pop rbp
+pop r12
+pop r13
+pop r14
+ret
+mov rbp, qword [rdi + 0xd0]
+mov rax, qword [rdi]
+mov qword [rdi + 0xd0], 0
+call qword [rax]
+xor esi, esi
+mov rdi, rbp
+call jump_fcontext
+test rax, rax
+je 0x80025ea
+xor esi, esi
+mov rdi, rax
+lea rdx, [0x08002632]
+call ontop_fcontext
+jmp 0x80025ea
+nop dword [rax]
+xor esi, esi
+lea rdx, [0x08002649]
+call ontop_fcontext
+jmp 0x80025bb
+mov edi, 8
+call __cxa_allocate_exception
+mov rdx, qword [0x08002664]
+lea rsi, [0x0800266b]
+mov rdi, rax
+lea rax, [0x08002675]
+mov qword [rdi], rax
+call __cxa_throw
+mov r12, rax
+mov rdi, rbp
+call _ZN5boost6fibers7contextD2Ev
+mov rdi, r12
+call method boost::fibers::context::join() [clone .cold]

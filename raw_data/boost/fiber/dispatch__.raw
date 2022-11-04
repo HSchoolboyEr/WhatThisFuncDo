@@ -1,0 +1,73 @@
+push r13
+mov r13, rdi
+push r12
+movabs r12, 0x7fffffffffffffff
+push rbp
+lea rbp, [rsi + 0x50]
+push rbx
+mov rbx, rsi
+sub rsp, 0x18
+nop
+cmp byte [rbx + 0x88], 0
+je 0x8000c71
+mov rdi, qword [rbx + 0x28]
+mov rax, qword [rdi]
+call qword [rax + 0x30]
+mov rax, qword [rbx + 0x50]
+test rax, rax
+je 0x8000ce0
+cmp rax, rbp
+je 0x8000ce0
+mov rdi, rbx
+call _ZN5boost6fibers9scheduler19release_terminated_Ev
+add byte [rax], al
+add byte [rax], al
+mov rdi, rbx
+call _ZN5boost6fibers9scheduler19remote_ready2ready_Ev
+add byte [rax], al
+add byte [rax], al
+mov rdi, rbx
+call _ZN5boost6fibers9scheduler12sleep2ready_Ev
+add byte [rax], al
+add byte [rax], al
+mov rdi, qword [rbx + 0x28]
+mov rax, qword [rdi]
+call qword [rax + 0x18]
+mov rdi, rax
+test rax, rax
+je 0x8000cb0
+mov rsi, qword [rbx + 0x78]
+call _ZN5boost6fibers7context6resumeEPS1_
+add byte [rax], al
+add byte [rax], al
+cmp byte [rbx + 0x88], 0
+jne 0x8000c59
+jmp 0x8000c71
+nop
+mov rax, qword [rbx + 0x38]
+lea rdx, [rbx + 0x30]
+mov qword [var_8h], r12
+cmp rax, rdx
+je 0x8000ccb
+mov rax, qword [rax + 0x68]
+mov qword [var_8h], rax
+mov rdi, qword [rbx + 0x28]
+lea rsi, [var_8h]
+mov rax, qword [rdi]
+call qword [rax + 0x28]
+jmp 0x8000c50
+nop
+mov rdi, rbx
+call _ZN5boost6fibers9scheduler19release_terminated_Ev
+mov rsi, qword [rbx + 0x80]
+mov rdi, r13
+call _ZN5boost6fibers7context15suspend_with_ccEv
+add byte [rax], al
+add byte [rax], al
+add rsp, 0x18
+mov rax, r13
+pop rbx
+pop rbp
+pop r12
+pop r13
+ret

@@ -1,0 +1,76 @@
+push rbp
+movzx edx, byte [rdi + 8]
+mov rbp, rdi
+mov eax, edx
+and eax, 0x3f
+cmp al, 6
+je _ZN5boost4json5array7destroyEv
+ja 0x8002980
+cmp al, 4
+jbe 0x8002995
+cmp al, 5
+jne 0x800299f
+mov rdi, qword [rdi]
+cmp dl, 5
+je 0x80029c0
+cmp dl, 0x45
+jne 0x80029ef
+mov rax, rdi
+mov edx, dword [arg_ch]
+mov rsi, qword [arg_10h]
+mov ecx, 0x10
+and rax, 0xfffffffffffffffc
+test rdi, rdi
+lea rdi, [0x08002969]
+cmovne rdi, rax
+add edx, 1
+mov rax, qword [rdi]
+call qword [rax + 0x18]
+mov rdi, qword [rbp]
+jmp 0x80029ef
+nop dword [rax]
+cmp al, 7
+jne 0x800299f
+pop rbp
+jmp sym boost::json::object::~object()
+nop word [rax + rax]
+call _ZN5boost4json5array7destroyEv
+mov rdi, qword [rbp]
+test dil, 1
+jne 0x80029a8
+pop rbp
+ret
+nop dword [rax]
+and rdi, 0xfffffffffffffffc
+lock sub qword [rdi + 8], 1
+jne 0x800299f
+test rdi, rdi
+jne 0x8002a11
+pop rbp
+ret
+nop dword [rax + rax]
+mov rax, rdi
+mov rsi, qword [arg_10h]
+mov ecx, 4
+and rax, 0xfffffffffffffffc
+test rdi, rdi
+lea rdi, [0x080029da]
+cmovne rdi, rax
+mov edx, dword [rsi + 4]
+mov rax, qword [rdi]
+add rdx, 9
+call qword [rax + 0x18]
+mov rdi, qword [rbp]
+test dil, 1
+je 0x800299f
+and rdi, 0xfffffffffffffffc
+mov rax, 0xffffffffffffffff
+lock xadd qword [rdi + 8], rax
+test rdi, rdi
+je 0x800299f
+cmp rax, 1
+jne 0x800299f
+mov rax, qword [rdi]
+pop rbp
+mov rax, qword [rax + 8]
+jmp rax

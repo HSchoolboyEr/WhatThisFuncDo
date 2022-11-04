@@ -1,0 +1,11 @@
+lea rax, [0x08017d5f]
+lea rdx, [0x08017d66]
+sub rsp, 0x28
+movq xmm1, rax
+movq xmm0, rdx
+mov rax, qword [0x08017d7b]
+mov rdi, rsp
+punpcklqdq xmm0, xmm1
+mov qword [var_10h], rax
+movaps xmmword [rsp], xmm0
+call sym boost::json::basic_parser<boost::json::detail::handler>::~basic_parser()

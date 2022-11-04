@@ -1,0 +1,182 @@
+push rbx
+pxor xmm1, xmm1
+comisd xmm1, xmm0
+ja 0x80006e0
+movsd xmm3, qword [0x08000607]
+comisd xmm3, xmm0
+ja .LC52
+movsd xmm7, qword [0x08000619]
+xor ebx, ebx
+mov eax, 1
+comisd xmm7, xmm0
+jbe 0x8000635
+xorpd xmm0, xmmword [0x0800062e]
+xor eax, eax
+mov ebx, 1
+movq xmm4, qword [0x0800063d]
+movsd xmm6, qword [0x08000645]
+movapd xmm1, xmm0
+movapd xmm2, xmm0
+andpd xmm1, xmm4
+ucomisd xmm6, xmm1
+ja 0x80008d0
+movapd xmm1, xmm2
+movapd xmm8, xmm4
+mulsd xmm1, xmm3
+movapd xmm5, xmm1
+andpd xmm5, xmm4
+ucomisd xmm6, xmm5
+ja 0x8000898
+addsd xmm1, xmm1
+subsd xmm0, xmm2
+subsd xmm1, xmm2
+andpd xmm1, xmm4
+ucomisd xmm1, qword [0x08000692]
+cmova ebx, eax
+comisd xmm0, xmm3
+ja 0x8000860
+ucomisd xmm0, xmm3
+jnp 0x8000876
+mulsd xmm0, qword [0x080006b1]
+call sin
+test bl, bl
+je 0x80006c2
+xorpd xmm0, xmmword [0x080006c2]
+pop rbx
+ret
+nop dword [rax]
+mulsd xmm0, qword [0x080006d0]
+pop rbx
+jmp sin
+nop word cs:[rax + rax]
+comisd xmm0, xmm1
+ja 0x80005f5
+comisd xmm0, xmmword [0x080006f2]
+movq xmm2, qword [0x080006fa]
+movapd xmm5, xmm0
+xorpd xmm5, xmm2
+ja .LC52
+movsd xmm7, qword [0x08000710]
+movq xmm4, qword [0x08000718]
+movsd xmm6, qword [0x08000720]
+movapd xmm1, xmm7
+comisd xmm0, xmm7
+movapd xmm3, xmm4
+cmpltsd xmm1, xmm0
+setbe bl
+seta al
+andpd xmm0, xmm1
+andnpd xmm1, xmm5
+movapd xmm5, xmm1
+orpd xmm5, xmm0
+movapd xmm1, xmm5
+movapd xmm0, xmm5
+andpd xmm1, xmm4
+ucomisd xmm6, xmm1
+jbe 0x800078e
+cvttsd2si rdx, xmm5
+pxor xmm1, xmm1
+andnpd xmm3, xmm5
+movsd xmm8, qword [0x0800076f]
+cvtsi2sd xmm1, rdx
+movapd xmm0, xmm1
+cmpnlesd xmm0, xmm5
+andpd xmm0, xmm8
+subsd xmm1, xmm0
+movapd xmm0, xmm3
+orpd xmm0, xmm1
+movsd xmm3, qword [0x08000796]
+movapd xmm1, xmm0
+movapd xmm9, xmm4
+mulsd xmm1, xmm3
+movapd xmm8, xmm1
+andpd xmm8, xmm4
+ucomisd xmm6, xmm8
+jbe 0x80007ef
+cvttsd2si rdx, xmm1
+pxor xmm8, xmm8
+andnpd xmm9, xmm1
+movsd xmm10, qword [0x080007cc]
+cvtsi2sd xmm8, rdx
+movapd xmm6, xmm8
+cmpnlesd xmm6, xmm1
+andpd xmm6, xmm10
+subsd xmm8, xmm6
+movapd xmm1, xmm8
+orpd xmm1, xmm9
+addsd xmm1, xmm1
+subsd xmm5, xmm0
+subsd xmm1, xmm0
+andpd xmm1, xmm4
+ucomisd xmm1, qword [0x08000807]
+cmovbe ebx, eax
+comisd xmm5, xmm3
+jbe 0x8000820
+movsd xmm0, qword [0x08000818]
+subsd xmm0, xmm5
+movapd xmm5, xmm0
+ucomisd xmm5, xmm3
+jnp 0x8000920
+mulsd xmm5, qword [0x08000832]
+movapd xmm0, xmm5
+call sin
+movq xmm2, qword [0x08000843]
+movapd xmm1, xmm0
+xorpd xmm2, xmm1
+movapd xmm0, xmm2
+test bl, bl
+je 0x80006c2
+movapd xmm0, xmm1
+pop rbx
+ret
+nop dword [rax]
+movapd xmm4, xmm7
+subsd xmm4, xmm0
+movapd xmm0, xmm4
+ucomisd xmm0, xmm3
+jp .LC52
+jne .LC52
+movsd xmm0, qword [0x08000884]
+test bl, bl
+jne 0x80006c2
+movapd xmm0, xmm7
+pop rbx
+ret
+nop word [rax + rax]
+cvttsd2si rdx, xmm1
+pxor xmm5, xmm5
+andnpd xmm8, xmm1
+cvtsi2sd xmm5, rdx
+movapd xmm6, xmm5
+cmpnlesd xmm6, xmm1
+andpd xmm6, xmm7
+subsd xmm5, xmm6
+orpd xmm5, xmm8
+movapd xmm1, xmm5
+jmp 0x800067a
+nop word [rax + rax]
+cvttsd2si rdx, xmm0
+pxor xmm1, xmm1
+cvtsi2sd xmm1, rdx
+movapd xmm2, xmm1
+cmpnlesd xmm2, xmm0
+andpd xmm2, xmm7
+subsd xmm1, xmm2
+movapd xmm2, xmm4
+andnpd xmm2, xmm0
+orpd xmm2, xmm1
+jmp 0x800065b
+mulsd xmm5, qword [0x08000908]
+movapd xmm0, xmm5
+call sin
+movq xmm2, qword [0x08000919]
+pop rbx
+xorpd xmm0, xmm2
+ret
+nop
+jne .LC52
+movsd xmm0, qword [0x0800092e]
+test bl, bl
+je 0x800088c
+pop rbx
+ret

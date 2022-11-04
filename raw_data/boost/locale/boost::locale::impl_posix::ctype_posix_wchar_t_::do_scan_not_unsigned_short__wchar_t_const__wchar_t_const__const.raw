@@ -1,0 +1,154 @@
+push r15
+push r14
+push r13
+push r12
+mov r12, rdx
+push rbp
+push rbx
+sub rsp, 0x28
+cmp rdx, rcx
+je 0x8003e07
+mov eax, esi
+mov ebp, esi
+mov r13d, esi
+mov r15, rdi
+and eax, 2
+and bp, 0x2000
+and r13w, 0x4000
+mov word [var_eh], ax
+mov eax, esi
+lea rbx, [0x08003d40]
+add byte [rax], al
+add byte [rax], al
+and ax, 0x100
+mov word [var_10h], ax
+mov eax, esi
+and ax, 0x200
+mov word [var_12h], ax
+mov eax, esi
+and ax, 0x400
+mov word [var_14h], ax
+mov eax, esi
+and ax, 0x800
+mov word [var_16h], ax
+mov eax, esi
+and ax, 0x1000
+mov word [var_18h], ax
+mov eax, esi
+and eax, 4
+mov word [var_1ah], ax
+movzx eax, si
+mov dword [var_1ch], eax
+nop word cs:[rax + rax]
+mov rax, qword [r15]
+mov r14d, dword [r12]
+mov rax, qword [rax + 0x10]
+cmp rax, rbx
+jne 0x8003f70
+test bp, bp
+jne 0x8003e20
+test r13w, r13w
+jne 0x8003e44
+cmp word [var_eh], 0
+jne 0x8003e6a
+cmp word [var_10h], 0
+jne 0x8003e90
+cmp word [var_12h], 0
+jne 0x8003eb6
+cmp word [var_14h], 0
+jne 0x8003edc
+cmp word [var_16h], 0
+jne 0x8003f02
+cmp word [var_18h], 0
+jne 0x8003f28
+cmp word [var_1ah], 0
+jne 0x8003f4e
+add rsp, 0x28
+mov rax, r12
+pop rbx
+pop rbp
+pop r12
+pop r13
+pop r14
+pop r15
+ret
+nop dword [rax]
+mov rax, qword [r15 + 0x540]
+mov edi, r14d
+mov rsi, qword [rax]
+call iswspace_l
+test eax, eax
+jne 0x8003d90
+test r13w, r13w
+je 0x8003db3
+mov rax, qword [r15 + 0x540]
+mov edi, r14d
+mov rsi, qword [rax]
+call iswprint_l
+test eax, eax
+jne 0x8003d90
+cmp word [var_eh], 0
+je 0x8003dbf
+mov rax, qword [r15 + 0x540]
+mov edi, r14d
+mov rsi, qword [rax]
+call iswcntrl_l
+test eax, eax
+jne 0x8003d90
+cmp word [var_10h], 0
+je 0x8003dcb
+mov rax, qword [r15 + 0x540]
+mov edi, r14d
+mov rsi, qword [rax]
+call iswupper_l
+test eax, eax
+jne 0x8003d90
+cmp word [var_12h], 0
+je 0x8003dd7
+mov rax, qword [r15 + 0x540]
+mov edi, r14d
+mov rsi, qword [rax]
+call iswlower_l
+test eax, eax
+jne 0x8003d90
+cmp word [var_14h], 0
+je 0x8003de3
+mov rax, qword [r15 + 0x540]
+mov edi, r14d
+mov rsi, qword [rax]
+call iswalpha_l
+test eax, eax
+jne 0x8003d90
+cmp word [var_16h], 0
+je 0x8003def
+mov rax, qword [r15 + 0x540]
+mov edi, r14d
+mov rsi, qword [rax]
+call iswdigit_l
+test eax, eax
+jne 0x8003d90
+cmp word [var_18h], 0
+je 0x8003dfb
+mov rax, qword [r15 + 0x540]
+mov edi, r14d
+mov rsi, qword [rax]
+call iswxdigit_l
+test eax, eax
+jne 0x8003d90
+cmp word [var_1ah], 0
+je 0x8003e07
+mov rax, qword [r15 + 0x540]
+mov edi, r14d
+mov rsi, qword [rax]
+call iswpunct_l
+test eax, eax
+je 0x8003e07
+jmp 0x8003d90
+nop dword [rax]
+mov esi, dword [var_1ch]
+mov edx, r14d
+mov rdi, r15
+call rax
+test al, al
+jne 0x8003d90
+jmp 0x8003e07

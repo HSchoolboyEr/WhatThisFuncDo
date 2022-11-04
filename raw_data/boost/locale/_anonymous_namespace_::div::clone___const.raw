@@ -1,0 +1,97 @@
+push r14
+push r13
+push r12
+push rbp
+mov rbp, rdi
+push rbx
+sub rsp, 0x20
+mov rdi, qword [rdi + 8]
+mov rax, qword [rdi]
+call qword [rax + 8]
+mov rdi, rsp
+mov rsi, rax
+call _ZN5boost10shared_ptrINS_6locale11gnu_gettext6lambda6pluralEEC1IS4_EEPT_
+mov rdi, qword [var_18h]
+mov rax, qword [rdi]
+call qword [rax + 8]
+mov rsi, rax
+lea rdi, [var_10h]
+call _ZN5boost10shared_ptrINS_6locale11gnu_gettext6lambda6pluralEEC1IS4_EEPT_
+mov r13, qword [var_8h]
+mov r14, qword [rsp]
+test r13, r13
+je 0x8007f8f
+lock add dword [r13 + 8], 1
+mov rbp, qword [var_18h]
+mov rbx, qword [var_10h]
+test rbp, rbp
+je 0x8007fa3
+lock add dword [var_8h], 1
+mov edi, 0x28
+call _Znwm
+mov r12, rax
+test rbp, rbp
+je 0x8007fba
+lock add dword [var_8h], 1
+test r13, r13
+je 0x8008078
+lea rax, [r13 + 8]
+lock add dword [rax], 1
+lea rdx, [0x08007fd2]
+mov qword [r12], rdx
+mov qword [r12 + 8], r14
+mov qword [r12 + 0x10], r13
+lock add dword [rax], 1
+movq xmm0, rbx
+movq xmm1, rbp
+punpcklqdq xmm0, xmm1
+movups xmmword [r12 + 0x18], xmm0
+test rbp, rbp
+je 0x8008060
+lock add dword [var_8h], 1
+mov rdi, r13
+call _ZN5boost6detail15sp_counted_base7releaseEv
+mov rdi, rbp
+call _ZN5boost6detail15sp_counted_base7releaseEv
+lea rax, [0x08008019]
+mov rdi, rbp
+mov qword [r12], rax
+call _ZN5boost6detail15sp_counted_base7releaseEv
+test r13, r13
+je 0x8008032
+mov rdi, r13
+call _ZN5boost6detail15sp_counted_base7releaseEv
+mov rdi, qword [var_18h]
+test rdi, rdi
+je 0x8008041
+call _ZN5boost6detail15sp_counted_base7releaseEv
+mov rdi, qword [var_8h]
+test rdi, rdi
+je 0x8008050
+call _ZN5boost6detail15sp_counted_base7releaseEv
+add rsp, 0x20
+mov rax, r12
+pop rbx
+pop rbp
+pop r12
+pop r13
+pop r14
+ret
+mov rdi, r13
+call _ZN5boost6detail15sp_counted_base7releaseEv
+lea rax, [0x0800806f]
+mov qword [r12], rax
+jmp 0x8008025
+nop dword [rax]
+movq xmm0, rbx
+movq xmm2, rbp
+mov qword [r12 + 8], r14
+lea rax, [0x0800808e]
+punpcklqdq xmm0, xmm2
+mov qword [r12], rax
+mov qword [r12 + 0x10], 0
+movups xmmword [r12 + 0x18], xmm0
+test rbp, rbp
+je 0x8008068
+lock add dword [var_8h], 1
+jmp _ZN5boost6detail15sp_counted_base7releaseEv

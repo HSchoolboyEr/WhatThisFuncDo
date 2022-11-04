@@ -1,0 +1,69 @@
+push r15
+push r14
+push r13
+push r12
+mov r12, rdx
+push rbp
+push rbx
+sub rsp, 0x38
+cmp rdi, rsi
+je 0x8001c47
+mov rbp, rsi
+mov r15, rcx
+lea r14, [var_10h]
+mov rbx, rdi
+lea r13, [var_20h]
+jmp 0x8001bff
+nop
+lea rdi, [r8 + 0x10]
+mov qword [r8], rdi
+mov rax, qword [var_10h]
+cmp rax, r13
+je 0x8001c60
+mov qword [r8], rax
+mov rax, qword [var_20h]
+mov qword [r8 + 0x10], rax
+mov rax, r8
+mov rdx, qword [var_18h]
+add rax, 0x20
+mov qword [r8 + 8], rdx
+mov qword [r12 + 8], rax
+add rbx, 0x20
+cmp rbp, rbx
+je 0x8001c47
+mov rsi, rbx
+mov rdi, r14
+call r15
+mov r8, qword [r12 + 8]
+cmp r8, qword [r12 + 0x10]
+jne 0x8001bc0
+mov rdx, r14
+mov rsi, r8
+mov rdi, r12
+call _ZNSt6vectorINSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEEESaIS5_EE17_M_realloc_insertIJS5_EEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_
+mov rdi, qword [var_10h]
+cmp rdi, r13
+je 0x8001bf6
+mov rax, qword [var_20h]
+add rbx, 0x20
+lea rsi, [rax*4 + 4]
+call _ZdlPvm
+cmp rbp, rbx
+jne 0x8001bff
+add rsp, 0x38
+mov rax, r12
+pop rbx
+pop rbp
+pop r12
+pop r13
+pop r14
+pop r15
+ret
+nop dword [rax]
+mov edx, 4
+mov rsi, r13
+mov qword [var_8h], r8
+call wmemcpy
+mov rax, qword [r12 + 8]
+mov r8, qword [var_8h]
+jmp 0x8001be4

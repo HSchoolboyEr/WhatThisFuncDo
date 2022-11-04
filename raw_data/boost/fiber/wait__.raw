@@ -1,0 +1,89 @@
+push r15
+push r14
+push r13
+lea r13, [rdi + 0x18]
+push r12
+push rbp
+push rbx
+mov rbx, rdi
+mov rdi, r13
+sub rsp, 0x18
+call _ZN5boost6fibers5mutex4lockEv
+add byte [rax], al
+add byte [rax], al
+sub qword [rbx + 8], 1
+mov r14, qword [rbx + 0x10]
+je 0x8000200
+call _ZN5boost6fibers7context6activeEv
+lea rbp, [rbx + 0x38]
+mov byte [var_8h], 0
+mov r15, rsp
+mov rdi, rbp
+mov qword [rsp], rbp
+mov r12, rax
+call _ZN5boost6fibers6detail13spinlock_ttas4lockEv
+add byte [rax], al
+add byte [rax], al
+mov byte [var_8h], 1
+jmp 0x80001ac
+nop dword [rax + rax]
+cmp r14, qword [rbx + 0x10]
+jne 0x80001e7
+call _ZN5boost6fibers7context6activeEv
+mov rdi, rbp
+mov qword [rsp], rbp
+mov byte [var_8h], 0
+mov r12, rax
+call _ZN5boost6fibers6detail13spinlock_ttas4lockEv
+mov byte [var_8h], 1
+mov rdi, r13
+call _ZN5boost6fibers5mutex6unlockEv
+add byte [rax], al
+add byte [rax], al
+lea rdi, [rbx + 0x40]
+mov rdx, r12
+mov rsi, r15
+call _ZN5boost6fibers10wait_queue16suspend_and_waitERSt11unique_lockINS0_6detail13spinlock_ttasEEPNS0_7contextE
+add byte [rax], al
+add byte [rax], al
+mov rdi, r13
+call _ZN5boost6fibers5mutex4lockEv
+cmp byte [var_8h], 0
+je 0x8000188
+mov rax, qword [rsp]
+test rax, rax
+je 0x8000188
+mov dword [rax], 1
+cmp r14, qword [rbx + 0x10]
+je _ZN5boost6fibers7context6activeEv
+mov rdi, r13
+call _ZN5boost6fibers5mutex6unlockEv
+add rsp, 0x18
+xor eax, eax
+pop rbx
+pop rbp
+pop r12
+pop r13
+pop r14
+pop r15
+ret
+movq xmm0, qword [rbx]
+add r14, 1
+mov rdi, r13
+movq xmm1, r14
+punpcklqdq xmm0, xmm1
+movups xmmword [rbx + 8], xmm0
+call _ZN5boost6fibers5mutex6unlockEv
+lea rdi, [rbx + 0x38]
+call _ZN5boost6fibers22condition_variable_any10notify_allEv
+add byte [rax], al
+add byte [rax], al
+add rsp, 0x18
+mov eax, 1
+pop rbx
+pop rbp
+pop r12
+pop r13
+pop r14
+pop r15
+ret

@@ -1,0 +1,51 @@
+push r12
+push rbp
+mov rbp, rdi
+push rbx
+mov rbx, rsi
+sub rsp, 0x10
+mov rax, qword [rdx]
+mov qword [rdx], 0
+lea r12, [var_8h]
+mov rdx, r12
+mov qword [var_8h], rax
+call _ZN5boost4json5valueC1ERKS1_NS0_11storage_ptrE
+mov rdi, qword [var_8h]
+test dil, 1
+jne 0x8008be0
+mov rax, qword [rbp]
+mov edx, 1
+mov rdi, rax
+and rdi, 0xfffffffffffffffc
+test rax, rax
+lea rax, [0x08008b9f]
+cmove rdi, rax
+mov eax, dword [rbx + 0x20]
+lea esi, [rax + 1]
+mov rax, qword [rdi]
+call qword [rax + 0x10]
+mov edx, dword [rbx + 0x20]
+mov rsi, qword [rbx + 0x18]
+mov rdi, rax
+call memcpy
+mov rcx, rax
+mov eax, dword [rbx + 0x20]
+mov dword [arg_20h], eax
+mov byte [rcx + rax], 0
+mov qword [arg_18h], rcx
+add rsp, 0x10
+pop rbx
+pop rbp
+pop r12
+ret
+nop dword [rax + rax]
+and rdi, 0xfffffffffffffffc
+mov rax, 0xffffffffffffffff
+lock xadd qword [rdi + 8], rax
+test rdi, rdi
+je 0x8008b85
+cmp rax, 1
+jne 0x8008b85
+mov rax, qword [rdi]
+call qword [rax + 8]
+jmp 0x8008b85

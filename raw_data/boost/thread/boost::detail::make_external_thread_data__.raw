@@ -1,0 +1,150 @@
+push r15
+mov edi, 0x138
+push r14
+push r13
+push r12
+push rbp
+push rbx
+sub rsp, 0x38
+call _Znwm
+xor esi, esi
+mov r12, rax
+mov qword [rax + 8], 0
+mov qword [rax + 0x10], 0
+lea r13, [r12 + 0x30]
+lea rax, [0x08001c19]
+mov rdi, r13
+mov qword [r12], rax
+mov qword [r12 + 0x18], 0
+mov qword [r12 + 0x20], 0
+mov qword [r12 + 0x28], 0
+call pthread_mutex_init
+test eax, eax
+jne 0x8001e26
+lea r14, [r12 + 0x58]
+xor esi, esi
+mov rdi, r14
+call pthread_mutex_init
+test eax, eax
+jne 0x8001e3f
+mov rbp, rsp
+lea r15, [r12 + 0x80]
+mov rdi, rbp
+call pthread_condattr_init
+mov ebx, eax
+test eax, eax
+je 0x8001ca0
+mov rdi, r14
+call pthread_mutex_destroy
+cmp eax, 4
+je 0x8001c78
+lea rdx, [0x08001c8c]
+mov esi, ebx
+mov rdi, rbp
+call _ZN5boost16thread_exceptionC2EiPKc
+add byte [rax], al
+add byte [rax], al
+jmp .text.unlikely
+nop dword [rax + rax]
+mov esi, 1
+mov rdi, rbp
+call pthread_condattr_setclock
+mov rdi, r15
+mov rsi, rbp
+call pthread_cond_init
+mov rdi, rbp
+mov ebx, eax
+call pthread_condattr_destroy
+test ebx, ebx
+jne 0x8001c78
+xor eax, eax
+pxor xmm0, xmm0
+xor edx, edx
+mov edi, 0x18
+mov word [r12 + 0xb0], ax
+lea rax, [r12 + 0xc8]
+mov qword [r12 + 0xd8], rax
+mov qword [r12 + 0xe0], rax
+lea rax, [0x08001cfb]
+mov byte [r12 + 0xb2], 0
+mov qword [r12 + 0xb8], 0
+mov dword [r12 + 0xc8], 0
+mov qword [r12 + 0xd0], 0
+mov qword [r12 + 0xe8], 0
+mov qword [r12], rax
+mov word [r12 + 0x130], dx
+movups xmmword [r12 + 0xf0], xmm0
+movups xmmword [r12 + 0x100], xmm0
+movups xmmword [r12 + 0x110], xmm0
+movups xmmword [r12 + 0x120], xmm0
+call _Znwm
+mov rbx, rax
+lea rdx, [rax + 8]
+mov rax, qword [0x08001d78]
+mov qword [rbx + 0x10], r12
+mov qword [rbx + 8], rax
+lea rax, [0x08001d87]
+mov qword [rbx], rax
+mov rax, qword [r12 + 0x10]
+test rax, rax
+je 0x8001de0
+mov eax, dword [rax + 8]
+test eax, eax
+je 0x8001de0
+mov rdi, qword [r12 + 0x20]
+movq xmm0, r12
+movq xmm1, rbx
+punpcklqdq xmm0, xmm1
+movups xmmword [r12 + 0x18], xmm0
+test rdi, rdi
+je 0x8001dbe
+call _ZN5boost6detail15sp_counted_base7releaseEv
+mov rdi, r12
+call _ZN5boost6detail23set_current_thread_dataEPNS0_16thread_data_baseE
+add byte [rax], al
+add byte [rax], al
+add rsp, 0x38
+mov rax, r12
+pop rbx
+pop rbp
+pop r12
+pop r13
+pop r14
+pop r15
+ret
+nop dword [rax + rax]
+lock add dword [rdx], 1
+mov qword [r12 + 8], r12
+cmp rbx, qword [r12 + 0x10]
+jne 0x8001e00
+mov rdi, rbx
+call _ZN5boost6detail15sp_counted_base7releaseEv
+jmp 0x8001d9b
+nop word [rax + rax]
+lock add dword [rbx + 0xc], 1
+mov rdi, qword [r12 + 0x10]
+test rdi, rdi
+je 0x8001e14
+call _ZN5boost6detail15sp_counted_base12weak_releaseEv
+mov rdi, rbx
+mov qword [r12 + 0x10], rbx
+call _ZN5boost6detail15sp_counted_base7releaseEv
+jmp 0x8001d9b
+mov rbp, rsp
+lea rdx, [0x08001e30]
+mov esi, eax
+mov rdi, rbp
+call _ZN5boost16thread_exceptionC2EiPKc
+jmp .text.unlikely
+mov rbp, rsp
+lea rdx, [0x08001e49]
+mov esi, eax
+mov rdi, rbp
+call _ZN5boost16thread_exceptionC2EiPKc
+jmp .text.unlikely
+mov rdi, rax
+jmp .text.unlikely
+mov rbx, rax
+jmp .text.unlikely
+mov rbp, rax
+jmp method boost::detail::get_or_make_current_thread_data()

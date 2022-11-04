@@ -1,0 +1,467 @@
+sub rsp, 0x88
+fld xword [rsp + 0x90]
+fld st(0)
+fabs
+fld1
+fxch st(1)
+fcomi st(1)
+jbe 0x80005a8
+fstp st(0)
+fstp st(0)
+fstp st(0)
+jmp __errno_location
+nop word [rax + rax]
+fstp st(0)
+fstp st(0)
+fstp st(0)
+nop
+call __errno_location
+fld dword [0x0800058b]
+mov dword [rax], 0x21
+jmp 0x800059a
+nop dword [rax + rax]
+fstp st(1)
+add rsp, 0x88
+ret
+nop word [rax + rax]
+fucomi st(1)
+fstp st(1)
+jp 0x80005b8
+je 0x8000598
+fstp st(0)
+jmp 0x80005ba
+nop dword [rax]
+fstp st(0)
+fmul st(0)
+fld1
+fsubr st(1), st(0)
+fldz
+fcomi st(2)
+ja 0x8000578
+fxch st(2)
+fcomi st(2)
+ja 0x80006e8
+fstp st(1)
+fucomi st(1)
+fstp st(1)
+jnp 0x8000820
+fldz
+fxch st(1)
+fucomi st(1)
+fstp st(1)
+jnp 0x8000a80
+fldz
+fcomi st(1)
+ja 0x80008f6
+fld1
+fadd st(2)
+fucompi st(1)
+fstp st(0)
+jp 0x80009a4
+jne 0x80009a4
+fstp xword [rsp + 0x10]
+call __errno_location
+fld dword [0x08000617]
+movss xmm2, dword [0x0800061f]
+mov dword [rax], 0x21
+movss dword [rsp], xmm2
+fld st(0)
+fld xword [rsp + 0x10]
+fldz
+fld st(0)
+fmulp st(3)
+fcompi st(1)
+ja 0x800095c
+fxch st(2)
+fstp dword [rsp + 0x30]
+fstp xword [rsp + 0x20]
+fstp xword [rsp + 0x10]
+call __errno_location
+fld dword [rsp + 0x30]
+fld xword [rsp + 0x20]
+mov dword [rax], 0x21
+fld xword [rsp + 0x10]
+fxch st(2)
+fmul st(2)
+fdiv dword [0x0800066d]
+fsubp st(1)
+fldz
+fld st(0)
+fdivp st(3)
+fucompi st(2)
+ja 0x8000aad
+fxch st(1)
+fsqrt
+faddp st(1)
+fmul dword [rsp]
+fld st(0)
+faddp st(1)
+fld st(0)
+fabs
+fld xword [0x08000694]
+fxch st(1)
+fcomi st(1)
+fstp st(1)
+ja 0x8000800
+fldz
+mov edx, 1
+mov ecx, 0
+fucompi st(2)
+setp al
+cmovne eax, edx
+setnp dl
+cmovne edx, ecx
+test dl, dl
+je 0x80007df
+test al, al
+je .LC12
+fstp st(0)
+fstp st(0)
+call __errno_location
+fldz
+mov dword [rax], 0x22
+add rsp, 0x88
+ret
+nop dword [rax + rax]
+fxch st(1)
+fcomi st(1)
+ja 0x8000a91
+fstp st(2)
+fucomi st(1)
+fstp st(1)
+jnp 0x80007c8
+fld1
+fldz
+fucompi st(2)
+ja 0x8000ae1
+fxch st(1)
+fsqrt
+fldz
+fucompi st(2)
+ja 0x8000ac8
+fxch st(1)
+fsqrt
+fld st(1)
+fsub st(1)
+fabs
+fld st(2)
+fabs
+fld xword [0x0800072c]
+fmulp st(1)
+fxch st(1)
+fcompi st(1)
+fstp st(0)
+jb 0x8000986
+fld st(0)
+movss xmm0, dword [0x08000744]
+fld st(2)
+fldz
+movss dword [rsp], xmm0
+fld dword [0x08000753]
+fxch st(5)
+fstp xword [rsp + 0x10]
+fxch st(3)
+fstp xword [rsp + 0x20]
+fld dword [rsp]
+nop word [rax + rax]
+fld st(2)
+fmul st(2)
+fldz
+fucompi st(1)
+ja 0x8000845
+fsqrt
+fxch st(2)
+faddp st(3)
+fmul st(2), st(0)
+fxch st(4)
+fadd st(0)
+fld st(2)
+fsub st(2)
+fld st(0)
+fmul st(1)
+fmul st(2)
+faddp st(5)
+fabs
+fld st(3)
+fabs
+fld xword [0x0800079a]
+fmulp st(1)
+fxch st(1)
+fcompi st(1)
+fstp st(0)
+jb 0x80008c0
+jmp 0x80007b8
+fxch st(1)
+fxch st(4)
+fxch st(3)
+fxch st(1)
+nop word [rax + rax]
+fxch st(4)
+fxch st(1)
+fxch st(2)
+fxch st(1)
+jmp 0x8000768
+nop word [rax + rax]
+jne 0x80006fe
+fstp st(0)
+fld xword [0x080007d6]
+mov eax, 1
+fld st(0)
+jmp 0x80007e5
+fxch st(1)
+jmp 0x80007e5
+fxch st(1)
+fld xword [0x080007eb]
+fcompi st(2)
+fstp st(1)
+jbe 0x800059a
+test al, al
+je 0x800059a
+jmp 0x8000802
+nop
+fstp st(0)
+fstp xword [rsp]
+call __errno_location
+fld xword [rsp]
+mov dword [rax], 0x22
+jmp 0x800059a
+nop dword [rax + rax]
+jne 0x80005dc
+fldz
+fxch st(1)
+fucomi st(1)
+fstp st(1)
+jp 0x8000925
+jne 0x8000925
+fstp st(0)
+fld1
+fld st(0)
+jmp .LC11
+fxch st(1)
+fstp dword [rsp + 0x7c]
+fxch st(2)
+fstp xword [rsp + 0x60]
+fxch st(2)
+fstp xword [rsp + 0x50]
+fxch st(2)
+fstp xword [rsp + 0x40]
+fstp xword [rsp + 0x30]
+push rax
+push rax
+fstp xword [rsp]
+call sqrtl
+fld st(0)
+fld xword [rsp + 0x40]
+fld xword [rsp + 0x70]
+faddp st(1)
+fld dword [rsp + 0x8c]
+fmul st(1), st(0)
+fld xword [rsp + 0x50]
+fadd st(0)
+fld st(2)
+fsubrp st(5)
+fld st(4)
+fmul st(5)
+fmul st(1)
+fld xword [rsp + 0x60]
+pop rax
+pop rdx
+faddp st(1)
+fld st(3)
+fabs
+fld xword [0x080008a2]
+fmulp st(1)
+fxch st(6)
+fabs
+fcompi st(6)
+fstp st(5)
+jae 0x80007aa
+fstp st(0)
+fstp st(0)
+fxch st(1)
+jmp 0x80008c8
+nop word [rax + rax]
+fstp st(0)
+fstp st(3)
+fxch st(1)
+fxch st(2)
+fld xword [rsp + 0x10]
+fld xword [rsp + 0x20]
+faddp st(1)
+fld dword [rsp]
+fmul st(1), st(0)
+fxch st(2)
+faddp st(3)
+fldpi
+fdivrp st(3)
+fmul st(0)
+fsubrp st(3)
+fxch st(2)
+fmulp st(1)
+fmulp st(1)
+fld st(0)
+faddp st(1)
+fld st(0)
+fabs
+jmp .LC11
+fstp st(0)
+fstp xword [rsp + 0x10]
+call __errno_location
+fld dword [0x08000907]
+movss xmm1, dword [0x0800090f]
+mov dword [rax], 0x21
+movss dword [rsp], xmm1
+fld st(0)
+fld xword [rsp + 0x10]
+jmp 0x8000630
+sub rsp, 0x20
+fld st(0)
+fstp xword [rsp + 0x10]
+fstp xword [rsp + 0x20]
+fld1
+fstp xword [rsp]
+call sym._ZN5boost4math6detail13ellint_rc_impIeNS0_8policies6policyINS3_12domain_errorILNS3_17error_policy_typeE1EEENS3_10pole_errorILS
+fld xword [rsp + 0x20]
+add rsp, 0x20
+fmulp st(1)
+fld1
+faddp st(1)
+fmul dword [0x08000951]
+fadd st(0)
+fld st(0)
+fabs
+jmp .LC11
+fxch st(2)
+fstp dword [rsp + 0x30]
+fstp xword [rsp + 0x20]
+fstp xword [rsp + 0x10]
+call __errno_location
+fld xword [rsp + 0x10]
+mov dword [rax], 0x21
+fld xword [rsp + 0x20]
+fld dword [rsp + 0x30]
+jmp .LC10
+fld st(0)
+movss xmm3, dword [0x08000990]
+fld st(2)
+fldz
+fxch st(4)
+fxch st(1)
+fxch st(3)
+movss dword [rsp], xmm3
+jmp 0x80008d0
+fldz
+fld st(0)
+fadd st(2)
+fucompi st(1)
+fstp st(0)
+jnp 0x8000a4f
+fld1
+fxch st(1)
+fucomi st(1)
+fstp st(1)
+jnp 0x8000a5a
+push r9
+push r9
+fld st(0)
+fstp xword [rsp]
+fstp xword [rsp + 0x20]
+call sqrtl
+movss xmm4, dword [0x080009dc]
+pop r10
+pop r11
+fld1
+movss dword [rsp], xmm4
+fld xword [rsp + 0x10]
+jmp 0x8000a1e
+fstp xword [rsp + 0x30]
+fld st(0)
+fstp xword [rsp + 0x20]
+fmul st(1)
+fxch st(1)
+fstp xword [rsp + 0x10]
+push rsi
+push rsi
+fstp xword [rsp]
+call sqrtl
+fld xword [rsp + 0x20]
+fld xword [rsp + 0x30]
+faddp st(1)
+fmul dword [rsp + 0x10]
+pop rdi
+pop r8
+fld xword [rsp + 0x30]
+fld st(1)
+fsub st(3)
+fabs
+fld st(2)
+fabs
+fld xword [0x08000a2e]
+fmulp st(1)
+fxch st(1)
+fcompi st(1)
+fstp st(0)
+jae 0x80009ed
+fxch st(1)
+faddp st(2)
+fldpi
+fdivrp st(2)
+fld dword [0x08000a46]
+fxch st(2)
+fxch st(1)
+jmp 0x8000630
+je __errno_location
+jmp 0x80009b4
+jne 0x80009c2
+movss xmm5, dword [0x08000a68]
+fld xword [0x08000a6e]
+fld dword [0x08000a74]
+fxch st(2)
+movss dword [rsp], xmm5
+jmp 0x8000630
+jne 0x80005ea
+fstp st(0)
+fld1
+fldz
+jmp 0x8000700
+fstp st(0)
+fucomi st(1)
+fstp st(1)
+jp 0x8000aa4
+jne 0x8000aa4
+fstp st(0)
+fldz
+jmp 0x8000826
+fld1
+fxch st(1)
+jmp 0x8000700
+fstp xword [rsp + 0x10]
+push rax
+push rax
+fstp xword [rsp]
+call sqrtl
+pop rdx
+pop rcx
+fld xword [rsp + 0x10]
+fxch st(1)
+jmp 0x8000681
+fstp xword [rsp]
+push rcx
+push rcx
+fstp xword [rsp]
+call sqrtl
+pop rsi
+pop rdi
+fld xword [rsp]
+fxch st(1)
+jmp 0x800071c
+fstp xword [rsp]
+push r8
+push r8
+fstp xword [rsp]
+call sqrtl
+pop r9
+pop r10
+fld xword [rsp]
+fxch st(1)
+jmp 0x800070e

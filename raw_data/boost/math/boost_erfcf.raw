@@ -1,0 +1,56 @@
+sub rsp, 0x18
+mov edi, 1
+cvtss2sd xmm0, xmm0
+call sym._ZN5boost4math6detail7erf_impIdNS0_8policies6policyINS3_12domain_errorILNS3_17error_policy_typeE1EEENS3_10pole_errorILS6_1EEEN
+movapd xmm2, xmm0
+andpd xmm2, xmmword [0x0800087e]
+comisd xmm2, xmmword [0x08000886]
+ja 0x8000900
+pxor xmm3, xmm3
+pxor xmm1, xmm1
+ucomisd xmm0, xmm3
+cvtsd2ss xmm1, xmm0
+jp 0x80008c8
+comisd xmm0, xmm3
+jne 0x80008c8
+movsd xmm0, qword [0x080008a8]
+comisd xmm0, xmm2
+jbe 0x80008bc
+pxor xmm0, xmm0
+ucomiss xmm1, xmm0
+jp 0x80008df
+comiss xmm1, xmm0
+jne 0x80008df
+movaps xmm0, xmm1
+add rsp, 0x18
+ret
+nop dword [rax]
+pxor xmm4, xmm4
+ucomiss xmm1, xmm4
+jnp 0x8000930
+movsd xmm0, qword [0x080008d9]
+comisd xmm0, xmm2
+jbe 0x80008bc
+movss dword [var_8h], xmm1
+call __errno_location
+movss xmm1, dword [var_8h]
+mov dword [rax], 0x22
+jmp 0x80008bc
+nop dword [rax + rax]
+movsd qword [var_8h], xmm0
+call __errno_location
+movsd xmm0, qword [var_8h]
+pxor xmm1, xmm1
+mov dword [rax], 0x22
+add rsp, 0x18
+cvtsd2ss xmm1, xmm0
+movaps xmm0, xmm1
+ret
+nop word [rax + rax]
+jne 0x80008d1
+call __errno_location
+pxor xmm1, xmm1
+mov dword [rax], 0x22
+movaps xmm0, xmm1
+add rsp, 0x18
+ret

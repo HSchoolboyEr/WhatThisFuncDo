@@ -1,0 +1,60 @@
+mov rsi, r15
+mov rdi, r14
+call _ZN5boost15throw_exceptionINS_6system12system_errorEEEvRKT_RKNS_15source_locationE
+mov rbp, rax
+mov rdi, r14
+lea rax, [0x080068f4]
+mov qword [arg_70h], rax
+call _ZNSt13runtime_errorD2Ev
+mov rdi, qword [r12 + 8]
+test rdi, rdi
+je 0x800690d
+call _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_releaseEv
+mov rdi, qword [arg_f0h]
+cmp rdi, qword [arg_10h]
+je 0x800692d
+mov rax, qword [arg_100h]
+lea rsi, [rax + 1]
+call _ZdlPvm
+mov rdi, qword [arg_d0h]
+cmp rdi, qword [arg_8h]
+je 0x800694d
+mov rax, qword [arg_e0h]
+lea rsi, [rax + 1]
+call _ZdlPvm
+mov rdi, rbp
+call _Unwind_Resume
+mov rdi, qword [arg_d0h]
+cmp rdi, qword [arg_8h]
+je 0x8006975
+mov rax, qword [arg_e0h]
+lea rsi, [rax + 1]
+call _ZdlPvm
+mov rdi, qword [arg_50h]
+cmp rdi, rbp
+je 0x800698d
+mov rax, qword [arg_60h]
+lea rsi, [rax + 1]
+call _ZdlPvm
+mov rdi, qword [arg_70h]
+cmp rdi, rbx
+je 0x80069a8
+mov rax, qword [arg_80h]
+lea rsi, [rax + 1]
+call _ZdlPvm
+mov rdi, r12
+call _Unwind_Resume
+mov rdi, qword [arg_70h]
+cmp rdi, rbx
+je 0x80069cb
+mov rax, qword [arg_80h]
+lea rsi, [rax + 1]
+call _ZdlPvm
+mov rdi, qword [arg_50h]
+cmp rdi, rbp
+je 0x80069e3
+mov rax, qword [arg_60h]
+lea rsi, [rax + 1]
+call _ZdlPvm
+mov rbp, r12
+jmp 0x800690d

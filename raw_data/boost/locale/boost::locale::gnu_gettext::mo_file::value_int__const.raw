@@ -1,0 +1,66 @@
+push r12
+push rbp
+sub rsp, 8
+mov eax, dword [rdi + 4]
+lea edx, [rax + rsi*8]
+mov rsi, qword [rdi + 0x18]
+lea r8, [rsi - 4]
+cmp rdx, r8
+ja 0x8003552
+mov rcx, rdx
+mov rax, qword [rdi + 0x10]
+add ecx, 4
+cmp byte [rdi + 0x38], 0
+mov edx, dword [rax + rdx]
+jne 0x8003548
+cmp r8, rcx
+jb 0x80035a2
+mov ecx, dword [rax + rcx]
+bswap edx
+bswap ecx
+mov edi, ecx
+cmp rdi, rsi
+jae 0x8003584
+add ecx, edx
+cmp rcx, rsi
+jae 0x8003584
+mov edx, edx
+add rsp, 8
+lea r8, [rax + rdi]
+add rdx, rdi
+pop rbp
+pop r12
+add rdx, rax
+mov rax, r8
+ret
+nop word [rax + rax]
+cmp r8, rcx
+jb 0x80035a2
+mov ecx, dword [rax + rcx]
+jmp 0x800351d
+mov edi, 0x10
+call __cxa_allocate_exception
+lea rsi, [0x08003563]
+mov rdi, rax
+mov rbp, rax
+call _ZNSt13runtime_errorC1EPKc
+add byte [rax], al
+add byte [rax], al
+mov rdx, qword [0x08003575]
+lea rsi, [0x0800357c]
+mov rdi, rbp
+call __cxa_throw
+mov edi, 0x10
+call __cxa_allocate_exception
+lea rsi, [0x08003595]
+mov rdi, rax
+mov rbp, rax
+call _ZNSt13runtime_errorC1EPKc
+jmp 0x800356e
+mov edi, 0x10
+call __cxa_allocate_exception
+lea rsi, [0x080035b3]
+mov rdi, rax
+mov rbp, rax
+call _ZNSt13runtime_errorC1EPKc
+jmp 0x800356e

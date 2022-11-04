@@ -1,0 +1,97 @@
+push r14
+push r13
+mov r13, rdi
+push r12
+push rbp
+push rbx
+mov rbx, qword [rdi + 8]
+mov r12, qword [rdi]
+cmp rbx, r12
+je 0x800571e
+nop dword [rax + rax]
+mov r14, qword [r12 + 0x48]
+mov rbp, qword [r12 + 0x40]
+cmp r14, rbp
+je 0x800568c
+nop
+mov rdi, qword [rbp]
+lea rax, [arg_10h]
+cmp rdi, rax
+je 0x8005750
+mov rax, qword [arg_10h]
+add rbp, 0x20
+lea rsi, [rax + 1]
+call _ZdlPvm
+cmp r14, rbp
+jne 0x8005660
+mov rbp, qword [r12 + 0x40]
+test rbp, rbp
+je 0x80056a1
+mov rsi, qword [r12 + 0x50]
+mov rdi, rbp
+sub rsi, rbp
+call _ZdlPvm
+mov r14, qword [r12 + 0x30]
+mov rbp, qword [r12 + 0x28]
+cmp r14, rbp
+je 0x80056dc
+mov rdi, qword [rbp]
+lea rax, [arg_10h]
+cmp rdi, rax
+je 0x8005740
+mov rax, qword [arg_10h]
+add rbp, 0x20
+lea rsi, [rax + 1]
+call _ZdlPvm
+cmp r14, rbp
+jne 0x80056b0
+mov rbp, qword [r12 + 0x28]
+test rbp, rbp
+je 0x80056f1
+mov rsi, qword [r12 + 0x38]
+mov rdi, rbp
+sub rsi, rbp
+call _ZdlPvm
+mov rdi, qword [r12]
+lea rax, [r12 + 0x10]
+cmp rdi, rax
+je 0x8005768
+mov rax, qword [r12 + 0x10]
+add r12, 0x60
+lea rsi, [rax + 1]
+call _ZdlPvm
+cmp rbx, r12
+jne 0x8005650
+mov r12, qword [r13]
+test r12, r12
+je 0x8005777
+mov rsi, qword [r13 + 0x10]
+pop rbx
+mov rdi, r12
+pop rbp
+sub rsi, r12
+pop r12
+pop r13
+pop r14
+jmp _ZdlPvm
+nop word [rax + rax]
+add rbp, 0x20
+cmp r14, rbp
+jne 0x80056b0
+jmp 0x80056d7
+nop
+add rbp, 0x20
+cmp r14, rbp
+jne 0x8005660
+jmp 0x8005687
+nop word [rax + rax]
+add r12, 0x60
+cmp rbx, r12
+jne 0x8005650
+jmp 0x800571a
+pop rbx
+pop rbp
+pop r12
+pop r13
+pop r14
+ret

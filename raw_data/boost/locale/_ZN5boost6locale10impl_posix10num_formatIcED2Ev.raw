@@ -1,0 +1,34 @@
+push r12
+lea rax, [0x080037a9]
+push rbp
+mov rbp, rdi
+sub rsp, 8
+mov r12, qword [rdi + 0x18]
+mov qword [rdi], rax
+test r12, r12
+je 0x80037c6
+lock sub dword [r12 + 8], 1
+je 0x80037e0
+lea rax, [0x080037cd]
+mov rdi, rbp
+mov qword [rbp], rax
+add rsp, 8
+pop rbp
+pop r12
+jmp _ZNSt6locale5facetD2Ev
+mov rax, qword [r12]
+mov rdi, r12
+call qword [rax + 0x10]
+lock sub dword [r12 + 0xc], 1
+jne 0x80037c6
+mov rax, qword [r12]
+lea rcx, [0x080037fe]
+mov rdi, r12
+mov rdx, qword [rax + 0x18]
+cmp rdx, rcx
+jne 0x8003810
+call qword [rax + 8]
+jmp 0x80037c6
+nop
+call rdx
+jmp 0x80037c6

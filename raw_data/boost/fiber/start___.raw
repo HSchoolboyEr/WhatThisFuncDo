@@ -1,0 +1,41 @@
+push rbp
+push rbx
+mov rbx, rdi
+sub rsp, 8
+call _ZN5boost6fibers7context6activeEv
+add byte [rax], al
+add byte [rax], al
+mov rsi, qword [rbx]
+mov rdi, rax
+mov rbp, rax
+call _ZN5boost6fibers7context6attachEPS1_
+add byte [rax], al
+add byte [rax], al
+mov rdi, qword [rbx]
+mov eax, dword [rdi + 0xe4]
+test eax, eax
+je 0x80000f8
+cmp eax, 1
+jne 0x8000110
+mov r8, qword [arg_38h]
+add rsp, 8
+mov rsi, rdi
+pop rbx
+pop rbp
+mov rdi, r8
+jmp _ZN5boost6fibers9scheduler8scheduleEPNS0_7contextE
+add byte [rax], al
+add byte [rax], al
+nop dword [rax + rax]
+add rsp, 8
+mov rsi, rbp
+pop rbx
+pop rbp
+jmp _ZN5boost6fibers7context6resumeEPS1_
+add byte [rax], al
+add byte [rax], al
+nop word cs:[rax + rax]
+add rsp, 8
+pop rbx
+pop rbp
+ret

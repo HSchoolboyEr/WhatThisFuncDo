@@ -1,0 +1,32 @@
+push r12
+push rbp
+push rbx
+mov rbx, rsi
+sub rsp, 0xa0
+mov rdi, qword [rdi + 0x30]
+lea rsi, [var_ch]
+call _ZNSt13basic_istreamIwSt11char_traitsIwEE10_M_extractIjEERS2_RT_
+mov rdx, qword [rax]
+mov rdx, qword [rdx - 0x18]
+test byte [rax + rdx + 0x20], 5
+jne 0x80010fc
+mov eax, dword [var_ch]
+mov dword [rbx], eax
+add rsp, 0xa0
+pop rbx
+pop rbp
+pop r12
+ret
+lea rbp, [var_10h]
+xor ecx, ecx
+xor edx, edx
+mov esi, 8
+mov rdi, rbp
+call _ZN5boost7archive17archive_exceptionC1ENS1_14exception_codeEPKcS4_
+mov rdi, rbp
+call _ZN5boost13serialization15throw_exceptionINS_7archive17archive_exceptionEEEvRKT_
+mov r12, rax
+mov rdi, rbp
+call _ZN5boost7archive17archive_exceptionD1Ev
+mov rdi, r12
+call _Unwind_Resume

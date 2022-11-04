@@ -1,0 +1,17 @@
+movdqu xmm0, xmmword [rsi]
+movups xmmword [rdi], xmm0
+mov rax, qword [rsi + 0x10]
+mov qword [rdi + 0x10], rax
+mov rax, qword [rdi]
+test al, 1
+jne 0x80049d0
+mov qword [rsi], rax
+mov byte [rsi + 8], 0
+ret
+nop
+mov rdx, rax
+and rdx, 0xfffffffffffffffc
+lock add qword [rdx + 8], 1
+mov qword [rsi], rax
+mov byte [rsi + 8], 0
+ret

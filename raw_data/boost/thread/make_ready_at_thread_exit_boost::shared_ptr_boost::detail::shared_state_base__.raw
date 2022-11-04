@@ -1,0 +1,38 @@
+push rbp
+push rbx
+mov rbx, rdi
+sub rsp, 0x18
+call _ZN5boost6detail23get_current_thread_dataEv
+test rax, rax
+je 0x8002cf1
+movdqu xmm0, xmmword [rbx]
+mov rdx, qword [rbx + 8]
+movaps xmmword [rsp], xmm0
+test rdx, rdx
+je 0x8002ca9
+lock add dword [rdx + 8], 1
+mov rsi, qword [rax + 0x120]
+cmp rsi, qword [rax + 0x128]
+je 0x8002d00
+mov rdx, qword [arg_8h]
+movdqa xmm1, xmmword [rsp]
+movups xmmword [rsi], xmm1
+test rdx, rdx
+je 0x8002cd7
+lock add dword [rdx + 8], 1
+mov rsi, qword [rax + 0x120]
+add rsi, 0x10
+mov qword [rax + 0x120], rsi
+mov rdi, qword [arg_8h]
+test rdi, rdi
+je 0x8002cf1
+call _ZN5boost6detail15sp_counted_base7releaseEv
+add rsp, 0x18
+pop rbx
+pop rbp
+ret
+nop dword [rax + rax]
+mov rdx, rsp
+lea rdi, [rax + 0x118]
+call _ZNSt6vectorIN5boost10shared_ptrINS0_6detail17shared_state_baseEEESaIS4_EE17_M_realloc_insertIJRKS4_EEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_
+jmp 0x8002ce2

@@ -1,0 +1,26 @@
+lock sub dword [rdi + 8], 1
+je 0x80095a0
+ret
+nop dword [rax + rax]
+push rbp
+mov rax, qword [rdi]
+mov rbp, rdi
+call qword [rax + 0x10]
+lock sub dword [arg_ch], 1
+je 0x80095b8
+pop rbp
+ret
+nop dword [rax + rax]
+mov rax, qword [rbp]
+lea rcx, [0x080095c3]
+mov rdx, qword [rax + 0x18]
+cmp rdx, rcx
+jne 0x80095e0
+mov rdi, rbp
+mov rax, qword [rax + 8]
+pop rbp
+jmp rax
+nop word cs:[rax + rax]
+mov rdi, rbp
+pop rbp
+jmp rdx

@@ -1,0 +1,67 @@
+mov r10, rdx
+cmp rdx, 3
+jbe 0x8017a98
+lea rax, [rdx - 4]
+mov r8, rdi
+shr rax, 2
+lea r9, [rsi + rax*4 + 4]
+nop dword [rax]
+mov eax, dword [rsi]
+lea rcx, [r8 + r8*4]
+add rsi, 4
+sub eax, 0x30303030
+movzx edx, al
+lea rdx, [rdx + rcx*2]
+lea rcx, [rdx + rdx*4]
+movzx edx, ah
+lea rdx, [rdx + rcx*2]
+lea rcx, [rdx + rdx*4]
+mov edx, eax
+shr eax, 0x18
+shr edx, 0x10
+movzx edx, dl
+lea rdx, [rdx + rcx*2]
+lea rdx, [rdx + rdx*4]
+lea r8, [rax + rdx*2]
+cmp rsi, r9
+jne 0x80179d0
+and r10d, 3
+cmp r10, 2
+je 0x8017a30
+cmp r10, 3
+je 0x8017a68
+cmp r10, 1
+je 0x8017a50
+mov rax, r8
+ret
+nop dword [rax + rax]
+movsx rax, byte [r9]
+lea rdx, [r8 + r8*4]
+lea rax, [rax + rdx*2 - 0x30]
+lea rdx, [rax + rax*4]
+movsx rax, byte [r9 + 1]
+lea r8, [rax + rdx*2 - 0x30]
+mov rax, r8
+ret
+nop
+movsx rax, byte [r9]
+lea rdx, [r8 + r8*4]
+lea r8, [rax + rdx*2 - 0x30]
+mov rax, r8
+ret
+nop dword [rax]
+movsx rax, byte [r9]
+lea rdx, [r8 + r8*4]
+lea rax, [rax + rdx*2 - 0x30]
+lea rdx, [rax + rax*4]
+movsx rax, byte [r9 + 1]
+lea rax, [rax + rdx*2 - 0x30]
+lea rdx, [rax + rax*4]
+movsx rax, byte [r9 + 2]
+lea r8, [rax + rdx*2 - 0x30]
+mov rax, r8
+ret
+nop dword [rax]
+mov r9, rsi
+mov r8, rdi
+jmp 0x8017a15

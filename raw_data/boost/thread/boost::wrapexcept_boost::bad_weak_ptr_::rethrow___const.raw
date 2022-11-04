@@ -1,0 +1,55 @@
+push r13
+lea rax, [0x08005f61]
+lea r13, [0x08005f68]
+push r12
+movq xmm0, rax
+movq xmm1, r13
+push rbp
+punpcklqdq xmm0, xmm1
+push rbx
+mov rbx, rdi
+mov edi, 0x38
+sub rsp, 0x18
+movaps xmmword [rsp], xmm0
+call __cxa_allocate_exception
+movaps xmm0, xmmword [rsp]
+mov rdi, qword [rbx + 0x18]
+mov rbp, rax
+movups xmmword [rax], xmm0
+lea rax, [0x08005fa4]
+mov qword [arg_10h], rax
+mov qword [arg_18h], rdi
+test rdi, rdi
+je 0x8005fcb
+mov rax, qword [rdi]
+lea rdx, [0x08005fbb]
+mov rax, qword [rax + 0x18]
+cmp rax, rdx
+jne 0x8005fc9
+inc dword [rdi + 0x58]
+jmp 0x8005fcb
+call rax
+mov rax, qword [rbx + 0x30]
+movups xmm2, xmmword [rbx + 0x20]
+mov rdi, rbp
+lea rdx, [0x08005fdd]
+lea rsi, [0x08005fe4]
+mov qword [arg_30h], rax
+lea rax, [0x08005fef]
+lea rcx, [rax - 0x30]
+movq xmm3, rax
+add rax, 0x28
+movups xmmword [arg_20h], xmm2
+movq xmm0, rcx
+mov qword [arg_10h], rax
+punpcklqdq xmm0, xmm3
+movups xmmword [rbp], xmm0
+call __cxa_throw
+mov r12, rax
+lea rdi, [arg_8h]
+mov qword [arg_8h], r13
+call _ZNSt9exceptionD2Ev
+mov rdi, rbp
+call __cxa_free_exception
+mov rdi, r12
+call _Unwind_Resume

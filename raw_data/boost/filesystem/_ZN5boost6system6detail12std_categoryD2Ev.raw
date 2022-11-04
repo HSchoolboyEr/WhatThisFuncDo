@@ -1,0 +1,5 @@
+lea rax, [0x08002597]
+mov qword [rdi], rax
+jmp _ZNSt3_V214error_categoryD2Ev
+add byte [rax], al
+add byte [rax], al

@@ -1,0 +1,23 @@
+mov rdi, qword [rdi + 0x30]
+mov esi, dword [rsi]
+mov rax, qword [rdi]
+mov rax, qword [rax - 0x18]
+test byte [rdi + rax + 0x20], 5
+jne 0x80016d9
+jmp _ZNSt13basic_ostreamIwSt11char_traitsIwEE9_M_insertImEERS2_T_
+push r12
+xor ecx, ecx
+xor edx, edx
+mov esi, 0xd
+push rbp
+sub rsp, 0x98
+mov r12, rsp
+mov rdi, r12
+call _ZN5boost7archive17archive_exceptionC1ENS1_14exception_codeEPKcS4_
+mov rdi, r12
+call _ZN5boost13serialization15throw_exceptionINS_7archive17archive_exceptionEEEvRKT_
+mov rbp, rax
+mov rdi, r12
+call _ZN5boost7archive17archive_exceptionD1Ev
+mov rdi, rbp
+call _Unwind_Resume

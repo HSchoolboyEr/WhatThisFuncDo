@@ -1,0 +1,12 @@
+push rbx
+mov rbx, rdi
+mov edi, 0x3d0
+call _Znwm
+lea rdx, [0x08000e25]
+lea rsi, [rbx + 8]
+mov ecx, 0x79
+mov qword [rax], rdx
+lea rdi, [rax + 8]
+rep movsq qword [rdi], qword [rsi]
+pop rbx
+ret

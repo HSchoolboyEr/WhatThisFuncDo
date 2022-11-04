@@ -1,0 +1,21 @@
+mov eax, 1
+test dil, dil
+jns 0x8000510
+lea edx, [rdi + 0x40]
+mov eax, 2
+cmp dl, 0x1f
+jbe 0x8000510
+lea edx, [rdi + 0x20]
+mov eax, 3
+cmp dl, 0xf
+jbe 0x8000510
+lea edx, [rdi + 0x10]
+mov eax, 4
+cmp dl, 7
+jbe 0x8000510
+add edi, 8
+xor eax, eax
+cmp dil, 3
+seta al
+add eax, 5
+ret

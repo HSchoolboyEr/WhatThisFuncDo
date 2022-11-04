@@ -1,0 +1,9 @@
+lea rax, [0x08004ef7]
+push rbp
+mov rbp, rdi
+mov qword [rdi], rax
+call _ZNSt9exceptionD2Ev
+mov rdi, rbp
+mov esi, 8
+pop rbp
+jmp _ZdlPvm

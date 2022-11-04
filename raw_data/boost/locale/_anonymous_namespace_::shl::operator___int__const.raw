@@ -1,0 +1,20 @@
+push r12
+mov r12, rdi
+push rbp
+mov ebp, esi
+push rbx
+mov rdi, qword [rdi + 8]
+mov rax, qword [rdi]
+call qword [rax]
+mov rdi, qword [r12 + 0x18]
+mov esi, ebp
+mov ebx, eax
+mov rax, qword [rdi]
+call qword [rax]
+mov ecx, eax
+shl ebx, cl
+mov eax, ebx
+pop rbx
+pop rbp
+pop r12
+ret

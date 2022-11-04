@@ -1,0 +1,137 @@
+movsxd r11, edx
+add r11, rsi
+cmp edx, 0x400
+jg 0x80002cd
+push rbp
+mov r10, rsi
+lea r8, [rdi + 0x440]
+push rbx
+sub rsp, 0x18
+cmp r11, rsi
+je 0x80002c0
+mov rcx, rsi
+xor ebx, ebx
+mov rsi, r8
+jmp 0x8000219
+nop dword [rax + rax]
+cmp al, 0xc1
+jbe 0x8000280
+cmp al, 0xdf
+jbe 0x8000230
+cmp al, 0xef
+jbe 0x80002b0
+cmp al, 0xf4
+ja 0x8000280
+cmp r11, r9
+je 0x8000248
+movzx edx, byte [rcx + 1]
+lea r9, [rcx + 2]
+mov ecx, edx
+and ecx, 0xffffffc0
+cmp cl, 0x80
+jne 0x8000280
+and eax, 7
+and edx, 0x3f
+mov ebp, 3
+shl eax, 6
+or eax, edx
+cmp r11, r9
+je 0x8000248
+movzx edx, byte [r9]
+lea rcx, [r9 + 1]
+mov r9d, edx
+and r9d, 0xffffffc0
+cmp r9b, 0x80
+jne 0x8000290
+shl eax, 6
+mov r9d, eax
+mov eax, edx
+and eax, 0x3f
+or eax, r9d
+mov r9, rcx
+cmp r11, r9
+je 0x8000248
+lea rcx, [r9 + 1]
+movzx r9d, byte [r9]
+mov edx, 0xfffd
+mov ebx, r9d
+and ebx, 0xffffffc0
+cmp bl, 0x80
+jne 0x8000207
+mov edx, r9d
+shl eax, 6
+and edx, 0x3f
+or eax, edx
+lea edx, [rax - 0xd800]
+cmp edx, 0x7ff
+jbe 0x80002a0
+lea edx, [rax - 0x80]
+cmp edx, 0x10ff7f
+ja 0x80002a0
+mov edx, 2
+cmp eax, 0x7ff
+jbe 0x80001f8
+xor edx, edx
+cmp eax, 0xffff
+seta dl
+add edx, 3
+lea r9d, [arg_1h]
+cmp r9d, edx
+jne 0x80002a0
+mov edx, eax
+mov rbx, rcx
+add rsi, 4
+mov dword [rsi - 4], edx
+sub rbx, r10
+cmp r11, rcx
+je 0x8000248
+movzx eax, byte [rcx]
+lea r9, [rcx + 1]
+test al, al
+js 0x8000110
+movzx edx, al
+mov rcx, r9
+jmp 0x8000207
+and eax, 0x1f
+mov ebp, 1
+cmp r11, r9
+jne 0x800019b
+nop dword [rax]
+sub rsi, r8
+sar rsi, 2
+mov rdx, rsi
+mov rax, qword [rdi]
+lea rcx, [var_8h]
+mov rsi, r8
+mov qword [var_8h], 0
+call qword [rax + 0x70]
+test al, al
+je 0x80002c6
+mov eax, ebx
+add rsp, 0x18
+pop rbx
+pop rbp
+ret
+nop word cs:[rax + rax]
+mov rcx, r9
+mov edx, 0xfffd
+jmp 0x8000207
+nop dword [rax]
+mov edx, 0xfffd
+jmp 0x8000207
+nop word [rax + rax]
+sub rcx, rbp
+mov edx, 0xfffd
+jmp 0x8000207
+nop dword [rax]
+and eax, 0xf
+mov ebp, 2
+jmp 0x800015f
+nop dword [rax]
+xor edx, edx
+xor ebx, ebx
+jmp 0x8000252
+mov eax, 0xffffffff
+jmp 0x800026f
+or eax, 0xffffffff
+ret

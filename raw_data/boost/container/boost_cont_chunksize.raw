@@ -1,0 +1,3 @@
+mov rax, qword [rdi - 8]
+and rax, 0xfffffffffffffff8
+ret

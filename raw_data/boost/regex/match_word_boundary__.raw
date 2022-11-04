@@ -1,0 +1,171 @@
+push r14
+push r13
+push r12
+push rbp
+push rbx
+mov rbx, rdi
+mov r14, qword [rdi + 0x28]
+cmp r14, qword [rdi + 0x20]
+je 0x8009b58
+mov esi, dword [rdi + 0xb0]
+mov edi, dword [r14]
+call _ZN5boost14c_regex_traitsIwE7isctypeEwj
+mov r12d, eax
+cmp r14, qword [rbx + 0x40]
+je 0x8009b6f
+mov ebp, dword [rbx + 0xb0]
+lea rax, [r14 - 4]
+mov r13d, dword [r14 - 4]
+mov qword [rbx + 0x28], rax
+test bpl, 1
+je 0x80099b0
+mov edi, r13d
+call iswspace
+test eax, eax
+je 0x80099b0
+xor r12d, 1
+mov qword [rbx + 0x28], r14
+test r12b, r12b
+jne 0x8009b90
+xor r12d, r12d
+pop rbx
+pop rbp
+mov eax, r12d
+pop r12
+pop r13
+pop r14
+ret
+nop dword [rax + rax]
+test bpl, 2
+jne iswprint
+test bpl, 4
+je 0x80099cc
+mov edi, r13d
+call iswcntrl
+test eax, eax
+jne 0x8009988
+test bpl, 8
+je 0x80099de
+mov edi, r13d
+call iswupper
+test eax, eax
+jne 0x8009988
+test bpl, 0x10
+jne iswlower
+test bpl, 0x20
+je 0x80099fa
+mov edi, r13d
+call iswalpha
+test eax, eax
+jne 0x8009988
+test bpl, 0x40
+je 0x8009a10
+mov edi, r13d
+call iswdigit
+test eax, eax
+jne 0x8009988
+test bpl, 0x80
+je 0x8009a26
+mov edi, r13d
+call iswpunct
+test eax, eax
+jne 0x8009988
+test ebp, 0x100
+je 0x8009a3e
+mov edi, r13d
+call iswxdigit
+test eax, eax
+jne 0x8009988
+test ebp, 0x200
+je 0x8009a80
+mov edi, r13d
+call iswspace
+test eax, eax
+je 0x8009a80
+lea eax, [r13 - 0xc]
+cmp eax, 1
+jbe 0x8009a80
+cmp r13d, 0xa
+je 0x8009a80
+lea eax, [r13 - 0x2028]
+cmp ax, 1
+jbe 0x8009a80
+cmp r13w, 0x85
+jne 0x8009988
+nop word [rax + rax]
+test ebp, 0x400
+je 0x8009a92
+cmp r13d, 0x5f
+je 0x8009988
+test ebp, 0x800
+je 0x8009aa7
+test r13d, 0xffffff00
+jne 0x8009988
+test ebp, 0x2000
+je 0x8009ae0
+lea eax, [r13 - 0xa]
+cmp eax, 3
+jbe 0x8009988
+lea eax, [r13 - 0x2028]
+cmp ax, 1
+jbe 0x8009988
+cmp r13w, 0x85
+je 0x8009988
+nop dword [rax]
+and ebp, 0x1000
+je 0x800998c
+mov edi, r13d
+call iswspace
+test eax, eax
+je 0x800998c
+lea eax, [r13 - 0xc]
+cmp eax, 1
+jbe 0x800998c
+cmp r13d, 0xa
+je 0x800998c
+lea eax, [r13 - 0x2028]
+cmp ax, 1
+setbe al
+cmp r13w, 0x85
+sete dl
+or eax, edx
+xor eax, 1
+cmp r13d, 0xb
+setne dl
+and eax, edx
+xor r12d, eax
+jmp 0x800998c
+mov edi, r13d
+call iswprint
+test eax, eax
+je 0x80099ba
+jmp 0x8009988
+nop dword [rax]
+xor r12d, r12d
+test byte [rdi + 0x60], 0x20
+jne 0x8009999
+cmp r14, qword [rbx + 0x40]
+jne 0x8009964
+mov eax, dword [rbx + 0x60]
+test ah, 1
+jne 0x8009964
+test al, 0x10
+je 0x8009990
+jmp 0x8009999
+nop dword [rax + rax]
+mov rax, qword [rbx + 0x58]
+mov rax, qword [rax + 8]
+mov qword [rbx + 0x58], rax
+pop rbx
+mov eax, r12d
+pop rbp
+pop r12
+pop r13
+pop r14
+ret
+nop dword [rax + rax]
+mov edi, r13d
+call iswlower
+test eax, eax
+je 0x80099e8
+jmp 0x8009988

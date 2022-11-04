@@ -1,0 +1,153 @@
+push r13
+lea rax, [0x08001039]
+push r12
+mov r12d, edx
+push rbp
+mov ebp, esi
+push rbx
+mov rbx, rdi
+sub rsp, 0x38
+mov qword [rdi], rax
+mov eax, 1
+mov qword [rdi + 8], 0
+lock xadd dword [0x08001061], eax
+movd xmm2, esi
+movd xmm0, eax
+lea r13, [rbx + 0x68]
+mov dword [rdi + 0x18], 1
+punpckldq xmm0, xmm2
+mov qword [rdi + 0x30], 0x1000
+movq qword [rdi + 0x10], xmm0
+pxor xmm0, xmm0
+movups xmmword [rdi + 0x20], xmm0
+mov edi, 0x8000
+call _Znam
+mov qword [rbx + 0x60], 0
+pxor xmm0, xmm0
+mov rdi, r13
+mov qword [rbx + 0x38], rax
+movups xmmword [rbx + 0x40], xmm0
+movups xmmword [rbx + 0x50], xmm0
+call _ZNSt18condition_variableC1Ev
+mov byte [rbx + 0x98], 0
+mov byte [rbx + 0x99], r12b
+movzx eax, byte [0x080010cc]
+test al, al
+je .bss
+lea rax, [0x080010db]
+lea rbp, [var_10h]
+cmp qword [0x080010e8], 0
+mov qword [var_8h], rax
+lea rax, [0x080010f4]
+lea rcx, [0x080010fb]
+mov qword [rsp], rax
+mov rax, rsp
+mov qword [var_10h], rax
+lea rax, [rbx + 0x14]
+mov qword [var_18h], rax
+lea rax, [var_8h]
+mov qword [var_20h], rax
+mov rax, qword [0x08001121]
+mov qword fs:[rax], rbp
+mov rax, qword [0x0800112c]
+mov qword fs:[rax], rcx
+je 0x80012db
+mov rsi, qword [0x0800113d]
+lea rdi, [0x08001144]
+call pthread_once
+test eax, eax
+jne _ZSt20__throw_system_errori
+mov edx, dword [rbx + 0x10]
+mov rax, qword [0x0800115b]
+lea rax, [rax + rdx*8]
+lock add qword [rbx + 8], 1
+mov rdi, qword [rax]
+mov qword [rax], rbx
+test rdi, rdi
+je 0x800117c
+lock sub qword [rdi + 8], 1
+je 0x80012d0
+lea rdi, [0x08001183]
+mov byte [var_18h], 0
+mov qword [var_10h], rdi
+call pthread_mutex_lock
+test eax, eax
+jne _ZSt20__throw_system_errori
+sub qword [0x080011a2], 1
+movzx ebx, byte [0x080011a9]
+lea r12, [0x080011b0]
+mov byte [var_18h], 1
+je .bss
+nop dword [rax + rax]
+mov rsi, rbp
+mov rdi, r12
+call _ZNSt18condition_variable4waitERSt11unique_lockISt5mutexE
+cmp bl, byte [0x080011d1]
+je 0x80011c0
+cmp byte [var_18h], 0
+jne 0x8001270
+add rsp, 0x38
+pop rbx
+pop rbp
+pop r12
+pop r13
+ret
+nop dword [rax]
+lea rdi, [0x080011f7]
+call __cxa_guard_acquire
+pxor xmm0, xmm0
+test eax, eax
+je _ZN5boost6fibers4algo13work_stealing11schedulers_E
+movd xmm1, ebp
+lea rdi, [0x08001213]
+movups xmmword [0x0800121a], xmm0
+punpcklqdq xmm1, xmm1
+movups xmmword [0x08001225], xmm0
+movaps xmmword [0x0800122c], xmm1
+mov byte [0x08001233], 1
+mov qword [0x0800123e], 0
+call _ZNSt18condition_variableC1Ev
+lea rdi, [0x0800124a]
+call __cxa_guard_release
+lea rdx, [0x08001256]
+lea rsi, [0x0800125d]
+lea rdi, [0x08001264]
+add byte [rax], al
+add byte [rax], al
+call __cxa_atexit
+jmp _ZN5boost6fibers4algo13work_stealing11schedulers_E
+nop
+mov rdi, qword [var_10h]
+test rdi, rdi
+je 0x80011de
+call pthread_mutex_unlock
+add rsp, 0x38
+pop rbx
+pop rbp
+pop r12
+pop r13
+ret
+nop
+mov rax, qword [0x08001297]
+mov rdi, qword [var_10h]
+xor ebx, 1
+mov byte [0x080012a5], bl
+mov qword [0x080012ac], rax
+test rdi, rdi
+je 0x80012bb
+call pthread_mutex_unlock
+mov byte [var_18h], 0
+lea rdi, [0x080012c2]
+call _ZNSt18condition_variable10notify_allEv
+jmp 0x80011d3
+nop dword [rax]
+mov rax, qword [rdi]
+call qword [rax + 8]
+jmp .bss
+mov eax, 0xffffffff
+mov edi, eax
+call _ZSt20__throw_system_errori
+mov edi, eax
+call _ZSt20__throw_system_errori
+mov rbp, rax
+jmp .text.unlikely

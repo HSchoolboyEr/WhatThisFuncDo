@@ -1,0 +1,53 @@
+push r12
+mov r12, rdi
+push rbp
+push rbx
+mov rbx, rcx
+sub rsp, 0x30
+mov rax, qword [r8]
+mov qword [r8], 0
+lea rbp, [var_8h]
+lea rcx, [var_10h]
+mov dword [var_10h], 0
+mov r8, rbp
+mov qword [var_8h], rax
+mov qword [var_18h], 0
+mov qword [var_20h], 0
+call _ZN5boost4json5parseENS_4core17basic_string_viewIcEERNS_6system10error_codeENS0_11storage_ptrERKNS0_13parse_optionsE
+mov rdi, qword [var_8h]
+test dil, 1
+jne 0x8010bf0
+mov rax, qword [arg_20h]
+cmp rax, 1
+je 0x8010be0
+test rax, rax
+jne 0x8010bd0
+call _ZNSt3_V215system_categoryEv
+xor edx, edx
+mov qword [rbx + 8], rax
+mov rax, r12
+mov dword [rbx], edx
+add rsp, 0x30
+pop rbx
+pop rbp
+pop r12
+ret
+nop dword [rax]
+mov rdi, qword [arg_18h]
+call _ZNK5boost6system14error_categorycvRKNSt3_V214error_categoryEEv
+mov edx, dword [arg_10h]
+jmp 0x8010bbb
+mov edx, dword [arg_10h]
+mov rax, qword [arg_18h]
+jmp 0x8010bbb
+nop dword [rax + rax]
+and rdi, 0xfffffffffffffffc
+mov rax, 0xffffffffffffffff
+lock xadd qword [rdi + 8], rax
+test rdi, rdi
+je 0x8010ba4
+cmp rax, 1
+jne 0x8010ba4
+mov rax, qword [rdi]
+call qword [rax + 8]
+jmp 0x8010ba4

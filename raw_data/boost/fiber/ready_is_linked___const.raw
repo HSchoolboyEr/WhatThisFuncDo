@@ -1,0 +1,9 @@
+mov rdx, qword [rdi + 0xa0]
+test rdx, rdx
+sete al
+add rdi, 0xa0
+cmp rdx, rdi
+sete dl
+or eax, edx
+xor eax, 1
+ret

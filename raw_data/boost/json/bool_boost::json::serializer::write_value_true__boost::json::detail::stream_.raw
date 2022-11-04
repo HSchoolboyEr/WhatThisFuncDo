@@ -1,0 +1,70 @@
+mov rcx, qword [rdi + 0x28]
+movzx r8d, byte [rcx + 8]
+mov eax, r8d
+and eax, 0x3f
+cmp al, 6
+ja _ZN5boost4json10serializer12write_objectILb1EEEbRNS0_6detail6streamE
+lea rdx, [0x0801979e]
+movzx eax, al
+movsxd rax, dword [rdx + rax*4]
+add rax, rdx
+jmp rax
+nop word [rax + rax]
+jmp _ZN5boost4json10serializer12write_numberILb1EEEbRNS0_6detail6streamE
+add byte [rax], al
+add byte [rax], al
+nop dword [rax]
+lea rax, [rcx + 9]
+cmp r8b, 0x85
+je 0x80197d4
+mov rdx, qword [rcx + 0x10]
+lea rax, [rdx + 8]
+cmp r8b, 5
+je 0x8019870
+movsx rcx, byte [rcx + 0x17]
+mov edx, 0xe
+sub rdx, rcx
+mov qword [rdi + 0x50], rax
+add rax, rdx
+mov qword [rdi + 0x58], rax
+jmp _ZN5boost4json10serializer12write_stringILb1EEEbRNS0_6detail6streamE
+nop dword [rax]
+mov qword [rdi], rcx
+jmp _ZN5boost4json10serializer11write_arrayILb1EEEbRNS0_6detail6streamE
+mov rdx, qword [rsi]
+mov rax, qword [rsi + 8]
+sub rax, rdx
+cmp rax, 3
+jbe _ZN5boost4json10serializer10write_nullILb1EEEbRNS0_6detail6streamE
+mov dword [rdx], 0x6c6c756e
+mov eax, 1
+add qword [rsi], 4
+ret
+movzx eax, byte [rcx + 0x10]
+mov rdx, qword [rsi + 8]
+mov rcx, qword [rsi]
+sub rdx, rcx
+test al, al
+je 0x8019850
+cmp rdx, 3
+jbe _ZN5boost4json10serializer10write_trueILb1EEEbRNS0_6detail6streamE
+mov dword [rcx], 0x65757274
+add qword [rsi], 4
+ret
+mov qword [rdi], rcx
+jmp _ZN5boost4json10serializer12write_objectILb1EEEbRNS0_6detail6streamE
+nop dword [rax + rax]
+cmp rdx, 4
+jbe _ZN5boost4json10serializer11write_falseILb1EEEbRNS0_6detail6streamE
+mov dword [rcx], 0x736c6166
+mov eax, 1
+mov byte [rcx + 4], 0x65
+add qword [rsi], 5
+ret
+nop word [rax + rax]
+mov edx, dword [rdx]
+jmp 0x80197e1
+nop word [rax + rax]
+jmp _ZN5boost4json10serializer10write_nullILb1EEEbRNS0_6detail6streamE
+jmp _ZN5boost4json10serializer11write_falseILb1EEEbRNS0_6detail6streamE
+jmp _ZN5boost4json10serializer10write_trueILb1EEEbRNS0_6detail6streamE

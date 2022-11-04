@@ -1,0 +1,2 @@
+jmp boost_cont_all_deallocated
+nop word cs:[rax + rax]

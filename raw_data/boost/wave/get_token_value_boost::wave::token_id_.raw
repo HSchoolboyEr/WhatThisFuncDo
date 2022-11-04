@@ -1,0 +1,8 @@
+and edi, 0x8003ffff
+lea rax, [0x0800007d]
+sub edi, 0x100
+cmp edi, 0xb9
+ja 0x8000096
+lea rax, [0x08000092]
+mov rax, qword [rax + rdi*8]
+ret

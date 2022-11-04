@@ -1,0 +1,11 @@
+mov rdx, qword [rdi + 0x38]
+xor eax, eax
+cmp qword [rdi + 0x28], rdx
+je 0x8004190
+ret
+nop dword [rax]
+mov rax, qword [rdi + 0x58]
+mov rax, qword [rax + 8]
+mov qword [rdi + 0x58], rax
+mov eax, 1
+ret

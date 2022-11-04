@@ -1,0 +1,128 @@
+push r12
+push rbp
+push rbx
+mov eax, dword [rdi + 0xe8]
+mov rbx, rdi
+add eax, 1
+mov dword [rdi + 0xe8], eax
+cmp eax, 0x50
+ja 0x800ed68
+mov rax, qword [rdi + 0xd8]
+sub rax, 8
+cmp rax, qword [rdi + 0xd0]
+jb _ZN5boost13re_detail_50012perl_matcherIPKwSaINS_9sub_matchIS3_EEENS_14c_regex_traitsIwEEE12extend_stackEv
+mov dword [rax], 2
+lea rbp, [0x0800ebb4]
+lea r12, [0x0800ebbb]
+mov qword [rbx + 0xd8], rax
+mov rax, qword [rbx + 0x58]
+nop word cs:[rax + rax]
+test rax, rax
+jne 0x800ec51
+mov eax, 1
+mov byte [rbx + 0xe6], 0
+mov esi, 1
+mov word [rbx + 0xe4], ax
+nop dword [rax]
+mov rax, qword [rbx + 0xd8]
+mov eax, dword [rax]
+shl rax, 4
+add rax, rbp
+mov rdi, qword [rax + 8]
+mov rdx, qword [rax]
+add rdi, rbx
+test dl, 1
+je 0x800ec17
+mov rax, qword [rdi]
+mov rdx, qword [rax + rdx - 1]
+call rdx
+test al, al
+je 0x800ed18
+movzx esi, byte [rbx + 0xe4]
+jmp 0x800ebf0
+nop word [rax + rax]
+mov rax, qword [rbx + 0x58]
+test byte [rbx + 0x61], 0x20
+je 0x800ec48
+mov rdx, qword [rbx + 0x28]
+cmp rdx, qword [rbx + 0x20]
+je 0x800ed28
+test rax, rax
+je 0x800ed01
+movsxd rax, dword [rax]
+add qword [rbx + 0x68], 1
+shl rax, 4
+add rax, r12
+mov rdi, qword [rax + 8]
+mov rdx, qword [rax]
+add rdi, rbx
+test dl, 1
+je 0x800ec77
+mov rax, qword [rdi]
+mov rdx, qword [rax + rdx - 1]
+call rdx
+movzx esi, al
+test sil, sil
+jne 0x800ecf8
+mov rax, qword [rbx + 0x70]
+cmp qword [rbx + 0x68], rax
+jg 0x800ed78
+test byte [rbx + 0x61], 0x20
+je 0x800eca3
+mov rax, qword [rbx + 0x28]
+cmp rax, qword [rbx + 0x20]
+je 0x800ed40
+xor edx, edx
+mov byte [rbx + 0xe6], 0
+mov word [rbx + 0xe4], dx
+nop dword [rax + rax]
+mov rax, qword [rbx + 0xd8]
+mov eax, dword [rax]
+shl rax, 4
+add rax, rbp
+mov rdi, qword [rax + 8]
+mov rdx, qword [rax]
+add rdi, rbx
+test dl, 1
+je 0x800ecdf
+mov rax, qword [rdi]
+mov rdx, qword [rax + rdx - 1]
+call rdx
+test al, al
+je 0x800ec30
+movzx esi, byte [rbx + 0xe4]
+jmp 0x800ecb8
+nop word [rax + rax]
+mov rax, qword [rbx + 0x58]
+jmp 0x800ebd0
+movzx eax, byte [rbx + 0xe4]
+sub dword [rbx + 0xe8], 1
+pop rbx
+pop rbp
+pop r12
+ret
+nop dword [rax]
+mov rax, qword [rbx + 0x58]
+jmp 0x800ec48
+nop dword [rax]
+cmp rdx, qword [rbx + 0x38]
+je 0x800ec48
+mov byte [rbx + 0x79], 1
+jmp 0x800ec48
+nop dword [rax + rax]
+cmp rax, qword [rbx + 0x38]
+je 0x800eca3
+mov byte [rbx + 0x79], 1
+jmp 0x800eca3
+call _ZN5boost13re_detail_50012perl_matcherIPKwSaINS_9sub_matchIS3_EEENS_14c_regex_traitsIwEEE12extend_stackEv
+mov rax, qword [rbx + 0xd8]
+sub rax, 8
+jmp 0x800eba7
+mov edi, 0x12
+call .text
+nop word [rax + rax]
+mov edi, 0x12
+call .text
+mov rdi, rax
+sub dword [rbx + 0xe8], 1
+call _Unwind_Resume

@@ -1,0 +1,6 @@
+mov rsi, qword [rdi + 8]
+mov rdi, qword [rdi]
+jmp _ZN5boost6fibers7context4wakeEm
+add byte [rax], al
+add byte [rax], al
+nop dword [rax]

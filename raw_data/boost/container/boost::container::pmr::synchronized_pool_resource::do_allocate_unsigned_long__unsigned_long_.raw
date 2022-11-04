@@ -1,0 +1,27 @@
+push r13
+mov r13, rdx
+push r12
+mov r12, rsi
+push rbp
+lea rbp, [rdi + 8]
+push rbx
+mov rbx, rdi
+mov rdi, rbp
+sub rsp, 8
+call pthread_mutex_lock
+lea rdi, [rbx + 0x30]
+mov rdx, r13
+mov rsi, r12
+call _ZN5boost9container3pmr13pool_resource11do_allocateEmm
+add byte [rax], al
+add byte [rax], al
+mov rdi, rbp
+mov r12, rax
+call pthread_mutex_unlock
+add rsp, 8
+mov rax, r12
+pop rbx
+pop rbp
+pop r12
+pop r13
+ret

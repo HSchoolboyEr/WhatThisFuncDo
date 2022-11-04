@@ -1,0 +1,26 @@
+lea rax, [0x08001b07]
+push rbp
+lea rbp, [rdi - 0x28]
+push rbx
+lea rdx, [rax - 0x30]
+movq xmm1, rax
+mov rbx, rdi
+movq xmm0, rdx
+lea rax, [0x08001b25]
+punpcklqdq xmm0, xmm1
+sub rsp, 8
+mov qword [rdi], rax
+movups xmmword [rdi - 0x28], xmm0
+mov rdi, qword [rdi + 8]
+test rdi, rdi
+je 0x8001b43
+mov rax, qword [rdi]
+call qword [rax + 0x20]
+lea rdi, [rbx - 0x20]
+call _ZNSt8ios_base7failureB5cxx11D2Ev
+add rsp, 8
+mov rdi, rbp
+mov esi, 0x50
+pop rbx
+pop rbp
+jmp _ZdlPvm

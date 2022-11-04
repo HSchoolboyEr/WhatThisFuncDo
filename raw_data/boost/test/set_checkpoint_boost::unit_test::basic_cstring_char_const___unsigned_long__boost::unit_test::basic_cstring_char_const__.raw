@@ -1,0 +1,30 @@
+push r14
+push r13
+mov r13, rdx
+push r12
+mov r12, rsi
+push rbp
+mov rbp, rcx
+push rbx
+call method boost::unit_test::(anonymous namespace)::s_log_impl()
+mov rcx, qword [rbp]
+mov r8, qword [arg_8h]
+xor esi, esi
+mov r14, qword [r12]
+mov r12, qword [r12 + 8]
+lea rdi, [rax + 0x78]
+mov rbx, rax
+mov rdx, qword [rax + 0x80]
+sub r8, rcx
+call _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE10_M_replaceEmmPKcm
+movq xmm0, r14
+movq xmm1, r12
+mov qword [rbx + 0x70], r13
+punpcklqdq xmm0, xmm1
+movups xmmword [rbx + 0x60], xmm0
+pop rbx
+pop rbp
+pop r12
+pop r13
+pop r14
+ret

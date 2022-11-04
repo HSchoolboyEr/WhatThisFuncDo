@@ -1,0 +1,20 @@
+lea rax, [0x080015b7]
+cmp byte [rdi + 0x18], 0
+mov qword [rdi], rax
+jne 0x80015c8
+ret
+nop dword [rax]
+push rbx
+mov rbx, rdi
+call closelog
+mov rdi, qword [rbx + 0x20]
+lea rax, [rbx + 0x30]
+cmp rdi, rax
+je 0x80015f0
+mov rsi, qword [rbx + 0x30]
+pop rbx
+add rsi, 1
+jmp _ZdlPvm
+nop dword [rax]
+pop rbx
+ret

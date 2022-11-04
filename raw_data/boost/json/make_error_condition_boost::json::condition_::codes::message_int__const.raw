@@ -1,0 +1,104 @@
+push r12
+lea rax, [rdi + 0x10]
+mov r12, rdi
+sub rsp, 0x10
+mov qword [rdi], rax
+cmp edx, 3
+je 0x8002150
+cmp edx, 4
+je 0x8002220
+cmp edx, 2
+je 0x80021b8
+mov qword [var_8h], 0x1b
+lea rsi, [var_8h]
+xor edx, edx
+call _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm
+mov rdx, qword [var_8h]
+mov esi, 0x6572
+movdqa xmm0, xmmword [0x0800210e]
+movabs rcx, 0x727563636f20726f
+mov qword [r12], rax
+mov qword [r12 + 0x10], rdx
+mov qword [rax + 0x10], rcx
+mov word [rax + 0x18], si
+mov byte [rax + 0x1a], 0x64
+movups xmmword [rax], xmm0
+mov rax, qword [var_8h]
+mov rdx, qword [r12]
+mov qword [r12 + 8], rax
+mov byte [rdx + rax], 0
+add rsp, 0x10
+mov rax, r12
+pop r12
+ret
+nop dword [rax]
+mov qword [var_8h], 0x23
+lea rsi, [var_8h]
+xor edx, edx
+call _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm
+mov rdx, qword [var_8h]
+movdqa xmm0, xmmword [0x08002172]
+mov qword [r12], rax
+mov qword [r12 + 0x10], rdx
+mov edx, 0x6572
+movups xmmword [rax], xmm0
+movdqa xmm0, xmmword [0x0800218b]
+mov word [rax + 0x20], dx
+mov byte [rax + 0x22], 0x64
+movups xmmword [rax + 0x10], xmm0
+mov rax, qword [var_8h]
+mov rdx, qword [r12]
+mov qword [r12 + 8], rax
+mov byte [rdx + rax], 0
+add rsp, 0x10
+mov rax, r12
+pop r12
+ret
+nop dword [rax + rax]
+mov qword [var_8h], 0x23
+lea rsi, [var_8h]
+xor edx, edx
+call _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm
+mov rdx, qword [var_8h]
+mov ecx, 0x6e65
+movdqa xmm0, xmmword [0x080021df]
+mov qword [r12], rax
+mov qword [r12 + 0x10], rdx
+movups xmmword [rax], xmm0
+movdqa xmm0, xmmword [0x080021f3]
+mov word [rax + 0x20], cx
+mov byte [rax + 0x22], 0x74
+movups xmmword [rax + 0x10], xmm0
+mov rax, qword [var_8h]
+mov rdx, qword [r12]
+mov qword [r12 + 8], rax
+mov byte [rdx + rax], 0
+add rsp, 0x10
+mov rax, r12
+pop r12
+ret
+nop dword [rax + rax]
+mov qword [var_8h], 0x39
+lea rsi, [var_8h]
+xor edx, edx
+call _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm
+mov rdx, qword [var_8h]
+movdqa xmm0, xmmword [0x08002242]
+movabs rcx, 0x756c617620612068
+mov qword [r12], rax
+mov qword [r12 + 0x10], rdx
+movups xmmword [rax], xmm0
+movdqa xmm0, xmmword [0x08002260]
+mov qword [rax + 0x30], rcx
+movups xmmword [rax + 0x10], xmm0
+movdqa xmm0, xmmword [0x08002270]
+mov byte [rax + 0x38], 0x65
+movups xmmword [rax + 0x20], xmm0
+mov rax, qword [var_8h]
+mov rdx, qword [r12]
+mov qword [r12 + 8], rax
+mov byte [rdx + rax], 0
+add rsp, 0x10
+mov rax, r12
+pop r12
+ret

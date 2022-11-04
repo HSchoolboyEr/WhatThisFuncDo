@@ -1,0 +1,24 @@
+sub rsp, 0xd8
+mov qword [var_38h], rcx
+mov qword [var_40h], r8
+mov qword [var_48h], r9
+test al, al
+je 0x8002c51
+movaps xmmword [var_50h], xmm0
+movaps xmmword [var_60h], xmm1
+movaps xmmword [var_70h], xmm2
+movaps xmmword [var_80h], xmm3
+movaps xmmword [var_90h], xmm4
+movaps xmmword [var_a0h], xmm5
+movaps xmmword [var_b0h], xmm6
+movaps xmmword [var_c0h], xmm7
+lea rax, [arg_e0h]
+lea rcx, [var_8h]
+mov dword [var_8h], 0x18
+mov qword [var_10h], rax
+lea rax, [var_20h]
+mov dword [var_ch], 0x30
+mov qword [var_18h], rax
+call vsnprintf
+add rsp, 0xd8
+ret

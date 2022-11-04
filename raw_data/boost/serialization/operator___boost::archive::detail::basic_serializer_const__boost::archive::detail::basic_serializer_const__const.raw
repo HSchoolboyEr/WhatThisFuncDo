@@ -1,0 +1,7 @@
+mov r8, rsi
+mov rsi, qword [rdx]
+mov rdi, qword [r8]
+jmp _ZNK5boost13serialization18extended_type_infoltERKS1_
+add byte [rax], al
+add byte [rax], al
+nop

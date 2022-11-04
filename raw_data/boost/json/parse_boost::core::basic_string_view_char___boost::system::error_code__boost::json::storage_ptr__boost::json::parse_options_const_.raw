@@ -1,0 +1,200 @@
+push r15
+push r14
+mov r14, rdx
+mov edx, 0x100
+push r13
+mov r13, rsi
+push r12
+mov r12, rdi
+push rbp
+mov rbp, r8
+push rbx
+mov rbx, rcx
+sub rsp, 0x10f8
+movdqu xmm3, xmmword [r9]
+lea r15, [var_20h]
+lea rsi, [var_18h]
+mov qword [var_20h], 0
+lea rax, [var_f0h]
+movaps xmmword [var_d0h], xmm3
+mov rdi, r15
+movq xmm0, rax
+movq xmm1, rax
+lea rax, [var_10e0h]
+mov qword [var_8h], rsi
+movq xmm2, rax
+punpcklqdq xmm1, xmm1
+mov rax, qword [var_d0h]
+mov qword [var_48h], 0
+punpcklqdq xmm0, xmm2
+mov byte [var_50h], 1
+movups xmmword [var_38h], xmm0
+pxor xmm0, xmm0
+mov qword [var_58h], 0
+mov dword [var_78h], 0
+mov qword [var_80h], 0
+mov qword [var_a8h], 0
+mov word [var_c1h], dx
+mov qword [var_e0h], rax
+mov qword [var_18h], 0
+movups xmmword [var_28h], xmm1
+movups xmmword [var_88h], xmm0
+movups xmmword [var_98h], xmm0
+call _ZN5boost4json6parser5resetENS0_11storage_ptrE
+mov rdi, qword [var_18h]
+mov rsi, qword [var_8h]
+test dil, 1
+jne 0x8010aa0
+mov rax, qword [rbp]
+mov qword [rbp], 0
+mov rdi, r15
+mov qword [var_18h], rax
+call _ZN5boost4json6parser5resetENS0_11storage_ptrE
+mov rdi, qword [var_18h]
+test dil, 1
+jne 0x8010a70
+mov rcx, rbx
+mov rdx, r14
+mov rsi, r13
+mov rdi, r15
+call _ZN5boost4json6parser5writeEPKcmRNS_6system10error_codeE
+add byte [rax], al
+add byte [rax], al
+mov rax, qword [rbx + 0x10]
+test al, 1
+je 0x8010908
+cmp rax, 1
+jne 0x8010a30
+mov eax, dword [rbx]
+test eax, eax
+jne 0x8010a30
+cmp byte [var_c1h], 0
+je 0x8010b3f
+mov rdi, qword [var_58h]
+test dil, 1
+jne 0x8010b10
+mov qword [var_58h], 0
+mov rax, qword [var_38h]
+lea rdx, [rax - 0x18]
+mov qword [var_38h], rdx
+movdqu xmm4, xmmword [rax - 0x18]
+movups xmmword [r12], xmm4
+mov rdx, qword [rax - 8]
+mov qword [r12 + 0x10], rdx
+mov qword [rax - 0x18], 0
+mov byte [rax - 0x10], 0
+lea rdi, [var_90h]
+call _ZN5boost4json6detail5stackD1Ev
+mov rdi, qword [var_58h]
+test dil, 1
+jne 0x8010a48
+mov rbx, qword [var_38h]
+mov rsi, qword [var_30h]
+cmp rbx, rsi
+je 0x8010992
+cmp byte [var_50h], 0
+jne 0x8010a00
+mov qword [var_38h], rsi
+mov qword [var_48h], 0
+mov rdi, qword [var_20h]
+cmp qword [var_28h], rsi
+je 0x80109d9
+test rsi, rsi
+je 0x80109d9
+mov rax, rdi
+mov rdx, qword [var_40h]
+mov ecx, 0x10
+and rax, 0xfffffffffffffffc
+test rdi, rdi
+lea rdi, [0x080109c7]
+cmovne rdi, rax
+sub rdx, rsi
+mov rax, qword [rdi]
+call qword [rax + 0x18]
+mov rdi, qword [var_20h]
+test dil, 1
+jne 0x8010ae0
+add rsp, 0x10f8
+mov rax, r12
+pop rbx
+pop rbp
+pop r12
+pop r13
+pop r14
+pop r15
+ret
+nop dword [rax + rax]
+sub rbx, 0x18
+nop dword [rax]
+mov rdi, rbx
+sub rbx, 0x18
+call _ZN5boost4json5valueD1Ev
+mov rsi, qword [var_30h]
+lea rax, [rbx + 0x18]
+cmp rsi, rax
+jne 0x8010a08
+jmp 0x801098d
+nop word [rax + rax]
+mov qword [r12], 0
+mov byte [r12 + 8], 0
+jmp 0x801095b
+nop dword [rax + rax]
+and rdi, 0xfffffffffffffffc
+lock sub qword [rdi + 8], 1
+jne 0x8010977
+test rdi, rdi
+je 0x8010977
+mov rax, qword [rdi]
+call qword [rax + 8]
+jmp 0x8010977
+nop dword [rax]
+and rdi, 0xfffffffffffffffc
+mov rax, 0xffffffffffffffff
+lock xadd qword [rdi + 8], rax
+test rdi, rdi
+je 0x80108db
+cmp rax, 1
+jne 0x80108db
+mov rax, qword [rdi]
+call qword [rax + 8]
+jmp 0x80108db
+nop
+and rdi, 0xfffffffffffffffc
+mov rax, 0xffffffffffffffff
+lock xadd qword [rdi + 8], rax
+test rdi, rdi
+je 0x80108b3
+cmp rax, 1
+jne 0x80108b3
+mov rax, qword [rdi]
+mov qword [var_8h], rsi
+call qword [rax + 8]
+mov rsi, qword [var_8h]
+jmp 0x80108b3
+nop dword [rax]
+and rdi, 0xfffffffffffffffc
+mov rax, 0xffffffffffffffff
+lock xadd qword [rdi + 8], rax
+test rdi, rdi
+je 0x80109e3
+cmp rax, 1
+jne 0x80109e3
+mov rax, qword [rdi]
+call qword [rax + 8]
+jmp 0x80109e3
+nop
+and rdi, 0xfffffffffffffffc
+mov rax, 0xffffffffffffffff
+lock xadd qword [rdi + 8], rax
+test rdi, rdi
+je 0x8010925
+cmp rax, 1
+jne 0x8010925
+mov rax, qword [rdi]
+call qword [rax + 8]
+jmp 0x8010925
+mov rdi, r15
+call method boost::json::parser::release() [clone .part.0]
+mov rbp, rax
+jmp .text.unlikely
+nop

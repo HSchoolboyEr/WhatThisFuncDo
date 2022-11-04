@@ -1,0 +1,4 @@
+mov rdi, r12
+call _ZNSt6localeD1Ev
+mov rdi, rbx
+call method boost::locale::util::base_num_format<wchar_t>::format_time(std::ostreambuf_iterator<wchar_t, std::char_traits<wchar_t> >, std::ios_base&, wchar_t, long, std::__cxx11::basic_string<wchar_t, std::char_traits<wchar_t>, std::allocator<wchar_t> > const&) const [clone .isra.0] [clone .cold]

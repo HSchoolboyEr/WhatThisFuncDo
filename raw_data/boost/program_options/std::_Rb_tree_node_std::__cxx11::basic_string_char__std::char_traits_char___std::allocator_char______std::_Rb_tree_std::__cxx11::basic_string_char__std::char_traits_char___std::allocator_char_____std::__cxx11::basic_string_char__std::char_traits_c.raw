@@ -1,0 +1,169 @@
+push r15
+push r14
+push r13
+push r12
+push rbp
+mov rbp, rsi
+push rbx
+mov rbx, rdi
+mov edi, 0x40
+sub rsp, 0x28
+call _Znwm
+mov r14, qword [rbx + 0x20]
+mov r12, qword [rbx + 0x28]
+lea rdi, [rax + 0x30]
+mov r13, rax
+mov qword [rax + 0x20], rdi
+mov rax, r14
+add rax, r12
+je 0x80047f2
+test r14, r14
+je .LC0
+mov qword [var_18h], r12
+cmp r12, 0xf
+ja 0x8004970
+cmp r12, 1
+jne 0x8004910
+movzx eax, byte [r14]
+mov byte [r13 + 0x30], al
+mov qword [r13 + 0x28], r12
+mov byte [rdi + r12], 0
+mov eax, dword [rbx]
+mov rdi, qword [rbx + 0x18]
+mov qword [r13 + 0x10], 0
+mov dword [r13], eax
+mov qword [r13 + 0x18], 0
+mov qword [r13 + 8], rbp
+test rdi, rdi
+je 0x800484b
+mov rsi, r13
+call method std::_Rb_tree_node<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > >* std::_Rb_tree<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::_Identity<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > >, std::less<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<> > >>::<>() [clone ]
+mov qword [r13 + 0x18], rax
+mov rbx, qword [rbx + 0x10]
+lea rax, [var_18h]
+mov rbp, r13
+mov qword [var_8h], rax
+test rbx, rbx
+je 0x80048fa
+mov edi, 0x40
+mov r15, rbp
+call _Znwm
+lea rdi, [rax + 0x30]
+mov r12, qword [rbx + 0x28]
+mov rbp, rax
+mov qword [rax + 0x20], rdi
+mov r14, qword [rbx + 0x20]
+mov rax, r14
+add rax, r12
+je 0x8004896
+test r14, r14
+je .LC0
+mov qword [var_18h], r12
+cmp r12, 0xf
+ja 0x8004930
+cmp r12, 1
+jne 0x8004920
+movzx eax, byte [r14]
+mov byte [arg_30h], al
+mov qword [arg_28h], r12
+mov byte [rdi + r12], 0
+mov eax, dword [rbx]
+mov qword [arg_10h], 0
+mov qword [arg_18h], 0
+mov dword [rbp], eax
+mov qword [r15 + 0x10], rbp
+mov qword [arg_8h], r15
+mov rdi, qword [rbx + 0x18]
+test rdi, rdi
+je 0x80048ed
+mov rsi, rbp
+call method std::_Rb_tree_node<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > >* std::_Rb_tree<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::_Identity<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > >, std::less<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<> > >>::<>() [clone ]
+mov qword [arg_18h], rax
+mov rbx, qword [rbx + 0x10]
+test rbx, rbx
+jne 0x8004865
+add rsp, 0x28
+mov rax, r13
+pop rbx
+pop rbp
+pop r12
+pop r13
+pop r14
+pop r15
+ret
+nop dword [rax]
+test r12, r12
+je 0x8004813
+jmp 0x8004990
+nop dword [rax + rax]
+test r12, r12
+je 0x80048b2
+jmp 0x8004950
+nop word [rax + rax]
+mov rsi, qword [var_8h]
+lea rdi, [arg_20h]
+xor edx, edx
+call _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm
+mov qword [arg_20h], rax
+mov rdi, rax
+mov rax, qword [var_18h]
+mov qword [arg_30h], rax
+mov rdx, r12
+mov rsi, r14
+call memcpy
+mov r12, qword [var_18h]
+mov rdi, qword [arg_20h]
+jmp 0x80048b2
+nop dword [rax]
+lea rsi, [var_18h]
+lea rdi, [r13 + 0x20]
+xor edx, edx
+call _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm
+mov qword [r13 + 0x20], rax
+mov rdi, rax
+mov rax, qword [var_18h]
+mov qword [r13 + 0x30], rax
+mov rdx, r12
+mov rsi, r14
+call memcpy
+mov r12, qword [var_18h]
+mov rdi, qword [r13 + 0x20]
+jmp 0x8004813
+lea rdi, [0x080049b0]
+call _ZSt19__throw_logic_errorPKc
+lea rdi, [0x080049bc]
+call _ZSt19__throw_logic_errorPKc
+mov rdi, rax
+jmp __cxa_begin_catch
+mov rdi, rax
+jmp __cxa_begin_catch
+mov rdi, rax
+jmp __cxa_begin_catch
+call __cxa_end_catch
+mov rdi, rbx
+call __cxa_begin_catch
+mov rdi, r13
+call .text
+call __cxa_rethrow
+call __cxa_begin_catch
+mov esi, 0x40
+mov rdi, rbp
+call _ZdlPvm
+call __cxa_rethrow
+call __cxa_begin_catch
+mov esi, 0x40
+mov rdi, r13
+call _ZdlPvm
+call __cxa_rethrow
+mov rbp, rax
+jmp __cxa_end_catch
+mov rbx, rax
+jmp __cxa_end_catch
+mov rbp, rax
+jmp __cxa_end_catch
+call __cxa_end_catch
+mov rdi, rbp
+call _Unwind_Resume
+call __cxa_end_catch
+mov rdi, rbp
+call _Unwind_Resume

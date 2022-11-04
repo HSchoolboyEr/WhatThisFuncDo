@@ -1,0 +1,3 @@
+mov qword [rdi + 0x58], 0
+xor eax, eax
+ret

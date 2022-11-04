@@ -1,0 +1,153 @@
+push r14
+lea rax, [0x0800dd99]
+push r13
+push r12
+push rbp
+push rbx
+mov rbx, rdi
+sub rsp, 0x60
+mov rbp, qword [rdi + 0x28]
+mov qword [rdi], rax
+test rbp, rbp
+je 0x800df22
+mov qword [var_28h], 0
+mov qword [var_30h], 0
+mov edi, dword [arg_8h]
+mov dword [var_20h], 0
+cmp edi, 0xffffffff
+je 0x800e004
+mov esi, 2
+call shutdown
+test eax, eax
+je 0x800df60
+call __errno_location
+mov edx, dword [rax]
+mov eax, 2
+mov dword [var_20h], edx
+cmp edx, 1
+lea rdx, [0x0800de08]
+mov qword [var_28h], rdx
+movdqu xmm2, xmmword [var_20h]
+sbb rax, 0xffffffffffffffff
+movups xmmword [var_40h], xmm2
+and eax, 1
+lea rdx, [0x0800de26]
+or rax, rdx
+movdqu xmm0, xmmword [var_40h]
+mov qword [var_50h], rax
+mov qword [var_30h], rax
+movups xmmword [var_20h], xmm0
+mov esi, dword [arg_8h]
+cmp esi, 0xffffffff
+je 0x800def8
+movzx ecx, byte [arg_ch]
+mov r13, qword [rbp]
+lea rdx, [arg_10h]
+shr cl, 6
+mov rdi, qword [r13 + 0x28]
+xor ecx, 1
+and ecx, 1
+call _ZN5boost4asio6detail13epoll_reactor21deregister_descriptorEiRPNS2_16descriptor_stateEb
+mov edi, dword [arg_8h]
+lea rcx, [var_20h]
+xor edx, edx
+lea rsi, [arg_ch]
+call .text
+mov r12, qword [arg_10h]
+test r12, r12
+je 0x800def8
+mov r13, qword [r13 + 0x28]
+movzx r14d, byte [r13 + 0xc0]
+test r14b, r14b
+jne 0x800dfe0
+mov rax, qword [r12 + 0x18]
+cmp r12, qword [r13 + 0xc8]
+je 0x800dff8
+mov rdx, qword [r12 + 0x20]
+test rdx, rdx
+je 0x800debe
+mov qword [rdx + 0x18], rax
+mov rax, qword [r12 + 0x18]
+test rax, rax
+je 0x800decc
+mov rdx, qword [r12 + 0x20]
+mov qword [rax + 0x20], rdx
+mov rax, qword [r13 + 0xd0]
+mov qword [r12 + 0x20], 0
+mov qword [r12 + 0x18], rax
+mov qword [r13 + 0xd0], r12
+test r14b, r14b
+jne 0x800dfc0
+nop dword [rax]
+mov rax, qword [arg_38h]
+lea rdi, [arg_20h]
+mov byte [arg_ch], 0
+mov dword [arg_8h], 0xffffffff
+mov qword [arg_10h], 0
+call qword [rax]
+mov esi, 0x58
+mov rdi, rbp
+call _ZdlPvm
+mov rbp, qword [rbx + 0x20]
+test rbp, rbp
+je 0x800df32
+lock sub dword [arg_8h], 1
+je 0x800df88
+lea rax, [0x0800df39]
+mov qword [rbx], rax
+mov rax, qword [rbx + 8]
+test rax, rax
+je 0x800df4b
+mov rdi, rax
+call qword [rax + 0x10]
+add rsp, 0x60
+pop rbx
+pop rbp
+pop r12
+pop r13
+pop r14
+ret
+nop dword [rax + rax]
+mov dword [var_20h], 0
+xor eax, eax
+mov qword [var_28h], 0
+movdqu xmm1, xmmword [var_20h]
+movups xmmword [var_40h], xmm1
+jmp 0x800de29
+nop dword [rax + rax]
+mov rax, qword [rbp]
+mov rdi, rbp
+call qword [rax + 0x10]
+lock sub dword [arg_ch], 1
+jne 0x800df32
+mov rax, qword [rbp]
+lea rcx, [0x0800dfa4]
+mov rdi, rbp
+mov rdx, qword [rax + 0x18]
+cmp rdx, rcx
+jne 0x800dfd8
+call qword [rax + 8]
+jmp _ZTVN5boost3log12v2s_mt_posix5sinks14syslog_backend14implementationE
+nop dword [rax + rax]
+lea rdi, [r13 + 0x98]
+call pthread_mutex_unlock
+jmp 0x800def8
+nop dword [rax]
+call rdx
+jmp _ZTVN5boost3log12v2s_mt_posix5sinks14syslog_backend14implementationE
+nop
+lea rdi, [r13 + 0x98]
+call pthread_mutex_lock
+jmp 0x800de99
+nop dword [rax]
+mov qword [r13 + 0xc8], rax
+jmp 0x800deab
+mov rdi, rsp
+mov esi, 9
+call _ZN5boost4asio5error15make_error_codeENS1_12basic_errorsE
+movdqu xmm3, xmmword [rsp]
+mov rax, qword [var_10h]
+movups xmmword [var_40h], xmm3
+cmp rax, 1
+jbe 0x800de29
+jmp 0x800de1c

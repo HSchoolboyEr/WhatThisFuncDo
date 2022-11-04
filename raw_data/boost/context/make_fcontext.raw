@@ -1,0 +1,11 @@
+mov rax, rdi
+and rax, 0xfffffffffffffff0
+lea rax, [rax - 0x40]
+mov qword [rax + 0x28], rdx
+stmxcsr dword [rax]
+fnstcw word [rax + 4]
+lea rcx, loc.trampoline
+mov qword [rax + 0x38], rcx
+lea rcx, loc.finish
+mov qword [rax + 0x30], rcx
+ret

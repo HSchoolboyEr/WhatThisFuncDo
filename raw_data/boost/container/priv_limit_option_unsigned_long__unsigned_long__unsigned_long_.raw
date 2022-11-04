@@ -1,0 +1,16 @@
+mov rax, qword [rdi]
+test rax, rax
+jne 0x80000e0
+mov qword [rdi], rdx
+ret
+nop dword [rax]
+cmp rax, rsi
+jae 0x80000f0
+mov qword [rdi], rsi
+ret
+nop dword [rax]
+cmp rdx, rax
+cmovbe rax, rdx
+mov rsi, rax
+mov qword [rdi], rsi
+ret

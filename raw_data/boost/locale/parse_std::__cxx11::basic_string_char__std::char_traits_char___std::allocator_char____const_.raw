@@ -1,0 +1,29 @@
+push r12
+mov r8d, 1
+mov r12, rsi
+lea rcx, [0x08000cb2]
+push rbp
+xor esi, esi
+mov rbp, rdi
+sub rsp, 8
+mov rdx, qword [rdi + 8]
+call _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE10_M_replaceEmmPKcm
+mov rax, qword [arg_20h]
+lea rdi, [arg_60h]
+xor esi, esi
+mov qword [arg_28h], 0
+mov r8d, 8
+lea rcx, [0x08000ce4]
+mov byte [rax], 0
+mov rax, qword [arg_40h]
+mov qword [arg_48h], 0
+mov byte [rax], 0
+mov rdx, qword [arg_68h]
+call _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE10_M_replaceEmmPKcm
+mov byte [arg_80h], 0
+add rsp, 8
+mov rsi, r12
+mov rdi, rbp
+pop rbp
+pop r12
+jmp method boost::locale::util::locale_data::parse_from_lang(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&)

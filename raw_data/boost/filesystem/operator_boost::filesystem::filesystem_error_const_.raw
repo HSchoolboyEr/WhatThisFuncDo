@@ -1,0 +1,51 @@
+push r12
+mov r12, rdi
+push rbp
+push rbx
+mov rbx, rsi
+call _ZNSt13runtime_erroraSERKS_
+add byte [rax], al
+add byte [rax], al
+movdqu xmm0, xmmword [rbx + 0x10]
+movups xmmword [r12 + 0x10], xmm0
+mov rax, qword [rbx + 0x20]
+mov qword [r12 + 0x20], rax
+mov rax, qword [rbx + 0x28]
+test rax, rax
+je 0x8000590
+lock add dword [rax], 1
+mov rbp, qword [r12 + 0x28]
+mov qword [r12 + 0x28], rax
+test rbp, rbp
+je 0x8000601
+lock sub dword [rbp], 1
+jne 0x8000601
+mov rdi, qword [arg_48h]
+lea rax, [arg_58h]
+cmp rdi, rax
+je 0x80005c0
+mov rax, qword [arg_58h]
+lea rsi, [rax + 1]
+call _ZdlPvm
+mov rdi, qword [arg_28h]
+lea rax, [arg_38h]
+cmp rdi, rax
+je 0x80005da
+mov rax, qword [arg_38h]
+lea rsi, [rax + 1]
+call _ZdlPvm
+mov rdi, qword [arg_8h]
+lea rax, [arg_18h]
+cmp rdi, rax
+je 0x80005f4
+mov rax, qword [arg_18h]
+lea rsi, [rax + 1]
+call _ZdlPvm
+mov esi, 0x68
+mov rdi, rbp
+call _ZdlPvm
+mov rax, r12
+pop rbx
+pop rbp
+pop r12
+ret

@@ -1,0 +1,13 @@
+fld xword [rsp + 8]
+fabs
+fld xword [0x0800012c]
+fucompi st(1)
+fld xword [0x08000134]
+fxch st(1)
+setb al
+fucompi st(1)
+fstp st(0)
+setb dl
+or eax, edx
+xor eax, 1
+ret

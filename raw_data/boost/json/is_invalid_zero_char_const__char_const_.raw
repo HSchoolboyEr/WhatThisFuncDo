@@ -1,0 +1,9 @@
+xor eax, eax
+cmp byte [rdi], 0x30
+jne 0x8003de7
+lea rdx, [rdi + 1]
+cmp rsi, rdx
+je 0x8003de7
+cmp byte [rdi + 1], 0x2f
+setne al
+ret

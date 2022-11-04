@@ -1,0 +1,84 @@
+sub rsp, 0x28
+fld xword [rdi]
+fld st(0)
+fabs
+fld xword [0x08000070]
+fucompi st(1)
+fstp st(0)
+jae 0x80000b0
+fstp xword [rsp]
+call __errno_location
+fld xword [rsp]
+pxor xmm0, xmm0
+mov dword [rax], 0x22
+movss dword [var_14h], xmm0
+fldz
+fxch st(1)
+mov dword [rax], 0x22
+xor eax, eax
+fucompi st(1)
+fstp st(0)
+setbe al
+add rsp, 0x28
+add eax, 0x7fffffff
+ret
+nop
+fnstcw word [rsp + 0x1e]
+fldz
+fxch st(1)
+pxor xmm1, xmm1
+movss dword [var_14h], xmm1
+movzx eax, word [var_1eh]
+and ah, 0xf3
+fcomi st(1)
+fstp st(1)
+jb 0x8000128
+or ah, 4
+fld st(0)
+mov word [var_18h], ax
+fldcw word [rsp + 0x18]
+frndint
+fldcw word [rsp + 0x1e]
+fld qword [0x080000ea]
+fxch st(1)
+fcomi st(1)
+fstp st(1)
+ja 0x8000150
+fld dword [0x080000f8]
+fcompi st(1)
+ja 0x8000158
+fstp st(1)
+fnstcw word [rsp + 0x1e]
+movzx eax, word [var_1eh]
+or ah, 0xc
+mov word [var_1ch], ax
+fldcw word [rsp + 0x1c]
+fistp dword [rsp + 0x14]
+fldcw word [rsp + 0x1e]
+mov eax, dword [var_14h]
+add rsp, 0x28
+ret
+nop dword [rax]
+or ah, 8
+fld st(0)
+mov word [var_1ah], ax
+fldcw word [rsp + 0x1a]
+frndint
+fldcw word [rsp + 0x1e]
+fld qword [0x08000142]
+fxch st(1)
+fcomi st(1)
+fstp st(1)
+jbe 0x80000f2
+fstp st(0)
+jmp 0x8000160
+nop
+fstp st(0)
+jmp 0x8000160
+nop dword [rax]
+fstp st(0)
+nop word [rax + rax]
+fstp xword [rsp]
+call __errno_location
+fld xword [rsp]
+jmp 0x8000091

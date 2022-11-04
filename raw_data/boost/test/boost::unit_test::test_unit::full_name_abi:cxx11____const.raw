@@ -1,0 +1,115 @@
+push r13
+mov eax, 0xffffffff
+push r12
+mov r12, rdi
+push rbp
+push rbx
+mov rbx, rsi
+sub rsp, 0x28
+cmp qword [rsi + 0x38], rax
+je 0x8000c7a
+call _ZN5boost9unit_test9framework17master_test_suiteEv
+mov rdi, qword [rbx + 0x38]
+cmp qword [rax + 0x38], rdi
+jne 0x8000ce0
+lea rdi, [r12 + 0x10]
+mov r13, qword [rbx + 0x90]
+mov qword [r12], rdi
+mov rbp, qword [rbx + 0x88]
+mov rax, rbp
+add rax, r13
+je 0x8000ca2
+test rbp, rbp
+je .LC0
+mov qword [rsp], r13
+cmp r13, 0xf
+ja 0x8000d78
+cmp r13, 1
+jne 0x8000db0
+movzx eax, byte [rbp]
+mov byte [r12 + 0x10], al
+mov qword [r12 + 8], r13
+mov rax, r12
+mov byte [rdi + r13], 0
+add rsp, 0x28
+pop rbx
+pop rbp
+pop r12
+pop r13
+ret
+nop dword [rax + rax]
+mov esi, 0x10
+mov rbp, rsp
+call _ZN5boost9unit_test9framework3getEmNS0_14test_unit_typeE
+mov rdi, rbp
+mov rsi, rax
+call _ZNK5boost9unit_test9test_unit9full_nameB5cxx11Ev
+add byte [rax], al
+add byte [rax], al
+movabs rax, 0x3fffffffffffffff
+cmp qword [var_8h], rax
+je .LC1
+mov edx, 1
+lea rsi, [0x08000d19]
+mov rdi, rbp
+call _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_appendEPKcm
+add byte [rax], al
+add byte [rax], al
+mov rdx, qword [rbx + 0x90]
+mov rsi, qword [rbx + 0x88]
+mov rdi, rbp
+call _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_appendEPKcm
+lea rax, [r12 + 0x10]
+lea rdx, [var_10h]
+mov qword [r12], rax
+mov rax, qword [rsp]
+cmp rax, rdx
+je 0x8000dc0
+mov qword [r12], rax
+mov rax, qword [var_10h]
+mov qword [r12 + 0x10], rax
+mov rax, qword [var_8h]
+mov qword [r12 + 8], rax
+add rsp, 0x28
+mov rax, r12
+pop rbx
+pop rbp
+pop r12
+pop r13
+ret
+nop dword [rax]
+mov rdi, r12
+mov rsi, rsp
+xor edx, edx
+call _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm
+add byte [rax], al
+add byte [rax], al
+mov qword [r12], rax
+mov rdi, rax
+mov rax, qword [rsp]
+mov qword [r12 + 0x10], rax
+mov rdx, r13
+mov rsi, rbp
+call memcpy
+mov r13, qword [rsp]
+mov rdi, qword [r12]
+jmp 0x8000cc3
+nop dword [rax]
+test r13, r13
+je 0x8000cc3
+jmp 0x8000d95
+nop dword [rax + rax]
+movdqa xmm0, xmmword [var_10h]
+movups xmmword [r12 + 0x10], xmm0
+jmp 0x8000d5c
+lea rdi, [0x08000dd5]
+call _ZSt19__throw_logic_errorPKc
+add byte [rax], al
+add byte [rax], al
+lea rdi, [0x08000de1]
+call _ZSt20__throw_length_errorPKc
+add byte [rax], al
+add byte [rax], al
+mov rbp, rax
+jmp .text.unlikely
+nop

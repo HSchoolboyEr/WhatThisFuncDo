@@ -1,0 +1,25 @@
+push rbp
+mov rbp, rsp
+push r14
+push r12
+push rbx
+mov ebx, edi
+sub rsp, 0x48
+test edi, edi
+setne al
+mov r14d, eax
+test rcx, rcx
+je .text.unlikely
+lea rax, [0x080015e7]
+mov dword [rcx], edi
+mov qword [rcx + 8], rax
+mov eax, r14d
+add rax, 2
+and eax, 7
+mov qword [rcx + 0x10], rax
+lea rsp, [var_18h]
+pop rbx
+pop r12
+pop r14
+pop rbp
+ret

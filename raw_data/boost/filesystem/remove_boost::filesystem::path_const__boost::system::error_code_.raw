@@ -1,0 +1,91 @@
+push rbp
+mov rbp, rsp
+push r12
+mov r12, rsi
+push rbx
+mov rbx, rdi
+sub rsp, 0x130
+test rsi, rsi
+je 0x800487f
+mov dword [rsi], 0
+mov qword [rsi + 8], 0
+mov qword [rsi + 0x10], 0
+mov rsi, qword [rbx]
+mov edx, 0x900
+mov ecx, 3
+lea r8, [var_110h]
+mov dword [var_130h], 0
+mov edi, 0xffffff9c
+mov qword [var_128h], 0
+mov qword [var_120h], 0
+call statx
+mov edx, eax
+test eax, eax
+je 0x8004930
+call __errno_location
+mov edx, 2
+lea rcx, [0x080048d4]
+mov eax, dword [rax]
+mov qword [var_128h], rcx
+cmp eax, 1
+mov dword [var_130h], eax
+sbb rdx, 0xffffffffffffffff
+mov qword [var_120h], rdx
+cmp eax, 2
+je 0x8004920
+cmp eax, 0x14
+je 0x8004920
+test r12, r12
+je .text.unlikely
+mov rax, qword [var_120h]
+movdqu xmm0, xmmword [var_130h]
+mov qword [r12 + 0x10], rax
+movups xmmword [r12], xmm0
+nop dword [rax]
+xor eax, eax
+lea rsp, [var_10h]
+pop rbx
+pop r12
+pop rbp
+ret
+nop dword [rax + rax]
+mov eax, dword [var_110h]
+and eax, 3
+cmp eax, 3
+jne 0x80049b0
+movzx eax, word [var_f4h]
+mov rsi, qword [rbx]
+mov edi, 0xffffff9c
+and ax, 0xf000
+cmp ax, 0x4000
+mov eax, 0x200
+cmove edx, eax
+call unlinkat
+mov r8d, eax
+mov eax, 1
+test r8d, r8d
+je 0x8004922
+call __errno_location
+mov edi, dword [rax]
+cmp edi, 2
+sete al
+cmp edi, 0x14
+sete dl
+or al, dl
+jne 0x8004920
+lea rcx, [0x0800498d]
+mov rdx, r12
+mov rsi, rbx
+mov byte [var_131h], al
+call _ZN5boost10filesystem10emit_errorEiRKNS0_4pathEPNS_6system10error_codeEPKc
+movzx eax, byte [var_131h]
+jmp 0x8004922
+nop word [rax + rax]
+lea rdx, [var_130h]
+lea rcx, [0x080049be]
+mov rsi, rbx
+mov edi, 0x26
+call _ZN5boost10filesystem10emit_errorEiRKNS0_4pathEPNS_6system10error_codeEPKc
+jmp 0x80048fb
+jmp .text.unlikely
+nop word cs:[rax + rax]

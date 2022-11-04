@@ -1,0 +1,23 @@
+mov rdx, qword [rdi + 0x90]
+cmp qword [rdx + 0x228], 0x7f
+ja 0x80020c3
+mov rax, rsi
+lea rsi, [rdx + 0x220]
+mov rdi, qword [rax]
+jmp .text
+push r12
+xor ecx, ecx
+xor edx, edx
+mov esi, 9
+push rbp
+sub rsp, 0x98
+mov r12, rsp
+mov rdi, r12
+call _ZN5boost7archive17archive_exceptionC1ENS1_14exception_codeEPKcS4_
+mov rdi, r12
+call _ZN5boost13serialization15throw_exceptionINS_7archive17archive_exceptionEEEvRKT_
+mov rbp, rax
+mov rdi, r12
+call _ZN5boost7archive17archive_exceptionD1Ev
+mov rdi, rbp
+call _Unwind_Resume

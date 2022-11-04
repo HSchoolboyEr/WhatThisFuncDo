@@ -1,0 +1,99 @@
+push r13
+mov rax, rdi
+push r12
+push rbp
+push rbx
+mov r11, qword [rsi]
+mov rdi, qword [r11]
+cmp rdi, qword [rsi + 8]
+je 0x8004600
+mov rax, qword [rax + 8]
+mov r12, qword [rax + 8]
+mov rbx, qword [rax]
+cmp r12, rbx
+je 0x8004600
+mov rbp, r12
+mov r8d, dword [rdi]
+mov r10, rsi
+mov rsi, rbx
+sub rbp, rbx
+sar rbp, 3
+mov rax, rbp
+nop dword [rax + rax]
+test rax, rax
+jle 0x8004560
+mov rdx, rax
+sar rdx, 1
+lea rcx, [rsi + rdx*8]
+cmp r8d, dword [rcx]
+jle 0x8004618
+sub rax, rdx
+lea rsi, [rcx + 8]
+sub rax, 1
+test rax, rax
+jg 0x800453d
+cmp r12, rsi
+je 0x80045f5
+cmp r8d, dword [rsi]
+jl 0x80045f0
+cmp r8d, dword [rsi + 4]
+jg 0x80045f0
+add rdi, 4
+mov r9d, 1
+mov qword [r11], rdi
+nop dword [rax]
+mov r13, r9
+cmp qword [r10 + 8], rdi
+je 0x8004607
+mov r8d, dword [rdi]
+mov rsi, rbx
+mov rax, rbp
+test rax, rax
+jle 0x80045c2
+mov rdx, rax
+sar rdx, 1
+lea rcx, [rsi + rdx*8]
+cmp r8d, dword [rcx]
+jle 0x8004630
+sub rax, rdx
+lea rsi, [rcx + 8]
+sub rax, 1
+test rax, rax
+jg 0x800459f
+cmp r12, rsi
+je 0x80045d7
+cmp r8d, dword [rsi]
+jl 0x80045d2
+cmp r8d, dword [rsi + 4]
+jle 0x80045e3
+cmp rbx, rsi
+je 0x8004607
+cmp r8d, dword [rsi - 8]
+jl 0x8004607
+cmp r8d, dword [rsi - 4]
+jg 0x8004607
+add rdi, 4
+add r9, 1
+mov qword [r11], rdi
+jmp 0x8004588
+cmp rbx, rsi
+je 0x8004600
+cmp r8d, dword [rsi - 8]
+jge 0x8004620
+nop dword [rax + rax]
+mov r13, 0xffffffffffffffff
+pop rbx
+mov rax, r13
+pop rbp
+pop r12
+pop r13
+ret
+nop dword [rax]
+mov rax, rdx
+jmp 0x8004538
+cmp r8d, dword [rsi - 4]
+jg 0x8004600
+jmp 0x8004578
+nop dword [rax + rax]
+mov rax, rdx
+jmp 0x800459a

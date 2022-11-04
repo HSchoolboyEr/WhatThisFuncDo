@@ -1,0 +1,104 @@
+push r15
+push r14
+push r13
+push r12
+mov r12, rdx
+push rbp
+mov rbp, rdi
+push rbx
+sub rsp, 0x18
+test rsi, rsi
+je 0x8007840
+cmp rdx, 0xffffffffffffff7f
+ja __errno_location
+lea r15, [rdx + 0x17]
+mov r13, rsi
+lea rsi, [rsi - 0x10]
+and r15, 0xfffffffffffffff0
+cmp rdx, 0x16
+mov edx, 0x20
+cmovbe r15, rdx
+test byte [rdi + 0x370], 2
+jne 0x8007770
+mov ecx, 1
+mov rdx, r15
+mov rdi, rbp
+call sym.try_realloc_chunk
+test byte [arg_370h], 2
+jne 0x80077d0
+test rax, rax
+je 0x80077e3
+lea r14, [rax + 0x10]
+add rsp, 0x18
+mov rax, r14
+pop rbx
+pop rbp
+pop r12
+pop r13
+pop r14
+pop r15
+ret
+nop dword [rax + rax]
+lea r14, [rdi + 0x374]
+mov eax, 1
+xchg dword [r14], eax
+xor ebx, ebx
+test eax, eax
+je 0x800772f
+nop dword [rax]
+mov eax, dword [arg_374h]
+test eax, eax
+jne 0x800779e
+mov eax, 1
+xchg dword [r14], eax
+test eax, eax
+je 0x800772f
+add ebx, 1
+test bl, 0x3f
+jne 0x8007788
+mov qword [var_8h], rsi
+call sched_yield
+mov rsi, qword [var_8h]
+jmp 0x8007788
+nop word [rax + rax]
+call __errno_location
+xor r14d, r14d
+mov dword [rax], 0xc
+jmp 0x8007759
+mov dword [arg_374h], 0
+test rax, rax
+jne 0x8007755
+mov rsi, r12
+mov rdi, rbp
+call mspace_malloc
+mov r14, rax
+test rax, rax
+je 0x8007759
+mov rax, qword [r13 - 8]
+mov rsi, r13
+mov rdi, r14
+mov rdx, rax
+and eax, 3
+and rdx, 0xfffffffffffffff8
+cmp rax, 1
+sbb rax, rax
+and eax, 8
+add rax, 8
+sub rdx, rax
+cmp rdx, r12
+cmova rdx, r12
+call memcpy
+mov rsi, r13
+mov rdi, rbp
+call mspace_free
+jmp 0x8007759
+nop dword [rax + rax]
+add rsp, 0x18
+mov rsi, rdx
+pop rbx
+pop rbp
+pop r12
+pop r13
+pop r14
+pop r15
+jmp sym.mspace_malloc

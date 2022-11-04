@@ -1,0 +1,120 @@
+push r13
+xor eax, eax
+push r12
+lea r12, [0x0800064d]
+add byte [rax], al
+add byte [rax], al
+push rbp
+mov ebp, 8
+push rbx
+mov rbx, rdi
+sub rsp, 0x18
+mov dword [rdi + 0x24], 0
+mov edi, dword [rdi + 0x2c]
+jmp 0x80006a6
+nop word [rax + rax]
+cmp ebp, edi
+mov r8d, edi
+mov edx, dword [rbx + 0x28]
+mov esi, 1
+cmovbe r8d, ebp
+sub edi, r8d
+sub ebp, r8d
+mov ecx, edi
+shr edx, cl
+mov ecx, r8d
+shl esi, cl
+sub esi, 1
+and edx, esi
+mov ecx, r8d
+mov dword [rbx + 0x2c], edi
+shl eax, cl
+or eax, edx
+mov dword [rbx + 0x24], eax
+test ebp, ebp
+je 0x80006bf
+test edi, edi
+jne 0x8000670
+cmp byte [rbx + 0x30], 0
+je 0x80006d0
+mov ecx, ebp
+mov qword [rbx + 0x28], 0
+shl eax, cl
+mov dword [rbx + 0x24], eax
+mov byte [rbx + 0x20], 1
+add rsp, 0x18
+pop rbx
+pop rbp
+pop r12
+pop r13
+ret
+nop
+cmp byte [rbx + 0x11], 0
+je 0x8000752
+mov rdi, qword [rbx]
+call _ZNSt13basic_istreamIwSt11char_traitsIwEE4peekEv
+add byte [rax], al
+add byte [rax], al
+cmp eax, 0x7f
+ja _ZTVN5boost7archive9iterators18dataflow_exceptionE
+mov eax, eax
+movsx r13d, byte [r12 + rax]
+cmp r13b, 0xff
+je 0x800076e
+mov rdi, qword [rbx]
+mov byte [rbx + 0x11], 0
+test rdi, rdi
+je 0x800070a
+mov esi, 1
+call _ZNSt13basic_istreamIwSt11char_traitsIwEE6ignoreEl
+add byte [rax], al
+add byte [rax], al
+mov edi, 6
+cmp ebp, 6
+mov edx, 1
+mov eax, dword [rbx + 0x24]
+mov r8d, edi
+mov dword [rbx + 0x28], r13d
+cmovbe r8d, ebp
+mov ecx, r8d
+sub edi, r8d
+sub ebp, r8d
+shl edx, cl
+mov ecx, edi
+sub edx, 1
+shr r13d, cl
+and edx, r13d
+jmp 0x8000695
+mov rdi, qword [rbx]
+test rdi, rdi
+je _ZNSt13basic_istreamIwSt11char_traitsIwEE4peekEv
+mov esi, 1
+call _ZNSt13basic_istreamIwSt11char_traitsIwEE6ignoreEl
+mov rdi, qword [rbx]
+call _ZNSt13basic_istreamIwSt11char_traitsIwEE4peekEv
+mov edi, eax
+call iswspace
+test eax, eax
+jne 0x8000740
+mov byte [rbx + 0x11], 1
+jmp _ZNSt13basic_istreamIwSt11char_traitsIwEE4peekEv
+lea rbx, [0x08000775]
+mov edi, 0x10
+mov dword [var_8h], 1
+mov qword [rsp], rbx
+call __cxa_allocate_exception
+lea rdx, [0x08000792]
+add byte [rax], al
+add byte [rax], al
+lea rsi, [0x08000799]
+mov qword [rax], rbx
+mov rdi, rax
+mov eax, dword [var_8h]
+mov dword [rdi + 8], eax
+call __cxa_throw
+mov rbp, rax
+mov rdi, rsp
+mov qword [rsp], rbx
+call _ZNSt9exceptionD2Ev
+mov rdi, rbp
+call _Unwind_Resume

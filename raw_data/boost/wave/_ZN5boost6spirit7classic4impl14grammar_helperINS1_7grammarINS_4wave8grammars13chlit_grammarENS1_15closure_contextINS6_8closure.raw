@@ -1,0 +1,74 @@
+mov rdx, qword [rdi + 8]
+mov rax, qword [rdi + 0x10]
+mov rcx, qword [rsi + 0x28]
+sub rax, rdx
+sar rax, 3
+cmp rax, rcx
+jbe 0x8002c18
+push r12
+push rbp
+lea rbp, [rcx*8]
+add rdx, rbp
+push rbx
+mov rbx, rdi
+mov r12, qword [rdx]
+test r12, r12
+je 0x8002bd5
+mov rdi, qword [r12 + 0x18]
+test rdi, rdi
+je 0x8002bad
+mov rax, qword [rdi]
+lea rdx, [0x08002b9a]
+mov rax, qword [rax + 8]
+cmp rax, rdx
+jne 0x8002c20
+mov esi, 0x3d0
+call _ZdlPvm
+xor edx, edx
+mov r8d, 1
+xor ecx, ecx
+xor esi, esi
+mov rdi, r12
+call _ZN5boost6detail12set_tss_dataEPKvPFvPFvPvES3_ES5_S3_b
+mov esi, 0x20
+mov rdi, r12
+call _ZdlPvm
+mov rdx, qword [rbx + 8]
+add rdx, rbp
+mov qword [rdx], 0
+sub qword [rbx + 0x20], 1
+jne 0x8002c0c
+mov rbp, qword [rbx + 0x30]
+pxor xmm0, xmm0
+movups xmmword [rbx + 0x28], xmm0
+test rbp, rbp
+je 0x8002c0c
+lock sub dword [arg_8h], 1
+jne 0x8002c0c
+mov rax, qword [rbp]
+mov rdi, rbp
+call qword [rax + 0x10]
+lock sub dword [arg_ch], 1
+je 0x8002c28
+pop rbx
+xor eax, eax
+pop rbp
+pop r12
+ret
+nop dword [rax + rax]
+xor eax, eax
+ret
+nop dword [rax + rax]
+call rax
+jmp 0x8002bad
+nop dword [rax]
+mov rax, qword [rbp]
+lea rcx, [0x08002c33]
+mov rdi, rbp
+mov rdx, qword [rax + 0x18]
+cmp rdx, rcx
+jne 0x8002c44
+call qword [rax + 8]
+jmp 0x8002c0c
+call rdx
+jmp 0x8002c0c

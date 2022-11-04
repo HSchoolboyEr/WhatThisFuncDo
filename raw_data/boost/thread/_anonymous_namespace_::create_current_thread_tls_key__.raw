@@ -1,0 +1,5 @@
+lea rsi, [sym.tls_destructor]
+lea rdi, [0x08000b8e]
+jmp pthread_key_create
+nop word cs:[rax + rax]
+nop

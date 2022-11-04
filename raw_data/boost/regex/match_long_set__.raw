@@ -1,0 +1,24 @@
+push rbx
+mov rbx, rdi
+mov rdi, qword [rdi + 0x28]
+mov rsi, qword [rbx + 0x20]
+cmp rdi, rsi
+je 0x800e838
+mov rax, qword [rbx + 0x48]
+mov rdx, qword [rbx + 0x58]
+movzx r8d, byte [rbx + 0x78]
+mov rcx, qword [rax]
+call _ZN5boost13re_detail_50016re_is_set_memberIPKwwNS_14c_regex_traitsIwEEjEET_S6_S6_PKNS0_11re_set_longIT2_EERKNS0_10regex_dataIT0_T1_EEb
+cmp qword [rbx + 0x28], rax
+je 0x800e838
+mov rdx, qword [rbx + 0x58]
+mov rdx, qword [rdx + 8]
+mov qword [rbx + 0x28], rax
+mov eax, 1
+mov qword [rbx + 0x58], rdx
+pop rbx
+ret
+nop dword [rax + rax]
+xor eax, eax
+pop rbx
+ret

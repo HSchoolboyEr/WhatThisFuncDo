@@ -1,0 +1,114 @@
+push r13
+push r12
+push rbp
+push rbx
+mov rbx, rdi
+mov edi, 0x18
+sub rsp, 8
+call _Znwm
+mov edi, 0x18
+mov rbx, qword [rbx + 8]
+mov r12, rax
+lea rax, [0x0800654a]
+mov qword [r12], rax
+call _Znwm
+mov r13, qword [rbx + 8]
+pxor xmm0, xmm0
+sub r13, qword [rbx]
+mov rbp, rax
+mov qword [rax + 0x10], 0
+movups xmmword [rax], xmm0
+je 0x8006628
+movabs rax, 0x7ffffffffffffff8
+cmp r13, rax
+ja _ZSt17__throw_bad_allocv
+mov rdi, r13
+call _Znwm
+mov rcx, rax
+movq xmm0, rcx
+add r13, rcx
+punpcklqdq xmm0, xmm0
+mov qword [arg_10h], r13
+movups xmmword [rbp], xmm0
+mov rsi, qword [rbx + 8]
+mov rdi, qword [rbx]
+cmp rsi, rdi
+je 0x80065cc
+sub rsi, rdi
+xor eax, eax
+nop dword [rax]
+mov rdx, qword [rdi + rax]
+mov qword [rcx + rax], rdx
+add rax, 8
+cmp rsi, rax
+jne 0x80065b8
+add rcx, rsi
+mov qword [arg_8h], rcx
+mov edi, 0x18
+mov qword [r12 + 8], rbp
+mov qword [r12 + 0x10], 0
+call _Znwm
+mov qword [rax + 0x10], rbp
+mov rdx, qword [0x080065f3]
+lea rbx, [0x080065fa]
+mov rbp, qword [r12 + 0x10]
+mov qword [rax], rbx
+mov qword [rax + 8], rdx
+mov qword [r12 + 0x10], rax
+test rbp, rbp
+je 0x8006617
+lock sub dword [arg_8h], 1
+je 0x8006638
+add rsp, 8
+mov rax, r12
+pop rbx
+pop rbp
+pop r12
+pop r13
+ret
+nop dword [rax]
+xor r13d, r13d
+xor ecx, ecx
+jmp 0x8006590
+nop word [rax + rax]
+mov rax, qword [rbp]
+mov rdi, rbp
+call qword [rax + 0x10]
+lock sub dword [arg_ch], 1
+jne 0x8006617
+mov rax, qword [rbp]
+lea rcx, [0x08006654]
+mov rdi, rbp
+mov rdx, qword [rax + 0x18]
+cmp rdx, rcx
+jne 0x8006665
+call qword [rax + 8]
+jmp 0x8006617
+call rdx
+jmp 0x8006617
+call _ZSt17__throw_bad_allocv
+mov rdi, rax
+jmp __cxa_begin_catch
+mov rbp, rax
+jmp 0x80066a3
+mov rbx, rax
+jmp 0x80066b8
+call __cxa_begin_catch
+mov rdi, rbp
+call _ZN5boost14checked_deleteINS_6spirit7classic11basic_chsetIwEEEEvPT_
+call __cxa_rethrow
+call __cxa_end_catch
+mov rdi, qword [r12 + 0x10]
+test rdi, rdi
+je 0x80066a3
+call _ZN5boost6detail15sp_counted_base7releaseEv
+mov rdi, r12
+mov esi, 0x18
+call _ZdlPvm
+mov rdi, rbp
+call _Unwind_Resume
+mov rdi, rbp
+mov esi, 0x18
+mov rbp, rbx
+call _ZdlPvm
+jmp 0x80066a3

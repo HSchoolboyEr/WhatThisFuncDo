@@ -1,0 +1,11 @@
+lea rax, [0x08001247]
+mov qword [rdi], rax
+mov rdi, qword [rdi + 8]
+cmp rdi, 0xffffffffffffffff
+je 0x8001268
+sub rsp, 8
+call iconv_close
+add rsp, 8
+ret
+nop word [rax + rax]
+ret

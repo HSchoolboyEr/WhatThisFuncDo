@@ -1,0 +1,182 @@
+push r15
+push r14
+push r13
+push r12
+push rbp
+push rbx
+sub rsp, 0x38
+mov rbp, qword [rdi + 8]
+test rbp, rbp
+je 0x800236e
+lock sub dword [arg_8h], 1
+je 0x8002380
+add rsp, 0x38
+pop rbx
+pop rbp
+pop r12
+pop r13
+pop r14
+pop r15
+ret
+nop dword [rax]
+mov rax, qword [rbp]
+lea rdx, [0x0800238b]
+mov rax, qword [rax + 0x10]
+cmp rax, rdx
+jne 0x8002628
+cmp byte [arg_18h], 0
+jne 0x80023e0
+lock sub dword [arg_ch], 1
+jne 0x800236e
+mov rax, qword [rbp]
+lea rcx, [0x080023b0]
+mov rdx, qword [rax + 0x18]
+cmp rdx, rcx
+jne 0x80023d0
+mov rax, qword [rax + 8]
+add rsp, 0x38
+mov rdi, rbp
+pop rbx
+pop rbp
+pop r12
+pop r13
+pop r14
+pop r15
+jmp rax
+mov rdi, rbp
+call rdx
+jmp 0x800236e
+nop word [rax + rax]
+lea rax, [arg_20h]
+mov qword [var_20h], rax
+mov rax, qword [arg_a8h]
+and rax, 0xfffffffffffffffe
+jne 0x800257f
+mov rcx, qword [arg_78h]
+mov rax, qword [arg_88h]
+mov r14, qword [arg_90h]
+mov r12, qword [arg_68h]
+mov qword [var_18h], rcx
+mov rcx, qword [arg_80h]
+mov qword [var_10h], rax
+mov rax, qword [arg_a0h]
+lea r13, [rcx + 8]
+mov qword [var_28h], rcx
+mov qword [var_8h], rax
+cmp rax, r13
+jbe 0x8002482
+nop dword [rax + rax]
+mov r15, qword [r13]
+lea rbx, [r15 + 0x200]
+nop dword [rax + rax]
+mov rdi, qword [r15 + 0x20]
+lea rdx, [r15 + 0x30]
+cmp rdi, rdx
+je 0x80025e0
+mov rax, qword [r15 + 0x30]
+add r15, 0x40
+lea rsi, [rax + 1]
+call _ZdlPvm
+cmp r15, rbx
+jne 0x8002450
+add r13, 8
+cmp qword [var_8h], r13
+ja 0x8002440
+mov rcx, qword [var_28h]
+cmp qword [var_8h], rcx
+je 0x80025d1
+cmp r12, qword [var_18h]
+je 0x80024cc
+nop dword [rax]
+mov rdi, qword [r12 + 0x20]
+lea rax, [r12 + 0x30]
+cmp rdi, rax
+je 0x8002610
+mov rax, qword [r12 + 0x30]
+add r12, 0x40
+lea rsi, [rax + 1]
+call _ZdlPvm
+cmp qword [var_18h], r12
+jne 0x80024a0
+cmp qword [var_10h], r14
+je 0x8002501
+nop dword [rax + rax]
+mov rdi, qword [r14 + 0x20]
+lea rax, [r14 + 0x30]
+cmp rdi, rax
+je 0x80025f8
+mov rax, qword [r14 + 0x30]
+add r14, 0x40
+lea rsi, [rax + 1]
+call _ZdlPvm
+cmp qword [var_10h], r14
+jne 0x80024d8
+mov rdi, qword [arg_58h]
+test rdi, rdi
+je 0x8002553
+mov rax, qword [arg_a0h]
+mov rbx, qword [arg_80h]
+lea r12, [rax + 8]
+cmp r12, rbx
+jbe 0x8002542
+nop dword [rax]
+mov rdi, qword [rbx]
+mov esi, 0x200
+add rbx, 8
+call _ZdlPvm
+cmp r12, rbx
+ja 0x8002528
+mov rdi, qword [arg_58h]
+mov rax, qword [arg_60h]
+lea rsi, [rax*8]
+call _ZdlPvm
+mov rdi, qword [var_20h]
+call pthread_rwlock_destroy
+mov byte [arg_18h], 0
+jmp 0x800239e
+nop word cs:[rax + rax]
+mov rcx, qword [rdx + 0x10]
+mov qword [rax + 8], rcx
+mov qword [rdx + 0x10], rax
+mov rax, rdx
+mov rdx, qword [rax + 8]
+test rdx, rdx
+jne 0x8002570
+mov rdx, qword [rax + 0x10]
+and qword [rax], 1
+mov qword [rax + 0x10], 0
+test rdx, rdx
+je 0x80023fa
+mov rax, rdx
+jmp 0x800257f
+nop word cs:[rax + rax]
+mov rdi, qword [r12 + 0x20]
+lea rax, [r12 + 0x30]
+cmp rdi, rax
+je 0x80025cd
+mov rax, qword [r12 + 0x30]
+lea rsi, [rax + 1]
+call _ZdlPvm
+add r12, 0x40
+cmp qword [var_10h], r12
+jne 0x80025b0
+jmp 0x8002501
+nop dword [rax]
+add r15, 0x40
+cmp r15, rbx
+jne 0x8002450
+jmp 0x8002477
+nop word [rax + rax]
+add r14, 0x40
+cmp qword [var_10h], r14
+jne 0x80024d8
+jmp 0x8002501
+nop dword [rax]
+add r12, 0x40
+cmp qword [var_18h], r12
+jne 0x80024a0
+jmp 0x80024cc
+nop dword [rax]
+mov rdi, rbp
+call rax
+jmp 0x800239e

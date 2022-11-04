@@ -1,0 +1,30 @@
+push r12
+mov r12, rdi
+call _ZNK5boost10filesystem4path11filename_v3Ev
+add byte [rax], al
+add byte [rax], al
+lea rsi, [0x08003351]
+mov rdi, r12
+call _ZNK5boost10filesystem4path10compare_v4ERKS1_
+test eax, eax
+jne 0x8003368
+mov rax, r12
+pop r12
+ret
+nop dword [rax + rax]
+lea rsi, [0x0800336f]
+mov rdi, r12
+call _ZNK5boost10filesystem4path10compare_v4ERKS1_
+test eax, eax
+je 0x800335d
+mov rdx, 0xffffffffffffffff
+mov esi, 0x2e
+mov rdi, r12
+call _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5rfindEcm
+cmp rax, 0xffffffffffffffff
+je 0x800335d
+mov rdx, qword [r12]
+mov qword [r12 + 8], rax
+add rdx, rax
+mov byte [rdx], 0
+jmp 0x800335d

@@ -1,0 +1,7 @@
+push r12
+mov r12, rdi
+lea rdi, [rdi + 0x98]
+call _ZNSt13basic_ostreamIwSt11char_traitsIwEE9_M_insertIlEERS2_T_
+mov rax, r12
+pop r12
+ret

@@ -1,0 +1,6 @@
+mov r8, qword [rsi]
+mov rdx, qword [rsi + 8]
+mov rdi, qword [rdi + 0x30]
+add rdx, r8
+mov rsi, r8
+jmp _ZN5boost7archive13save_iteratorIPKcEEvRSt13basic_ostreamIwSt11char_traitsIwEET_S9_

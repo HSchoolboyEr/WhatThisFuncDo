@@ -1,0 +1,2 @@
+jmp boost_cont_memalign
+nop word cs:[rax + rax]

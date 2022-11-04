@@ -1,0 +1,15 @@
+push rbp
+mov rbp, rdi
+mov rdi, qword [rdi + 0x10]
+test rdi, rdi
+je 0x8007223
+mov rax, qword [rdi]
+call qword [rax + 8]
+mov rdi, rbp
+mov r8d, 1
+xor ecx, ecx
+xor edx, edx
+xor esi, esi
+call _ZN5boost6detail12set_tss_dataEPKvPFvPFvPvES3_ES5_S3_b
+pop rbp
+ret

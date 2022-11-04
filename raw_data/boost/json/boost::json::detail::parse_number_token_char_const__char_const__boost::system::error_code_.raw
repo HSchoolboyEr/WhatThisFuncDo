@@ -1,0 +1,82 @@
+mov r9, rdx
+mov rdx, qword [rdi]
+cmp rdx, rsi
+je 0x8003ea2
+movzx eax, byte [rdx]
+cmp al, 0x30
+je 0x8003e90
+cmp al, 0x2d
+jne 0x8003f30
+lea rax, [rdx + 1]
+cmp rsi, rax
+je .data.rel.local
+xor r8d, r8d
+cmp byte [rdx + 1], 0x2f
+jne 0x8003e80
+jmp .data.rel.local
+nop dword [rax]
+sub eax, 0x30
+cmp eax, 9
+ja 0x8003ed0
+lea rcx, [r8 + r8*4]
+lea rax, [rax + rcx*2]
+cmp rax, r8
+jb .data.rel.local
+add rdx, 1
+mov r8, rax
+mov qword [rdi], rdx
+cmp rdx, rsi
+je 0x8003e87
+movsx eax, byte [rdx]
+cmp al, 0x2f
+jne 0x8003e58
+mov rax, r8
+ret
+nop dword [rax + rax]
+lea rax, [rdx + 1]
+xor r8d, r8d
+cmp rsi, rax
+je 0x8003e80
+cmp byte [rdx + 1], 0x2f
+je 0x8003e80
+lea rax, [0x08003ea9]
+xor r8d, r8d
+mov dword [r9], 0x14
+mov qword [r9 + 8], rax
+lea rax, [0x08003ebe]
+or rax, 1
+mov qword [r9 + 0x10], rax
+mov rax, r8
+ret
+nop word [rax + rax]
+lea rax, [0x08003ed7]
+xor r8d, r8d
+mov dword [r9], 0x14
+mov qword [r9 + 8], rax
+lea rax, [0x08003eec]
+or rax, 1
+mov qword [r9 + 0x10], rax
+mov rax, r8
+ret
+nop dword [rax + rax]
+lea rax, [0x08003f07]
+xor r8d, r8d
+mov dword [r9], 0x17
+mov qword [r9 + 8], rax
+lea rax, [0x08003f1c]
+or rax, 1
+mov qword [r9 + 0x10], rax
+mov rax, r8
+ret
+nop dword [rax + rax]
+xor r8d, r8d
+jmp 0x8003e80
+nop dword [rax + rax]
+lea rax, [0x08003f47]
+mov dword [r9], 0x18
+xor r8d, r8d
+mov qword [r9 + 8], rax
+lea rax, [0x08003f5c]
+or rax, 1
+mov qword [r9 + 0x10], rax
+jmp 0x8003e87

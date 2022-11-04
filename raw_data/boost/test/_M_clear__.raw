@@ -1,0 +1,27 @@
+push r12
+push rbp
+push rbx
+mov rbp, qword [rdi]
+cmp rbp, rdi
+je 0x8008efb
+mov r12, rdi
+jmp 0x8008ecb
+nop dword [rax]
+mov rbp, rbx
+mov rdi, qword [arg_10h]
+lea rax, [arg_20h]
+mov rbx, qword [rbp]
+cmp rdi, rax
+je 0x8008ee9
+mov rax, qword [arg_20h]
+lea rsi, [rax + 1]
+call _ZdlPvm
+mov esi, 0x30
+mov rdi, rbp
+call _ZdlPvm
+cmp rbx, r12
+jne 0x8008ec8
+pop rbx
+pop rbp
+pop r12
+ret

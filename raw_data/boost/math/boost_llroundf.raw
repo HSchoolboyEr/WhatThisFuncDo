@@ -1,0 +1,98 @@
+sub rsp, 0x18
+movaps xmm2, xmm0
+movss xmm3, dword [0x0800004f]
+movss xmm1, dword [0x08000057]
+andps xmm2, xmm1
+ucomiss xmm3, xmm2
+jae 0x80000a0
+movss dword [var_8h], xmm0
+call __errno_location
+movss xmm0, dword [var_8h]
+pxor xmm3, xmm3
+mov dword [rax], 0x22
+comiss xmm0, xmm3
+mov dword [rax], 0x22
+movabs rdx, 0x8000000000000000
+movabs rax, 0x7fffffffffffffff
+cmovbe rax, rdx
+add rsp, 0x18
+ret
+comiss xmm0, dword [0x080000a7]
+ja 0x8000110
+pxor xmm3, xmm3
+movaps xmm4, xmm0
+movss xmm5, dword [0x080000b8]
+movaps xmm2, xmm0
+comiss xmm0, xmm3
+andps xmm4, xmm1
+jbe 0x8000188
+ucomiss xmm5, xmm4
+ja 0x8000128
+movaps xmm1, xmm2
+subss xmm2, xmm0
+comiss xmm2, dword [0x080000da]
+jbe 0x80000e4
+subss xmm1, dword [0x080000e4]
+comiss xmm1, dword [0x080000eb]
+ja __errno_location
+movss xmm2, dword [0x080000f5]
+comiss xmm2, xmm1
+ja 0x80001e1
+cvttss2si rax, xmm1
+add rsp, 0x18
+ret
+nop dword [rax + rax]
+movss xmm2, dword [0x08000118]
+xor eax, eax
+comiss xmm2, xmm0
+jbe 0x80000a9
+jmp 0x800009b
+nop dword [rax]
+cvttss2si eax, xmm0
+pxor xmm4, xmm4
+movss xmm5, dword [0x08000138]
+andnps xmm1, xmm0
+cvtsi2ss xmm4, eax
+cmpnless xmm2, xmm4
+andps xmm2, xmm5
+addss xmm2, xmm4
+orps xmm2, xmm1
+movaps xmm1, xmm2
+subss xmm2, xmm0
+comiss xmm2, dword [0x0800015c]
+jbe 0x80000e4
+jmp .LC6
+nop dword [rax + rax]
+call __errno_location
+mov dword [rax], 0x22
+add rsp, 0x18
+movabs rax, 0x7fffffffffffffff
+ret
+nop word [rax + rax]
+ucomiss xmm5, xmm4
+jbe 0x80001b9
+cvttss2si eax, xmm0
+pxor xmm4, xmm4
+movss xmm2, dword [0x0800019d]
+andnps xmm1, xmm0
+cvtsi2ss xmm4, eax
+movaps xmm5, xmm4
+cmpnless xmm5, xmm0
+andps xmm5, xmm2
+subss xmm4, xmm5
+movaps xmm2, xmm4
+orps xmm2, xmm1
+movaps xmm1, xmm2
+movaps xmm2, xmm0
+subss xmm2, xmm1
+comiss xmm2, dword [0x080001ca]
+jbe 0x80001d4
+addss xmm1, dword [0x080001d4]
+comiss xmm1, dword [0x080001db]
+jbe .LC8
+movss dword [var_ch], xmm3
+movss dword [var_8h], xmm0
+call __errno_location
+movss xmm0, dword [var_8h]
+movss xmm3, dword [var_ch]
+jmp 0x800007a

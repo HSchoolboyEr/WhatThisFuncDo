@@ -1,0 +1,121 @@
+push rbx
+sub rsp, 0x20
+movss xmm1, dword [rdi]
+movaps xmm0, xmm1
+andps xmm0, xmmword [0x08000083]
+ucomiss xmm0, dword [0x0800008a]
+ja 0x80000e0
+ucomiss xmm0, xmm0
+jp 0x80000e0
+comiss xmm0, dword [0x08000098]
+mov rbx, rdi
+jae 0x8000110
+pxor xmm2, xmm2
+ucomiss xmm1, xmm2
+jp .LC6
+jne .LC6
+comiss xmm1, dword [0x080000b7]
+jae __errno_location
+stmxcsr dword [rsp + 0xc]
+movss xmm0, dword [0x080000ca]
+test dword [var_ch], 0x8040
+jne 0x8000104
+movss xmm0, dword [0x080000dc]
+jmp 0x8000104
+nop
+pxor xmm2, xmm2
+movss xmm0, dword [0x080000ec]
+comiss xmm2, xmm1
+ja 0x8000104
+call __errno_location
+movss xmm0, dword [0x080000fe]
+mov dword [rax], 0x21
+add rsp, 0x20
+pop rbx
+ret
+nop word [rax + rax]
+comiss xmm1, dword [0x08000117]
+jae __errno_location
+pxor xmm2, xmm2
+ucomiss xmm1, xmm2
+jnp 0x8000220
+movzx eax, byte [0x0800012d]
+test al, al
+je _ZGVZN5boost4math6detail19get_min_shift_valueIfEET_vE3val
+movss xmm3, dword [0x0800013d]
+movss xmm1, dword [rbx]
+comiss xmm3, xmm0
+jbe 0x80001b1
+ucomiss xmm1, dword [0x0800014d]
+jp 0x8000158
+comiss xmm1, dword [0x08000156]
+je 0x80001b1
+mov edi, 0x30
+movaps xmm0, xmm1
+call ldexpf
+lea rdi, [var_1ch]
+movss dword [var_1ch], xmm0
+call sym._ZN5boost4math6detail14float_next_impIfNS0_8policies6policyINS3_12domain_errorILNS3_17error_policy_typeE1EEENS3_10pole_errorIL
+add rsp, 0x20
+mov edi, 0xffffffd0
+pop rbx
+jmp ldexpf
+nop dword [rax]
+call __errno_location
+movss xmm0, dword [0x08000195]
+mov dword [rax], 0x22
+add rsp, 0x20
+pop rbx
+ret
+nop dword [rax]
+comiss xmm1, dword [0x080001af]
+jae __errno_location
+lea rdi, [var_1ch]
+movaps xmm0, xmm1
+movss dword [var_4h], xmm2
+call frexpf
+ucomiss xmm0, dword [0x080001cb]
+movss xmm2, dword [var_4h]
+jp 0x8000230
+jne 0x8000230
+mov eax, dword [var_1ch]
+lea edi, [rax - 1]
+movss xmm0, dword [0x080001e4]
+sub edi, 0x18
+movss dword [var_4h], xmm2
+call ldexpf
+movss xmm2, dword [var_4h]
+ucomiss xmm0, xmm2
+jp 0x8000216
+jne 0x8000216
+stmxcsr dword [rsp + 0xc]
+movss xmm0, dword [0x0800020c]
+test dword [var_ch], 0x8040
+je 0x8000240
+addss xmm0, dword [rbx]
+add rsp, 0x20
+pop rbx
+ret
+je 0x80000bd
+jmp _ZGVZN5boost4math6detail19get_min_shift_valueIfEET_vE3val
+nop dword [rax + rax]
+mov edi, dword [var_1ch]
+jmp 0x80001dc
+nop word cs:[rax + rax]
+movss xmm0, dword [0x08000248]
+jmp 0x8000216
+nop word [rax + rax]
+lea rdi, [0x08000257]
+movss dword [var_8h], xmm2
+movss dword [var_4h], xmm0
+call __cxa_guard_acquire
+movss xmm0, dword [var_4h]
+movss xmm2, dword [var_8h]
+test eax, eax
+je _ZZN5boost4math6detail19get_min_shift_valueIfEET_vE3val
+lea rdi, [0x08000283]
+mov dword [0x0800028d], 0xd000000
+call __cxa_guard_release
+movss xmm2, dword [var_8h]
+movss xmm0, dword [var_4h]
+jmp _ZZN5boost4math6detail19get_min_shift_valueIfEET_vE3val

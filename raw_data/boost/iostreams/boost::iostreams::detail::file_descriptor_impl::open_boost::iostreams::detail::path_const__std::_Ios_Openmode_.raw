@@ -1,0 +1,113 @@
+push r12
+mov r12, rdi
+push rbp
+mov rbp, rsi
+push rbx
+mov ebx, edx
+sub rsp, 0x30
+mov edi, dword [rdi]
+cmp edi, 0xffffffff
+je 0x80012ce
+test byte [r12 + 4], 1
+jne close
+mov rax, qword [0x080012ca]
+mov qword [r12], rax
+test bl, 0x19
+je _ZSt17iostream_categoryv
+mov eax, ebx
+and eax, 1
+test bl, 0x20
+je 0x8001340
+test eax, eax
+jne _ZSt17iostream_categoryv
+test bl, 0x10
+je _ZSt17iostream_categoryv
+xor esi, esi
+test bl, 8
+setne sil
+add esi, 0x241
+mov rdi, qword [rbp]
+mov edx, 0x1b6
+xor eax, eax
+call open
+mov ebp, eax
+cmp eax, 0xffffffff
+je 0x8001406
+and ebx, 2
+jne 0x8001388
+mov dword [r12], ebp
+mov dword [r12 + 4], 3
+add rsp, 0x30
+pop rbx
+pop rbp
+pop r12
+ret
+nop word [rax + rax]
+test bl, 8
+je 0x80013c0
+mov esi, 0x442
+test eax, eax
+jne 0x8001301
+mov esi, ebx
+mov eax, 2
+and esi, 0x10
+cmovne esi, eax
+jmp 0x8001301
+nop dword [rax]
+call close
+mov rdx, qword [0x0800136c]
+mov qword [r12], rdx
+cmp eax, 0xffffffff
+jne 0x80012ce
+lea rdi, [0x08001380]
+call _ZN5boost9iostreams6detail20throw_system_failureEPKc
+nop dword [rax]
+xor esi, esi
+mov edx, 2
+mov edi, eax
+call lseek64
+cmp rax, 0xffffffffffffffff
+jne 0x8001321
+mov edi, ebp
+lea r12, [var_10h]
+call close
+mov rdi, r12
+lea rsi, [0x080013b2]
+call _ZN5boost9iostreams6detail14system_failureB5cxx11EPKc
+add byte [rax], al
+add byte [rax], al
+mov rdi, r12
+call _ZN5boost15throw_exceptionINSt8ios_base7failureB5cxx11EEEvRKT_
+add byte [rax], al
+add byte [rax], al
+nop
+cmp eax, 1
+sbb esi, esi
+and esi, 0xfffffe00
+add esi, 0x441
+jmp 0x8001301
+call _ZSt17iostream_categoryv
+lea r12, [var_10h]
+mov rdx, rsp
+lea rsi, [0x080013ea]
+mov rdi, r12
+mov dword [rsp], 1
+mov qword [var_8h], rax
+call _ZNSt8ios_base7failureB5cxx11C1EPKcRKSt10error_code
+add byte [rax], al
+add byte [rax], al
+mov rdi, r12
+call _ZN5boost15throw_exceptionINSt8ios_base7failureB5cxx11EEEvRKT_
+lea r12, [var_10h]
+lea rsi, [0x08001412]
+mov rdi, r12
+call _ZN5boost9iostreams6detail14system_failureB5cxx11EPKc
+mov rdi, r12
+call _ZN5boost15throw_exceptionINSt8ios_base7failureB5cxx11EEEvRKT_
+mov rbp, rax
+jmp .text.unlikely
+mov rbp, rax
+jmp .text.unlikely
+mov rbp, rax
+jmp .text.unlikely
+nop word [rax + rax]

@@ -1,0 +1,271 @@
+push r14
+push r13
+push r12
+mov r12, rdi
+push rbp
+mov rbp, rsi
+push rbx
+sub rsp, 0x20
+mov rdi, qword [rsi]
+mov eax, dword [0x08004ccb]
+mov ebx, dword [rdi + 0x10]
+test eax, eax
+je 0x8004d60
+lea edx, [rax - 1]
+lea rax, [0x08004ce0]
+lea rdx, [rax + rdx*4 + 8]
+add rax, 4
+jmp 0x8004cf9
+nop dword [rax + rax]
+add rax, 4
+cmp rax, rdx
+je 0x8004d60
+cmp dword [rax], ebx
+jne 0x8004cf0
+call method boost::locale::gnu_gettext::lambda::(anonymous namespace)::tokenizer::step()
+mov rdi, rsp
+mov rsi, rbp
+call method boost::locale::gnu_gettext::lambda::(anonymous namespace)::parser::un_expr()
+mov r13, qword [rsp]
+mov rbp, qword [var_8h]
+test r13, r13
+je 0x8004d36
+cmp ebx, 0x2d
+je 0x8004f5a
+cmp ebx, 0x7e
+je 0x8004eb0
+cmp ebx, 0x21
+je 0x8004e00
+pxor xmm0, xmm0
+movups xmmword [r12], xmm0
+test rbp, rbp
+je 0x8004d86
+mov rdi, rbp
+call _ZN5boost6detail15sp_counted_base7releaseEv
+add rsp, 0x20
+mov rax, r12
+pop rbx
+pop rbp
+pop r12
+pop r13
+pop r14
+ret
+nop dword [rax]
+cmp ebx, 0x28
+je 0x8004da0
+cmp ebx, 0x108
+je 0x8005004
+cmp ebx, 0x109
+je 0x8005074
+pxor xmm0, xmm0
+movups xmmword [r12], xmm0
+add rsp, 0x20
+mov rax, r12
+pop rbx
+pop rbp
+pop r12
+pop r13
+pop r14
+ret
+nop word cs:[rax + rax]
+call method boost::locale::gnu_gettext::lambda::(anonymous namespace)::tokenizer::step()
+lea rdi, [var_10h]
+mov rsi, rbp
+call method boost::locale::gnu_gettext::lambda::(anonymous namespace)::parser::cond_expr()
+mov rbx, qword [var_10h]
+mov r13, qword [var_18h]
+test rbx, rbx
+je 0x8004dd6
+mov rdi, qword [rbp]
+mov ebp, dword [rdi + 0x10]
+call method boost::locale::gnu_gettext::lambda::(anonymous namespace)::tokenizer::step()
+cmp ebp, 0x29
+je 0x8005111
+pxor xmm0, xmm0
+movups xmmword [r12], xmm0
+test r13, r13
+je 0x8004d86
+mov rdi, r13
+call _ZN5boost6detail15sp_counted_base7releaseEv
+add rsp, 0x20
+mov rax, r12
+pop rbx
+pop rbp
+pop r12
+pop r13
+pop r14
+ret
+nop dword [rax]
+test rbp, rbp
+je 0x8004e0a
+lock add dword [var_8h], 1
+mov edi, 0x18
+call _Znwm
+mov r14, rax
+test rbp, rbp
+je 0x80050de
+lea rax, [var_8h]
+lock add dword [rax], 1
+lea rcx, [0x08004e2f]
+mov qword [r14], rcx
+mov qword [r14 + 8], r13
+mov qword [r14 + 0x10], rbp
+lock add dword [rax], 1
+mov rdi, rbp
+call _ZN5boost6detail15sp_counted_base7releaseEv
+lea rax, [0x08004e4d]
+mov qword [r12], r14
+mov edi, 0x18
+mov qword [r14], rax
+mov qword [r12 + 8], 0
+call _Znwm
+mov rdx, qword [0x08004e6e]
+mov rdi, qword [r12 + 8]
+lea rcx, [0x08004e7a]
+mov qword [rax + 0x10], r14
+mov qword [rax], rcx
+mov qword [rax + 8], rdx
+mov qword [r12 + 8], rax
+test rdi, rdi
+je 0x8004e94
+call _ZN5boost6detail15sp_counted_base7releaseEv
+test rbp, rbp
+je 0x8004d86
+mov rdi, rbp
+call _ZN5boost6detail15sp_counted_base7releaseEv
+jmp 0x8004d3f
+nop word [rax + rax]
+test rbp, rbp
+je 0x8004eba
+lock add dword [var_8h], 1
+mov edi, 0x18
+call _Znwm
+mov r14, rax
+test rbp, rbp
+je 0x8005100
+lea rax, [var_8h]
+lock add dword [rax], 1
+lea rcx, [0x08004edf]
+mov qword [r14], rcx
+mov qword [r14 + 8], r13
+mov qword [r14 + 0x10], rbp
+lock add dword [rax], 1
+mov rdi, rbp
+call _ZN5boost6detail15sp_counted_base7releaseEv
+lea rax, [0x08004efd]
+mov qword [r12], r14
+mov edi, 0x18
+mov qword [r14], rax
+mov qword [r12 + 8], 0
+call _Znwm
+mov rdx, qword [0x08004f1e]
+mov rdi, qword [r12 + 8]
+lea rcx, [0x08004f2a]
+mov qword [rax + 0x10], r14
+mov qword [rax], rcx
+mov qword [rax + 8], rdx
+mov qword [r12 + 8], rax
+test rdi, rdi
+je 0x8004f44
+call _ZN5boost6detail15sp_counted_base7releaseEv
+test rbp, rbp
+je 0x8004d86
+mov rdi, rbp
+call _ZN5boost6detail15sp_counted_base7releaseEv
+jmp 0x8004d3f
+test rbp, rbp
+je 0x8004f64
+lock add dword [var_8h], 1
+mov edi, 0x18
+call _Znwm
+mov r14, rax
+test rbp, rbp
+je 0x80050ef
+lea rax, [var_8h]
+lock add dword [rax], 1
+lea rcx, [0x08004f89]
+mov qword [r14], rcx
+mov qword [r14 + 8], r13
+mov qword [r14 + 0x10], rbp
+lock add dword [rax], 1
+mov rdi, rbp
+call _ZN5boost6detail15sp_counted_base7releaseEv
+lea rax, [0x08004fa7]
+mov qword [r12], r14
+mov edi, 0x18
+mov qword [r14], rax
+mov qword [r12 + 8], 0
+call _Znwm
+mov rdx, qword [0x08004fc8]
+mov rdi, qword [r12 + 8]
+lea rcx, [0x08004fd4]
+mov qword [rax + 0x10], r14
+mov qword [rax], rcx
+mov qword [rax + 8], rdx
+mov qword [r12 + 8], rax
+test rdi, rdi
+je 0x8004fee
+call _ZN5boost6detail15sp_counted_base7releaseEv
+test rbp, rbp
+je 0x8004d86
+mov rdi, rbp
+call _ZN5boost6detail15sp_counted_base7releaseEv
+jmp 0x8004d3f
+mov ebx, dword [rdi + 0x14]
+call method boost::locale::gnu_gettext::lambda::(anonymous namespace)::tokenizer::step()
+mov edi, 0x10
+call _Znwm
+mov rbp, rax
+lea rax, [0x08005020]
+mov edi, 0x18
+mov qword [r12 + 8], 0
+mov qword [rbp], rax
+mov dword [var_8h], ebx
+mov qword [r12], rbp
+call _Znwm
+mov rdx, qword [0x08005045]
+mov rdi, qword [r12 + 8]
+lea rcx, [0x08005051]
+mov qword [rax + 0x10], rbp
+mov qword [rax], rcx
+mov qword [rax + 8], rdx
+mov qword [r12 + 8], rax
+test rdi, rdi
+je 0x8004d86
+call _ZN5boost6detail15sp_counted_base7releaseEv
+jmp 0x8004d86
+call method boost::locale::gnu_gettext::lambda::(anonymous namespace)::tokenizer::step()
+mov edi, 8
+call _Znwm
+mov rbp, rax
+lea rax, [0x0800508d]
+mov edi, 0x18
+mov qword [r12 + 8], 0
+mov qword [rbp], rax
+mov qword [r12], rbp
+call _Znwm
+mov rdx, qword [0x080050af]
+mov rdi, qword [r12 + 8]
+lea rcx, [0x080050bb]
+mov qword [rax + 0x10], rbp
+mov qword [rax], rcx
+mov qword [rax + 8], rdx
+mov qword [r12 + 8], rax
+test rdi, rdi
+je 0x8004d86
+call _ZN5boost6detail15sp_counted_base7releaseEv
+jmp 0x8004d86
+mov qword [rax + 8], r13
+mov qword [rax + 0x10], 0
+jmp .data.rel.ro.local
+mov qword [rax + 8], r13
+mov qword [rax + 0x10], 0
+jmp .data.rel.ro.local
+mov qword [rax + 8], r13
+mov qword [rax + 0x10], 0
+jmp .data.rel.ro.local
+movq xmm0, rbx
+movq xmm1, r13
+punpcklqdq xmm0, xmm1
+movups xmmword [r12], xmm0
+jmp 0x8004d86

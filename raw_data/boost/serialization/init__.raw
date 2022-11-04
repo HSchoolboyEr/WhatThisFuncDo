@@ -1,0 +1,22 @@
+push rbp
+mov esi, 0x3c
+lea rbp, [0x080031cd]
+push rbx
+mov rbx, rdi
+sub rsp, 0x18
+nop dword [rax]
+mov rdi, qword [rbx + 0x30]
+add rbp, 1
+call _ZNSt13basic_ostreamIwSt11char_traitsIwEE3putEw
+movsx esi, byte [rbp]
+test sil, sil
+jne 0x80031d8
+mov esi, 0x3c
+lea rbp, [0x080031fa]
+nop word [rax + rax]
+mov rdi, qword [rbx + 0x30]
+add rbp, 1
+call _ZNSt13basic_ostreamIwSt11char_traitsIwEE3putEw
+movsx esi, byte [rbp]
+test sil, sil
+div byte [var_16h]

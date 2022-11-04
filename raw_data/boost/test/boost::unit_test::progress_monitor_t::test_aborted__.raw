@@ -1,0 +1,276 @@
+push r13
+push r12
+push rbp
+push rbx
+sub rsp, 0x48
+movzx eax, byte [0x08000781]
+test al, al
+je .bss
+mov rbp, qword [0x08000790]
+movzx eax, byte [0x08000797]
+test al, al
+je .bss
+lea r13, [arg_21h]
+mov ecx, 0x31
+mov edx, 0x1b
+movzx eax, byte [0x080007b5]
+mov r9d, 0x39
+mov r8d, 0x35
+mov rdi, r13
+mov qword [arg_10h], rbp
+mov byte [arg_1ch], al
+lea rsi, [0x080007d4]
+mov byte [arg_20h], al
+xor eax, eax
+call sprintf
+cmp byte [arg_20h], 0
+mov dword [arg_30h], 0xa
+je 0x800080e
+lea rax, [0x080007f5]
+cmp rbp, rax
+je 0x8000a18
+lea rax, [0x08000805]
+cmp rbp, rax
+je 0x8000a18
+movzx eax, byte [0x08000815]
+test al, al
+je .bss
+mov rax, qword [0x08000824]
+mov rbp, qword [rax + 8]
+movzx eax, byte [0x0800082f]
+test al, al
+je .bss
+mov rbx, qword [0x0800083e]
+mov rax, qword [rbx + 8]
+add rax, rbp
+mov qword [rbx + 8], rax
+cmp rax, qword [rbx + 0x18]
+jb 0x8000957
+test rax, rax
+js 0x80009d0
+pxor xmm0, xmm0
+cvtsi2sd xmm0, rax
+mov rax, qword [rbx + 0x10]
+test rax, rax
+js 0x80009f6
+pxor xmm1, xmm1
+cvtsi2sd xmm1, rax
+divsd xmm0, xmm1
+lea r12, [arg_20h]
+mulsd xmm0, qword [0x0800088c]
+cvttsd2si rbp, xmm0
+nop dword [rax]
+mov rdi, qword [rbx]
+mov edx, 1
+mov rsi, r12
+mov byte [arg_20h], 0x2a
+call _ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l
+mov rdi, rax
+call _ZNSo5flushEv
+mov eax, dword [rbx + 0x20]
+add eax, 1
+mov dword [rbx + 0x20], eax
+cmp ebp, eax
+ja 0x8000898
+mov rdx, qword [rbx + 0x10]
+mov ecx, eax
+pxor xmm0, xmm0
+cvtsi2sd xmm0, rcx
+divsd xmm0, qword [0x080008d9]
+test rdx, rdx
+js 0x8000be0
+pxor xmm1, xmm1
+cvtsi2sd xmm1, rdx
+mulsd xmm0, xmm1
+movsd xmm1, qword [0x080008f7]
+comisd xmm0, xmm1
+jae 0x8000bc0
+cvttsd2si rcx, xmm0
+mov qword [rbx + 0x18], rcx
+cmp rdx, qword [rbx + 8]
+jne 0x8000957
+mov rbp, qword [rbx]
+cmp eax, 0x32
+jbe 0x8000c40
+mov rax, qword [rbp]
+mov rax, qword [rax - 0x18]
+mov r12, qword [rbp + rax + 0xf0]
+test r12, r12
+je _ZSt16__throw_bad_castv
+cmp byte [r12 + 0x38], 0
+je _ZNKSt5ctypeIcE13_M_widen_initEv
+movsx esi, byte [r12 + 0x43]
+mov rdi, rbp
+call _ZNSo3putEc
+mov rdi, rax
+call _ZNSo5flushEv
+mov rbp, qword [arg_10h]
+test rbp, rbp
+je 0x80009c0
+movzx eax, byte [arg_1ch]
+mov r9d, 0x39
+mov r8d, 0x39
+mov rdi, r13
+mov ecx, 0x30
+mov edx, 0x1b
+lea rsi, [0x08000986]
+mov byte [arg_20h], al
+xor eax, eax
+call sprintf
+cmp byte [arg_20h], 0
+mov dword [arg_30h], 0xa
+je 0x80009c0
+lea rax, [0x080009a7]
+cmp rbp, rax
+je 0x8000c60
+lea rax, [0x080009b7]
+cmp rbp, rax
+je 0x8000c60
+add rsp, 0x48
+pop rbx
+pop rbp
+pop r12
+pop r13
+ret
+nop dword [rax + rax]
+mov rdx, rax
+and eax, 1
+pxor xmm0, xmm0
+shr rdx, 1
+or rdx, rax
+mov rax, qword [rbx + 0x10]
+cvtsi2sd xmm0, rdx
+addsd xmm0, xmm0
+test rax, rax
+jns 0x8000872
+mov rdx, rax
+and eax, 1
+pxor xmm1, xmm1
+shr rdx, 1
+or rdx, rax
+cvtsi2sd xmm1, rdx
+addsd xmm1, xmm1
+jmp 0x800087b
+nop dword [rax]
+mov edx, 0xa
+mov rsi, r13
+mov rdi, rbp
+call _ZNSo5writeEPKcl
+movzx eax, byte [0x08000a2f]
+test al, al
+jne .bss
+lea rdi, [0x08000a3e]
+call __cxa_guard_acquire
+test eax, eax
+je .bss
+lea rax, [0x08000a52]
+lea rdi, [0x08000a59]
+mov qword [0x08000a64], 0
+mov qword [0x08000a6b], rax
+mov byte [0x08000a72], 0
+call __cxa_guard_release
+lea rdx, [0x08000a7e]
+lea rsi, [0x08000a85]
+lea rdi, [method.boost::unit_test._anonymous_namespace_::progress_monitor_impl::progress_monitor_impl__]
+call __cxa_atexit
+jmp .bss
+nop word cs:[rax + rax]
+lea rdi, [0x08000aa7]
+call __cxa_guard_acquire
+test eax, eax
+je 0x800079f
+lea rax, [0x08000abb]
+lea rdi, [0x08000ac2]
+mov qword [0x08000acd], 0
+mov qword [0x08000ad4], rax
+mov byte [0x08000adb], 0
+call __cxa_guard_release
+lea rdx, [0x08000ae7]
+lea rsi, [0x08000aee]
+lea rdi, [method.boost::unit_test._anonymous_namespace_::progress_monitor_impl::progress_monitor_impl__]
+call __cxa_atexit
+jmp 0x800079f
+nop
+lea rdi, [0x08000b07]
+call __cxa_guard_acquire
+test eax, eax
+je .bss
+lea rax, [0x08000b1b]
+lea rdi, [0x08000b22]
+mov qword [0x08000b2d], 0
+mov qword [0x08000b34], rax
+mov byte [0x08000b3b], 0
+call __cxa_guard_release
+lea rdx, [0x08000b47]
+lea rsi, [0x08000b4e]
+lea rdi, [method.boost::unit_test._anonymous_namespace_::progress_monitor_impl::progress_monitor_impl__]
+call __cxa_atexit
+jmp .bss
+nop
+lea rdi, [0x08000b67]
+call __cxa_guard_acquire
+test eax, eax
+je .bss
+lea rax, [0x08000b7b]
+lea rdi, [0x08000b82]
+mov qword [0x08000b8d], 0
+mov qword [0x08000b94], rax
+mov byte [0x08000b9b], 0
+call __cxa_guard_release
+lea rdx, [0x08000ba7]
+lea rsi, [0x08000bae]
+lea rdi, [method.boost::unit_test._anonymous_namespace_::progress_monitor_impl::progress_monitor_impl__]
+call __cxa_atexit
+jmp .bss
+nop
+subsd xmm0, xmm1
+cvttsd2si rcx, xmm0
+mov qword [rbx + 0x18], rcx
+btc qword [rbx + 0x18], 0x3f
+jmp 0x800090a
+nop dword [rax + rax]
+mov rcx, rdx
+mov rsi, rdx
+pxor xmm1, xmm1
+shr rcx, 1
+and esi, 1
+or rcx, rsi
+cvtsi2sd xmm1, rcx
+addsd xmm1, xmm1
+jmp 0x80008eb
+nop dword [rax]
+mov rdi, r12
+call _ZNKSt5ctypeIcE13_M_widen_initEv
+mov rax, qword [r12]
+lea rdx, [0x08000c1b]
+mov esi, 0xa
+mov rax, qword [rax + 0x30]
+cmp rax, rdx
+je _ZNSo3putEc
+mov rdi, r12
+call rax
+movsx esi, al
+jmp _ZNSo3putEc
+nop word [rax + rax]
+lea rsi, [arg_fh]
+mov edx, 1
+mov rdi, rbp
+mov byte [arg_fh], 0x2a
+call _ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l
+mov rbp, qword [rbx]
+jmp 0x800091c
+nop
+mov rsi, r13
+mov rdi, rbp
+mov edx, 0xa
+call _ZNSo5writeEPKcl
+add rsp, 0x48
+pop rbx
+pop rbp
+pop r12
+pop r13
+ret
+call _ZSt16__throw_bad_castv
+mov rbp, rax
+jmp .text.unlikely
+nop dword [rax + rax]

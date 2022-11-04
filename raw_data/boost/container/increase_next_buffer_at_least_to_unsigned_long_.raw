@@ -1,0 +1,18 @@
+cmp qword [rdi + 0x28], rsi
+jae 0x8000568
+lea rax, [rsi - 1]
+test rax, rsi
+jne 0x8000548
+mov qword [rdi + 0x28], rsi
+ret
+nop dword [rax]
+test rsi, rsi
+js 0x800053f
+bsr rsi, rsi
+mov ecx, 0x40
+mov eax, 1
+xor rsi, 0x3f
+sub ecx, esi
+shl rax, cl
+mov qword [rdi + 0x28], rax
+ret

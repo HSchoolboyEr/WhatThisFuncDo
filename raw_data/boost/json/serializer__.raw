@@ -1,0 +1,15 @@
+lea rax, [0x08004347]
+pxor xmm0, xmm0
+mov qword [rdi + 0x10], 0
+mov qword [rdi + 8], rax
+lea rax, [0x0800435e]
+add byte [rax], al
+add byte [rax], al
+mov qword [rdi + 0x18], rax
+mov qword [rdi + 0x20], 0
+mov qword [rdi + 0x28], 0
+mov qword [rdi + 0x40], 0
+mov qword [rdi + 0x48], 0
+mov byte [rdi + 0x7c], 0
+movups xmmword [rdi + 0x30], xmm0
+ret

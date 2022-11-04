@@ -1,0 +1,14 @@
+push rbx
+movdqu xmm0, xmmword [rdx]
+mov rbx, rdi
+mov r8, rsi
+movdqu xmm1, xmmword [rdx + 0x10]
+mov rdx, r8
+movups xmmword [rdi], xmm0
+mov rsi, qword [rdi + 8]
+movups xmmword [rdi + 0x10], xmm1
+mov rdi, qword [rdi]
+call make_fcontext
+mov qword [rbx + 0x20], rax
+pop rbx
+ret

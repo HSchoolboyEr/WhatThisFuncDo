@@ -1,0 +1,6 @@
+mov rdi, rsi
+test rsi, rsi
+je 0x8000350
+jmp _ZdaPv
+nop dword [rax]
+ret

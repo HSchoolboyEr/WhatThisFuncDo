@@ -1,0 +1,11 @@
+cmp rdx, rcx
+je 0x8001240
+mov eax, 0xffffffff
+cmp esi, 0x7f
+ja 0x8001245
+mov byte [rdx], sil
+mov eax, 1
+ret
+nop dword [rax + rax]
+mov eax, 0xfffffffe
+ret

@@ -1,0 +1,209 @@
+sub rax, 1
+cmp rax, 1
+ja _Unwind_Resume
+call __cxa_begin_catch
+call __cxa_end_catch
+jmp .text.startup
+call _Unwind_Resume
+call [rbx - 0x72f2fee3]
+or cl, dh
+add eax, 0x1c980000
+mov ch, 6
+int 0x22
+add eax, dword [rdx]
+add byte [rcx], al
+jge DW.ref._ZTISt14overflow_error
+add byte [rax], al
+add byte [rax], al
+add byte [rax], al
+add byte [rax], al
+add bh, bh
+wait
+adc eax, 0xf0f0401
+add byte [rax], al
+add al, byte [rax]
+add dword [rbp], edi
+add byte [rax], al
+add byte [rax], al
+add byte [rax], al
+add byte [rax], al
+add byte [rax], al
+call [rbx + 0x1f050109]
+add eax, 0x7f0101c5
+add byte [rax], al
+add byte [rax], al
+add bh, bh
+wait
+or dword [rcx], eax
+add al, 6
+or al, byte [rax]
+add byte [rdi], bh
+add byte [rax], al
+add byte [rax], al
+add bh, bh
+wait
+sbb eax, 0x8950d01
+int1
+add eax, 0x1cb80000
+fld dword [rsi]
+xchg ecx, eax
+and eax, dword [rbx]
+add al, byte [rax]
+add dword [rbp], edi
+add byte [rax], al
+add byte [rax], al
+add byte [rax], al
+add byte [rax], al
+add bh, bh
+wait
+adc eax, 0xf0f0401
+add byte [rax], al
+add al, byte [rax]
+add dword [rbp], edi
+add byte [rax], al
+add byte [rax], al
+add byte [rax], al
+add byte [rax], al
+add byte [rax], al
+add byte [rax], al
+add byte [rax], al
+add byte [rax], al
+add byte [rax], al
+add byte [rax], al
+add byte [rax], al
+add byte [rax], al
+add byte [rax], al
+js 0x800af5e
+jo 0x800af72
+imul ebp, dword [rdi + 0x6e], 0xffff0045
+invalid
+invalid
+inc dword [rax]
+add byte [rax], al
+add byte [rax], al
+add byte [rax], al
+add byte [rax], al
+add byte [rax], al
+add byte [rax], al
+add byte [rax], al
+add byte [rax], al
+invalid
+invalid
+invalid
+invalid
+invalid
+invalid
+invalid
+dec dword [rsi + 0x35]
+xor rax, 0x736f6f62
+je 0x800af59
+js _ZTISt13runtime_error
+jo 0x800afa3
+imul ebp, dword [rdi + 0x6e], 0x7465645f
+invalid
+imul ebp, dword [rcx + rsi + 0x30], 0x6e6f6c63
+pop rdi
+invalid
+invalid
+jae 0x800afaa
+add r15b, r15b
+add byte [rax], al
+add byte [rax], al
+add byte [rax], al
+add byte [rax], al
+add byte [rax], al
+add byte [rax], al
+add byte [rax], al
+add byte [rax], al
+invalid
+invalid
+invalid
+invalid
+invalid
+invalid
+invalid
+dec dword [rsi + 0x35]
+xor rax, 0x736f6f62
+je 0x800af9c
+insd dword [rdi], dx
+invalid
+je 0x800afd4
+xor dword [rdx + rsi*2], esi
+outsd dx, dword [rsi]
+jne _ZTIN5boost16exception_detail10clone_baseE
+imul ebp, dword fs:[rsi + 0x67], 0x7272655f
+outsd dx, dword [rsi]
+jb 0x800afc2
+add bh, bh
+inc dword [rax]
+add byte [rax], al
+add byte [rax], al
+add byte [rax], al
+add byte [rax], al
+add byte [rax], al
+add byte [rax], al
+add byte [rax], al
+add byte [rax], al
+add byte [rax], al
+add byte [rax], al
+add byte [rax], al
+add byte [rax], al
+invalid
+invalid
+invalid
+invalid
+invalid
+invalid
+invalid
+dec dword [rsi + 0x35]
+xor rax, 0x736f6f62
+je 0x800afd9
+xor byte [rdi + 0x72], dh
+invalid
+jo 0x800b013
+js 0x800b013
+jo 0x800b027
+push r11
+je 0x800afe8
+xor ah, byte [rdi + rbp*2 + 0x6d]
+invalid
+imul ebp, dword [rsi + 0x5f], 0x6f727265
+outsd dx, dword [rsi]
+jb 0x800b00a
+add r15b, r15b
+add byte [rax], al
+add byte [rax], al
+add byte [rax], al
+add byte [rax], al
+add byte [rax], al
+add byte [rax], al
+add byte [rax], al
+add byte [rax], al
+add byte [rax], al
+add byte [rax], al
+add eax, dword [rax]
+add byte [rax], al
+add byte [rax], al
+add byte [rax], al
+add byte [rax], al
+add byte [rax], al
+add al, byte [rax]
+add byte [rax], al
+add byte [rax], al
+add byte [rax], al
+add byte [rax], al
+add byte [rax], al
+add byte [rax], al
+add byte [rax], al
+add cl, byte [rax]
+add byte [rax], al
+add byte [rax], al
+add byte [rax], al
+add byte [rax], al
+add byte [rax], al
+add byte [rax], al
+add byte [rax], al
+add bl, byte [rax]
+add byte [rax], al
+add byte [rax], al
+add byte [rax], al

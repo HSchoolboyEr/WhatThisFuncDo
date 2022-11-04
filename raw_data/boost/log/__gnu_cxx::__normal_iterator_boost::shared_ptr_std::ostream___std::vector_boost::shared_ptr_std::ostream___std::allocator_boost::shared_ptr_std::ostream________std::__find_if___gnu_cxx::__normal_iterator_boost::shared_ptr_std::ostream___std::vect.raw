@@ -1,0 +1,61 @@
+mov rcx, rsi
+mov rax, rdx
+sub rcx, rdi
+mov rdx, rcx
+sar rcx, 6
+sar rdx, 4
+test rcx, rcx
+jle 0x800027a
+shl rcx, 6
+mov rdx, qword [rax]
+add rcx, rdi
+jmp 0x8000263
+nop dword [rax]
+cmp rdx, qword [rdi + 0x10]
+je 0x80002c0
+cmp rdx, qword [rdi + 0x20]
+je 0x80002c8
+cmp rdx, qword [rdi + 0x30]
+je 0x80002d0
+add rdi, 0x40
+cmp rcx, rdi
+je 0x8000270
+cmp qword [rdi], rdx
+jne 0x8000248
+mov rax, rdi
+ret
+nop dword [rax]
+mov rdx, rsi
+sub rdx, rdi
+sar rdx, 4
+cmp rdx, 2
+je 0x80002a8
+cmp rdx, 3
+je 0x8000290
+cmp rdx, 1
+je 0x800029e
+mov rax, rsi
+ret
+mov rax, qword [rax]
+cmp qword [rdi], rax
+je 0x8000268
+add rdi, 0x10
+jmp 0x80002ab
+mov rax, qword [rax]
+cmp qword [rdi], rax
+jne 0x800028c
+jmp 0x8000268
+mov rax, qword [rax]
+cmp qword [rdi], rax
+je 0x8000268
+add rdi, 0x10
+jmp 0x80002a1
+nop word cs:[rax + rax]
+lea rax, [rdi + 0x10]
+ret
+nop dword [rax]
+lea rax, [rdi + 0x20]
+ret
+nop dword [rax]
+lea rax, [rdi + 0x30]
+ret

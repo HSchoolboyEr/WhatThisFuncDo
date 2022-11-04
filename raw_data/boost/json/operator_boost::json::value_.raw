@@ -1,0 +1,41 @@
+push r13
+push r12
+mov r12, rdi
+push rbp
+sub rsp, 0x30
+mov rax, qword [rdi]
+mov qword [var_8h], rax
+test al, 1
+jne 0x800d000
+lea r13, [var_8h]
+lea rbp, [var_10h]
+mov rdx, r13
+mov rdi, rbp
+call _ZN5boost4json5valueC1EOS1_NS0_11storage_ptrE
+mov rsi, r12
+mov rdi, rbp
+call _ZN5boost4json5value4swapERS1_
+mov rdi, rbp
+call _ZN5boost4json5valueD1Ev
+mov rdi, qword [var_8h]
+test dil, 1
+jne 0x800d010
+add rsp, 0x30
+mov rax, r12
+pop rbp
+pop r12
+pop r13
+ret
+nop dword [rax + rax]
+and rax, 0xfffffffffffffffc
+lock add qword [rax + 8], 1
+jmp 0x800cfb8
+nop dword [rax]
+and rdi, 0xfffffffffffffffc
+lock sub qword [rdi + 8], 1
+jne 0x800cfeb
+test rdi, rdi
+je 0x800cfeb
+mov rax, qword [rdi]
+call qword [rax + 8]
+jmp 0x800cfeb

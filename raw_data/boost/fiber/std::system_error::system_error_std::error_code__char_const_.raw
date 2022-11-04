@@ -1,0 +1,101 @@
+push r14
+mov r14, rcx
+push r13
+push r12
+mov r12, rsi
+push rbp
+mov rbp, rdx
+push rbx
+mov rbx, rdi
+sub rsp, 0x60
+mov rax, qword [rdx]
+mov edx, esi
+mov rsi, rbp
+lea r13, [var_40h]
+mov rdi, r13
+call qword [rax + 0x20]
+mov r8d, 2
+xor edx, edx
+xor esi, esi
+lea rcx, [0x0800078c]
+mov rdi, r13
+call _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE10_M_replaceEmmPKcm
+lea r13, [var_30h]
+lea rdx, [rax + 0x10]
+mov qword [var_20h], r13
+mov rcx, qword [rax]
+cmp rcx, rdx
+je 0x80008a8
+mov qword [var_20h], rcx
+mov rcx, qword [rax + 0x10]
+mov qword [var_30h], rcx
+mov rcx, qword [rax + 8]
+mov byte [rax + 0x10], 0
+mov rdi, r14
+mov qword [var_28h], rcx
+mov qword [rax], rdx
+mov qword [rax + 8], 0
+call strlen
+lea rdi, [var_20h]
+mov rcx, r14
+xor edx, edx
+mov r8, rax
+xor esi, esi
+call _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE10_M_replaceEmmPKcm
+lea r14, [var_10h]
+lea rdx, [rax + 0x10]
+mov qword [rsp], r14
+mov rcx, qword [rax]
+cmp rcx, rdx
+je 0x80008c0
+mov qword [rsp], rcx
+mov rcx, qword [rax + 0x10]
+mov qword [var_10h], rcx
+mov rcx, qword [rax + 8]
+mov byte [rax + 0x10], 0
+mov rsi, rsp
+mov rdi, rbx
+mov qword [var_8h], rcx
+mov qword [rax], rdx
+mov qword [rax + 8], 0
+call _ZNSt13runtime_errorC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE
+add byte [rax], al
+add byte [rax], al
+mov rdi, qword [rsp]
+cmp rdi, r14
+je 0x8000850
+mov rax, qword [var_10h]
+lea rsi, [rax + 1]
+call _ZdlPvm
+mov rdi, qword [var_20h]
+cmp rdi, r13
+je 0x8000868
+mov rax, qword [var_30h]
+lea rsi, [rax + 1]
+call _ZdlPvm
+mov rdi, qword [var_40h]
+lea rax, [var_50h]
+cmp rdi, rax
+je 0x8000885
+mov rax, qword [var_50h]
+lea rsi, [rax + 1]
+call _ZdlPvm
+lea rax, [0x0800088c]
+mov qword [rbx + 0x10], r12
+mov qword [rbx + 0x18], rbp
+mov qword [rbx], rax
+add rsp, 0x60
+pop rbx
+pop rbp
+pop r12
+pop r13
+pop r14
+ret
+nop dword [rax]
+movdqu xmm0, xmmword [rax + 0x10]
+movaps xmmword [var_30h], xmm0
+jmp 0x80007bc
+nop word [rax + rax]
+movdqu xmm1, xmmword [rax + 0x10]
+movaps xmmword [var_10h], xmm1
+jmp 0x8000816

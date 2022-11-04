@@ -1,0 +1,51 @@
+push r12
+push rbp
+mov rbp, rdi
+push rbx
+mov rax, qword [rcx]
+mov byte [rdi + 8], 6
+mov qword [rcx], 0
+mov qword [rdi], rax
+test rdx, rdx
+jne 0x800dd70
+lea rax, [0x0800dd64]
+mov qword [rdi + 0x10], rax
+pop rbx
+pop rbp
+pop r12
+ret
+nop dword [rax]
+mov rbx, rdx
+cmp rdx, 0x7ffffffe
+ja 0x800ddd5
+mov rdi, rax
+mov r12, rsi
+and rdi, 0xfffffffffffffffc
+test rax, rax
+lea rax, [0x0800dd90]
+cmove rdi, rax
+lea rax, [rdx + rdx*2]
+mov edx, 8
+lea rsi, [rax*8 + 8]
+mov rax, qword [rdi]
+call qword [rax + 0x10]
+mov dword [rax + 4], ebx
+lea rdi, [rax + 8]
+mov rcx, rbp
+mov rsi, r12
+mov qword [arg_10h], rax
+mov rdx, rbx
+mov dword [rax], 0
+call _ZN5boost4json9value_ref11write_arrayEPNS0_5valueESt16initializer_listIS1_ERKNS0_11storage_ptrE
+mov rax, qword [arg_10h]
+mov dword [rax], ebx
+pop rbx
+pop rbp
+pop r12
+ret
+call method boost::json::array::table::allocate(unsigned long, boost::json::storage_ptr const&) [clone .part.0]
+mov r12, rax
+jmp .text.unlikely
+mov r12, rax
+jmp .text.unlikely
+nop word [rax + rax]

@@ -1,0 +1,122 @@
+push r15
+push r14
+push r13
+push r12
+push rbp
+mov ebp, esi
+push rbx
+mov rbx, rdi
+sub rsp, 0x18
+mov r13, qword [rdi + 0xd8]
+test sil, sil
+jne 0x800e6e0
+mov r14, qword [r13 + 0x10]
+mov r12, qword [r13 + 0x18]
+mov rsi, qword [rdi + 0x20]
+mov r15, qword [r13 + 8]
+mov rdx, qword [r14 + 8]
+mov qword [rdi + 0x28], r12
+mov qword [rdi + 0x58], rdx
+cmp r12, rsi
+je 0x800e700
+mov rax, qword [rbx + 0x48]
+movzx r8d, byte [rbx + 0x78]
+mov rdi, r12
+mov qword [var_8h], rdx
+mov rcx, qword [rax]
+call _ZN5boost13re_detail_50016re_is_set_memberIPKwwNS_14c_regex_traitsIwEEjEET_S6_S6_PKNS0_11re_set_longIT2_EERKNS0_10regex_dataIT0_T1_EEb
+mov rdx, qword [var_8h]
+cmp r12, rax
+je 0x800e7a8
+add qword [rbx + 0x68], 1
+mov rcx, qword [r14 + 8]
+add r15, 1
+mov rax, qword [rbx + 0x28]
+mov rsi, qword [rbx + 0x20]
+mov qword [rbx + 0x58], rcx
+mov rcx, qword [r14 + 0x128]
+lea r12, [rax + 4]
+mov qword [rbx + 0x28], r12
+cmp rcx, r15
+jbe 0x800e770
+cmp r12, rsi
+je 0x800e7c0
+movsxd rax, dword [rax + 4]
+cmp eax, 0xff
+jbe 0x800e748
+cmp byte [r14 + 0x134], 0
+jne 0x800e760
+mov qword [r13 + 8], r15
+mov qword [r13 + 0x18], r12
+mov rax, qword [r14 + 0x10]
+mov qword [rbx + 0x58], rax
+mov eax, ebp
+add rsp, 0x18
+pop rbx
+pop rbp
+pop r12
+pop r13
+pop r14
+pop r15
+ret
+nop word [rax + rax]
+add r13, 0x20
+mov eax, esi
+mov qword [rdi + 0xd8], r13
+add rsp, 0x18
+pop rbx
+pop rbp
+pop r12
+pop r13
+pop r14
+pop r15
+ret
+nop dword [rax]
+cmp byte [r14 + 0x134], 0
+je 0x800e717
+cmp qword [r14 + 0x128], r15
+ja 0x800e7e6
+add r13, 0x20
+mov qword [rbx + 0xd8], r13
+test byte [rbx + 0x61], 0x20
+je 0x800e732
+cmp qword [rbx + 0x38], r12
+je 0x800e732
+mov byte [rbx + 0x79], 1
+test byte [r14 + 0x118], 2
+jne 0x800e6be
+mov eax, 1
+jmp 0x800e6c8
+nop dword [rax + rax]
+test byte [r14 + rax + 0x18], 2
+je 0x800e638
+jmp 0x800e6a8
+nop dword [rax]
+mov qword [rbx + 0x30], r12
+jmp 0x800e6b6
+nop dword [rax]
+cmp r12, rsi
+je 0x800e7da
+cmp rcx, r15
+jne 0x800e6b6
+movsxd rax, dword [rax + 4]
+add qword [rbx + 0xd8], 0x20
+cmp eax, 0xff
+ja 0x800e6be
+test byte [r14 + rax + 0x18], 2
+jne 0x800e6be
+jmp 0x800e73c
+nop dword [rax + rax]
+add qword [rbx + 0xd8], 0x20
+mov eax, 1
+jmp 0x800e6c8
+nop word [rax + rax]
+cmp byte [r14 + 0x134], 0
+je 0x800e7da
+mov qword [rbx + 0x30], r12
+mov r13, qword [rbx + 0xd8]
+jmp 0x800e717
+mov r13, qword [rbx + 0xd8]
+jmp 0x800e717
+mov qword [rbx + 0x30], r12
+jmp 0x800e717

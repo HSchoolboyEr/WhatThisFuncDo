@@ -1,0 +1,11 @@
+mov rdx, qword [rdi + 8]
+mov esi, esi
+sub rdx, qword [rdi]
+add rdi, 0x18
+sar rdx, 5
+mov rax, rsi
+shl rax, 5
+add rax, qword [rdi - 0x18]
+cmp rsi, rdx
+cmovae rax, rdi
+ret

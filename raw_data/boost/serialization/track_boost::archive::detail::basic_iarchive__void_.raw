@@ -1,0 +1,27 @@
+push rbp
+mov rbp, rdx
+push rbx
+mov rbx, rdi
+mov rdi, rsi
+sub rsp, 0x18
+mov rax, qword [rdi]
+mov dword [var_ch], 0
+lea rsi, [var_ch]
+call qword [rax + 8]
+mov rcx, qword [rbx + 8]
+mov rax, qword [rbx + 0x10]
+mov r8d, 1
+mov edx, dword [var_ch]
+sub rax, rcx
+sar rax, 4
+cmp edx, eax
+jae 0x800045e
+shl rdx, 4
+xor r8d, r8d
+mov rax, qword [rcx + rdx]
+mov qword [rbp], rax
+add rsp, 0x18
+mov eax, r8d
+pop rbx
+pop rbp
+ret

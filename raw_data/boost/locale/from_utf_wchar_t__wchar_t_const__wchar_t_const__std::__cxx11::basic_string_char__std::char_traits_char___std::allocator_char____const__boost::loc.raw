@@ -1,0 +1,146 @@
+push r15
+mov r15, rdx
+push r14
+push r13
+mov r13d, r8d
+push r12
+mov r12, rdi
+mov edi, 0x18
+push rbp
+push rbx
+mov rbx, rsi
+sub rsp, 0x88
+mov r14, qword [rcx]
+mov qword [var_8h], rdx
+call _Znwm
+mov rbp, rax
+lea rsi, [0x08000b09]
+mov rdi, r14
+lea rax, [0x08000b13]
+mov qword [arg_8h], 0xffffffffffffffff
+mov qword [rbp], rax
+call iconv_open
+mov qword [arg_8h], rax
+mov dword [arg_10h], r13d
+cmp rax, 0xffffffffffffffff
+je .text.unlikely
+mov rax, qword [rbp]
+lea rdx, [0x08000b41]
+add byte [rax], al
+add byte [rax], al
+mov rax, qword [rax + 8]
+cmp rax, rdx
+jne 0x8000ce0
+lea rax, [r12 + 0x10]
+mov rsi, r15
+mov byte [r12 + 0x10], 0
+mov rdi, r12
+mov qword [r12], rax
+sub rsi, rbx
+mov qword [r12 + 8], 0
+sar rsi, 2
+mov qword [arg_18h], rax
+call _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7reserveEm
+lea rax, [arg_30h]
+mov qword [arg_20h], rbx
+xor r14d, r14d
+lea r13, [arg_40h]
+mov qword [arg_10h], rax
+lea r15, [arg_38h]
+jmp 0x8000baf
+nop dword [rax + rax]
+cmp r14d, 1
+je 0x8000c6d
+mov rbx, qword [arg_20h]
+mov rax, qword [arg_8h]
+mov rdi, qword [arg_8h]
+mov qword [arg_38h], r13
+mov qword [arg_30h], 0x40
+sub rax, rbx
+mov qword [arg_28h], rax
+test r14d, r14d
+jne 0x8000bdc
+test rax, rax
+jne 0x8000c90
+mov r8, qword [arg_10h]
+mov rcx, r15
+xor edx, edx
+xor esi, esi
+call iconv
+mov rbx, rax
+mov r14d, 1
+call __errno_location
+mov rdx, qword [arg_38h]
+mov eax, dword [rax]
+sub rdx, r13
+mov dword [arg_4h], eax
+lea rax, [rbx - 1]
+cmp rax, 0xfffffffffffffffd
+ja 0x8000c1d
+cmp dword [arg_10h], 1
+je .text.unlikely
+movabs rax, 0x3fffffffffffffff
+sub rax, qword [r12 + 8]
+cmp rdx, rax
+ja .LC4
+mov rsi, r13
+mov rdi, r12
+call _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_appendEPKcm
+cmp rbx, 0xffffffffffffffff
+jne 0x8000ba0
+mov eax, dword [arg_4h]
+cmp eax, 0x54
+je 0x8000cb0
+cmp eax, 0x16
+je 0x8000cb0
+cmp dword [arg_4h], 7
+je 0x8000baa
+cmp dword [arg_10h], 1
+je .text.unlikely
+mov rax, qword [rbp]
+mov rdi, rbp
+call qword [rax + 0x18]
+add rsp, 0x88
+mov rax, r12
+pop rbx
+pop rbp
+pop r12
+pop r13
+pop r14
+pop r15
+ret
+nop dword [rax]
+mov r8, qword [arg_10h]
+lea rdx, [arg_28h]
+lea rsi, [arg_20h]
+mov rcx, r15
+call iconv
+mov rbx, rax
+jmp __errno_location
+nop
+cmp dword [arg_10h], 1
+je .text.unlikely
+mov rax, qword [arg_20h]
+mov rcx, qword [arg_8h]
+cmp rcx, rax
+je 0x8000c6d
+add rax, 4
+mov qword [arg_20h], rax
+cmp rcx, rax
+ja 0x8000ba0
+jmp 0x8000c6d
+nop dword [rax]
+mov rcx, qword [arg_8h]
+mov rdx, rbx
+mov rsi, rbp
+mov rdi, r12
+call rax
+jmp 0x8000c6d
+lea rdi, [0x08000cfc]
+call _ZSt20__throw_length_errorPKc
+jmp .text.unlikely
+jmp .text.unlikely
+mov rbx, rax
+jmp .text.unlikely
+nop word cs:[rax + rax]
+nop

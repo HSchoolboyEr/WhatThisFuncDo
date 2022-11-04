@@ -1,0 +1,29 @@
+push r12
+xor r12d, r12d
+push rbp
+push rbx
+lea rbx, [rdi + 0x378]
+jmp 0x8006225
+test rbx, rbx
+je 0x8006254
+mov eax, dword [rbx + 0x18]
+mov rdx, rbx
+mov rbx, qword [rbx + 0x10]
+test al, 1
+je 0x8006220
+test al, 8
+jne 0x8006220
+mov rbp, qword [rdx + 8]
+mov rdi, qword [rdx]
+mov rsi, rbp
+add rbp, r12
+call munmap
+test eax, eax
+cmove r12, rbp
+test rbx, rbx
+jne 0x8006225
+mov rax, r12
+pop rbx
+pop rbp
+pop r12
+ret

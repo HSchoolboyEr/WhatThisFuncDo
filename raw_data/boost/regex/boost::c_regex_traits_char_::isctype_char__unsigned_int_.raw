@@ -1,0 +1,126 @@
+push r12
+push rbp
+mov ebp, edi
+push rbx
+mov ebx, esi
+and esi, 1
+je 0x800b230
+movzx edi, dil
+mov r12d, 1
+call isspace
+test eax, eax
+je 0x800b230
+mov eax, r12d
+pop rbx
+pop rbp
+pop r12
+ret
+nop dword [rax + rax]
+test bl, 2
+je 0x800b248
+movzx edi, bpl
+mov r12d, 1
+call isprint
+test eax, eax
+jne 0x800b220
+test bl, 4
+jne 0x800b370
+test bl, 8
+je 0x800b269
+movzx edi, bpl
+mov r12d, 1
+call isupper
+test eax, eax
+jne 0x800b220
+test bl, 0x10
+je 0x800b281
+movzx edi, bpl
+mov r12d, 1
+call islower
+test eax, eax
+jne 0x800b220
+test bl, 0x20
+jne 0x800b390
+test bl, 0x40
+je 0x800b2a5
+movzx eax, bpl
+mov r12d, 1
+sub eax, 0x30
+cmp eax, 9
+jbe 0x800b220
+test bl, 0x80
+je 0x800b2c1
+movzx edi, bpl
+mov r12d, 1
+call ispunct
+test eax, eax
+jne 0x800b220
+test bh, 1
+je 0x800b2dd
+movzx edi, bpl
+mov r12d, 1
+call isxdigit
+test eax, eax
+jne 0x800b220
+test bh, 2
+je 0x800b310
+movzx edi, bpl
+call isspace
+test eax, eax
+je 0x800b310
+lea eax, [var_ch]
+cmp al, 1
+jbe 0x800b310
+mov r12d, 1
+cmp bpl, 0xa
+jne 0x800b220
+nop word cs:[rax + rax]
+mov eax, ebx
+shr eax, 0xa
+cmp bpl, 0x5f
+sete r12b
+and r12b, al
+jne 0x800b220
+test bh, 0x20
+jne 0x800b3b0
+and bh, 0x10
+je 0x800b220
+movzx edi, bpl
+call isspace
+test eax, eax
+je 0x800b220
+lea eax, [var_ch]
+cmp al, 1
+setbe r12b
+cmp bpl, 0xa
+sete al
+or r12d, eax
+xor r12d, 1
+cmp bpl, 0xb
+setne al
+and r12d, eax
+jmp 0x800b220
+nop
+movzx edi, bpl
+mov r12d, 1
+call iscntrl
+test eax, eax
+je 0x800b251
+mov eax, r12d
+pop rbx
+pop rbp
+pop r12
+ret
+nop
+movzx edi, bpl
+mov r12d, 1
+call isalpha
+test eax, eax
+jne 0x800b220
+jmp 0x800b28a
+nop dword [rax]
+lea eax, [var_ah]
+cmp al, 3
+ja 0x800b32f
+mov r12d, 1
+jmp 0x800b220

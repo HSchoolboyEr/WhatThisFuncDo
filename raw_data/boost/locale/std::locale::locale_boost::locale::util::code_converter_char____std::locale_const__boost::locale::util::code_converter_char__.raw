@@ -1,0 +1,39 @@
+push r13
+mov r13, rsi
+push r12
+mov r12, rdx
+push rbp
+push rbx
+mov rbx, rdi
+mov edi, 0x28
+sub rsp, 8
+call _Znwm
+mov rsi, qword [r13]
+mov edx, 1
+mov rdi, rax
+mov rbp, rax
+call _ZNSt6locale5_ImplC1ERKS0_m
+add byte [rax], al
+add byte [rax], al
+mov qword [rbx], rbp
+mov rdx, r12
+lea rsi, [0x08002b5e]
+mov rdi, rbp
+call _ZNSt6locale5_Impl16_M_install_facetEPKNS_2idEPKNS_5facetE
+add byte [rax], al
+add byte [rax], al
+mov rax, qword [rbx]
+mov rax, qword [rax + 0x20]
+mov rdi, qword [rax]
+test rdi, rdi
+je 0x8002b81
+call _ZdaPv
+mov rax, qword [rbx]
+mov rax, qword [rax + 0x20]
+mov qword [rax], 0
+add rsp, 8
+pop rbx
+pop rbp
+pop r12
+pop r13
+ret

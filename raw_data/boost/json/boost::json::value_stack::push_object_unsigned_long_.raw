@@ -1,0 +1,60 @@
+push rbp
+push rbx
+mov rbx, rdi
+sub rsp, 0x58
+mov rax, qword [rdi + 0x18]
+test rsi, rsi
+je 0x8005280
+lea rdx, [rsi + rsi*2]
+mov qword [var_18h], rsi
+lea rdi, [var_30h]
+shl rdx, 4
+lea rsi, [var_10h]
+sub rax, rdx
+mov qword [rbx + 0x18], rax
+mov qword [var_10h], rax
+lea rax, [rbx + 0x38]
+mov qword [var_20h], rax
+call _ZN5boost4json6objectC1EONS0_6detail16unchecked_objectE
+add byte [rax], al
+add byte [rax], al
+mov rax, qword [rbx + 0x18]
+movdqu xmm0, xmmword [var_30h]
+movups xmmword [rax], xmm0
+mov rdx, qword [var_40h]
+mov qword [rax + 0x10], rdx
+add qword [rbx + 0x18], 0x18
+mov rbx, qword [var_10h]
+test rbx, rbx
+je 0x8005278
+mov rax, qword [var_20h]
+mov rax, qword [rax]
+and eax, 3
+cmp rax, 2
+jne 0x8005265
+jmp 0x8005278
+nop
+mov rdi, rbx
+call _ZN5boost4json5valueD1Ev
+lea rdi, [rbx + 0x18]
+add rbx, 0x30
+call _ZN5boost4json5valueD1Ev
+mov rax, qword [var_18h]
+lea rdx, [rax - 1]
+mov qword [var_18h], rdx
+test rax, rax
+jne 0x8005250
+add rsp, 0x58
+pop rbx
+pop rbp
+ret
+nop
+cmp rax, qword [rdi + 0x20]
+jb 0x80051e6
+mov qword [var_8h], rsi
+call _ZN5boost4json11value_stack5stack8grow_oneEv
+add byte [rax], al
+add byte [rax], al
+mov rax, qword [rbx + 0x18]
+mov rsi, qword [var_8h]
+jmp 0x80051e6

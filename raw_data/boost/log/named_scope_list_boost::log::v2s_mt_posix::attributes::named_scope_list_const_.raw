@@ -1,0 +1,59 @@
+movq xmm0, rdi
+punpcklqdq xmm0, xmm0
+movups xmmword [rdi], xmm0
+mov rax, qword [rsi + 0x10]
+test rax, rax
+mov qword [rdi + 0x10], rax
+setne byte [rdi + 0x18]
+je 0x8000360
+movabs rdx, 0x249249249249249
+push rbp
+push rbx
+sub rsp, 8
+cmp rax, rdx
+ja _ZSt17__throw_bad_allocv
+mov rbp, rdi
+lea rdi, [rax*8]
+mov rbx, rsi
+sub rdi, rax
+shl rdi, 3
+call _Znwm
+mov rdx, qword [rbx + 8]
+cmp rbx, rdx
+je 0x8000368
+mov rcx, rbp
+jmp 0x800030b
+nop word [rax + rax]
+mov rax, rsi
+movdqu xmm1, xmmword [rdx]
+movups xmmword [rax], xmm1
+mov rsi, qword [rdx + 0x10]
+mov qword [rax + 0x10], rsi
+mov rsi, qword [rdx + 0x18]
+mov qword [rax + 0x18], rsi
+mov rsi, qword [rdx + 0x20]
+mov qword [rax + 0x20], rsi
+mov rsi, qword [rdx + 0x28]
+mov qword [rax + 0x28], rsi
+mov rsi, qword [rdx + 0x30]
+mov qword [rax], rcx
+mov qword [rax + 0x30], rsi
+lea rsi, [rax + 0x38]
+mov qword [rcx + 8], rax
+mov rdx, qword [rdx + 8]
+mov rcx, rax
+cmp rbx, rdx
+jne 0x8000308
+mov qword [rbp], rax
+mov qword [rax + 8], rbp
+add rsp, 8
+pop rbx
+pop rbp
+ret
+ret
+nop dword [rax]
+mov rax, rbp
+jmp 0x8000351
+call _ZSt17__throw_bad_allocv
+nop word cs:[rax + rax]
+nop dword [rax]

@@ -1,0 +1,12 @@
+xor eax, eax
+cmp byte [rdi], 0x2d
+jne 0x8003e15
+lea rax, [rdi + 1]
+cmp rsi, rax
+je 0x8003e10
+cmp byte [rdi + 1], 0x2f
+sete al
+ret
+nop dword [rax + rax]
+mov eax, 1
+ret

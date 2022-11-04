@@ -1,0 +1,63 @@
+push r15
+push r14
+push r13
+push r12
+push rbp
+push rbx
+sub rsp, 0x28
+mov rax, qword [rsi + 0x10]
+mov r15d, dword [rax]
+lea r12, [rax + 0x10]
+lea rdx, [r15 + r15*4]
+lea rax, [rax + rdx*8 + 0x10]
+mov qword [rsp], rax
+cmp r12, rax
+je 0x8004e49
+movabs r14, 0x100000001b3
+lea rax, [var_1fh]
+mov qword [var_8h], rax
+nop dword [rax + rax]
+mov rax, qword [r12 + 0x18]
+mov edi, dword [r12 + 0x20]
+add rdi, rax
+cmp rdi, rax
+je 0x8004e60
+movabs r13, 0xcbf29ce484222325
+nop dword [rax]
+movsx rdx, byte [rax]
+add rax, 1
+xor rdx, r13
+imul rdx, r14
+mov r13, rdx
+cmp rax, rdi
+jne 0x8004df8
+mov rbx, rdx
+mov rbp, rdx
+shl rbx, 6
+shr rbp, 2
+mov rdi, qword [var_8h]
+mov rsi, r12
+add rbx, rbp
+mov ebp, 0x9e3779b9
+add rbx, rbp
+add r12, 0x28
+call _ZNKSt4hashIN5boost4json5valueEEclERKS2_
+lea rdx, [rbx + rax]
+xor rdx, r13
+xor r15, rdx
+cmp qword [rsp], r12
+jne 0x8004dd8
+add rsp, 0x28
+mov rax, r15
+pop rbx
+pop rbp
+pop r12
+pop r13
+pop r14
+pop r15
+ret
+nop dword [rax + rax]
+movabs rbp, 0x32fca739210888c9
+movabs rbx, 0xfca739210888c940
+movabs r13, 0xcbf29ce484222325
+jmp 0x8004e1d

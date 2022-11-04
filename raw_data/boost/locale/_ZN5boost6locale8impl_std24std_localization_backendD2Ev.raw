@@ -1,0 +1,117 @@
+lea rax, [0x08000397]
+push r12
+push rbp
+push rbx
+mov rbx, rdi
+mov qword [rdi], rax
+mov rdi, qword [rdi + 0x100]
+lea rax, [rbx + 0x110]
+cmp rdi, rax
+je 0x80003c4
+mov rax, qword [rbx + 0x110]
+lea rsi, [rax + 1]
+call _ZdlPvm
+mov rdi, qword [rbx + 0xe0]
+lea rax, [rbx + 0xf0]
+cmp rdi, rax
+je 0x80003e7
+mov rax, qword [rbx + 0xf0]
+lea rsi, [rax + 1]
+call _ZdlPvm
+mov rdi, qword [rbx + 0xb8]
+lea rax, [rbx + 0xc8]
+cmp rdi, rax
+je 0x800040a
+mov rax, qword [rbx + 0xc8]
+lea rsi, [rax + 1]
+call _ZdlPvm
+mov rdi, qword [rbx + 0x98]
+lea rax, [rbx + 0xa8]
+cmp rdi, rax
+je 0x800042d
+mov rax, qword [rbx + 0xa8]
+lea rsi, [rax + 1]
+call _ZdlPvm
+mov rdi, qword [rbx + 0x78]
+lea rax, [rbx + 0x88]
+cmp rdi, rax
+je 0x800044d
+mov rax, qword [rbx + 0x88]
+lea rsi, [rax + 1]
+call _ZdlPvm
+mov rdi, qword [rbx + 0x58]
+lea rax, [rbx + 0x68]
+cmp rdi, rax
+je 0x8000467
+mov rax, qword [rbx + 0x68]
+lea rsi, [rax + 1]
+call _ZdlPvm
+mov rdi, qword [rbx + 0x38]
+lea rax, [rbx + 0x48]
+cmp rdi, rax
+je 0x8000481
+mov rax, qword [rbx + 0x48]
+lea rsi, [rax + 1]
+call _ZdlPvm
+mov r12, qword [rbx + 0x28]
+mov rbp, qword [rbx + 0x20]
+cmp r12, rbp
+je 0x80004bb
+nop
+mov rdi, qword [rbp]
+lea rax, [arg_10h]
+cmp rdi, rax
+je 0x8000520
+mov rax, qword [arg_10h]
+add rbp, 0x20
+lea rsi, [rax + 1]
+call _ZdlPvm
+cmp r12, rbp
+jne 0x8000490
+mov rbp, qword [rbx + 0x20]
+test rbp, rbp
+je 0x80004cf
+mov rsi, qword [rbx + 0x30]
+mov rdi, rbp
+sub rsi, rbp
+call _ZdlPvm
+mov r12, qword [rbx + 0x10]
+mov rbp, qword [rbx + 8]
+cmp r12, rbp
+je 0x8000507
+nop dword [rax]
+mov rdi, qword [rbp]
+lea rax, [arg_10h]
+cmp rdi, rax
+je 0x8000530
+mov rax, qword [arg_10h]
+add rbp, 0x20
+lea rsi, [rax + 1]
+call _ZdlPvm
+cmp r12, rbp
+jne 0x80004e0
+mov rbp, qword [rbx + 8]
+test rbp, rbp
+je 0x8000540
+mov rsi, qword [rbx + 0x18]
+mov rdi, rbp
+pop rbx
+sub rsi, rbp
+pop rbp
+pop r12
+jmp _ZdlPvm
+nop
+add rbp, 0x20
+cmp r12, rbp
+jne 0x8000490
+jmp 0x80004b7
+nop
+add rbp, 0x20
+cmp r12, rbp
+jne 0x80004e0
+jmp 0x8000503
+nop dword [rax + rax]
+pop rbx
+pop rbp
+pop r12
+ret

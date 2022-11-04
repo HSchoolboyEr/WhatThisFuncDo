@@ -1,0 +1,11 @@
+lock sub dword [rdi], 1
+jne 0x8003280
+test rdi, rdi
+je 0x8003280
+mov rax, qword [rdi - 8]
+lea r8, [rdi - 8]
+mov rdi, r8
+mov rax, qword [rax + 8]
+jmp rax
+nop dword [rax]
+ret

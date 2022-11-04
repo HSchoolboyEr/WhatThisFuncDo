@@ -1,0 +1,19 @@
+mov rdx, qword [rsi]
+mov rax, rdi
+mov rcx, rdx
+and rcx, 0xfffffffffffffffd
+and rdx, 0xfffffffffffffffc
+jne 0x8006f20
+lea rsi, [0x08006efa]
+lea rdi, [0x08006f01]
+mov qword [rax], rcx
+lea rdx, [0x08006f0b]
+mov qword [rax + 0x28], rsi
+mov qword [rax + 0x18], rdi
+mov qword [rax + 0x20], rax
+mov qword [rax + 0x30], rdx
+ret
+nop dword [rax]
+mov rdx, qword [rdx + 8]
+lock add qword [rdx + 0xd8], 1
+jmp 0x8006ef3

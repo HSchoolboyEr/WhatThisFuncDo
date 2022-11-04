@@ -1,0 +1,16 @@
+push r12
+mov r12, rdi
+lea rdx, [method.boost::context::detail::transfer_t_boost::context::detail::fiber_ontop_boost::context::fiber__boost::fibers::context.suspend_with_cc__::lambda_boost::context::fiber_1__boost::fibers::context::suspend_with_cc__::lambda_boost::context::fiber_]
+sub rsp, 0x10
+mov rax, qword fs:[0]
+mov qword fs:[0], rsi
+mov rdi, qword [rsi + 0xd0]
+mov qword [rsi + 0xd0], 0
+lea rsi, [var_8h]
+mov qword [var_8h], rax
+call ontop_fcontext
+mov qword [r12], rax
+add rsp, 0x10
+mov rax, r12
+pop r12
+ret

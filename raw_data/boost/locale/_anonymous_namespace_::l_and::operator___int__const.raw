@@ -1,0 +1,21 @@
+push rbp
+mov ebp, esi
+push rbx
+mov rbx, rdi
+sub rsp, 8
+mov rdi, qword [rdi + 8]
+mov rax, qword [rdi]
+call qword [rax]
+test eax, eax
+je 0x80004bb
+mov rdi, qword [rbx + 0x18]
+mov esi, ebp
+mov rax, qword [rdi]
+call qword [rax]
+test eax, eax
+setne al
+movzx eax, al
+add rsp, 8
+pop rbx
+pop rbp
+ret

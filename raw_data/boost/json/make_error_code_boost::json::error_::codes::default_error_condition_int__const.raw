@@ -1,0 +1,30 @@
+cmp esi, 0x13
+jg 0x8001180
+cmp esi, 0x11
+jg 0x8001198
+cmp esi, 0xe
+jle 0x8001168
+mov eax, 2
+lea rdx, [0x0800115b]
+cmp esi, 0x11
+je 0x8001178
+ret
+nop dword [rax]
+mov eax, 1
+lea rdx, [0x08001174]
+test esi, esi
+jg 0x8001160
+mov rdx, rdi
+mov eax, esi
+ret
+nop
+lea ecx, [rsi - 0x14]
+mov eax, 4
+lea rdx, [0x0800118f]
+cmp ecx, 4
+ja 0x8001178
+ret
+nop dword [rax]
+lea rdx, [0x0800119f]
+mov eax, 3
+ret

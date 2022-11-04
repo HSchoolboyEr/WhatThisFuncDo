@@ -1,0 +1,117 @@
+push rbp
+mov rbp, rsp
+push r15
+push r14
+lea r14, [rdi + 0x10]
+push r13
+mov r13, rsi
+push r12
+mov r12, rdi
+push rbx
+mov rbx, rdx
+sub rsp, 0x448
+test rdx, rdx
+je 0x80037c0
+mov dword [rdx], 0
+lea r15, [var_430h]
+mov qword [rdx + 8], 0
+mov qword [rdx + 0x10], 0
+mov edx, 0x400
+mov qword [rdi], r14
+mov byte [rdi + 0x10], 0
+mov rax, qword [rsi]
+mov rsi, r15
+mov qword [rdi + 8], 0
+mov rdi, rax
+mov qword [var_458h], rax
+call readlink
+mov r8, rax
+test rax, rax
+js __errno_location
+cmp r8, 0x3ff
+jg 0x8003830
+mov rdx, qword [r12 + 8]
+mov rcx, r15
+xor esi, esi
+mov rdi, r12
+call _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE10_M_replaceEmmPKcm
+lea rsp, [var_28h]
+mov rax, r12
+pop rbx
+pop r12
+pop r13
+pop r14
+pop r15
+pop rbp
+ret
+nop dword [rax]
+mov qword [rdi], r14
+lea r15, [var_430h]
+mov edx, 0x400
+mov byte [rdi + 0x10], 0
+mov rax, qword [rsi]
+mov rsi, r15
+mov qword [rdi + 8], 0
+mov rdi, rax
+mov qword [var_458h], rax
+call readlink
+mov r8, rax
+test rax, rax
+jns 0x8003788
+jmp .text.unlikely
+nop dword [rax]
+call __errno_location
+mov eax, dword [rax]
+mov dword [var_458h], eax
+cmp eax, 1
+mov dword [rbx], eax
+mov eax, 2
+lea rcx, [0x0800381e]
+sbb rax, 0xffffffffffffffff
+mov qword [rbx + 8], rcx
+mov qword [rbx + 0x10], rax
+jmp 0x80037a7
+nop
+mov dword [var_464h], 5
+mov qword [var_460h], 0x800
+mov rdi, qword [var_460h]
+call _Znam
+mov rdx, qword [var_460h]
+mov rdi, qword [var_458h]
+mov rsi, rax
+mov r15, rax
+call readlink
+mov r8, rax
+test rax, rax
+js 0x800389a
+cmp rax, qword [var_460h]
+jae 0x80038c0
+mov rdx, qword [r12 + 8]
+mov rcx, r15
+xor esi, esi
+mov rdi, r12
+call _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE10_M_replaceEmmPKcm
+mov rdi, r15
+call _ZdaPv
+jmp 0x80037a7
+mov rdi, r15
+call _ZdaPv
+call __errno_location
+mov eax, dword [rax]
+mov dword [var_458h], eax
+test rbx, rbx
+jne 0x800380d
+jmp .text.unlikely
+nop dword [rax]
+mov rdi, r15
+call _ZdaPv
+shl qword [var_460h], 1
+sub dword [var_464h], 1
+jne 0x8003845
+test rbx, rbx
+je .text.unlikely
+lea rax, [0x080038ec]
+mov dword [rbx], 0x24
+mov qword [rbx + 8], rax
+mov qword [rbx + 0x10], 3
+jmp 0x80037a7

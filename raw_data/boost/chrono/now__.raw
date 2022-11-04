@@ -1,0 +1,8 @@
+sub rsp, 0x18
+mov edi, 3
+mov rsi, rsp
+call clock_gettime
+imul rax, qword [rsp], 0x3b9aca00
+add rax, qword [var_8h]
+add rsp, 0x18
+ret

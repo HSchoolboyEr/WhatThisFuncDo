@@ -1,0 +1,52 @@
+push rbp
+lea rax, [0x08000638]
+mov rbp, rdi
+push rbx
+mov rsi, rax
+sub rsp, 8
+nop dword [rax + rax]
+add rsi, 1
+cmp byte [rsi], 0
+jne 0x8000648
+mov rbx, qword [arg_18h]
+mov r8, qword [arg_10h]
+cmp rsi, rax
+je 0x80006a0
+cmp r8, rbx
+je 0x80006a0
+mov r9, rbx
+lea r11, [0x0800066d]
+jmp 0x8000680
+nop
+mov rdx, r9
+mov rdi, r11
+call method char const* std::__find_if<char const*, __gnu_cxx::__ops::_Iter_equals_val<char const> >(char const*, char const*, __gnu_cxx::__ops::_Iter_equals_val<char const>, std::random_access_iterator_tag) [clone .isra.0]
+cmp rsi, rax
+jne 0x80006d8
+mov r10, r9
+lea r9, [r9 - 1]
+cmp r8, r9
+jne 0x8000670
+mov rdx, r8
+lea rdi, [0x08000696]
+call method char const* std::__find_if<char const*, __gnu_cxx::__ops::_Iter_equals_val<char const> >(char const*, char const*, __gnu_cxx::__ops::_Iter_equals_val<char const>, std::random_access_iterator_tag) [clone .isra.0]
+cmp rsi, rax
+jne 0x80006dd
+mov r9, qword [rbp]
+mov rcx, rbx
+lea rdx, [0x080006ae]
+xor eax, eax
+sub rcx, r8
+mov esi, 0x32
+lea rdi, [0x080006bf]
+call snprintf
+add rsp, 8
+lea rax, [0x080006cf]
+pop rbx
+pop rbp
+ret
+nop word [rax + rax]
+cmp rbx, r9
+je 0x80006a0
+mov r8, r10
+jmp 0x80006a0

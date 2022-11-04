@@ -1,0 +1,32 @@
+push r12
+push rbp
+push rbx
+mov rbx, rdx
+sub rsp, 0x90
+mov rdi, qword [rdi]
+mov rax, qword [rdi]
+call qword [rax + 0x40]
+cmp rbx, rax
+jne 0x80009f8
+add rsp, 0x90
+pop rbx
+pop rbp
+pop r12
+ret
+mov rbp, rsp
+xor ecx, ecx
+xor edx, edx
+mov esi, 8
+mov rdi, rbp
+call _ZN5boost7archive17archive_exceptionC1ENS1_14exception_codeEPKcS4_
+mov rdi, rbp
+call _ZN5boost13serialization15throw_exceptionINS_7archive17archive_exceptionEEEvRKT_
+add byte [rax], al
+add byte [rax], al
+mov r12, rax
+mov rdi, rbp
+call _ZN5boost7archive17archive_exceptionD1Ev
+add byte [rax], al
+add byte [rax], al
+mov rdi, r12
+call _Unwind_Resume

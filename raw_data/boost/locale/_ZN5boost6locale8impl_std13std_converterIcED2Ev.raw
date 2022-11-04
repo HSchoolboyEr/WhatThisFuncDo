@@ -1,0 +1,9 @@
+lea rax, [0x080003c7]
+push rbp
+mov rbp, rdi
+lea rdi, [rdi + 0x10]
+mov qword [rdi - 0x10], rax
+call _ZNSt6localeD1Ev
+mov rdi, rbp
+pop rbp
+jmp _ZN5boost6locale9converterIcED2Ev

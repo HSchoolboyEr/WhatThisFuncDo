@@ -1,0 +1,7 @@
+fld xword [rsp + 8]
+fxam
+fnstsw ax
+fstp st(0)
+test ah, 2
+setne al
+ret

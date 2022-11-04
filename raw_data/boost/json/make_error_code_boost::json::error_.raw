@@ -1,0 +1,9 @@
+cmp esi, 1
+mov edx, 2
+mov dword [rdi], esi
+mov rax, rdi
+sbb rdx, 0xffffffffffffffff
+lea rcx, [0x08002308]
+mov qword [rdi + 0x10], rdx
+mov qword [rdi + 8], rcx
+ret

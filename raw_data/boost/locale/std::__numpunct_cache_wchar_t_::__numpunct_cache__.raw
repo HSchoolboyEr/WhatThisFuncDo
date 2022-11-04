@@ -1,0 +1,24 @@
+push rbp
+lea rax, [0x08004ae8]
+cmp byte [rdi + 0x148], 0
+mov rbp, rdi
+mov qword [rdi], rax
+je 0x8004b21
+mov rdi, qword [rdi + 0x10]
+test rdi, rdi
+je 0x8004b05
+call _ZdaPv
+mov rdi, qword [arg_28h]
+test rdi, rdi
+je 0x8004b13
+call _ZdaPv
+mov rdi, qword [arg_38h]
+test rdi, rdi
+je 0x8004b21
+call _ZdaPv
+mov rdi, rbp
+call _ZNSt6locale5facetD2Ev
+mov rdi, rbp
+mov esi, 0x150
+pop rbp
+jmp _ZdlPvm

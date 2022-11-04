@@ -1,0 +1,54 @@
+push r12
+push rbp
+mov rbp, rdx
+push rbx
+mov rbx, rdi
+sub rsp, 0x20
+mov r12, rsp
+mov rdi, r12
+call method boost::log::v2s_mt_posix::ipc::(anonymous namespace)::get_scope_prefix(boost::log::v2s_mt_posix::ipc::object_name::scope)
+mov rdi, rbp
+call strlen
+mov rdx, rax
+movabs rax, 0x3fffffffffffffff
+sub rax, qword [var_8h]
+cmp rdx, rax
+ja 0x8000b7b
+mov rsi, rbp
+mov rdi, r12
+call _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_appendEPKcm
+lea rdx, [rbx + 0x10]
+mov qword [rbx], rdx
+mov rcx, qword [rax]
+lea rdx, [rax + 0x10]
+cmp rcx, rdx
+je 0x8000b70
+mov qword [rbx], rcx
+mov rcx, qword [rax + 0x10]
+mov qword [rbx + 0x10], rcx
+mov rcx, qword [rax + 8]
+mov qword [rax], rdx
+mov rdi, qword [rsp]
+mov qword [rax + 8], 0
+mov qword [rbx + 8], rcx
+mov byte [rax + 0x10], 0
+lea rax, [arg_10h]
+cmp rdi, rax
+je 0x8000b64
+mov rax, qword [arg_10h]
+lea rsi, [rax + 1]
+call _ZdlPvm
+add rsp, 0x20
+pop rbx
+pop rbp
+pop r12
+ret
+nop dword [rax]
+movdqu xmm0, xmmword [rax + 0x10]
+movups xmmword [rbx + 0x10], xmm0
+jmp 0x8000b31
+lea rdi, [0x08000b82]
+call _ZSt20__throw_length_errorPKc
+mov rbp, rax
+jmp .text.unlikely
+nop

@@ -1,0 +1,20 @@
+sub rsp, 0x28
+mov rax, rdi
+mov rdi, rdx
+mov edx, 1
+lock xadd qword [rdi + 0x30], rdx
+mov rcx, qword [rax + 8]
+add rdx, 1
+mov qword [rsp], rdi
+mov qword [var_10h], 0
+mov qword [var_8h], rdx
+mov rdx, qword [rcx]
+mov qword [var_10h], rdx
+lea rdx, [var_10h]
+mov qword [rcx], rdx
+mov qword [rax + 8], rdx
+call _ZN5boost6fibers7context7suspendERSt11unique_lockINS0_6detail13spinlock_ttasEE
+add byte [rax], al
+add byte [rax], al
+add rsp, 0x28
+ret

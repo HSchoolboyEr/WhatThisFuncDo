@@ -1,0 +1,90 @@
+push r15
+push r14
+mov r14, rdi
+push r13
+push r12
+push rbp
+mov rbp, rsi
+push rbx
+sub rsp, 0x48
+call _ZN5boost13re_detail_50020get_default_class_idIwEEiPKT_S4_
+test eax, eax
+js 0x800b500
+lea ebx, [rax + 1]
+lea rax, [0x0800b4e7]
+movsxd rbx, ebx
+mov eax, dword [rax + rbx*4]
+add rsp, 0x48
+pop rbx
+pop rbp
+pop r12
+pop r13
+pop r14
+pop r15
+ret
+nop dword [rax]
+lea r12, [var_30h]
+mov qword [var_20h], r12
+test r14, r14
+jne 0x800b518
+test rbp, rbp
+jne .LC0
+sub rbp, r14
+mov r13, r12
+mov r15, rbp
+sar r15, 2
+mov qword [var_18h], r15
+mov rax, r15
+cmp rbp, 0xc
+ja 0x800b5e0
+cmp r15, 1
+je 0x800b5d0
+test r15, r15
+je 0x800b55e
+mov rdi, r13
+mov rdx, r15
+mov rsi, r14
+call wmemcpy
+mov rax, qword [var_18h]
+mov r13, qword [var_20h]
+lea rbp, [r13 + rax*4]
+mov qword [var_28h], rax
+mov rbx, r13
+mov dword [rbp], 0
+test rax, rax
+je 0x800b593
+nop word [rax + rax]
+mov edi, dword [rbx]
+add rbx, 4
+call towlower
+mov dword [rbx - 4], eax
+cmp rbp, rbx
+jne 0x800b580
+mov rsi, rbp
+mov rdi, r13
+call _ZN5boost13re_detail_50020get_default_class_idIwEEiPKT_S4_
+cmp r13, r12
+je 0x800b4dd
+mov rdx, qword [var_30h]
+mov rdi, r13
+mov dword [var_ch], eax
+lea rsi, [rdx*4 + 4]
+call _ZdlPvm
+mov eax, dword [var_ch]
+jmp 0x800b4dd
+nop dword [rax]
+mov edx, dword [r14]
+mov dword [r13], edx
+jmp 0x800b55e
+nop dword [rax]
+lea rsi, [var_18h]
+lea rdi, [var_20h]
+xor edx, edx
+call _ZNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEE9_M_createERmm
+mov qword [var_20h], rax
+mov r13, rax
+mov rax, qword [var_18h]
+mov qword [var_30h], rax
+jmp 0x800b537
+lea rdi, [0x0800b60f]
+call sym void boost::throw_exception<std::logic_error>(std::logic_error const&)

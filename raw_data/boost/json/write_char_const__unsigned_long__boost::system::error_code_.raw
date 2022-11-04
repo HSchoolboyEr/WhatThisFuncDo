@@ -1,0 +1,43 @@
+push r12
+mov r8, rcx
+mov r12, rdi
+push rbp
+mov rbp, rdx
+push rbx
+mov rbx, rcx
+mov rcx, rdx
+mov rdx, rsi
+mov esi, 1
+sub rsp, 0x20
+call _ZN5boost4json12basic_parserINS0_6detail7handlerEE10write_someEbPKcmRNS_6system10error_codeE
+mov rdx, qword [rbx + 0x10]
+test dl, 1
+je 0x8010ea9
+cmp rdx, 1
+jne 0x8010eae
+mov edx, dword [rbx]
+test edx, edx
+jne 0x8010eae
+cmp rbp, rax
+ja 0x8010ec0
+add rsp, 0x20
+pop rbx
+pop rbp
+pop r12
+ret
+nop word [rax + rax]
+lea rcx, [0x08010ec7]
+mov dword [rbx], 2
+lea rdx, [0x08010ed4]
+mov qword [rbx + 8], rcx
+movdqu xmm0, xmmword [rbx]
+or rdx, 1
+mov qword [rbx + 0x10], rdx
+mov qword [r12 + 0x68], rdx
+mov byte [r12 + 0xa1], 0
+movups xmmword [r12 + 0x58], xmm0
+add rsp, 0x20
+pop rbx
+pop rbp
+pop r12
+ret

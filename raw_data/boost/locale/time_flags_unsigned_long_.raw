@@ -1,0 +1,5 @@
+mov rax, qword [rdi]
+and rax, 0xfffffffffffffc7f
+or rax, rsi
+mov qword [rdi], rax
+ret

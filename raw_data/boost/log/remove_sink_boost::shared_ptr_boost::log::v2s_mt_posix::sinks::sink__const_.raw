@@ -1,0 +1,99 @@
+push r15
+push r14
+push r13
+push r12
+mov r12, rsi
+push rbp
+push rbx
+mov rbx, rdi
+sub rsp, 8
+mov r13, qword [rdi]
+mov rdi, r13
+call pthread_rwlock_wrlock
+mov rax, qword [rbx]
+mov rdx, r12
+mov rsi, qword [rax + 0x40]
+mov rdi, qword [rax + 0x38]
+call method __gnu_cxx::__normal_iterator<boost::shared_ptr<boost::log::v2s_mt_posix::sinks::sink>*, std::vector<boost::shared_ptr<boost::log::v2s_mt_posix::sinks::sink>, std::allocator<boost::shared_ptr<boost::log::v2s_mt_posix::sinks::sink> > > > std::__find_if<__gnu_cxx::__normal_iterator<boost::shared_ptr<boost::log::v2s_mt_posix::sinks::sink>*, std::vector<boost::shared_ptr<boost::log::v2s_mt_posix::sinks::sink>, std::allocator<boost::shared_ptr<boost::log::v2s_mt_posix::sinks::sink> > > >, <> >() [clone ]
+mov r14, qword [rbx]
+mov rdx, qword [r14 + 0x40]
+cmp rdx, rax
+je 0x8000acc
+lea rbx, [rax + 0x10]
+cmp rdx, rbx
+je 0x8000ab4
+mov rax, rdx
+sub rax, rbx
+mov r12, rax
+sar r12, 4
+test rax, rax
+jle 0x8000b18
+lea r15, [0x08000a4c]
+jmp 0x8000a5a
+nop
+add rbx, 0x10
+sub r12, 1
+je 0x8000ab0
+movdqu xmm0, xmmword [rbx]
+mov rbp, qword [rbx - 8]
+pxor xmm1, xmm1
+movups xmmword [rbx], xmm1
+movups xmmword [rbx - 0x10], xmm0
+test rbp, rbp
+je 0x8000a50
+lock sub dword [arg_8h], 1
+jne 0x8000a50
+mov rax, qword [rbp]
+mov rdi, rbp
+call qword [rax + 0x10]
+lock sub dword [arg_ch], 1
+jne 0x8000a50
+mov rax, qword [rbp]
+mov rdi, rbp
+mov rdx, qword [rax + 0x18]
+cmp rdx, r15
+jne 0x8000b20
+call qword [rax + 8]
+add rbx, 0x10
+sub r12, 1
+jne 0x8000a5a
+nop dword [rax + rax]
+mov rbx, qword [r14 + 0x40]
+lea rax, [rbx - 0x10]
+mov qword [r14 + 0x40], rax
+mov rbp, qword [rbx - 8]
+test rbp, rbp
+je 0x8000acc
+lock sub dword [arg_8h], 1
+je 0x8000ae8
+add rsp, 8
+mov rdi, r13
+pop rbx
+pop rbp
+pop r12
+pop r13
+pop r14
+pop r15
+jmp pthread_rwlock_unlock
+nop word [rax + rax]
+mov rax, qword [rbp]
+mov rdi, rbp
+call qword [rax + 0x10]
+lock sub dword [arg_ch], 1
+jne 0x8000acc
+mov rax, qword [rbp]
+lea rcx, [0x08000b04]
+mov rdi, rbp
+mov rdx, qword [rax + 0x18]
+cmp rdx, rcx
+jne 0x8000b27
+call qword [rax + 8]
+jmp 0x8000acc
+nop dword [rax]
+mov rbx, rdx
+jmp 0x8000ab4
+nop dword [rax]
+call rdx
+jmp 0x8000a50
+call rdx
+jmp 0x8000acc

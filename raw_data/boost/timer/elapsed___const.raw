@@ -1,0 +1,84 @@
+push r15
+push r14
+push r13
+push r12
+mov r12, rdi
+push rbp
+push rbx
+mov rbx, rsi
+sub rsp, 0x38
+cmp byte [rsi + 0x18], 0
+je _ZN5boost6chrono12steady_clock3nowEv
+mov rax, qword [rsi + 0x10]
+movdqu xmm2, xmmword [rsi]
+mov qword [rdi + 0x10], rax
+movups xmmword [rdi], xmm2
+add rsp, 0x38
+mov rax, r12
+pop rbx
+pop rbp
+pop r12
+pop r13
+pop r14
+pop r15
+ret
+nop dword [rax + rax]
+call _ZN5boost6chrono12steady_clock3nowEv
+lea rdi, [var_10h]
+mov rbp, rax
+call times
+cmp rax, 0xffffffffffffffff
+jne 0x8000740
+mov qword [var_8h], 0xffffffffffffffff
+mov rax, 0xffffffffffffffff
+movdqu xmm1, xmmword [rbx]
+movq xmm0, rbp
+sub rax, qword [rbx + 0x10]
+movhps xmm0, qword [var_8h]
+mov qword [r12 + 0x10], rax
+psubq xmm0, xmm1
+movups xmmword [r12], xmm0
+jmp 0x80006d9
+nop word [rax + rax]
+mov r13, qword [var_18h]
+mov r15, qword [var_28h]
+mov r14, qword [var_10h]
+mov rcx, qword [var_20h]
+movzx eax, byte [0x0800075b]
+test al, al
+je 0x8000788
+mov rdx, qword [0x08000766]
+cmp rdx, 0xffffffffffffffff
+je 0x8000708
+add r14, rcx
+lea rax, [r13 + r15]
+imul r14, rdx
+imul rax, rdx
+mov qword [var_8h], r14
+jmp 0x8000718
+nop dword [rax + rax]
+lea rdi, [0x0800078f]
+mov qword [var_8h], rcx
+call __cxa_guard_acquire
+mov rcx, qword [var_8h]
+test eax, eax
+je 0x800075f
+mov edi, 2
+call sysconf
+mov rcx, qword [var_8h]
+test rax, rax
+mov rsi, rax
+jle 0x80007ea
+mov eax, 0x3b9aca00
+cqo
+idiv rsi
+test rax, rax
+je 0x80007ea
+lea rdi, [0x080007cf]
+mov qword [var_8h], rcx
+mov qword [0x080007db], rax
+call __cxa_guard_release
+mov rcx, qword [var_8h]
+jmp .bss
+or rax, 0xffffffffffffffff
+jmp 0x80007c8

@@ -1,0 +1,141 @@
+push r13
+mov eax, 1
+push r12
+push rbp
+mov rbp, rsi
+mov rsi, rcx
+push rbx
+mov rbx, rdi
+mov rdi, rdx
+sub rsp, 0x48
+lock xadd qword [rdx + 0x30], rax
+add rax, 1
+mov qword [var_20h], rdx
+lea r13, [var_30h]
+lea rcx, [var_10h]
+mov qword [var_28h], rax
+mov rax, qword [rbx + 8]
+mov qword [var_30h], 0
+movdqa xmm1, xmmword [var_20h]
+mov rdx, qword [rax]
+mov qword [var_30h], rdx
+mov rdx, rbp
+mov qword [rax], r13
+mov qword [rbx + 8], r13
+movaps xmmword [var_10h], xmm1
+call _ZN5boost6fibers7context10wait_untilERKNSt6chrono10time_pointINS2_3_V212steady_clockENS2_8durationIlSt5ratioILl1ELl1000000000EEEEEERSt11unique_lockINS0_6detail13spinlock_ttasEEONS0_5wakerE
+test al, al
+je 0x8000150
+add rsp, 0x48
+pop rbx
+pop rbp
+pop r12
+pop r13
+ret
+nop word [rax + rax]
+mov rdi, qword [rbp]
+test rdi, rdi
+je 0x800029e
+movzx eax, byte [arg_8h]
+test al, al
+jne 0x80002a8
+mov byte [var_fh], al
+call _ZN5boost6fibers6detail13spinlock_ttas4lockEv
+add byte [rax], al
+add byte [rax], al
+mov rdx, qword [var_30h]
+mov byte [arg_8h], 1
+movzx eax, byte [var_fh]
+test rdx, rdx
+je 0x8000200
+cmp rdx, r13
+je 0x8000200
+mov rcx, qword [rbx]
+cmp rbx, rcx
+je 0x8000288
+lea r12, [var_20h]
+lea rsi, [rcx - 0x10]
+mov rdx, rcx
+mov rdi, rbx
+cmp r12, rsi
+je 0x80001b9
+jmp 0x8000228
+nop dword [rax]
+lea rsi, [rdx - 0x10]
+cmp r12, rsi
+jne 0x8000228
+mov rdi, rdx
+mov rdx, qword [rdx]
+cmp rbx, rdx
+jne 0x80001b0
+movq xmm0, rbx
+movq xmm3, rdi
+punpcklqdq xmm0, xmm3
+movups xmmword [rbx], xmm0
+nop dword [rax]
+mov rsi, rcx
+mov rcx, qword [rcx]
+mov qword [rsi], 0
+cmp rcx, rdx
+jne 0x80001d8
+mov rdx, qword [rbx]
+cmp rbx, rdx
+jne 0x8000200
+mov qword [rbx + 8], rbx
+nop word cs:[rax + rax]
+mov rdx, qword [rbp]
+test rdx, rdx
+je 0x800013c
+mov dword [rdx], 1
+mov byte [arg_8h], 0
+add rsp, 0x48
+pop rbx
+pop rbp
+pop r12
+pop r13
+ret
+nop word [rax + rax]
+mov rsi, qword [rdx]
+cmp rbx, rsi
+je 0x8000299
+mov r8, rdx
+jmp 0x8000246
+nop dword [rax]
+mov rcx, qword [rsi]
+cmp rbx, rcx
+je 0x8000263
+mov r8, rsi
+mov rsi, rcx
+lea rcx, [rsi - 0x10]
+cmp r12, rcx
+jne 0x8000238
+mov qword [rdi], rsi
+mov rcx, qword [rsi]
+mov rdi, rsi
+mov qword [r8], rcx
+cmp rbx, rcx
+jne 0x8000243
+mov rsi, r8
+mov qword [rdi], rdx
+movq xmm0, rdx
+mov rcx, qword [rbx]
+movq xmm2, rsi
+punpcklqdq xmm0, xmm2
+movups xmmword [rbx], xmm0
+cmp rcx, rdx
+jne 0x80001d8
+jmp 0x80001ed
+movq xmm0, rbx
+punpcklqdq xmm0, xmm0
+movups xmmword [rbx], xmm0
+jmp 0x80001f2
+mov rsi, rdx
+jmp 0x8000263
+mov edi, 1
+call _ZSt20__throw_system_errori
+add byte [rax], al
+add byte [rax], al
+mov edi, 0x23
+call _ZSt20__throw_system_errori
+nop word cs:[rax + rax]
+nop dword [rax]

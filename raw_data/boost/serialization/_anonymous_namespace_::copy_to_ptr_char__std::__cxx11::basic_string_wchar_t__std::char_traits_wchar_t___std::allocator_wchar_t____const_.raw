@@ -1,0 +1,267 @@
+push rbp
+mov rbp, rsp
+push r15
+push r14
+push r13
+mov r13, rsi
+push r12
+push rbx
+mov rbx, rdi
+sub rsp, 0x4f8
+mov rdx, qword [rsi + 8]
+mov rax, qword [rsi]
+xor esi, esi
+mov qword [var_518h], rdi
+lea rax, [rax + rdx*4]
+mov qword [var_440h], rax
+lea rax, [var_438h]
+mov rdi, rax
+mov qword [var_4c8h], rax
+call _ZN5boost7archive6detail18utf8_codecvt_facetC1Em
+add byte [rax], al
+add byte [rax], al
+mov rax, qword [r13]
+pxor xmm0, xmm0
+xor esi, esi
+mov qword [var_420h], 0
+mov qword [var_490h], rax
+lea rax, [var_488h]
+mov rdi, rax
+mov byte [var_3f8h], 0
+mov qword [var_4e8h], rax
+movups xmmword [var_408h], xmm0
+call _ZN5boost7archive6detail18utf8_codecvt_facetC1Em
+mov rax, qword [var_440h]
+pxor xmm0, xmm0
+xor esi, esi
+mov qword [var_470h], 0
+mov byte [var_448h], 0
+mov qword [var_3a0h], rax
+lea rax, [var_398h]
+mov rdi, rax
+mov qword [var_4d8h], rax
+movups xmmword [var_458h], xmm0
+call _ZN5boost7archive6detail18utf8_codecvt_facetC1Em
+movzx eax, byte [var_3f8h]
+movdqu xmm1, xmmword [var_408h]
+xor esi, esi
+mov byte [var_358h], al
+mov rax, qword [var_3a0h]
+movups xmmword [var_368h], xmm1
+mov qword [var_3f0h], rax
+lea rax, [var_3e8h]
+mov rdi, rax
+mov qword [var_500h], rax
+call _ZN5boost7archive6detail18utf8_codecvt_facetC1Em
+movzx eax, byte [var_358h]
+movdqu xmm2, xmmword [var_368h]
+xor esi, esi
+mov byte [var_3a8h], al
+mov rax, qword [var_490h]
+movups xmmword [var_3b8h], xmm2
+mov qword [var_300h], rax
+lea rax, [var_2f8h]
+mov rdi, rax
+mov qword [var_4f0h], rax
+call _ZN5boost7archive6detail18utf8_codecvt_facetC1Em
+movzx eax, byte [var_448h]
+movdqu xmm3, xmmword [var_458h]
+xor esi, esi
+mov byte [var_2b8h], al
+mov rax, qword [var_300h]
+movups xmmword [var_2c8h], xmm3
+mov qword [var_350h], rax
+lea rax, [var_348h]
+mov rdi, rax
+mov qword [var_510h], rax
+call _ZN5boost7archive6detail18utf8_codecvt_facetC1Em
+movzx eax, byte [var_2b8h]
+movdqu xmm4, xmmword [var_2c8h]
+xor esi, esi
+mov byte [var_308h], al
+mov rax, qword [var_3f0h]
+movups xmmword [var_318h], xmm4
+mov qword [var_260h], rax
+lea rax, [var_258h]
+mov rdi, rax
+mov qword [var_508h], rax
+call _ZN5boost7archive6detail18utf8_codecvt_facetC1Em
+movzx eax, byte [var_3a8h]
+movdqu xmm5, xmmword [var_3b8h]
+xor esi, esi
+mov byte [var_218h], al
+mov rax, qword [var_260h]
+movups xmmword [var_228h], xmm5
+mov qword [var_2b0h], rax
+lea rax, [var_2a8h]
+mov rdi, rax
+mov qword [var_4d0h], rax
+call _ZN5boost7archive6detail18utf8_codecvt_facetC1Em
+movzx eax, byte [var_218h]
+movdqu xmm6, xmmword [var_228h]
+xor esi, esi
+mov byte [var_268h], al
+mov rax, qword [var_350h]
+movups xmmword [var_278h], xmm6
+mov qword [var_1c0h], rax
+lea rax, [var_1b8h]
+mov rdi, rax
+mov qword [var_4c0h], rax
+call _ZN5boost7archive6detail18utf8_codecvt_facetC1Em
+movzx eax, byte [var_308h]
+movdqu xmm7, xmmword [var_318h]
+xor esi, esi
+mov byte [var_178h], al
+mov rax, qword [var_1c0h]
+movups xmmword [var_188h], xmm7
+mov qword [var_210h], rax
+lea rax, [var_208h]
+mov rdi, rax
+mov qword [var_4e0h], rax
+call _ZN5boost7archive6detail18utf8_codecvt_facetC1Em
+movzx eax, byte [var_178h]
+movdqu xmm1, xmmword [var_188h]
+xor esi, esi
+mov byte [var_1c8h], al
+mov rax, qword [var_2b0h]
+movups xmmword [var_1d8h], xmm1
+mov qword [var_170h], rax
+lea rax, [var_168h]
+mov rdi, rax
+mov qword [var_4f8h], rax
+call _ZN5boost7archive6detail18utf8_codecvt_facetC1Em
+movzx eax, byte [var_268h]
+movdqu xmm2, xmmword [var_278h]
+lea r14, [var_118h]
+xor esi, esi
+mov rdi, r14
+mov byte [var_128h], al
+mov rax, qword [var_210h]
+movups xmmword [var_138h], xmm2
+mov qword [var_120h], rax
+call _ZN5boost7archive6detail18utf8_codecvt_facetC1Em
+movzx eax, byte [var_1c8h]
+movdqu xmm3, xmmword [var_1d8h]
+lea r15, [var_c8h]
+xor esi, esi
+mov rdi, r15
+mov byte [var_d8h], al
+mov rax, qword [var_170h]
+movups xmmword [var_e8h], xmm3
+mov qword [var_d0h], rax
+call _ZN5boost7archive6detail18utf8_codecvt_facetC1Em
+movzx eax, byte [var_128h]
+movdqu xmm4, xmmword [var_138h]
+lea r12, [var_78h]
+xor esi, esi
+mov rdi, r12
+mov byte [var_88h], al
+mov rax, qword [var_120h]
+movups xmmword [var_98h], xmm4
+mov qword [var_80h], rax
+call _ZN5boost7archive6detail18utf8_codecvt_facetC1Em
+movzx ecx, byte [var_d8h]
+lea rdi, [var_58h]
+movdqu xmm5, xmmword [var_e8h]
+mov qword [var_4b8h], rdi
+mov rdx, qword [var_e8h]
+mov byte [var_38h], cl
+mov rax, qword [var_e0h]
+mov rcx, qword [var_80h]
+movups xmmword [var_48h], xmm5
+nop dword [rax]
+mov rdi, rax
+or rdi, rdx
+jne 0x80006c8
+cmp qword [var_d0h], rcx
+je 0x8000714
+nop dword [rax]
+cmp byte [var_38h], 0
+lea rsi, [rax + 1]
+je 0x80007e0
+movzx eax, byte [rbp + rax - 0x58]
+add rbx, 1
+mov byte [rbx - 1], al
+cmp rsi, rdx
+jb 0x80007d0
+xor eax, eax
+xor edx, edx
+add rcx, 4
+mov byte [var_38h], 0
+mov rdi, rax
+pxor xmm0, xmm0
+mov qword [var_80h], rcx
+or rdi, rdx
+movups xmmword [var_48h], xmm0
+jne 0x80006c8
+cmp qword [var_d0h], rcx
+jne 0x80006c8
+mov rdi, r12
+call _ZN5boost7archive6detail18utf8_codecvt_facetD1Ev
+add byte [rax], al
+add byte [rax], al
+mov rdi, r15
+call _ZN5boost7archive6detail18utf8_codecvt_facetD1Ev
+mov rdi, r14
+call _ZN5boost7archive6detail18utf8_codecvt_facetD1Ev
+mov rdi, qword [var_4f8h]
+call _ZN5boost7archive6detail18utf8_codecvt_facetD1Ev
+mov rdi, qword [var_4e0h]
+call _ZN5boost7archive6detail18utf8_codecvt_facetD1Ev
+mov rdi, qword [var_4c0h]
+call _ZN5boost7archive6detail18utf8_codecvt_facetD1Ev
+mov rdi, qword [var_4d0h]
+call _ZN5boost7archive6detail18utf8_codecvt_facetD1Ev
+mov rdi, qword [var_508h]
+call _ZN5boost7archive6detail18utf8_codecvt_facetD1Ev
+mov rdi, qword [var_510h]
+call _ZN5boost7archive6detail18utf8_codecvt_facetD1Ev
+mov rdi, qword [var_4f0h]
+call _ZN5boost7archive6detail18utf8_codecvt_facetD1Ev
+mov rdi, qword [var_500h]
+call _ZN5boost7archive6detail18utf8_codecvt_facetD1Ev
+mov rdi, qword [var_4d8h]
+call _ZN5boost7archive6detail18utf8_codecvt_facetD1Ev
+mov rdi, qword [var_4e8h]
+call _ZN5boost7archive6detail18utf8_codecvt_facetD1Ev
+mov rdi, qword [var_4c8h]
+call _ZN5boost7archive6detail18utf8_codecvt_facetD1Ev
+mov rbx, qword [var_518h]
+mov rax, qword [r13 + 8]
+mov byte [rbx + rax], 0
+lea rsp, [var_28h]
+pop rbx
+pop r12
+pop r13
+pop r14
+pop r15
+pop rbp
+ret
+nop
+mov qword [var_40h], rsi
+mov rax, rsi
+jmp 0x80006b0
+nop dword [rax]
+mov eax, dword [rcx]
+mov r9, qword [var_4b8h]
+lea rsi, [var_60h]
+mov rdi, r12
+lea rcx, [var_4a0h]
+lea rdx, [var_4a4h]
+mov dword [var_4a4h], eax
+lea rax, [var_498h]
+mov r8, rcx
+push rax
+lea rax, [var_4fh]
+push rax
+call _ZNK5boost7archive6detail18utf8_codecvt_facet6do_outER11__mbstate_tPKwS6_RS6_PcS8_RS8_
+pop rax
+pop rdx
+mov byte [var_38h], 1
+mov esi, 1
+mov rdx, qword [var_498h]
+sub rdx, qword [var_4b8h]
+xor eax, eax
+mov qword [var_48h], rdx
+mov rcx, qword [var_80h]
+jmp 0x80006d6

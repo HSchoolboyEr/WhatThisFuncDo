@@ -1,0 +1,130 @@
+push r15
+lea rax, [0x080076d9]
+push r14
+push r13
+mov r13, rdi
+push r12
+push rbp
+push rbx
+sub rsp, 0x28
+mov qword [rdi], rax
+add rax, 0x40
+mov qword [rdi + 0x28], rax
+mov edi, dword [rdi + 0x78]
+cmp edi, 0xffffffff
+je 0x8007700
+call close
+mov edi, dword [r13 + 0x7c]
+cmp edi, 0xffffffff
+je 0x800770e
+call close
+mov r12, qword [r13 + 0xc8]
+mov rbx, rsp
+test r12, r12
+je 0x80077c0
+nop dword [rax]
+mov rbp, r12
+mov r12, qword [r12 + 0x18]
+lea r15, [arg_90h]
+lea r14, [arg_60h]
+mov rsi, qword [r15]
+test rsi, rsi
+jne 0x800777e
+jmp 0x8007798
+nop dword [rax]
+mov qword [rsi], 0
+mov rax, qword [rsi + 8]
+xor ecx, ecx
+mov rdx, rbx
+mov qword [rsp], 0
+xor edi, edi
+mov qword [var_8h], 0
+mov qword [var_10h], 0
+call rax
+mov rsi, qword [r15]
+test rsi, rsi
+je 0x8007798
+mov rax, qword [rsi]
+mov qword [r15], rax
+test rax, rax
+jne 0x8007748
+mov qword [r15 + 8], 0
+jmp 0x8007748
+nop dword [rax + rax]
+sub r15, 0x10
+cmp r15, r14
+jne 0x800773b
+lea rdi, [arg_30h]
+call pthread_mutex_destroy
+mov esi, 0xa8
+mov rdi, rbp
+call _ZdlPvm
+test r12, r12
+jne 0x8007728
+mov r12, qword [r13 + 0xd0]
+test r12, r12
+je 0x8007870
+mov rbx, rsp
+nop dword [rax + rax]
+mov rbp, r12
+mov r12, qword [r12 + 0x18]
+lea r15, [arg_90h]
+lea r14, [arg_60h]
+mov rsi, qword [r15]
+test rsi, rsi
+jne 0x800782e
+jmp 0x8007848
+nop dword [rax]
+mov qword [rsi], 0
+mov rax, qword [rsi + 8]
+xor ecx, ecx
+mov rdx, rbx
+mov qword [rsp], 0
+xor edi, edi
+mov qword [var_8h], 0
+mov qword [var_10h], 0
+call rax
+mov rsi, qword [r15]
+test rsi, rsi
+je 0x8007848
+mov rax, qword [rsi]
+mov qword [r15], rax
+test rax, rax
+jne 0x80077f8
+mov qword [r15 + 8], 0
+jmp 0x80077f8
+nop dword [rax + rax]
+sub r15, 0x10
+cmp r15, r14
+jne 0x80077eb
+lea rdi, [arg_30h]
+call pthread_mutex_destroy
+mov esi, 0xa8
+mov rdi, rbp
+call _ZdlPvm
+test r12, r12
+jne 0x80077d8
+lea rdi, [r13 + 0x98]
+call pthread_mutex_destroy
+mov r8d, dword [r13 + 0x74]
+cmp r8d, 0xffffffff
+je 0x800789e
+mov edi, dword [r13 + 0x70]
+cmp r8d, edi
+jne 0x8007896
+call close
+jmp 0x80078a7
+mov edi, r8d
+call close
+mov edi, dword [r13 + 0x70]
+cmp edi, 0xffffffff
+jne close
+add rsp, 0x28
+lea rdi, [r13 + 0x40]
+pop rbx
+pop rbp
+pop r12
+pop r13
+pop r14
+pop r15
+jmp pthread_mutex_destroy

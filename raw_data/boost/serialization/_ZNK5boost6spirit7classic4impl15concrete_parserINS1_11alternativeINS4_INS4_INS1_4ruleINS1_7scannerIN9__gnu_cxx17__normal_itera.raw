@@ -1,0 +1,120 @@
+push r14
+push r13
+push r12
+push rbp
+push rbx
+mov rbx, rdi
+mov edi, 0x38
+call _Znwm
+movdqu xmm1, xmmword [rbx + 8]
+mov edi, 0x18
+mov r14, qword [rbx + 0x20]
+mov r12, rax
+lea rax, [0x0800691d]
+mov qword [r12], rax
+mov rax, qword [rbx + 0x18]
+movups xmmword [r12 + 8], xmm1
+mov qword [r12 + 0x18], rax
+call _Znwm
+mov r13, qword [r14 + 8]
+pxor xmm0, xmm0
+sub r13, qword [r14]
+mov rbp, rax
+mov qword [rax + 0x10], 0
+movups xmmword [rax], xmm0
+je 0x8006a18
+movabs rax, 0x7ffffffffffffff8
+cmp r13, rax
+ja _ZSt17__throw_bad_allocv
+mov rdi, r13
+call _Znwm
+mov rcx, rax
+movq xmm0, rcx
+add r13, rcx
+punpcklqdq xmm0, xmm0
+mov qword [arg_10h], r13
+movups xmmword [rbp], xmm0
+mov rsi, qword [r14 + 8]
+mov rdi, qword [r14]
+cmp rsi, rdi
+je 0x80069b4
+sub rsi, rdi
+xor eax, eax
+nop word [rax + rax]
+mov rdx, qword [rdi + rax]
+mov qword [rcx + rax], rdx
+add rax, 8
+cmp rsi, rax
+jne 0x80069a0
+add rcx, rsi
+mov qword [arg_8h], rcx
+mov edi, 0x18
+mov qword [r12 + 0x20], rbp
+mov qword [r12 + 0x28], 0
+call _Znwm
+mov qword [rax + 0x10], rbp
+mov rdx, qword [0x080069db]
+lea rsi, [0x080069e2]
+mov rbp, qword [r12 + 0x28]
+mov qword [rax], rsi
+mov qword [rax + 8], rdx
+mov qword [r12 + 0x28], rax
+test rbp, rbp
+je 0x80069ff
+lock sub dword [arg_8h], 1
+je 0x8006a28
+mov rax, qword [rbx + 0x30]
+pop rbx
+pop rbp
+mov qword [r12 + 0x30], rax
+mov rax, r12
+pop r12
+pop r13
+pop r14
+ret
+nop dword [rax]
+xor r13d, r13d
+xor ecx, ecx
+jmp 0x8006972
+nop word [rax + rax]
+mov rax, qword [rbp]
+mov rdi, rbp
+call qword [rax + 0x10]
+lock sub dword [arg_ch], 1
+jne 0x80069ff
+mov rax, qword [rbp]
+lea rcx, [0x08006a44]
+mov rdi, rbp
+mov rdx, qword [rax + 0x18]
+cmp rdx, rcx
+jne 0x8006a55
+call qword [rax + 8]
+jmp 0x80069ff
+call rdx
+jmp 0x80069ff
+call _ZSt17__throw_bad_allocv
+mov rdi, rax
+jmp __cxa_begin_catch
+mov rbp, rax
+jmp 0x8006a93
+mov rbx, rax
+jmp 0x8006aa8
+call __cxa_begin_catch
+mov rdi, rbp
+call _ZN5boost14checked_deleteINS_6spirit7classic11basic_chsetIwEEEEvPT_
+call __cxa_rethrow
+call __cxa_end_catch
+mov rdi, qword [r12 + 0x28]
+test rdi, rdi
+je 0x8006a93
+call _ZN5boost6detail15sp_counted_base7releaseEv
+mov rdi, r12
+mov esi, 0x38
+call _ZdlPvm
+mov rdi, rbp
+call _Unwind_Resume
+mov rdi, rbp
+mov esi, 0x18
+mov rbp, rbx
+call _ZdlPvm
+jmp 0x8006a93

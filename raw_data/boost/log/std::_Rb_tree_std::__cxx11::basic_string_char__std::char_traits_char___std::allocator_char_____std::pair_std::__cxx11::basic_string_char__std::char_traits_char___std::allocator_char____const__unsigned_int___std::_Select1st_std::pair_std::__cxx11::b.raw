@@ -1,0 +1,216 @@
+push r15
+push r14
+push r13
+push r12
+push rbp
+push rbx
+sub rsp, 0x28
+mov qword [var_10h], rdi
+test rdi, rdi
+je 0x8002c52
+mov rax, qword [var_10h]
+mov rax, qword [rax + 0x18]
+mov qword [rsp], rax
+test rax, rax
+je 0x8002bfd
+mov rax, qword [rsp]
+mov rax, qword [rax + 0x18]
+mov qword [var_8h], rax
+test rax, rax
+je 0x8002baa
+mov rax, qword [var_8h]
+mov r15, qword [rax + 0x18]
+test r15, r15
+je 0x8002b54
+mov r12, qword [r15 + 0x18]
+test r12, r12
+je 0x8002adc
+mov rbp, qword [r12 + 0x18]
+test rbp, rbp
+je 0x8002a05
+mov r13, qword [arg_18h]
+test r13, r13
+je 0x8002aa0
+mov r14, qword [r13 + 0x18]
+test r14, r14
+je 0x8002b18
+mov r9, qword [r14 + 0x18]
+test r9, r9
+je 0x8002a5a
+mov rdi, qword [r9 + 0x18]
+mov qword [var_18h], r9
+call method std::_Rb_tree<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::pair<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const, unsigned int>, std::_Select1st<std::pair<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const, unsigned int> >, std::less<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > >, std::allocator<std::pair<> > >::() [clone ]
+mov r9, qword [var_18h]
+mov rdi, qword [r9 + 0x20]
+lea rax, [r9 + 0x30]
+mov rbx, qword [r9 + 0x10]
+cmp rdi, rax
+je 0x8002a48
+mov rax, qword [r9 + 0x30]
+lea rsi, [rax + 1]
+call _ZdlPvm
+mov r9, qword [var_18h]
+mov esi, 0x48
+mov rdi, r9
+call _ZdlPvm
+test rbx, rbx
+je 0x8002a5a
+mov r9, rbx
+jmp 0x80029b8
+mov rdi, qword [r12 + 0x20]
+lea rax, [r12 + 0x30]
+mov rbx, qword [r12 + 0x10]
+cmp rdi, rax
+je 0x8002a27
+mov rax, qword [r12 + 0x30]
+lea rsi, [rax + 1]
+call _ZdlPvm
+mov esi, 0x48
+mov rdi, r12
+call _ZdlPvm
+test rbx, rbx
+je 0x8002adc
+mov r12, rbx
+jmp 0x8002987
+nop dword [rax]
+mov esi, 0x48
+mov rdi, r9
+call _ZdlPvm
+test rbx, rbx
+jne 0x8002a00
+mov rdi, qword [r14 + 0x20]
+lea rax, [r14 + 0x30]
+mov rbx, qword [r14 + 0x10]
+cmp rdi, rax
+je 0x8002a78
+mov rax, qword [r14 + 0x30]
+lea rsi, [rax + 1]
+call _ZdlPvm
+mov esi, 0x48
+mov rdi, r14
+call _ZdlPvm
+test rbx, rbx
+je 0x8002b18
+mov r14, rbx
+jmp 0x80029ab
+nop word cs:[rax + rax]
+mov rdi, qword [arg_20h]
+lea rax, [arg_30h]
+mov rbx, qword [arg_10h]
+cmp rdi, rax
+je 0x8002abe
+mov rax, qword [arg_30h]
+lea rsi, [rax + 1]
+call _ZdlPvm
+mov esi, 0x48
+mov rdi, rbp
+call _ZdlPvm
+test rbx, rbx
+je 0x8002a05
+mov rbp, rbx
+jmp 0x8002991
+mov rdi, qword [r15 + 0x20]
+lea rax, [r15 + 0x30]
+mov rbx, qword [r15 + 0x10]
+cmp rdi, rax
+je 0x8002afa
+mov rax, qword [r15 + 0x30]
+lea rsi, [rax + 1]
+call _ZdlPvm
+mov esi, 0x48
+mov rdi, r15
+call _ZdlPvm
+test rbx, rbx
+je 0x8002b54
+mov r15, rbx
+jmp 0x800297a
+nop dword [rax]
+mov rdi, qword [r13 + 0x20]
+lea rax, [r13 + 0x30]
+mov rbx, qword [r13 + 0x10]
+cmp rdi, rax
+je 0x8002b36
+mov rax, qword [r13 + 0x30]
+lea rsi, [rax + 1]
+call _ZdlPvm
+mov esi, 0x48
+mov rdi, r13
+call _ZdlPvm
+test rbx, rbx
+je 0x8002aa0
+mov r13, rbx
+jmp 0x800299e
+mov r15, qword [var_8h]
+mov rdi, qword [r15 + 0x20]
+lea rax, [r15 + 0x30]
+mov rbx, qword [r15 + 0x10]
+cmp rdi, rax
+je 0x8002b98
+mov rax, qword [r15 + 0x30]
+lea rsi, [rax + 1]
+mov qword [var_8h], rax
+call _ZdlPvm
+mov esi, 0x48
+mov rdi, r15
+call _ZdlPvm
+test rbx, rbx
+je 0x8002baa
+mov qword [var_8h], rbx
+jmp 0x8002968
+mov rdi, r15
+mov esi, 0x48
+call _ZdlPvm
+test rbx, rbx
+jne 0x8002b8e
+mov r15, qword [rsp]
+mov rdi, qword [r15 + 0x20]
+lea rax, [r15 + 0x30]
+mov rbx, qword [r15 + 0x10]
+cmp rdi, rax
+je 0x8002beb
+mov rax, qword [r15 + 0x30]
+lea rsi, [rax + 1]
+mov qword [rsp], rax
+call _ZdlPvm
+mov esi, 0x48
+mov rdi, r15
+call _ZdlPvm
+test rbx, rbx
+je 0x8002bfd
+mov qword [rsp], rbx
+jmp 0x8002952
+mov rdi, r15
+mov esi, 0x48
+call _ZdlPvm
+test rbx, rbx
+jne 0x8002be2
+mov r14, qword [var_10h]
+mov rdi, qword [r14 + 0x20]
+lea rax, [r14 + 0x30]
+mov rbx, qword [r14 + 0x10]
+cmp rdi, rax
+je 0x8002c40
+mov rax, qword [r14 + 0x30]
+lea rsi, [rax + 1]
+mov qword [rsp], rax
+call _ZdlPvm
+mov esi, 0x48
+mov rdi, r14
+call _ZdlPvm
+test rbx, rbx
+je 0x8002c52
+mov qword [var_10h], rbx
+jmp 0x800293c
+mov rdi, r14
+mov esi, 0x48
+call _ZdlPvm
+test rbx, rbx
+jne 0x8002c36
+add rsp, 0x28
+pop rbx
+pop rbp
+pop r12
+pop r13
+pop r14
+pop r15
+ret

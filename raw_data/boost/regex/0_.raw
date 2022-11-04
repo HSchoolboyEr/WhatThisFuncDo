@@ -1,0 +1,81 @@
+push r15
+mov rax, rcx
+mov r15, rdi
+mov r9d, esi
+push r14
+mov r14, rdx
+push r13
+push r12
+mov r12, r8
+push rbp
+mov rbp, rcx
+push rbx
+sub rsp, 0x48
+add rax, r8
+lea rbx, [var_30h]
+mov qword [var_20h], rbx
+je 0x8002cf8
+test rcx, rcx
+je .LC0
+mov qword [arg_18h], r12
+cmp r12, 0xf
+ja 0x8002d70
+cmp r12, 1
+jne 0x8002d60
+movzx eax, byte [rbp]
+lea r13, [arg_20h]
+mov byte [arg_30h], al
+mov rax, rbx
+mov qword [arg_28h], r12
+mov r8, r14
+mov rcx, r13
+mov rdx, r14
+mov byte [rax + r12], 0
+mov esi, r9d
+mov rdi, r15
+call _ZN5boost13re_detail_50018basic_regex_parserIwNS_14c_regex_traitsIwEEE4failENS_15regex_constants10error_typeElNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEl
+mov rdi, qword [arg_20h]
+cmp rdi, rbx
+je 0x8002d4f
+mov rax, qword [arg_30h]
+lea rsi, [rax + 1]
+call _ZdlPvm
+add rsp, 0x48
+pop rbx
+pop rbp
+pop r12
+pop r13
+pop r14
+pop r15
+ret
+nop
+test r12, r12
+jne 0x8002dd0
+mov rax, rbx
+lea r13, [arg_20h]
+jmp 0x8002d19
+nop
+lea r13, [arg_20h]
+lea rsi, [arg_18h]
+xor edx, edx
+mov dword [arg_ch], r9d
+mov rdi, r13
+call _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm
+mov r9d, dword [arg_ch]
+mov qword [arg_20h], rax
+mov rdi, rax
+mov rax, qword [arg_18h]
+mov qword [arg_30h], rax
+mov rdx, r12
+mov rsi, rbp
+mov dword [arg_ch], r9d
+call memcpy
+mov r12, qword [arg_18h]
+mov rax, qword [arg_20h]
+mov r9d, dword [arg_ch]
+jmp 0x8002d19
+lea rdi, [0x08002dcb]
+call _ZSt19__throw_logic_errorPKc
+mov rdi, rbx
+lea r13, [arg_20h]
+jmp 0x8002da0

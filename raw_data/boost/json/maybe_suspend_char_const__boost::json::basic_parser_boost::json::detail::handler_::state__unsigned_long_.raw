@@ -1,0 +1,37 @@
+cmp byte [rdi + 0xa0], 0
+mov qword [rdi + 0xa8], rsi
+mov rax, rdi
+je 0x801de30
+push rbx
+mov ebx, edx
+sub rsp, 0x10
+mov rdx, qword [rdi + 0x80]
+test rdx, rdx
+je 0x801de38
+mov rsi, qword [rax + 0x88]
+mov qword [rsi + rdx], rcx
+mov rdx, qword [rax + 0x80]
+lea rcx, [rdx + 8]
+mov qword [rax + 0x80], rcx
+mov rcx, qword [rax + 0x88]
+mov byte [rcx + rdx + 8], bl
+add qword [rax + 0x80], 1
+add rsp, 0x10
+pop rbx
+ret
+nop dword [rax]
+ret
+nop dword [rax]
+mov rsi, qword [rdi + 0xb0]
+sub rsi, qword [rdi + 0xc0]
+lea rsi, [rsi + rsi*8 + 0xb]
+cmp rsi, qword [rdi + 0x78]
+jbe 0x801ddf6
+lea rdi, [rdi + 0x70]
+mov qword [var_8h], rcx
+mov qword [rsp], rax
+call .text
+mov rax, qword [rsp]
+mov rcx, qword [var_8h]
+mov rdx, qword [rax + 0x80]
+jmp 0x801ddf6

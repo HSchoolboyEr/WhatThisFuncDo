@@ -1,0 +1,137 @@
+push r15
+push r14
+push r13
+push r12
+push rbp
+push rbx
+sub rsp, 0x48
+mov r13, qword [rdi + 0x10]
+mov r14, qword [rsi + 0x10]
+mov eax, dword [r13]
+mov edx, dword [r14]
+cmp rax, rdx
+jne 0x8009498
+lea rax, [rax + rax*4]
+lea rbx, [r13 + 0x10]
+lea rax, [rax*8 + 0x10]
+add r13, rax
+add r14, rax
+cmp r13, rbx
+je 0x8009525
+mov r12, rsi
+lea r15, [var_8h]
+lea rbp, [var_10h]
+jmp 0x800943b
+nop word [rax + rax]
+mov rax, qword [r12 + 0x10]
+mov edx, dword [var_30h]
+mov rsi, qword [var_28h]
+lea rdi, [rax + 0x10]
+mov eax, dword [rax]
+test eax, eax
+jne _ZN5boost4json6detail14find_in_objectINS_4core17basic_string_viewIcEEEESt4pairIPNS0_14key_value_pairEmERKNS0_6objectET_
+cmp r14, rdi
+je _ZN5boost4json14key_value_pairD1Ev
+mov rsi, rbp
+call _ZNK5boost4json5value5equalERKS1_
+add byte [rax], al
+add byte [rax], al
+test al, al
+je _ZN5boost4json14key_value_pairD1Ev
+mov rax, qword [var_10h]
+mov rdx, rax
+and edx, 3
+cmp rdx, 2
+je 0x8009510
+mov rsi, qword [var_28h]
+lea rcx, [0x080093f6]
+cmp rsi, rcx
+je 0x8009510
+mov rdi, rax
+mov ecx, 1
+and rdi, 0xfffffffffffffffc
+test rax, rax
+lea rax, [0x08009415]
+cmove rdi, rax
+mov eax, dword [var_30h]
+add rbx, 0x28
+lea edx, [rax + 1]
+mov rax, qword [rdi]
+call qword [rax + 0x18]
+mov rdi, rbp
+call _ZN5boost4json5valueD1Ev
+cmp r13, rbx
+je 0x8009525
+mov rax, qword [rbx]
+mov qword [var_8h], rax
+test al, 1
+jne 0x80094b0
+mov rdx, r15
+mov rsi, rbx
+mov rdi, rbp
+call _ZN5boost4json14key_value_pairC1ERKS1_NS0_11storage_ptrE
+mov rdi, qword [var_8h]
+test dil, 1
+je 0x80093a0
+and rdi, 0xfffffffffffffffc
+mov rax, 0xffffffffffffffff
+lock xadd qword [rdi + 8], rax
+test rdi, rdi
+je 0x80093a0
+cmp rax, 1
+jne 0x80093a0
+mov rax, qword [rdi]
+call qword [rax + 8]
+jmp 0x80093a0
+nop dword [rax + rax]
+add rsp, 0x48
+xor eax, eax
+pop rbx
+pop rbp
+pop r12
+pop r13
+pop r14
+pop r15
+ret
+nop dword [rax]
+and rax, 0xfffffffffffffffc
+lock add qword [rax + 8], 1
+jmp 0x8009447
+nop dword [rax]
+mov rdi, r12
+call _ZN5boost4json6detail14find_in_objectINS_4core17basic_string_viewIcEEEESt4pairIPNS0_14key_value_pairEmERKNS0_6objectET_
+mov rdi, rax
+test rax, rax
+jne 0x80093bc
+mov rax, qword [r12 + 0x10]
+mov edx, dword [rax]
+lea rdx, [rdx + rdx*4]
+lea rdi, [rax + rdx*8 + 0x10]
+cmp r14, rdi
+jne _ZNK5boost4json5value5equalERKS1_
+mov rdi, rbp
+call _ZN5boost4json14key_value_pairD1Ev
+add rsp, 0x48
+xor eax, eax
+pop rbx
+pop rbp
+pop r12
+pop r13
+pop r14
+pop r15
+ret
+nop word cs:[rax + rax]
+mov rdi, rbp
+add rbx, 0x28
+call _ZN5boost4json5valueD1Ev
+cmp r13, rbx
+jne 0x800943b
+add rsp, 0x48
+mov eax, 1
+pop rbx
+pop rbp
+pop r12
+pop r13
+pop r14
+pop r15
+ret

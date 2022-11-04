@@ -1,0 +1,37 @@
+push rbp
+mov rbp, qword [rdi + 0x10]
+test rbp, rbp
+je 0x80072b0
+mov rax, qword [rbp]
+lea rdx, [0x08007245]
+mov rax, qword [rax + 8]
+cmp rax, rdx
+jne 0x80072b8
+lea rax, [0x08007255]
+lea rcx, [0x0800725c]
+mov qword [rbp], rax
+lea rax, [0x08007267]
+movq xmm0, rcx
+lea rdi, [arg_28h]
+movq xmm1, rax
+punpcklqdq xmm0, xmm1
+movups xmmword [arg_28h], xmm0
+call _ZNSt9bad_allocD2Ev
+mov rdi, qword [arg_8h]
+lea rax, [0x0800728d]
+mov qword [rbp], rax
+test rdi, rdi
+je 0x800729c
+mov rax, qword [rdi]
+call qword [rax + 0x20]
+mov rdi, rbp
+mov esi, 0x38
+pop rbp
+jmp _ZdlPvm
+nop word [rax + rax]
+pop rbp
+ret
+nop word [rax + rax]
+mov rdi, rbp
+pop rbp
+jmp rax

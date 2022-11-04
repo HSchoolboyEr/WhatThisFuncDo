@@ -1,0 +1,450 @@
+push r15
+pxor xmm0, xmm0
+mov r15, rdi
+push r14
+push r13
+push r12
+push rbp
+mov rbp, rsi
+push rbx
+mov rbx, r8
+sub rsp, 0x168
+lea rax, [var_f0h]
+mov qword [var_10h], rdx
+mov rdi, rax
+mov qword [var_8h], r9
+mov qword [rsp], rax
+movaps xmmword [var_f0h], xmm0
+call _ZN5boost6spirit7classic4impl19object_with_id_baseINS2_11grammar_tagEmE17acquire_object_idEv
+lea r14, [var_120h]
+pxor xmm0, xmm0
+xor esi, esi
+mov qword [var_100h], rax
+mov rdi, r14
+movups xmmword [var_108h], xmm0
+mov qword [var_118h], 0
+call pthread_mutex_init
+test eax, eax
+jne 0x80080f8
+mov rax, qword [arg_1a0h]
+mov rdx, qword [var_8h]
+movq xmm0, rbx
+movhps xmm0, qword [var_8h]
+mov qword [var_158h], rax
+mov rax, qword [rbp]
+mov qword [var_38h], rdx
+mov qword [var_30h], rax
+movups xmmword [var_148h], xmm0
+test rax, rax
+je 0x8007a3b
+lock add dword [rax], 1
+mov rdi, qword [var_10h]
+lea rax, [var_30h]
+mov qword [var_8h], rax
+mov qword [var_40h], rax
+mov rdx, qword [rdi + 8]
+mov rax, qword [rdi]
+mov qword [var_50h], rdx
+mov qword [var_48h], rax
+test rax, rax
+je 0x8008053
+lock add dword [rax], 1
+mov rax, qword [var_40h]
+mov rcx, qword [var_48h]
+mov rdx, qword [var_50h]
+movq xmm0, rax
+movq xmm4, rcx
+punpcklqdq xmm0, xmm4
+mov qword [var_d0h], rdx
+movaps xmmword [var_c0h], xmm0
+test rcx, rcx
+je 0x800806e
+lock add dword [rcx], 1
+mov rax, qword [var_c8h]
+mov rdx, qword [var_d0h]
+movq xmm0, qword [var_c0h]
+movq xmm5, rax
+punpcklqdq xmm0, xmm5
+mov qword [var_70h], rdx
+movaps xmmword [var_60h], xmm0
+test rax, rax
+je 0x8007adc
+lock add dword [rax], 1
+lea rbx, [var_c8h]
+mov rdi, rbx
+mov qword [var_28h], rbx
+call _ZN5boost6spirit10multi_passISt4pairINS_4wave8cpplexer4impl25lex_iterator_functor_shimINS4_9lex_tokenINS3_4util13file_positionINS8_11flex_stringIcSt11char_traitsIcESaIcENS8_9CowStringINS8_22AllocatorStringStorageIcSD_EEPcEEEEEEEEEEPNS4_19lex_input_interf
+mov rdi, qword [rsp]
+pxor xmm0, xmm0
+mov qword [var_80h], 0xffffffffffffffff
+mov qword [var_98h], 0
+movups xmmword [var_88h], xmm0
+call _ZN5boost6spirit7classic4impl14get_definitionINS_4wave8grammars11cpp_grammarINS4_8cpplexer9lex_tokenINS4_4util13file_positionINS9_11flex_stringIcSt11char_traitsIcESaIcENS9_9CowStringINS9_22AllocatorStringStorageIcSE_EEPcEEEEEEEENSt7__cxx114listISM_NS_19f
+mov rsi, rax
+lea rax, [var_a0h]
+lea rdx, [var_40h]
+mov rdi, rax
+mov qword [var_20h], rax
+call _ZNK5boost6spirit7classic4impl9rule_baseINS1_4ruleINS1_7scannerINS_4wave8cpplexer12lex_iteratorINS7_9lex_tokenINS6_4util13file_positionINSA_11flex_stringIcSt11char_traitsIcESaIcENSA_9CowStringINSA_22AllocatorStringStorageIcSF_EEPcEEEEEEEEEENS1_16scanner_
+mov rax, qword [var_80h]
+pxor xmm0, xmm0
+mov rdi, rbx
+movdqu xmm2, xmmword [var_a8h]
+mov rdx, qword [var_b8h]
+mov rcx, qword [var_a0h]
+movups xmmword [var_a8h], xmm0
+movdqu xmm1, xmmword [var_88h]
+mov qword [var_c0h], rax
+mov rax, qword [var_98h]
+mov qword [var_80h], rcx
+mov qword [var_98h], rdx
+movups xmmword [var_88h], xmm2
+movups xmmword [var_c8h], xmm1
+mov qword [var_d8h], rax
+mov qword [var_b8h], 0
+call _ZNSt6vectorIN5boost6spirit7classic9tree_nodeINS2_13node_val_dataINS0_4wave8cpplexer12lex_iteratorINS6_9lex_tokenINS5_4util13file_positionINS9_11flex_stringIcSt11char_traitsIcESaIcENS9_9CowStringINS9_22AllocatorStringStorageIcSE_EEPcEEEEEEEEEENS2_5nil_tE
+lea rdi, [var_a8h]
+call _ZNSt6vectorIN5boost6spirit7classic9tree_nodeINS2_13node_val_dataINS0_4wave8cpplexer12lex_iteratorINS6_9lex_tokenINS5_4util13file_positionINS9_11flex_stringIcSt11char_traitsIcESaIcENS9_9CowStringINS9_22AllocatorStringStorageIcSE_EEPcEEEEEEEEEENS2_5nil_tE
+mov rax, qword [var_80h]
+movdqu xmm3, xmmword [var_88h]
+pxor xmm0, xmm0
+lea rdi, [var_88h]
+movups xmmword [var_88h], xmm0
+mov qword [var_c0h], rax
+mov rax, qword [var_98h]
+movups xmmword [var_c8h], xmm3
+mov qword [var_d8h], rax
+mov qword [var_98h], 0
+call .text
+lea rdi, [var_68h]
+call _ZN5boost6spirit10multi_passISt4pairINS_4wave8cpplexer4impl25lex_iterator_functor_shimINS4_9lex_tokenINS3_4util13file_positionINS8_11flex_stringIcSt11char_traitsIcESaIcENS8_9CowStringINS8_22AllocatorStringStorageIcSD_EEPcEEEEEEEEEEPNS4_19lex_input_interf
+mov r13, qword [var_d0h]
+pxor xmm0, xmm0
+mov rbx, qword [var_c8h]
+mov qword [var_90h], 0
+mov rbp, r13
+movaps xmmword [var_80h], xmm0
+sub rbp, rbx
+je 0x80080c8
+movabs rax, 0x7ffffffffffffff8
+cmp rbp, rax
+ja _ZSt17__throw_bad_allocv
+mov rdi, rbp
+call _Znwm
+mov qword [var_18h], rax
+mov r13, qword [var_d0h]
+mov rbx, qword [var_c8h]
+mov rax, qword [var_18h]
+movq xmm0, rax
+add rbp, rax
+punpcklqdq xmm0, xmm0
+mov qword [var_90h], rbp
+mov rbp, rax
+movaps xmmword [var_80h], xmm0
+cmp r13, rbx
+je 0x8007d76
+nop dword [rax + rax]
+mov r12, qword [rbx + 8]
+pxor xmm0, xmm0
+sub r12, qword [rbx]
+mov qword [var_10h], 0
+movups xmmword [rbp], xmm0
+je 0x8008018
+movabs rax, 0x7ffffffffffffff8
+cmp r12, rax
+ja _ZSt17__throw_bad_allocv
+mov rdi, r12
+call _Znwm
+movq xmm0, rax
+add r12, rax
+punpcklqdq xmm0, xmm0
+mov qword [var_10h], r12
+movups xmmword [rbp], xmm0
+mov rsi, qword [rbx + 8]
+mov rcx, qword [rbx]
+cmp rsi, rcx
+je 0x8008020
+sub rsi, rcx
+add rsi, rax
+nop word [rax + rax]
+mov rdx, qword [rcx]
+mov qword [rax], rdx
+test rdx, rdx
+je 0x8007d38
+lock add dword [rdx + 0x48], 1
+add rax, 8
+add rcx, 8
+cmp rax, rsi
+jne 0x8007d28
+movzx eax, byte [rbx + 0x18]
+mov qword [var_8h], rsi
+lea rdi, [var_30h]
+lea rsi, [rbx + 0x30]
+mov byte [var_18h], al
+mov rax, qword [rbx + 0x20]
+mov qword [var_20h], rax
+call _ZNSt6vectorIN5boost6spirit7classic9tree_nodeINS2_13node_val_dataINS0_4wave8cpplexer12lex_iteratorINS6_9lex_tokenINS5_4util13file_positionINS9_11flex_stringIcSt11char_traitsIcESaIcENS9_9CowStringINS9_22AllocatorStringStorageIcSE_EEPcEEEEEEEEEENS2_5nil_tE
+add rbx, 0x48
+add rbp, 0x48
+cmp r13, rbx
+jne 0x8007cc0
+mov rbx, qword [var_c0h]
+mov qword [var_88h], rbp
+xor esi, esi
+xor edx, edx
+test rbx, rbx
+js 0x8007da5
+mov rsi, qword [var_10h]
+mov rdi, qword [var_8h]
+call _ZNK5boost6spirit10multi_passISt4pairINS_4wave8cpplexer4impl25lex_iterator_functor_shimINS4_9lex_tokenINS3_4util13file_positionINS8_11flex_stringIcSt11char_traitsIcESaIcENS8_9CowStringINS8_22AllocatorStringStorageIcSD_EEPcEEEEEEEEEEPNS4_19lex_input_inter
+mov esi, 1
+mov edx, eax
+mov rax, qword [var_30h]
+mov rcx, qword [var_38h]
+mov qword [var_a0h], rax
+mov qword [var_a8h], rcx
+test rax, rax
+je 0x8008043
+lock add dword [rax], 1
+mov rax, qword [var_a0h]
+mov rcx, qword [var_a8h]
+mov qword [r15], rax
+mov qword [r15 + 8], rcx
+test rax, rax
+je 0x8007dec
+lock add dword [rax], 1
+mov rbp, qword [var_88h]
+xor eax, eax
+mov qword [r15 + 0x18], rbx
+mov rdi, qword [var_20h]
+pxor xmm0, xmm0
+mov al, sil
+mov qword [r15 + 0x28], rbp
+lea rbx, [0x08007e11]
+mov ah, dl
+mov word [r15 + 0x10], ax
+mov rax, qword [var_80h]
+movaps xmmword [var_80h], xmm0
+mov qword [r15 + 0x20], rax
+mov rax, qword [var_90h]
+mov qword [var_90h], 0
+mov qword [r15 + 0x30], rax
+call _ZN5boost6spirit10multi_passISt4pairINS_4wave8cpplexer4impl25lex_iterator_functor_shimINS4_9lex_tokenINS3_4util13file_positionINS8_11flex_stringIcSt11char_traitsIcESaIcENS8_9CowStringINS8_22AllocatorStringStorageIcSD_EEPcEEEEEEEEEEPNS4_19lex_input_interf
+lea rdi, [var_80h]
+call _ZNSt6vectorIN5boost6spirit7classic9tree_nodeINS2_13node_val_dataINS0_4wave8cpplexer12lex_iteratorINS6_9lex_tokenINS5_4util13file_positionINS9_11flex_stringIcSt11char_traitsIcESaIcENS9_9CowStringINS9_22AllocatorStringStorageIcSE_EEPcEEEEEEEEEENS2_5nil_tE
+mov rdi, qword [var_28h]
+call _ZNSt6vectorIN5boost6spirit7classic9tree_nodeINS2_13node_val_dataINS0_4wave8cpplexer12lex_iteratorINS6_9lex_tokenINS5_4util13file_positionINS9_11flex_stringIcSt11char_traitsIcESaIcENS9_9CowStringINS9_22AllocatorStringStorageIcSE_EEPcEEEEEEEEEENS2_5nil_tE
+lea rdi, [var_48h]
+call _ZN5boost6spirit10multi_passISt4pairINS_4wave8cpplexer4impl25lex_iterator_functor_shimINS4_9lex_tokenINS3_4util13file_positionINS8_11flex_stringIcSt11char_traitsIcESaIcENS8_9CowStringINS8_22AllocatorStringStorageIcSD_EEPcEEEEEEEEEEPNS4_19lex_input_interf
+mov rdi, qword [var_8h]
+call _ZN5boost6spirit10multi_passISt4pairINS_4wave8cpplexer4impl25lex_iterator_functor_shimINS4_9lex_tokenINS3_4util13file_positionINS8_11flex_stringIcSt11char_traitsIcESaIcENS8_9CowStringINS8_22AllocatorStringStorageIcSD_EEPcEEEEEEEEEEPNS4_19lex_input_interf
+mov r13, qword [var_110h]
+mov rsi, qword [var_108h]
+cmp r13, rsi
+je pthread_mutex_destroy
+mov qword [var_8h], r14
+jmp 0x8007f29
+nop word [rax + rax]
+mov rdx, qword [var_8h]
+mov rax, qword [var_10h]
+mov rcx, qword [var_100h]
+sub rax, rdx
+sar rax, 3
+cmp rcx, rax
+jae 0x8007f20
+lea r12, [rcx*8]
+add rdx, r12
+mov r14, qword [rdx]
+test r14, r14
+je 0x8007eeb
+mov rdi, r14
+call _ZN5boost4wave8grammars11cpp_grammarINS0_8cpplexer9lex_tokenINS0_4util13file_positionINS5_11flex_stringIcSt11char_traitsIcESaIcENS5_9CowStringINS5_22AllocatorStringStorageIcSA_EEPcEEEEEEEENSt7__cxx114listISI_NS_19fast_pool_allocatorISI_NS_33default_user_
+mov esi, 0x120
+mov rdi, r14
+call _ZdlPvm
+mov rdx, qword [var_8h]
+add rdx, r12
+mov qword [rdx], 0
+sub qword [var_20h], 1
+jne 0x8007f18
+mov rdi, qword [var_30h]
+pxor xmm0, xmm0
+movups xmmword [var_28h], xmm0
+test rdi, rdi
+je 0x8007f18
+lock sub dword [rdi + 8], 1
+je 0x8008082
+nop dword [rax]
+mov rsi, qword [var_108h]
+sub r13, 8
+cmp r13, rsi
+je 0x8007f50
+mov rbp, qword [r13 - 8]
+mov rax, qword [rbp]
+mov rax, qword [rax]
+cmp rax, rbx
+je 0x8007ea0
+mov rsi, qword [rsp]
+mov rdi, rbp
+call rax
+jmp 0x8007f18
+nop dword [rax + rax]
+mov r14, qword [var_8h]
+nop dword [rax]
+mov rdi, r14
+call pthread_mutex_destroy
+cmp eax, 4
+je 0x8007f58
+mov rdi, qword [var_108h]
+test rdi, rdi
+je 0x8007f82
+mov rsi, qword [var_118h]
+sub rsi, rdi
+call _ZdlPvm
+mov rax, qword [var_100h]
+mov rbx, qword [var_f0h]
+mov qword [var_a0h], rax
+test rbx, rbx
+je 0x8008128
+nop dword [rax + rax]
+mov rdi, rbx
+call pthread_mutex_lock
+cmp eax, 4
+je 0x8007fa8
+test eax, eax
+jne 0x8008165
+mov rax, qword [rbx + 0x28]
+mov rdx, qword [var_a0h]
+cmp rax, rdx
+jne 0x8008028
+sub rax, 1
+mov qword [rbx + 0x28], rax
+nop word cs:[rax + rax]
+mov rdi, rbx
+call pthread_mutex_unlock
+cmp eax, 4
+je 0x8007fe0
+mov rdi, qword [var_f8h]
+test rdi, rdi
+je 0x8007fff
+call _ZN5boost6detail15sp_counted_base7releaseEv
+add rsp, 0x168
+mov rax, r15
+pop rbx
+pop rbp
+pop r12
+pop r13
+pop r14
+pop r15
+ret
+nop dword [rax]
+xor eax, eax
+jmp 0x8007cf8
+nop
+mov rsi, rax
+jmp 0x8007d45
+mov rsi, qword [rbx + 0x38]
+cmp rsi, qword [rbx + 0x40]
+je 0x80080d6
+mov qword [rsi], rdx
+add rsi, 8
+mov qword [rbx + 0x38], rsi
+jmp 0x8007fe0
+mov qword [r15], 0
+mov qword [r15 + 8], rcx
+jmp 0x8007df4
+movq xmm0, qword [var_8h]
+mov qword [var_d0h], rdx
+mov rax, qword [var_8h]
+movaps xmmword [var_c0h], xmm0
+movq xmm0, rax
+mov qword [var_70h], rdx
+movaps xmmword [var_60h], xmm0
+jmp 0x8007adc
+mov rax, qword [rdi]
+mov qword [var_10h], rdi
+call qword [rax + 0x10]
+mov rdi, qword [var_10h]
+mov eax, 0xffffffff
+lock xadd dword [rdi + 0xc], eax
+cmp eax, 1
+jne 0x8007f18
+mov rdx, qword [rdi]
+lea rcx, [0x080080af]
+mov rax, qword [rdx + 0x18]
+cmp rax, rcx
+jne 0x80080e9
+call qword [rdx + 8]
+mov rsi, qword [var_108h]
+jmp 0x8007f20
+mov qword [var_18h], 0
+jmp 0x8007c8e
+mov rdx, qword [var_20h]
+lea rdi, [rbx + 0x30]
+call _ZNSt6vectorImSaImEE17_M_realloc_insertIJRKmEEEvN9__gnu_cxx17__normal_iteratorIPmS1_EEDpOT_
+jmp pthread_mutex_unlock
+call rax
+mov rsi, qword [var_108h]
+jmp 0x8007f20
+lea r12, [var_c0h]
+lea rdx, [0x08008107]
+mov esi, eax
+mov rdi, r12
+call _ZN5boost16thread_exceptionC2EiPKc
+lea rax, [0x08008118]
+mov rdi, r12
+mov qword [var_c0h], rax
+call _ZN5boost15throw_exceptionINS_21thread_resource_errorEEEvRKT_
+lea rbp, [var_c0h]
+lea rdx, [0x08008137]
+mov esi, 1
+mov rdi, rbp
+call _ZN5boost16thread_exceptionC2EiPKc
+lea rax, [0x0800814b]
+mov rdi, rbp
+mov qword [var_c0h], rax
+call _ZN5boost15throw_exceptionINS_10lock_errorEEEvRKT_
+call _ZSt17__throw_bad_allocv
+call _ZSt17__throw_bad_allocv
+lea rbp, [arg_c0h]
+mov esi, eax
+lea rdx, [0x08008176]
+mov rdi, rbp
+call _ZN5boost16thread_exceptionC2EiPKc
+lea rax, [0x08008185]
+mov rdi, rbp
+mov qword [arg_c0h], rax
+call _ZN5boost15throw_exceptionINS_10lock_errorEEEvRKT_
+jmp 0x8008199
+jmp 0x8008199
+lea rax, [0x080081a0]
+mov rdi, rbp
+mov qword [var_c0h], rax
+call _ZNSt13runtime_errorD2Ev
+call _ZSt9terminatev
+mov rbp, rax
+jmp 0x80081bf
+mov rbp, rax
+jmp 0x800821d
+lea rdi, [var_88h]
+call _ZNSt6vectorIN5boost6spirit7classic9tree_nodeINS2_13node_val_dataINS0_4wave8cpplexer12lex_iteratorINS6_9lex_tokenINS5_4util13file_positionINS9_11flex_stringIcSt11char_traitsIcESaIcENS9_9CowStringINS9_22AllocatorStringStorageIcSE_EEPcEEEEEEEEEENS2_5nil_tE
+lea rdi, [var_68h]
+call _ZN5boost6spirit10multi_passISt4pairINS_4wave8cpplexer4impl25lex_iterator_functor_shimINS4_9lex_tokenINS3_4util13file_positionINS8_11flex_stringIcSt11char_traitsIcESaIcENS8_9CowStringINS8_22AllocatorStringStorageIcSD_EEPcEEEEEEEEEEPNS4_19lex_input_interf
+lea rdi, [var_48h]
+call _ZN5boost6spirit10multi_passISt4pairINS_4wave8cpplexer4impl25lex_iterator_functor_shimINS4_9lex_tokenINS3_4util13file_positionINS8_11flex_stringIcSt11char_traitsIcESaIcENS8_9CowStringINS8_22AllocatorStringStorageIcSD_EEPcEEEEEEEEEEPNS4_19lex_input_interf
+mov rdi, qword [var_8h]
+call _ZN5boost6spirit10multi_passISt4pairINS_4wave8cpplexer4impl25lex_iterator_functor_shimINS4_9lex_tokenINS3_4util13file_positionINS8_11flex_stringIcSt11char_traitsIcESaIcENS8_9CowStringINS8_22AllocatorStringStorageIcSD_EEPcEEEEEEEEEEPNS4_19lex_input_interf
+mov rdi, qword [rsp]
+call _ZN5boost6spirit7classic7grammarINS_4wave8grammars11cpp_grammarINS3_8cpplexer9lex_tokenINS3_4util13file_positionINS8_11flex_stringIcSt11char_traitsIcESaIcENS8_9CowStringINS8_22AllocatorStringStorageIcSD_EEPcEEEEEEEENSt7__cxx114listISL_NS_19fast_pool_allo
+mov rdi, rbp
+call _Unwind_Resume
+call __cxa_end_catch
+mov rdi, qword [var_80h]
+mov rsi, qword [var_90h]
+sub rsi, rdi
+test rdi, rdi
+je 0x800821d
+call _ZdlPvm
+mov rdi, qword [var_28h]
+call _ZNSt6vectorIN5boost6spirit7classic9tree_nodeINS2_13node_val_dataINS0_4wave8cpplexer12lex_iteratorINS6_9lex_tokenINS5_4util13file_positionINS9_11flex_stringIcSt11char_traitsIcESaIcENS9_9CowStringINS9_22AllocatorStringStorageIcSE_EEPcEEEEEEEEEENS2_5nil_tE
+jmp 0x80081d6

@@ -1,0 +1,54 @@
+lea rax, [0x08001c97]
+push rbp
+mov rbp, rdi
+lea rdx, [rax - 0x30]
+movq xmm1, rax
+lea rax, [0x08001cab]
+movq xmm0, rdx
+mov qword [rdi + 0x428], rax
+punpcklqdq xmm0, xmm1
+movups xmmword [rdi], xmm0
+mov rdi, qword [rdi + 0x430]
+test rdi, rdi
+je 0x8001cd0
+mov rax, qword [rdi]
+call qword [rax + 0x20]
+lea rax, [0x08001cd7]
+lea rdi, [arg_8h]
+mov qword [arg_8h], rax
+call _ZNSt9exceptionD2Ev
+mov rdi, rbp
+mov esi, 0x450
+pop rbp
+jmp _ZdlPvm
+nop word cs:[rax + rax]
+nop dword [rax]
+lea rax, [0x08001d07]
+push rbp
+lea rbp, [rdi - 0x428]
+push rbx
+lea rdx, [rax - 0x30]
+movq xmm1, rax
+mov rbx, rdi
+movq xmm0, rdx
+lea rax, [0x08001d28]
+punpcklqdq xmm0, xmm1
+sub rsp, 8
+mov qword [rdi], rax
+movups xmmword [rdi - 0x428], xmm0
+mov rdi, qword [rdi + 8]
+test rdi, rdi
+je 0x8001d49
+mov rax, qword [rdi]
+call qword [rax + 0x20]
+lea rax, [0x08001d50]
+lea rdi, [rbx - 0x420]
+mov qword [rbx - 0x420], rax
+call _ZNSt9exceptionD2Ev
+add rsp, 8
+mov rdi, rbp
+mov esi, 0x450
+pop rbx
+pop rbp
+jmp _ZdlPvm
+nop word cs:[rax + rax]

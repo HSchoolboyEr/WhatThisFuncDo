@@ -1,0 +1,74 @@
+sub rsp, 0x18
+fld xword [rsp + 0x20]
+test edi, edi
+je 0x8000100
+fadd st(0)
+cmp edi, 1
+je 0x8000128
+fld st(0)
+mov eax, 1
+fld1
+jmp 0x8000072
+nop word cs:[rax + rax]
+fxch st(1)
+lea edx, [rax + rax]
+fld st(2)
+add eax, 1
+fmul st(2)
+mov qword [rsp], rdx
+fild qword [rsp]
+fmulp st(2)
+fsubrp st(1)
+cmp edi, eax
+jne 0x8000070
+fstp st(1)
+fstp st(1)
+fld st(0)
+fabs
+fld xword [0x08000099]
+fxch st(1)
+fcomi st(1)
+fstp st(1)
+jbe 0x80000c0
+fstp st(0)
+fstp xword [rsp]
+call __errno_location
+fld xword [rsp]
+mov dword [rax], 0x22
+add rsp, 0x18
+ret
+nop dword [rax]
+fldz
+mov edx, 1
+mov ecx, 0
+fucompi st(2)
+setp al
+cmovne eax, edx
+setnp dl
+cmovne edx, ecx
+test dl, dl
+je 0x8000110
+test al, al
+je 0x8000110
+fstp st(0)
+fstp st(0)
+call __errno_location
+fldz
+mov dword [rax], 0x22
+add rsp, 0x18
+ret
+nop dword [rax + rax]
+fstp st(0)
+fld1
+add rsp, 0x18
+ret
+nop dword [rax]
+fld xword [0x08000116]
+fcompi st(1)
+fstp st(0)
+jbe 0x80000b4
+test al, al
+jne 0x80000a3
+jmp 0x80000b4
+nop word [rax + rax]
+jmp 0x800008f

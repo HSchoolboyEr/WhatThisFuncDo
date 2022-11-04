@@ -1,0 +1,48 @@
+push r12
+push rbp
+push rbx
+sub rsp, 0x10
+mov r12, qword [rdi]
+test r12, r12
+je 0x8002616
+lea rax, [0x08002581]
+lea rdx, [0x08002588]
+movq xmm0, rdx
+movq xmm1, rax
+lea rbx, [0x08002599]
+punpcklqdq xmm0, xmm1
+movaps xmmword [rsp], xmm0
+mov rbp, qword [r12]
+test rbp, rbp
+je 0x8002601
+mov rax, qword [rbp]
+lea rdi, [arg_8h]
+mov qword [r12], rax
+call _ZN5boost3log12v2s_mt_posix20basic_record_ostreamIwE18detach_from_recordEv
+cmp qword [arg_48h], 0
+je 0x80025ce
+lea rdi, [arg_a0h]
+call _ZNSt13basic_ostreamIwSt11char_traitsIwEE5flushEv
+movaps xmm2, xmmword [rsp]
+lea rdi, [arg_a8h]
+movups xmmword [arg_a0h], xmm2
+call _ZNSt8ios_baseD2Ev
+mov qword [arg_8h], rbx
+lea rdi, [arg_40h]
+call _ZNSt6localeD1Ev
+mov esi, 0x1b8
+mov rdi, rbp
+call _ZdlPvm
+jmp 0x80025a1
+add rsp, 0x10
+mov rdi, r12
+mov esi, 8
+pop rbx
+pop rbp
+pop r12
+jmp _ZdlPvm
+add rsp, 0x10
+pop rbx
+pop rbp
+pop r12
+ret

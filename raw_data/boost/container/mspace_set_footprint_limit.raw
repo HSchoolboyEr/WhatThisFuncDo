@@ -1,0 +1,9 @@
+xor eax, eax
+cmp rsi, 0xffffffffffffffff
+je 0x8007d6a
+mov rdx, qword [0x08007d5f]
+lea rax, [rdx + rsi - 1]
+neg rdx
+and rax, rdx
+mov qword [rdi + 0x368], rax
+ret

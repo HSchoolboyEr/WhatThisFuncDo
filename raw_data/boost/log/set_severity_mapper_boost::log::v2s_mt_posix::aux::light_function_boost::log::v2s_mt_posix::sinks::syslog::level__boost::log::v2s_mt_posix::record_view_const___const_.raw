@@ -1,0 +1,15 @@
+mov rax, qword [rsi]
+push rbx
+mov rbx, qword [rdi]
+test rax, rax
+je 0x8001aa2
+mov rdi, rax
+call qword [rax + 8]
+mov rdx, qword [rbx + 8]
+mov qword [rbx + 8], rax
+test rdx, rdx
+je 0x8001ab5
+mov rdi, rdx
+call qword [rdx + 0x10]
+pop rbx
+ret

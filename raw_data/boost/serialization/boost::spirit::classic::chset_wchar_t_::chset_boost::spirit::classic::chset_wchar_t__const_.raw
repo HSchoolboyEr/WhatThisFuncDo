@@ -1,0 +1,111 @@
+push r13
+push r12
+push rbp
+push rbx
+mov rbx, rdi
+mov edi, 0x18
+sub rsp, 8
+mov r12, qword [rsi]
+call _Znwm
+pxor xmm0, xmm0
+mov r13, qword [r12 + 8]
+sub r13, qword [r12]
+mov rbp, rax
+movups xmmword [rax], xmm0
+mov qword [rax + 0x10], 0
+je 0x8006268
+movabs rax, 0x7ffffffffffffff8
+cmp r13, rax
+ja _ZSt17__throw_bad_allocv
+mov rdi, r13
+call _Znwm
+mov rcx, rax
+movq xmm0, rcx
+add r13, rcx
+punpcklqdq xmm0, xmm0
+mov qword [arg_10h], r13
+movups xmmword [rbp], xmm0
+mov rsi, qword [r12 + 8]
+mov rdi, qword [r12]
+cmp rsi, rdi
+je 0x8006214
+sub rsi, rdi
+xor eax, eax
+mov rdx, qword [rdi + rax]
+mov qword [rcx + rax], rdx
+add rax, 8
+cmp rsi, rax
+jne 0x8006200
+add rcx, rsi
+mov qword [arg_8h], rcx
+mov edi, 0x18
+mov qword [rbx], rbp
+mov qword [rbx + 8], 0
+call _Znwm
+mov qword [rax + 0x10], rbp
+mov rdx, qword [0x08006238]
+lea rcx, [0x0800623f]
+mov rbp, qword [rbx + 8]
+mov qword [rax], rcx
+mov qword [rax + 8], rdx
+mov qword [rbx + 8], rax
+test rbp, rbp
+je 0x800625a
+lock sub dword [arg_8h], 1
+je 0x8006278
+add rsp, 8
+pop rbx
+pop rbp
+pop r12
+pop r13
+ret
+nop dword [rax]
+xor r13d, r13d
+xor ecx, ecx
+jmp 0x80061d9
+nop word [rax + rax]
+mov rax, qword [rbp]
+mov rdi, rbp
+call qword [rax + 0x10]
+lock sub dword [arg_ch], 1
+jne 0x800625a
+mov rax, qword [rbp]
+lea rcx, [0x08006294]
+mov rdx, qword [rax + 0x18]
+cmp rdx, rcx
+jne 0x80062b0
+mov rax, qword [rax + 8]
+add rsp, 8
+mov rdi, rbp
+pop rbx
+pop rbp
+pop r12
+pop r13
+jmp rax
+mov rdi, rbp
+call rdx
+jmp 0x800625a
+call _ZSt17__throw_bad_allocv
+mov rdi, rax
+jmp __cxa_begin_catch
+mov r12, rax
+jmp 0x80062d8
+call __cxa_begin_catch
+mov rdi, rbp
+call _ZN5boost14checked_deleteINS_6spirit7classic11basic_chsetIwEEEEvPT_
+add byte [rax], al
+add byte [rax], al
+call __cxa_rethrow
+mov rdi, rbp
+mov esi, 0x18
+call _ZdlPvm
+mov rdi, r12
+call _Unwind_Resume
+mov rbp, rax
+call __cxa_end_catch
+mov rdi, qword [rbx + 8]
+test rdi, rdi
+je 0x8006303
+call _ZN5boost6detail15sp_counted_base7releaseEv
+mov rdi, rbp
+call _Unwind_Resume

@@ -1,0 +1,122 @@
+push r15
+push r14
+push r13
+push r12
+push rbp
+push rbx
+sub rsp, 0x28
+mov qword [var_10h], rdi
+test rdi, rdi
+je 0x8001f97
+mov rax, qword [var_10h]
+mov r14, qword [rax + 0x18]
+test r14, r14
+je 0x8001f75
+mov r15, qword [r14 + 0x18]
+test r15, r15
+je 0x8001f57
+mov rax, qword [r15 + 0x18]
+mov qword [var_8h], rax
+test rax, rax
+je 0x8001f39
+mov rax, qword [var_8h]
+mov rbp, qword [rax + 0x18]
+test rbp, rbp
+je 0x8001eee
+mov r13, qword [arg_18h]
+test r13, r13
+je 0x8001eac
+mov r12, qword [r13 + 0x18]
+test r12, r12
+je 0x8001ed0
+mov r9, qword [r12 + 0x18]
+test r9, r9
+je 0x8001f10
+mov rbx, qword [r9 + 0x18]
+test rbx, rbx
+je 0x8001e91
+mov rdi, qword [rbx + 0x18]
+mov qword [var_18h], r9
+call method std::_Rb_tree<boost::re_detail_500::digraph<char>, boost::re_detail_500::digraph<char>, std::_Identity<boost::re_detail_500::digraph<char> >, std::less<boost::re_detail_500::digraph<char> >, std::allocator<boost::re_detail_500::digraph<char> > >::_M_erase(std::_Rb_tree_node<boost::re_detail_500::digraph<char> >*) [clone .isra.0]
+mov rdi, rbx
+mov rbx, qword [rbx + 0x10]
+mov esi, 0x28
+call _ZdlPvm
+mov r9, qword [var_18h]
+test rbx, rbx
+jne 0x8001e68
+mov rbx, qword [r9 + 0x10]
+mov esi, 0x28
+mov rdi, r9
+call _ZdlPvm
+test rbx, rbx
+je 0x8001f10
+mov r9, rbx
+jmp 0x8001e5f
+mov r12, qword [arg_10h]
+mov esi, 0x28
+mov rdi, rbp
+call _ZdlPvm
+test r12, r12
+je 0x8001eee
+mov rbp, r12
+jmp 0x8001e3f
+nop word [rax + rax]
+mov r12, qword [r13 + 0x10]
+mov esi, 0x28
+mov rdi, r13
+call _ZdlPvm
+test r12, r12
+je 0x8001eac
+mov r13, r12
+jmp 0x8001e48
+mov rdi, qword [var_8h]
+mov esi, 0x28
+mov rbp, qword [rdi + 0x10]
+call _ZdlPvm
+test rbp, rbp
+je 0x8001f39
+mov qword [var_8h], rbp
+jmp 0x8001e2d
+mov rax, qword [r12 + 0x10]
+mov esi, 0x28
+mov rdi, r12
+mov qword [var_18h], rax
+call _ZdlPvm
+mov rax, qword [var_18h]
+test rax, rax
+je 0x8001ed0
+mov r12, rax
+jmp 0x8001e51
+mov rbx, qword [r15 + 0x10]
+mov esi, 0x28
+mov rdi, r15
+call _ZdlPvm
+test rbx, rbx
+je 0x8001f57
+mov r15, rbx
+jmp 0x8001e1b
+mov rbx, qword [r14 + 0x10]
+mov esi, 0x28
+mov rdi, r14
+call _ZdlPvm
+test rbx, rbx
+je 0x8001f75
+mov r14, rbx
+jmp 0x8001e0e
+mov rdi, qword [var_10h]
+mov esi, 0x28
+mov rbx, qword [rdi + 0x10]
+call _ZdlPvm
+test rbx, rbx
+je 0x8001f97
+mov qword [var_10h], rbx
+jmp 0x8001dfc
+add rsp, 0x28
+pop rbx
+pop rbp
+pop r12
+pop r13
+pop r14
+pop r15
+ret

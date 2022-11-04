@@ -1,0 +1,2 @@
+mov dword [rdi + 0x28], 1
+ret

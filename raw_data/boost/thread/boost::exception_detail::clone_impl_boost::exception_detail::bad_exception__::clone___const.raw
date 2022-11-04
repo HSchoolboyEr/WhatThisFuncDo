@@ -1,0 +1,46 @@
+push r12
+mov r12, rdi
+mov edi, 0x38
+push rbp
+sub rsp, 8
+call _Znwm
+mov rdi, qword [r12 + 8]
+mov rbp, rax
+lea rax, [0x08008383]
+mov qword [arg_30h], rax
+lea rax, [0x0800838e]
+mov qword [rbp], rax
+mov qword [arg_8h], rdi
+test rdi, rdi
+je 0x80083b2
+mov rax, qword [rdi]
+lea rdx, [0x080083a5]
+mov rax, qword [rax + 0x18]
+cmp rax, rdx
+jne 0x8008410
+add dword [rdi + 0x58], 1
+mov rax, qword [r12 + 0x20]
+movdqu xmm1, xmmword [r12 + 0x10]
+mov rsi, r12
+mov rdi, rbp
+mov qword [arg_20h], rax
+lea rax, [0x080083cf]
+mov qword [rbp], rax
+add rax, 0x70
+lea rcx, [rax - 0x40]
+movq xmm2, rax
+movups xmmword [arg_10h], xmm1
+movq xmm0, rcx
+punpcklqdq xmm0, xmm2
+movups xmmword [arg_28h], xmm0
+call _ZN5boost16exception_detail20copy_boost_exceptionEPNS_9exceptionEPKS1_
+mov rax, qword [rbp]
+add rbp, qword [rax - 0x18]
+add rsp, 8
+mov rax, rbp
+pop rbp
+pop r12
+ret
+nop dword [rax]
+call rax
+jmp 0x80083b2

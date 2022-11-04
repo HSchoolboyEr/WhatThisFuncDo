@@ -1,0 +1,35 @@
+lea rax, [0x08003117]
+push rbp
+mov rbp, rdi
+mov qword [rdi], rax
+mov rdi, qword [rdi + 0x80]
+lea rax, [arg_90h]
+cmp rdi, rax
+je 0x8003141
+mov rax, qword [arg_90h]
+lea rsi, [rax + 1]
+call _ZdlPvm
+mov rdi, qword [arg_60h]
+lea rax, [arg_70h]
+cmp rdi, rax
+je 0x800315b
+mov rax, qword [arg_70h]
+lea rsi, [rax + 1]
+call _ZdlPvm
+mov rdi, qword [arg_40h]
+lea rax, [arg_50h]
+cmp rdi, rax
+je 0x8003175
+mov rax, qword [arg_50h]
+lea rsi, [rax + 1]
+call _ZdlPvm
+mov rdi, qword [arg_20h]
+lea rax, [arg_30h]
+cmp rdi, rax
+je 0x800318f
+mov rax, qword [arg_30h]
+lea rsi, [rax + 1]
+call _ZdlPvm
+mov rdi, rbp
+pop rbp
+jmp _ZNSt7__cxx1110moneypunctIcLb0EED2Ev

@@ -1,0 +1,137 @@
+sub rsp, 0x18
+movsd qword [var_8h], xmm0
+fld qword [rsp + 8]
+fld st(0)
+fabs
+fld dword [0x08000068]
+fxch st(1)
+fcomi st(1)
+fstp st(1)
+jbe 0x80000b0
+fld dword [0x08000076]
+fxch st(1)
+fcompi st(1)
+fstp st(0)
+jb 0x80001d0
+fstp st(0)
+comisd xmm0, xmmword [0x0800008c]
+jbe .LC1
+call __errno_location
+movsd xmm0, qword [0x0800009f]
+mov dword [rax], 0x22
+mov dword [rax], 0x22
+add rsp, 0x18
+ret
+fld dword [0x080000b6]
+fcompi st(1)
+ja .LC19
+fstp st(0)
+fld st(0)
+fmul st(1)
+fld st(0)
+fmul qword [0x080000cc]
+fadd qword [0x080000d2]
+fmul st(1)
+fadd qword [0x080000da]
+fmul st(2)
+fld st(1)
+fmul qword [0x080000e4]
+fsub qword [0x080000ea]
+fmul st(2)
+fsub dword [0x080000f2]
+faddp st(1)
+fmul st(2)
+fld st(1)
+fmul qword [0x080000fe]
+fsub qword [0x08000104]
+fmul st(2)
+fsub qword [0x0800010c]
+fmul st(3)
+fld st(2)
+fmul qword [0x08000116]
+fadd qword [0x0800011c]
+fmulp st(3)
+fld1
+faddp st(3)
+faddp st(2)
+fdivrp st(1)
+fxch st(1)
+fmul dword [0x0800012e]
+faddp st(1)
+fld st(0)
+fabs
+fxch st(1)
+fst qword [rsp + 8]
+movsd xmm0, qword [var_8h]
+jmp 0x800014a
+nop word [rax + rax]
+fxch st(1)
+fld qword [0x08000150]
+fxch st(2)
+fcomi st(2)
+fstp st(2)
+ja 0x8000220
+fldz
+fucomi st(1)
+jp 0x800018d
+fcompi st(1)
+fstp st(0)
+jne 0x8000198
+fld qword [0x0800016e]
+fcompi st(1)
+fstp st(0)
+jbe 0x80000ab
+pxor xmm1, xmm1
+ucomisd xmm0, xmm1
+jp 0x80001b2
+comisd xmm0, xmm1
+jne 0x80001b2
+add rsp, 0x18
+ret
+fstp st(0)
+fstp st(0)
+nop dword [rax]
+pxor xmm3, xmm3
+ucomisd xmm0, xmm3
+jnp 0x8000200
+fld qword [0x080001a8]
+fcompi st(1)
+fstp st(0)
+jbe 0x80000ab
+movsd qword [var_8h], xmm0
+call __errno_location
+movsd xmm0, qword [var_8h]
+mov dword [rax], 0x22
+jmp 0x80000ab
+nop
+sub rsp, 0x10
+fstp xword [rsp]
+call expl
+fld1
+fsubp st(1)
+fld st(0)
+fabs
+fxch st(1)
+fst qword [rsp + 0x18]
+movsd xmm0, qword [var_8h]
+pop rax
+pop rdx
+jmp .LC19
+nop word [rax + rax]
+jne 0x80001a2
+fstp st(0)
+call __errno_location
+pxor xmm0, xmm0
+mov dword [rax], 0x22
+add rsp, 0x18
+ret
+nop dword [rax + rax]
+fstp st(0)
+fstp st(0)
+movsd qword [var_8h], xmm0
+call __errno_location
+movsd xmm0, qword [var_8h]
+jmp 0x80000a5
+nop word [rax + rax]
+movsd xmm0, qword [0x08000248]
+jmp 0x80000ab

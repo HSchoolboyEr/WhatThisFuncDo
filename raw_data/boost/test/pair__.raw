@@ -1,0 +1,79 @@
+push r14
+push r13
+mov r13, rdi
+push r12
+push rbp
+push rbx
+mov rbx, qword [rdi + 0x18]
+mov r12, qword [rdi + 0x10]
+cmp rbx, r12
+je 0x8007764
+lea r14, [0x0800770f]
+jmp 0x8007721
+nop dword [rax]
+add r12, 0x10
+cmp rbx, r12
+je 0x8007760
+mov rbp, qword [r12 + 8]
+test rbp, rbp
+je 0x8007718
+lock sub dword [arg_8h], 1
+jne 0x8007718
+mov rax, qword [rbp]
+mov rdi, rbp
+call qword [rax + 0x10]
+lock sub dword [arg_ch], 1
+jne 0x8007718
+mov rax, qword [rbp]
+mov rdi, rbp
+mov rdx, qword [rax + 0x18]
+cmp rdx, r14
+jne 0x80077d0
+call qword [rax + 8]
+add r12, 0x10
+cmp rbx, r12
+jne 0x8007721
+nop
+mov r12, qword [r13 + 0x10]
+test r12, r12
+je 0x8007778
+mov rsi, qword [r13 + 0x20]
+mov rdi, r12
+sub rsi, r12
+call _ZdlPvm
+mov rbp, qword [r13 + 8]
+test rbp, rbp
+je 0x8007788
+lock sub dword [arg_8h], 1
+je 0x8007798
+pop rbx
+pop rbp
+pop r12
+pop r13
+pop r14
+ret
+nop dword [rax]
+mov rax, qword [rbp]
+mov rdi, rbp
+call qword [rax + 0x10]
+lock sub dword [arg_ch], 1
+jne 0x8007788
+mov rax, qword [rbp]
+lea rcx, [0x080077b4]
+mov rdx, qword [rax + 0x18]
+cmp rdx, rcx
+jne 0x80077d7
+pop rbx
+mov rdi, rbp
+mov rax, qword [rax + 8]
+pop rbp
+pop r12
+pop r13
+pop r14
+jmp rax
+nop
+call rdx
+jmp 0x8007718
+mov rdi, rbp
+call rdx
+jmp 0x8007788

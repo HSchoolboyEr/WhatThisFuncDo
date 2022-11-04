@@ -1,0 +1,102 @@
+cmp rdx, 0xb
+jbe _ZN5boost7atomics6detail20find_address_genericEPVKvPKS3_m
+add rdx, 1
+movq xmm0, rdi
+mov rdi, rdx
+punpcklqdq xmm0, xmm0
+and rdi, 0xfffffffffffffffe
+and rdx, 0xfffffffffffffff0
+je 0x80001dc
+mov rax, rsi
+xor r8d, r8d
+jmp 0x8000081
+add r8, 0x10
+sub rax, 0xffffffffffffff80
+cmp rdx, r8
+jbe 0x8000118
+movdqa xmm1, xmm0
+movdqa xmm2, xmm0
+movdqa xmm4, xmm0
+pcmpeqq xmm2, xmmword [rax + 0x10]
+pcmpeqq xmm1, xmmword [rax]
+movdqa xmm3, xmm0
+pcmpeqq xmm4, xmmword [rax + 0x20]
+pcmpeqq xmm3, xmmword [rax + 0x50]
+movdqa xmm5, xmm0
+pcmpeqq xmm5, xmmword [rax + 0x70]
+shufps xmm1, xmm2, 0x88
+movdqa xmm2, xmm0
+pcmpeqq xmm2, xmmword [rax + 0x30]
+shufps xmm4, xmm2, 0x88
+movdqa xmm2, xmm0
+packssdw xmm1, xmm4
+pcmpeqq xmm2, xmmword [rax + 0x40]
+shufps xmm2, xmm3, 0x88
+movdqa xmm3, xmm0
+pcmpeqq xmm3, xmmword [rax + 0x60]
+shufps xmm3, xmm5, 0x88
+packssdw xmm2, xmm3
+packsswb xmm1, xmm2
+pmovmskb ecx, xmm1
+test ecx, ecx
+je 0x8000070
+tzcnt ecx, ecx
+movsxd rcx, ecx
+add r8, rcx
+mov rax, r8
+ret
+nop word cs:[rax + rax]
+jmp _ZN5boost7atomics6detail20find_address_genericEPVKvPKS3_m
+nop dword [rax]
+mov rax, rdi
+sub rax, r8
+cmp rax, 7
+jbe 0x8000171
+movdqa xmm1, xmm0
+movdqa xmm2, xmm0
+movdqa xmm3, xmm0
+pcmpeqq xmm2, xmmword [rsi + r8*8 + 0x10]
+pcmpeqq xmm1, xmmword [rsi + r8*8]
+pcmpeqq xmm3, xmmword [rsi + r8*8 + 0x30]
+shufps xmm1, xmm2, 0x88
+movdqa xmm2, xmm0
+pcmpeqq xmm2, xmmword [rsi + r8*8 + 0x20]
+shufps xmm2, xmm3, 0x88
+packssdw xmm1, xmm2
+pmovmskb eax, xmm1
+test eax, eax
+jne 0x80001ce
+add r8, 8
+mov rax, rdi
+sub rax, r8
+cmp rax, 3
+jbe 0x800019d
+movdqa xmm1, xmm0
+movdqa xmm2, xmm0
+pcmpeqq xmm1, xmmword [rsi + r8*8]
+pcmpeqq xmm2, xmmword [rsi + r8*8 + 0x10]
+shufps xmm1, xmm2, 0x88
+movmskps eax, xmm1
+test eax, eax
+jne 0x80001c0
+add r8, 4
+cmp r8, rdi
+jae 0x8000102
+pcmpeqq xmm0, xmmword [rsi + r8*8]
+movmskpd eax, xmm0
+test eax, eax
+jne 0x80001c0
+add r8, 2
+jmp 0x8000102
+nop
+tzcnt eax, eax
+cdqe
+add r8, rax
+jmp 0x8000102
+tzcnt eax, eax
+shr eax, 1
+add r8, rax
+jmp 0x8000102
+mov rax, rdi
+xor r8d, r8d
+jmp 0x800011e

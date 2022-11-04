@@ -1,0 +1,5 @@
+andpd xmm0, xmmword [0x080000c8]
+movsd xmm1, qword [0x080000d0]
+ucomisd xmm1, xmm0
+setae al
+ret

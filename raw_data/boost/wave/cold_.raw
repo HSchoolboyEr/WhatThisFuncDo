@@ -1,0 +1,33 @@
+lea rdi, [arg_28h]
+call _ZN5boost4wave4util22AllocatorStringStorageIcSaIcEED1Ev
+add byte [rax], al
+add byte [rax], al
+mov rdi, rbp
+call _Unwind_Resume
+lea rdi, [arg_28h]
+call _ZN5boost4wave4util22AllocatorStringStorageIcSaIcEED1Ev
+mov rdi, rbp
+call _Unwind_Resume
+lea rdi, [arg_28h]
+call _ZN5boost4wave4util22AllocatorStringStorageIcSaIcEED1Ev
+mov rdi, rbp
+call _Unwind_Resume
+inc dword [rax]
+add byte [rax], al
+add byte [rax], al
+add byte [rax], al
+add byte [rax], al
+add byte [rax], al
+add byte [rax], al
+add byte [rax], al
+add byte [rax], al
+add byte [rax], al
+add byte [rax], al
+add byte [rax], al
+add byte [rax], al
+add byte [rax], al
+add byte [rax], al
+add byte [rax], al
+add byte [rax], al
+invalid
+inc dword [rcx]

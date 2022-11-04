@@ -1,0 +1,48 @@
+push r12
+push rbp
+mov rbp, rdi
+push rbx
+mov rbx, rsi
+cmp rsi, 0xe
+ja 0x800b1a0
+mov eax, 0xe
+mov byte [rdi], 0x85
+sub eax, esi
+mov byte [rdi + 0xf], al
+mov byte [rdi + rsi + 1], 0
+pop rbx
+pop rbp
+pop r12
+ret
+nop word [rax + rax]
+mov byte [rdi], 5
+cmp rsi, 0x7ffffffe
+ja 0x800b206
+mov rax, qword [rdx]
+cmp rsi, 0x1e
+mov r12d, 0x1e
+mov edx, 4
+cmovae r12, rsi
+mov rdi, rax
+and rdi, 0xfffffffffffffffc
+test rax, rax
+lea rax, [0x0800b1d3]
+cmove rdi, rax
+lea rsi, [r12 + 9]
+mov rax, qword [rdi]
+call qword [rax + 0x10]
+lea rdx, [arg_1h]
+mov dword [rax], ebx
+mov dword [rax + 4], r12d
+mov qword [arg_8h], rax
+add rax, 8
+cmp byte [rbp], 0x85
+cmove rax, rdx
+mov byte [rax + r12], 0
+pop rbx
+pop rbp
+pop r12
+ret
+call method boost::json::detail::string_impl::growth(unsigned long, unsigned long) [clone .part.0]
+nop
+nop dword [rax]

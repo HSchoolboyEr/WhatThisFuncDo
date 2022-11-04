@@ -1,0 +1,10 @@
+movabs rdx, 0xaaaaaaaa78e38e39
+mov rax, rdi
+mul rdx
+mov rax, rdx
+movabs rdx, 0x1800000007
+shr rax, 0x24
+imul rdx, rax
+mov rax, rdi
+sub rax, rdx
+ret

@@ -1,0 +1,51 @@
+mov rax, qword [rdi]
+test rax, rax
+je 0x8002ac0
+push r12
+mov r12, rdi
+push rbp
+push rbx
+mov rcx, qword [rax + 0x10]
+mov rdx, qword [rdi + 8]
+mov rax, qword [rax]
+lea rsi, [rdx + rdx*2]
+and eax, 3
+lea rbp, [rcx + rsi*8 + 8]
+cmp rax, 2
+je 0x8002a82
+mov rax, qword [rdi + 0x18]
+lea rbx, [rax - 0x18]
+cmp rax, rbp
+je 0x8002a82
+nop dword [rax]
+mov rdi, rbx
+sub rbx, 0x18
+call _ZN5boost4json5valueD1Ev
+lea rax, [rbx + 0x18]
+cmp rbp, rax
+jne 0x8002a60
+mov rax, qword [r12]
+mov rdx, qword [r12 + 8]
+mov rcx, qword [rax + 0x10]
+mov rsi, qword [r12 + 0x10]
+mov eax, dword [rcx]
+sub eax, esi
+mov dword [rcx], eax
+sub rax, rdx
+jne 0x8002aa0
+pop rbx
+pop rbp
+pop r12
+ret
+nop word [rax + rax]
+lea rdx, [rax + rax*2]
+lea rax, [rsi + rsi*2]
+pop rbx
+mov rdi, rbp
+lea rsi, [rbp + rax*8]
+shl rdx, 3
+pop rbp
+pop r12
+jmp memmove
+nop dword [rax]
+ret

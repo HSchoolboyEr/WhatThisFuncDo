@@ -1,0 +1,44 @@
+push rbp
+lea rax, [0x08002418]
+push rbx
+mov rbx, rdi
+sub rsp, 8
+mov qword [rdi], rax
+mov rdi, qword [rdi + 0x30]
+test rdi, rdi
+je 0x8002431
+call _ZN5boost6detail15sp_counted_base7releaseEv
+mov rdi, qword [rbx + 0x20]
+test rdi, rdi
+je 0x800243f
+call _ZN5boost6detail15sp_counted_base7releaseEv
+mov rbp, qword [rbx + 0x10]
+test rbp, rbp
+je 0x800244f
+lock sub dword [arg_8h], 1
+je 0x8002460
+add rsp, 8
+pop rbx
+pop rbp
+ret
+nop word cs:[rax + rax]
+mov rax, qword [rbp]
+mov rdi, rbp
+call qword [rax + 0x10]
+lock sub dword [arg_ch], 1
+jne 0x800244f
+mov rax, qword [rbp]
+lea rcx, [0x0800247c]
+mov rdx, qword [rax + 0x18]
+cmp rdx, rcx
+jne 0x8002498
+mov rax, qword [rax + 8]
+add rsp, 8
+mov rdi, rbp
+pop rbx
+pop rbp
+jmp rax
+nop dword [rax]
+mov rdi, rbp
+call rdx
+jmp 0x800244f

@@ -1,0 +1,504 @@
+cmp esi, 0x11
+ja 0x8001864
+lea rcx, [0x080011d0]
+mov esi, esi
+movsxd rax, dword [rcx + rsi*4]
+add rax, rcx
+jmp rax
+nop dword [rax + rax]
+cmp edx, 3
+je 0x80013e8
+mov eax, 1
+ja 0x80013a0
+ret
+nop dword [rax]
+mov eax, 1
+ret
+nop
+cmp edx, 3
+je 0x80013e0
+sub edx, 4
+cmp edx, 3
+sbb eax, eax
+and eax, 0xb
+ret
+nop dword [rax]
+cmp edx, 6
+ja 0x8001864
+lea rcx, [0x08001228]
+mov edx, edx
+movsxd rax, dword [rcx + rdx*4]
+add rax, rcx
+jmp rax
+nop dword [rax + rax]
+cmp edx, 6
+ja 0x8001864
+lea rcx, [0x08001248]
+mov edx, edx
+movsxd rax, dword [rcx + rdx*4]
+add rax, rcx
+jmp rax
+nop dword [rax + rax]
+cmp edx, 3
+je 0x80013d0
+mov eax, 1
+jbe 0x80011f4
+sub edx, 4
+cmp edx, 3
+sbb eax, eax
+and eax, 7
+ret
+nop dword [rax]
+cmp edx, 6
+ja 0x8001864
+lea rcx, [0x08001288]
+mov edx, edx
+movsxd rax, dword [rcx + rdx*4]
+add rax, rcx
+jmp rax
+nop dword [rax + rax]
+cmp edx, 3
+jne 0x8001261
+mov eax, dword [rdi + 0x30]
+sub eax, dword [rdi + 8]
+add eax, 7
+movsxd rdx, eax
+mov ecx, eax
+imul rdx, rdx, 0xffffffff92492493
+sar ecx, 0x1f
+shr rdx, 0x20
+add edx, eax
+sar edx, 2
+sub edx, ecx
+lea ecx, [rdx*8]
+sub ecx, edx
+sub eax, ecx
+add eax, 1
+ret
+nop
+cmp edx, 3
+je 0x80013c8
+sub edx, 4
+cmp edx, 3
+sbb eax, eax
+and eax, 0x17
+ret
+nop dword [rax]
+cmp edx, 3
+jne 0x8001209
+movsxd rax, dword [rdi + 0x20]
+mov rcx, rax
+imul rax, rax, 0x2aaaaaab
+mov edx, ecx
+sar edx, 0x1f
+sar rax, 0x21
+sub eax, edx
+lea edx, [rax + rax*2]
+mov eax, ecx
+shl edx, 2
+sub eax, edx
+ret
+nop dword [rax]
+cmp edx, 6
+ja 0x8001864
+lea rcx, [0x08001328]
+mov edx, edx
+movsxd rax, dword [rcx + rdx*4]
+add rax, rcx
+jmp rax
+nop dword [rax + rax]
+cmp edx, 6
+ja 0x8001864
+lea rcx, [0x08001348]
+mov edx, edx
+movsxd rax, dword [rcx + rdx*4]
+add rax, rcx
+jmp rax
+nop dword [rax + rax]
+mov eax, dword [rdi + 8]
+add eax, 1
+ret
+nop
+cmp edx, 3
+je 0x80013c0
+sub edx, 4
+cmp edx, 3
+sbb eax, eax
+and eax, 0x3b
+ret
+nop dword [rax]
+cmp edx, 3
+jne 0x8001365
+mov eax, dword [rdi + 0x18]
+ret
+nop dword [rax]
+cmp edx, 3
+je 0x80013b0
+sub edx, 4
+xor eax, eax
+cmp edx, 2
+setbe al
+ret
+nop dword [rax]
+sub edx, 4
+cmp edx, 3
+sbb eax, eax
+and eax, 0x7fffffff
+ret
+nop
+xor eax, eax
+cmp dword [rdi + 0x20], 0xb
+setg al
+ret
+nop word [rax + rax]
+mov eax, dword [rdi + 0x1c]
+ret
+nop dword [rax]
+mov eax, dword [rdi + 0x20]
+ret
+nop dword [rax]
+mov eax, dword [rdi + 0x30]
+add eax, 1
+ret
+nop word [rax + rax]
+mov eax, dword [rdi + 0x28]
+ret
+nop dword [rax]
+mov eax, dword [rdi + 0x2c]
+add eax, 0x76c
+ret
+nop dword [rax]
+mov eax, 4
+ret
+mov eax, dword [rdi + 0x30]
+sub eax, dword [rdi + 8]
+add eax, 7
+mov ecx, dword [rdi + 0x24]
+movsxd rdx, eax
+mov esi, eax
+imul rdx, rdx, 0xffffffff92492493
+sar esi, 0x1f
+shr rdx, 0x20
+add edx, eax
+sar edx, 2
+sub edx, esi
+lea esi, [rdx*8]
+sub esi, edx
+sub eax, esi
+add eax, 0x2bc
+sub eax, ecx
+movsxd rdx, eax
+mov esi, eax
+imul rdx, rdx, 0xffffffff92492493
+sar esi, 0x1f
+shr rdx, 0x20
+add edx, eax
+sar edx, 2
+sub edx, esi
+lea esi, [rdx*8]
+sub esi, edx
+mov edx, eax
+sub edx, esi
+sub esi, eax
+mov eax, 7
+sub eax, edx
+cmp edx, 3
+cmovle eax, esi
+sub ecx, eax
+jns 0x8001648
+mov eax, 5
+ret
+mov edx, dword [rdi + 0x24]
+sub edx, 1
+movsxd rax, edx
+imul rax, rax, 0xffffffff92492493
+shr rax, 0x20
+add eax, edx
+sar edx, 0x1f
+sar eax, 2
+sub eax, edx
+add eax, 1
+ret
+mov ecx, dword [rdi + 0x2c]
+mov eax, 0x16e
+add ecx, 0x76c
+imul edx, ecx, 0xc28f5c29
+add edx, 0x51eb850
+mov esi, edx
+ror esi, 4
+cmp esi, 0xa3d70a
+jbe 0x80011f4
+ror edx, 2
+mov eax, 0x16d
+cmp edx, 0x28f5c28
+jbe 0x80011f4
+mov eax, ecx
+and eax, 3
+cmp eax, 1
+mov eax, 0x16d
+adc eax, 0
+ret
+cmp dword [rdi + 0x28], 1
+mov eax, 5
+jne 0x80011f4
+mov ecx, dword [rdi + 0x2c]
+add ecx, 0x76c
+imul edx, ecx, 0xc28f5c29
+add edx, 0x51eb850
+mov esi, edx
+ror esi, 4
+cmp esi, 0xa3d70a
+jbe 0x80011f4
+ror edx, 2
+mov eax, 4
+cmp edx, 0x28f5c28
+jbe 0x80011f4
+mov eax, ecx
+and eax, 3
+cmp eax, 1
+mov eax, 4
+adc eax, 0
+ret
+mov eax, dword [rdi + 0x2c]
+mov esi, dword [rdi + 0x28]
+lea edx, [rax + 0x76c]
+mov eax, 1
+imul ecx, edx, 0xc28f5c29
+add ecx, 0x51eb850
+ror ecx, 4
+cmp ecx, 0xa3d70a
+jbe 0x8001594
+movsxd rax, edx
+mov ecx, edx
+imul rax, rax, 0x51eb851f
+sar ecx, 0x1f
+sar rax, 0x25
+sub eax, ecx
+imul ecx, eax, 0x64
+mov eax, edx
+sub eax, ecx
+je 0x8001594
+xor eax, eax
+and edx, 3
+sete al
+cdqe
+movsxd rdx, esi
+lea rax, [rax + rax*2]
+lea rdx, [rdx + rax*4]
+lea rax, [0x080015a8]
+mov ecx, dword [rax + rdx*4]
+mov eax, ecx
+sub eax, dword [rdi + 0x24]
+add eax, dword [rdi + 0x30]
+movsxd rdx, eax
+mov esi, eax
+imul rdx, rdx, 0xffffffff92492493
+sar esi, 0x1f
+shr rdx, 0x20
+add edx, eax
+sar edx, 2
+sub edx, esi
+lea esi, [rdx*8]
+sub esi, edx
+sub eax, esi
+sub eax, dword [rdi + 8]
+add eax, 7
+movsxd rdx, eax
+mov esi, eax
+imul rdx, rdx, 0xffffffff92492493
+sar esi, 0x1f
+shr rdx, 0x20
+add edx, eax
+sar edx, 2
+sub edx, esi
+lea esi, [rdx*8]
+sub esi, edx
+sub eax, esi
+add eax, 0x2bc
+sub eax, ecx
+movsxd rdx, eax
+mov esi, eax
+imul rdx, rdx, 0xffffffff92492493
+sar esi, 0x1f
+shr rdx, 0x20
+add edx, eax
+sar edx, 2
+sub edx, esi
+lea esi, [rdx*8]
+sub esi, edx
+mov edx, eax
+sub edx, esi
+sub esi, eax
+mov eax, 7
+sub eax, edx
+cmp edx, 3
+cmovle eax, esi
+sub ecx, eax
+js .text._ZNK5boost6locale4util18gregorian_calendar9get_valueENS0_6period5marks11period_markENS0_17abstract_calendar10value_typeE
+movsxd rax, ecx
+imul rax, rax, 0xffffffff92492493
+shr rax, 0x20
+add eax, ecx
+sar ecx, 0x1f
+sar eax, 2
+sub eax, ecx
+add eax, 1
+ret
+mov eax, 0x16d
+ret
+mov eax, dword [rdi + 0x34]
+add eax, 1
+ret
+mov eax, dword [rdi + 0x2c]
+mov edx, 0x16d
+lea ecx, [rax + 0x76c]
+imul eax, ecx, 0xc28f5c29
+add eax, 0x51eb850
+mov esi, eax
+ror esi, 4
+cmp esi, 0xa3d70a
+jbe 0x80016b4
+ror eax, 2
+mov edx, 0x16c
+cmp eax, 0x28f5c28
+jbe 0x80016b4
+and ecx, 3
+mov edx, 0x16c
+cmp ecx, 1
+adc edx, 0
+mov eax, edx
+sub eax, dword [rdi + 0x34]
+add eax, dword [rdi + 0x30]
+movsxd rcx, eax
+mov esi, eax
+imul rcx, rcx, 0xffffffff92492493
+sar esi, 0x1f
+shr rcx, 0x20
+add ecx, eax
+sar ecx, 2
+sub ecx, esi
+lea esi, [rcx*8]
+sub esi, ecx
+sub eax, esi
+sub eax, dword [rdi + 8]
+add eax, 7
+movsxd rcx, eax
+mov esi, eax
+imul rcx, rcx, 0xffffffff92492493
+sar esi, 0x1f
+shr rcx, 0x20
+add ecx, eax
+sar ecx, 2
+sub ecx, esi
+lea esi, [rcx*8]
+sub esi, ecx
+sub eax, esi
+add eax, 0x2bc
+sub eax, edx
+mov ecx, eax
+imul rcx, rcx, 0x24924925
+shr rcx, 0x20
+mov rsi, rcx
+mov ecx, eax
+sub ecx, esi
+shr ecx, 1
+add ecx, esi
+shr ecx, 2
+lea esi, [rcx*8]
+sub esi, ecx
+mov ecx, eax
+sub ecx, esi
+sub esi, eax
+mov eax, 7
+sub eax, ecx
+cmp ecx, 3
+cmovg esi, eax
+sub edx, esi
+mov eax, edx
+imul rax, rax, 0x24924925
+shr rax, 0x20
+sub edx, eax
+shr edx, 1
+add eax, edx
+shr eax, 2
+add eax, 1
+ret
+mov eax, 0x34
+ret
+mov eax, dword [rdi + 0x30]
+sub eax, dword [rdi + 8]
+add eax, 7
+mov ecx, dword [rdi + 0x34]
+movsxd rdx, eax
+mov esi, eax
+imul rdx, rdx, 0xffffffff92492493
+sar esi, 0x1f
+shr rdx, 0x20
+add edx, eax
+sar edx, 2
+sub edx, esi
+lea esi, [rdx*8]
+sub esi, edx
+sub eax, esi
+add eax, 0x2bc
+sub eax, ecx
+movsxd rdx, eax
+mov esi, eax
+imul rdx, rdx, 0xffffffff92492493
+sar esi, 0x1f
+shr rdx, 0x20
+add edx, eax
+sar edx, 2
+sub edx, esi
+lea esi, [rdx*8]
+sub esi, edx
+mov edx, eax
+sub edx, esi
+sub esi, eax
+mov eax, 7
+sub eax, edx
+cmp edx, 3
+cmovle eax, esi
+sub ecx, eax
+jns 0x8001648
+mov eax, 0x35
+ret
+mov edx, dword [rdi + 0x2c]
+mov esi, dword [rdi + 0x28]
+mov eax, 1
+add edx, 0x76c
+imul ecx, edx, 0xc28f5c29
+add ecx, 0x51eb850
+ror ecx, 4
+cmp ecx, 0xa3d70a
+jbe 0x8001836
+movsxd rax, edx
+mov ecx, edx
+imul rax, rax, 0x51eb851f
+sar ecx, 0x1f
+sar rax, 0x25
+sub eax, ecx
+imul ecx, eax, 0x64
+mov eax, edx
+sub eax, ecx
+je 0x8001836
+xor eax, eax
+and edx, 3
+sete al
+cdqe
+movsxd rdx, esi
+lea rax, [rax + rax*2]
+lea rdx, [rdx + rax*4]
+lea rax, [0x0800184a]
+mov eax, dword [rax + rdx*4]
+ret
+mov eax, 0x1c
+ret
+mov eax, dword [rdi + 0x24]
+ret
+mov eax, 0x1f
+ret
+mov eax, 0x16e
+ret
+xor eax, eax
+ret

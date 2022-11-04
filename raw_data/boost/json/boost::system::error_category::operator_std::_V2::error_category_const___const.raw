@@ -1,0 +1,231 @@
+movabs rdx, 0xb2ab117a257edfd0
+mov rax, qword [rdi + 8]
+cmp rax, rdx
+je _ZNSt3_V216generic_categoryEv
+movabs rdx, 0xb2ab117a257edfd1
+cmp rax, rdx
+je _ZNSt3_V215system_categoryEv
+push rbp
+push rbx
+mov rbx, rdi
+sub rsp, 8
+mov eax, dword [rdi + 0x30]
+test eax, eax
+je 0x8015a90
+add rsp, 8
+lea rax, [rbx + 0x10]
+pop rbx
+pop rbp
+ret
+nop dword [rax]
+jmp _ZNSt3_V215system_categoryEv
+nop dword [rax]
+jmp _ZNSt3_V216generic_categoryEv
+nop dword [rax]
+mov rbp, qword [0x08015a97]
+test rbp, rbp
+je 0x8015aac
+lea rdi, [0x08015aa3]
+call pthread_mutex_lock
+test eax, eax
+jne 0x8015ae8
+mov eax, dword [rbx + 0x30]
+test eax, eax
+je 0x8015ad0
+test rbp, rbp
+je 0x8015a72
+lea rdi, [0x08015abf]
+call pthread_mutex_unlock
+add rsp, 8
+lea rax, [rbx + 0x10]
+pop rbx
+pop rbp
+ret
+nop
+lea rax, [0x08015ad7]
+mov qword [rbx + 0x18], rbx
+mov qword [rbx + 0x10], rax
+mov dword [rbx + 0x30], 1
+jmp 0x8015ab3
+mov edi, eax
+call _ZSt20__throw_system_errori
+add byte [rax], al
+add byte [rax], al
+inc dword [rcx + 0x56]
+push r14
+mov r14d, edx
+push r13
+mov r13, rdi
+push r12
+push rbp
+mov rbp, rsi
+push rbx
+sub rsp, 0x20
+mov rbx, qword [rsi + 8]
+cmp rdi, rbx
+je 0x8015c30
+call _ZNSt3_V216generic_categoryEv
+mov r12, rax
+cmp rax, rbx
+je 0x8015bd0
+lea rdi, [0x08015b2a]
+call _ZNK5boost6system14error_categorycvRKNSt3_V214error_categoryEEv
+mov rdi, qword [arg_8h]
+cmp rdi, rax
+je 0x8015bd0
+test rdi, rdi
+je _ZN5boost6system6detail18generic_cat_holderIvE8instanceE
+xor ecx, ecx
+lea rdx, [0x08015b4e]
+lea rsi, [0x08015b55]
+call __dynamic_cast
+test rax, rax
+je _ZN5boost6system6detail18generic_cat_holderIvE8instanceE
+mov rbx, qword [rax + 8]
+mov ebp, dword [rbp]
+mov dword [rsp], 0
+movabs rax, 0x4d54ee85da812030
+mov qword [var_8h], 0
+add rax, qword [rbx + 8]
+cmp rax, 1
+jbe 0x8015ba5
+mov rax, qword [rbx]
+lea rdx, [0x08015b98]
+add byte [rax], al
+add byte [rax], al
+mov rax, qword [rax + 0x30]
+cmp rax, rdx
+jne 0x8015d80
+test ebp, ebp
+setne al
+movzx eax, al
+mov dword [rsp], ebp
+mov rdi, qword [r13 + 8]
+add rax, 2
+mov qword [var_8h], rbx
+mov qword [var_10h], rax
+jmp 0x8015c8d
+nop word [rax + rax]
+mov edx, dword [rbp]
+mov rdi, qword [r13 + 8]
+mov eax, 2
+lea rcx, [0x08015be3]
+mov qword [var_8h], rcx
+lea rsi, [0x08015bef]
+add byte [rax], al
+add byte [rax], al
+mov r8, qword [0x08015bf6]
+cmp edx, 1
+mov dword [rsp], edx
+sbb rax, 0xffffffffffffffff
+mov qword [var_10h], rax
+mov rax, qword [rdi]
+mov rax, qword [rax + 0x18]
+cmp rax, rsi
+jne 0x8015d20
+xor eax, eax
+cmp r14d, edx
+je 0x8015d10
+add rsp, 0x20
+pop rbx
+pop rbp
+pop r12
+pop r13
+pop r14
+ret
+nop dword [rax]
+mov rbx, qword [rdi + 8]
+mov ebp, dword [rsi]
+mov dword [rsp], 0
+movabs rax, 0x4d54ee85da812030
+mov qword [var_8h], 0
+add rax, qword [rbx + 8]
+cmp rax, 1
+jbe 0x8015c71
+mov rax, qword [rbx]
+lea rdx, [0x08015c64]
+mov rax, qword [rax + 0x30]
+cmp rax, rdx
+jne 0x8015d48
+test ebp, ebp
+mov rdi, rbx
+setne al
+movzx eax, al
+mov dword [rsp], ebp
+add rax, 2
+mov qword [var_8h], rbx
+mov qword [var_10h], rax
+mov rax, qword [rdi]
+lea rdx, [0x08015c97]
+mov rax, qword [rax + 0x18]
+cmp rax, rdx
+jne 0x8015d20
+xor eax, eax
+cmp r14d, ebp
+jne 0x8015c20
+mov rax, qword [rbx + 8]
+test rax, rax
+jne 0x8015d70
+cmp rbx, rdi
+sete al
+jmp 0x8015c20
+nop word [rax + rax]
+mov rax, qword [0x08015cd7]
+mov rdx, qword [r13 + 8]
+test rax, rax
+jne 0x8015d38
+lea rax, [0x08015ce7]
+cmp rdx, rax
+jne 0x8015d3e
+mov rax, qword [r12]
+mov edx, r14d
+mov rsi, rbp
+mov rdi, r12
+mov rax, qword [rax + 0x38]
+add rsp, 0x20
+pop rbx
+pop rbp
+pop r12
+pop r13
+pop r14
+jmp rax
+nop dword [rax + rax]
+test r8, r8
+jne 0x8015d60
+cmp rdi, rcx
+sete al
+jmp 0x8015c20
+mov rsi, rsp
+mov edx, r14d
+call rax
+add rsp, 0x20
+pop rbx
+pop rbp
+pop r12
+pop r13
+pop r14
+ret
+nop dword [rax]
+cmp rax, qword [rdx + 8]
+je 0x8015cec
+xor eax, eax
+jmp 0x8015c20
+nop dword [rax]
+mov rdi, rbx
+mov esi, ebp
+call rax
+mov rdi, qword [r13 + 8]
+jmp 0x8015c79
+nop dword [rax + rax]
+cmp qword [rdi + 8], r8
+sete al
+jmp 0x8015c20
+nop dword [rax]
+cmp qword [rdi + 8], rax
+sete al
+jmp 0x8015c20
+nop dword [rax]
+mov esi, ebp
+mov rdi, rbx
+call rax
+jmp 0x8015baa

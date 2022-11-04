@@ -1,0 +1,120 @@
+push rbp
+mov r10d, esi
+mov rax, rdx
+mov rdx, rcx
+lea rsi, [r8 + 0xd0]
+mov rbp, rsp
+push r15
+push r14
+movsx r14d, r9b
+push r13
+push r12
+mov r12, r8
+push rbx
+mov rbx, rdx
+sub rsp, 0x48
+test r10b, r10b
+je 0x8003290
+lea r13, [var_38h]
+mov qword [var_68h], rax
+mov rdi, r13
+call _ZNSt6localeC1ERKS_
+mov rdi, r13
+call _ZSt9use_facetINSt7__cxx1110moneypunctIcLb1EEEERKT_RKSt6locale
+mov rdi, rax
+mov rax, qword [rax]
+call qword [rax + 0x40]
+test eax, eax
+jle 0x800320f
+fld dword [0x080031ff]
+nop
+fld xword [rbp + 0x10]
+fmul st(1)
+fstp xword [rbp + 0x10]
+sub eax, 1
+jne 0x8003200
+fstp st(0)
+mov r15d, dword [r12 + 0x18]
+mov rdi, r13
+mov eax, r15d
+or ah, 2
+mov dword [r12 + 0x18], eax
+call _ZSt9use_facetINSt7__cxx119money_putIcSt19ostreambuf_iteratorIcSt11char_traitsIcEEEEERKT_RKSt6locale
+mov rdi, rax
+mov rax, qword [rax]
+mov rsi, qword [var_68h]
+push qword [arg_18h]
+mov r9d, r14d
+push qword [arg_10h]
+mov r8, r12
+mov ecx, 1
+mov rdx, rbx
+call qword [rax + 0x10]
+mov rdi, rdx
+mov rdx, rax
+mov rax, rdi
+mov qword [var_50h], rdx
+mov r14, rdx
+pop rdi
+mov qword [var_48h], rax
+movzx edx, byte [var_48h]
+pop r8
+mov dword [r12 + 0x18], r15d
+mov rdi, r13
+xor bl, bl
+or rbx, rdx
+call _ZNSt6localeD1Ev
+lea rsp, [var_28h]
+mov rax, r14
+mov rdx, rbx
+pop rbx
+pop r12
+pop r13
+pop r14
+pop r15
+pop rbp
+ret
+nop word [rax + rax]
+lea r13, [var_38h]
+mov qword [var_68h], rax
+mov rdi, r13
+call _ZNSt6localeC1ERKS_
+mov rdi, r13
+call _ZSt9use_facetINSt7__cxx1110moneypunctIcLb0EEEERKT_RKSt6locale
+mov rdi, rax
+mov rax, qword [rax]
+call qword [rax + 0x40]
+test eax, eax
+jle 0x80032cf
+fld dword [0x080032bb]
+nop dword [rax + rax]
+fld xword [rbp + 0x10]
+fmul st(1)
+fstp xword [rbp + 0x10]
+sub eax, 1
+jne 0x80032c0
+fstp st(0)
+mov r15d, dword [r12 + 0x18]
+mov rdi, r13
+mov eax, r15d
+or ah, 2
+mov dword [r12 + 0x18], eax
+call _ZSt9use_facetINSt7__cxx119money_putIcSt19ostreambuf_iteratorIcSt11char_traitsIcEEEEERKT_RKSt6locale
+mov rdi, rax
+mov rax, qword [rax]
+mov rsi, qword [var_68h]
+push qword [arg_18h]
+mov r9d, r14d
+push qword [arg_10h]
+mov r8, r12
+xor ecx, ecx
+mov rdx, rbx
+call qword [rax + 0x10]
+mov rdi, rdx
+pop rcx
+mov qword [var_60h], rax
+mov r14, rax
+mov qword [var_58h], rdi
+pop rsi
+movzx edx, byte [var_58h]
+jmp 0x8003263

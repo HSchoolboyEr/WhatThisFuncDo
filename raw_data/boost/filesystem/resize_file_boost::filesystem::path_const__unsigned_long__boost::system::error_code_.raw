@@ -1,0 +1,41 @@
+push r12
+mov r12, rdx
+push rbp
+mov rbp, rdi
+sub rsp, 8
+test rsi, rsi
+js 0x8004ac0
+mov rdi, qword [rdi]
+call truncate64
+test eax, eax
+jne __errno_location
+test r12, r12
+je 0x8004a8d
+mov dword [r12], 0
+mov qword [r12 + 8], 0
+mov qword [r12 + 0x10], 0
+add rsp, 8
+pop rbp
+pop r12
+ret
+nop dword [rax]
+call __errno_location
+mov edi, dword [rax]
+test edi, edi
+je 0x8004a6e
+add rsp, 8
+mov rdx, r12
+mov rsi, rbp
+lea rcx, [0x08004ab4]
+pop rbp
+pop r12
+jmp _ZN5boost10filesystem10emit_errorEiRKNS0_4pathEPNS_6system10error_codeEPKc
+nop dword [rax]
+add rsp, 8
+mov rsi, rdi
+lea rcx, [0x08004ace]
+mov edi, 0x1b
+pop rbp
+pop r12
+jmp _ZN5boost10filesystem10emit_errorEiRKNS0_4pathEPNS_6system10error_codeEPKc
+nop dword [rax + rax]

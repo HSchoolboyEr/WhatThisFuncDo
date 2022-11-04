@@ -1,0 +1,22 @@
+cmp qword [rdi + 0x10], 0
+je 0x8000248
+mov rdx, qword [rdi]
+mov rax, qword [rdi + 0x20]
+mov rax, qword [rax + rdx*8]
+mov qword [rsi], rax
+mov rax, qword [rdi + 0x10]
+test rax, rax
+je 0x8000248
+mov rcx, qword [rdi]
+lea rdx, [rcx + 1]
+mov qword [rdi], rdx
+cmp rdx, qword [rdi + 0x18]
+jne 0x8000235
+mov qword [rdi], 0
+sub rax, 1
+mov qword [rdi + 0x10], rax
+mov eax, 1
+ret
+nop dword [rax + rax]
+xor eax, eax
+ret

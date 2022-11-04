@@ -1,0 +1,168 @@
+push r15
+push r14
+push r13
+push r12
+lea r12, [0x0800033f]
+push rbp
+push rbx
+mov rbx, rdi
+sub rsp, 0x28
+mov qword [var_18h], rsi
+movzx eax, byte [0x08000354]
+test al, al
+je _ZGVZN5boost13serialization9singletonISt3setIPKNS0_16void_cast_detail11void_casterENS3_19void_caster_compareESaIS6_EEE12get_instanceEvE1t
+mov r15, qword [0x08000363]
+cmp r15, r12
+jne 0x8000384
+jmp 0x80004e8
+nop dword [rax]
+mov rdi, r15
+call _ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base
+mov r15, rax
+cmp rax, r12
+je 0x80004e8
+mov rax, qword [r15 + 0x20]
+mov rdx, qword [rbx + 8]
+cmp qword [rax + 8], rdx
+jne 0x8000370
+mov r14, qword [rax + 0x10]
+mov rbp, qword [rbx + 0x10]
+cmp r14, rbp
+je 0x8000370
+mov rsi, rbp
+mov rdi, r14
+call _ZNK5boost13serialization18extended_type_infoeqERKS1_
+add byte [rax], al
+add byte [rax], al
+mov rsi, qword [var_18h]
+test al, al
+jne 0x80004be
+movzx eax, byte [0x080003be]
+test al, al
+je _ZGVZN5boost13serialization9singletonISt3setIPKNS0_16void_cast_detail11void_casterENS3_19void_caster_compareESaIS6_EEE12get_instanceEvE1t
+mov r13, qword [0x080003cd]
+test r13, r13
+je 0x8000370
+lea rax, [0x080003d9]
+mov qword [var_8h], rax
+jmp 0x800041d
+mov rcx, qword [var_10h]
+mov rdi, r14
+mov rsi, qword [rcx + 8]
+call _ZNK5boost13serialization18extended_type_infoltERKS1_
+mov rcx, qword [var_10h]
+test al, al
+jne 0x800040f
+mov rdi, qword [rcx + 0x10]
+cmp rbp, rdi
+je 0x800040f
+mov rsi, rbp
+call _ZNK5boost13serialization18extended_type_infoltERKS1_
+test al, al
+jne 0x800043b
+mov qword [var_8h], r13
+mov r13, qword [r13 + 0x10]
+test r13, r13
+je 0x8000444
+mov rcx, qword [r13 + 0x20]
+mov rdi, qword [rcx + 8]
+cmp r14, rdi
+je 0x80003fa
+mov rsi, r14
+mov qword [var_10h], rcx
+call _ZNK5boost13serialization18extended_type_infoltERKS1_
+test al, al
+je 0x80003e0
+mov r13, qword [r13 + 0x18]
+test r13, r13
+jne 0x800041d
+mov rax, qword [var_8h]
+cmp rax, r12
+je _ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base
+mov rdx, qword [rax + 0x20]
+mov rsi, qword [rdx + 8]
+cmp r14, rsi
+je 0x800048e
+mov rdi, r14
+mov qword [var_10h], rdx
+call _ZNK5boost13serialization18extended_type_infoltERKS1_
+test al, al
+jne _ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base
+mov rdx, qword [var_10h]
+mov rsi, r14
+mov rdi, qword [rdx + 8]
+call _ZNK5boost13serialization18extended_type_infoltERKS1_
+mov rdx, qword [var_10h]
+test al, al
+jne 0x80004a7
+mov rsi, qword [rdx + 0x10]
+cmp rbp, rsi
+je 0x80004a7
+mov rdi, rbp
+call _ZNK5boost13serialization18extended_type_infoltERKS1_
+test al, al
+jne _ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base
+mov rax, qword [var_8h]
+mov rsi, qword [var_18h]
+mov rdi, qword [rax + 0x20]
+mov rax, qword [rdi]
+call qword [rax + 0x10]
+mov rsi, rax
+test rsi, rsi
+je _ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base
+mov rdi, qword [r15 + 0x20]
+mov rax, qword [rdi]
+mov rax, qword [rax + 0x10]
+add rsp, 0x28
+pop rbx
+pop rbp
+pop r12
+pop r13
+pop r14
+pop r15
+jmp rax
+nop word [rax + rax]
+add rsp, 0x28
+xor eax, eax
+pop rbx
+pop rbp
+pop r12
+pop r13
+pop r14
+pop r15
+ret
+nop dword [rax]
+lea rdi, [0x08000507]
+call __cxa_guard_acquire
+test eax, eax
+je _ZZN5boost13serialization9singletonISt3setIPKNS0_16void_cast_detail11void_casterENS3_19void_caster_compareESaIS6_EEE12get_instanceEvE1t
+lea rdi, [0x0800051b]
+mov qword [0x08000522], r12
+mov qword [0x08000529], r12
+mov dword [0x08000533], 0
+mov qword [0x0800053e], 0
+mov qword [0x08000549], 0
+call __cxa_guard_release
+lea rdx, [0x08000555]
+lea rsi, [0x0800055c]
+lea rdi, [0x08000563]
+call __cxa_atexit
+jmp _ZZN5boost13serialization9singletonISt3setIPKNS0_16void_cast_detail11void_casterENS3_19void_caster_compareESaIS6_EEE12get_instanceEvE1t
+nop dword [rax]
+lea rdi, [0x08000577]
+lea r12, [0x0800057e]
+call __cxa_guard_acquire
+test eax, eax
+je _ZZN5boost13serialization9singletonISt3setIPKNS0_16void_cast_detail11void_casterENS3_19void_caster_compareESaIS6_EEE12get_instanceEvE1t
+lea rdi, [0x08000592]
+mov qword [0x08000599], r12
+mov qword [0x080005a0], r12
+mov dword [0x080005aa], 0
+mov qword [0x080005b5], 0
+mov qword [0x080005c0], 0
+call __cxa_guard_release
+lea rdx, [0x080005cc]
+lea rsi, [r12 - 8]
+lea rdi, [0x080005d8]
+call __cxa_atexit
+jmp _ZZN5boost13serialization9singletonISt3setIPKNS0_16void_cast_detail11void_casterENS3_19void_caster_compareESaIS6_EEE12get_instanceEvE1t

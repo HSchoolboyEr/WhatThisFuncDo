@@ -1,0 +1,147 @@
+push r15
+push r14
+push r13
+push r12
+push rbp
+push rbx
+sub rsp, 0x28
+mov qword [var_10h], rdi
+test rdi, rdi
+je 0x8002910
+mov rax, qword [var_10h]
+mov rax, qword [rax + 0x18]
+mov qword [rsp], rax
+test rax, rax
+je 0x80028e2
+mov rax, qword [rsp]
+mov r15, qword [rax + 0x18]
+test r15, r15
+je 0x80028b6
+mov rax, qword [r15 + 0x18]
+mov qword [var_8h], rax
+test rax, rax
+je 0x800288f
+mov rax, qword [var_8h]
+mov rbp, qword [rax + 0x18]
+test rbp, rbp
+je 0x8002827
+mov r13, qword [arg_18h]
+test r13, r13
+je 0x80027d5
+mov r12, qword [r13 + 0x18]
+test r12, r12
+je 0x8002800
+mov r14, qword [r12 + 0x18]
+test r14, r14
+je 0x8002858
+mov rbx, qword [r14 + 0x18]
+test rbx, rbx
+je 0x80027ad
+mov rdi, qword [rbx + 0x18]
+call method std::_Rb_tree<boost::re_detail_500::cpp_regex_traits_base<wchar_t>, std::pair<boost::re_detail_500::cpp_regex_traits_base<wchar_t> const, std::_List_iterator<std::pair<std::shared_ptr<boost::re_detail_500::cpp_regex_traits_implementation<wchar_t> const>, boost::re_detail_500::cpp_regex_traits_base<wchar_t> const*> > >, std::_Select1st<std::pair<boost::re_detail_500::cpp_regex_traits_base<wchar_t> const, std::_List_iterator<std::pair<std::shared_ptr<boost::re_detail_500::cpp_regex_traits_implementation<wchar_t> const>, boost::re_detail_500::cpp_regex_traits_base<wchar_t> const*> > > >, ::<>>::() [clone ]
+mov r10, rbx
+mov rbx, qword [rbx + 0x10]
+lea rdi, [r10 + 0x20]
+mov qword [var_18h], r10
+call _ZNSt6localeD1Ev
+mov r10, qword [var_18h]
+mov esi, 0x48
+mov rdi, r10
+call _ZdlPvm
+test rbx, rbx
+jne 0x8002778
+mov rbx, qword [r14 + 0x10]
+lea rdi, [r14 + 0x20]
+call _ZNSt6localeD1Ev
+mov esi, 0x48
+mov rdi, r14
+call _ZdlPvm
+test rbx, rbx
+je 0x8002858
+mov r14, rbx
+jmp 0x800276f
+mov r12, qword [arg_10h]
+lea rdi, [arg_20h]
+call _ZNSt6localeD1Ev
+mov esi, 0x48
+mov rdi, rbp
+call _ZdlPvm
+test r12, r12
+je 0x8002827
+mov rbp, r12
+jmp 0x8002747
+nop dword [rax]
+mov r12, qword [r13 + 0x10]
+lea rdi, [r13 + 0x20]
+call _ZNSt6localeD1Ev
+mov esi, 0x48
+mov rdi, r13
+call _ZdlPvm
+test r12, r12
+je 0x80027d5
+mov r13, r12
+jmp 0x8002754
+mov rbx, qword [var_8h]
+mov rbp, qword [rbx + 0x10]
+lea rdi, [rbx + 0x20]
+call _ZNSt6localeD1Ev
+mov esi, 0x48
+mov rdi, rbx
+call _ZdlPvm
+test rbp, rbp
+je 0x800288f
+mov qword [var_8h], rbp
+jmp 0x8002735
+nop dword [rax]
+mov rax, qword [r12 + 0x10]
+lea rdi, [r12 + 0x20]
+mov qword [var_18h], rax
+call _ZNSt6localeD1Ev
+mov esi, 0x48
+mov rdi, r12
+call _ZdlPvm
+mov rax, qword [var_18h]
+test rax, rax
+je 0x8002800
+mov r12, rax
+jmp 0x8002761
+mov rbx, qword [r15 + 0x10]
+lea rdi, [r15 + 0x20]
+call _ZNSt6localeD1Ev
+mov esi, 0x48
+mov rdi, r15
+call _ZdlPvm
+test rbx, rbx
+je 0x80028b6
+mov r15, rbx
+jmp 0x8002723
+mov r15, qword [rsp]
+mov rbx, qword [r15 + 0x10]
+lea rdi, [r15 + 0x20]
+call _ZNSt6localeD1Ev
+mov esi, 0x48
+mov rdi, r15
+call _ZdlPvm
+test rbx, rbx
+je 0x80028e2
+mov qword [rsp], rbx
+jmp 0x8002712
+mov r15, qword [var_10h]
+mov rbx, qword [r15 + 0x10]
+lea rdi, [r15 + 0x20]
+call _ZNSt6localeD1Ev
+mov esi, 0x48
+mov rdi, r15
+call _ZdlPvm
+test rbx, rbx
+je 0x8002910
+mov qword [var_10h], rbx
+jmp 0x80026fc
+add rsp, 0x28
+pop rbx
+pop rbp
+pop r12
+pop r13
+pop r14
+pop r15
+ret

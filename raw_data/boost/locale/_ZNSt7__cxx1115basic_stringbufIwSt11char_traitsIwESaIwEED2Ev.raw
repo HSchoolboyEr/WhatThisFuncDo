@@ -1,0 +1,16 @@
+lea rax, [0x08005e77]
+push rbx
+mov rbx, rdi
+mov qword [rdi], rax
+mov rdi, qword [rdi + 0x48]
+lea rax, [rbx + 0x58]
+cmp rdi, rax
+je 0x8005e9c
+mov rax, qword [rbx + 0x58]
+lea rsi, [rax*4 + 4]
+call _ZdlPvm
+lea rax, [0x08005ea3]
+lea rdi, [rbx + 0x38]
+mov qword [rbx], rax
+pop rbx
+jmp sym std::__cxx11::basic_stringbuf<wchar_t, std::char_traits<wchar_t>, std::allocator<wchar_t> >::~basic_stringbuf()

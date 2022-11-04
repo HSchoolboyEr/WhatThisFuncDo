@@ -1,0 +1,64 @@
+mov rax, qword [rsi + 8]
+and rax, 0xfffffffffffffff8
+cmp rdx, 0xff
+jbe 0x80014c0
+push r13
+mov r9d, ecx
+lea rcx, [rdx + 8]
+push r12
+push rbp
+mov rbp, rdi
+push rbx
+sub rsp, 8
+cmp rcx, rax
+ja 0x800142b
+mov rbx, qword [0x08001415]
+mov rdi, rax
+mov r8, rsi
+sub rdi, rdx
+lea rcx, [rbx + rbx]
+cmp rdi, rcx
+jbe 0x80014af
+mov r12, qword [rsi]
+mov rdi, rsi
+mov ecx, r9d
+lea r13, [rax + r12 + 0x20]
+mov rax, qword [0x08001440]
+sub rdi, r12
+mov rsi, r13
+lea rbx, [rax + rdx + 0x3e]
+neg rax
+and rbx, rax
+xor eax, eax
+mov rdx, rbx
+call mremap
+xor r8d, r8d
+cmp rax, 0xffffffffffffffff
+je 0x80014af
+mov rdx, rbx
+movdqa xmm0, xmmword [0x0800146f]
+lea r8, [rax + r12]
+sub rdx, r12
+sub rdx, 0x20
+mov qword [r8 + 8], rdx
+movups xmmword [r8 + rdx + 8], xmm0
+cmp qword [arg_18h], rax
+jbe 0x800148e
+mov qword [arg_18h], rax
+add rbx, qword [arg_358h]
+sub rbx, r13
+mov qword [arg_358h], rbx
+cmp rbx, qword [arg_360h]
+jbe 0x80014af
+mov qword [arg_360h], rbx
+add rsp, 8
+mov rax, r8
+pop rbx
+pop rbp
+pop r12
+pop r13
+ret
+nop dword [rax]
+xor r8d, r8d
+mov rax, r8
+ret

@@ -1,0 +1,2 @@
+jmp boost_cont_sync_create
+nop word cs:[rax + rax]

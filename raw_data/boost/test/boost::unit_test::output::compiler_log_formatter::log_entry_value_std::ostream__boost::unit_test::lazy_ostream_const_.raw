@@ -1,0 +1,11 @@
+mov rax, qword [rdx]
+mov rdi, rdx
+lea rdx, [0x080003dd]
+add byte [rax], al
+add byte [rax], al
+mov rax, qword [rax + 0x10]
+cmp rax, rdx
+jne 0x80003f0
+ret
+nop word [rax + rax]
+jmp rax

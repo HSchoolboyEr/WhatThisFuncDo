@@ -1,0 +1,99 @@
+push r15
+push r14
+push r13
+push r12
+mov r12, rdi
+mov rdi, rsi
+push rbp
+lea r14, [r12 + 0x98]
+mov rbp, rsi
+push rbx
+sub rsp, 0x18
+call wcslen
+mov r15, rsp
+mov rsi, r14
+mov rdi, r15
+mov r13, rax
+call _ZNSt13basic_ostreamIwSt11char_traitsIwEE6sentryC2ERS2_
+cmp byte [rsp], 0
+je 0x8006f99
+mov rdi, r14
+call _ZNSt13basic_ostreamIwSt11char_traitsIwEE5flushEv
+cmp r13, qword [r12 + 0xb0]
+jl 0x8006fe0
+cmp byte [r12 + 0x50], 0
+jne 0x8006f8d
+mov rdi, qword [r12 + 0x40]
+mov rdx, qword [r12 + 0x48]
+mov rax, qword [rdi + 8]
+cmp rax, rdx
+jae 0x8007000
+movabs rcx, 0xfffffffffffffff
+sub rdx, rax
+sub rcx, rax
+cmp r13, rdx
+ja 0x8007039
+cmp r13, rcx
+ja .LC4
+mov rdx, r13
+mov rsi, rbp
+call _ZNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEE9_M_appendEPKwm
+mov qword [r12 + 0xb0], 0
+mov rax, qword [var_8h]
+mov rdx, qword [rax]
+add rax, qword [rdx - 0x18]
+mov rbx, rax
+test byte [rax + 0x19], 0x20
+je 0x8006fce
+call _ZSt18uncaught_exceptionv
+test al, al
+jne 0x8006fce
+mov rdi, qword [rbx + 0xe8]
+test rdi, rdi
+je 0x8006fce
+mov rax, qword [rdi]
+call qword [rax + 0x30]
+cmp eax, 0xffffffff
+je 0x8007020
+add rsp, 0x18
+mov rax, r12
+pop rbx
+pop rbp
+pop r12
+pop r13
+pop r14
+pop r15
+ret
+mov rdx, r13
+mov rsi, rbp
+mov rdi, r12
+call _ZN5boost3log12v2s_mt_posix24basic_formatting_ostreamIwSt11char_traitsIwESaIwEE13aligned_writeEPKwl
+mov qword [r12 + 0xb0], 0
+jmp 0x8006f99
+nop dword [rax]
+xor edx, edx
+test r13, r13
+je 0x8006f82
+mov rsi, rbp
+call _ZNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEE9_M_appendEPKwm
+mov byte [r12 + 0x50], 1
+jmp 0x8006f8d
+nop
+mov rdi, qword [var_8h]
+mov rax, qword [rdi]
+add rdi, qword [rax - 0x18]
+mov esi, dword [rdi + 0x20]
+or esi, 1
+call _ZNSt9basic_iosIwSt11char_traitsIwEE5clearESt12_Ios_Iostate
+jmp 0x8006fce
+cmp rdx, rcx
+jbe 0x800700b
+lea rdi, [0x08007045]
+call _ZSt20__throw_length_errorPKc
+lea rdi, [0x08007051]
+call _ZSt20__throw_length_errorPKc
+mov rbp, rax
+mov rdi, r15
+call _ZNSt13basic_ostreamIwSt11char_traitsIwEE6sentryD2Ev
+mov rdi, rbp
+call _Unwind_Resume

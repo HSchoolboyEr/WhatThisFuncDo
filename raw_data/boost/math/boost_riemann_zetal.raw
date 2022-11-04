@@ -1,0 +1,52 @@
+push rbp
+mov rbp, rsp
+sub rsp, 0x30
+fld xword [rbp + 0x10]
+fld1
+fsub st(1)
+fstp xword [rsp + 0x10]
+fstp xword [rsp]
+call fcn.080016f0
+fld st(0)
+add rsp, 0x20
+fabs
+fld xword [0x080028b9]
+fxch st(1)
+fcomi st(1)
+fstp st(1)
+ja 0x8002918
+fldz
+mov edx, 1
+mov ecx, 0
+fucompi st(2)
+setp al
+cmovne eax, edx
+setnp dl
+cmovne edx, ecx
+test dl, dl
+je 0x8002900
+test al, al
+je 0x8002900
+fstp st(0)
+fstp st(0)
+call __errno_location
+mov dword [rax], 0x22
+fldz
+leave
+ret
+nop word cs:[rax + rax]
+fld xword [0x08002906]
+fcompi st(1)
+fstp st(0)
+jbe 0x80028f4
+test al, al
+je 0x80028f4
+jmp 0x800291a
+nop word [rax + rax]
+fstp st(0)
+fstp xword [rbp - 0x10]
+call __errno_location
+fld xword [rbp - 0x10]
+mov dword [rax], 0x22
+leave
+ret

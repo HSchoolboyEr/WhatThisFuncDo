@@ -1,0 +1,36 @@
+push r12
+push rbx
+mov rbx, rcx
+mov rcx, rdx
+mov rdx, rsi
+mov esi, 1
+sub rsp, 0x28
+mov r8, rsp
+mov dword [rsp], 0
+mov qword [var_8h], 0
+mov qword [var_10h], 0
+call _ZN5boost4json12basic_parserINS0_6detail7handlerEE10write_someEbPKcmRNS_6system10error_codeE
+mov r12, rax
+mov rax, qword [var_10h]
+cmp rax, 1
+je 0x8010dc0
+test rax, rax
+jne 0x8010da8
+call _ZNSt3_V215system_categoryEv
+xor edx, edx
+mov qword [rbx + 8], rax
+mov rax, r12
+mov dword [rbx], edx
+add rsp, 0x28
+pop rbx
+pop r12
+ret
+nop dword [rax]
+mov rdi, qword [arg_8h]
+call _ZNK5boost6system14error_categorycvRKNSt3_V214error_categoryEEv
+mov edx, dword [rsp]
+jmp 0x8010d90
+nop word [rax + rax]
+mov edx, dword [rsp]
+mov rax, qword [arg_8h]
+jmp 0x8010d90

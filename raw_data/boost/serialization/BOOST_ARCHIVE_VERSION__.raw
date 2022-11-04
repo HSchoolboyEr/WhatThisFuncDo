@@ -1,0 +1,4 @@
+mov edx, 0x13
+mov rax, rdi
+mov word [rdi], dx
+ret

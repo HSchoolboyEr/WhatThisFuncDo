@@ -1,0 +1,11 @@
+mov rax, qword [rdi + 0x58]
+lea rcx, [rdi + 0x50]
+lea rdx, [rsi + 0xb8]
+movq xmm0, rcx
+movq xmm1, rax
+punpcklqdq xmm0, xmm1
+movups xmmword [rsi + 0xb8], xmm0
+mov qword [rdi + 0x58], rdx
+mov qword [rax], rdx
+mov qword [rsi + 0x38], rdi
+ret

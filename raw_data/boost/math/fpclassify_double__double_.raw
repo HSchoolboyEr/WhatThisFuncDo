@@ -1,0 +1,23 @@
+movapd xmm1, xmm0
+andpd xmm0, xmmword [0x0800005c]
+ucomisd xmm0, xmm0
+jp 0x80000b0
+ucomisd xmm0, qword [0x0800006a]
+ja 0x8000090
+comisd xmm0, xmmword [0x08000074]
+mov eax, 4
+jae 0x800008c
+ucomisd xmm1, qword [0x08000083]
+jp 0x80000a0
+jne 0x80000a0
+mov eax, 2
+ret
+nop dword [rax]
+mov eax, 1
+ret
+nop word cs:[rax + rax]
+mov eax, 3
+ret
+nop word cs:[rax + rax]
+xor eax, eax
+ret

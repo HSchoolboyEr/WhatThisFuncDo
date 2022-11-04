@@ -1,0 +1,10 @@
+lea rax, [0x08001027]
+push rbp
+mov rbp, rdi
+lea rdi, [rdi + 0x38]
+mov qword [rdi - 0x38], rax
+call _ZNSt6localeD1Ev
+mov rdi, rbp
+mov esi, 0x98
+pop rbp
+jmp _ZdlPvm

@@ -1,0 +1,26 @@
+push rbp
+mov rbp, qword [rdi]
+test rbp, rbp
+je 0x8005b78
+mov rdi, qword [arg_28h]
+test rdi, rdi
+je 0x8005b48
+mov rax, qword [rdi]
+call qword [rax + 8]
+mov rdi, qword [arg_18h]
+test rdi, rdi
+je 0x8005b57
+mov rax, qword [rdi]
+call qword [rax + 8]
+mov rdi, qword [arg_8h]
+test rdi, rdi
+je 0x8005b66
+mov rax, qword [rdi]
+call qword [rax + 8]
+mov rdi, rbp
+mov esi, 0x30
+pop rbp
+jmp _ZdlPvm
+nop dword [rax]
+pop rbp
+ret

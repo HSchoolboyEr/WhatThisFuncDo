@@ -1,0 +1,2 @@
+mov rdi, qword [rdi + 0x20]
+jmp _ZNK5boost4asio10io_context19basic_executor_typeISaIvELm0EE7executeINS0_6detail17executor_functionEEEvOT_

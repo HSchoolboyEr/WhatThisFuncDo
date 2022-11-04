@@ -1,0 +1,140 @@
+push r14
+push r13
+push r12
+push rbp
+mov rbp, rdi
+push rbx
+mov rax, qword [rdi + 0x20]
+mov rbx, qword [rdi + 0x28]
+mov r13, qword [rax + 8]
+mov r12, qword [rax]
+test r13, r13
+je 0x8004330
+cmp byte [r12], 0x2f
+je 0x80042b8
+mov rdx, r13
+xor r8d, r8d
+cmp r13, 1
+jbe 0x800428c
+cmp r13, rbx
+jne 0x800428c
+cmp byte [r12 + rbx - 1], 0x2f
+lea rcx, [rbx - 1]
+jne 0x800428c
+mov rax, rcx
+jmp 0x800424b
+sub rax, 1
+cmp byte [r12 + rax], 0x2f
+jne 0x8004252
+cmp rax, rdx
+ja 0x8004240
+je 0x800428c
+mov qword [arg_28h], rcx
+pop rbx
+mov rdi, rbp
+lea rsi, [0x08004261]
+pop rbp
+pop r12
+pop r13
+pop r14
+jmp _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_assignERKS4_
+nop dword [rax]
+lea rax, [rbx - 1]
+cmp rdx, rax
+je 0x8004340
+cmp byte [r12 + rbx - 1], 0x2f
+jne 0x8004368
+mov rbx, rax
+cmp r8, rbx
+jb 0x8004270
+mov qword [arg_28h], 0
+mov rdx, qword [arg_8h]
+mov rcx, r12
+pop rbx
+mov rdi, rbp
+xor esi, esi
+pop rbp
+pop r12
+pop r13
+pop r14
+jmp _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE10_M_replaceEmmPKcm
+nop word [rax + rax]
+cmp r13, 1
+je 0x8004320
+cmp byte [r12 + 1], 0x2f
+jne 0x80043c0
+cmp r13, 2
+je 0x80043db
+cmp byte [r12 + 2], 0x2f
+je 0x80043c0
+lea r14, [r12 + 2]
+lea rdx, [r13 - 2]
+mov esi, 0x2f
+mov rdi, r14
+call memchr
+mov rdx, rax
+test rax, rax
+je 0x80043eb
+sub rdx, r14
+add rdx, 2
+cmp r13, rdx
+ja 0x80043c2
+mov r8, rdx
+jmp 0x8004224
+nop word [rax + rax]
+test rbx, rbx
+je 0x80043d3
+nop dword [rax]
+xor r8d, r8d
+xor edx, edx
+jmp 0x800428c
+nop word [rax + rax]
+mov qword [arg_28h], rdx
+mov rdx, qword [arg_8h]
+mov rdi, rbp
+mov ecx, 1
+pop rbx
+mov r8d, 0x2f
+pop rbp
+xor esi, esi
+pop r12
+pop r13
+pop r14
+jmp _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE14_M_replace_auxEmmmc
+nop dword [rax]
+mov rax, rbx
+nop dword [rax + rax]
+mov rdx, rax
+sub rax, 1
+cmp byte [r12 + rax], 0x2f
+lea rcx, [r12 + rax]
+je 0x80043a0
+cmp r8, rax
+jb 0x8004370
+sub rbx, rax
+mov qword [arg_28h], rax
+mov rdx, qword [arg_8h]
+mov r8, rbx
+jmp 0x80042a0
+nop word [rax + rax]
+mov rax, rdx
+lea rcx, [r12 + rdx]
+mov rdx, qword [arg_8h]
+sub rbx, rax
+mov qword [arg_28h], rax
+mov r8, rbx
+jmp 0x80042a0
+nop word [rax + rax]
+xor edx, edx
+mov r8, rdx
+cmp rbx, rdx
+jne 0x8004224
+jmp 0x8004291
+xor r8d, r8d
+jmp 0x8004291
+mov r8d, 2
+mov edx, 2
+jmp 0x8004224
+mov r8, r13
+mov rdx, r13
+jmp 0x8004224

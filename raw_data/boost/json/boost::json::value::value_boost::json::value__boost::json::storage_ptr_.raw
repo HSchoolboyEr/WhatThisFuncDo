@@ -1,0 +1,96 @@
+movzx eax, byte [rsi + 8]
+and eax, 0x3f
+cmp al, 7
+ja .text.unlikely
+push r12
+lea rcx, [0x0800bfa8]
+movzx eax, al
+push rbp
+sub rsp, 0x18
+movsxd rax, dword [rcx + rax*4]
+add rax, rcx
+jmp rax
+nop dword [rax]
+mov rax, qword [rdx]
+mov qword [rdx], 0
+lea rbp, [rsp + 8]
+mov rdx, rbp
+mov qword [rsp + 8], rax
+call _ZN5boost4json5arrayC1EOS1_NS0_11storage_ptrE
+mov rdi, rbp
+call _ZNK5boost4json11storage_ptr7releaseEv
+add rsp, 0x18
+pop rbp
+pop r12
+ret
+nop dword [rax]
+mov rax, qword [rdx]
+mov qword [rdx], 0
+lea rbp, [rsp + 8]
+mov rdx, rbp
+mov qword [rsp + 8], rax
+call _ZN5boost4json6objectC1EOS1_NS0_11storage_ptrE
+jmp 0x800bfdc
+nop
+mov rax, qword [rdx]
+mov qword [rdx], 0
+mov byte [rdi + 8], 0
+mov qword [rdi], rax
+add rsp, 0x18
+pop rbp
+pop r12
+ret
+nop dword [rax]
+mov rcx, qword [rdx]
+mov qword [rdx], 0
+movzx eax, byte [rsi + 0x10]
+mov byte [rdi + 8], 1
+mov qword [rdi], rcx
+mov byte [rdi + 0x10], al
+add rsp, 0x18
+pop rbp
+pop r12
+ret
+mov rcx, qword [rdx]
+mov qword [rdx], 0
+mov rax, qword [rsi + 0x10]
+mov byte [rdi + 8], 2
+mov qword [rdi], rcx
+mov qword [rdi + 0x10], rax
+add rsp, 0x18
+pop rbp
+pop r12
+ret
+nop dword [rax]
+mov rcx, qword [rdx]
+mov qword [rdx], 0
+mov rax, qword [rsi + 0x10]
+mov byte [rdi + 8], 3
+mov qword [rdi], rcx
+mov qword [rdi + 0x10], rax
+add rsp, 0x18
+pop rbp
+pop r12
+ret
+nop dword [rax]
+mov rax, qword [rdx]
+mov qword [rdx], 0
+movsd xmm0, qword [rsi + 0x10]
+mov byte [rdi + 8], 4
+mov qword [rdi], rax
+movsd qword [rdi + 0x10], xmm0
+add rsp, 0x18
+pop rbp
+pop r12
+ret
+nop dword [rax + rax]
+mov rax, qword [rdx]
+mov qword [rdx], 0
+lea rbp, [rsp + 8]
+mov rdx, rbp
+mov qword [rsp + 8], rax
+call _ZN5boost4json6stringC1EOS1_NS0_11storage_ptrE
+add byte [rax], al
+add byte [rax], al
+jmp _ZNK5boost4json11storage_ptr7releaseEv
+ret

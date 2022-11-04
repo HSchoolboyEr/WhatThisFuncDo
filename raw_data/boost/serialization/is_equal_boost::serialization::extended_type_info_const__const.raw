@@ -1,0 +1,18 @@
+mov rax, qword [rdi + 0x18]
+mov rdi, qword [rax + 8]
+mov rax, qword [rsi + 0x18]
+mov rsi, qword [rax + 8]
+mov eax, 1
+cmp rdi, rsi
+je 0x80001a8
+xor eax, eax
+cmp byte [rdi], 0x2a
+je 0x80001a8
+sub rsp, 8
+call strcmp
+test eax, eax
+sete al
+add rsp, 8
+ret
+nop dword [rax]
+ret

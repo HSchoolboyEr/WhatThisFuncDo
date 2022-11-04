@@ -1,0 +1,232 @@
+push r13
+push r12
+push rbp
+mov ebp, edi
+push rbx
+mov ebx, esi
+sub rsp, 0x58
+movsd xmm1, qword [0x08003316]
+and esi, 1
+movsd qword [rsp], xmm0
+fld qword [rsp]
+movsd qword [var_18h], xmm1
+jne 0x8003337
+movsd xmm3, qword [0x08003331]
+movsd qword [arg_18h], xmm3
+mov r12d, ebx
+xor r13d, r13d
+test ebx, ebx
+jns 0x800334d
+mov r13d, ebx
+neg ebx
+and r13d, 1
+mov r12d, ebx
+test r12b, 1
+jne 0x8003560
+cmp ebp, ebx
+jae 0x8003430
+fstp st(0)
+fldz
+fstp xword [rsp + 0x20]
+sub rsp, 0x10
+mov dword [arg_30h_2], r12d
+fild dword [rsp + 0x10]
+fldz
+fmulp st(1)
+fstp xword [rsp]
+call cosl
+pop rax
+pop rdx
+fld xword [rsp + 0x20]
+fmulp st(1)
+test r13b, r13b
+je 0x800338f
+fchs
+fld st(0)
+fabs
+fxch st(1)
+fst qword [rsp]
+fld qword [0x0800339e]
+fxch st(2)
+fcomi st(2)
+fstp st(2)
+ja 0x8003418
+fldz
+fucomi st(1)
+jp 0x80033e9
+fcompi st(1)
+fstp st(0)
+jne 0x80033f0
+fld qword [0x080033b8]
+fcompi st(1)
+fstp st(0)
+jbe 0x80033d3
+movsd xmm6, qword [rsp]
+pxor xmm0, xmm0
+ucomisd xmm6, xmm0
+jp __errno_location
+comisd xmm6, xmm0
+jne __errno_location
+movsd xmm0, qword [arg_18h]
+mulsd xmm0, qword [rsp]
+add rsp, 0x58
+pop rbx
+pop rbp
+pop r12
+pop r13
+ret
+fstp st(0)
+fstp st(0)
+nop dword [rax]
+movsd xmm4, qword [rsp]
+pxor xmm5, xmm5
+ucomisd xmm4, xmm5
+jnp 0x80035d0
+fld qword [0x08003409]
+fcompi st(1)
+fstp st(0)
+jbe 0x80033d3
+jmp __errno_location
+nop dword [rax]
+fstp st(0)
+fstp st(0)
+call __errno_location
+mov dword [rax], 0x22
+jmp 0x80033d3
+nop dword [rax]
+lea rdi, [arg_40h]
+lea rsi, [arg_30h]
+sub rsp, 0x10
+fstp xword [rsp]
+call sincosl
+fld xword [rsp + 0x40]
+mov eax, ebx
+sub rsp, 0x20
+mov qword [arg_30h_2], rax
+fstp xword [rsp + 0x50]
+fild qword [rsp + 0x30]
+fstp xword [rsp + 0x10]
+fld xword [rsp + 0x70]
+fabs
+fstp xword [rsp]
+call powl
+pop r8
+pop r9
+mov esi, r12d
+fstp xword [rsp + 0x10]
+fld xword [rsp + 0x40]
+mov edi, ebp
+fstp xword [rsp]
+call sym._ZN5boost4math6detail14legendre_p_impIeNS0_8policies6policyINS3_12domain_errorILNS3_17error_policy_typeE1EEENS3_10pole_errorIL
+lea eax, [rbx + rbx]
+mov qword [arg_40h_2], rax
+lea eax, [arg_1h]
+fstp xword [rsp + 0x20]
+fild qword [rsp + 0x40]
+sub eax, ebx
+mov qword [arg_40h_2], rax
+fstp xword [rsp + 0x10]
+fild qword [rsp + 0x40]
+fstp xword [rsp]
+call sym._ZN5boost4math6detail22tgamma_delta_ratio_impIeNS0_8policies6policyINS3_12domain_errorILNS3_17error_policy_typeE1EEENS3_10pole
+add rsp, 0x20
+fld st(0)
+fabs
+fld xword [0x080034c0]
+fxch st(1)
+fcomi st(1)
+fstp st(1)
+ja 0x8003548
+fldz
+mov edx, 1
+mov ecx, 0
+fucompi st(2)
+setp al
+cmovne eax, edx
+setnp dl
+cmovne edx, ecx
+test dl, dl
+je 0x8003530
+test al, al
+je 0x8003530
+fstp st(0)
+fstp st(0)
+call __errno_location
+mov dword [rax], 0x22
+fldz
+lea eax, [rbp + arg_1h]
+mov qword [arg_40h_2], rax
+fild qword [rsp + 0x20]
+fld xword [0x08003512]
+fdivp st(1)
+fmulp st(1)
+fldz
+fucompi st(1)
+ja 0x80035f0
+fsqrt
+fld xword [rsp]
+fmulp st(1)
+fstp xword [rsp + 0x20]
+jmp 0x8003367
+fld xword [0x08003536]
+fcompi st(1)
+fstp st(0)
+jbe 0x80034ff
+test al, al
+je 0x80034ff
+jmp 0x800354a
+nop word [rax + rax]
+fstp st(0)
+fstp xword [rsp + 0x20]
+call __errno_location
+fld xword [rsp + 0x20]
+mov dword [rax], 0x22
+jmp 0x80034ff
+nop
+movabs rax, 0xc90fdaa22168c235
+mov edx, 0x4001
+push rdx
+push rax
+sub rsp, 0x10
+fld st(0)
+fstp xword [rsp]
+fstp xword [rsp + 0x20]
+call fmodl
+add rsp, 0x20
+fldz
+fcompi st(1)
+fld xword [rsp]
+ja 0x80035b0
+mov eax, r13d
+fldpi
+fxch st(2)
+xor eax, 1
+fcompi st(2)
+fstp st(1)
+cmova r13d, eax
+jmp 0x8003357
+nop word [rax + rax]
+fld xword [0x080035b6]
+mov eax, r13d
+xor eax, 1
+faddp st(2)
+fldpi
+fxch st(2)
+fcompi st(2)
+fstp st(1)
+cmova r13d, eax
+jmp 0x8003357
+nop
+jne .LC133
+fstp st(0)
+call __errno_location
+mov qword [rsp], 0
+mov dword [rax], 0x22
+jmp 0x80033d3
+push rcx
+push rcx
+fstp xword [rsp]
+call sqrtl
+pop rsi
+pop rdi
+jmp 0x8003522

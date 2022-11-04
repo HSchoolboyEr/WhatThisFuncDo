@@ -1,0 +1,12 @@
+push rbx
+mov rbx, rdi
+call _ZN5boost7archive6detail14basic_oarchiveC2Ej
+add byte [rax], al
+add byte [rax], al
+lea rax, [0x08000bd0]
+mov dword [rbx + 0x28], 0
+mov qword [rbx], rax
+xor eax, eax
+mov word [rbx + 0x2c], ax
+pop rbx
+ret

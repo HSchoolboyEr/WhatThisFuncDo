@@ -1,0 +1,48 @@
+movzx eax, byte [0x08000897]
+test al, al
+je 0x80008a8
+lea rax, [0x080008a2]
+ret
+nop dword [rax + rax]
+push r12
+lea rdi, [0x080008b1]
+push rbp
+sub rsp, 0x38
+call __cxa_guard_acquire
+test eax, eax
+jne 0x80008d0
+add rsp, 0x38
+lea rax, [0x080008ca]
+pop rbp
+pop r12
+ret
+nop
+xor esi, esi
+lea rdi, [0x080008d9]
+call pthread_mutex_init
+test eax, eax
+jne 0x8000917
+lea rdi, [0x080008e9]
+call __cxa_guard_release
+lea rdx, [0x080008f5]
+lea rsi, [0x080008fc]
+lea rdi, [0x08000903]
+add byte [rax], al
+add byte [rax], al
+call __cxa_atexit
+add rsp, 0x38
+lea rax, [0x08000913]
+pop rbp
+pop r12
+ret
+mov r12, rsp
+lea rdx, [0x08000921]
+mov esi, eax
+mov rdi, r12
+call _ZN5boost16thread_exceptionC2EiPKc
+add byte [rax], al
+add byte [rax], al
+jmp .text.unlikely
+mov rbp, rax
+jmp .text.unlikely
+nop dword [rax + rax]

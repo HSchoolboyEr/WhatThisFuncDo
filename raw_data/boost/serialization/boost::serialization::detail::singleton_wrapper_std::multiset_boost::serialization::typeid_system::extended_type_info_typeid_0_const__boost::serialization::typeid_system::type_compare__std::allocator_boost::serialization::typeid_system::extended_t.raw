@@ -1,0 +1,15 @@
+push rbx
+mov rbx, qword [rdi + 0x10]
+mov byte [0x0800091c], 1
+test rbx, rbx
+je 0x8000940
+mov rdi, qword [rbx + 0x18]
+call _ZNSt8_Rb_treeIPKN5boost13serialization13typeid_system27extended_type_info_typeid_0ES5_St9_IdentityIS5_ENS2_12type_compareESaIS5_EE8_M_eraseEPSt13_Rb_tree_nodeIS5_E.isra.0
+mov rdi, rbx
+mov rbx, qword [rbx + 0x10]
+mov esi, 0x28
+call _ZdlPvm
+test rbx, rbx
+jne 0x8000921
+pop rbx
+ret

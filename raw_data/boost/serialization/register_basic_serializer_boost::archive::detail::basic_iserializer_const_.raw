@@ -1,0 +1,123 @@
+push r15
+push r14
+mov r14, rsi
+push r13
+push r12
+push rbp
+push rbx
+sub rsp, 0x38
+mov rbx, qword [rdi + 0x20]
+mov r12, qword [rbx + 0x40]
+mov rbp, qword [rbx + 0x58]
+lea r13, [rbx + 0x38]
+test r12, r12
+je 0x8000a90
+nop word [rax + rax]
+mov rax, qword [r12 + 0x20]
+mov rdi, qword [r14 + 8]
+mov rsi, qword [rax + 8]
+call _ZNK5boost13serialization18extended_type_infoltERKS1_
+add byte [rax], al
+add byte [rax], al
+mov rcx, qword [r12 + 0x10]
+mov rdx, qword [r12 + 0x18]
+test al, al
+jne 0x8000940
+test rdx, rdx
+je 0x8000a38
+mov r12, rdx
+jmp 0x8000910
+nop
+test rcx, rcx
+je 0x8000950
+mov r12, rcx
+jmp 0x8000910
+nop word [rax + rax]
+cmp qword [rbx + 0x48], r12
+je 0x800097a
+mov rdi, r12
+call _ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base
+add byte [rax], al
+add byte [rax], al
+mov rsi, qword [r14 + 8]
+mov r15, rax
+mov rax, qword [rax + 0x20]
+mov rdi, qword [rax + 8]
+call _ZNK5boost13serialization18extended_type_infoltERKS1_
+test al, al
+je 0x8000a0b
+mov r8d, 1
+cmp r13, r12
+jne 0x8000a70
+mov edi, 0x30
+mov dword [var_ch], r8d
+call _Znwm
+mov r8d, dword [var_ch]
+mov rcx, r13
+mov rdx, r12
+mov qword [rax + 0x20], r14
+mov rsi, rax
+mov r15, rax
+mov word [rax + 0x28], bp
+mov edi, r8d
+call _ZSt29_Rb_tree_insert_and_rebalancebPSt18_Rb_tree_node_baseS0_RS_
+add byte [rax], al
+add byte [rax], al
+xor ecx, ecx
+add qword [rbx + 0x58], 1
+mov rsi, qword [rbx + 0x68]
+mov qword [var_10h], r14
+mov qword [var_18h], 0
+mov dword [var_20h], 0
+mov word [var_24h], cx
+cmp rsi, qword [rbx + 0x70]
+je 0x8000a60
+mov eax, dword [var_20h]
+mov qword [rsi], r14
+add rsi, 0x18
+mov qword [rsi - 0x10], 0
+mov dword [rsi - 8], eax
+movzx eax, byte [var_24h]
+mov byte [rsi - 3], 0
+mov byte [rsi - 4], al
+mov qword [rbx + 0x68], rsi
+movsx rax, word [r15 + 0x28]
+mov rdx, qword [rbx + 0x60]
+lea rax, [rax + rax*2]
+lea rax, [rdx + rax*8]
+mov rdx, qword [r14 + 0x10]
+mov qword [rax + 8], rdx
+add rsp, 0x38
+pop rbx
+pop rbp
+pop r12
+pop r13
+pop r14
+pop r15
+ret
+nop dword [rax + rax]
+mov rax, qword [r12 + 0x20]
+mov rsi, qword [r14 + 8]
+mov r15, r12
+mov rdi, qword [rax + 8]
+call _ZNK5boost13serialization18extended_type_infoltERKS1_
+test al, al
+je 0x8000a0b
+jmp 0x800097a
+nop word cs:[rax + rax]
+lea rdx, [var_10h]
+lea rdi, [rbx + 0x60]
+call _ZNSt6vectorIN5boost7archive6detail19basic_iarchive_impl10cobject_idESaIS4_EE17_M_realloc_insertIJS4_EEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_
+jmp 0x8000a0b
+mov rax, qword [r12 + 0x20]
+mov rdi, qword [r14 + 8]
+mov rsi, qword [rax + 8]
+call _ZNK5boost13serialization18extended_type_infoltERKS1_
+movzx r8d, al
+jmp 0x8000989
+nop dword [rax + rax]
+mov r12, r13
+cmp r13, qword [rbx + 0x48]
+jne _ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base
+mov r8d, 1
+jmp 0x8000989

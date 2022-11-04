@@ -1,0 +1,234 @@
+push r15
+mov r15, rdx
+push r14
+push r13
+push r12
+push rbp
+mov rbp, rdi
+push rbx
+sub rsp, 0x6a8
+mov qword [var_68h], rsi
+cmp rsi, 0xf
+jbe 0x8000296
+mov rax, qword [rdx]
+lea rbx, [var_6a0h]
+and rbx, 0xfffffffffffffff0
+mov rax, qword [rax - 0x18]
+lea r13, [rbx - 0x600]
+lea rsi, [rbx - 0x5ff]
+mov r12d, dword [rdx + rax + 0x18]
+lea rax, [0x080000e3]
+shr r12d, 0xe
+and r12d, 1
+shl r12, 4
+add rax, r12
+movdqa xmm6, xmmword [rax]
+mov qword [var_80h], rax
+mov rax, rdi
+neg rax
+and eax, 0xf
+movaps xmmword [var_70h], xmm6
+mov r14, rax
+jne 0x800040b
+mov rax, qword [var_68h]
+mov rcx, rax
+and ecx, 0x1ff
+shr rax, 9
+mov qword [var_60h], rcx
+je 0x800027c
+shl rax, 9
+lea rdx, [arg_200h]
+movdqa xmm5, xmmword [var_70h]
+movdqa xmm4, xmmword [0x0800014b]
+mov qword [var_88h], rax
+movdqa xmm7, xmmword [0x0800015b]
+lea r14, [rdx + rax]
+movdqa xmm6, xmmword [0x08000167]
+movdqa xmm3, xmmword [0x0800016f]
+movdqa xmm8, xmmword [0x08000178]
+nop dword [rax + rax]
+lea r12, [rdx - 0x200]
+mov rax, r13
+nop word [rax + rax]
+movdqa xmm1, xmmword [r12]
+movdqa xmm0, xmm5
+add r12, 0x10
+add rax, 0x30
+movdqa xmm2, xmm1
+pand xmm1, xmm4
+psrlw xmm2, 4
+pand xmm2, xmm4
+pshufb xmm0, xmm2
+movdqa xmm2, xmm5
+pshufb xmm2, xmm1
+movdqa xmm9, xmm0
+punpckhbw xmm0, xmm2
+punpcklbw xmm9, xmm2
+movdqa xmm1, xmm0
+movdqa xmm2, xmm9
+pshufb xmm0, xmm6
+palignr xmm1, xmm9, 0xa
+pshufb xmm2, xmm8
+pmaxub xmm0, xmm3
+pshufb xmm1, xmm7
+pmaxub xmm2, xmm3
+movaps xmmword [rax - 0x10], xmm0
+pmaxub xmm1, xmm3
+movaps xmmword [rax - 0x30], xmm2
+movaps xmmword [rax - 0x20], xmm1
+cmp r12, rdx
+jne 0x8000190
+mov rdx, rbx
+mov rdi, r15
+movaps xmmword [var_50h], xmm3
+sub rdx, rsi
+movaps xmmword [var_40h], xmm6
+movaps xmmword [var_30h], xmm7
+movaps xmmword [var_20h], xmm8
+movaps xmmword [var_10h], xmm4
+movaps xmmword [rsp], xmm5
+call _ZNSo5writeEPKcl
+add byte [rax], al
+add byte [rax], al
+movdqa xmm5, xmmword [rsp]
+lea rdx, [r12 + 0x200]
+movdqa xmm4, xmmword [var_10h]
+cmp r14, rdx
+movdqa xmm8, xmmword [var_20h]
+movdqa xmm7, xmmword [var_30h]
+movdqa xmm6, xmmword [var_40h]
+movdqa xmm3, xmmword [var_50h]
+je 0x8000271
+mov rsi, r13
+jmp 0x8000180
+add rbp, qword [var_88h]
+mov rsi, r13
+cmp qword [var_60h], 0
+jne 0x80002ac
+add rsp, 0x6a8
+pop rbx
+pop rbp
+pop r12
+pop r13
+pop r14
+pop r15
+ret
+add rsp, 0x6a8
+pop rbx
+pop rbp
+pop r12
+pop r13
+pop r14
+pop r15
+jmp _ZN5boost3log12v2s_mt_posix3aux17dump_data_genericIcEEvPKvmRSt13basic_ostreamIT_St11char_traitsIS7_EE
+test qword [arg_68h], 0x1f0
+je 0x80003b1
+mov rcx, qword [arg_60h]
+mov rax, r13
+mov rdx, rbp
+movdqa xmm2, xmmword [arg_70h]
+movdqa xmm4, xmmword [0x080002d4]
+movdqa xmm7, xmmword [0x080002dc]
+movdqa xmm8, xmmword [0x080002e5]
+movdqa xmm6, xmmword [0x080002ed]
+lea rdi, [rbp + rcx]
+movdqa xmm3, xmmword [0x080002fa]
+movdqa xmm1, xmmword [rdx]
+movdqa xmm0, xmm2
+add rdx, 0x10
+mov rcx, rdi
+sub rcx, rdx
+add rax, 0x30
+movdqa xmm5, xmm1
+pand xmm1, xmm4
+psrlw xmm5, 4
+pand xmm5, xmm4
+pshufb xmm0, xmm5
+movdqa xmm5, xmm2
+pshufb xmm5, xmm1
+movdqa xmm9, xmm0
+punpckhbw xmm0, xmm5
+punpcklbw xmm9, xmm5
+movdqa xmm1, xmm0
+movdqa xmm5, xmm9
+pshufb xmm0, xmm6
+palignr xmm1, xmm9, 0xa
+pshufb xmm5, xmm8
+pmaxub xmm0, xmm3
+pshufb xmm1, xmm7
+pmaxub xmm5, xmm3
+movaps xmmword [rax - 0x10], xmm0
+pmaxub xmm1, xmm3
+movaps xmmword [rax - 0x30], xmm5
+movaps xmmword [rax - 0x20], xmm1
+cmp rcx, 0xf
+ja 0x80002fa
+mov rax, qword [arg_60h]
+sub rax, 0x10
+shr rax, 4
+add rax, 1
+lea rdx, [rax + rax*2]
+shl rax, 4
+add rbp, rax
+mov rax, qword [arg_68h]
+shl rdx, 4
+add r13, rdx
+and eax, 0xf
+mov qword [arg_60h], rax
+je 0x80003f8
+mov ecx, 1
+sub ecx, ebp
+movzx eax, byte [rbp]
+mov rdi, qword [arg_80h]
+mov byte [r13], 0x20
+add r13, 3
+mov rdx, rax
+and eax, 0xf
+shr rdx, 4
+movzx eax, byte [rdi + rax]
+and edx, 0xf
+movzx edx, byte [rdi + rdx]
+mov byte [r13 - 1], al
+lea eax, [rcx + rbp]
+add rbp, 1
+mov byte [r13 - 2], dl
+cmp qword [arg_60h], rax
+ja 0x80003b8
+mov rdx, r13
+mov rdi, r15
+sub rdx, rsi
+call _ZNSo5writeEPKcl
+jmp 0x8000284
+lddqu xmm1, xmmword [rdi]
+movdqa xmm0, xmm6
+lea rdx, [rax + rax*2 - 1]
+mov rdi, r15
+movdqa xmm4, xmmword [0x08000423]
+add rbp, r14
+movdqa xmm2, xmm1
+psrlw xmm2, 4
+pand xmm1, xmm4
+pand xmm2, xmm4
+pshufb xmm0, xmm2
+movdqa xmm2, xmm6
+pshufb xmm2, xmm1
+movdqa xmm3, xmm0
+punpckhbw xmm0, xmm2
+punpcklbw xmm3, xmm2
+movdqa xmm1, xmm0
+movdqa xmm2, xmm3
+pshufb xmm0, xmmword [0x08000462]
+pshufb xmm2, xmmword [0x0800046b]
+palignr xmm1, xmm3, 0xa
+movdqa xmm3, xmmword [0x08000479]
+pshufb xmm1, xmmword [0x08000482]
+pmaxub xmm2, xmm3
+pmaxub xmm1, xmm3
+pmaxub xmm3, xmm0
+movaps xmmword [r13], xmm2
+movaps xmmword [r13 + 0x10], xmm1
+movaps xmmword [r13 + 0x20], xmm3
+call _ZNSo5writeEPKcl
+sub qword [var_68h], r14
+mov rsi, r13
+jmp 0x8000115

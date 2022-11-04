@@ -1,0 +1,148 @@
+movzx edi, byte [rsi + 8]
+mov eax, edi
+and eax, 0x3f
+cmp al, 7
+ja 0x8004d87
+push r14
+lea rcx, [0x08004bba]
+movzx eax, al
+push r13
+push r12
+push rbp
+push rbx
+sub rsp, 0x10
+movsxd rdx, dword [rcx + rax*4]
+add rdx, rcx
+jmp rdx
+mov eax, 0x9e377a79
+add rax, qword [rsi + 0x10]
+xor rax, 3
+add rsp, 0x10
+pop rbx
+pop rbp
+pop r12
+pop r13
+pop r14
+ret
+nop word [rax + rax]
+lea rdi, [rsp + 8]
+mov ebx, 0x9e377b7a
+call _ZNKSt4hashIN5boost4json6objectEEclERKS2_
+add byte [rax], al
+add byte [rax], al
+add rsp, 0x10
+add rax, rbx
+pop rbx
+pop rbp
+xor rax, 7
+pop r12
+pop r13
+pop r14
+ret
+nop dword [rax + rax]
+movsd xmm0, qword [rsi + 0x10]
+pxor xmm1, xmm1
+ucomisd xmm0, xmm1
+movsd qword [rsp + 8], xmm0
+jp 0x8004c38
+comisd xmm0, xmm1
+mov eax, 0x9e377abe
+je 0x8004bdd
+mov edx, 0xc70f6907
+lea rdi, [rsp + 8]
+mov esi, 8
+call _ZSt11_Hash_bytesPKvmm
+add byte [rax], al
+add byte [rax], al
+mov edx, 0x9e377aba
+add rax, rdx
+xor rax, 4
+jmp 0x8004bdd
+nop word [rax + rax]
+lea rdx, [rsi + 9]
+cmp dil, 0x85
+je 0x8004c7c
+mov rax, qword [rsi + 0x10]
+lea rdx, [rax + 8]
+cmp dil, 5
+je 0x8004d80
+movsx rax, byte [rsi + 0x17]
+mov esi, 0xe
+sub rsi, rax
+movabs rax, 0xcbf29ce522599e1a
+add rsi, rdx
+cmp rsi, rdx
+je 0x8004bdd
+movabs rax, 0xcbf29ce484222325
+movabs rdi, 0x100000001b3
+nop dword [rax + rax]
+movsx rcx, byte [rdx]
+add rdx, 1
+xor rax, rcx
+imul rax, rdi
+cmp rsi, rdx
+jne 0x8004cb8
+mov ebx, 0x9e377afa
+add rsp, 0x10
+add rax, rbx
+pop rbx
+pop rbp
+xor rax, 5
+pop r12
+pop r13
+pop r14
+ret
+nop dword [rax]
+mov rax, qword [rsi + 0x10]
+mov ebx, dword [rax]
+lea r14, [rax + 8]
+lea rdx, [rbx + rbx*2]
+lea rbp, [rax + rdx*8 + 8]
+cmp r14, rbp
+je 0x8004d3e
+lea r13, [rsp + 8]
+mov r12d, 0x9e3779b9
+nop dword [rax + rax]
+mov rsi, r14
+mov rdi, r13
+add r14, 0x18
+call _ZNKSt4hashIN5boost4json5valueEEclERKS2_
+add byte [rax], al
+add byte [rax], al
+mov rdx, rbx
+shl rdx, 6
+add rax, r12
+add rax, rdx
+mov rdx, rbx
+shr rdx, 2
+add rax, rdx
+xor rbx, rax
+cmp rbp, r14
+jne 0x8004d10
+mov eax, 0x9e377b3a
+add rsp, 0x10
+add rax, rbx
+pop rbx
+pop rbp
+xor rax, 6
+pop r12
+pop r13
+pop r14
+ret
+nop word [rax + rax]
+movzx eax, byte [rsi + 0x10]
+mov ebx, 0x9e3779f9
+add rsp, 0x10
+add rax, rbx
+pop rbx
+pop rbp
+xor rax, 1
+pop r12
+pop r13
+pop r14
+ret
+nop dword [rax]
+mov esi, dword [rax]
+jmp 0x8004c89
+movzx eax, al
+ret

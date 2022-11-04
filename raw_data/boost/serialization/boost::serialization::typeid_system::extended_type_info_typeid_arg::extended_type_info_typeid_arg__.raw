@@ -1,0 +1,10 @@
+lea rax, [0x08000717]
+push rbp
+mov rbp, rdi
+mov qword [rdi + 0x18], 0
+mov qword [rdi], rax
+call _ZN5boost13serialization18extended_type_infoD2Ev
+mov rdi, rbp
+mov esi, 0x20
+pop rbp
+jmp _ZdlPvm

@@ -1,0 +1,141 @@
+push r14
+xor eax, eax
+lea rdx, [0x0800034b]
+mov esi, 0x10
+push r13
+push r12
+push rbp
+push rbx
+mov rbx, rdi
+sub rsp, 0x10
+mov rcx, qword [rdi]
+mov r13, rsp
+mov rdi, r13
+call snprintf
+cmp byte [rsp], 0
+je 0x8000560
+mov rax, r13
+nop dword [rax + rax]
+add rax, 1
+cmp byte [rax], 0
+jne 0x8000380
+sub rax, r13
+mov r12, rax
+mov edi, 0x3f
+call umask
+lea rdi, [0x080003a0]
+mov r14d, eax
+call mkstemp
+mov edi, r14d
+mov ebp, eax
+call umask
+cmp ebp, 0xffffffff
+je 0x8000548
+mov edx, 5
+lea rsi, [0x080003c7]
+mov edi, ebp
+call write
+cmp rax, 0xffffffffffffffff
+je 0x8000528
+mov rsi, qword [rbx + 0x10]
+mov rdx, qword [rbx + 0x18]
+mov edi, ebp
+sub rdx, rsi
+call write
+cmp rax, 0xffffffffffffffff
+je 0x8000528
+mov edx, 8
+lea rsi, [0x08000400]
+mov edi, ebp
+call write
+cmp rax, 0xffffffffffffffff
+je 0x8000528
+mov rdx, r12
+mov rsi, r13
+mov edi, ebp
+call write
+cmp rax, 0xffffffffffffffff
+je 0x8000528
+mov edx, 0xe
+lea rsi, [0x08000434]
+mov edi, ebp
+call write
+cmp rax, 0xffffffffffffffff
+je 0x8000528
+mov rsi, qword [rbx + 0x30]
+mov rdx, qword [rbx + 0x38]
+mov edi, ebp
+sub rdx, rsi
+call write
+cmp rax, 0xffffffffffffffff
+je 0x8000528
+mov edx, 5
+lea rsi, [0x0800046d]
+mov edi, ebp
+call write
+cmp rax, 0xffffffffffffffff
+je 0x8000528
+cmp byte [rbx + 8], 0
+je 0x80004a1
+mov edx, 5
+lea rsi, [0x08000490]
+mov edi, ebp
+call write
+cmp rax, 0xffffffffffffffff
+je 0x8000528
+mov edx, 8
+lea rsi, [0x080004ad]
+mov edi, ebp
+call write
+cmp rax, 0xffffffffffffffff
+je 0x8000528
+mov edx, 7
+lea rsi, [0x080004c6]
+mov edi, ebp
+call write
+cmp rax, 0xffffffffffffffff
+je 0x8000528
+mov edx, 5
+lea rsi, [0x080004df]
+mov edi, ebp
+call write
+cmp rax, 0xffffffffffffffff
+je 0x8000528
+mov edx, 0xe
+lea rsi, [0x080004f8]
+mov edi, ebp
+call write
+cmp rax, 0xffffffffffffffff
+je 0x8000528
+mov edx, 0x17
+lea rsi, [0x08000511]
+mov edi, ebp
+call write
+lea r12, [0x0800051f]
+cmp rax, 0xffffffffffffffff
+jne 0x800052b
+nop dword [rax]
+xor r12d, r12d
+mov edi, ebp
+call close
+add rsp, 0x10
+mov rax, r12
+pop rbx
+pop rbp
+pop r12
+pop r13
+pop r14
+ret
+nop word [rax + rax]
+add rsp, 0x10
+xor r12d, r12d
+pop rbx
+mov rax, r12
+pop rbp
+pop r12
+pop r13
+pop r14
+ret
+nop dword [rax + rax]
+xor r12d, r12d
+jmp 0x800038f

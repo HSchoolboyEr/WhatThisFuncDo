@@ -1,0 +1,158 @@
+push r15
+push r14
+push r13
+mov r13, rdx
+push r12
+push rbp
+mov ebp, esi
+push rbx
+mov rbx, rdi
+sub rsp, 0x98
+mov r12, qword [rdi + 0x28]
+test r12, r12
+je 0x8012360
+mov rax, qword [rbx + 0x18]
+mov esi, dword [rbx + 0x10]
+lea rcx, [rbx + 0x30]
+mov rdi, r12
+mov r8, qword [r13]
+mov rdx, qword [rax + 0x10]
+add rsp, 0x98
+or esi, ebp
+pop rbx
+pop rbp
+pop r12
+pop r13
+pop r14
+pop r15
+jmp _ZN5boost3log12v2s_mt_posix5sinks12_GLOBAL__N_117syslog_udp_socket12send_messageEiPKcRKNS_4asio2ip14basic_endpointINS8_3udpEEES6_
+pxor xmm0, xmm0
+cmp dword [rdi + 0x14], 2
+mov qword [var_80h], 0
+mov dword [var_88h], 0
+movups xmmword [var_70h], xmm0
+je 0x8012560
+mov eax, 0xa
+mov word [var_70h], ax
+mov r14, qword [rbx + 0x18]
+mov edi, 0x58
+call _Znwm
+lea rcx, [var_70h]
+lea rdx, [rbx + 0x14]
+mov rsi, r14
+mov rdi, rax
+mov r12, rax
+call .text
+mov r14, qword [rbx + 0x28]
+mov qword [rbx + 0x28], r12
+test r14, r14
+je 0x8012332
+mov qword [var_38h], 0
+mov qword [var_40h], 0
+mov edi, dword [r14 + 8]
+mov dword [var_30h], 0
+cmp edi, 0xffffffff
+je 0x80125b4
+mov esi, 2
+call shutdown
+test eax, eax
+je 0x8012538
+lea rdi, [var_30h]
+call .text
+mov rax, qword [var_40h]
+movdqu xmm2, xmmword [var_30h]
+movups xmmword [var_50h], xmm2
+cmp rax, 1
+jbe 0x8012430
+and eax, 1
+lea rdx, [0x0801242d]
+or rax, rdx
+movdqu xmm1, xmmword [var_50h]
+mov qword [var_60h], rax
+mov qword [var_40h], rax
+movups xmmword [var_30h], xmm1
+mov esi, dword [r14 + 8]
+cmp esi, 0xffffffff
+je 0x8012500
+movzx ecx, byte [r14 + 0xc]
+mov r15, qword [r14]
+lea rdx, [r14 + 0x10]
+shr cl, 6
+mov rdi, qword [r15 + 0x28]
+xor ecx, 1
+and ecx, 1
+call _ZN5boost4asio6detail13epoll_reactor21deregister_descriptorEiRPNS2_16descriptor_stateEb
+mov edi, dword [r14 + 8]
+lea rcx, [var_30h]
+xor edx, edx
+lea rsi, [r14 + 0xc]
+call .text
+mov r12, qword [r14 + 0x10]
+test r12, r12
+je 0x8012500
+mov r15, qword [r15 + 0x28]
+movzx edx, byte [r15 + 0xc0]
+test dl, dl
+jne 0x8012570
+mov rax, qword [r12 + 0x18]
+cmp r12, qword [r15 + 0xc8]
+je 0x80125a8
+mov rcx, qword [r12 + 0x20]
+test rcx, rcx
+je 0x80124c6
+mov qword [rcx + 0x18], rax
+mov rax, qword [r12 + 0x18]
+test rax, rax
+je 0x80124d4
+mov rcx, qword [r12 + 0x20]
+mov qword [rax + 0x20], rcx
+mov rax, qword [r15 + 0xd0]
+mov qword [r12 + 0x20], 0
+mov qword [r12 + 0x18], rax
+mov qword [r15 + 0xd0], r12
+test dl, dl
+jne 0x8012590
+nop dword [rax + rax]
+mov rax, qword [r14 + 0x38]
+lea rdi, [r14 + 0x20]
+mov dword [r14 + 8], 0xffffffff
+mov byte [r14 + 0xc], 0
+mov qword [r14 + 0x10], 0
+call qword [rax]
+mov esi, 0x58
+mov rdi, r14
+call _ZdlPvm
+mov r12, qword [rbx + 0x28]
+jmp 0x8012332
+nop dword [rax]
+mov dword [var_30h], 0
+xor eax, eax
+mov qword [var_38h], 0
+movdqu xmm3, xmmword [var_30h]
+movups xmmword [var_50h], xmm3
+jmp 0x8012430
+nop dword [rax + rax]
+mov edx, 2
+mov word [var_70h], dx
+jmp 0x8012394
+nop
+lea rdi, [r15 + 0x98]
+mov byte [var_fh], dl
+call pthread_mutex_lock
+movzx edx, byte [var_fh]
+jmp 0x80124a1
+nop word [rax + rax]
+lea rdi, [r15 + 0x98]
+call pthread_mutex_unlock
+jmp 0x8012500
+nop dword [rax]
+mov qword [r15 + 0xc8], rax
+jmp 0x80124b3
+lea rdi, [var_10h]
+mov esi, 9
+call _ZN5boost4asio5error15make_error_codeENS1_12basic_errorsE
+movdqu xmm4, xmmword [var_10h]
+mov rax, qword [var_20h]
+movups xmmword [var_30h], xmm4
+mov qword [var_40h], rax
+jmp 0x8012412

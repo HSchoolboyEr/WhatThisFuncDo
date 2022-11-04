@@ -1,0 +1,15 @@
+lea rax, [0x080003b7]
+push rbp
+mov rbp, rdi
+lea rdi, [rdi + 0x18]
+mov qword [rdi - 0x18], rax
+call _ZNSt6localeD1Ev
+lea rax, [0x080003cf]
+lea rdi, [arg_10h]
+mov qword [rbp], rax
+call _ZNSt6locale5facet19_S_destroy_c_localeERP15__locale_struct
+mov rdi, rbp
+pop rbp
+jmp _ZNSt6locale5facetD2Ev
+add byte [rax], al
+add byte [rax], al

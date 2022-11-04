@@ -1,0 +1,112 @@
+push r13
+push r12
+mov r12, rdi
+push rbp
+push rbx
+sub rsp, 0x38
+call _ZN5boost6locale9time_zone8tz_mutexEv
+test rax, rax
+je 0x8001f93
+mov rbx, rax
+nop
+mov rdi, rbx
+call pthread_mutex_lock
+cmp eax, 4
+je 0x8001e50
+test eax, eax
+jne 0x8001fbd
+movzx eax, byte [0x08001e6c]
+test al, al
+je .bss
+lea rdi, [r12 + 0x10]
+mov r13, qword [0x08001e80]
+mov qword [r12], rdi
+mov rbp, qword [0x08001e8b]
+mov rax, rbp
+add rax, r13
+je 0x8001e9c
+test rbp, rbp
+je .LC3
+mov qword [rsp], r13
+cmp r13, 0xf
+ja 0x8001ef0
+cmp r13, 1
+jne 0x8001ee0
+movzx eax, byte [rbp]
+mov byte [r12 + 0x10], al
+mov qword [r12 + 8], r13
+mov byte [rdi + r13], 0
+nop
+mov rdi, rbx
+call pthread_mutex_unlock
+cmp eax, 4
+je 0x8001ec0
+add rsp, 0x38
+mov rax, r12
+pop rbx
+pop rbp
+pop r12
+pop r13
+ret
+nop dword [rax + rax]
+test r13, r13
+je 0x8001eb5
+jmp 0x8001f0d
+nop word [rax + rax]
+mov rsi, rsp
+xor edx, edx
+mov rdi, r12
+call _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm
+mov qword [r12], rax
+mov rdi, rax
+mov rax, qword [rsp]
+mov qword [r12 + 0x10], rax
+mov rdx, r13
+mov rsi, rbp
+call memcpy
+mov r13, qword [rsp]
+mov rdi, qword [r12]
+jmp 0x8001eb5
+nop word [rax + rax]
+lea rdi, [0x08001f2f]
+call __cxa_guard_acquire
+test eax, eax
+je 0x8001e74
+lea rax, [0x08001f43]
+lea rdi, [0x08001f4a]
+mov qword [0x08001f55], 0
+mov qword [0x08001f5c], rax
+mov byte [0x08001f63], 0
+call __cxa_guard_release
+mov rdi, qword [0x08001f6f]
+lea rdx, [0x08001f76]
+lea rsi, [0x08001f7d]
+call __cxa_atexit
+jmp 0x8001e74
+lea rdi, [0x08001f8e]
+call _ZSt19__throw_logic_errorPKc
+mov r12, rsp
+lea rdx, [0x08001f9d]
+mov esi, 1
+mov rdi, r12
+call _ZN5boost16thread_exceptionC2EiPKc
+lea rax, [0x08001fb1]
+mov rdi, r12
+mov qword [rsp], rax
+call _ZN5boost15throw_exceptionINS_10lock_errorEEEvRKT_
+mov r12, rsp
+mov esi, eax
+lea rdx, [0x08001fc9]
+mov rdi, r12
+call _ZN5boost16thread_exceptionC2EiPKc
+lea rax, [0x08001fd8]
+mov rdi, r12
+mov qword [rsp], rax
+call _ZN5boost15throw_exceptionINS_10lock_errorEEEvRKT_
+mov rbp, rax
+jmp .text.unlikely
+mov rbp, rax
+jmp .text.unlikely
+mov rbp, rax
+jmp .text.unlikely
+nop dword [rax]

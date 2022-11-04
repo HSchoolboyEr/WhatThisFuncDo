@@ -1,0 +1,8 @@
+cmp rsi, 9
+jbe 0x800a810
+jmp method boost::json::detail::format_uint64(char*, unsigned long) [clone .part.0]
+nop dword [rax + rax]
+add esi, 0x30
+mov eax, 1
+mov byte [rdi], sil
+ret

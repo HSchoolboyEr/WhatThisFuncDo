@@ -1,0 +1,24 @@
+push rbx
+mov eax, dword [rdi + 8]
+mov rbx, rdi
+mov rdi, qword [rdi]
+cmp eax, 0xffffffff
+jne 0x800e104
+test rdi, rdi
+jne 0x800e110
+pop rbx
+ret
+nop word cs:[rax + rax]
+mov rax, qword [rdi + 0x10]
+cmp rax, qword [rdi + 0x18]
+jae 0x800e130
+mov eax, dword [rax]
+cmp eax, 0xffffffff
+jne 0x800e104
+mov qword [rbx], 0
+pop rbx
+ret
+nop word [rax + rax]
+mov rax, qword [rdi]
+call qword [rax + 0x48]
+jmp 0x800e11c

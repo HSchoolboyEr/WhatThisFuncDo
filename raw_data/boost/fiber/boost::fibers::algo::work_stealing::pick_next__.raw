@@ -1,0 +1,46 @@
+push r12
+push rbp
+mov rbp, rdi
+add rdi, 0x18
+sub rsp, 8
+call _ZN5boost6fibers6detail13spinlock_ttas4lockEv
+mov rax, qword [arg_28h]
+cmp rax, qword [arg_20h]
+je 0x8001010
+mov rdx, qword [arg_38h]
+mov r12, qword [rdx + rax*8]
+add rax, 1
+xor edx, edx
+div qword [arg_30h]
+mov qword [arg_28h], rdx
+mov dword [arg_18h], 1
+test r12, r12
+je 0x8001017
+lea rax, [r12 + 0xe8]
+cmp r12, rax
+jae 0x8000fd1
+prefetcht2 byte [r12]
+test byte [r12 + 0xe0], 6
+je _ZN5boost6fibers7context6activeEv
+add rsp, 8
+mov rax, r12
+pop rbp
+pop r12
+ret
+nop word [rax + rax]
+call _ZN5boost6fibers7context6activeEv
+mov rsi, r12
+mov rdi, rax
+call _ZN5boost6fibers7context6attachEPS1_
+add rsp, 8
+mov rax, r12
+pop rbp
+pop r12
+ret
+nop dword [rax + rax]
+mov dword [arg_18h], 1
+add rsp, 8
+mov rdi, rbp
+pop rbp
+pop r12
+jmp method boost::fibers::algo::work_stealing::pick_next() [clone .part.0]

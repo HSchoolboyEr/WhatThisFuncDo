@@ -1,0 +1,688 @@
+push r15
+push r14
+push r13
+mov r13, rdi
+push r12
+mov r12, rsi
+push rbp
+mov rbp, rdx
+push rbx
+sub rsp, 0x68
+mov rsi, qword [rsi + 0x30]
+mov rdi, qword [0x08001082]
+call _ZNK5boost9unit_test19results_collector_t7resultsEm
+mov rdi, rax
+mov rbx, rax
+call _ZNK5boost9unit_test12test_results6passedEv
+mov qword [var_30h], rbp
+mov r9d, 0x39
+test al, al
+movzx eax, byte [r13 + 0x10]
+lea r13, [var_41h]
+mov byte [var_3ch], al
+mov byte [var_40h], al
+jne 0x80013c0
+xor eax, eax
+mov r8d, 0x31
+mov ecx, 0x31
+mov rdi, r13
+mov edx, 0x1b
+lea rsi, [0x080010d3]
+call sprintf
+cmp byte [var_40h], 0
+mov dword [var_50h], 0xa
+je 0x8001107
+lea rax, [0x080010ee]
+cmp rbp, rax
+je 0x8001620
+lea rax, [0x080010fe]
+cmp rbp, rax
+je 0x8001620
+cmp byte [rbx + 0x69], 0
+jne 0x800163a
+cmp byte [rbx + 0x6a], 0
+jne 0x80014b0
+cmp byte [rbx + 0x68], 0
+jne 0x8001878
+mov r15, qword [rbx + 0x10]
+test r15, r15
+je 0x80015d8
+mov edx, 4
+lea rsi, [0x0800113e]
+mov rdi, rbp
+call _ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l
+mov rsi, r15
+mov rdi, rbp
+call _ZNSo9_M_insertImEERSoT_
+mov edx, 8
+lea rsi, [0x0800115d]
+mov rdi, rax
+mov r14, rax
+call _ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l
+xor edx, edx
+lea rsi, [0x08001171]
+cmp r15, 1
+mov rdi, r14
+lea rax, [0x0800117f]
+setne dl
+cmove rsi, rax
+lea rdx, [rdx + rdx + 3]
+call _ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l
+mov edx, 9
+lea rsi, [0x0800119c]
+mov rdi, r14
+call _ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l
+cmp qword [rbx + 0x20], 0
+je 0x800121f
+mov edx, 2
+lea rsi, [0x080011b7]
+mov rdi, rbp
+call _ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l
+mov rsi, qword [rbx + 0x20]
+mov rdi, rbp
+call _ZNSo9_M_insertImEERSoT_
+mov edx, 8
+lea rsi, [0x080011d7]
+mov rdi, rax
+mov r14, rax
+call _ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l
+xor edx, edx
+lea rsi, [0x080011eb]
+cmp qword [rbx + 0x20], 1
+mov rdi, r14
+lea rax, [0x080011fa]
+setne dl
+cmove rsi, rax
+lea rdx, [rdx + rdx + 3]
+call _ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l
+mov edx, 0xa
+lea rsi, [0x08001217]
+mov rdi, r14
+call _ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l
+mov edx, 0xd
+lea rsi, [0x0800122b]
+mov rdi, rbp
+call _ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l
+mov rbx, qword [r12 + 8]
+lea r14, [var_50h]
+mov r15, qword [r12 + 0x10]
+mov qword [var_40h], r14
+test rbx, rbx
+jne 0x8001255
+test r15, r15
+jne .LC2
+sub r15, rbx
+mov qword [var_28h], r15
+cmp r15, 0xf
+ja 0x8001ad0
+cmp r15, 1
+jne 0x8001a58
+movzx eax, byte [rbx]
+mov byte [var_50h], al
+mov rax, r14
+mov qword [var_48h], r15
+mov rdi, rbp
+mov byte [rax + r15], 0
+mov rdx, qword [var_48h]
+mov rsi, qword [var_40h]
+call _ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l
+mov rdi, qword [var_40h]
+cmp rdi, r14
+je 0x80012af
+mov rax, qword [var_50h]
+lea rsi, [rax + 1]
+call _ZdlPvm
+mov edx, 1
+lea rsi, [0x080012bb]
+mov rdi, rbp
+call _ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l
+lea rdi, [var_40h]
+mov rsi, r12
+call _ZNK5boost9unit_test9test_unit9full_nameB5cxx11Ev
+lea rsi, [var_27h]
+mov edx, 1
+mov rdi, rbp
+mov byte [var_27h], 0x22
+call _ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l
+mov rdx, qword [var_48h]
+mov rsi, qword [var_40h]
+mov rdi, rax
+call _ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l
+mov rdi, rax
+lea rsi, [var_28h]
+mov edx, 1
+mov byte [var_28h], 0x22
+call _ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l
+mov edx, 1
+lea rsi, [0x0800131c]
+mov rdi, rbp
+call _ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l
+mov rdi, qword [var_40h]
+cmp rdi, r14
+je 0x800133c
+mov rax, qword [var_50h]
+lea rsi, [rax + 1]
+call _ZdlPvm
+mov rbp, qword [var_30h]
+test rbp, rbp
+je 0x80013ad
+movzx eax, byte [var_3ch]
+mov r9d, 0x39
+mov r8d, 0x39
+mov rdi, r13
+mov ecx, 0x30
+mov edx, 0x1b
+lea rsi, [0x0800136b]
+mov byte [var_40h], al
+xor eax, eax
+call sprintf
+cmp byte [var_40h], 0
+mov dword [var_50h], 0xa
+je 0x80013ad
+lea rax, [0x0800138c]
+cmp rbp, rax
+je 0x800139d
+lea rax, [0x08001398]
+cmp rbp, rax
+jne 0x80013ad
+mov edx, 0xa
+mov rsi, r13
+mov rdi, rbp
+call _ZNSo5writeEPKcl
+add byte [rax], al
+add byte [rax], al
+add rsp, 0x68
+pop rbx
+pop rbp
+pop r12
+pop r13
+pop r14
+pop r15
+ret
+nop dword [rax]
+xor eax, eax
+mov r8d, 0x32
+mov ecx, 0x31
+mov rdi, r13
+mov edx, 0x1b
+lea rsi, [0x080013dc]
+call sprintf
+cmp byte [var_40h], 0
+mov dword [var_50h], 0xa
+je 0x8001410
+lea rax, [0x080013f7]
+cmp rbp, rax
+je 0x8001860
+lea rax, [0x08001407]
+cmp rbp, rax
+je 0x8001860
+mov edx, 0x17
+lea rsi, [0x0800141c]
+mov rdi, rbp
+call _ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l
+mov rbp, qword [var_30h]
+test rbp, rbp
+je 0x80013ad
+movzx eax, byte [var_3ch]
+mov r9d, 0x39
+mov r8d, 0x39
+mov rdi, r13
+mov ecx, 0x30
+mov edx, 0x1b
+lea rsi, [0x08001457]
+mov byte [var_40h], al
+xor eax, eax
+call sprintf
+cmp byte [var_40h], 0
+mov dword [var_50h], 0xa
+je 0x80013ad
+lea rax, [0x0800147c]
+cmp rbp, rax
+je 0x8001491
+lea rax, [0x08001488]
+cmp rbp, rax
+jne 0x80013ad
+mov edx, 0xa
+mov rsi, r13
+mov rdi, rbp
+call _ZNSo5writeEPKcl
+jmp 0x80013ad
+nop word cs:[rax + rax]
+mov edx, 0xd
+lea rsi, [0x080014bc]
+mov rdi, rbp
+call _ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l
+mov rbx, qword [r12 + 8]
+lea r14, [var_50h]
+mov r15, qword [r12 + 0x10]
+mov qword [var_40h], r14
+test rbx, rbx
+jne 0x80014e6
+test r15, r15
+jne .LC2
+sub r15, rbx
+mov qword [var_28h], r15
+cmp r15, 0xf
+ja 0x8001b90
+cmp r15, 1
+jne 0x8001aa0
+movzx eax, byte [rbx]
+mov byte [var_50h], al
+mov rax, r14
+mov qword [var_48h], r15
+mov rdi, rbp
+mov byte [rax + r15], 0
+mov rdx, qword [var_48h]
+mov rsi, qword [var_40h]
+call _ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l
+mov rdi, qword [var_40h]
+cmp rdi, r14
+je 0x8001540
+mov rax, qword [var_50h]
+lea rsi, [rax + 1]
+call _ZdlPvm
+lea rsi, [var_1dh]
+mov edx, 1
+mov rdi, rbp
+mov byte [var_1dh], 0x20
+call _ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l
+lea rdi, [var_40h]
+mov rsi, r12
+mov rbp, rax
+call _ZNK5boost9unit_test9test_unit9full_nameB5cxx11Ev
+lea rsi, [var_21h]
+mov edx, 1
+mov rdi, rbp
+mov byte [var_21h], 0x22
+call _ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l
+mov rdx, qword [var_48h]
+mov rsi, qword [var_40h]
+mov rdi, rax
+call _ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l
+mov rdi, rax
+lea rsi, [var_22h]
+mov edx, 1
+mov byte [var_22h], 0x22
+call _ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l
+mov edx, 0xe
+lea rsi, [0x080015b3]
+mov rdi, rbp
+call _ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l
+mov edx, 0x22
+lea rsi, [0x080015c7]
+mov rdi, rbp
+call _ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l
+jmp 0x8001759
+nop dword [rax]
+mov edx, 0x25
+lea rsi, [0x080015e4]
+mov rdi, rbp
+call _ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l
+mov rbx, qword [r12 + 8]
+lea r14, [var_50h]
+mov r15, qword [r12 + 0x10]
+mov qword [var_40h], r14
+test rbx, rbx
+jne 0x8001780
+test r15, r15
+je 0x8001780
+lea rdi, [0x08001619]
+call _ZSt19__throw_logic_errorPKc
+nop
+mov edx, 0xa
+mov rsi, r13
+mov rdi, rbp
+call _ZNSo5writeEPKcl
+cmp byte [rbx + 0x69], 0
+je 0x8001111
+mov edx, 0xd
+lea rsi, [0x08001646]
+mov rdi, rbp
+call _ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l
+mov r15, qword [r12 + 0x10]
+lea r14, [var_50h]
+mov rbx, qword [r12 + 8]
+mov qword [var_40h], r14
+test r15, r15
+je 0x8001670
+test rbx, rbx
+je .LC2
+sub r15, rbx
+mov qword [var_28h], r15
+cmp r15, 0xf
+ja 0x8001b50
+cmp r15, 1
+jne 0x8001a88
+movzx eax, byte [rbx]
+mov byte [var_50h], al
+mov rax, r14
+mov qword [var_48h], r15
+mov rdi, rbp
+mov byte [rax + r15], 0
+mov rdx, qword [var_48h]
+mov rsi, qword [var_40h]
+call _ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l
+mov rdi, qword [var_40h]
+cmp rdi, r14
+je 0x80016ca
+mov rax, qword [var_50h]
+lea rsi, [rax + 1]
+call _ZdlPvm
+lea rsi, [var_1ch]
+mov edx, 1
+mov rdi, rbp
+mov byte [var_1ch], 0x20
+call _ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l
+lea rdi, [var_40h]
+mov rsi, r12
+mov rbp, rax
+call _ZNK5boost9unit_test9test_unit9full_nameB5cxx11Ev
+lea rsi, [var_1fh]
+mov edx, 1
+mov rdi, rbp
+mov byte [var_1fh], 0x22
+call _ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l
+mov rdx, qword [var_48h]
+mov rsi, qword [var_40h]
+mov rdi, rax
+call _ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l
+mov rdi, rax
+lea rsi, [var_20h]
+mov edx, 1
+mov byte [var_20h], 0x22
+call _ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l
+mov edx, 0xc
+lea rsi, [0x0800173d]
+mov rdi, rbp
+call _ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l
+mov edx, 0x22
+lea rsi, [0x08001751]
+mov rdi, rbp
+call _ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l
+mov rdi, qword [var_40h]
+cmp rdi, r14
+je 0x80019d2
+mov rax, qword [var_50h]
+lea rsi, [rax + 1]
+call _ZdlPvm
+jmp 0x80019d2
+nop word [rax + rax]
+sub r15, rbx
+mov qword [var_28h], r15
+cmp r15, 0xf
+ja 0x8001bd0
+cmp r15, 1
+jne 0x8001ab8
+movzx eax, byte [rbx]
+mov byte [var_50h], al
+mov rax, r14
+mov qword [var_48h], r15
+mov rdi, rbp
+mov byte [rax + r15], 0
+mov rdx, qword [var_48h]
+mov rsi, qword [var_40h]
+call _ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l
+mov rdi, qword [var_40h]
+cmp rdi, r14
+je 0x80017da
+mov rax, qword [var_50h]
+lea rsi, [rax + 1]
+call _ZdlPvm
+lea r15, [var_40h]
+mov edx, 1
+mov rdi, rbp
+mov byte [var_40h], 0x20
+mov rsi, r15
+call _ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l
+mov rsi, r12
+mov rdi, r15
+mov rbp, rax
+call _ZNK5boost9unit_test9test_unit9full_nameB5cxx11Ev
+lea rsi, [var_25h]
+mov edx, 1
+mov rdi, rbp
+mov byte [var_25h], 0x22
+call _ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l
+mov rdx, qword [var_48h]
+mov rsi, qword [var_40h]
+mov rdi, rax
+call _ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l
+mov rdi, rax
+lea rsi, [var_26h]
+mov edx, 1
+mov byte [var_26h], 0x22
+call _ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l
+mov edx, 0x22
+lea rsi, [0x0800184e]
+mov rdi, rbp
+call _ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l
+jmp 0x8001759
+nop dword [rax + rax]
+mov edx, 0xa
+mov rsi, r13
+mov rdi, rbp
+call _ZNSo5writeEPKcl
+jmp 0x8001410
+nop dword [rax]
+mov edx, 0xd
+lea rsi, [0x08001884]
+mov rdi, rbp
+call _ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l
+mov rax, qword [r12 + 8]
+lea r14, [var_50h]
+mov r15, qword [r12 + 0x10]
+mov qword [var_40h], r14
+mov qword [var_8h], rax
+test rax, rax
+jne 0x80018b3
+test r15, r15
+jne .LC2
+sub r15, qword [var_8h]
+mov qword [var_28h], r15
+cmp r15, 0xf
+ja 0x8001b10
+cmp r15, 1
+jne 0x8001a70
+mov rax, qword [var_8h]
+movzx eax, byte [rax]
+mov byte [var_50h], al
+mov rax, r14
+mov qword [var_48h], r15
+mov rdi, rbp
+mov byte [rax + r15], 0
+mov rdx, qword [var_48h]
+mov rsi, qword [var_40h]
+call _ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l
+mov rdi, qword [var_40h]
+cmp rdi, r14
+je 0x8001914
+mov rax, qword [var_50h]
+lea rsi, [rax + 1]
+call _ZdlPvm
+lea rsi, [var_1eh]
+mov edx, 1
+mov rdi, rbp
+mov byte [var_1eh], 0x20
+call _ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l
+lea rdi, [var_40h]
+mov rsi, r12
+mov r15, rax
+call _ZNK5boost9unit_test9test_unit9full_nameB5cxx11Ev
+lea rsi, [var_23h]
+mov edx, 1
+mov rdi, r15
+mov byte [var_23h], 0x22
+call _ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l
+mov rdx, qword [var_48h]
+mov rsi, qword [var_40h]
+mov rdi, rax
+call _ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l
+mov rdi, rax
+lea rsi, [var_24h]
+mov edx, 1
+mov byte [var_24h], 0x22
+call _ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l
+mov edx, 0xc
+lea rsi, [0x08001987]
+mov rdi, r15
+call _ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l
+mov edx, 0x22
+lea rsi, [0x0800199b]
+mov rdi, r15
+call _ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l
+mov rdi, qword [var_40h]
+cmp rdi, r14
+je 0x80019bb
+mov rax, qword [var_50h]
+lea rsi, [rax + 1]
+call _ZdlPvm
+mov r15, qword [rbx + 0x10]
+test r15, r15
+jne 0x8001132
+cmp byte [rbx + 0x68], 0
+je 0x80015d8
+mov rbp, qword [var_30h]
+test rbp, rbp
+je 0x80013ad
+movzx eax, byte [var_3ch]
+mov r9d, 0x39
+mov r8d, 0x39
+mov rdi, r13
+mov ecx, 0x30
+mov edx, 0x1b
+lea rsi, [0x08001a05]
+mov byte [var_40h], al
+xor eax, eax
+call sprintf
+cmp byte [var_40h], 0
+mov dword [var_50h], 0xa
+je 0x80013ad
+lea rax, [0x08001a2a]
+cmp rbp, rax
+je 0x8001a3f
+lea rax, [0x08001a36]
+cmp rbp, rax
+jne 0x80013ad
+mov edx, 0xa
+mov rsi, r13
+mov rdi, rbp
+call _ZNSo5writeEPKcl
+jmp 0x80013ad
+nop dword [rax]
+test r15, r15
+jne 0x8001c25
+mov rax, r14
+jmp 0x800127b
+nop dword [rax]
+test r15, r15
+jne 0x8001c3e
+mov rax, r14
+jmp 0x80018e0
+nop dword [rax]
+test r15, r15
+jne 0x8001c52
+mov rax, r14
+jmp 0x8001696
+nop dword [rax]
+test r15, r15
+jne 0x8001c2d
+mov rax, r14
+jmp 0x800150c
+nop dword [rax]
+test r15, r15
+jne 0x8001c5a
+mov rax, r14
+jmp 0x80017a6
+nop dword [rax]
+lea rsi, [var_28h]
+lea rdi, [var_40h]
+xor edx, edx
+call _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm
+mov qword [var_40h], rax
+mov rdi, rax
+mov rax, qword [var_28h]
+mov qword [var_50h], rax
+mov rdx, r15
+mov rsi, rbx
+call memcpy
+mov r15, qword [var_28h]
+mov rax, qword [var_40h]
+jmp 0x800127b
+nop dword [rax]
+lea rsi, [var_28h]
+lea rdi, [var_40h]
+xor edx, edx
+call _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm
+mov qword [var_40h], rax
+mov rdi, rax
+mov rax, qword [var_28h]
+mov qword [var_50h], rax
+mov rsi, qword [var_8h]
+mov rdx, r15
+call memcpy
+mov r15, qword [var_28h]
+mov rax, qword [var_40h]
+jmp 0x80018e0
+nop
+lea rsi, [var_28h]
+lea rdi, [var_40h]
+xor edx, edx
+call _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm
+mov qword [var_40h], rax
+mov rdi, rax
+mov rax, qword [var_28h]
+mov qword [var_50h], rax
+mov rdx, r15
+mov rsi, rbx
+call memcpy
+mov r15, qword [var_28h]
+mov rax, qword [var_40h]
+jmp 0x8001696
+nop dword [rax]
+lea rsi, [var_28h]
+lea rdi, [var_40h]
+xor edx, edx
+call _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm
+mov qword [var_40h], rax
+mov rdi, rax
+mov rax, qword [var_28h]
+mov qword [var_50h], rax
+mov rdx, r15
+mov rsi, rbx
+call memcpy
+mov r15, qword [var_28h]
+mov rax, qword [var_40h]
+jmp 0x800150c
+nop dword [rax]
+lea rsi, [var_28h]
+lea rdi, [var_40h]
+xor edx, edx
+call _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm
+mov qword [var_40h], rax
+mov rdi, rax
+mov rax, qword [var_28h]
+mov qword [var_50h], rax
+mov rdx, r15
+mov rsi, rbx
+call memcpy
+mov r15, qword [var_28h]
+mov rax, qword [var_40h]
+jmp 0x80017a6
+lea rdi, [0x08001c14]
+call _ZSt19__throw_logic_errorPKc
+lea rdi, [0x08001c20]
+call _ZSt19__throw_logic_errorPKc
+mov rdi, r14
+jmp 0x8001af3
+mov rdi, r14
+jmp 0x8001bb3
+lea rdi, [0x08001c39]
+call _ZSt19__throw_logic_errorPKc
+mov rdi, r14
+jmp 0x8001b33
+lea rdi, [0x08001c4d]
+call _ZSt19__throw_logic_errorPKc
+mov rdi, r14
+jmp 0x8001b73
+mov rdi, r14
+jmp 0x8001bf3

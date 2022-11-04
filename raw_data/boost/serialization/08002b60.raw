@@ -1,0 +1,30 @@
+push r14
+mov r11, rdi
+xor edx, edx
+mov rdi, rsi
+push rbx
+mov r9, qword [rsi]
+mov ebx, 1
+mov rax, qword [r9]
+nop word cs:[rax + rax]
+mov r8, rdx
+cmp qword [rdi + 8], rax
+je 0x8002baa
+movzx esi, byte [rax]
+mov r10, qword [r11 + 8]
+mov r14, rbx
+add rdx, 1
+mov rcx, rsi
+shr rsi, 6
+shl r14, cl
+mov rcx, r14
+and rcx, qword [r10 + rsi*8]
+jne 0x8002bb8
+mov rax, r8
+pop rbx
+pop r14
+ret
+nop dword [rax]
+add rax, 1
+mov qword [r9], rax
+jmp 0x8002b80

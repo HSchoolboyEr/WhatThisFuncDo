@@ -1,0 +1,11 @@
+sub rsp, 0x28
+mov rdi, qword [rdi + 8]
+mov rsi, rsp
+mov dword [rsp], 0
+mov qword [var_8h], 0
+mov qword [var_10h], 0
+call _ZN5boost4asio6detail9scheduler3runERNS_6system10error_codeE
+add byte [rax], al
+add byte [rax], al
+add rsp, 0x28
+ret

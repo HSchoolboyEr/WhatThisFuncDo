@@ -1,0 +1,42 @@
+mov rax, qword [rdi]
+push rbx
+mov rbx, rdx
+call qword [rax + 8]
+mov r8d, eax
+xor eax, eax
+cmp dword [rbx], r8d
+jne 0x8000941
+mov rax, qword [rbx + 8]
+test rdx, rdx
+je 0x8000948
+test rax, rax
+je 0x8000970
+mov rcx, qword [rax + 8]
+test rcx, rcx
+jne 0x8000960
+cmp rdx, rax
+sete al
+pop rbx
+ret
+nop dword [rax + rax]
+test rax, rax
+je 0x8000988
+movabs rdx, 0xb2ab117a257edfd0
+cmp qword [rax + 8], rdx
+pop rbx
+sete al
+ret
+cmp qword [rdx + 8], rcx
+pop rbx
+sete al
+ret
+nop dword [rax]
+movabs rax, 0xb2ab117a257edfd0
+cmp qword [rdx + 8], rax
+pop rbx
+sete al
+ret
+nop dword [rax + rax]
+mov eax, 1
+pop rbx
+ret

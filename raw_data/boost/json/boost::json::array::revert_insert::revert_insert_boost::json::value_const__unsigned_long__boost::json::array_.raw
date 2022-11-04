@@ -1,0 +1,139 @@
+push rbp
+mov r8, rsi
+mov rsi, rcx
+push rbx
+mov rbx, rdi
+sub rsp, 0x28
+mov rax, qword [rcx + 0x10]
+mov qword [rdi], rcx
+movabs rdi, 0xaaaaaaaaaaaaaaab
+mov qword [rbx + 0x10], rdx
+lea rcx, [rax + 8]
+mov r9d, dword [rax + 4]
+sub r8, rcx
+mov rcx, r8
+mov r11, r9
+sar rcx, 3
+imul rcx, rdi
+mov edi, dword [rax]
+sub r11, rdi
+mov qword [rbx + 8], rcx
+cmp r11, rdx
+jb 0x80062b8
+lea rsi, [rax + r8 + 8]
+mov qword [rbx + 0x18], rsi
+test rdx, rdx
+jne 0x8006380
+add rsp, 0x28
+pop rbx
+pop rbp
+ret
+nop dword [rax]
+mov eax, 0x7ffffffe
+mov rcx, rax
+sub rcx, rdi
+cmp rcx, rdx
+jb .text.unlikely
+add rdi, rdx
+cmp rdi, 0x7ffffffe
+ja .text.unlikely
+mov rdx, r9
+shr rdx, 1
+sub rax, rdx
+cmp r9, rax
+ja _ZN5boost4json5array5table8allocateEmRKNS0_11storage_ptrE
+add r9, rdx
+cmp rdi, r9
+cmovb rdi, r9
+call _ZN5boost4json5array5table8allocateEmRKNS0_11storage_ptrE
+mov rdx, qword [rbx]
+mov r9, qword [rbx + 0x10]
+mov rbp, rax
+mov rsi, qword [rdx + 0x10]
+mov eax, dword [rsi]
+add eax, r9d
+mov dword [rbp], eax
+mov rax, qword [rbx + 8]
+lea r8, [rax + rax*2]
+shl r8, 3
+lea rdi, [r8 + 8]
+lea rcx, [rbp + rdi]
+mov qword [rbx + 0x18], rcx
+test rax, rax
+jne 0x80063e0
+mov ecx, dword [rsi]
+sub rcx, rax
+jne 0x80063a0
+mov eax, dword [rsi + 4]
+mov qword [rdx + 0x10], rbp
+test eax, eax
+je 0x80062ad
+mov rdx, qword [rdx]
+lea rax, [rax + rax*2]
+mov ecx, 8
+mov rdi, rdx
+and rdi, 0xfffffffffffffffc
+test rdx, rdx
+lea rdx, [0x08006364]
+cmove rdi, rdx
+lea rdx, [rax*8 + 8]
+mov rax, qword [rdi]
+mov rax, qword [rax + 0x18]
+add rsp, 0x28
+pop rbx
+pop rbp
+jmp rax
+nop
+mov r10, rdi
+sub rdi, rcx
+jne 0x8006420
+add edx, r10d
+mov dword [rax], edx
+add rsp, 0x28
+pop rbx
+pop rbp
+ret
+nop dword [rax + rax]
+add rax, r9
+lea rdx, [rcx + rcx*2]
+add rsi, rdi
+lea rax, [rax + rax*2]
+shl rdx, 3
+lea rdi, [rbp + rax*8 + 8]
+call memmove
+mov rdx, qword [rbx]
+mov rsi, qword [rdx + 0x10]
+mov qword [rdx + 0x10], rbp
+mov eax, dword [rsi + 4]
+test eax, eax
+jne 0x8006347
+jmp 0x80062ad
+nop word [rax + rax]
+add rsi, 8
+lea rdi, [arg_8h]
+mov rdx, r8
+call memmove
+mov rdx, qword [rbx]
+mov rax, qword [rbx + 8]
+mov r9, qword [rbx + 0x10]
+mov rsi, qword [rdx + 0x10]
+lea rcx, [rax + rax*2]
+lea rdi, [rcx*8 + 8]
+mov ecx, dword [rsi]
+sub rcx, rax
+je 0x8006338
+jmp 0x80063a0
+nop dword [rax + rax]
+lea r8, [rdi + rdi*2]
+lea rax, [rdx + rdx*2]
+shl r8, 3
+lea rdi, [rsi + rax*8]
+mov rdx, r8
+call memmove
+mov rax, qword [rbx]
+mov rdx, qword [rbx + 0x10]
+mov rax, qword [rax + 0x10]
+mov r10d, dword [rax]
+add edx, r10d
+mov dword [rax], edx
+jmp 0x8006391

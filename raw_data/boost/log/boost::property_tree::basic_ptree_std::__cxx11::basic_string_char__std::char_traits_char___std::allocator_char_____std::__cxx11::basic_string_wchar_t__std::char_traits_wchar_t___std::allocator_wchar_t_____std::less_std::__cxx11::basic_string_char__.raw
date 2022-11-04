@@ -1,0 +1,63 @@
+push r13
+push r12
+push rbp
+push rbx
+mov rbx, rdi
+sub rsp, 8
+mov r13, qword [rdi + 0x20]
+test r13, r13
+je 0x800040a
+mov rbp, qword [r13 + 8]
+mov r12, qword [arg_68h]
+test r12, r12
+je 0x800043b
+sub r12, 0x60
+cmp rbp, r12
+jne 0x800043b
+nop dword [rax]
+mov esi, 0x70
+mov rdi, rbp
+call _ZdlPvm
+mov esi, 0x20
+mov rdi, r13
+call _ZdlPvm
+mov rdi, qword [rbx]
+lea rax, [rbx + 0x10]
+cmp rdi, rax
+je 0x8000490
+mov rax, qword [rbx + 0x10]
+add rsp, 8
+pop rbx
+pop rbp
+lea rsi, [rax*4 + 4]
+pop r12
+pop r13
+jmp _ZdlPvm
+nop dword [rax]
+mov r12, rbp
+mov rbp, qword [r12 + 0x68]
+lea rdi, [r12 + 0x20]
+lea rax, [var_60h]
+test rbp, rbp
+cmovne rbp, rax
+call _ZN5boost13property_tree11basic_ptreeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS3_IwS4_IwESaIwEEESt4lessIS7_EED1Ev
+mov rdi, qword [r12]
+lea rax, [r12 + 0x10]
+cmp rdi, rax
+je 0x8000471
+mov rax, qword [r12 + 0x10]
+lea rsi, [rax + 1]
+call _ZdlPvm
+mov esi, 0x70
+mov rdi, r12
+call _ZdlPvm
+cmp qword [r13 + 8], rbp
+jne 0x8000438
+jmp 0x80003f0
+nop dword [rax]
+add rsp, 8
+pop rbx
+pop rbp
+pop r12
+pop r13
+ret

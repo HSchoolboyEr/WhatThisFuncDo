@@ -1,0 +1,141 @@
+push r12
+mov edx, 1
+push rbp
+push rbx
+mov rbx, rdi
+sub rsp, 0xa0
+mov rdi, qword [rdi]
+mov byte [var_ch], 4
+lea rbp, [var_ch]
+mov rax, qword [rdi]
+mov rsi, rbp
+call qword [rax + 0x60]
+cmp rax, 1
+jne 0x800132e
+mov rdi, qword [rbx]
+mov byte [var_ch], 8
+mov edx, 1
+mov rsi, rbp
+mov rax, qword [rdi]
+call qword [rax + 0x60]
+cmp rax, 1
+jne 0x800143e
+mov rdi, qword [rbx]
+mov byte [var_ch], 4
+mov edx, 1
+mov rsi, rbp
+mov rax, qword [rdi]
+call qword [rax + 0x60]
+cmp rax, 1
+jne 0x80013b6
+mov rdi, qword [rbx]
+mov byte [var_ch], 8
+mov edx, 1
+mov rsi, rbp
+mov rax, qword [rdi]
+call qword [rax + 0x60]
+cmp rax, 1
+jne 0x80013fa
+mov rdi, qword [rbx]
+mov dword [var_ch], 1
+mov edx, 4
+mov rsi, rbp
+mov rax, qword [rdi]
+call qword [rax + 0x60]
+cmp rax, 4
+jne 0x8001372
+add rsp, 0xa0
+pop rbx
+pop rbp
+pop r12
+ret
+lea r12, [var_10h]
+xor edx, edx
+xor ecx, ecx
+mov esi, 0xd
+mov rdi, r12
+call _ZN5boost7archive17archive_exceptionC1ENS1_14exception_codeEPKcS4_
+mov edi, 0x90
+call __cxa_allocate_exception
+mov rsi, r12
+mov rdi, rax
+mov rbp, rax
+call _ZN5boost7archive17archive_exceptionC1ERKS1_
+mov rdx, qword [0x08001363]
+lea rsi, [0x0800136a]
+mov rdi, rbp
+call __cxa_throw
+lea r12, [var_10h]
+xor edx, edx
+xor ecx, ecx
+mov esi, 0xd
+mov rdi, r12
+call _ZN5boost7archive17archive_exceptionC1ENS1_14exception_codeEPKcS4_
+mov edi, 0x90
+call __cxa_allocate_exception
+mov rsi, r12
+mov rdi, rax
+mov rbp, rax
+call _ZN5boost7archive17archive_exceptionC1ERKS1_
+mov rdx, qword [0x080013a7]
+lea rsi, [0x080013ae]
+mov rdi, rbp
+call __cxa_throw
+lea r12, [var_10h]
+xor edx, edx
+xor ecx, ecx
+mov esi, 0xd
+mov rdi, r12
+call _ZN5boost7archive17archive_exceptionC1ENS1_14exception_codeEPKcS4_
+mov edi, 0x90
+call __cxa_allocate_exception
+mov rsi, r12
+mov rdi, rax
+mov rbp, rax
+call _ZN5boost7archive17archive_exceptionC1ERKS1_
+mov rdx, qword [0x080013eb]
+lea rsi, [0x080013f2]
+mov rdi, rbp
+call __cxa_throw
+lea r12, [arg_10h]
+xor edx, edx
+xor ecx, ecx
+mov esi, 0xd
+mov rdi, r12
+call _ZN5boost7archive17archive_exceptionC1ENS1_14exception_codeEPKcS4_
+mov edi, 0x90
+call __cxa_allocate_exception
+mov rsi, r12
+mov rdi, rax
+mov rbp, rax
+call _ZN5boost7archive17archive_exceptionC1ERKS1_
+mov rdx, qword [0x0800142f]
+lea rsi, [0x08001436]
+mov rdi, rbp
+call __cxa_throw
+lea r12, [var_10h]
+xor edx, edx
+xor ecx, ecx
+mov esi, 0xd
+mov rdi, r12
+call _ZN5boost7archive17archive_exceptionC1ENS1_14exception_codeEPKcS4_
+mov edi, 0x90
+call __cxa_allocate_exception
+mov rsi, r12
+mov rdi, rax
+mov rbp, rax
+call _ZN5boost7archive17archive_exceptionC1ERKS1_
+mov rdx, qword [0x08001473]
+lea rsi, [0x0800147a]
+mov rdi, rbp
+call __cxa_throw
+mov rbp, rax
+jmp 0x800148f
+jmp 0x8001482
+jmp 0x8001482
+jmp 0x8001482
+jmp 0x8001482
+mov rdi, r12
+call _ZN5boost7archive17archive_exceptionD1Ev
+mov rdi, rbp
+call _Unwind_Resume

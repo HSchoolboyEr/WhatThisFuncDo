@@ -1,0 +1,8 @@
+push r12
+mov rsi, qword [rsi + 8]
+mov r12, rdi
+mov rax, qword [rsi]
+call qword [rax + 0x20]
+mov rax, r12
+pop r12
+ret

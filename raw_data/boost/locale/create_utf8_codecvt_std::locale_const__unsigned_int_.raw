@@ -1,0 +1,55 @@
+push r13
+push r12
+mov r12, rdi
+push rbp
+mov rbp, rsi
+cmp edx, 1
+je 0x8000d98
+cmp edx, 2
+je 0x8000dd8
+call _ZNSt6localeC1ERKS_
+mov rax, r12
+pop rbp
+pop r12
+pop r13
+ret
+nop dword [rax + rax]
+mov edi, 0x18
+call _Znwm
+xor esi, esi
+mov rdi, rax
+mov r13, rax
+call _ZNSt7codecvtIcc11__mbstate_tEC2Em
+lea rax, [0x08000db6]
+mov rdx, r13
+mov rsi, rbp
+mov rdi, r12
+mov qword [r13], rax
+call _ZNSt6localeC1IN5boost6locale12utf8_codecvtIcEEEERKS_PT_
+add byte [rax], al
+add byte [rax], al
+mov rax, r12
+pop rbp
+pop r12
+pop r13
+ret
+nop dword [rax]
+mov edi, 0x18
+call _Znwm
+xor esi, esi
+mov rdi, rax
+mov r13, rax
+call _ZNSt7codecvtIwc11__mbstate_tEC2Em
+lea rax, [0x08000df6]
+mov rdx, r13
+mov rsi, rbp
+mov rdi, r12
+mov qword [r13], rax
+call _ZNSt6localeC1IN5boost6locale12utf8_codecvtIwEEEERKS_PT_
+add byte [rax], al
+add byte [rax], al
+mov rax, r12
+pop rbp
+pop r12
+pop r13
+ret

@@ -1,0 +1,23 @@
+push rbp
+lea rax, [0x08006cd8]
+lea rbp, [rdi - 0x28]
+push rbx
+mov rbx, rdi
+sub rsp, 8
+mov qword [rdi - 0x28], rax
+add rax, 0x20
+mov qword [rdi], rax
+call _ZNSt13bad_exceptionD2Ev
+mov rdi, qword [rbx - 0x20]
+lea rax, [0x08006cff]
+mov qword [rbx - 0x28], rax
+test rdi, rdi
+je 0x8006d0e
+mov rax, qword [rdi]
+call qword [rax + 0x20]
+add rsp, 8
+mov rdi, rbp
+mov esi, 0x30
+pop rbx
+pop rbp
+jmp _ZdlPvm

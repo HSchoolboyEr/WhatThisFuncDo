@@ -1,0 +1,113 @@
+push r15
+push r14
+push r13
+push r12
+mov r12, rdi
+push rbp
+mov rbp, rsi
+push rbx
+sub rsp, 0x28
+mov edx, dword [rsi]
+test edx, edx
+je 0x8007950
+xor ebx, ebx
+add rbx, 1
+mov eax, dword [rbp + rbx*4]
+test eax, eax
+jne 0x8007830
+mov r15, rbx
+lea r13, [r12 + 0x98]
+lea r14, [arg_10h]
+mov rsi, r13
+mov rdi, r14
+call _ZNSt13basic_ostreamIwSt11char_traitsIwEE6sentryC2ERS2_
+cmp byte [arg_10h], 0
+je 0x8007884
+mov rdi, r13
+call _ZNSt13basic_ostreamIwSt11char_traitsIwEE5flushEv
+cmp qword [r12 + 0xb0], r15
+jg 0x80078d0
+cmp byte [r12 + 0x50], 0
+je 0x80078e0
+mov qword [r12 + 0xb0], 0
+mov rax, qword [arg_18h]
+mov rdx, qword [rax]
+add rax, qword [rdx - 0x18]
+mov rbx, rax
+test byte [rax + 0x19], 0x20
+je 0x80078bd
+call _ZSt18uncaught_exceptionv
+test al, al
+jne 0x80078bd
+mov rdi, qword [rbx + 0xe8]
+test rdi, rdi
+je 0x80078bd
+mov rax, qword [rdi]
+call qword [rax + 0x30]
+cmp eax, 0xffffffff
+je 0x8007961
+add rsp, 0x28
+mov rax, r12
+pop rbx
+pop rbp
+pop r12
+pop r13
+pop r14
+pop r15
+ret
+nop
+mov rdx, r15
+mov rsi, rbp
+mov rdi, r12
+call _ZN5boost3log12v2s_mt_posix24basic_formatting_ostreamIwSt11char_traitsIwESaIwEE13aligned_writeIDiEEvPKT_l
+jmp 0x8007878
+lea r15, [arg_8h]
+lea rsi, [r12 + 0x170]
+mov rdi, r15
+call _ZNSt6localeC1ERKS_
+mov rdi, qword [r12 + 0x40]
+mov r13, qword [r12 + 0x48]
+mov rax, qword [rdi + 8]
+cmp r13, rax
+jbe 0x800795a
+movabs rcx, 0xfffffffffffffff
+sub r13, rax
+mov rdx, rbx
+cmp r13, rbx
+cmovbe rdx, r13
+sub rcx, rax
+cmp rdx, rcx
+ja 0x800797d
+mov rsi, rbp
+call _ZNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEE9_M_appendEPKwm
+mov rdi, r15
+call _ZNSt6localeD1Ev
+cmp rbx, r13
+jbe 0x8007878
+mov byte [r12 + 0x50], 1
+jmp 0x8007878
+nop dword [rax + rax]
+xor r15d, r15d
+xor ebx, ebx
+jmp 0x800783f
+xor edx, edx
+xor r13d, r13d
+jmp 0x8007927
+mov rdi, qword [arg_18h]
+mov rax, qword [rdi]
+add rdi, qword [rax - 0x18]
+mov esi, dword [rdi + 0x20]
+or esi, 1
+call _ZNSt9basic_iosIwSt11char_traitsIwEE5clearESt12_Ios_Iostate
+jmp 0x80078bd
+lea rdi, [0x08007984]
+call _ZSt20__throw_length_errorPKc
+mov rbp, rax
+jmp 0x8007999
+mov rbp, rax
+mov rdi, r15
+call _ZNSt6localeD1Ev
+mov rdi, r14
+call _ZNSt13basic_ostreamIwSt11char_traitsIwEE6sentryD2Ev
+mov rdi, rbp
+call _Unwind_Resume

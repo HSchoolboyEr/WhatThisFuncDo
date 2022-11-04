@@ -1,0 +1,37 @@
+push r12
+lea rax, [0x08001dc9]
+push rbp
+lea rcx, [rax - 0x23]
+movq xmm1, rax
+movq xmm0, rcx
+punpcklqdq xmm0, xmm1
+sub rsp, 0x38
+mov rdi, qword [0x08001de7]
+lea rsi, [var_10h]
+movaps xmmword [var_10h], xmm0
+mov qword [var_20h], 0x105
+call _ZN5boost9unit_test15unit_test_log_tlsERKNS0_3log5beginE
+add byte [rax], al
+add byte [rax], al
+call method boost::unit_test::(anonymous namespace)::s_log_impl()
+lea rdx, [0x08001e0b]
+mov dword [rax + 0x58], 2
+mov rax, rdx
+nop dword [rax]
+add rax, 1
+cmp byte [rax], 0
+jne 0x8001e18
+mov qword [rsp], rdx
+mov rbp, rsp
+mov qword [var_8h], rax
+cmp rax, rdx
+je 0x8001e3a
+mov rdi, rbp
+call method boost::unit_test::unit_test_log_t::operator<<(boost::unit_test::basic_cstring<char const>) [clone .part.0]
+mov rdi, qword [0x08001e41]
+mov rsi, rbp
+call _ZN5boost9unit_test15unit_test_log_tlsERKNS0_3log3endE
+add rsp, 0x38
+pop rbp
+pop r12
+ret

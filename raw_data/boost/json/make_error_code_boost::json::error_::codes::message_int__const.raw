@@ -1,0 +1,106 @@
+push r12
+mov r12, rdi
+cmp edx, 0x18
+ja .LC10
+lea rcx, [0x08001695]
+mov edx, edx
+movsxd rax, dword [rcx + rdx*4]
+add rax, rcx
+jmp rax
+lea rsi, [0x080016a7]
+call method std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >::basic_string(char const*, std::allocator<char> const&) [clone .constprop.0]
+mov rax, r12
+pop r12
+ret
+nop word [rax + rax]
+lea rsi, [0x080016bf]
+call method std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >::basic_string(char const*, std::allocator<char> const&) [clone .constprop.0]
+jmp 0x80016ac
+nop word cs:[rax + rax]
+lea rsi, [0x080016d7]
+call method std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >::basic_string(char const*, std::allocator<char> const&) [clone .constprop.0]
+jmp 0x80016ac
+nop
+lea rsi, [0x080016e7]
+call method std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >::basic_string(char const*, std::allocator<char> const&) [clone .constprop.0]
+jmp 0x80016ac
+nop
+lea rsi, [0x080016f7]
+call method std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >::basic_string(char const*, std::allocator<char> const&) [clone .constprop.0]
+jmp 0x80016ac
+nop
+lea rsi, [0x08001707]
+call method std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >::basic_string(char const*, std::allocator<char> const&) [clone .constprop.0]
+jmp 0x80016ac
+nop
+lea rsi, [0x08001717]
+call method std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >::basic_string(char const*, std::allocator<char> const&) [clone .constprop.0]
+jmp 0x80016ac
+nop
+lea rsi, [0x08001727]
+call method std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >::basic_string(char const*, std::allocator<char> const&) [clone .constprop.0]
+jmp 0x80016ac
+nop dword [rax]
+lea rsi, [0x0800173f]
+call method std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >::basic_string(char const*, std::allocator<char> const&) [clone .constprop.0]
+jmp 0x80016ac
+nop dword [rax]
+lea rsi, [0x08001757]
+call method std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >::basic_string(char const*, std::allocator<char> const&) [clone .constprop.0]
+jmp 0x80016ac
+nop dword [rax]
+lea rsi, [0x0800176f]
+call method std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >::basic_string(char const*, std::allocator<char> const&) [clone .constprop.0]
+jmp 0x80016ac
+nop dword [rax]
+lea rsi, [0x08001787]
+call method std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >::basic_string(char const*, std::allocator<char> const&) [clone .constprop.0]
+jmp 0x80016ac
+nop dword [rax]
+lea rsi, [0x0800179f]
+call method std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >::basic_string(char const*, std::allocator<char> const&) [clone .constprop.0]
+jmp 0x80016ac
+nop dword [rax]
+lea rsi, [0x080017b7]
+call method std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >::basic_string(char const*, std::allocator<char> const&) [clone .constprop.0]
+jmp 0x80016ac
+nop dword [rax]
+lea rsi, [0x080017cf]
+call method std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >::basic_string(char const*, std::allocator<char> const&) [clone .constprop.0]
+jmp 0x80016ac
+nop dword [rax]
+lea rsi, [0x080017e7]
+call method std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >::basic_string(char const*, std::allocator<char> const&) [clone .constprop.0]
+jmp 0x80016ac
+nop dword [rax]
+lea rsi, [0x080017ff]
+call method std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >::basic_string(char const*, std::allocator<char> const&) [clone .constprop.0]
+jmp 0x80016ac
+nop dword [rax]
+lea rsi, [0x08001817]
+call method std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >::basic_string(char const*, std::allocator<char> const&) [clone .constprop.0]
+jmp 0x80016ac
+nop dword [rax]
+lea rsi, [0x0800182f]
+call method std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >::basic_string(char const*, std::allocator<char> const&) [clone .constprop.0]
+jmp 0x80016ac
+nop dword [rax]
+lea rsi, [0x08001847]
+call method std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >::basic_string(char const*, std::allocator<char> const&) [clone .constprop.0]
+jmp 0x80016ac
+nop dword [rax]
+lea rsi, [0x0800185f]
+call method std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >::basic_string(char const*, std::allocator<char> const&) [clone .constprop.0]
+jmp 0x80016ac
+nop dword [rax]
+lea rsi, [0x08001877]
+call method std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >::basic_string(char const*, std::allocator<char> const&) [clone .constprop.0]
+jmp 0x80016ac
+nop dword [rax]
+lea rsi, [0x0800188f]
+call method std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >::basic_string(char const*, std::allocator<char> const&) [clone .constprop.0]
+jmp 0x80016ac
+lea rsi, [0x080018a0]
+mov rdi, r12
+call method std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >::basic_string(char const*, std::allocator<char> const&) [clone .constprop.0]
+jmp 0x80016ac

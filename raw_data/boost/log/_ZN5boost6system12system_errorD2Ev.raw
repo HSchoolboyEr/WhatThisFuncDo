@@ -1,0 +1,5 @@
+lea rax, [0x08000897]
+mov qword [rdi], rax
+jmp _ZNSt13runtime_errorD2Ev
+add byte [rax], al
+add byte [rax], al

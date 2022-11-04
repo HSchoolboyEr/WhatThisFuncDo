@@ -1,0 +1,16 @@
+push rbx
+mov rbx, rdi
+mov edi, 0x48
+call _Znwm
+movdqu xmm0, xmmword [rbx + 8]
+movdqu xmm1, xmmword [rbx + 0x18]
+lea rdx, [0x0800184f]
+movdqu xmm2, xmmword [rbx + 0x28]
+movdqu xmm3, xmmword [rbx + 0x38]
+mov qword [rax], rdx
+movups xmmword [rax + 8], xmm0
+movups xmmword [rax + 0x18], xmm1
+movups xmmword [rax + 0x28], xmm2
+movups xmmword [rax + 0x38], xmm3
+pop rbx
+ret

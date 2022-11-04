@@ -1,0 +1,6 @@
+mov r8, rdx
+xor ecx, ecx
+mov rdx, rsi
+mov rsi, rdi
+lea rdi, [0x08006a42]
+jmp sym.ialloc

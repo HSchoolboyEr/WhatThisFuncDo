@@ -1,0 +1,29 @@
+mov rax, qword [rcx]
+push r12
+mov r12, rdx
+push rbp
+mov rbp, rsi
+lea rsi, [rdx + 1]
+push rbx
+mov rbx, rdi
+mov dword [rdi + 4], edx
+mov edx, 1
+mov byte [rdi], 0x45
+mov rdi, rax
+and rdi, 0xfffffffffffffffc
+test rax, rax
+lea rax, [0x0800b240]
+cmove rdi, rax
+mov rax, qword [rdi]
+call qword [rax + 0x10]
+mov rdx, r12
+mov rsi, rbp
+mov byte [rax + r12], 0
+mov rdi, rax
+mov qword [rbx + 8], rax
+pop rbx
+pop rbp
+pop r12
+jmp memcpy
+nop
+nop word cs:[rax + rax]

@@ -1,0 +1,30 @@
+mov rax, qword [r8]
+push r13
+cmp rcx, rdx
+mov r13, rsi
+push r12
+cmovb rcx, rdx
+mov r12, rdx
+push rbp
+mov rbp, rdi
+mov qword [rdi], rax
+lea rax, [0x0800e442]
+mov qword [rdi + 0x10], rax
+mov eax, dword [0x0800e44c]
+mov qword [r8], 0
+mov byte [rdi + 8], 7
+cmp rcx, rax
+ja 0x800e470
+mov rsi, r13
+mov rdx, r12
+mov rdi, rbp
+call _ZN5boost4json6object6insertESt16initializer_listISt4pairINS_4core17basic_string_viewIcEENS0_9value_refEEE
+add byte [rax], al
+add byte [rax], al
+pop rbp
+pop r12
+pop r13
+ret
+mov rsi, rcx
+call _ZN5boost4json6object6rehashEm
+jmp 0x800e45c

@@ -1,0 +1,21 @@
+lea rax, [0x08001fe7]
+push rbp
+mov rbp, rdi
+mov qword [rdi], rax
+mov rax, qword [rdi + 8]
+test rax, rax
+je 0x8002015
+test al, 1
+jne 0x8002015
+and rax, 0xfffffffffffffffe
+mov rax, qword [rax]
+test rax, rax
+je 0x8002015
+lea rdi, [rdi + 0x10]
+mov edx, 2
+mov rsi, rdi
+call rax
+mov rdi, rbp
+mov esi, 0x28
+pop rbp
+jmp _ZdlPvm

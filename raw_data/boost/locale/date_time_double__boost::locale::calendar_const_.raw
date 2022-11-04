@@ -1,0 +1,48 @@
+push rbp
+push rbx
+mov rbx, rdi
+sub rsp, 0x28
+mov rdi, qword [rsi + 0x28]
+movsd qword [var_8h], xmm0
+mov rax, qword [rdi]
+call qword [rax]
+movsd xmm0, qword [var_8h]
+movsd xmm3, qword [0x08000cd6]
+movsd xmm4, qword [0x08000cde]
+mov qword [rbx], rax
+mov rdi, rax
+movapd xmm1, xmm0
+movapd xmm2, xmm0
+andpd xmm1, xmm3
+ucomisd xmm4, xmm1
+jbe 0x8000d29
+cvttsd2si rax, xmm0
+pxor xmm1, xmm1
+movsd xmm4, qword [0x08000d07]
+andnpd xmm3, xmm0
+cvtsi2sd xmm1, rax
+movapd xmm2, xmm1
+cmpnlesd xmm2, xmm0
+andpd xmm2, xmm4
+subsd xmm1, xmm2
+movapd xmm2, xmm3
+orpd xmm2, xmm1
+subsd xmm0, xmm2
+mov edx, 0x3b9ac9ff
+lea rsi, [var_10h]
+mulsd xmm0, qword [0x08000d3f]
+cvttsd2si eax, xmm0
+cmp eax, 0x3b9ac9ff
+cmovg eax, edx
+cvttsd2si rdx, xmm2
+test eax, eax
+mov qword [var_10h], rdx
+mov edx, 0
+cmovs eax, edx
+mov dword [var_18h], eax
+mov rax, qword [rdi]
+call qword [rax + 0x20]
+add rsp, 0x28
+pop rbx
+pop rbp
+ret

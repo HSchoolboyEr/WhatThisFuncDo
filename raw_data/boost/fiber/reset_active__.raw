@@ -1,0 +1,2 @@
+mov qword fs:[0], 0
+ret

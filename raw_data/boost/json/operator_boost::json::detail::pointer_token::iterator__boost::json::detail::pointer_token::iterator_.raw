@@ -1,0 +1,3 @@
+cmp rdi, rsi
+sete al
+ret

@@ -1,0 +1,3 @@
+mov esi, 0x18
+jmp _ZdlPvm
+nop word [rax + rax]

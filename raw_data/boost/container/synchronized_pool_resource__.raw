@@ -1,0 +1,15 @@
+lea rax, [0x080001d7]
+push rbx
+xor esi, esi
+mov rbx, rdi
+mov qword [rdi], rax
+lea rdi, [rdi + 8]
+call pthread_mutex_init
+lea rdi, [rbx + 0x30]
+pop rbx
+jmp _ZN5boost9container3pmr13pool_resourceC1Ev
+add byte [rax], al
+add byte [rax], al
+nop
+nop word cs:[rax + rax]
+nop

@@ -1,0 +1,16 @@
+mov r8, rsi
+test edx, edx
+mov rax, rdi
+mov esi, edx
+mov qword [rdi + 0xa8], r8
+setne dl
+mov edi, 2
+test rcx, rcx
+cmove rcx, rdi
+movzx edx, dl
+mov dword [rax + 0x58], esi
+lea rsi, [0x0801afed]
+mov qword [rax + 0x60], rsi
+or rcx, rdx
+mov qword [rax + 0x68], rcx
+ret

@@ -1,0 +1,9 @@
+mov rax, qword [rdi + 0x18]
+cmp qword [rdi + 0x28], rax
+je 0x8020bf0
+xor eax, eax
+ret
+nop dword [rax]
+test byte [rdi + 0x60], 4
+jne 0x8020bea
+jmp _ZN5boost13re_detail_50012perl_matcherIPKwSaINS_9sub_matchIS3_EEENS_14c_regex_traitsIwEEE12match_prefixEv

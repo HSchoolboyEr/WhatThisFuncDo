@@ -1,0 +1,46 @@
+push r12
+xor edi, edi
+mov r12, rdx
+push rbp
+push rbx
+mov rbx, rsi
+mov esi, 1
+sub rsp, 0x10
+call _ZN5boost9unit_test9framework23current_auto_test_suiteEPNS0_10test_suiteEb
+movdqu xmm0, xmmword [rbx]
+mov rdi, rax
+mov rax, qword [rbx + 8]
+movaps xmmword [rsp], xmm0
+test rax, rax
+je 0x80044b3
+lock add dword [rax + 8], 1
+mov rsi, rsp
+mov rdx, r12
+call _ZN5boost9unit_test10test_suite3addENS_10shared_ptrINS0_19test_unit_generatorEEERNS0_9decorator11collector_tE
+mov rbp, qword [arg_8h]
+test rbp, rbp
+je 0x80044cf
+lock sub dword [arg_8h], 1
+je 0x80044e0
+add rsp, 0x10
+pop rbx
+pop rbp
+pop r12
+ret
+nop dword [rax + rax]
+mov rax, qword [rbp]
+mov rdi, rbp
+call qword [rax + 0x10]
+lock sub dword [arg_ch], 1
+jne 0x80044cf
+mov rax, qword [rbp]
+lea rcx, [0x080044fc]
+mov rdi, rbp
+mov rdx, qword [rax + 0x18]
+cmp rdx, rcx
+jne 0x8004510
+call qword [rax + 8]
+jmp 0x80044cf
+nop dword [rax]
+call rdx
+jmp 0x80044cf

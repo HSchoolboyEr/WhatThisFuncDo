@@ -1,0 +1,10 @@
+mov rax, rdi
+cmp rdi, rsi
+je 0x80000d0
+movdqu xmm0, xmmword [rsi]
+mov rdx, qword [rsi + 0x20]
+movups xmmword [rdi], xmm0
+movdqu xmm1, xmmword [rsi + 0x10]
+mov qword [rdi + 0x20], rdx
+movups xmmword [rdi + 0x10], xmm1
+ret

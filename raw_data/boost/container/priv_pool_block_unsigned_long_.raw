@@ -1,0 +1,4 @@
+mov ecx, edi
+mov eax, 0x10
+shl rax, cl
+ret

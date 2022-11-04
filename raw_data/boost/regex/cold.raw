@@ -1,0 +1,23 @@
+mov rdi, r14
+call _ZN5boost13re_detail_50012perl_matcherIPKwSaINS_9sub_matchIS3_EEENS_14c_regex_traitsIwEEED1Ev
+mov rdi, rbx
+call __cxa_begin_catch
+call __cxa_end_catch
+mov r14d, 0x15
+jmp .text
+lea rdi, [arg_128h]
+call _ZNSt6vectorIN5boost13re_detail_50014recursion_infoINS0_13match_resultsIPKwSaINS0_9sub_matchIS5_EEEEEEESaISA_EED1Ev
+mov rax, qword [arg_100h]
+test rax, rax
+je 0x800a826
+mov rdx, qword [arg_f8h]
+mov qword [rdx], rax
+mov rbp, qword [arg_78h]
+test rbp, rbp
+je 0x800a7e9
+mov rdi, rbp
+call _ZN5boost13match_resultsIPKwSaINS_9sub_matchIS2_EEEED1Ev
+mov esi, 0x50
+mov rdi, rbp
+call _ZdlPvm
+jmp 0x800a7e9

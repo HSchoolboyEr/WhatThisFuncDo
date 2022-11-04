@@ -1,0 +1,34 @@
+push r13
+mov r13, rsi
+push r12
+mov r12, rdx
+push rbp
+mov rbp, rdi
+mov rsi, qword [rsi]
+mov rdi, qword [rdi]
+call rename
+test eax, eax
+je 0x8004a08
+call __errno_location
+mov edi, dword [rax]
+test edi, edi
+jne 0x8004a30
+test r12, r12
+je 0x8004a27
+mov dword [r12], 0
+mov qword [r12 + 8], 0
+mov qword [r12 + 0x10], 0
+pop rbp
+pop r12
+pop r13
+ret
+nop dword [rax]
+mov rcx, r12
+mov rdx, r13
+lea r8, [0x08004a3d]
+mov rsi, rbp
+pop rbp
+pop r12
+pop r13
+jmp _ZN5boost10filesystem10emit_errorEiRKNS0_4pathES3_PNS_6system10error_codeEPKc
+nop word [rax + rax]

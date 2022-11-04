@@ -1,0 +1,6 @@
+push r12
+mov r12, rdi
+call _ZNSt6localeC1ERKS_
+mov rax, r12
+pop r12
+ret

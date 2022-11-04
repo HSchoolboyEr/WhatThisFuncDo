@@ -1,0 +1,14 @@
+mov r8, rdx
+test rdx, rdx
+je 0x8000072
+xor eax, eax
+jmp 0x8000069
+nop dword [rax]
+add rax, 1
+cmp r8, rax
+je 0x8000072
+cmp qword [rsi + rax*8], rdi
+jne 0x8000060
+mov r8, rax
+mov rax, r8
+ret

@@ -1,0 +1,11 @@
+mov rdi, qword [rdi + 8]
+test rdi, rdi
+je 0x80072e0
+lock sub dword [rdi + 8], 1
+je 0x80072e8
+ret
+nop dword [rax]
+sub rsp, 8
+call .text
+add rsp, 8
+ret

@@ -1,0 +1,55 @@
+push r13
+mov r9, r8
+push r12
+mov r12, rdi
+push rbp
+sub rsp, 0x40
+mov rax, qword [rcx]
+mov qword [rcx], 0
+lea rbp, [var_20h]
+mov r13, rsp
+mov dword [rsp], 0
+mov r8, rbp
+mov rcx, r13
+mov qword [var_8h], 0
+mov qword [var_10h], 0
+mov qword [var_20h], rax
+call _ZN5boost4json5parseENS_4core17basic_string_viewIcEERNS_6system10error_codeENS0_11storage_ptrERKNS0_13parse_optionsE
+mov rdi, qword [var_20h]
+test dil, 1
+jne 0x8010cf0
+mov rax, qword [var_10h]
+test al, 1
+je 0x8010c9b
+cmp rax, 1
+jne 0x8010cb0
+mov eax, dword [rsp]
+test eax, eax
+jne 0x8010cb0
+add rsp, 0x40
+mov rax, r12
+pop rbp
+pop r12
+pop r13
+ret
+nop dword [rax + rax]
+lea rax, [0x08010cb7]
+lea rdx, [0x08010cbe]
+mov rsi, rbp
+mov rdi, r13
+movq xmm1, rax
+movq xmm0, rdx
+mov rax, qword [0x08010cd5]
+punpcklqdq xmm0, xmm1
+mov qword [var_30h], rax
+movaps xmmword [var_20h], xmm0
+call _ZN5boost4json6detail18throw_system_errorERKNS_6system10error_codeERKNS_15source_locationE
+nop dword [rax + rax]
+and rdi, 0xfffffffffffffffc
+lock sub qword [rdi + 8], 1
+jne 0x8010c85
+test rdi, rdi
+je 0x8010c85
+mov rax, qword [rdi]
+call qword [rax + 8]
+jmp 0x8010c85

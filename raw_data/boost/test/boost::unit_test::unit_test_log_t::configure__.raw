@@ -1,0 +1,116 @@
+push r15
+push r14
+push r13
+push r12
+push rbp
+push rbx
+sub rsp, 0x18
+call method boost::unit_test::(anonymous namespace)::s_log_impl()
+mov rdx, qword [rax + 0x18]
+cmp qword [rax + 0x20], rdx
+je 0x8001211
+mov qword [rax + 0x20], rdx
+call method boost::unit_test::(anonymous namespace)::s_log_impl()
+lea rbp, [0x0800121d]
+movabs r12, 0xfffffffffffffff
+mov r15, qword [rax]
+call method boost::unit_test::(anonymous namespace)::s_log_impl()
+mov rbx, qword [rax + 8]
+cmp rbx, r15
+ja 0x8001273
+jmp 0x8001290
+nop word [rax + rax]
+mov eax, dword [rdi + 8]
+cmp eax, 8
+je 0x800126a
+call method boost::unit_test::(anonymous namespace)::s_log_impl()
+mov rdx, qword [rax + 0x20]
+mov r13, rax
+cmp rdx, qword [rax + 0x28]
+je 0x80012a0
+mov qword [rdx], r15
+add rdx, 8
+mov qword [rax + 0x20], rdx
+mov byte [r15 + 0x30], 0
+add r15, 0x38
+cmp rbx, r15
+jbe 0x8001290
+cmp byte [r15], 0
+je 0x800126a
+mov rdi, qword [r15 + 0x20]
+mov rax, qword [rdi]
+mov rax, qword [rax + 0xa8]
+cmp rax, rbp
+je 0x8001240
+call rax
+jmp 0x8001243
+add rsp, 0x18
+pop rbx
+pop rbp
+pop r12
+pop r13
+pop r14
+pop r15
+ret
+nop
+mov r10, qword [rax + 0x18]
+sub rdx, r10
+mov rsi, rdx
+sar rsi, 3
+cmp rsi, r12
+je .LC0
+test rsi, rsi
+mov eax, 1
+cmovne rax, rsi
+add rax, rsi
+jb 0x8001391
+xor r14d, r14d
+xor r9d, r9d
+test rax, rax
+jne 0x8001348
+lea rax, [r9 + rdx + 8]
+mov qword [r9 + rdx], r15
+mov qword [rsp], rax
+test rdx, rdx
+jg 0x8001310
+test r10, r10
+jne 0x800137c
+movq xmm0, r9
+mov qword [r13 + 0x28], r14
+movhps xmm0, qword [rsp]
+movups xmmword [r13 + 0x18], xmm0
+jmp 0x8001265
+nop dword [rax]
+mov rsi, r10
+mov rdi, r9
+mov qword [var_8h], r10
+call memmove
+mov rsi, qword [r13 + 0x28]
+mov r10, qword [var_8h]
+mov r9, rax
+sub rsi, r10
+mov rdi, r10
+mov qword [var_8h], r9
+call _ZdlPvm
+mov r9, qword [var_8h]
+jmp 0x80012f2
+nop dword [rax + rax]
+cmp rax, r12
+cmova rax, r12
+lea r14, [rax*8]
+mov rdi, r14
+mov qword [var_8h], rdx
+mov qword [rsp], r10
+call _Znwm
+mov r10, qword [rsp]
+mov rdx, qword [var_8h]
+mov r9, rax
+add r14, rax
+jmp 0x80012d7
+mov rsi, qword [r13 + 0x28]
+sub rsi, r10
+jmp 0x800132f
+lea rdi, [0x0800138c]
+call _ZSt20__throw_length_errorPKc
+movabs r14, 0x7ffffffffffffff8
+jmp 0x8001357

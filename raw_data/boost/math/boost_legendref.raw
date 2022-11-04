@@ -1,0 +1,81 @@
+pxor xmm1, xmm1
+sub rsp, 0x18
+movss xmm2, dword [0x08000200]
+cvtss2sd xmm1, xmm0
+test edi, edi
+js 0x8000250
+comiss xmm2, xmm0
+ja __errno_location
+comiss xmm0, dword [0x08000214]
+jbe 0x80002c0
+call __errno_location
+movss xmm0, dword [0x08000227]
+movsd xmm2, qword [0x0800022f]
+mov dword [rax], 0x21
+movsd xmm1, qword [0x0800023d]
+comisd xmm1, xmm2
+ja 0x8000320
+add rsp, 0x18
+ret
+nop dword [rax]
+comiss xmm2, xmm0
+ja __errno_location
+comiss xmm0, dword [0x0800025c]
+ja __errno_location
+xor esi, esi
+movapd xmm0, xmm1
+not edi
+call sym._ZN5boost4math6detail12legendre_impIdNS0_8policies6policyINS3_12domain_errorILNS3_17error_policy_typeE1EEENS3_10pole_errorILS6
+movapd xmm2, xmm0
+andpd xmm2, xmmword [0x08000277]
+movapd xmm1, xmm0
+cvtsd2ss xmm0, xmm0
+comisd xmm2, xmmword [0x08000287]
+ja 0x8000320
+pxor xmm3, xmm3
+ucomisd xmm1, xmm3
+jp 0x800029d
+comisd xmm1, xmm3
+je 0x80002f9
+pxor xmm5, xmm5
+ucomiss xmm0, xmm5
+jp 0x8000235
+jne 0x8000235
+call __errno_location
+pxor xmm0, xmm0
+mov dword [rax], 0x22
+add rsp, 0x18
+ret
+nop dword [rax]
+xor esi, esi
+movapd xmm0, xmm1
+call sym._ZN5boost4math6detail12legendre_impIdNS0_8policies6policyINS3_12domain_errorILNS3_17error_policy_typeE1EEENS3_10pole_errorILS6
+movapd xmm2, xmm0
+andpd xmm2, xmmword [0x080002d7]
+movapd xmm1, xmm0
+cvtsd2ss xmm0, xmm0
+comisd xmm2, xmmword [0x080002e7]
+ja 0x8000320
+pxor xmm3, xmm3
+ucomisd xmm1, xmm3
+jp 0x800033c
+comisd xmm1, xmm3
+jne 0x800033c
+movsd xmm1, qword [0x08000301]
+comisd xmm1, xmm2
+jbe 0x8000247
+pxor xmm1, xmm1
+ucomiss xmm0, xmm1
+jp 0x8000320
+comiss xmm0, xmm1
+je 0x8000247
+nop dword [rax]
+movss dword [var_ch], xmm0
+call __errno_location
+movss xmm0, dword [var_ch]
+mov dword [rax], 0x22
+jmp 0x8000247
+pxor xmm4, xmm4
+ucomiss xmm0, xmm4
+jnp __errno_location
+jmp .LC14

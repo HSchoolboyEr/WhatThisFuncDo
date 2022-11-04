@@ -1,0 +1,8 @@
+push rbp
+mov rbp, rdi
+mov rdi, qword [rdi]
+call freelocale
+mov rdi, rbp
+mov esi, 8
+pop rbp
+jmp _ZdlPvm

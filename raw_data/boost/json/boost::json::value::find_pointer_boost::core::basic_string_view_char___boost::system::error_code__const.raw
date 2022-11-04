@@ -1,0 +1,114 @@
+push r13
+lea r13, [rsi + rdx]
+mov r10, rdi
+push r12
+push rbp
+push rbx
+sub rsp, 0x10
+mov dword [rcx], 0
+mov qword [rcx + 8], 0
+mov qword [rcx + 0x10], 0
+cmp r13, rsi
+je 0x8004106
+mov rbp, rcx
+mov rbx, rsi
+lea r12, [var_8h]
+lea rdi, [rbx + 1]
+mov qword [var_8h], rdi
+cmp byte [rbx], 0x2f
+jne .data.rel.local
+movzx eax, byte [r10 + 8]
+and eax, 0x3f
+cmp al, 7
+je 0x80040c0
+cmp al, 6
+je 0x8004110
+lea rax, [0x08004098]
+mov dword [rbp], 0x15
+mov qword [arg_8h], rax
+lea rax, [0x080040aa]
+or rax, 1
+mov qword [arg_10h], rax
+xor eax, eax
+add rsp, 0x10
+pop rbx
+pop rbp
+pop r12
+pop r13
+ret
+nop
+mov rsi, r13
+mov rdx, rbp
+call _ZN5boost4json6detail9get_tokenEPKcS3_RNS_6system10error_codeE
+add byte [rax], al
+add byte [rax], al
+mov rsi, rax
+mov rax, qword [arg_10h]
+test al, 1
+je 0x80040e3
+cmp rax, 1
+jne 0x800412d
+mov edi, dword [rbp]
+test edi, edi
+jne 0x800412d
+mov rdi, qword [r10 + 0x10]
+mov rbx, rdx
+mov ecx, dword [rdi]
+test ecx, ecx
+je 0x8004168
+call method std::pair<boost::json::key_value_pair*, unsigned long> boost::json::detail::find_in_object<boost::json::detail::pointer_token>(boost::json::object const&, boost::json::detail::pointer_token) [clone .isra.0]
+mov r10, rax
+test rax, rax
+je 0x8004168
+cmp r13, rbx
+jne 0x800406b
+mov rax, r10
+jmp 0x80040b4
+nop dword [rax + rax]
+mov rdx, rbp
+mov rsi, r13
+mov rdi, r12
+call _ZN5boost4json6detail18parse_number_tokenERPKcS3_RNS_6system10error_codeE
+add byte [rax], al
+add byte [rax], al
+mov rdx, qword [arg_10h]
+test dl, 1
+je 0x8004147
+cmp rdx, 1
+je 0x8004140
+add rsp, 0x10
+xor eax, eax
+pop rbx
+pop rbp
+pop r12
+pop r13
+ret
+nop word [rax + rax]
+mov edx, dword [rbp]
+test edx, edx
+jne 0x800412d
+mov rdx, qword [r10 + 0x10]
+mov ecx, dword [rdx]
+cmp rax, rcx
+jae 0x8004168
+lea rax, [rax + rax*2]
+mov rbx, qword [var_8h]
+lea r10, [rdx + rax*8 + 8]
+jmp 0x80040fd
+nop word [rax + rax]
+lea rax, [0x0800416f]
+mov dword [rbp], 0x16
+mov qword [arg_8h], rax
+lea rax, [0x08004181]
+or rax, 1
+mov qword [arg_10h], rax
+xor eax, eax
+jmp 0x80040b4
+lea rax, [0x08004197]
+mov dword [rbp], 0x12
+mov qword [arg_8h], rax
+lea rax, [0x080041a9]
+or rax, 1
+mov qword [arg_10h], rax
+xor eax, eax
+jmp 0x80040b4

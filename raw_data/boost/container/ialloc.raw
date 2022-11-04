@@ -1,0 +1,247 @@
+push r15
+push r14
+mov r14, rdx
+push r13
+mov r13, rsi
+push r12
+mov r12, r8
+push rbp
+mov rbp, rdi
+push rbx
+sub rsp, 0x38
+cmp qword [0x08006682], 0
+mov dword [var_8h], ecx
+je 0x8006848
+test r12, r12
+je 0x8006856
+mov r11, r12
+test r13, r13
+je 0x80067d2
+mov qword [var_10h], 0
+mov rax, qword [r14]
+test byte [var_8h], 1
+je 0x800688f
+lea rbx, [rax + 0x17]
+and rbx, 0xfffffffffffffff0
+cmp rax, 0x16
+mov eax, 0x20
+cmovbe rbx, rax
+mov rcx, rbx
+imul rcx, r13
+mov eax, dword [arg_370h]
+mov qword [var_18h], rcx
+mov r15d, eax
+and eax, 0xfffffffe
+mov dword [arg_370h], eax
+mov rax, qword [var_10h]
+and r15d, 1
+lea rsi, [rax + rcx - 8]
+lea rax, [0x08006700]
+cmp rbp, rax
+je dlmalloc
+mov rdi, rbp
+call mspace_malloc
+mov rcx, qword [var_18h]
+mov rdi, rax
+test r15d, r15d
+je 0x8006725
+or dword [arg_370h], 1
+test rdi, rdi
+je 0x8006a10
+test byte [arg_370h], 2
+jne 0x8006920
+mov r8, qword [rdi - 8]
+lea r15, [rdi - 0x10]
+and r8, 0xfffffffffffffff8
+test byte [var_8h], 2
+jne 0x80069a8
+mov r11, r12
+test r12, r12
+je 0x80069de
+mov rdx, r13
+mov qword [r11], rdi
+sub rdx, 1
+je 0x8006a00
+test rbx, rbx
+je 0x8006815
+mov rsi, rbx
+lea rdx, [r11 + 8]
+lea rdi, [r11 + r13*8]
+mov rax, r15
+or rsi, 3
+nop dword [rax]
+mov qword [rax + 8], rsi
+add rax, rbx
+add rdx, 8
+lea rcx, [rax + 0x10]
+mov qword [rdx - 8], rcx
+cmp rdx, rdi
+jne 0x8006790
+lea r9, [r13 - 2]
+sub r8, rbx
+imul r9, rbx
+add rbx, r9
+sub r8, r9
+lea rax, [r15 + rbx]
+or r8, 3
+mov qword [rax + 8], r8
+test byte [arg_370h], 2
+jne 0x80068e0
+add rsp, 0x38
+mov rax, r11
+pop rbx
+pop rbp
+pop r12
+pop r13
+pop r14
+pop r15
+ret
+nop dword [rax]
+add rax, 0x17
+add rbx, 1
+and rax, 0xfffffffffffffff0
+mov rcx, rax
+sub r8, rax
+add rax, r15
+or rcx, 3
+mov qword [r15 + 8], rcx
+lea rcx, [rax + 0x10]
+mov qword [r11 + rbx*8], rcx
+cmp rdx, rbx
+je 0x80067bd
+mov r15, rax
+mov rax, qword [r14 + rbx*8]
+cmp rax, 0x16
+ja 0x80067e8
+mov qword [r15 + 8], 0x23
+lea rax, [r15 + 0x20]
+add rbx, 1
+add r15, 0x30
+mov qword [r11 + rbx*8], r15
+sub r8, 0x20
+cmp rdx, rbx
+jne 0x8006812
+jmp 0x80067bd
+nop dword [rax]
+call sym.init_mparams.isra.0
+test r12, r12
+jne 0x8006695
+test r13, r13
+je .bss
+lea rax, [r13*8]
+lea rdx, [rax + 0x17]
+and rdx, 0xfffffffffffffff0
+cmp rax, 0x16
+mov eax, 0x20
+cmova rax, rdx
+mov qword [var_10h], rax
+mov rax, qword [r14]
+test byte [var_8h], 1
+jne 0x80066b8
+mov rdx, r14
+lea rsi, [r14 + r13*8]
+xor ecx, ecx
+nop dword [rax + rax]
+mov rax, qword [rdx]
+cmp rax, 0x16
+jbe 0x80068c8
+add rax, 0x17
+add rdx, 8
+and rax, 0xfffffffffffffff0
+add rcx, rax
+cmp rdx, rsi
+jne 0x80068a0
+xor ebx, ebx
+jmp 0x80066d4
+nop dword [rax]
+add rdx, 8
+add rcx, 0x20
+cmp rsi, rdx
+jne 0x80068a0
+xor ebx, ebx
+jmp 0x80066d4
+nop dword [rax]
+mov dword [arg_374h], 0
+jmp 0x80067d2
+nop
+lea rax, [0x080068f7]
+cmp rbp, rax
+je 0x8006a18
+add rsp, 0x38
+mov rdi, rbp
+xor esi, esi
+pop rbx
+pop rbp
+pop r12
+pop r13
+pop r14
+pop r15
+jmp sym.mspace_malloc
+nop dword [rax + rax]
+lea rsi, [arg_374h]
+mov eax, 1
+xchg dword [rsi], eax
+test eax, eax
+je 0x800673b
+xor r15d, r15d
+nop dword [rax]
+mov eax, dword [arg_374h]
+test eax, eax
+jne 0x8006959
+mov eax, 1
+xchg dword [rsi], eax
+test eax, eax
+je 0x800673b
+add r15d, 1
+test r15b, 0x3f
+jne 0x8006940
+mov qword [var_28h], rcx
+mov qword [var_20h], rdi
+mov qword [var_18h], rsi
+call sched_yield
+mov rsi, qword [var_18h]
+mov rdi, qword [var_20h]
+mov rcx, qword [var_28h]
+jmp 0x8006940
+nop dword [rax + rax]
+mov rdi, rsi
+call dlmalloc
+mov rcx, qword [var_18h]
+mov rdi, rax
+jmp 0x8006719
+nop dword [rax]
+mov rax, r8
+sub rax, qword [var_10h]
+xor esi, esi
+mov qword [var_18h], rcx
+lea rdx, [rax - 8]
+mov qword [var_8h], r8
+call memset
+mov rcx, qword [var_18h]
+mov r8, qword [var_8h]
+mov r11, r12
+mov rdi, rax
+test r12, r12
+jne 0x800675e
+sub r8, rcx
+lea rax, [r15 + rcx]
+or r8, 3
+lea r11, [rax + 0x10]
+mov qword [rax + 8], r8
+mov r8, rcx
+jmp 0x800675e
+nop dword [rax]
+mov rax, r15
+jmp 0x80067bd
+nop dword [rax + rax]
+xor r11d, r11d
+jmp 0x80067d2
+add rsp, 0x38
+xor edi, edi
+pop rbx
+pop rbp
+pop r12
+pop r13
+pop r14
+pop r15
+jmp sym.dlmalloc

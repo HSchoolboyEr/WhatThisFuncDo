@@ -1,0 +1,25 @@
+push r12
+mov r12, rsi
+push rbp
+mov rbp, rdi
+mov rdi, rsi
+sub rsp, 8
+call strlen
+mov rdx, rax
+movabs rax, 0x3fffffffffffffff
+sub rax, qword [arg_8h]
+cmp rdx, rax
+ja 0x80003ad
+add rsp, 8
+mov rsi, r12
+mov rdi, rbp
+pop rbp
+pop r12
+jmp _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_appendEPKcm
+add byte [rax], al
+add byte [rax], al
+lea rdi, [0x080003b4]
+call _ZSt20__throw_length_errorPKc
+add byte [rax], al
+add byte [rax], al
+nop dword [rax]

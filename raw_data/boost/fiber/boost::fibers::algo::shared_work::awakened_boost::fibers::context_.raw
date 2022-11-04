@@ -1,0 +1,49 @@
+push rbx
+mov rax, rdi
+mov rdi, rsi
+sub rsp, 0x10
+mov qword [var_8h], rsi
+test byte [rsi + 0xe0], 6
+je _ZN5boost6fibers7context6detachEv
+mov rdx, qword [rax + 0x18]
+lea rbx, [rax + 0x10]
+lea rcx, [rsi + 0xa0]
+movq xmm0, rbx
+movq xmm1, rdx
+punpcklqdq xmm0, xmm1
+movups xmmword [rsi + 0xa0], xmm0
+mov qword [rax + 0x18], rcx
+mov qword [rdx], rcx
+add rsp, 0x10
+pop rbx
+ret
+nop word [rax + rax]
+call _ZN5boost6fibers7context6detachEv
+mov rbx, qword [0x0800045c]
+test rbx, rbx
+je 0x8000471
+lea rdi, [0x08000468]
+call pthread_mutex_lock
+test eax, eax
+jne 0x80004c3
+mov rcx, qword [0x08000478]
+mov rax, qword [0x0800047f]
+lea rdx, [rcx - 8]
+cmp rax, rdx
+je 0x80004b0
+mov rdx, qword [var_8h_2]
+add rax, 8
+mov qword [rax - 8], rdx
+mov qword [0x0800049c], rax
+test rbx, rbx
+je 0x8000444
+lea rdi, [0x080004a8]
+call pthread_mutex_unlock
+jmp 0x8000444
+nop
+lea rsi, [var_8h_2]
+lea rdi, [0x080004bc]
+call _ZNSt5dequeIPN5boost6fibers7contextESaIS3_EE16_M_push_back_auxIJRKS3_EEEvDpOT_
+jmp 0x800049c
+mov edi, eax
+call _ZSt20__throw_system_errori

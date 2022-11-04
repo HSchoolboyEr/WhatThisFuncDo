@@ -1,0 +1,80 @@
+push r15
+mov r15, rdx
+push r14
+push r13
+mov r13, rsi
+push r12
+mov r12, rcx
+push rbp
+mov rbp, rdi
+push rbx
+sub rsp, 8
+test byte [0x08009121], 2
+jne 0x80091d0
+lea rdx, [r15 + 0x17]
+mov eax, 0x20
+lea rsi, [r13 + 0x17]
+mov rbx, qword [var_8h]
+and rdx, 0xfffffffffffffff0
+cmp r15, 0x16
+lea rdi, [var_10h]
+cmovbe rdx, rax
+and rsi, 0xfffffffffffffff0
+cmp r13, 0x16
+cmovbe rsi, rax
+call sym.try_realloc_chunk_with_min.constprop.0
+test byte [0x08009160], 2
+jne .bss
+test rax, rax
+je 0x80091ae
+mov rdx, qword [var_8h]
+mov rcx, rdx
+and edx, 3
+and rcx, 0xfffffffffffffff8
+cmp rdx, 1
+sbb rdx, rdx
+and rbx, 0xfffffffffffffff8
+and edx, 8
+add rdx, 8
+sub rcx, rdx
+mov rdx, qword [0x08009195]
+mov qword [r12], rcx
+mov rcx, qword [rax + 8]
+sub rdx, rbx
+and rcx, 0xfffffffffffffff8
+add rdx, rcx
+mov qword [0x080091ae], rdx
+test rax, rax
+setne al
+add rsp, 8
+pop rbx
+movzx eax, al
+pop rbp
+pop r12
+pop r13
+pop r14
+pop r15
+ret
+nop word cs:[rax + rax]
+mov eax, 1
+xchg dword [0x080091db], eax
+test eax, eax
+je 0x8009127
+xor ebx, ebx
+mov r14d, 1
+nop dword [rax + rax]
+mov eax, dword [0x080091f6]
+test eax, eax
+jne 0x800920b
+mov eax, r14d
+xchg dword [0x08009203], eax
+test eax, eax
+je 0x8009127
+add ebx, 1
+test bl, 0x3f
+jne 0x80091f0
+call sched_yield
+jmp 0x80091f0
+nop word [rax + rax]
+mov dword [0x0800922a], 0
+jmp 0x8009166

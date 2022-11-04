@@ -1,0 +1,81 @@
+lock sub dword [rdi + 8], 1
+je 0x8002970
+ret
+nop dword [rax + rax]
+push r12
+lea rdx, [0x08002979]
+push rbp
+mov rbp, rdi
+sub rsp, 8
+mov rax, qword [rdi]
+mov rax, qword [rax + 0x10]
+cmp rax, rdx
+jne 0x8002a78
+mov r12, qword [rdi + 0x10]
+test r12, r12
+je 0x8002a3e
+mov rdi, qword [r12 + 0x70]
+test rdi, rdi
+je 0x80029f3
+mov rsi, qword [r12 + 0x78]
+call munmap
+mov edi, dword [r12 + 0x80]
+test eax, eax
+je close
+call close
+mov esi, 1
+mov rdi, r12
+call _ZN5boost9iostreams6detail16mapped_file_impl5clearEb
+lea rdi, [0x080029d7]
+call _ZN5boost9iostreams6detail20throw_system_failureEPKc
+nop dword [rax]
+call close
+test eax, eax
+jne 0x80029c3
+xor esi, esi
+mov rdi, r12
+call _ZN5boost9iostreams6detail16mapped_file_impl5clearEb
+mov rdi, qword [r12 + 0x48]
+lea rax, [r12 + 0x58]
+cmp rdi, rax
+je 0x8002a14
+mov rax, qword [r12 + 0x58]
+lea rsi, [rax*4 + 4]
+call _ZdlPvm
+mov rdi, qword [r12 + 0x28]
+lea rax, [r12 + 0x38]
+cmp rdi, rax
+je 0x8002a31
+mov rax, qword [r12 + 0x38]
+lea rsi, [rax + 1]
+call _ZdlPvm
+mov esi, 0x88
+mov rdi, r12
+call _ZdlPvm
+lock sub dword [arg_ch], 1
+je 0x8002a50
+add rsp, 8
+pop rbp
+pop r12
+ret
+nop dword [rax]
+mov rax, qword [rbp]
+lea rcx, [0x08002a5b]
+mov rdx, qword [rax + 0x18]
+cmp rdx, rcx
+jne 0x8002a80
+mov rax, qword [rax + 8]
+add rsp, 8
+mov rdi, rbp
+pop rbp
+pop r12
+jmp rax
+nop dword [rax]
+call rax
+jmp 0x8002a3e
+nop dword [rax]
+add rsp, 8
+mov rdi, rbp
+pop rbp
+pop r12
+jmp rdx

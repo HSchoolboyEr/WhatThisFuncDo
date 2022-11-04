@@ -1,0 +1,35 @@
+push rbp
+mov eax, esi
+mov rbp, rdi
+movzx esi, sil
+push rbx
+lea rbx, [0x0800bfe2]
+sub rsp, 8
+mov byte [rdi + 0xe4], al
+xor eax, eax
+mov word [rdi + 0xe5], ax
+jmp 0x800c012
+nop word [rax + rax]
+mov rax, qword [rdi]
+call qword [rdx + rax - 1]
+test al, al
+je 0x800c037
+movzx esi, byte [arg_e4h]
+mov rax, qword [arg_d8h]
+mov eax, dword [rax]
+shl rax, 4
+add rax, rbx
+mov rdi, qword [rax + 8]
+mov rdx, qword [rax]
+add rdi, rbp
+test dl, 1
+jne 0x800c000
+call rdx
+test al, al
+jne 0x800c00b
+cmp qword [arg_58h], 0
+setne al
+add rsp, 8
+pop rbx
+pop rbp
+ret

@@ -1,0 +1,14 @@
+lea rax, [rsi + rdx]
+movq xmm0, rsi
+mov qword [rdi + 0x10], 0
+movq xmm1, rax
+lea rax, [0x080044dd]
+mov qword [rdi + 0x20], 0
+mov qword [rdi + 8], rax
+punpcklqdq xmm0, xmm1
+lea rax, [0x080044f4]
+mov qword [rdi + 0x18], rax
+mov qword [rdi + 0x40], 0
+mov byte [rdi + 0x7c], 0
+movups xmmword [rdi + 0x50], xmm0
+ret

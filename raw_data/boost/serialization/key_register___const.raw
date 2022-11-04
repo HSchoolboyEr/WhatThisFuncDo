@@ -1,0 +1,89 @@
+cmp qword [rdi + 0x10], 0
+je 0x8000298
+push r14
+push r13
+lea r13, [0x08000156]
+push r12
+push rbp
+mov rbp, rdi
+push rbx
+movzx eax, byte [0x08000164]
+test al, al
+je _ZGVZN5boost13serialization9singletonISt8multisetIPKNS0_18extended_type_infoENS0_6detail11key_compareESaIS5_EEE12get_instanceEvE1t
+mov r12, qword [0x08000173]
+test r12, r12
+jne 0x800018d
+jmp 0x80002a0
+nop dword [rax]
+mov rax, qword [r12 + 0x10]
+test rax, rax
+je 0x80001b7
+mov r12, rax
+mov rbx, qword [r12 + 0x20]
+cmp rbp, rbx
+je 0x80001ad
+mov rdi, qword [arg_10h]
+mov rsi, qword [rbx + 0x10]
+cmp rdi, rsi
+je 0x80001ad
+call strcmp
+test eax, eax
+js 0x8000180
+mov rax, qword [r12 + 0x18]
+test rax, rax
+jne 0x800018a
+mov r14d, 1
+cmp r12, r13
+je 0x80001e7
+cmp rbp, rbx
+je 0x80002b2
+mov rdi, qword [arg_10h]
+mov rsi, qword [rbx + 0x10]
+cmp rdi, rsi
+je 0x80002b2
+call strcmp
+shr eax, 0x1f
+mov r14d, eax
+mov edi, 0x28
+call _Znwm
+mov rdx, r12
+mov edi, r14d
+lea rcx, [0x080001fe]
+mov qword [rax + 0x20], rbp
+mov rsi, rax
+call _ZSt29_Rb_tree_insert_and_rebalancebPSt18_Rb_tree_node_baseS0_RS_
+add byte [rax], al
+add byte [rax], al
+pop rbx
+add qword [0x08000213], 1
+pop rbp
+pop r12
+pop r13
+pop r14
+ret
+nop dword [rax + rax]
+lea rdi, [0x08000227]
+lea r13, [0x0800022e]
+call __cxa_guard_acquire
+test eax, eax
+je _ZZN5boost13serialization9singletonISt8multisetIPKNS0_18extended_type_infoENS0_6detail11key_compareESaIS5_EEE12get_instanceEvE1t
+lea rdi, [0x08000242]
+mov qword [0x08000249], r13
+mov qword [0x08000250], r13
+mov dword [0x0800025a], 0
+mov qword [0x08000265], 0
+mov qword [0x08000270], 0
+call __cxa_guard_release
+lea rdx, [0x0800027c]
+lea rsi, [r13 - 8]
+lea rdi, [0x08000287]
+call __cxa_atexit
+jmp _ZZN5boost13serialization9singletonISt8multisetIPKNS0_18extended_type_infoENS0_6detail11key_compareESaIS5_EEE12get_instanceEvE1t
+nop dword [rax]
+ret
+nop dword [rax]
+mov r14d, 1
+lea r12, [0x080002ad]
+jmp 0x80001e7
+xor r14d, r14d
+jmp 0x80001e7

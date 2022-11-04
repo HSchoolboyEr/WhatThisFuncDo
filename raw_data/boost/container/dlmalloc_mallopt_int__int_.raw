@@ -1,0 +1,2 @@
+jmp boost_cont_mallopt
+nop word cs:[rax + rax]

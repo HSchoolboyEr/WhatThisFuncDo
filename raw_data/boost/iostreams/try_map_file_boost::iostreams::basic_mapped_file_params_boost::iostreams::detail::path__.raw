@@ -1,0 +1,31 @@
+push rbp
+mov eax, dword [rsi]
+mov rbp, rdi
+mov r9, qword [rsi + 8]
+mov r8d, dword [rdi + 0x80]
+cmp eax, 4
+je 0x8000918
+xor edx, edx
+cmp eax, 1
+mov ecx, 1
+setne dl
+lea edx, [rdx + rdx + 1]
+mov r10, qword [arg_78h]
+mov rdi, qword [rsi + 0x20]
+mov rsi, r10
+call mmap64
+cmp rax, 0xffffffffffffffff
+je 0x8000924
+mov qword [arg_70h], rax
+pop rbp
+ret
+nop dword [rax + rax]
+mov ecx, 2
+mov edx, 3
+jmp 0x80008f7
+lea rsi, [0x0800092b]
+mov rdi, rbp
+call _ZN5boost9iostreams6detail16mapped_file_impl17cleanup_and_throwEPKc
+nop
+nop word cs:[rax + rax]
+nop

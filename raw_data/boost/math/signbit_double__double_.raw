@@ -1,0 +1,3 @@
+movmskpd eax, xmm0
+and eax, 1
+ret

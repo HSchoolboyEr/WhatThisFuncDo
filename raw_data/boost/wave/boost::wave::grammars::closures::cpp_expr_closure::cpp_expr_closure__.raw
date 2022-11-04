@@ -1,0 +1,143 @@
+push r12
+lea rax, [0x08004fe9]
+push rbp
+mov rbp, rdi
+sub rsp, 8
+mov qword [rdi], rax
+lea rdi, [0x08004ffb]
+call _ZN5boost13thread_detail17enter_once_regionERNS_9once_flagE
+add byte [rax], al
+add byte [rax], al
+test al, al
+je 0x800501f
+movzx eax, byte [0x0800500b]
+test al, al
+je _ZGVZN7phoenix7closureIN5boost4wave8grammars8closures13closure_valueENS_5nil_tES6_S6_S6_S6_E18tsp_frame_instanceEvE12the_instance
+lea rdi, [0x0800501a]
+call _ZN5boost13thread_detail18commit_once_regionERNS_9once_flagE
+add byte [rax], al
+add byte [rax], al
+movzx eax, byte [0x08005026]
+test al, al
+je _ZGVZN7phoenix7closureIN5boost4wave8grammars8closures13closure_valueENS_5nil_tES6_S6_S6_S6_E18tsp_frame_instanceEvE12the_instance
+lea rdi, [0x08005035]
+call _ZN5boost6detail12get_tss_dataEPKv
+add byte [rax], al
+add byte [rax], al
+test rax, rax
+je 0x8005200
+lea rdi, [0x0800504a]
+call _ZN5boost6detail12get_tss_dataEPKv
+mov qword [rax], rbp
+lea rdi, [0x08005059]
+call _ZN5boost13thread_detail17enter_once_regionERNS_9once_flagE
+test al, al
+je 0x800507d
+movzx eax, byte [0x08005069]
+test al, al
+je _ZGVZN7phoenix7closureIN5boost4wave8grammars8closures13closure_valueENS_5nil_tES6_S6_S6_S6_E18tsp_frame_instanceEvE12the_instance
+lea rdi, [0x08005078]
+call _ZN5boost13thread_detail18commit_once_regionERNS_9once_flagE
+movzx eax, byte [0x08005084]
+test al, al
+je _ZGVZN7phoenix7closureIN5boost4wave8grammars8closures13closure_valueENS_5nil_tES6_S6_S6_S6_E18tsp_frame_instanceEvE12the_instance
+lea rdi, [0x08005093]
+call _ZN5boost6detail12get_tss_dataEPKv
+test rax, rax
+je 0x8005258
+lea rdi, [0x080050a8]
+call _ZN5boost6detail12get_tss_dataEPKv
+mov rax, qword [rax]
+mov qword [arg_8h], rax
+add rsp, 8
+pop rbp
+pop r12
+ret
+nop dword [rax]
+lea rdi, [0x080050c7]
+call __cxa_guard_acquire
+test eax, eax
+je _ZZN7phoenix7closureIN5boost4wave8grammars8closures13closure_valueENS_5nil_tES6_S6_S6_S6_E18tsp_frame_instanceEvE12the_instance
+lea rax, [0x080050db]
+lea rdi, [0x080050e2]
+mov qword [0x080050e9], rax
+call __cxa_guard_release
+lea rdx, [0x080050f5]
+lea rsi, [0x080050fc]
+lea rdi, [0x08005103]
+call __cxa_atexit
+jmp _ZZN7phoenix7closureIN5boost4wave8grammars8closures13closure_valueENS_5nil_tES6_S6_S6_S6_E18tsp_frame_instanceEvE12the_instance
+nop dword [rax]
+lea rdi, [0x08005117]
+call __cxa_guard_acquire
+test eax, eax
+je _ZZN7phoenix7closureIN5boost4wave8grammars8closures13closure_valueENS_5nil_tES6_S6_S6_S6_E18tsp_frame_instanceEvE12the_instance
+lea rax, [0x0800512b]
+lea rdi, [0x08005132]
+mov qword [0x08005139], rax
+call __cxa_guard_release
+lea rdx, [0x08005145]
+lea rsi, [0x0800514c]
+lea rdi, [0x08005153]
+call __cxa_atexit
+jmp _ZZN7phoenix7closureIN5boost4wave8grammars8closures13closure_valueENS_5nil_tES6_S6_S6_S6_E18tsp_frame_instanceEvE12the_instance
+nop dword [rax]
+lea rdi, [0x08005167]
+call __cxa_guard_acquire
+test eax, eax
+je _ZZN7phoenix7closureIN5boost4wave8grammars8closures13closure_valueENS_5nil_tES6_S6_S6_S6_E24closure_frame_holder_refEPNS_4impl20closure_frame_holderINS_13closure_frameIS7_EEEEE9been_here
+lea rax, [0x0800517b]
+lea rdi, [0x08005182]
+mov qword [0x08005189], rax
+call __cxa_guard_release
+lea rdx, [0x08005195]
+lea rsi, [0x0800519c]
+lea rdi, [0x080051a3]
+call __cxa_atexit
+jmp _ZZN7phoenix7closureIN5boost4wave8grammars8closures13closure_valueENS_5nil_tES6_S6_S6_S6_E24closure_frame_holder_refEPNS_4impl20closure_frame_holderINS_13closure_frameIS7_EEEEE9been_here
+nop dword [rax]
+lea rdi, [0x080051b7]
+call __cxa_guard_acquire
+test eax, eax
+je _ZZN7phoenix7closureIN5boost4wave8grammars8closures13closure_valueENS_5nil_tES6_S6_S6_S6_E24closure_frame_holder_refEPNS_4impl20closure_frame_holderINS_13closure_frameIS7_EEEEE9been_here
+lea rax, [0x080051cb]
+lea rdi, [0x080051d2]
+mov qword [0x080051d9], rax
+call __cxa_guard_release
+lea rdx, [0x080051e5]
+lea rsi, [0x080051ec]
+lea rdi, [0x080051f3]
+call __cxa_atexit
+jmp _ZZN7phoenix7closureIN5boost4wave8grammars8closures13closure_valueENS_5nil_tES6_S6_S6_S6_E24closure_frame_holder_refEPNS_4impl20closure_frame_holderINS_13closure_frameIS7_EEEEE9been_here
+nop dword [rax]
+mov edi, 8
+call _Znwm
+mov qword [rax], 0
+lea rdi, [0x08005218]
+mov r12, rax
+call _ZN5boost6detail12get_tss_dataEPKv
+cmp r12, rax
+je _ZZN7phoenix7closureIN5boost4wave8grammars8closures13closure_valueENS_5nil_tES6_S6_S6_S6_E18tsp_frame_instanceEvE12the_instance
+mov rdx, qword [0x08005230]
+mov r8d, 1
+mov rcx, r12
+lea rsi, [0x08005240]
+lea rdi, [0x08005247]
+call _ZN5boost6detail12set_tss_dataEPKvPFvPFvPvES3_ES5_S3_b
+jmp _ZZN7phoenix7closureIN5boost4wave8grammars8closures13closure_valueENS_5nil_tES6_S6_S6_S6_E18tsp_frame_instanceEvE12the_instance
+nop dword [rax]
+mov edi, 8
+call _Znwm
+mov qword [rax], 0
+lea rdi, [0x08005270]
+mov r12, rax
+call _ZN5boost6detail12get_tss_dataEPKv
+cmp r12, rax
+je _ZZN7phoenix7closureIN5boost4wave8grammars8closures13closure_valueENS_5nil_tES6_S6_S6_S6_E18tsp_frame_instanceEvE12the_instance
+mov rdx, qword [0x08005288]
+mov r8d, 1
+mov rcx, r12
+lea rsi, [0x08005298]
+lea rdi, [0x0800529f]
+call _ZN5boost6detail12set_tss_dataEPKvPFvPFvPvES3_ES5_S3_b
+jmp _ZZN7phoenix7closureIN5boost4wave8grammars8closures13closure_valueENS_5nil_tES6_S6_S6_S6_E18tsp_frame_instanceEvE12the_instance

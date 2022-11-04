@@ -1,0 +1,2 @@
+mov esi, 0x40
+jmp _ZdlPvm

@@ -1,0 +1,104 @@
+push r13
+push r12
+mov r12, rdi
+push rbp
+push rbx
+mov rbx, rdx
+sub rsp, 8
+mov qword [rdi], 0
+mov rdi, qword [rsi]
+mov rax, qword [rdi]
+call qword [rax]
+mov rdi, qword [r12]
+mov r13, rax
+test rdi, rdi
+je 0x8000b21
+mov rax, qword [rdi]
+call qword [rax + 0x70]
+mov ecx, dword [rbx]
+mov qword [r12], r13
+test ecx, ecx
+je 0x8000c0b
+xor ebp, ebp
+xor eax, eax
+nop dword [rax + rax]
+mov esi, dword [rbx + 8]
+mov rcx, qword [r13]
+test esi, esi
+je 0x8000c20
+mov edx, dword [rbx + 0x10]
+test edx, edx
+je 0x8000c40
+mov r11d, dword [rbx + 0x18]
+mov edx, 3
+test r11d, r11d
+je 0x8000b70
+mov rdx, qword [rbx + 0x28]
+sub rdx, qword [rbx + 0x20]
+sar rdx, 3
+add rdx, 4
+cmp rax, rdx
+jae 0x8000c0b
+mov r8, qword [rcx + 8]
+mov ecx, dword [rbx + 0x18]
+mov edx, 3
+test ecx, ecx
+je 0x8000b99
+mov rdx, qword [rbx + 0x28]
+sub rdx, qword [rbx + 0x20]
+sar rdx, 3
+add rdx, 4
+cmp rdx, rax
+jbe .text.unlikely
+cmp rax, 3
+jbe 0x8000c29
+mov rdx, qword [rbx + 0x20]
+lea rcx, [rdx + rax*8 - 0x20]
+mov r9d, dword [rcx + 4]
+mov r10d, dword [rbx + 0x10]
+mov edx, 2
+test r10d, r10d
+je 0x8000be3
+mov edi, dword [rbx + 0x18]
+mov edx, 3
+test edi, edi
+je 0x8000be3
+mov rdx, qword [rbx + 0x28]
+sub rdx, qword [rbx + 0x20]
+sar rdx, 3
+add rdx, 4
+cmp rax, rdx
+jae .text.unlikely
+mov esi, dword [rcx]
+mov edx, r9d
+mov rdi, r13
+call r8
+mov esi, dword [rbx]
+lea eax, [arg_1h]
+mov r13, qword [r12]
+mov rbp, rax
+test esi, esi
+jne 0x8000b38
+mov rax, qword [r13]
+mov rdi, r13
+call qword [rax + 0x10]
+add rsp, 8
+pop rbx
+pop rbp
+pop r12
+pop r13
+ret
+test rax, rax
+jne 0x8000c0b
+mov r8, qword [rcx + 8]
+lea rcx, [rbx + rax*8]
+mov r9d, dword [rcx + 4]
+test esi, esi
+jne 0x8000bb9
+mov edx, 1
+jmp 0x8000be3
+nop dword [rax]
+cmp rax, 1
+ja 0x8000c0b
+mov r8, qword [rcx + 8]
+jmp 0x8000ba2

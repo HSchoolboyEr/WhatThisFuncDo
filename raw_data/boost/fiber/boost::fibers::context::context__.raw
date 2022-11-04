@@ -1,0 +1,10 @@
+push rbp
+mov rbp, rdi
+call _ZN5boost6fibers7contextD1Ev
+add byte [rax], al
+add byte [rax], al
+mov rdi, rbp
+mov esi, 0xe8
+pop rbp
+jmp _ZdlPvm
+nop word [rax + rax]

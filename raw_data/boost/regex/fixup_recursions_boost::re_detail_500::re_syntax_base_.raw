@@ -1,0 +1,208 @@
+test rsi, rsi
+je 0x800dc20
+push r13
+mov r9, rdi
+mov r10, rsi
+mov rdx, rsi
+push r12
+push rbp
+push rbx
+sub rsp, 0x48
+jmp 0x800d96a
+nop
+cmp eax, 0x1d
+jne 0x800d95d
+mov rcx, qword [rdx + 0x10]
+cmp rcx, 0x3fffffff
+jg 0x800db00
+test rcx, rcx
+jns 0x800da60
+mov r8, qword [r9]
+mov ecx, dword [r8 + 0x2c]
+test ecx, ecx
+jne 0x800d942
+mov dword [r8 + 0x2c], 2
+mov qword [r8 + 0x30], 0
+mov qword [r8 + 0x38], 0
+test byte [r8 + 0x2a], 4
+je 0x800db65
+mov rdx, qword [rdx + 8]
+test rdx, rdx
+je 0x800daf3
+mov eax, dword [rdx]
+cmp eax, 0x1b
+jne 0x800d910
+mov eax, dword [rdx + 0x10]
+test eax, eax
+jns 0x800d95d
+not eax
+mov ecx, eax
+cmp eax, 0x3fffffff
+jle 0x800d95d
+mov r8, qword [r9]
+mov rbx, qword [r8 + 8]
+mov r11, qword [r8]
+mov rax, rbx
+sub rax, r11
+sar rax, 3
+nop word [rax + rax]
+test rax, rax
+jle 0x800d9c8
+mov rsi, rax
+sar rsi, 1
+lea rdi, [r11 + rsi*8]
+cmp ecx, dword [rdi + 4]
+jle 0x800da50
+sub rax, rsi
+lea r11, [rdi + 8]
+sub rax, 1
+test rax, rax
+jg 0x800d9a5
+cmp rbx, r11
+je 0x800d9db
+cmp ecx, dword [r11 + 4]
+jne 0x800d9db
+mov r11d, dword [r11]
+test r11d, r11d
+jg 0x800d95d
+mov edi, dword [r8 + 0x2c]
+test edi, edi
+jne 0x800d9eb
+mov dword [r8 + 0x2c], 2
+mov qword [r8 + 0x30], 0
+mov qword [r8 + 0x38], 0
+test byte [r8 + 0x2a], 4
+jne 0x800d95d
+mov r12, rsp
+lea rsi, [0x0800da10]
+lea rbp, [var_20h]
+mov rdi, r12
+call .text
+mov rsi, r12
+mov rdi, rbp
+call _ZNSt13runtime_errorC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE
+lea r12, [0x0800da2f]
+mov rdi, rbp
+mov dword [var_30h], 2
+mov qword [var_20h], r12
+mov qword [var_38h], 0
+call _ZN5boost15throw_exceptionINS_11regex_errorEEEvRKT_
+nop dword [rax]
+mov rax, rsi
+jmp 0x800d9a0
+nop dword [rax + rax]
+mov rax, r10
+jmp 0x800da75
+nop dword [rax]
+mov rax, qword [rax + 8]
+test rax, rax
+je 0x800d92f
+mov esi, dword [rax]
+test esi, esi
+jne 0x800da68
+movsxd rsi, dword [rax + 0x10]
+cmp rsi, rcx
+jne 0x800da68
+mov rsi, qword [rax + 8]
+mov qword [rdx + 0x10], rax
+test rsi, rsi
+jne 0x800dabf
+jmp 0x800d95d
+nop word cs:[rax + rax]
+cmp eax, 1
+jne 0x800dab2
+movsxd rax, dword [rsi + 0x10]
+cmp rax, rcx
+je 0x800d95d
+mov rsi, qword [rsi + 8]
+test rsi, rsi
+je 0x800d95d
+mov eax, dword [rsi]
+cmp eax, 0x12
+je 0x800dad0
+jbe 0x800daa0
+sub eax, 0x16
+cmp eax, 3
+ja 0x800dab2
+mov eax, dword [rsi + 0x130]
+test eax, eax
+je 0x800dab2
+jle 0x800d95d
+sub eax, 1
+mov dword [rdx + 0x18], eax
+mov rdx, qword [rdx + 8]
+test rdx, rdx
+jne 0x800d96a
+add rsp, 0x48
+pop rbx
+pop rbp
+pop r12
+pop r13
+ret
+nop
+mov r8, qword [r9]
+mov rbx, qword [r8 + 8]
+mov r11, qword [r8]
+mov rax, rbx
+sub rax, r11
+sar rax, 3
+nop dword [rax]
+test rax, rax
+jle 0x800db3c
+mov rsi, rax
+sar rsi, 1
+lea rdi, [r11 + rsi*8]
+cmp ecx, dword [rdi + 4]
+jle 0x800db60
+sub rax, rsi
+lea r11, [rdi + 8]
+sub rax, 1
+test rax, rax
+jg 0x800db1d
+cmp rbx, r11
+je 0x800d932
+cmp ecx, dword [r11 + 4]
+jne 0x800d932
+movsxd rcx, dword [r11]
+jmp 0x800d926
+nop word [rax + rax]
+mov rax, rsi
+jmp 0x800db18
+mov r12, rsp
+lea rbp, [var_20h]
+lea rbx, [var_10h]
+xor edx, edx
+mov rsi, rbp
+mov rdi, r12
+mov qword [rsp], rbx
+mov qword [var_20h], 0x52
+call _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm
+mov rdx, qword [var_20h]
+mov rsi, r12
+mov rdi, rbp
+movdqa xmm0, xmmword [0x0800db9f]
+mov qword [rsp], rax
+mov qword [var_10h], rdx
+mov edx, 0x2e74
+movups xmmword [rax], xmm0
+movdqa xmm0, xmmword [0x0800dbb8]
+mov word [rax + 0x50], dx
+movups xmmword [rax + 0x10], xmm0
+movdqa xmm0, xmmword [0x0800dbc8]
+movups xmmword [rax + 0x20], xmm0
+movdqa xmm0, xmmword [0x0800dbd4]
+movups xmmword [rax + 0x30], xmm0
+movdqa xmm0, xmmword [0x0800dbe0]
+movups xmmword [rax + 0x40], xmm0
+mov rax, qword [var_20h]
+mov rdx, qword [rsp]
+mov qword [var_8h], rax
+mov byte [rdx + rax], 0
+call _ZNSt13runtime_errorC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE
+lea r13, [0x0800dc02]
+mov rdi, rbp
+mov dword [var_30h], 2
+mov qword [var_20h], r13
+mov qword [var_38h], 0
+call _ZN5boost15throw_exceptionINS_11regex_errorEEEvRKT_
+ret

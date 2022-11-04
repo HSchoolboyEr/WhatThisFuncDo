@@ -1,0 +1,147 @@
+push r15
+push r14
+push r13
+push r12
+push rbp
+mov ebp, esi
+push rbx
+mov rbx, rdi
+sub rsp, 0x18
+mov r12, qword [rdi + 0xd8]
+test sil, sil
+jne 0x8004658
+mov rcx, qword [r12 + 0x10]
+mov rsi, qword [r12 + 8]
+mov r13, qword [rdi + 0x20]
+mov rax, qword [rcx + 8]
+mov r15d, dword [rax + 0x18]
+mov qword [rdi + 0x58], rax
+mov rax, qword [r12 + 0x18]
+mov qword [rdi + 0x28], rax
+cmp rax, r13
+je 0x8004678
+cmp byte [rbx + 0x78], 0
+mov edi, dword [rax]
+je 0x80045f3
+lea r14, [rax + 4]
+mov qword [var_8h], rcx
+mov qword [rsp], rsi
+call towlower
+mov rsi, qword [rsp]
+mov rcx, qword [var_8h]
+cmp r15d, eax
+jne 0x8004730
+add qword [rbx + 0x68], 1
+mov rdx, qword [rcx + 8]
+add rsi, 1
+mov rax, r14
+mov qword [rbx + 0x28], r14
+mov qword [rbx + 0x58], rdx
+mov rdx, qword [rcx + 0x128]
+cmp rdx, rsi
+jbe 0x8004710
+cmp r13, r14
+je 0x8004710
+mov edi, dword [r14]
+cmp edi, 0xff
+jbe 0x80046f0
+cmp byte [rcx + 0x134], 0
+jne 0x8004645
+cmp r13, rax
+je 0x800468e
+cmp rsi, rdx
+je 0x80046c0
+mov qword [r12 + 8], rsi
+mov qword [r12 + 0x18], rax
+mov rax, qword [rcx + 0x10]
+mov qword [rbx + 0x58], rax
+mov eax, ebp
+add rsp, 0x18
+pop rbx
+pop rbp
+pop r12
+pop r13
+pop r14
+pop r15
+ret
+nop dword [rax]
+movsxd r8, edi
+test byte [rcx + r8 + 0x18], 2
+jne 0x800459f
+cmp edi, r15d
+jne 0x8004730
+add qword [rbx + 0x68], 1
+mov rdx, qword [rcx + 8]
+add rax, 4
+add rsi, 1
+mov qword [rbx + 0x28], rax
+mov qword [rbx + 0x58], rdx
+mov rdx, qword [rcx + 0x128]
+cmp r13, rax
+je 0x8004710
+cmp rsi, rdx
+jae 0x8004710
+mov edi, dword [rax]
+cmp edi, 0xff
+jbe 0x80045e8
+cmp byte [rcx + 0x134], 0
+je 0x80045ac
+mov qword [rbx + 0x30], rax
+cmp r13, rax
+jne 0x80045be
+jmp 0x800468e
+nop dword [rax]
+add r12, 0x20
+mov eax, esi
+mov qword [rdi + 0xd8], r12
+add rsp, 0x18
+pop rbx
+pop rbp
+pop r12
+pop r13
+pop r14
+pop r15
+ret
+nop dword [rax]
+cmp byte [rcx + 0x134], 0
+je 0x800468e
+cmp rsi, qword [rcx + 0x128]
+jb 0x8004745
+add r12, 0x20
+mov qword [rbx + 0xd8], r12
+test byte [rbx + 0x61], 0x20
+je 0x80046a9
+cmp qword [rbx + 0x38], rax
+je 0x80046a9
+mov byte [rbx + 0x79], 1
+test byte [rcx + 0x118], 2
+jne 0x80045c8
+mov eax, 1
+jmp 0x80045d2
+movsxd rax, dword [rax]
+add r12, 0x20
+mov qword [rbx + 0xd8], r12
+cmp eax, 0xff
+ja 0x80045c8
+test byte [rcx + rax + 0x18], 2
+jne 0x80045c8
+jmp 0x80046b6
+nop word cs:[rax + rax]
+movsxd r8, edi
+add r14, 4
+test byte [rcx + r8 + 0x18], 2
+je 0x800453f
+jmp 0x800459f
+nop dword [rax + rax]
+cmp byte [rcx + 0x134], 0
+je 0x80045ac
+cmp rsi, rdx
+jae 0x80045ac
+jmp 0x8004645
+nop dword [rax + rax]
+add r12, 0x20
+mov eax, 1
+mov qword [rbx + 0xd8], r12
+jmp 0x80045d2
+mov qword [rdi + 0x30], rax
+jmp 0x800468e

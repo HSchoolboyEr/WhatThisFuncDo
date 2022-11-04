@@ -1,0 +1,56 @@
+push r15
+push r14
+push r13
+push r12
+push rbp
+push rbx
+mov rbx, rdi
+sub rsp, 8
+mov r13, qword [rdi]
+mov rdi, r13
+call pthread_rwlock_wrlock
+mov r15, qword [rbx]
+mov r14, qword [r15 + 0x38]
+mov r12, qword [r15 + 0x40]
+cmp r14, r12
+je 0x8000bbc
+mov rbx, r14
+jmp 0x8000b71
+nop dword [rax]
+add rbx, 0x10
+cmp r12, rbx
+je 0x8000bb8
+mov rbp, qword [rbx + 8]
+test rbp, rbp
+je 0x8000b68
+lock sub dword [arg_8h], 1
+jne 0x8000b68
+mov rax, qword [rbp]
+mov rdi, rbp
+call qword [rax + 0x10]
+lock sub dword [arg_ch], 1
+jne 0x8000b68
+mov rax, qword [rbp]
+lea rdx, [0x08000b9d]
+mov rdi, rbp
+mov rcx, qword [rax + 0x18]
+cmp rcx, rdx
+jne 0x8000bd8
+call qword [rax + 8]
+add rbx, 0x10
+cmp r12, rbx
+jne 0x8000b71
+nop dword [rax]
+mov qword [r15 + 0x40], r14
+add rsp, 8
+mov rdi, r13
+pop rbx
+pop rbp
+pop r12
+pop r13
+pop r14
+pop r15
+jmp pthread_rwlock_unlock
+nop word [rax + rax]
+call rcx
+jmp 0x8000b68

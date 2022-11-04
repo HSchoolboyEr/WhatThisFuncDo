@@ -1,0 +1,30 @@
+push r12
+xor r12d, r12d
+push rbx
+sub rsp, 8
+mov rax, qword [rdi + 0x10]
+mov eax, dword [rax]
+test eax, eax
+jne 0x80037e0
+add rsp, 8
+mov rax, r12
+pop rbx
+pop r12
+ret
+nop
+mov rbx, rdi
+call _ZN5boost4json6detail14find_in_objectINS_4core17basic_string_viewIcEEEESt4pairIPNS0_14key_value_pairEmERKNS0_6objectET_
+test rax, rax
+je 0x80037d4
+mov rdx, qword [rbx + 0x10]
+xor r12d, r12d
+mov ecx, dword [rdx]
+lea rcx, [rcx + rcx*4]
+lea rdx, [rdx + rcx*8 + 0x10]
+cmp rax, rdx
+setne r12b
+add rsp, 8
+mov rax, r12
+pop rbx
+pop r12
+ret

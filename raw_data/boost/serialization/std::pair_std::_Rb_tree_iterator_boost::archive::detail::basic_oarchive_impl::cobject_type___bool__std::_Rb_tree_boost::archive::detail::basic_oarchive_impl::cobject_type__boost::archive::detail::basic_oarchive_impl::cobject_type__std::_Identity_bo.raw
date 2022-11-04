@@ -1,0 +1,138 @@
+push r15
+push r14
+push r13
+lea r13, [rdi + 8]
+push r12
+push rbp
+mov rbp, rsi
+push rbx
+mov rbx, rdi
+sub rsp, 8
+mov r12, qword [rdi + 0x10]
+test r12, r12
+je 0x80010b0
+nop dword [rax]
+mov rax, qword [r12 + 0x20]
+mov rsi, qword [rax + 8]
+mov rax, qword [rbp]
+mov rdi, qword [rax + 8]
+call _ZNK5boost13serialization18extended_type_infoltERKS1_
+add byte [rax], al
+add byte [rax], al
+mov rcx, qword [r12 + 0x10]
+mov rdx, qword [r12 + 0x18]
+test al, al
+jne 0x8000fc0
+test rdx, rdx
+je 0x8001010
+mov r12, rdx
+jmp 0x8000f88
+nop word cs:[rax + rax]
+test rcx, rcx
+je 0x8000fd0
+mov r12, rcx
+jmp 0x8000f88
+nop word [rax + rax]
+cmp qword [rbx + 0x18], r12
+je 0x800102d
+mov rdi, r12
+call _ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base
+add byte [rax], al
+add byte [rax], al
+mov r14, rax
+mov rax, qword [rbp]
+mov rsi, qword [rax + 8]
+mov rax, qword [r14 + 0x20]
+mov rdi, qword [rax + 8]
+call _ZNK5boost13serialization18extended_type_infoltERKS1_
+test al, al
+jne 0x800102d
+add rsp, 8
+mov rax, r14
+xor edx, edx
+pop rbx
+pop rbp
+pop r12
+pop r13
+pop r14
+pop r15
+ret
+nop
+mov rax, qword [rbp]
+mov r14, r12
+mov rsi, qword [rax + 8]
+mov rax, qword [r12 + 0x20]
+mov rdi, qword [rax + 8]
+call _ZNK5boost13serialization18extended_type_infoltERKS1_
+test al, al
+je 0x8000ffa
+mov r15d, 1
+cmp r12, r13
+jne 0x800108b
+mov edi, 0x30
+call _Znwm
+mov rdx, r12
+mov rcx, r13
+mov edi, r15d
+mov r14, rax
+mov rax, qword [rbp]
+mov rsi, r14
+mov qword [r14 + 0x20], rax
+movzx eax, word [arg_8h]
+mov word [r14 + 0x28], ax
+movzx eax, byte [arg_ah]
+mov byte [r14 + 0x2a], al
+call _ZSt29_Rb_tree_insert_and_rebalancebPSt18_Rb_tree_node_baseS0_RS_
+add byte [rax], al
+add byte [rax], al
+add qword [rbx + 0x28], 1
+add rsp, 8
+mov rax, r14
+pop rbx
+mov edx, 1
+pop rbp
+pop r12
+pop r13
+pop r14
+pop r15
+ret
+mov rax, qword [r12 + 0x20]
+mov rsi, qword [rax + 8]
+mov rax, qword [rbp]
+mov rdi, qword [rax + 8]
+call _ZNK5boost13serialization18extended_type_infoltERKS1_
+movzx r15d, al
+jmp 0x8001038
+nop word [rax + rax]
+mov r12, r13
+cmp r13, qword [rdi + 0x18]
+jne _ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base
+mov r15d, 1
+jmp 0x8001038
+invalid
+invalid
+invalid
+invalid
+invalid
+invalid
+invalid
+inc dword [rcx + 0x57]
+push r15
+push r14
+lea r14, [rdi + 8]
+push r13
+mov r13, rdi
+push r12
+push rbp
+mov rbp, rsi
+push rbx
+sub rsp, 8
+mov r12, qword [rdi + 0x10]
+test r12, r12
+je 0x8001240
+mov rbx, qword [rsi]
+jmp 0x800111d
+invalid
+invalid
+invalid
+invalid

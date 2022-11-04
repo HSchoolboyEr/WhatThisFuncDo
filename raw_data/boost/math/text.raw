@@ -1,0 +1,481 @@
+push rbx
+sub rsp, 0x70
+fld xword [rsp + 0x80]
+fucomi st(0)
+jp __errno_location
+fldz
+fcomi st(1)
+ja 0x80002c0
+fld dword [0x08000074]
+fcompi st(2)
+jbe 0x8000110
+fld qword [0x08000082]
+mov ebx, edi
+fcompi st(2)
+ja 0x8000300
+fstp st(0)
+fld st(0)
+fmul st(1)
+fld st(0)
+fmul st(1)
+fld xword [0x0800009c]
+fmul st(1)
+fld xword [0x080000a4]
+fsubp st(1)
+fmul st(1)
+fld xword [0x080000ae]
+faddp st(1)
+fld xword [0x080000b6]
+fmul st(2)
+fld xword [0x080000be]
+fsubp st(1)
+fmul st(3)
+faddp st(1)
+fld xword [0x080000ca]
+fmul st(2)
+fld xword [0x080000d2]
+faddp st(1)
+fmul st(2)
+fld1
+faddp st(1)
+fld xword [0x080000e0]
+fmulp st(3)
+fld xword [0x080000e8]
+faddp st(3)
+fxch st(2)
+fmulp st(3)
+fxch st(1)
+faddp st(2)
+fdivrp st(1)
+fadd dword [0x080000fa]
+fmulp st(1)
+test bl, bl
+je 0x8000104
+fld1
+fsubrp st(1)
+add rsp, 0x70
+pop rbx
+ret
+nop word [rax + rax]
+fstp st(0)
+test dil, dil
+jne .LC18
+fld dword [0x08000121]
+fcompi st(1)
+jbe 0x8000338
+fld dword [0x0800012f]
+mov ebx, edi
+xor ebx, 1
+fcomi st(1)
+ja .LC4
+fld dword [0x08000142]
+fcompi st(2)
+ja 0x8000608
+fstp st(0)
+fld dword [0x08000152]
+fcompi st(1)
+jbe 0x80003d0
+fld st(0)
+fsub dword [0x08000162]
+fld st(0)
+fmul st(1)
+fld xword [0x0800016c]
+fmul st(1)
+fld xword [0x08000174]
+faddp st(1)
+fmul st(1)
+fld xword [0x0800017e]
+faddp st(1)
+fmul st(2)
+fld xword [0x08000188]
+fmul st(2)
+fld xword [0x08000190]
+faddp st(1)
+fmul st(2)
+fld xword [0x0800019a]
+faddp st(1)
+faddp st(1)
+fld xword [0x080001a4]
+fmul st(2)
+fld xword [0x080001ac]
+faddp st(1)
+fmul st(2)
+fld xword [0x080001b6]
+faddp st(1)
+fmulp st(3)
+fld xword [0x080001c0]
+fmul st(2)
+fld xword [0x080001c8]
+faddp st(1)
+fmulp st(2)
+fld1
+faddp st(2)
+fxch st(1)
+faddp st(2)
+fdivrp st(1)
+fadd dword [0x080001dc]
+fstp xword [rsp + 0x40]
+lea rdi, [var_6ch]
+sub rsp, 0x10
+fld st(0)
+fstp xword [rsp]
+fstp xword [rsp + 0x90]
+call frexpl
+sub rsp, 0x10
+mov edi, 0x1a
+fstp xword [rsp]
+call ldexpl
+fnstcw word [rsp + 0x7e]
+movzx eax, word [var_7eh]
+and ah, 0xf3
+or ah, 4
+mov word [var_7ch], ax
+fldcw word [rsp + 0x7c]
+frndint
+fldcw word [rsp + 0x7e]
+pop r9
+pop r10
+mov eax, dword [var_6ch]
+fstp xword [rsp]
+lea edi, [rax - 0x1a]
+call ldexpl
+fld xword [rsp + 0x90]
+sub rsp, 0x10
+fld st(0)
+fsub st(2)
+fxch st(2)
+fstp xword [rsp + 0x50]
+fxch st(1)
+fstp xword [rsp + 0x40]
+fld st(0)
+fmulp st(1)
+fld st(0)
+fstp xword [rsp + 0x30]
+fchs
+fstp xword [rsp]
+call expl
+fstp xword [rsp + 0x20]
+pop r11
+pop rax
+fld xword [rsp + 0x40]
+fld st(0)
+fmul st(1)
+fld xword [rsp + 0x20]
+fsubp st(1)
+fxch st(1)
+fadd st(0)
+fld xword [rsp + 0x30]
+fmul st(1), st(0)
+fxch st(2)
+faddp st(1)
+fxch st(1)
+fmul st(0)
+faddp st(1)
+fchs
+fstp xword [rsp]
+call expl
+fld xword [rsp + 0x10]
+fmulp st(1)
+fld xword [rsp + 0x90]
+fdivp st(1)
+fld xword [rsp + 0x50]
+pop rax
+pop rdx
+fmulp st(1)
+jmp 0x80000fc
+nop word [rax + rax]
+fstp st(0)
+fld st(0)
+fchs
+test dil, dil
+je 0x8000370
+fld dword [0x080002d5]
+fcompi st(2)
+fstp st(1)
+jbe 0x8000350
+sub rsp, 0x10
+mov edi, 1
+fstp xword [rsp]
+call sym..text
+pop r9
+pop r10
+fsubr dword [0x080002f6]
+add rsp, 0x70
+pop rbx
+ret
+nop dword [rax]
+fxch st(1)
+fucomi st(1)
+fstp st(1)
+jp .LC6
+jne .LC6
+fstp st(0)
+fldz
+jmp 0x80000fc
+nop dword [rax + rax]
+fld dword [0x08000326]
+fcompi st(1)
+ja .LC20
+fstp st(0)
+jmp 0x800033a
+nop word [rax + rax]
+fstp st(0)
+mov ebx, edi
+fldz
+xor ebx, 1
+jmp 0x80000fc
+nop word cs:[rax + rax]
+sub rsp, 0x10
+xor edi, edi
+fstp xword [rsp]
+call sym..text
+pop rdi
+pop r8
+fld1
+add rsp, 0x70
+faddp st(1)
+pop rbx
+ret
+nop dword [rax + rax]
+fstp st(1)
+sub rsp, 0x10
+xor edi, edi
+fstp xword [rsp]
+call sym..text
+pop r11
+pop rbx
+fchs
+add rsp, 0x70
+pop rbx
+ret
+nop dword [rax + rax]
+fstp st(0)
+call __errno_location
+fld xword [rsp + 0x80]
+mov dword [rax], 0x22
+add rsp, 0x70
+pop rbx
+ret
+nop word [rax + rax]
+fld st(0)
+fmul dword [0x080003b8]
+fld xword [0x080003be]
+fmulp st(2)
+faddp st(1)
+jmp 0x80000fc
+nop word [rax + rax]
+fld1
+lea rdi, [var_6ch]
+sub rsp, 0x10
+fld st(0)
+fdiv st(2)
+fld st(0)
+fmul st(1)
+fld xword [0x080003e9]
+fmul st(1)
+fld xword [0x080003f1]
+fsubp st(1)
+fmul st(1)
+fld xword [0x080003fb]
+fsubp st(1)
+fmul st(1)
+fld xword [0x08000405]
+faddp st(1)
+fld xword [0x0800040d]
+fmul st(2)
+fld xword [0x08000415]
+fsubp st(1)
+fmul st(2)
+fld xword [0x0800041f]
+faddp st(1)
+fmul st(3)
+faddp st(1)
+fld xword [0x0800042b]
+fmul st(2)
+fld xword [0x08000433]
+faddp st(1)
+fmul st(2)
+fld xword [0x0800043d]
+faddp st(1)
+fmul st(2)
+faddp st(4)
+fld xword [0x08000449]
+fmul st(2)
+fld xword [0x08000451]
+faddp st(1)
+fmulp st(2)
+fld xword [0x0800045b]
+faddp st(2)
+fxch st(1)
+fmulp st(2)
+fxch st(2)
+faddp st(1)
+fdivp st(1)
+fadd dword [0x0800046d]
+fstp xword [rsp + 0x50]
+fld st(0)
+fstp xword [rsp]
+fstp xword [rsp + 0x90]
+call frexpl
+sub rsp, 0x10
+mov edi, 0x1a
+fstp xword [rsp]
+call ldexpl
+fnstcw word [rsp + 0x7e]
+movzx eax, word [var_7eh]
+and ah, 0xf3
+or ah, 4
+mov word [var_7ch], ax
+fldcw word [rsp + 0x7c]
+frndint
+fldcw word [rsp + 0x7e]
+pop rax
+pop rdx
+mov eax, dword [var_6ch]
+fstp xword [rsp]
+lea edi, [rax - 0x1a]
+call ldexpl
+fld xword [rsp + 0x90]
+sub rsp, 0x10
+fld st(0)
+fsub st(2)
+fxch st(2)
+fstp xword [rsp + 0x50]
+fxch st(1)
+fstp xword [rsp + 0x40]
+fld st(0)
+fmulp st(1)
+fld st(0)
+fstp xword [rsp + 0x30]
+fchs
+fstp xword [rsp]
+call expl
+fstp xword [rsp + 0x20]
+pop rcx
+pop rsi
+fld xword [rsp + 0x40]
+fld st(0)
+fmul st(1)
+fld xword [rsp + 0x20]
+fsubp st(1)
+fxch st(1)
+fadd st(0)
+fld xword [rsp + 0x30]
+fmul st(1), st(0)
+fxch st(2)
+faddp st(1)
+fxch st(1)
+fmul st(0)
+faddp st(1)
+fchs
+fstp xword [rsp]
+call expl
+fld xword [rsp + 0x10]
+fmulp st(1)
+fld xword [rsp + 0x90]
+fdivp st(1)
+fld xword [rsp + 0x50]
+pop rdi
+pop r8
+fmulp st(1)
+jmp 0x80000fc
+fstp st(0)
+fld dword [0x08000548]
+sub rsp, 0x10
+fsubr st(1)
+fld st(0)
+fmul st(1)
+fld xword [0x08000558]
+fmul st(1)
+fld xword [0x08000560]
+faddp st(1)
+fmul st(1)
+fld xword [0x0800056a]
+faddp st(1)
+fmul st(2)
+fld xword [0x08000574]
+fmul st(2)
+fld xword [0x0800057c]
+faddp st(1)
+fmul st(2)
+fld xword [0x08000586]
+fsubp st(1)
+faddp st(1)
+fld xword [0x08000590]
+fmul st(2)
+fld xword [0x08000598]
+faddp st(1)
+fmul st(2)
+fld xword [0x080005a2]
+faddp st(1)
+fmul st(2)
+fld1
+faddp st(1)
+fld xword [0x080005b0]
+fmul st(3)
+fld xword [0x080005b8]
+faddp st(1)
+fmulp st(3)
+fld xword [0x080005c2]
+faddp st(3)
+fxch st(3)
+fmulp st(2)
+fxch st(1)
+faddp st(2)
+fdivrp st(1)
+fadd dword [0x080005d4]
+fstp xword [rsp + 0x10]
+fld st(0)
+fchs
+fmul st(1)
+fxch st(1)
+fstp xword [rsp + 0x90]
+fstp xword [rsp]
+call expl
+fld xword [rsp + 0x90]
+fdivp st(1)
+fld xword [rsp + 0x10]
+pop rcx
+pop rsi
+fmulp st(1)
+jmp 0x80000fc
+nop dword [rax]
+fsubr st(1)
+fld st(0)
+fmul st(1)
+fld xword [0x08000614]
+fmul st(1)
+fld xword [0x0800061c]
+faddp st(1)
+fmul st(1)
+fld xword [0x08000626]
+faddp st(1)
+fmul st(2)
+fld xword [0x08000630]
+fmul st(2)
+fld xword [0x08000638]
+faddp st(1)
+fmul st(2)
+fld xword [0x08000642]
+fsubp st(1)
+faddp st(1)
+fld xword [0x0800064c]
+fmul st(2)
+fld xword [0x08000654]
+faddp st(1)
+fmul st(2)
+fld xword [0x0800065e]
+faddp st(1)
+fmulp st(3)
+fld xword [0x08000668]
+fmul st(2)
+fld xword [0x08000670]
+faddp st(1)
+fmulp st(2)
+fld1
+faddp st(2)
+fxch st(1)
+faddp st(2)
+fdivrp st(1)
+fadd dword [0x08000684]
+jmp 0x80001dc

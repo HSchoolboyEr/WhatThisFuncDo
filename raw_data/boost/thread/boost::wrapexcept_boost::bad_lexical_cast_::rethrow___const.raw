@@ -1,0 +1,61 @@
+push r13
+lea rax, [0x08005a8b]
+lea r13, [0x08005a92]
+push r12
+movq xmm0, rax
+movq xmm1, r13
+push rbp
+punpcklqdq xmm0, xmm1
+push rbx
+mov rbx, rdi
+mov edi, 0x48
+sub rsp, 0x18
+movaps xmmword [rsp], xmm0
+call __cxa_allocate_exception
+movaps xmm0, xmmword [rsp]
+movups xmm2, xmmword [rbx + 0x10]
+mov rdi, qword [rbx + 0x28]
+mov rbp, rax
+movups xmmword [rax], xmm0
+movups xmmword [rax + 0x10], xmm2
+lea rax, [0x08005ad6]
+mov qword [arg_20h], rax
+mov qword [arg_28h], rdi
+test rdi, rdi
+je 0x8005afd
+mov rax, qword [rdi]
+lea rdx, [0x08005aed]
+add byte [rax], al
+add byte [rax], al
+mov rax, qword [rax + 0x18]
+cmp rax, rdx
+jne 0x8005afb
+inc dword [rdi + 0x58]
+jmp 0x8005afd
+call rax
+mov rax, qword [rbx + 0x40]
+movups xmm3, xmmword [rbx + 0x30]
+mov rdi, rbp
+lea rdx, [0x08005b0f]
+add byte [rax], al
+add byte [rax], al
+lea rsi, [0x08005b16]
+mov qword [arg_40h], rax
+lea rax, [0x08005b21]
+lea rcx, [rax - 0x30]
+movq xmm4, rax
+add rax, 0x28
+movups xmmword [arg_30h], xmm3
+movq xmm0, rcx
+mov qword [arg_20h], rax
+punpcklqdq xmm0, xmm4
+movups xmmword [rbp], xmm0
+call __cxa_throw
+mov r12, rax
+lea rdi, [arg_8h]
+mov qword [arg_8h], r13
+call _ZNSt8bad_castD2Ev
+mov rdi, rbp
+call __cxa_free_exception
+mov rdi, r12
+call _Unwind_Resume

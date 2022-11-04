@@ -1,0 +1,4 @@
+mov rdx, rsi
+mov rsi, rdi
+lea rdi, [0x08005ddd]
+jmp sym.internal_bulk_free

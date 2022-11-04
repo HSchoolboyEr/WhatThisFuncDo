@@ -1,0 +1,200 @@
+push r15
+push r14
+push r13
+push r12
+push rbp
+push rbx
+sub rsp, 0x28
+mov qword [var_10h], rdi
+test rdi, rdi
+je 0x80004fb
+mov rax, qword [arg_10h]
+mov rax, qword [rax + 0x18]
+mov qword [rsp], rax
+test rax, rax
+je 0x800050a
+mov rax, qword [rsp]
+mov rax, qword [rax + 0x18]
+mov qword [arg_8h], rax
+test rax, rax
+je 0x80004be
+mov rax, qword [arg_8h]
+mov r15, qword [rax + 0x18]
+test r15, r15
+je 0x800047b
+mov rbp, qword [r15 + 0x18]
+test rbp, rbp
+je 0x80003fd
+mov r12, qword [arg_18h]
+test r12, r12
+je 0x8000366
+mov r13, qword [r12 + 0x18]
+test r13, r13
+je 0x80003c0
+mov r14, qword [r13 + 0x18]
+test r14, r14
+je 0x8000440
+mov rbx, qword [r14 + 0x18]
+test rbx, rbx
+je 0x8000336
+mov rdi, qword [rbx + 0x18]
+call method std::_Rb_tree<unsigned long, std::pair<unsigned long const, boost::fibers::context::fss_data>, std::_Select1st<std::pair<unsigned long const, boost::fibers::context::fss_data> >, std::less<unsigned long>, std::allocator<std::pair<unsigned long const, boost::fibers::context::fss_data> > >::_M_erase(std::_Rb_tree_node<std::pair<unsigned long const, boost::fibers::context::fss_data> >*) [clone .isra.0]
+mov rax, rbx
+mov qword [arg_18h], rbx
+mov rbx, qword [rbx + 0x10]
+mov rdi, qword [rax + 0x30]
+test rdi, rdi
+je 0x8000322
+lock sub qword [rdi + 8], 1
+je 0x80003b0
+mov rdi, qword [arg_18h]
+mov esi, 0x38
+call _ZdlPvm
+test rbx, rbx
+jne 0x80002f8
+mov rdi, qword [r14 + 0x30]
+mov rbx, qword [r14 + 0x10]
+test rdi, rdi
+je 0x800034b
+lock sub qword [rdi + 8], 1
+je 0x80003a0
+mov esi, 0x38
+mov rdi, r14
+call _ZdlPvm
+test rbx, rbx
+je 0x8000440
+mov r14, rbx
+jmp 0x80002ef
+mov rdi, qword [arg_30h]
+mov rbx, qword [arg_10h]
+test rdi, rdi
+je 0x800037f
+lock sub qword [rdi + 8], 1
+je 0x8000430
+mov esi, 0x38
+mov rdi, rbp
+call _ZdlPvm
+test rbx, rbx
+je 0x80003fd
+mov rbp, rbx
+jmp 0x80002c7
+nop dword [rax]
+mov rax, qword [rdi]
+call qword [rax + 8]
+jmp 0x800034b
+nop dword [rax + rax]
+mov rdx, qword [rdi]
+call qword [rdx + 8]
+jmp 0x8000322
+nop dword [rax + rax]
+mov rdi, qword [r12 + 0x30]
+mov rbx, qword [r12 + 0x10]
+test rdi, rdi
+je 0x80003d7
+lock sub qword [rdi + 8], 1
+je 0x80003f5
+mov esi, 0x38
+mov rdi, r12
+call _ZdlPvm
+test rbx, rbx
+je 0x8000366
+mov r12, rbx
+jmp 0x80002d4
+mov rax, qword [rdi]
+call qword [rax + 8]
+jmp 0x80003d7
+mov rdi, qword [r15 + 0x30]
+mov rbx, qword [r15 + 0x10]
+test rdi, rdi
+je 0x8000416
+lock sub qword [rdi + 8], 1
+je 0x80004b3
+mov esi, 0x38
+mov rdi, r15
+call _ZdlPvm
+test rbx, rbx
+je 0x800047b
+mov r15, rbx
+jmp 0x80002ba
+mov rax, qword [rdi]
+call qword [rax + 8]
+jmp 0x800037f
+nop dword [rax + rax]
+mov rdi, qword [r13 + 0x30]
+mov rbx, qword [r13 + 0x10]
+test rdi, rdi
+je 0x8000455
+lock sub qword [rdi + 8], 1
+je 0x8000473
+mov esi, 0x38
+mov rdi, r13
+call _ZdlPvm
+test rbx, rbx
+je 0x80003c0
+mov r13, rbx
+jmp 0x80002e2
+mov rax, qword [rdi]
+call qword [rax + 8]
+jmp 0x8000455
+mov rax, qword [arg_8h]
+mov rdi, qword [rax + 0x30]
+mov rbx, qword [rax + 0x10]
+test rdi, rdi
+je 0x8000495
+lock sub qword [rdi + 8], 1
+je 0x80004f3
+mov rdi, qword [arg_8h]
+mov esi, 0x38
+call _ZdlPvm
+test rbx, rbx
+je 0x80004be
+mov qword [arg_8h], rbx
+jmp 0x80002a8
+mov rax, qword [rdi]
+call qword [rax + 8]
+jmp 0x8000416
+mov rax, qword [rsp]
+mov rdi, qword [rax + 0x30]
+mov rbx, qword [rax + 0x10]
+test rdi, rdi
+je 0x80004d7
+lock sub qword [rdi + 8], 1
+je 0x8000542
+mov rdi, qword [rsp]
+mov esi, 0x38
+call _ZdlPvm
+test rbx, rbx
+je 0x800050a
+mov qword [rsp], rbx
+jmp 0x8000292
+mov rax, qword [rdi]
+call qword [rax + 8]
+jmp 0x8000495
+add rsp, 0x28
+pop rbx
+pop rbp
+pop r12
+pop r13
+pop r14
+pop r15
+ret
+mov rax, qword [arg_10h]
+mov rdi, qword [rax + 0x30]
+mov rbx, qword [rax + 0x10]
+test rdi, rdi
+je 0x8000524
+lock sub qword [rdi + 8], 1
+je 0x800054a
+mov rdi, qword [arg_10h]
+mov esi, 0x38
+call _ZdlPvm
+test rbx, rbx
+je 0x80004fb
+mov qword [arg_10h], rbx
+jmp 0x800027c
+mov rax, qword [rdi]
+call qword [rax + 8]
+jmp 0x80004d7
+mov rax, qword [rdi]
+call qword [rax + 8]
+jmp 0x8000524

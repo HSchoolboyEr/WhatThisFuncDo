@@ -1,0 +1,33 @@
+cmp byte [0x08000a27], 0
+je 0x8000a30
+ret
+nop word [rax + rax]
+push rbp
+movzx eax, byte [0x08000a38]
+mov rbp, rdi
+test al, al
+je 0x8000a50
+mov rsi, rbp
+lea rdi, [0x08000a49]
+pop rbp
+jmp _ZN5boost7archive6detail20basic_serializer_map5eraseEPKNS1_16basic_serializerE
+add byte [rax], al
+add byte [rax], al
+nop
+lea rdi, [0x08000a57]
+call __cxa_guard_acquire
+test eax, eax
+je 0x8000a3f
+lea rax, [0x08000a67]
+lea rdi, [0x08000a6e]
+mov dword [0x08000a78], 0
+mov qword [0x08000a83], 0
+mov qword [0x08000a8a], rax
+mov qword [0x08000a91], rax
+mov qword [0x08000a9c], 0
+call __cxa_guard_release
+lea rdx, [0x08000aa8]
+lea rsi, [0x08000aaf]
+lea rdi, [0x08000ab6]
+call __cxa_atexit
+jmp 0x8000a3f

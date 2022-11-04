@@ -1,0 +1,2 @@
+jmp setenv
+nop word cs:[rax + rax]

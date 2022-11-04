@@ -1,0 +1,150 @@
+mov rax, rsi
+sub rax, rdi
+cmp rax, 0x100
+jle 0x8006de7
+push r14
+mov r8, rsi
+mov r14, rdx
+push r13
+mov r13, rdi
+push r12
+lea r12, [rdi + 0x10]
+push rbp
+push rbx
+test rdx, rdx
+je 0x8006d2a
+sar rax, 5
+mov rcx, qword [r13 + 0x10]
+mov rdi, qword [r8 - 0x10]
+sub r14, 1
+shl rax, 4
+mov rsi, qword [r13]
+mov r9, qword [r13 + 8]
+add rax, r13
+mov rdx, qword [rax]
+cmp rcx, rdx
+jae 0x8006ccd
+cmp rdx, rdi
+jae 0x8006cfe
+movdqu xmm4, xmmword [rax]
+movq xmm0, rsi
+movq xmm5, r9
+punpcklqdq xmm0, xmm5
+movups xmmword [r13], xmm4
+movups xmmword [rax], xmm0
+mov rsi, qword [r8 - 0x10]
+mov rdx, qword [r13]
+mov rbx, r12
+mov rax, r8
+nop dword [rax]
+mov rcx, qword [rbx]
+mov rbp, rbx
+cmp rcx, rdx
+jb 0x8006c9a
+sub rax, 0x10
+cmp rsi, rdx
+jbe 0x8006c71
+nop dword [rax]
+sub rax, 0x10
+cmp qword [rax], rdx
+ja 0x8006c68
+cmp rbx, rax
+jae 0x8006ca0
+mov rdx, qword [rbx + 8]
+movdqu xmm1, xmmword [rax]
+movq xmm0, rcx
+movq xmm2, rdx
+movups xmmword [rbx], xmm1
+mov rsi, qword [rax - 0x10]
+punpcklqdq xmm0, xmm2
+movups xmmword [rax], xmm0
+mov rdx, qword [r13]
+add rbx, 0x10
+jmp 0x8006c50
+mov rdx, r14
+mov rsi, r8
+mov rdi, rbx
+call sym._ZSt16__introsort_loopIPN5boost11multi_index6detail14copy_map_entryINS2_20sequenced_index_nodeINS2_18ordered_index_nodeINS2_19
+mov rax, rbx
+sub rax, r13
+cmp rax, 0x100
+jle 0x8006dbb
+test r14, r14
+je 0x8006d2d
+mov r8, rbx
+jmp 0x8006bf0
+cmp rcx, rdi
+jb 0x8006d03
+cmp rdx, rdi
+jae 0x8006dc4
+movdqu xmm4, xmmword [r8 - 0x10]
+movq xmm0, rsi
+movq xmm5, r9
+punpcklqdq xmm0, xmm5
+movups xmmword [r13], xmm4
+movups xmmword [r8 - 0x10], xmm0
+jmp 0x8006c42
+cmp rcx, rdi
+jb 0x8006cdb
+movdqu xmm6, xmmword [r13 + 0x10]
+movq xmm0, rsi
+movq xmm7, r9
+punpcklqdq xmm0, xmm7
+movups xmmword [r13], xmm6
+movups xmmword [r13 + 0x10], xmm0
+mov rsi, qword [r8 - 0x10]
+jmp 0x8006c42
+mov rbp, rsi
+sar rax, 4
+mov rdi, r13
+lea r12, [rax - 2]
+mov rbx, rax
+sar r12, 1
+mov rdx, rbx
+mov rax, r12
+mov rsi, r12
+shl rax, 4
+mov rcx, qword [r13 + rax]
+mov r8, qword [r13 + rax + 8]
+call _ZSt13__adjust_heapIPN5boost11multi_index6detail14copy_map_entryINS2_20sequenced_index_nodeINS2_18ordered_index_nodeINS2_19null_augment_policyENS2_15index_node_baseISt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_13property_tree11basic_p
+sub r12, 1
+mov rdx, rbx
+mov rdi, r13
+mov rax, r12
+mov rsi, r12
+shl rax, 4
+mov rcx, qword [r13 + rax]
+mov r8, qword [r13 + rax + 8]
+call _ZSt13__adjust_heapIPN5boost11multi_index6detail14copy_map_entryINS2_20sequenced_index_nodeINS2_18ordered_index_nodeINS2_19null_augment_policyENS2_15index_node_baseISt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_13property_tree11basic_p
+test r12, r12
+jne 0x8006d5a
+nop word [rax + rax]
+sub rbp, 0x10
+movdqu xmm3, xmmword [r13]
+mov rcx, qword [rbp]
+xor esi, esi
+mov rbx, rbp
+mov r8, qword [arg_8h]
+mov rdi, r13
+sub rbx, r13
+movups xmmword [rbp], xmm3
+mov rdx, rbx
+sar rdx, 4
+call _ZSt13__adjust_heapIPN5boost11multi_index6detail14copy_map_entryINS2_20sequenced_index_nodeINS2_18ordered_index_nodeINS2_19null_augment_policyENS2_15index_node_baseISt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_13property_tree11basic_p
+cmp rbx, 0x10
+jg 0x8006d88
+pop rbx
+pop rbp
+pop r12
+pop r13
+pop r14
+ret
+movdqu xmm6, xmmword [rax]
+movq xmm0, rsi
+movq xmm7, r9
+punpcklqdq xmm0, xmm7
+movups xmmword [r13], xmm6
+movups xmmword [rax], xmm0
+mov rsi, qword [r8 - 0x10]
+jmp 0x8006c42
+ret

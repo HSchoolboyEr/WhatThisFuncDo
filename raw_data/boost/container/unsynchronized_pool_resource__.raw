@@ -1,0 +1,8 @@
+lea rax, [0x08000127]
+add rdi, 8
+mov qword [rdi - 8], rax
+jmp _ZN5boost9container3pmr13pool_resourceC1Ev
+add byte [rax], al
+add byte [rax], al
+nop word cs:[rax + rax]
+nop

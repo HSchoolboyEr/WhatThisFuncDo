@@ -1,0 +1,58 @@
+push r12
+lea rax, [rdx + rdx*4]
+push rbp
+lea r8, [rsi + rax*8]
+sub rsp, 0x18
+cmp r8, rsi
+je 0x800e66d
+mov rax, rsi
+cmp dword [rax + 0x20], 1
+je 0x800e650
+mov rax, qword [rcx]
+mov qword [rcx], 0
+lea rbp, [var_8h]
+mov rcx, rbp
+mov qword [var_8h], rax
+call _ZN5boost4json9value_ref10make_arrayESt16initializer_listIS1_ENS0_11storage_ptrE
+mov rdi, qword [var_8h]
+test dil, 1
+jne 0x800e6b0
+add rsp, 0x18
+pop rbp
+pop r12
+ret
+nop dword [rax]
+cmp qword [rax + 8], 2
+jne 0x800e61d
+mov r9, qword [rax]
+test dword [r9 + 0x20], 0xfffffffb
+jne 0x800e61d
+add rax, 0x28
+cmp r8, rax
+jne 0x800e617
+mov rax, qword [rcx]
+mov qword [rcx], 0
+lea rbp, [var_8h]
+mov rcx, rbp
+mov qword [var_8h], rax
+call _ZN5boost4json9value_ref11make_objectESt16initializer_listIS1_ENS0_11storage_ptrE
+mov rdi, qword [var_8h]
+test dil, 1
+je 0x800e644
+and rdi, 0xfffffffffffffffc
+lock sub qword [rdi + 8], 1
+jne 0x800e644
+test rdi, rdi
+je 0x800e644
+mov rax, qword [rdi]
+call qword [rax + 8]
+jmp 0x800e644
+nop dword [rax]
+and rdi, 0xfffffffffffffffc
+mov rax, 0xffffffffffffffff
+lock xadd qword [rdi + 8], rax
+test rdi, rdi
+je 0x800e644
+cmp rax, 1
+jne 0x800e644
+jmp 0x800e6a5

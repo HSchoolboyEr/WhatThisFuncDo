@@ -1,0 +1,7 @@
+test rsi, rsi
+je 0x800627b
+mov dword [rsi], 0
+mov qword [rsi + 8], 0
+mov qword [rsi + 0x10], 0
+mov edx, 0xffffff9c
+jmp method boost::filesystem::detail::(anonymous namespace)::remove_all_impl(boost::filesystem::path const&, boost::system::error_code*, int)

@@ -1,0 +1,27 @@
+push rbp
+push rbx
+mov rbx, rdi
+sub rsp, 8
+cmp rdi, rsi
+je 0x80001ad
+mov rbp, rsi
+jmp 0x80001a1
+nop dword [rax + rax]
+add rbx, 1
+cmp rbp, rbx
+je 0x80001c0
+movsx edi, byte [rbx]
+call isspace
+test eax, eax
+jne 0x8000198
+add rsp, 8
+mov rax, rbx
+pop rbx
+pop rbp
+ret
+nop word [rax + rax]
+add rsp, 8
+mov rax, rbp
+pop rbx
+pop rbp
+ret

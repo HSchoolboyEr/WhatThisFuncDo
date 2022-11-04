@@ -1,0 +1,9 @@
+lea rdx, [rdi + 0x10]
+mov dword [rdi + 0x10], 0x6f647473
+mov rax, rdi
+mov qword [rdi], rdx
+mov edx, 0x7475
+mov word [rdi + 0x14], dx
+mov qword [rdi + 8], 6
+mov byte [rdi + 0x16], 0
+ret

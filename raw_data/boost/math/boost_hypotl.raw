@@ -1,0 +1,59 @@
+sub rsp, 0x18
+fld xword [rsp + 0x20]
+fld xword [rsp + 0x30]
+fabs
+fld xword [0x08000054]
+fxch st(1)
+fucomi st(1)
+ja 0x8000070
+fxch st(2)
+fabs
+fucomi st(1)
+fstp st(1)
+jbe 0x80000a0
+fstp st(0)
+fstp st(0)
+jmp __errno_location
+nop word [rax + rax]
+fstp st(0)
+fstp st(0)
+fstp st(0)
+call __errno_location
+fld dword [0x08000081]
+mov dword [rax], 0x22
+jmp 0x8000092
+nop dword [rax]
+fstp st(0)
+add rsp, 0x18
+ret
+nop word [rax + rax]
+fxch st(1)
+fcomi st(1)
+jbe 0x80000a8
+fxch st(1)
+fld st(1)
+fmul dword [0x080000b0]
+fcompi st(1)
+jae 0x8000090
+fdiv st(1)
+fmul st(0)
+fld1
+faddp st(1)
+fldz
+fucompi st(1)
+ja 0x80000cb
+fsqrt
+fmulp st(1)
+add rsp, 0x18
+ret
+fxch st(1)
+fstp xword [rsp]
+push rax
+push rax
+fstp xword [rsp]
+call sqrtl
+pop rdx
+pop rcx
+fld xword [rsp]
+fmulp st(1)
+jmp 0x80000c6

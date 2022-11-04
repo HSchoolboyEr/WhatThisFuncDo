@@ -1,0 +1,20 @@
+lea rax, [0x080069a7]
+push rbx
+lea rdx, [0x080069af]
+mov rbx, rdi
+mov qword [rdi - 0x28], rax
+lea rax, [0x080069bd]
+movq xmm0, rdx
+movq xmm1, rax
+punpcklqdq xmm0, xmm1
+movups xmmword [rdi], xmm0
+call _ZNSt13bad_exceptionD2Ev
+mov rdi, qword [rbx - 0x20]
+lea rax, [0x080069de]
+mov qword [rbx - 0x28], rax
+test rdi, rdi
+je 0x80069ed
+mov rax, qword [rdi]
+call qword [rax + 0x20]
+pop rbx
+ret

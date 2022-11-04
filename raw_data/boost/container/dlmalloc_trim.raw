@@ -1,0 +1,45 @@
+cmp qword [0x08005df8], 0
+push r12
+push rbp
+mov rbp, rdi
+push rbx
+je 0x8005e70
+test byte [0x08005e08], 2
+je 0x8005e21
+mov eax, 1
+xchg dword [0x08005e15], eax
+xor ebx, ebx
+mov r12d, 1
+test eax, eax
+jne 0x8005e45
+mov rsi, rbp
+lea rdi, [0x08005e2b]
+call sym.sys_trim
+test byte [0x08005e37], 2
+jne 0x8005e80
+pop rbx
+pop rbp
+pop r12
+ret
+nop
+call sched_yield
+mov eax, dword [0x08005e4b]
+test eax, eax
+jne 0x8005e5c
+mov eax, r12d
+xchg dword [0x08005e58], eax
+test eax, eax
+je 0x8005e21
+add ebx, 1
+test bl, 0x3f
+jne 0x8005e45
+jmp sched_yield
+nop word cs:[rax + rax]
+call sym.init_mparams.isra.0
+jmp 0x8005e01
+nop word [rax + rax]
+mov dword [0x08005e8a], 0
+pop rbx
+pop rbp
+pop r12
+ret

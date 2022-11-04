@@ -1,0 +1,15 @@
+lea rax, [rdi + 0x10]
+mov qword [rdi + 8], 0
+mov qword [rdi], rax
+lea rax, [rdi + 0x30]
+mov qword [rdi + 0x20], rax
+lea rax, [rdi + 0x60]
+mov byte [rdi + 0x10], 0
+mov qword [rdi + 0x28], 0
+mov byte [rdi + 0x30], 0
+mov dword [rdi + 0x48], 0
+mov byte [rdi + 0x4c], 0
+mov qword [rdi + 0x50], rax
+mov qword [rdi + 0x58], 0
+mov byte [rdi + 0x60], 0
+ret

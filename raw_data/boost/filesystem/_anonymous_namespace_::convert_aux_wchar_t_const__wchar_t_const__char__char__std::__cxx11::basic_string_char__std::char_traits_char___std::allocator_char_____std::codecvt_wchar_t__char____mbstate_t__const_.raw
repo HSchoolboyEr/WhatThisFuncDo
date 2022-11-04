@@ -1,0 +1,36 @@
+push r13
+mov r11, rsi
+mov r10, rdi
+mov rdi, r9
+push r12
+mov r12, rdx
+push rbp
+mov rbp, r8
+sub rsp, 0x20
+mov rax, qword [r9]
+mov r9, r12
+lea rdx, [var_10h]
+lea rsi, [var_18h]
+mov qword [var_18h], 0
+push rdx
+mov rdx, r10
+push rcx
+mov rcx, r11
+lea r8, [var_18h_2]
+call qword [rax + 0x10]
+pop rdx
+pop rcx
+test eax, eax
+jne .text.unlikely
+mov r8, qword [arg_10h]
+mov rsi, qword [arg_8h]
+mov rcx, r12
+mov rdi, rbp
+xor edx, edx
+sub r8, r12
+call _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE10_M_replaceEmmPKcm
+add rsp, 0x20
+pop rbp
+pop r12
+pop r13
+ret

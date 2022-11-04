@@ -1,0 +1,8 @@
+mov rdi, qword [arg_10h]
+cmp rdi, r15
+je 0x8000cd7
+mov rax, qword [arg_20h]
+lea rsi, [rax + 1]
+call _ZdlPvm
+mov rdi, rbp
+call _Unwind_Resume

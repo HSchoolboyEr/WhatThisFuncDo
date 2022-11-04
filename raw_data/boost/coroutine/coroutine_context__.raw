@@ -1,0 +1,5 @@
+pxor xmm0, xmm0
+mov qword [rdi], 0
+movups xmmword [rdi + 8], xmm0
+movups xmmword [rdi + 0x18], xmm0
+ret

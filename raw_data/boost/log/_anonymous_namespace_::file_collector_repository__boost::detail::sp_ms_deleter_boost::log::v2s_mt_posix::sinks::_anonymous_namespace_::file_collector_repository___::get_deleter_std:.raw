@@ -1,0 +1,20 @@
+push r12
+push rbx
+mov rbx, rdi
+sub rsp, 8
+mov rdi, qword [rsi + 8]
+lea rsi, [0x08000e35]
+cmp rdi, rsi
+je 0x8000e4b
+xor r12d, r12d
+cmp byte [rdi], 0x2a
+je 0x8000e4f
+call strcmp
+test eax, eax
+jne 0x8000e4f
+lea r12, [rbx + 0x18]
+add rsp, 8
+mov rax, r12
+pop rbx
+pop r12
+ret

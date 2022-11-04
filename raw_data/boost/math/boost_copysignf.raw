@@ -1,0 +1,15 @@
+movd edx, xmm1
+movd eax, xmm0
+and edx, 0x80000000
+test eax, eax
+jns 0x8000060
+test edx, edx
+je 0x8000064
+movd xmm0, eax
+ret
+nop dword [rax + rax]
+test edx, edx
+je 0x8000056
+add eax, 0x80000000
+movd xmm0, eax
+ret

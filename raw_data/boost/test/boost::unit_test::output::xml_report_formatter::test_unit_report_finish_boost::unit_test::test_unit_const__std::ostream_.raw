@@ -1,0 +1,28 @@
+push rbp
+mov rbp, rdx
+mov edx, 2
+push rbx
+mov rdi, rbp
+mov rbx, rsi
+lea rsi, [0x08000117]
+sub rsp, 0x18
+call _ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l
+xor edx, edx
+cmp dword [rbx], 1
+mov rdi, rbp
+setne dl
+lea rax, [0x08000132]
+lea rsi, [0x08000139]
+add rdx, 8
+cmp dword [rbx], 1
+cmovne rsi, rax
+call _ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l
+lea rsi, [var_fh]
+mov rdi, rbp
+mov edx, 1
+mov byte [var_fh], 0x3e
+call _ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l
+add rsp, 0x18
+pop rbx
+pop rbp
+ret

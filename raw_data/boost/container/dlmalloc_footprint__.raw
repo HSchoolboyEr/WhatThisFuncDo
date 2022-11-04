@@ -1,0 +1,2 @@
+jmp boost_cont_footprint
+nop word cs:[rax + rax]

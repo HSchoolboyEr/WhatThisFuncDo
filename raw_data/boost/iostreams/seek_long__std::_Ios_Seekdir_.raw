@@ -1,0 +1,31 @@
+push r12
+xor r8d, r8d
+push rbp
+sub rsp, 0x28
+mov rax, qword [rdi]
+test edx, edx
+je 0x8001aff
+xor r8d, r8d
+cmp edx, 1
+setne r8b
+add r8d, 1
+mov edi, dword [rax]
+mov edx, r8d
+call lseek64
+cmp rax, 0xffffffffffffffff
+je 0x8001b19
+add rsp, 0x28
+xor edx, edx
+pop rbp
+pop r12
+ret
+mov r12, rsp
+lea rsi, [0x08001b23]
+mov rdi, r12
+call _ZN5boost9iostreams6detail14system_failureB5cxx11EPKc
+mov rdi, r12
+call _ZN5boost15throw_exceptionINSt8ios_base7failureB5cxx11EEEvRKT_
+mov rbp, rax
+jmp .text.unlikely
+nop
+nop dword [rax]

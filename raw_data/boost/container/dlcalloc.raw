@@ -1,0 +1,38 @@
+push r12
+mov r12, rdi
+test rdi, rdi
+je 0x8005035
+mov rax, rdi
+mov rcx, rdi
+or rax, rsi
+imul rcx, rsi
+test rax, 0xffffffffffff0000
+je 0x8005058
+xor edx, edx
+mov rax, rcx
+mov r12, 0xffffffffffffffff
+div rdi
+cmp rax, rsi
+cmove r12, rcx
+mov rdi, r12
+call dlmalloc
+mov r8, rax
+test rax, rax
+je 0x800504b
+test byte [rax - 8], 3
+jne 0x8005060
+mov rax, r8
+pop r12
+ret
+nop dword [rax]
+mov r12, rcx
+jmp 0x8005035
+nop dword [rax]
+mov rdx, r12
+xor esi, esi
+mov rdi, rax
+call memset
+pop r12
+mov r8, rax
+mov rax, r8
+ret

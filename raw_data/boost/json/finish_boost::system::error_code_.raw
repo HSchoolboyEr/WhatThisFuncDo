@@ -1,0 +1,6 @@
+mov r8, rsi
+xor ecx, ecx
+xor edx, edx
+xor esi, esi
+jmp _ZN5boost4json12basic_parserINS0_6detail7handlerEE10write_someEbPKcmRNS_6system10error_codeE
+nop

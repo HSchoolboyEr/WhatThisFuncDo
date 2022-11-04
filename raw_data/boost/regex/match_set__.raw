@@ -1,0 +1,34 @@
+push r12
+push rbp
+push rbx
+mov rbp, qword [rdi + 0x28]
+cmp rbp, qword [rdi + 0x20]
+je 0x80047b0
+mov rbx, rdi
+mov r12, qword [rdi + 0x58]
+mov edi, dword [rbp]
+cmp byte [rbx + 0x78], 0
+jne towlower
+movzx edi, dil
+xor eax, eax
+cmp byte [r12 + rdi + 0x10], 0
+je 0x8004792
+add rbp, 4
+mov rax, qword [r12 + 8]
+mov qword [rbx + 0x28], rbp
+mov qword [rbx + 0x58], rax
+mov eax, 1
+pop rbx
+pop rbp
+pop r12
+ret
+nop word [rax + rax]
+call towlower
+mov edi, eax
+jmp 0x800476e
+nop dword [rax]
+pop rbx
+xor eax, eax
+pop rbp
+pop r12
+ret

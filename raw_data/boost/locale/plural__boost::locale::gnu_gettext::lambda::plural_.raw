@@ -1,0 +1,23 @@
+push rbp
+mov rbp, rsi
+push rbx
+mov rbx, rdi
+sub rsp, 8
+mov qword [rdi], rsi
+mov qword [rdi + 8], 0
+mov edi, 0x18
+call _Znwm
+mov rdx, qword [0x0800cd08]
+mov rdi, qword [rbx + 8]
+lea rcx, [0x0800cd13]
+mov qword [rax + 0x10], rbp
+mov qword [rax], rcx
+mov qword [rax + 8], rdx
+mov qword [rbx + 8], rax
+test rdi, rdi
+je 0x800cd2c
+call _ZN5boost6detail15sp_counted_base7releaseEv
+add rsp, 8
+pop rbx
+pop rbp
+ret

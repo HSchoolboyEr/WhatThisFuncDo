@@ -1,0 +1,22 @@
+mov rax, qword [rsi]
+test rax, rax
+je 0x800a970
+mov qword [rdi], rax
+lea r9, [rdi + 8]
+lea r8, [rsi + 8]
+test al, 1
+jne 0x800a978
+and rax, 0xfffffffffffffffe
+xor edx, edx
+mov rsi, r9
+mov rdi, r8
+mov rax, qword [rax]
+jmp rax
+nop dword [rax + rax]
+ret
+nop dword [rax]
+movdqu xmm0, xmmword [rsi + 8]
+movups xmmword [rdi + 8], xmm0
+mov rax, qword [r8 + 0x10]
+mov qword [r9 + 0x10], rax
+ret

@@ -1,0 +1,27 @@
+mov esi, 0x18
+jmp _ZdlPvm
+nop word [rax + rax]
+push rbp
+lea rax, [0x080013e8]
+cmp byte [rdi + 0x18], 0
+mov rbp, rdi
+mov qword [rdi], rax
+jne closelog
+mov rdi, rbp
+mov esi, 0x40
+pop rbp
+jmp _ZdlPvm
+nop word [rax + rax]
+call closelog
+mov rdi, qword [arg_20h]
+lea rax, [arg_30h]
+cmp rdi, rax
+je 0x80013f4
+mov rax, qword [arg_30h]
+lea rsi, [rax + 1]
+call _ZdlPvm
+mov rdi, rbp
+mov esi, 0x40
+pop rbp
+jmp _ZdlPvm
+nop word cs:[rax + rax]

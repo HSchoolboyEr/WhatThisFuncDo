@@ -1,0 +1,77 @@
+push r14
+push r13
+push r12
+push rbp
+mov rbp, rdi
+push rbx
+mov rbx, rsi
+sub rsp, 0x90
+mov r13d, dword [rsi]
+cmp r13d, 2
+je 0x8000840
+xor r14d, r14d
+call __errno_location
+cmp byte [rbx + 0x68], 0
+mov dword [rax], 0
+mov r12, rax
+jne 0x80008ba
+mov rdi, qword [rbx + 0x28]
+mov edx, 0x1c0
+mov esi, r14d
+xor eax, eax
+call open
+mov dword [arg_80h], eax
+mov edx, dword [r12]
+test edx, edx
+jne .LC14
+mov rsi, qword [rbx + 0x18]
+test rsi, rsi
+je 0x800081d
+cmp r13d, 2
+je 0x8000890
+mov rax, qword [rbx + 0x10]
+cmp rax, 0xffffffffffffffff
+je 0x8000860
+mov qword [arg_78h], rax
+add rsp, 0x90
+pop rbx
+pop rbp
+pop r12
+pop r13
+pop r14
+ret
+nop dword [rax + rax]
+cmp qword [rsi + 0x18], 1
+sbb r14d, r14d
+and r14d, 0xfffffdc0
+add r14d, 0x242
+jmp __errno_location
+nop dword [rax + rax]
+mov esi, dword [arg_80h]
+mov rdx, rsp
+mov edi, 1
+call __fxstat64
+mov rdx, qword [var_30h]
+mov qword [arg_78h], rdx
+cmp eax, 0xffffffff
+jne 0x800082b
+lea rsi, [0x08000888]
+mov rdi, rbp
+call _ZN5boost9iostreams6detail16mapped_file_impl17cleanup_and_throwEPKc
+add byte [rax], al
+add byte [rax], al
+mov edi, eax
+call ftruncate64
+cmp eax, 0xffffffff
+jne 0x800081d
+lea rsi, [0x080008a3]
+mov rdi, rbp
+call _ZN5boost9iostreams6detail16mapped_file_impl17cleanup_and_throwEPKc
+lea rsi, [0x080008b2]
+mov rdi, rbp
+call _ZN5boost9iostreams6detail16mapped_file_impl17cleanup_and_throwEPKc
+mov dword [rax], 0x16
+lea rsi, [0x080008c7]
+mov rdi, rbp
+call _ZN5boost9iostreams6detail16mapped_file_impl17cleanup_and_throwEPKc
+nop

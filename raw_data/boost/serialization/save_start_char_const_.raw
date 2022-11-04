@@ -1,0 +1,92 @@
+test rsi, rsi
+je 0x80033e0
+push r13
+mov r13, rsi
+push r12
+mov r12, rdi
+mov rdi, rsi
+push rbp
+push rbx
+mov rbx, r13
+sub rsp, 0x98
+call strlen
+lea rbp, [r13 + rax]
+cmp rbp, r13
+je 0x8003349
+nop dword [rax]
+movsx edi, byte [rbx]
+add rbx, 1
+call .text
+cmp rbp, rbx
+jne 0x8003338
+mov rdi, r12
+call _ZN5boost7archive18basic_xml_oarchiveINS0_13xml_woarchiveEE12end_preambleEv
+mov eax, dword [r12 + 0x28]
+test eax, eax
+jne 0x80033b0
+mov rdi, qword [r12 + 0x30]
+add eax, 1
+mov dword [r12 + 0x28], eax
+mov rax, qword [rdi]
+mov rax, qword [rax - 0x18]
+test byte [rdi + rax + 0x20], 5
+jne 0x80033fd
+mov esi, 0x3c
+call _ZNSt13basic_ostreamIwSt11char_traitsIwEE3putEw
+mov rsi, r13
+mov rdi, r12
+call _ZN5boost7archive18xml_woarchive_implINS0_13xml_woarchiveEE4saveEPKc
+mov eax, 1
+mov word [r12 + 0x2c], ax
+add rsp, 0x98
+pop rbx
+pop rbp
+pop r12
+pop r13
+ret
+nop word [rax + rax]
+mov rdi, qword [r12 + 0x30]
+mov rax, qword [rdi]
+mov rax, qword [rax - 0x18]
+test byte [rdi + rax + 0x20], 5
+jne 0x80033e1
+mov esi, 0xa
+call _ZNSt13basic_ostreamIwSt11char_traitsIwEE3putEw
+mov rdi, r12
+call _ZN5boost7archive18basic_xml_oarchiveINS0_13xml_woarchiveEE6indentEv
+add byte [rax], al
+add byte [rax], al
+mov eax, dword [r12 + 0x28]
+jmp 0x800335a
+nop
+ret
+mov r12, rsp
+xor ecx, ecx
+xor edx, edx
+mov esi, 0xd
+mov rdi, r12
+call _ZN5boost7archive17archive_exceptionC1ENS1_14exception_codeEPKcS4_
+mov rdi, r12
+call _ZN5boost13serialization15throw_exceptionINS_7archive17archive_exceptionEEEvRKT_
+mov r12, rsp
+xor ecx, ecx
+xor edx, edx
+mov esi, 0xd
+mov rdi, r12
+call _ZN5boost7archive17archive_exceptionC1ENS1_14exception_codeEPKcS4_
+mov rdi, r12
+call _ZN5boost13serialization15throw_exceptionINS_7archive17archive_exceptionEEEvRKT_
+mov rbp, rax
+jmp 0x8003423
+mov rbp, rax
+jmp 0x8003433
+mov rdi, r12
+call _ZN5boost7archive17archive_exceptionD1Ev
+mov rdi, rbp
+call _Unwind_Resume
+mov rdi, r12
+call _ZN5boost7archive17archive_exceptionD1Ev
+mov rdi, rbp
+call _Unwind_Resume
+cmp al, 0x2f
+add bh, bh

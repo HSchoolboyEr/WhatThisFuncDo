@@ -1,0 +1,39 @@
+push r12
+push rbp
+mov rbp, rsi
+push rbx
+sub rsp, 0xc0
+mov rsi, qword [rdi + 0x30]
+mov rdi, qword [rdi + 0x90]
+mov r12, rsp
+lea rbx, [var_10h]
+mov qword [var_8h], 0
+mov rdx, r12
+mov qword [rsp], rbx
+mov dword [var_10h], 0
+call _ZN5boost7archive17basic_xml_grammarIwE12parse_stringERSt13basic_istreamIwSt11char_traitsIwEERNSt7__cxx1112basic_stringIwS5_SaIwEEE
+test al, al
+jne 0x8002030
+lea rbp, [var_20h]
+xor ecx, ecx
+xor edx, edx
+xor esi, esi
+mov rdi, rbp
+call _ZN5boost7archive21xml_archive_exceptionC1ENS1_14exception_codeEPKcS4_
+mov rdi, rbp
+call _ZN5boost13serialization15throw_exceptionINS_7archive21xml_archive_exceptionEEEvRKT_
+nop dword [rax]
+mov rsi, r12
+mov rdi, rbp
+call .text
+mov rdi, qword [rsp]
+cmp rdi, rbx
+je 0x8002056
+mov rax, qword [var_10h]
+lea rsi, [rax*4 + 4]
+call _ZdlPvm
+add rsp, 0xc0
+pop rbx
+pop rbp
+pop r12
+ret

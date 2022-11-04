@@ -1,0 +1,31 @@
+push r12
+push rbp
+push rbx
+mov rbp, qword [rdi]
+mov rbx, rdi
+mov rdi, rbp
+call pthread_rwlock_wrlock
+mov edi, 0x20
+mov rbx, qword [rbx]
+call _Znwm
+lea rdx, [0x08000d96]
+lea rcx, [0x08000d9d]
+movq xmm1, rdx
+movq xmm0, rcx
+lea rsi, [0x08000dae]
+punpcklqdq xmm0, xmm1
+mov qword [rax + 0x10], rsi
+movups xmmword [rax], xmm0
+mov rdx, qword [rbx + 0x78]
+mov qword [rbx + 0x78], rax
+test rdx, rdx
+je 0x8000dcc
+mov rdi, rdx
+call qword [rdx + 0x10]
+pop rbx
+mov rdi, rbp
+pop rbp
+pop r12
+jmp pthread_rwlock_unlock
+mov r12, rax
+jmp method boost::log::v2s_mt_posix::core::set_exception_handler(boost::log::v2s_mt_posix::aux::light_function<void ()> const&)

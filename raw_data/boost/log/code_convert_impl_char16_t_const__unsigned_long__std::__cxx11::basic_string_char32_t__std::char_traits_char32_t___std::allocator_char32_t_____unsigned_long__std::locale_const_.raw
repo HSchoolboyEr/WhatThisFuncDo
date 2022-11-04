@@ -1,0 +1,81 @@
+push r15
+push r14
+push r13
+mov r13, rcx
+push r12
+mov r12, rdx
+push rbp
+mov rbp, rdi
+lea rdi, [0x08000869]
+push rbx
+mov rbx, r8
+sub rsp, 0x38
+lea r14, [var_20h]
+mov qword [var_8h], rsi
+mov qword [var_10h], r14
+mov qword [var_18h], 0
+mov byte [var_20h], 0
+call _ZNKSt6locale2id5_M_idEv
+mov rdx, qword [rbx]
+mov rcx, qword [rdx + 8]
+cmp rax, qword [rdx + 0x10]
+jae _ZSt16__throw_bad_castv
+mov rdi, qword [rcx + rax*8]
+test rdi, rdi
+je _ZSt16__throw_bad_castv
+xor ecx, ecx
+lea rdx, [0x080008ba]
+lea rsi, [0x080008c1]
+call __dynamic_cast
+mov r8, rax
+test rax, rax
+je .text.unlikely
+mov rax, qword [arg_8h]
+lea r15, [arg_10h]
+mov rdi, rbp
+movabs rcx, 0x3fffffffffffffff
+mov rdx, r15
+lea rsi, [rbp + rax*2]
+call _ZN5boost3log12v2s_mt_posix3aux12code_convertIDscSt7codecvtIDsc11__mbstate_tEEEmPKT_S9_RNSt7__cxx1112basic_stringIT0_St11char_traitsISC_ESaISC_EEEmRKT1_
+lea rdi, [0x080008fd]
+mov rbp, qword [arg_18h]
+call _ZNKSt6locale2id5_M_idEv
+mov rdx, qword [rbx]
+mov rcx, qword [rdx + 8]
+cmp rax, qword [rdx + 0x10]
+jae _ZSt16__throw_bad_castv
+mov rdi, qword [rcx + rax*8]
+test rdi, rdi
+je _ZSt16__throw_bad_castv
+xor ecx, ecx
+lea rdx, [0x08000926]
+lea rsi, [0x0800092d]
+call __dynamic_cast
+mov r8, rax
+test rax, rax
+je .text.unlikely
+mov rdi, qword [arg_10h]
+mov rcx, r13
+mov rdx, r12
+lea rsi, [rdi + rbp]
+call _ZN5boost3log12v2s_mt_posix3aux12code_convertIcDiSt7codecvtIDic11__mbstate_tEEEmPKT_S9_RNSt7__cxx1112basic_stringIT0_St11char_traitsISC_ESaISC_EEEmRKT1_
+mov rdi, qword [arg_10h]
+cmp rbp, rax
+sete r12b
+cmp rdi, r14
+je 0x8000971
+mov rax, qword [arg_20h]
+lea rsi, [rax + 1]
+call _ZdlPvm
+add rsp, 0x38
+mov eax, r12d
+pop rbx
+pop rbp
+pop r12
+pop r13
+pop r14
+pop r15
+ret
+call _ZSt16__throw_bad_castv
+call _ZSt16__throw_bad_castv
+jmp .text.unlikely

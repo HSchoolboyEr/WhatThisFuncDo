@@ -1,0 +1,175 @@
+push r14
+push r13
+push r12
+push rbp
+mov rbp, rdx
+push rbx
+mov rbx, rcx
+sub rsp, 0x40
+test edi, 0x100
+je 0x8001f80
+and edi, 0xfffffeff
+xor r13d, r13d
+cmp edi, 0x15
+jg 0x8001f6b
+movsxd rdi, edi
+lea rax, [0x08001f52]
+mov r12, qword [rax + rdi*8]
+mov rdi, r12
+call strlen
+lea r13, [rax + 1]
+cmp rbx, r13
+jae 0x8002038
+add rsp, 0x40
+mov rax, r13
+pop rbx
+pop rbp
+pop r12
+pop r13
+pop r14
+ret
+nop dword [rax + rax]
+cmp edi, 0xff
+je 0x8002050
+cmp edi, 0x15
+jg 0x8002020
+lea r12, [arg_10h]
+movsxd rdi, edi
+lea rax, [0x08001fa4]
+add byte [rax], al
+add byte [rax], al
+mov qword [arg_8h], 0
+mov qword [rsp], r12
+mov r13, qword [rax + rdi*8]
+mov byte [arg_10h], 0
+test rsi, rsi
+je 0x8001fcb
+cmp dword [rsi], 0x641f
+je 0x8002170
+mov rdi, r13
+call strlen
+mov rdi, rsp
+mov rcx, r13
+xor edx, edx
+mov r8, rax
+xor esi, esi
+call _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE10_M_replaceEmmPKcm
+mov r13, qword [arg_8h]
+mov r14, qword [rsp]
+cmp rbx, r13
+ja strlen
+add r13, 1
+cmp r14, r12
+je 0x8001f6b
+mov rax, qword [arg_10h]
+mov rdi, r14
+lea rsi, [rax + 1]
+call _ZdlPvm
+jmp 0x8001f6b
+nop word [rax + rax]
+xor r13d, r13d
+test rcx, rcx
+je 0x8001f6b
+mov byte [rdx], 0
+jmp 0x8001f6b
+nop dword [rax]
+mov rdx, r13
+mov rsi, r12
+mov rdi, rbp
+call memcpy
+jmp 0x8001f6b
+nop dword [rax + rax]
+test rsi, rsi
+je 0x8002168
+mov r13, qword [rsi + 0x10]
+xor r12d, r12d
+lea r14, [0x08002067]
+jmp 0x800207a
+nop dword [rax]
+add r12, 1
+cmp r12, 0x16
+je 0x80020e8
+mov rsi, qword [r14 + r12*8]
+mov rdi, r13
+call strcmp
+test eax, eax
+jne 0x8002070
+lea r14, [arg_20h]
+mov edx, r12d
+lea rsi, [0x08002099]
+mov rdi, r14
+call sprintf
+mov rdi, r14
+call strlen
+lea rdx, [rax + 1]
+mov r13, rdx
+cmp rax, rbx
+jae 0x8001f6b
+cmp rbx, rdx
+jb 0x8001f6b
+mov edi, edx
+test edx, edx
+je 0x80020dd
+xor eax, eax
+mov ecx, eax
+add eax, 1
+movzx esi, byte [r14 + rcx]
+mov byte [rbp + rcx], sil
+cmp eax, edi
+jb 0x80020ca
+mov r13, rdx
+jmp 0x8001f6b
+nop dword [rax]
+lea r12, [arg_20h]
+xor edx, edx
+lea rsi, [0x080020f6]
+xor eax, eax
+mov rdi, r12
+call sprintf
+mov rdi, r12
+call strlen
+lea rdx, [rax + 1]
+mov r13, rdx
+cmp rax, rbx
+jae 0x8001f6b
+cmp rbx, rdx
+jb 0x8001f6b
+mov edi, edx
+test edx, edx
+je 0x80020dd
+xor eax, eax
+mov ecx, eax
+add eax, 1
+movzx esi, byte [r12 + rcx]
+mov byte [rbp + rcx], sil
+cmp eax, edi
+jb 0x8002129
+jmp 0x80020dd
+nop
+mov rdi, r14
+call strlen
+lea rdx, [rax + 1]
+cmp rbx, rdx
+jb 0x8001ff7
+mov rsi, r14
+mov rdi, rbp
+call memcpy
+jmp 0x8001ff7
+nop dword [rax]
+xor r13d, r13d
+jmp 0x8001f6b
+lea r14, [arg_20h]
+mov rsi, r13
+mov rdi, r14
+call method std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >::basic_string(char const*, std::allocator<char> const&) [clone .constprop.0]
+mov rdi, rsp
+mov rsi, r14
+call method std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >::operator=(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >&&) [clone .isra.0]
+mov rdi, qword [arg_20h]
+lea rax, [arg_30h]
+cmp rdi, rax
+je 0x8001fe5
+mov rax, qword [arg_30h]
+lea rsi, [rax + 1]
+call _ZdlPvm
+jmp 0x8001fe5

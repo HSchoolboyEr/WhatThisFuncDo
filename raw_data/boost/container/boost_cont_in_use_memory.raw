@@ -1,0 +1,2 @@
+mov rax, qword [0x08009047]
+ret

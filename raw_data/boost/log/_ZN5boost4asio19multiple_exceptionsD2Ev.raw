@@ -1,0 +1,11 @@
+lea rax, [0x08005137]
+push rbp
+mov rbp, rdi
+lea rdi, [rdi + 8]
+mov qword [rdi - 8], rax
+call _ZNSt15__exception_ptr13exception_ptrD1Ev
+mov rdi, rbp
+pop rbp
+jmp _ZNSt9exceptionD2Ev
+add byte [rax], al
+add byte [rax], al

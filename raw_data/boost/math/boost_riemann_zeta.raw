@@ -1,0 +1,67 @@
+push rbp
+mov rbp, rsp
+sub rsp, 0x30
+movsd qword [var_8h], xmm0
+fld qword [rbp - 8]
+fld st(0)
+fld1
+fsubrp st(2)
+fxch st(1)
+fstp xword [rsp + 0x10]
+fstp xword [rsp]
+call fcn.080016f0
+fld st(0)
+add rsp, 0x20
+fabs
+fxch st(1)
+fst qword [rbp - 8]
+fld qword [0x08002887]
+fxch st(2)
+movsd xmm0, qword [var_8h]
+fcomi st(2)
+fstp st(2)
+ja 0x80028e0
+fldz
+fucomi st(1)
+jp 0x80028be
+fcompi st(1)
+fstp st(0)
+jne 0x80028c8
+fld qword [0x080028a6]
+fcompi st(1)
+fstp st(0)
+jbe 0x80028bc
+pxor xmm1, xmm1
+ucomisd xmm0, xmm1
+jp 0x80028e4
+comisd xmm0, xmm1
+jne 0x80028e4
+leave
+ret
+fstp st(0)
+fstp st(0)
+nop word [rax + rax]
+pxor xmm2, xmm2
+ucomisd xmm0, xmm2
+jnp 0x8002900
+fld qword [0x080028d8]
+fcompi st(1)
+fstp st(0)
+jbe 0x80028bc
+jmp 0x80028e4
+fstp st(0)
+fstp st(0)
+movsd qword [var_8h], xmm0
+call __errno_location
+movsd xmm0, qword [var_8h]
+mov dword [rax], 0x22
+leave
+ret
+nop dword [rax + rax]
+jne 0x80028d2
+fstp st(0)
+call __errno_location
+pxor xmm0, xmm0
+mov dword [rax], 0x22
+leave
+ret

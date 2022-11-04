@@ -1,0 +1,22 @@
+push rbp
+mov rbp, qword [rdi + 0x10]
+test rbp, rbp
+je 0x8003fc0
+mov edi, dword [rbp]
+cmp edi, 0xffffffff
+je 0x8003fa8
+test byte [arg_4h], 1
+jne close
+mov rdi, rbp
+mov esi, 8
+pop rbp
+jmp _ZdlPvm
+nop word cs:[rax + rax]
+pop rbp
+ret
+nop word [rax + rax]
+call close
+mov rdi, rbp
+mov esi, 8
+pop rbp
+jmp _ZdlPvm

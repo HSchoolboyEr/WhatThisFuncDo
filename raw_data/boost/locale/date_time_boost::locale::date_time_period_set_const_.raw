@@ -1,0 +1,139 @@
+push r14
+push r13
+push r12
+mov r12, rdi
+push rbp
+push rbx
+mov rbx, rsi
+sub rsp, 0x20
+mov rbp, rsp
+mov rdi, rbp
+call _ZNSt6localeC1Ev
+lea rdi, [0x080023e4]
+call _ZNKSt6locale2id5_M_idEv
+mov rdx, qword [rsp]
+mov rcx, qword [rdx + 8]
+cmp rax, qword [rdx + 0x10]
+jae _ZSt16__throw_bad_castv
+mov rdi, qword [rcx + rax*8]
+test rdi, rdi
+je _ZSt16__throw_bad_castv
+xor ecx, ecx
+lea rdx, [0x08002411]
+lea rsi, [0x08002418]
+call __dynamic_cast
+mov rdi, rax
+test rax, rax
+je .text.unlikely
+mov rax, qword [rax]
+call qword [rax + 0x10]
+mov qword [r12], rax
+mov rdi, rbp
+call _ZNSt6localeD1Ev
+mov r13, qword [r12]
+mov rdi, rbp
+mov rax, qword [r13]
+mov r14, qword [rax + 0x50]
+call _ZN5boost6locale9time_zone6globalB5cxx11Ev
+mov rsi, rbp
+mov rdi, r13
+call r14
+mov rdi, qword [rsp]
+lea rax, [arg_10h]
+cmp rdi, rax
+je 0x8002474
+mov rax, qword [arg_10h]
+lea rsi, [rax + 1]
+call _ZdlPvm
+mov edx, dword [rbx]
+xor ebp, ebp
+xor eax, eax
+test edx, edx
+je 0x8002557
+nop word [rax + rax]
+mov rdi, qword [r12]
+mov esi, dword [rbx + 8]
+mov rcx, qword [rdi]
+test esi, esi
+je 0x8002570
+mov r14d, dword [rbx + 0x10]
+test r14d, r14d
+je 0x8002590
+mov r13d, dword [rbx + 0x18]
+mov edx, 3
+test r13d, r13d
+je 0x80024c5
+mov rdx, qword [rbx + 0x28]
+sub rdx, qword [rbx + 0x20]
+sar rdx, 3
+add rdx, 4
+cmp rax, rdx
+jae 0x800255b
+mov r8, qword [rcx + 8]
+mov ecx, dword [rbx + 0x18]
+mov edx, 3
+test ecx, ecx
+je 0x80024ee
+mov rdx, qword [rbx + 0x28]
+sub rdx, qword [rbx + 0x20]
+sar rdx, 3
+add rdx, 4
+cmp rdx, rax
+jbe .text.unlikely
+cmp rax, 3
+jbe 0x8002579
+mov rdx, qword [rbx + 0x20]
+lea rcx, [rdx + rax*8 - 0x20]
+mov r9d, dword [rcx + 4]
+mov r11d, dword [rbx + 0x10]
+mov edx, 2
+test r11d, r11d
+je 0x8002536
+mov r10d, dword [rbx + 0x18]
+mov edx, 3
+test r10d, r10d
+je 0x8002536
+mov rdx, qword [rbx + 0x28]
+sub rdx, qword [rbx + 0x20]
+sar rdx, 3
+add rdx, 4
+cmp rax, rdx
+jae .text.unlikely
+mov esi, dword [rcx]
+mov edx, r9d
+call r8
+mov esi, dword [rbx]
+lea eax, [arg_1h]
+mov rbp, rax
+test esi, esi
+jne 0x8002488
+mov rdi, qword [r12]
+mov rax, qword [rdi]
+call qword [rax + 0x10]
+add rsp, 0x20
+pop rbx
+pop rbp
+pop r12
+pop r13
+pop r14
+ret
+nop
+test rax, rax
+jne 0x800255b
+mov r8, qword [rcx + 8]
+lea rcx, [rbx + rax*8]
+mov r9d, dword [rcx + 4]
+test esi, esi
+jne 0x800250a
+mov edx, 1
+jmp 0x8002536
+nop dword [rax]
+cmp rax, 1
+ja 0x800255b
+mov r8, qword [rcx + 8]
+jmp 0x80024f7
+call _ZSt16__throw_bad_castv
+mov rbp, rax
+jmp .text.unlikely
+jmp .text.unlikely
+jmp .text.unlikely

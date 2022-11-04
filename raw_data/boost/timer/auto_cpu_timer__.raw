@@ -1,0 +1,59 @@
+push r13
+push r12
+push rbp
+push rbx
+mov rbx, rdi
+sub rsp, 0x48
+cmp byte [rdi + 0x18], 0
+je 0x8000d20
+mov rdi, qword [rbx + 0x28]
+lea rax, [rbx + 0x38]
+cmp rdi, rax
+je 0x8000d0d
+mov rsi, qword [rbx + 0x38]
+add rsi, 1
+call _ZdlPvm
+add rsp, 0x48
+pop rbx
+pop rbp
+pop r12
+pop r13
+ret
+nop dword [rax + rax]
+mov byte [rdi + 0x18], 1
+lea rbp, [var_20h]
+mov rdi, rbp
+call sym (anonymous namespace)::get_cpu_times(boost::timer::cpu_times&)
+movdqu xmm1, xmmword [rbx]
+movdqa xmm0, xmmword [var_20h]
+mov rax, qword [var_30h]
+sub rax, qword [rbx + 0x10]
+psubq xmm0, xmm1
+cmp byte [rbx + 0x18], 0
+mov r12, qword [rbx + 0x20]
+mov qword [rbx + 0x10], rax
+movsx r13d, word [rbx + 0x1a]
+movups xmmword [rbx], xmm0
+je 0x8000d88
+movdqu xmm2, xmmword [rbx]
+mov qword [var_10h], rax
+movaps xmmword [rsp], xmm2
+mov rdx, qword [rbx + 0x28]
+mov rdi, rsp
+mov ecx, r13d
+mov rsi, r12
+call sym (anonymous namespace)::show_time(boost::timer::cpu_times const&, std::ostream&, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, short) [clone .isra.0]
+jmp 0x8000cf3
+nop word [rax + rax]
+mov rdi, rbp
+call sym (anonymous namespace)::get_cpu_times(boost::timer::cpu_times&)
+movdqa xmm0, xmmword [var_20h]
+movdqu xmm3, xmmword [rbx]
+mov rax, qword [rbx + 0x10]
+sub qword [var_30h], rax
+mov rax, qword [var_30h]
+psubq xmm0, xmm3
+movaps xmmword [var_20h], xmm0
+mov qword [var_10h], rax
+movaps xmmword [rsp], xmm0
+jmp 0x8000d6b

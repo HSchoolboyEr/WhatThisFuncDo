@@ -1,0 +1,16 @@
+mov rdi, qword [arg_10h]
+test rdi, rdi
+je 0x800039b
+mov rax, rsp
+cmp rdi, rax
+je 0x800039b
+call _ZdaPv
+mov rdi, qword [arg_120h]
+test rdi, rdi
+je 0x80003b7
+lea rax, [arg_20h]
+cmp rdi, rax
+je 0x80003b7
+call _ZdaPv
+mov rdi, rbp
+call _Unwind_Resume

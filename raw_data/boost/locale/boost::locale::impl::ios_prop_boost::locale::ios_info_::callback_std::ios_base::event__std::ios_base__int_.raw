@@ -1,0 +1,191 @@
+push r14
+push r13
+push r12
+mov r12, rsi
+push rbp
+mov ebp, edx
+sub rsp, 8
+cmp edi, 1
+je 0x8000bb0
+cmp edi, 2
+je 0x8000cc0
+test edi, edi
+je 0x8000c10
+add rsp, 8
+pop rbp
+pop r12
+pop r13
+pop r14
+ret
+nop
+cmp dword [rsi + 0xc0], edx
+ja 0x8000ba2
+xor edx, edx
+mov esi, ebp
+mov rdi, r12
+call _ZNSt8ios_base13_M_grow_wordsEib
+cmp qword [rax], 0xffffffffffffffff
+je 0x8000ba2
+cmp ebp, dword [r12 + 0xc0]
+jb 0x8000ba2
+xor edx, edx
+mov esi, ebp
+mov rdi, r12
+call _ZNSt8ios_base13_M_grow_wordsEib
+cmp qword [rax], 0
+je 0x8000ba2
+cmp ebp, dword [r12 + 0xc0]
+jb 0x8000ba2
+add rsp, 8
+mov esi, ebp
+mov rdi, r12
+xor edx, edx
+pop rbp
+pop r12
+pop r13
+pop r14
+jmp _ZNSt8ios_base13_M_grow_wordsEib
+nop word [rax + rax]
+movzx eax, byte [0x08000c17]
+test al, al
+je _ZGVZN5boost6locale4impl8ios_propINS0_8ios_infoEE6get_idEvE2id
+movsxd r13, dword [0x08000c26]
+cmp dword [r12 + 0xc0], r13d
+jbe 0x8000d38
+shl r13, 4
+add r13, qword [r12 + 0xc8]
+mov rax, qword [r13]
+test rax, rax
+je 0x8000ba2
+cmp rax, 0xffffffffffffffff
+je 0x8000ba2
+cmp dword [r12 + 0xc0], ebp
+jbe 0x8000e08
+movsxd rax, ebp
+shl rax, 4
+add rax, qword [r12 + 0xc8]
+mov rbp, qword [rax]
+test rbp, rbp
+je 0x8000ba2
+mov rdi, qword [arg_40h]
+test rdi, rdi
+je 0x8000c8e
+call _ZdaPv
+mov rdi, qword [arg_10h]
+lea rax, [arg_20h]
+cmp rdi, rax
+je 0x8000ca8
+mov rax, qword [arg_20h]
+lea rsi, [rax + 1]
+call _ZdlPvm
+add rsp, 8
+mov rdi, rbp
+mov esi, 0x50
+pop rbp
+pop r12
+pop r13
+pop r14
+jmp _ZdlPvm
+cmp dword [rsi + 0xc0], edx
+jbe 0x8000db0
+movsxd rax, edx
+shl rax, 4
+add rax, qword [rsi + 0xc8]
+mov r14, qword [rax]
+cmp r14, 0xffffffffffffffff
+je 0x8000ba2
+test r14, r14
+je 0x8000ba2
+mov edi, 0x50
+call _Znwm
+mov rsi, r14
+mov rdi, rax
+mov r13, rax
+call _ZN5boost6locale8ios_infoC1ERKS1_
+cmp ebp, dword [r12 + 0xc0]
+jae 0x8000e20
+movsxd rax, ebp
+shl rax, 4
+add rax, qword [r12 + 0xc8]
+mov qword [rax], r13
+add rsp, 8
+pop rbp
+pop r12
+pop r13
+pop r14
+ret
+nop dword [rax]
+xor edx, edx
+mov esi, r13d
+mov rdi, r12
+call _ZNSt8ios_base13_M_grow_wordsEib
+cmp qword [rax], 0
+je 0x8000ba2
+cmp r13d, dword [r12 + 0xc0]
+jb 0x8000e48
+xor edx, edx
+mov esi, r13d
+mov rdi, r12
+call _ZNSt8ios_base13_M_grow_wordsEib
+mov rax, qword [rax]
+jmp 0x8000c4d
+nop word [rax + rax]
+lea rdi, [0x08000d7f]
+call __cxa_guard_acquire
+test eax, eax
+je _ZZN5boost6locale4impl8ios_propINS0_8ios_infoEE6get_idEvE2id
+call _ZNSt8ios_base6xallocEv
+lea rdi, [0x08000d98]
+mov dword [0x08000d9e], eax
+call __cxa_guard_release
+jmp _ZZN5boost6locale4impl8ios_propINS0_8ios_infoEE6get_idEvE2id
+nop dword [rax + rax]
+xor edx, edx
+mov esi, ebp
+mov rdi, r12
+call _ZNSt8ios_base13_M_grow_wordsEib
+cmp qword [rax], 0xffffffffffffffff
+je 0x8000ba2
+cmp ebp, dword [r12 + 0xc0]
+jb 0x8000e31
+xor edx, edx
+mov esi, ebp
+mov rdi, r12
+call _ZNSt8ios_base13_M_grow_wordsEib
+cmp qword [rax], 0
+je 0x8000ba2
+cmp ebp, dword [r12 + 0xc0]
+jb 0x8000e5f
+xor edx, edx
+mov esi, ebp
+mov rdi, r12
+call _ZNSt8ios_base13_M_grow_wordsEib
+mov r14, qword [rax]
+jmp 0x8000cf0
+nop dword [rax]
+xor edx, edx
+mov esi, ebp
+mov rdi, r12
+call _ZNSt8ios_base13_M_grow_wordsEib
+jmp 0x8000c74
+nop dword [rax]
+xor edx, edx
+mov esi, ebp
+mov rdi, r12
+call _ZNSt8ios_base13_M_grow_wordsEib
+jmp 0x8000d25
+movsxd rax, ebp
+shl rax, 4
+add rax, qword [r12 + 0xc8]
+mov r14, qword [rax]
+jmp 0x8000ce7
+movsxd rax, r13d
+shl rax, 4
+add rax, qword [r12 + 0xc8]
+mov rax, qword [rax]
+jmp 0x8000c4d
+movsxd rax, ebp
+shl rax, 4
+add rax, qword [r12 + 0xc8]
+mov r14, qword [rax]
+jmp 0x8000cf0

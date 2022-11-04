@@ -1,0 +1,42 @@
+mov rax, qword [0x080005e7]
+push r12
+push rbp
+push rbx
+mov rbx, qword [rax]
+lea r12, [rbx + 0x10]
+mov rdi, r12
+call _ZN5boost6detail12get_tss_dataEPKv
+mov rbp, rax
+test rax, rax
+je 0x8000628
+mov rax, qword [rbp]
+mov rcx, qword [rax]
+mov rdx, qword [rax + 8]
+mov qword [rcx + 8], rdx
+mov rax, qword [rax]
+mov qword [rdx], rax
+sub qword [arg_10h], 1
+pop rbx
+pop rbp
+pop r12
+ret
+nop dword [rax]
+mov edi, 0x20
+call _Znwm
+mov rdi, r12
+movq xmm0, rax
+mov qword [rax + 0x10], 0
+mov rbp, rax
+mov byte [rax + 0x18], 0
+punpcklqdq xmm0, xmm0
+movups xmmword [rax], xmm0
+call _ZN5boost6detail12get_tss_dataEPKv
+cmp rbp, rax
+je 0x8000602
+mov rdx, qword [rbx + 0x10]
+mov r8d, 1
+mov rcx, rbp
+mov rdi, r12
+lea rsi, [method.boost::thread_specific_ptr_boost::log::v2s_mt_posix::attributes._anonymous_namespace_::writeable_named_scope_list_::cleanup_caller_void____void___void_]
+call _ZN5boost6detail12set_tss_dataEPKvPFvPFvPvES3_ES5_S3_b
+jmp 0x8000602

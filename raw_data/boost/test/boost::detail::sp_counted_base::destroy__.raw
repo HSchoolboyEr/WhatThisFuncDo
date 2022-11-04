@@ -1,0 +1,2 @@
+mov rax, qword [rdi]
+jmp qword [rax + 8]

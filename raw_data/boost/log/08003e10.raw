@@ -1,0 +1,12 @@
+mov rdx, qword [rsi]
+lea rcx, [0x08003e1a]
+mov qword [rdi + 0x20], rdi
+mov rax, rdi
+mov qword [rdi + 0x28], rcx
+lea rsi, [0x08003e2c]
+lea rcx, [0x08003e33]
+or rdx, 2
+mov qword [rdi + 0x18], rcx
+mov qword [rdi], rdx
+mov qword [rdi + 0x30], rsi
+ret

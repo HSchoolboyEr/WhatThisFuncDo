@@ -1,0 +1,14 @@
+push rbp
+mov rbp, rsi
+push rbx
+mov rbx, rdi
+mov rdi, rsi
+sub rsp, 8
+call strlen
+mov rdi, qword [rbx + 0x30]
+add rsp, 8
+mov rsi, rbp
+lea rdx, [rbp + rax]
+pop rbx
+pop rbp
+jmp _ZN5boost7archive13save_iteratorIPKcEEvRSt13basic_ostreamIwSt11char_traitsIwEET_S9_

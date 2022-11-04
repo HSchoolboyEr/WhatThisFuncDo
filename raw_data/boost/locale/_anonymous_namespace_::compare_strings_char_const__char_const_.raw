@@ -1,0 +1,5 @@
+sub rsp, 8
+call strcmp
+add rsp, 8
+shr eax, 0x1f
+ret

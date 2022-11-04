@@ -1,0 +1,278 @@
+mov r8, qword [rdi + 0x58]
+mov r9d, dword [r8 + 0x10]
+cmp r9d, 0x270f
+je 0x80226f8
+push r12
+push rbp
+push rbx
+test r9d, r9d
+jle 0x8022668
+cmp r9d, 0x3fffffff
+jle 0x80226b0
+mov rax, qword [rdi + 0x48]
+mov rax, qword [rax]
+mov rbx, qword [rax]
+mov rdx, qword [rax + 8]
+sub rdx, rbx
+mov rax, rdx
+sar rax, 3
+test rdx, rdx
+jg 0x8022630
+jmp 0x8022656
+nop word [rax + rax]
+sub rax, rcx
+lea rbx, [rsi + 8]
+sub rax, 1
+test rax, rax
+jle 0x8022656
+mov rcx, rax
+sar rcx, 1
+lea rdx, [rcx*8]
+lea rsi, [rbx + rdx]
+cmp r9d, dword [rsi + 4]
+jg 0x8022620
+jge 0x8022770
+mov rax, rcx
+test rax, rax
+jg 0x8022630
+xor eax, eax
+mov rdx, qword [r8 + 8]
+pop rbx
+pop rbp
+pop r12
+mov qword [rdi + 0x58], rdx
+ret
+nop dword [rax]
+mov r10d, r9d
+mov r11, qword [rdi + 0xc0]
+mov rbx, qword [rdi + 0xb8]
+not r10d
+cmp r10d, 0x3fffffff
+jg 0x8022710
+xor eax, eax
+cmp r11, rbx
+je 0x8022658
+cmp dword [r11 - 0x70], r10d
+pop rbx
+sete dl
+test r9d, r9d
+pop rbp
+pop r12
+sete al
+or eax, edx
+mov rdx, qword [r8 + 8]
+mov qword [rdi + 0x58], rdx
+ret
+nop dword [rax]
+mov rcx, qword [rdi + 0x10]
+cmp byte [rcx + 0x4c], 0
+mov rdx, qword [rcx + 8]
+mov rsi, qword [rcx]
+je 0x80226ca
+cmp rsi, rdx
+je _ZN5boost13match_resultsIPKwSaINS_9sub_matchIS2_EEEE17raise_logic_errorEv
+sub rdx, rsi
+lea eax, [r9 + 2]
+add rcx, 0x20
+sar rdx, 3
+imul edx, edx, 0xaaaaaaab
+cmp edx, eax
+jg 0x8022700
+mov rdx, qword [r8 + 8]
+movzx eax, byte [rcx + 0x10]
+pop rbx
+pop rbp
+mov qword [rdi + 0x58], rdx
+pop r12
+ret
+nop dword [rax]
+xor eax, eax
+ret
+nop dword [rax + rax]
+cdqe
+lea rax, [rax + rax*2]
+lea rcx, [rsi + rax*8]
+jmp 0x80226e3
+nop dword [rax]
+mov rax, qword [rdi + 0x48]
+mov rax, qword [rax]
+mov rsi, qword [rax]
+mov rdx, qword [rax + 8]
+sub rdx, rsi
+mov rax, rdx
+sar rax, 3
+test rdx, rdx
+jg 0x802274c
+jmp 0x80228c8
+nop word [rax + rax]
+sub rax, rcx
+lea rsi, [r9 + 8]
+sub rax, 1
+test rax, rax
+jle 0x80228c8
+mov rcx, rax
+sar rcx, 1
+lea rdx, [rcx*8]
+lea r9, [rsi + rdx]
+cmp r10d, dword [r9 + 4]
+jg 0x8022738
+jge 0x8022910
+mov rax, rcx
+jmp 0x8022743
+nop
+sar rdx, 3
+mov rcx, rbx
+nop word [rax + rax]
+test rdx, rdx
+jle 0x80227a9
+mov r10, rdx
+sar r10, 1
+lea r11, [rcx + r10*8]
+cmp r9d, dword [r11 + 4]
+jle 0x8022860
+sub rdx, r10
+lea rcx, [r11 + 8]
+sub rdx, 1
+test rdx, rdx
+jg 0x8022785
+add rsi, 8
+lea rax, [rbx + rax*8]
+sub rax, rsi
+sar rax, 3
+nop dword [rax + rax]
+test rax, rax
+jle 0x80227e5
+mov rdx, rax
+sar rdx, 1
+lea r10, [rsi + rdx*8]
+cmp r9d, dword [r10 + 4]
+jl 0x8022850
+sub rax, rdx
+lea rsi, [r10 + 8]
+sub rax, 1
+test rax, rax
+jg 0x80227c5
+cmp rcx, rsi
+je 0x8022656
+mov rdx, qword [rdi + 0x10]
+cmp byte [rdx + 0x4c], 0
+mov rax, qword [rdx + 8]
+lea r9, [rdx + 0x20]
+mov r10, qword [rdx]
+jne 0x8022870
+sub rax, r10
+mov rdx, rcx
+sar rax, 3
+imul ecx, eax, 0xaaaaaaab
+jmp 0x8022834
+nop dword [rax]
+mov rax, r9
+movzx eax, byte [rax + 0x10]
+test al, al
+jne 0x8022658
+add rdx, 8
+cmp rsi, rdx
+je 0x8022658
+mov eax, dword [rdx]
+add eax, 2
+cmp ecx, eax
+jle 0x8022818
+test eax, eax
+js 0x8022818
+cdqe
+lea rax, [rax + rax*2]
+lea rax, [r10 + rax*8]
+jmp 0x802281b
+nop dword [rax]
+mov rax, rdx
+jmp 0x80227c0
+nop dword [rax + rax]
+mov rdx, r10
+jmp 0x8022780
+nop dword [rax + rax]
+cmp rax, r10
+je _ZN5boost13match_resultsIPKwSaINS_9sub_matchIS2_EEEE17raise_logic_errorEv
+sub rax, r10
+mov rdx, rcx
+sar rax, 3
+imul ecx, eax, 0xaaaaaaab
+jmp 0x80228ac
+nop dword [rax + rax]
+mov rax, r9
+movzx eax, byte [rax + 0x10]
+test al, al
+jne 0x8022658
+add rdx, 8
+cmp rsi, rdx
+je 0x8022658
+mov eax, dword [rdx]
+add eax, 2
+cmp ecx, eax
+jle 0x8022890
+test eax, eax
+js 0x8022890
+cdqe
+lea rax, [rax + rax*2]
+lea rax, [r10 + rax*8]
+jmp 0x8022893
+nop dword [rax]
+cmp r11, rbx
+je 0x8022656
+mov rcx, rsi
+mov edx, dword [r11 - 0x70]
+cmp rcx, rsi
+je 0x8022656
+mov rax, rcx
+jmp 0x80228fd
+nop word cs:[rax + rax]
+add rax, 8
+cmp rsi, rax
+je 0x8022656
+cmp dword [rax], edx
+jne 0x80228f0
+mov eax, 1
+jmp 0x8022658
+nop dword [rax + rax]
+sar rdx, 3
+mov rcx, rsi
+nop word [rax + rax]
+test rdx, rdx
+jle 0x8022947
+mov rbp, rdx
+sar rbp, 1
+lea r12, [rcx + rbp*8]
+cmp r10d, dword [r12 + 4]
+jle 0x80229a8
+sub rdx, rbp
+lea rcx, [r12 + 8]
+sub rdx, 1
+test rdx, rdx
+jg 0x8022925
+lea rdx, [rsi + rax*8]
+lea rsi, [r9 + 8]
+sub rdx, rsi
+sar rdx, 3
+nop word cs:[rax + rax]
+test rdx, rdx
+jle 0x8022985
+mov rax, rdx
+sar rax, 1
+lea r9, [rsi + rax*8]
+cmp r10d, dword [r9 + 4]
+jl 0x80229a0
+sub rdx, rax
+lea rsi, [r9 + 8]
+sub rdx, 1
+test rdx, rdx
+jg 0x8022965
+mov edx, 0xffffffff
+cmp r11, rbx
+je 0x80228d8
+jmp 0x80228d4
+nop dword [rax + rax]
+mov rdx, rax
+jmp 0x8022960
+nop dword [rax]
+mov rdx, rbp
+jmp 0x8022920
+call _ZN5boost13match_resultsIPKwSaINS_9sub_matchIS2_EEEE17raise_logic_errorEv

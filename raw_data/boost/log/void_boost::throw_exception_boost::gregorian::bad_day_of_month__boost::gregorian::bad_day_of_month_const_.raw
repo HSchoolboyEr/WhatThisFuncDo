@@ -1,0 +1,29 @@
+push r12
+mov r12, rdi
+mov edi, 0x40
+push rbp
+push rax
+call __cxa_allocate_exception
+mov rsi, r12
+mov rbp, rax
+lea rax, [0x0800242b]
+lea rdi, [arg_8h]
+mov qword [rbp], rax
+call _ZNSt11logic_errorC2ERKS_
+mov rax, qword [0x0800243f]
+lea rdx, [0x08002446]
+lea rsi, [0x0800244d]
+mov rdi, rbp
+mov qword [arg_20h], 0
+mov qword [arg_38h], rax
+lea rax, [0x08002463]
+lea rcx, [rax - 0x30]
+movq xmm1, rax
+add rax, 0x28
+mov qword [arg_28h], 0
+movq xmm0, rcx
+mov qword [arg_30h], 0
+punpcklqdq xmm0, xmm1
+mov qword [arg_18h], rax
+movups xmmword [rbp], xmm0
+call __cxa_throw

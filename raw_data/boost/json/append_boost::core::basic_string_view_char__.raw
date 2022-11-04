@@ -1,0 +1,21 @@
+push r13
+mov r13, rdx
+push r12
+mov r12, rdi
+add rdi, 8
+push rbp
+mov rdx, r12
+mov rbp, rsi
+mov rsi, r13
+call _ZN5boost4json6detail11string_impl6appendEmRKNS0_11storage_ptrE
+test r13, r13
+je 0x800eec0
+mov rdi, rax
+mov rdx, r13
+mov rsi, rbp
+call memcpy
+mov rax, r12
+pop rbp
+pop r12
+pop r13
+ret

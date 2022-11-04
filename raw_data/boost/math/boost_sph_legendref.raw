@@ -1,0 +1,208 @@
+push r13
+push r12
+push rbp
+mov ebp, edi
+push rbx
+mov ebx, esi
+sub rsp, 0x48
+movss xmm4, dword [0x08003476]
+and esi, 1
+movss dword [var_4h], xmm4
+jne 0x800348f
+movss xmm6, dword [0x08003489]
+movss dword [arg_4h], xmm6
+pxor xmm2, xmm2
+mov r13d, ebx
+xor r12d, r12d
+cvtss2sd xmm2, xmm0
+test ebx, ebx
+jns 0x80034ad
+mov r12d, ebx
+neg ebx
+and r12d, 1
+mov r13d, ebx
+test r13b, 1
+jne .LC147
+cmp ebp, ebx
+jae 0x8003598
+movq xmm6, qword [0x080034c7]
+mov qword [arg_8h], 0
+movaps xmmword [arg_10h], xmm6
+pxor xmm0, xmm0
+pxor xmm5, xmm5
+cvtsi2sd xmm0, r13d
+mulsd xmm0, xmm5
+call cos
+mulsd xmm0, qword [arg_8h]
+test r12b, r12b
+je 0x80034fe
+xorpd xmm0, xmmword [0x080034fe]
+movapd xmm3, xmmword [arg_10h]
+pxor xmm1, xmm1
+cvtsd2ss xmm1, xmm0
+andpd xmm3, xmm0
+comisd xmm3, xmmword [0x08003518]
+movapd xmm2, xmm3
+ja 0x800357b
+pxor xmm4, xmm4
+ucomisd xmm0, xmm4
+jp 0x8003560
+comisd xmm0, xmm4
+jne 0x8003560
+movsd xmm0, qword [0x08003536]
+comisd xmm0, xmm3
+jbe 0x800354a
+pxor xmm0, xmm0
+ucomiss xmm1, xmm0
+jp 0x800357b
+comiss xmm1, xmm0
+jne 0x800357b
+movss xmm0, dword [arg_4h]
+add rsp, 0x48
+pop rbx
+pop rbp
+mulss xmm0, xmm1
+pop r12
+pop r13
+ret
+nop
+pxor xmm3, xmm3
+ucomiss xmm1, xmm3
+jnp 0x8003788
+movsd xmm0, qword [0x08003575]
+comisd xmm0, xmm2
+jbe 0x800354a
+movss dword [arg_8h], xmm1
+call __errno_location
+movss xmm1, dword [arg_8h]
+mov dword [rax], 0x22
+jmp 0x800354a
+nop dword [rax]
+lea rdi, [arg_38h]
+lea rsi, [arg_30h]
+movapd xmm0, xmm2
+call sincos
+mov eax, ebx
+pxor xmm1, xmm1
+movsd xmm0, qword [arg_38h]
+cvtsi2sd xmm1, rax
+movq xmm7, qword [0x080035c4]
+movsd xmm2, qword [arg_30h]
+andpd xmm0, xmm7
+movsd qword [arg_8h], xmm2
+movaps xmmword [arg_10h], xmm7
+call pow
+movsd xmm2, qword [arg_8h]
+mov esi, r13d
+mov edi, ebp
+movapd xmm1, xmm0
+movapd xmm0, xmm2
+call sym._ZN5boost4math6detail14legendre_p_impIdNS0_8policies6policyINS3_12domain_errorILNS3_17error_policy_typeE1EEENS3_10pole_errorIL
+lea eax, [rbx + rbx]
+sub rsp, 0x20
+mov qword [arg_40h], rax
+fild qword [rsp + 0x40]
+lea eax, [arg_1h]
+sub eax, ebx
+movsd qword [arg_8h], xmm0
+mov qword [arg_40h], rax
+fstp xword [rsp + 0x10]
+fild qword [rsp + 0x40]
+fstp xword [rsp]
+call sym._ZN5boost4math6detail22tgamma_delta_ratio_impIeNS0_8policies6policyINS3_12domain_errorILNS3_17error_policy_typeE1EEENS3_10pole
+add rsp, 0x20
+fld st(0)
+fabs
+fld qword [0x08003634]
+fxch st(1)
+fcomi st(1)
+fstp st(1)
+ja 0x8003760
+fxch st(1)
+fst qword [rsp + 0x20]
+movsd xmm1, qword [arg_40h]
+fldz
+fucomi st(1)
+jp 0x800370a
+fcompi st(1)
+fstp st(0)
+jne 0x8003710
+fld qword [0x08003666]
+fcompi st(1)
+fstp st(0)
+jbe 0x8003688
+pxor xmm7, xmm7
+ucomisd xmm1, xmm7
+jp 0x800372e
+comisd xmm1, xmm7
+jne 0x800372e
+nop dword [rax]
+lea eax, [rbp + arg_1h]
+pxor xmm0, xmm0
+pxor xmm5, xmm5
+cvtsi2sd xmm0, rax
+divsd xmm0, qword [0x080036a1]
+mulsd xmm0, xmm1
+ucomisd xmm5, xmm0
+ja sqrt
+sqrtsd xmm0, xmm0
+mulsd xmm0, qword [arg_8h]
+movsd qword [arg_8h], xmm0
+jmp 0x80034d5
+nop dword [rax]
+mov rax, qword [0x080036cf]
+movapd xmm0, xmm2
+movsd qword [arg_8h], xmm2
+movq xmm1, rax
+call fmod
+pxor xmm7, xmm7
+movsd xmm2, qword [arg_8h]
+comisd xmm7, xmm0
+ja 0x8003750
+mov eax, r12d
+xor eax, 1
+comisd xmm0, xmmword [0x08003701]
+cmova r12d, eax
+jmp 0x80034b7
+fstp st(0)
+fstp st(0)
+nop
+pxor xmm6, xmm6
+ucomisd xmm1, xmm6
+jnp 0x80037a8
+fld qword [0x08003724]
+fcompi st(1)
+fstp st(0)
+jbe 0x8003688
+movsd qword [arg_40h], xmm1
+call __errno_location
+movsd xmm1, qword [arg_40h]
+mov dword [rax], 0x22
+jmp 0x8003688
+nop word [rax + rax]
+addsd xmm0, qword [0x08003758]
+jmp 0x80036f3
+nop word [rax + rax]
+fstp st(0)
+fstp xword [rsp + 0x20]
+call __errno_location
+fld xword [rsp + 0x20]
+mov dword [rax], 0x22
+fstp qword [rsp + 0x20]
+movsd xmm1, qword [arg_40h]
+jmp 0x8003688
+nop dword [rax]
+jne .LC151
+call __errno_location
+pxor xmm1, xmm1
+mov dword [rax], 0x22
+jmp 0x800354a
+nop word [rax + rax]
+jne .LC140
+fstp st(0)
+call __errno_location
+pxor xmm1, xmm1
+mov dword [rax], 0x22
+jmp 0x8003688
+call sqrt
+jmp 0x80036b3

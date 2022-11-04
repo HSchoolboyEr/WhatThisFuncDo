@@ -1,0 +1,16 @@
+push r12
+mov r12, rdi
+cmp rdi, rsi
+je 0x8000c85
+mov rdi, qword [rsi]
+mov rax, qword [rdi]
+call qword [rax]
+mov rdi, qword [r12]
+mov qword [r12], rax
+test rdi, rdi
+je 0x8000c85
+mov rax, qword [rdi]
+call qword [rax + 0x70]
+mov rax, r12
+pop r12
+ret

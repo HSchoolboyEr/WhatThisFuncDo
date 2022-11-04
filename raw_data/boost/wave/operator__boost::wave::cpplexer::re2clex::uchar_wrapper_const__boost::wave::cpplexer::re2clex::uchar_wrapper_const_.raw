@@ -1,0 +1,3 @@
+mov rax, qword [rdi]
+sub rax, qword [rsi]
+ret

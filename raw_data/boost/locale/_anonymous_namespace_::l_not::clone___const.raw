@@ -1,0 +1,49 @@
+push r12
+push rbp
+push rbx
+sub rsp, 0x10
+mov rdi, qword [rdi + 8]
+mov rax, qword [rdi]
+call qword [rax + 8]
+mov rdi, rsp
+mov rsi, rax
+call _ZN5boost10shared_ptrINS_6locale11gnu_gettext6lambda6pluralEEC1IS4_EEPT_
+mov rbp, qword [var_8h]
+mov rbx, qword [rsp]
+test rbp, rbp
+je 0x8007dd0
+lock add dword [var_8h], 1
+mov edi, 0x18
+call _Znwm
+mov r12, rax
+test rbp, rbp
+je 0x8007e40
+lea rax, [var_8h]
+lock add dword [rax], 1
+lea rdx, [0x08007df1]
+mov qword [r12], rdx
+mov qword [r12 + 8], rbx
+mov qword [r12 + 0x10], rbp
+lock add dword [rax], 1
+mov rdi, rbp
+call _ZN5boost6detail15sp_counted_base7releaseEv
+lea rax, [0x08007e12]
+mov rdi, rbp
+mov qword [r12], rax
+call _ZN5boost6detail15sp_counted_base7releaseEv
+mov rdi, qword [var_8h]
+test rdi, rdi
+je 0x8007e2d
+call _ZN5boost6detail15sp_counted_base7releaseEv
+add rsp, 0x10
+mov rax, r12
+pop rbx
+pop rbp
+pop r12
+ret
+nop dword [rax]
+mov qword [rax + 8], rbx
+mov qword [rax + 0x10], 0
+lea rax, [0x08007e53]
+mov qword [r12], rax
+jmp 0x8007e1e

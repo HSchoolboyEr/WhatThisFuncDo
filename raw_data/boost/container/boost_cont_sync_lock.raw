@@ -1,0 +1,31 @@
+mov eax, 1
+xchg dword [rdi], eax
+test eax, eax
+jne 0x8009be8
+mov eax, 1
+ret
+nop dword [rax]
+push r12
+mov r12d, 1
+push rbp
+mov rbp, rdi
+push rbx
+xor ebx, ebx
+nop word [rax + rax]
+mov eax, dword [rbp]
+test eax, eax
+jne 0x8009c11
+mov eax, r12d
+xchg dword [rbp], eax
+test eax, eax
+je 0x8009c20
+add ebx, 1
+test bl, 0x3f
+jne 0x8009c00
+call sched_yield
+jmp 0x8009c00
+pop rbx
+mov eax, 1
+pop rbp
+pop r12
+ret

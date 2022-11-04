@@ -1,0 +1,3 @@
+mov rax, rdi
+mov rdi, rsi
+jmp rax

@@ -1,0 +1,269 @@
+sub rsp, 0x18
+fld xword [rsp + 0x20]
+fld xword [rsp + 0x40]
+fld dword [0x08000082]
+fcompi st(2)
+ja 0x80000d0
+fldz
+mov edx, 0
+fld st(0)
+fld xword [rsp + 0x30]
+fucompi st(1)
+setnp al
+cmovne eax, edx
+test al, al
+jne 0x80000b8
+fucompi st(2)
+setnp dl
+cmove eax, edx
+test al, al
+je 0x80000f0
+fstp st(0)
+fstp st(0)
+fstp st(0)
+jmp 0x80000c0
+nop dword [rax + rax]
+fstp st(0)
+fstp st(0)
+fstp st(0)
+fstp st(0)
+fldz
+add rsp, 0x18
+ret
+nop word [rax + rax]
+fstp st(0)
+sub rsp, 0x10
+fstp xword [rsp]
+call logl
+pop rdi
+pop r8
+fchs
+add rsp, 0x18
+ret
+nop dword [rax + rax]
+fld dword [0x080000f6]
+fxch st(3)
+fcomi st(3)
+fstp st(3)
+jbe 0x8000160
+fld dword [0x08000104]
+fxch st(3)
+fcomi st(3)
+fstp st(3)
+jb 0x80002d0
+fstp st(1)
+jmp 0x800011a
+nop dword [rax]
+fxch st(1)
+fstp xword [rsp]
+sub rsp, 0x10
+fld1
+fsubp st(1)
+fld st(0)
+fstp xword [rsp]
+fstp xword [rsp + 0x30]
+call logl
+fld xword [rsp + 0x10]
+pop rcx
+pop rsi
+faddp st(1)
+fld dword [0x08000141]
+fld xword [rsp + 0x20]
+fcomi st(1)
+fstp st(1)
+jae 0x8000118
+fld dword [0x08000151]
+fsubr st(1)
+jmp 0x80002d8
+nop dword [rax + rax]
+fstp st(0)
+fld1
+fcompi st(2)
+ja 0x8000388
+fldz
+fld xword [rsp + 0x30]
+fmul st(2)
+fld dword [0x0800017a]
+fcompi st(4)
+fstp st(3)
+jb 0x8000230
+fstp st(1)
+fld xword [rsp + 0x30]
+fld st(0)
+fmul st(0)
+fld xword [0x08000194]
+fmul st(1)
+fld xword [0x0800019c]
+fsubp st(1)
+fmul st(1)
+fld xword [0x080001a6]
+fsubp st(1)
+fmul st(1)
+fld xword [0x080001b0]
+faddp st(1)
+fld xword [0x080001b8]
+fmul st(2)
+fld xword [0x080001c0]
+fsubp st(1)
+fmul st(2)
+fld xword [0x080001ca]
+fsubp st(1)
+fmul st(3)
+faddp st(1)
+fld xword [0x080001d6]
+fmul st(2)
+fld xword [0x080001de]
+faddp st(1)
+fmul st(2)
+fld xword [0x080001e8]
+faddp st(1)
+fmul st(2)
+fld1
+faddp st(1)
+fld xword [0x080001f6]
+fmul st(3)
+fld xword [0x080001fe]
+faddp st(1)
+fmulp st(3)
+fld xword [0x08000208]
+faddp st(3)
+fxch st(2)
+fmulp st(3)
+fxch st(1)
+faddp st(2)
+fdivrp st(1)
+fmul st(2)
+fxch st(2)
+fmul dword [0x0800021e]
+faddp st(2)
+faddp st(1)
+jmp 0x80000c2
+nop word [rax + rax]
+fld st(1)
+fchs
+fld st(2)
+fmulp st(3)
+fld xword [0x0800023e]
+fmul st(3)
+fld xword [0x08000246]
+faddp st(1)
+fmul st(3)
+fld xword [0x08000250]
+faddp st(1)
+fmul st(1)
+fld xword [0x0800025a]
+fmul st(4)
+fld xword [0x08000262]
+fsubp st(1)
+fmul st(4)
+fld xword [0x0800026c]
+fsubp st(1)
+faddp st(1)
+fld xword [0x08000276]
+fmul st(4)
+fld xword [0x0800027e]
+faddp st(1)
+fmul st(4)
+fld xword [0x08000288]
+faddp st(1)
+fmul st(4)
+fld1
+faddp st(1)
+fld xword [0x08000296]
+fmul st(5)
+fld xword [0x0800029e]
+fsubp st(1)
+fmulp st(5)
+fld xword [0x080002a8]
+fsubp st(5)
+fxch st(4)
+fmulp st(2)
+fxch st(1)
+faddp st(3)
+fdivrp st(2)
+fxch st(1)
+fmul st(2)
+fxch st(2)
+fmul dword [0x080002c0]
+faddp st(2)
+faddp st(1)
+jmp 0x80000c2
+nop dword [rax]
+fstp st(0)
+fldz
+fxch st(2)
+fxch st(1)
+fld1
+fadd st(2), st(0)
+fxch st(2)
+fmul st(1)
+fld st(1)
+fmul st(2)
+fld xword [0x080002ea]
+fmul st(1)
+fld xword [0x080002f2]
+fsubp st(1)
+fmul st(1)
+fld xword [0x080002fc]
+faddp st(1)
+fmul st(1)
+fld xword [0x08000306]
+fsubp st(1)
+fld xword [0x0800030e]
+fmul st(2)
+fld xword [0x08000316]
+faddp st(1)
+fmul st(2)
+fld xword [0x08000320]
+faddp st(1)
+fmul st(4)
+faddp st(1)
+fld xword [0x0800032c]
+fmul st(2)
+fld xword [0x08000334]
+faddp st(1)
+fmul st(2)
+fld xword [0x0800033e]
+faddp st(1)
+fmul st(2)
+fld xword [0x08000348]
+faddp st(1)
+fmulp st(4)
+fld xword [0x08000352]
+fmul st(2)
+fld xword [0x0800035a]
+faddp st(1)
+fmul st(2)
+fld xword [0x08000364]
+faddp st(1)
+fmulp st(2)
+fxch st(1)
+faddp st(4)
+fxch st(2)
+faddp st(3)
+fxch st(1)
+fdivrp st(2)
+fmul st(1), st(0)
+fmul dword [0x0800037c]
+faddp st(1)
+faddp st(1)
+jmp 0x80000c2
+nop dword [rax]
+fstp st(0)
+sub rsp, 0x10
+fld st(0)
+fstp xword [rsp]
+fstp xword [rsp + 0x30]
+call logl
+pop rax
+pop rdx
+fldz
+fsubrp st(1)
+fld xword [rsp + 0x30]
+fld xword [rsp + 0x20]
+fld st(0)
+fstp xword [rsp + 0x30]
+fld1
+faddp st(1)
+fxch st(2)
+jmp 0x800016e

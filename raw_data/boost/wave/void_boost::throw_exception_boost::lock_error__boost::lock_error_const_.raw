@@ -1,0 +1,34 @@
+push rbp
+push rbx
+mov rbx, rdi
+mov edi, 0x58
+push rax
+call __cxa_allocate_exception
+mov rsi, rbx
+mov rbp, rax
+lea rax, [0x08003d74]
+lea rdi, [arg_8h]
+mov qword [rbp], rax
+call _ZNSt13runtime_errorC2ERKS_
+mov rax, qword [rbx + 0x20]
+movups xmm1, xmmword [rbx + 0x10]
+mov rdi, rbp
+lea rdx, [0x08003d93]
+lea rsi, [0x08003d9a]
+mov qword [arg_38h], 0
+mov qword [arg_28h], rax
+mov rax, qword [0x08003dad]
+mov qword [arg_40h], 0
+mov qword [arg_50h], rax
+lea rax, [0x08003dc0]
+lea rcx, [rax - 0x30]
+movq xmm2, rax
+add rax, 0x28
+movups xmmword [arg_18h], xmm1
+movq xmm0, rcx
+mov qword [arg_48h], 0
+punpcklqdq xmm0, xmm2
+mov qword [arg_30h], rax
+movups xmmword [rbp], xmm0
+call __cxa_throw
+invalid

@@ -1,0 +1,237 @@
+push r15
+push r14
+mov r14, rsi
+push r13
+push r12
+push rbp
+push rbx
+mov rbx, rsi
+movabs rsi, 0x3ffffffffffffff
+sub rsp, 0x38
+mov r13, qword [rdi + 8]
+mov r15, qword [rdi]
+mov qword [var_10h], rdi
+mov rax, r13
+sub rax, r15
+sar rax, 5
+cmp rax, rsi
+je .LC27
+mov r12, rdx
+mov edx, 1
+test rax, rax
+mov rcx, rax
+mov rax, rdx
+mov rbp, r14
+cmovne rax, rcx
+xor edx, edx
+add rax, rcx
+setb dl
+mov qword [var_8h], rax
+sub rbp, r15
+test rdx, rdx
+jne 0x8008630
+test rax, rax
+jne 0x8008608
+mov qword [rsp], 0
+mov rax, qword [r12]
+add rbp, qword [rsp]
+mov qword [var_18h], rbp
+mov qword [rbp], 0
+test rax, rax
+je 0x80084a6
+mov qword [rbp], rax
+lea rsi, [arg_8h]
+lea rdi, [r12 + 8]
+test al, 1
+jne 0x8008648
+and rax, 0xfffffffffffffffe
+xor edx, edx
+call qword [rax]
+mov r12, qword [rsp]
+cmp r14, r15
+je 0x800850f
+mov rbp, r15
+jmp 0x80084cd
+nop dword [rax]
+and rax, 0xfffffffffffffffe
+xor edx, edx
+call qword [rax]
+add rbp, 0x20
+add r12, 0x20
+cmp r14, rbp
+je 0x800850f
+mov qword [r12], 0
+mov rax, qword [rbp]
+test rax, rax
+je 0x80084c0
+mov qword [r12], rax
+lea rsi, [r12 + 8]
+lea rdi, [arg_8h]
+test al, 1
+je 0x80084b8
+movdqu xmm1, xmmword [arg_8h]
+add rbp, 0x20
+add r12, 0x20
+movups xmmword [r12 - 0x18], xmm1
+mov rax, qword [rdi + 0x10]
+mov qword [rsi + 0x10], rax
+cmp r14, rbp
+jne 0x80084cd
+add r12, 0x20
+mov rbp, r12
+cmp r14, r13
+jne 0x8008535
+jmp 0x8008573
+nop dword [rax]
+and rax, 0xfffffffffffffffe
+xor edx, edx
+call qword [rax]
+add rbx, 0x20
+add rbp, 0x20
+cmp r13, rbx
+je 0x8008573
+mov rax, qword [rbx]
+mov qword [rbp], 0
+test rax, rax
+je 0x8008528
+mov qword [rbp], rax
+lea rsi, [arg_8h]
+lea rdi, [rbx + 8]
+test al, 1
+je 0x8008520
+movdqu xmm2, xmmword [rbx + 8]
+mov rax, qword [rdi + 0x10]
+add rbx, 0x20
+add rbp, 0x20
+movups xmmword [var_bp_18h], xmm2
+mov qword [rsi + 0x10], rax
+cmp r13, rbx
+jne 0x8008535
+mov rbx, r15
+cmp r15, r13
+je 0x80085af
+nop dword [rax + rax]
+mov rax, qword [rbx]
+test rax, rax
+je 0x80085a6
+test al, 1
+jne 0x80085a6
+and rax, 0xfffffffffffffffe
+mov rax, qword [rax]
+test rax, rax
+je 0x80085a6
+lea rdi, [rbx + 8]
+mov edx, 2
+mov rsi, rdi
+call rax
+add rbx, 0x20
+cmp r13, rbx
+jne 0x8008580
+test r15, r15
+je 0x80085d0
+mov rax, qword [var_10h]
+mov rdi, r15
+mov rax, qword [rax + 0x10]
+mov rsi, rax
+mov qword [var_18h], rax
+sub rsi, r15
+call _ZdlPvm
+mov rax, qword [rsp]
+mov rdx, qword [var_10h]
+movq xmm3, rbp
+movq xmm0, rax
+add rax, qword [var_8h]
+punpcklqdq xmm0, xmm3
+mov qword [rdx + 0x10], rax
+movups xmmword [rdx], xmm0
+add rsp, 0x38
+pop rbx
+pop rbp
+pop r12
+pop r13
+pop r14
+pop r15
+ret
+nop word [rax + rax]
+cmp rax, rsi
+cmovbe rsi, rax
+shl rsi, 5
+mov qword [var_8h], rsi
+mov rdi, rsi
+call _Znwm
+mov qword [rsp], rax
+jmp 0x800846f
+nop dword [rax]
+movabs rax, 0x7fffffffffffffe0
+mov qword [var_8h], rax
+mov rdi, rax
+jmp _Znwm
+nop dword [rax]
+movdqu xmm4, xmmword [r12 + 8]
+mov rax, qword [rdi + 0x10]
+movups xmmword [arg_8h], xmm4
+movaps xmmword [var_20h], xmm4
+mov qword [rsi + 0x10], rax
+jmp 0x80084a6
+lea rdi, [0x0800866c]
+call _ZSt20__throw_length_errorPKc
+mov rdi, rax
+jmp __cxa_begin_catch
+mov rdi, rax
+jmp __cxa_begin_catch
+mov rdi, rax
+jmp __cxa_begin_catch
+call __cxa_begin_catch
+cmp qword [rsp], 0
+je 0x80086d7
+mov r12, qword [rsp]
+jmp 0x8008716
+call __cxa_begin_catch
+mov rdi, qword [rsp]
+mov rsi, r12
+call _ZNSt12_Destroy_auxILb0EE9__destroyIPN5boost8functionIFNS2_10test_tools16assertion_resultEmEEEEEvT_S9_
+call __cxa_rethrow
+call __cxa_begin_catch
+mov rsi, rbp
+mov rdi, r12
+call _ZNSt12_Destroy_auxILb0EE9__destroyIPN5boost8functionIFNS2_10test_tools16assertion_resultEmEEEEEvT_S9_
+call __cxa_rethrow
+mov rbp, rax
+jmp __cxa_end_catch
+mov rbp, rax
+jmp __cxa_end_catch
+call __cxa_end_catch
+mov rdi, rbp
+call __cxa_begin_catch
+mov rax, qword [var_18h]
+mov rax, qword [rax]
+test rax, rax
+je 0x8008722
+test al, 1
+jne 0x8008722
+and rax, 0xfffffffffffffffe
+mov rdi, qword [var_18h]
+mov rax, qword [rax]
+add rdi, 8
+test rax, rax
+je 0x8008722
+mov edx, 2
+mov rsi, rdi
+call rax
+jmp 0x8008722
+call __cxa_end_catch
+mov rdi, rbp
+call __cxa_begin_catch
+mov rdi, qword [rsp]
+mov rsi, r12
+call _ZNSt12_Destroy_auxILb0EE9__destroyIPN5boost8functionIFNS2_10test_tools16assertion_resultEmEEEEEvT_S9_
+cmp qword [rsp], 0
+je __cxa_rethrow
+mov rsi, qword [var_8h]
+mov rdi, qword [rsp]
+call _ZdlPvm
+call __cxa_rethrow
+mov rbp, rax
+call __cxa_end_catch
+mov rdi, rbp
+call _Unwind_Resume

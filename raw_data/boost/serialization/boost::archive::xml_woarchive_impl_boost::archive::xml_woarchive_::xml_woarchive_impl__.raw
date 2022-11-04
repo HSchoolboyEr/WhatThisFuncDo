@@ -1,0 +1,9 @@
+push rbp
+mov rbp, rdi
+call _ZN5boost7archive18xml_woarchive_implINS0_13xml_woarchiveEED1Ev
+add byte [rax], al
+add byte [rax], al
+mov rdi, rbp
+mov esi, 0x88
+pop rbp
+jmp _ZdlPvm

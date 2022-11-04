@@ -1,0 +1,123 @@
+push r15
+push r14
+push r13
+push r12
+mov r12, rsi
+push rbp
+mov rbp, rdi
+push rbx
+sub rsp, 8
+call method boost::unit_test::(anonymous namespace)::s_log_impl()
+mov rdx, rax
+mov rax, qword [rax + 0x18]
+mov rcx, qword [rdx + 0x20]
+cmp rcx, rax
+ja 0x8002839
+jmp 0x8002858
+nop dword [rax + rax]
+add rax, 8
+cmp rcx, rax
+jbe 0x8002858
+mov rdx, qword [rax]
+cmp byte [rdx + 0x30], 0
+je 0x8002830
+add rsp, 8
+pop rbx
+pop rbp
+pop r12
+pop r13
+pop r14
+pop r15
+ret
+nop dword [rax]
+call method boost::unit_test::(anonymous namespace)::s_log_impl()
+xor r15d, r15d
+mov r14d, 0xffffffff
+mov rbx, qword [rax]
+mov r13, qword [rax + 8]
+cmp rbx, r13
+jae 0x80028ca
+xor edx, edx
+xor r15d, r15d
+mov r14d, 0xffffffff
+lea rcx, [0x08002884]
+nop dword [rax]
+cmp byte [rbx], 0
+je 0x80028c1
+cmp r14d, 0xffffffff
+je 0x800289f
+mov eax, dword [rbx + 4]
+cmp eax, edx
+jl 0x800289f
+cmp eax, 4
+jne 0x80028c1
+mov rdi, qword [rbx + 0x20]
+mov rax, qword [rdi]
+mov rax, qword [rax + 0xa8]
+cmp rax, rcx
+jne _ZNK5boost9unit_test23unit_test_log_formatter13get_log_levelEv
+mov r14d, dword [rdi + 8]
+mov r15, qword [rbx + 8]
+mov edx, dword [rbx + 4]
+add rbx, 0x38
+cmp r13, rbx
+ja 0x8002888
+test r12, r12
+je 0x800292a
+mov rsi, r12
+mov rdi, rbp
+call _ZN5boost9unit_test15unit_test_log_t13add_formatterEPNS0_23unit_test_log_formatterE
+add byte [rax], al
+add byte [rax], al
+call method boost::unit_test::(anonymous namespace)::s_log_impl()
+mov rdx, rax
+mov rax, qword [rax + 0x18]
+mov rcx, qword [rdx + 0x20]
+cmp rax, rcx
+jb 0x8002901
+jmp 0x8002958
+nop dword [rax]
+add rax, 8
+cmp rcx, rax
+jbe 0x8002958
+mov rdx, qword [rax]
+cmp byte [rdx + 0x30], 0
+je 0x80028f8
+mov edx, r14d
+mov esi, 4
+mov rdi, rbp
+call _ZN5boost9unit_test15unit_test_log_t19set_threshold_levelENS0_13output_formatENS0_9log_levelE
+add byte [rax], al
+add byte [rax], al
+mov rdx, r15
+mov esi, 4
+mov rdi, rbp
+call _ZN5boost9unit_test15unit_test_log_t10set_streamENS0_13output_formatERSo
+add byte [rax], al
+add byte [rax], al
+add rsp, 8
+mov rdi, rbp
+pop rbx
+pop rbp
+pop r12
+pop r13
+pop r14
+pop r15
+jmp sym boost::unit_test::unit_test_log_t::configure()
+call rax
+lea rcx, [0x08002949]
+mov r14d, eax
+jmp 0x80028ba
+nop dword [rax]
+call method boost::unit_test::(anonymous namespace)::s_log_impl()
+mov rdx, qword [rax + 8]
+mov rax, qword [rax]
+cmp rax, rdx
+jae 0x800290a
+nop dword [rax]
+cmp dword [rax + 4], 4
+sete byte [rax]
+add rax, 0x38
+cmp rdx, rax
+ja 0x8002970
+jmp 0x800290a

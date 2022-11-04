@@ -1,0 +1,547 @@
+push rbp
+push rbx
+mov rbx, arg_53h
+mov edi, 0x50
+push rax
+call __cxa_allocate_exception
+mov rsi, rbx
+mov rbp, rax
+lea rax, [0x0800af99]
+lea rdi, [arg_8h]
+mov qword [rbp], rax
+call _ZNSt13runtime_errorC2ERKS_
+mov eax, dword [rbx + 0x10]
+lea rdx, [0x0800afb0]
+lea rsi, [0x0800afb7]
+mov rdi, rbp
+mov qword [arg_30h], 0
+mov dword [arg_18h], eax
+mov rax, qword [rbx + 0x18]
+mov qword [arg_38h], 0
+mov qword [arg_20h], rax
+mov rax, qword [0x0800afdc]
+mov qword [arg_40h], 0
+mov qword [arg_48h], rax
+lea rax, [0x0800afef]
+lea rcx, [rax - 0x30]
+movq xmm1, rax
+add rax, 0x28
+movq xmm0, rcx
+mov qword [arg_28h], rax
+punpcklqdq xmm0, xmm1
+movups xmmword [rbp], xmm0
+call __cxa_throw
+push rbp
+outsb dx, byte [rsi]
+imul ebp, dword [rsi + 0x6f], 0x77
+outsb dx, byte [rsi]
+and byte [arg_72h], ah
+jb 0x800b08d
+jb 0x800b04e
+add byte [rcx + 0x65], ah
+add byte [rcx + 0x65], al
+add byte [rcx + 0x45], al
+add byte [rbx + 0x68], ah
+add byte [rbx + 0x68], al
+add byte [rbx + 0x48], al
+add byte [rsp + rbp*2], ch
+insb byte [rdi], dx
+add byte [rsp + rcx*2], cl
+jae 0x800b0b1
+add byte [rbx + 0x73], dl
+add byte [rbx + 0x53], dl
+add byte [rsi + 0x6a], ch
+add byte [rsi + 0x6a], cl
+add byte [rsi + 0x4a], cl
+add byte [rdx + rdi*2], ah
+jp 0x800b051
+jp 0x800b054
+pop rdx
+add byte [rdx + rbp*2], ch
+push 0
+add byte [rax], al
+push rbp
+add byte [rbx + 0x4f], r10b
+add byte [rbx + 0x54], dl
+pop rax
+add byte [arg_54h], al
+pop rax
+add byte [arg_4fh], al
+push rsp
+add byte [arg_4eh], al
+push rcx
+add byte [rcx + 0x43], al
+add byte [r9 + 0x6c], spl
+invalid
+insb byte [rdi], dx
+jb 0x800b0f6
+add byte [rdx + 0x61], ah
+invalid
+invalid
+invalid
+imul esi, dword [rbx + 0x70], 0x61
+invalid
+add byte gs:[rcx + riz*2 + 0x62], dh
+je 0x800b0f0
+invalid
+add byte [rsi + 0x65], ch
+outsb dx, byte [rsi]
+ja 0x800b101
+imul ebp, dword [rsi + 0x65], 0x72657600
+jbe 0x800b100
+jb 0x800b111
+imul esp, dword [rbx + 0x61], 0x61742d6c
+invalid
+add byte [rsi + 0x6f], ah
+outsw dx, word [rsi]
+jb 0x800b117
+sub eax, 0x64656566
+add byte [rbx + 0x61], ah
+invalid
+invalid
+jb 0x800b126
+imul esp, dword [rcx + 0x67], 0x65722d65
+je 0x800b132
+jb 0x800b12d
+add byte [rbx + 0x4f], dl
+add byte [rbx + 0x49], dl
+add byte [rsp + rcx*2 + 0x45], al
+add byte [rbx + rax*2 + 0x31], al
+add byte [rbx + rax*2 + 0x32], al
+add byte [rbx + rax*2 + 0x33], al
+add byte [rbx + rax*2 + 0x34], al
+add byte [rsi + 0x41], cl
+add byte [r11 + 0x59], dl
+add byte [rbp + 0x54], r8b
+add byte [rbx + 0x41], al
+add byte [rbp + 0x4d], r8b
+add byte [rbx + 0x55], dl
+add byte [rbp + 0x53], al
+add byte [arg_53h], al
+add byte [r9 + 0x53], cl
+push rbx
+xor al, 0
+push r11
+xor eax, dword [rax]
+push r11
+xor al, byte [rax]
+push r11
+xor dword [rax], eax
+jae 0x800b177
+invalid
+invalid
+add byte gs:[rbp + 0x78], ah
+js 0x800b171
+insb byte [rdi], dx
+invalid
+insd dword [rdi], dx
+invalid
+je 0x800b17d
+outsd dx, dword [rsi]
+outsb dx, byte [rsi]
+sub eax, 0x6b72616d
+add byte [rcx + 0x75], dh
+jno 0x800b193
+outsd dx, dword [rsi]
+je 0x800b182
+je 0x800b18c
+outsd dx, dword [rsi]
+outsb dx, byte [rsi]
+sub eax, 0x6b72616d
+add byte [rsi + 0x75], ch
+outsb dx, byte [rsi]
+jne str.comma
+invalid
+jb 0x800b15f
+jae 0x800b19d
+outsb dx, byte [esi]
+add byte [rdi + rbp*2 + 0x6c], ah
+outsd dx, dword fs:[rsi]
+insb byte [rdi], dx
+insb byte [rdi], dx
+invalid
+jb 0x800b16b
+jae 0x800b1a9
+outsb dx, byte [esi]
+add byte [rax + 0x65], dh
+jo 0x800b1aa
+jb 0x800b1aa
+outsb dx, byte gs:[rsi]
+je 0x800b178
+jae 0x800b1b6
+outsb dx, byte [esi]
+add byte [rcx + 0x6d], ah
+invalid
+insd dword [rdi], dx
+jo 0x800b1b9
+jb 0x800b1c9
+invalid
+outsb dx, byte [rsi]
+add byte fs:[rcx + 0x70], ah
+invalid
+jo 0x800b1cc
+jae 0x800b1d3
+jb 0x800b1d0
+jo 0x800b1cb
+add byte gs:[rbp + riz*2 + 0x66], ch
+insb byte [rdi], dx
+je 0x800b197
+jo str.five
+jb 0x800b1d3
+outsb dx, byte [rsi]
+je 0x800b1d9
+jae 0x800b1dd
+jae str.right_parenthesis
+jb 0x800b1e1
+imul esp, dword [rdi + 0x68], 0x61702d74
+jb 0x800b1e5
+outsb dx, byte [rsi]
+je 0x800b1eb
+jae 0x800b1ef
+jae str.asterisk
+invalid
+jae 0x800b1ff
+jb str.less_than_sign
+jae 0x800b1fb
+add byte [rax + 0x6c], dh
+jo 0x800b1ff
+jne 0x800b208
+sub eax, 0x6e676973
+add byte [rbx + 0x6f], ah
+invalid
+outsd dx, dword [rsi]
+insd dword [rdi], dx
+insd dword [rdi], dx
+invalid
+add byte [rax + 0x79], ch
+push 0x65687079
+outsb dx, byte [rsi]
+add byte [rax + 0x65], dh
+jo 0x800b20f
+jb 0x800b215
+outsd dx, dword [rsi]
+add byte fs:[rbx + 0x6c], dh
+jae 0x800b21d
+invalid
+jae 0x800b21c
+add byte [rdx + 0x65], bh
+jp 0x800b21c
+jb 0x800b228
+add byte [rdi + 0x6e], ch
+add byte gs:[rdi + rsi*2 + 0x6f], dh
+add byte [rax + rbp*2 + 0x72], dh
+je 0x800b22c
+jb 0x800b22b
+add byte gs:[rsi + 0x6f], ah
+outsw dx, word [rsi]
+jne 0x800b23e
+add byte [rsi + 0x69], ah
+imul si, word [rsi + 0x65], 0x7300
+imul edi, dword [rax], 0x65766573
+jae 0x800b23d
+jbe 0x800b23f
+outsb dx, byte [rsi]
+add byte [rbp + 0x69], ah
+imul esp, dword gs:[rdi + 0x68], 0x696e0074
+outsb dx, byte [rsi]
+imul ebp, dword [rsi + 0x65], 0x6c6f6300
+add byte gs:[rbx + 0x6f], ah
+invalid
+outsd dx, dword [rsi]
+insb byte [rdi], dx
+outsd dx, dword [rsi]
+outsb dx, byte [rsi]
+add byte [rbx + 0x65], dh
+jae 0x800b254
+insd dword [rdi], dx
+imul esp, dword [rbx + 0x6f], 0x6e6f6c
+insb byte [rdi], dx
+jae 0x800b26e
+sub eax, 0x6e616874
+sub eax, 0x6e676973
+add byte [arg_71h], ah
+jno 0x800b27e
+invalid
+insb byte [rdi], dx
+jae 0x800b23a
+jae 0x800b278
+outsb dx, byte [esi]
+add byte [rdi + 0x72], ah
+jb 0x800b27a
+invalid
+je 0x800b27d
+jb 0x800b247
+je 0x800b284
+invalid
+outsb dx, byte [rsi]
+sub eax, 0x6e676973
+add byte [rcx + 0x75], dh
+jno 0x800b29b
+jae 0x800b29d
+imul ebp, dword [rdi + 0x6e], 0x72616d2d
+imul eax, dword [rax], 0x63
+invalid
+outsd dx, dword [rsi]
+insd dword [rdi], dx
+insd dword [rdi], dx
+jb 0x800b29c
+imul esp, dword [rcx + 0x6c], 0x74612d
+add byte [r10], al
+add byte [r8 + r8 + 0x45], al
+add byte [rsi], al
+add byte [r8], r9b
+add byte [r10], cl
+add byte [r8 + r8 + 0x4d], cl
+add byte [rsi], cl
+add byte [r8], r10b
+push rcx
+add byte [rdx], dl
+push rbx
+add byte [rax + rax + 0x55], dl
+add byte [rsi], dl
+add byte [rdi], dl
+pop rax
+add byte [rcx], bl
+pop rdx
+add byte [rbp + riz*2 + 0x66], ch
+je 0x800b2a6
+sub eax, 0x61757173
+jae 0x800b2ec
+jne 0x800b2de
+jb 0x800b2e4
+sub eax, 0x63617262
+imul esp, dword [arg_74h], 0
+invalid
+invalid
+invalid
+imul esi, dword [rbx + 0x6c], 0x61
+jae 0x800b2f9
+add byte [rdx + 0x69], dh
+jb 0x800b2fd
+push 0x71732d74
+jne 0x800b2fd
+jb 0x800b303
+sub eax, 0x63617262
+imul esp, dword [rbp + 0x74], 0
+add byte [rbx + 0x69], ah
+invalid
+imul esi, dword [rdx + 0x63], 0x6c666d75
+jne 0x800b31a
+insb byte [rdi], dx
+js str.underscore
+jne 0x800b322
+jb 0x800b32b
+invalid
+outsd dx, dword [rsi]
+jb 0x800b321
+add byte [rdi + 0x72], ah
+jb 0x800b321
+jbe 0x800b327
+sub eax, 0x65636361
+outsb dx, byte [rsi]
+je str.abcdefghijklmnopqrstuvwxyz
+invalid
+add byte [rdx], ah
+invalid
+add byte [rax + rax + 0x65], ah
+add byte [rsi], ah
+add byte [eax], ch
+imul eax, dword [rax], 0x6b006a
+imul eax, dword [rax], 0x6c
+add byte [rbp], ch
+outsb dx, byte [rsi]
+add byte [rdi], ch
+jo 0x800b2ea
+jno 0x800b2ec
+jb 0x800b2ee
+jae 0x800b2f0
+je 0x800b2f2
+jne 0x800b2f4
+jbe 0x800b2f6
+ja 0x800b2f8
+js 0x800b2fa
+jns 0x800b2fc
+jp 0x800b2fe
+insb byte [rdi], dx
+je 0x800b330
+invalid
+jne 0x800b378
+insb byte [rdi], dx
+jns 0x800b336
+invalid
+jb 0x800b36d
+invalid
+imul esp, dword [rbp + 0x74], 0
+je str.vertical_line
+jbe 0x800b378
+jb 0x800b389
+imul esp, dword [rbx + 0x61], 0x696c2d6c
+insb byte [rdi], dx
+imul ebp, dword [rsi + 0x65], 0x67697200
+jb 0x800b38a
+push 0x75632d74
+push 0x75632d74
+jb 0x800b395
+jns 0x800b358
+invalid
+jb 0x800b38f
+invalid
+imul esp, dword [rbp + 0x74], 0
+je str.tilde
+je 0x800b39e
+insb byte [rdi], dx
+add byte gs:[rbp + rax*2 + 0x4c], al
+add byte [rbx + 0x75], dl
+push rbx
+jne 0x800b3a3
+invalid
+jae 0x800b3b7
+add byte [rsi + 0x6f], cl
+outsd dx, dword [rsi]
+and byte [rbp + 0x61], ch
+je 0x800b3af
+push 0x766e4900
+outsb dx, byte [rsi]
+jbe 0x800b3b3
+insb byte [rdi], dx
+imul esp, dword [rax + riz + 0x72], 0x6c756765
+jne 0x800b3c7
+invalid
+jb 0x800b37e
+js 0x800b3d1
+jb 0x800b3c8
+jae 0x800b3d8
+imul ebp, dword [rdi + 0x6e], 0x6e49002e
+outsb dx, byte [rsi]
+jbe 0x800b3cf
+insb byte [rdi], dx
+imul esp, dword [rax + riz + 0x63], 0x616c6c6f
+je 0x800b3e2
+imul ebp, dword [rdi + 0x6e], 0x61686320
+jb 0x800b3e2
+invalid
+je 0x800b3e9
+jb 0x800b3b4
+add byte [rdi + 0x75], cl
+jne 0x800b3fe
+je 0x800b3ab
+outsd dx, dword [rsi]
+and byte [arg_65h], ch
+insd dword [rdi], dx
+outsd dx, dword [rsi]
+jb 0x800b40d
+add byte cs:[arg_6eh], dl
+add byte [arg_6eh], dl
+push rbp
+outsb dx, byte [rsi]
+insd dword [rdi], dx
+invalid
+je 0x800b3ff
+push 0x29206465
+and byte fs:[rcx], ch
+and byte [rdi + 0x72], ch
+and byte [rcx + rbp], bl
+insd dword [rdi], dx
+jo 0x800b420
+je 0x800b426
+jns 0x800b3ce
+and byte [rdx + 0x65], dh
+jb 0x800b415
+jne 0x800b41f
+invalid
+jb 0x800b3d6
+js 0x800b429
+jb 0x800b420
+jae 0x800b430
+imul ebp, dword [rdi + 0x6e], 0xffff002e
+invalid
+invalid
+invalid
+invalid
+invalid
+invalid
+invalid
+invalid
+invalid
+invalid
+invalid
+inc dword [rcx + 0x54]
+push r12
+mov r9, rsi
+mov r10, rdi
+mov r12, rsi
+push rbp
+lea rbp, [0x0800b3e3]
+add byte [rax], al
+add byte [rax], al
+add byte [rcx + 0x29], cl
+stc
+mov r8d, 0x15
+push rbx
+mov rbx, rbp
+mov rdi, r8
+sar rdi, 1
+mov rsi, rdi
+shl rsi, 4
+add rsi, rbx
+mov rcx, qword [rsi + 8]
+mov rax, qword [rsi]
+mov r11, rcx
+lea rdx, [rax + r9]
+or byte [rcx + 0x29], cl
+ret
+cmp r11, r9
+cmovg rcx, rdx
+cmovg ecx, edx
+mov rdx, r10
+cmp rax, rcx
+jne 0x800b437
+jmp 0x800b458
+nop word [rax + rax]
+add byte [rax], al
+jg 0x800b45d
+add rax, 4
+add rdx, 4
+cmp rcx, rax
+je 0x800b458
+mov r11d, dword [rdx]
+cmp dword [rax], r11d
+jge 0x800b428
+sub r8, rdi
+lea rbx, [rsi + 0x10]
+lea rdi, [r8 - 1]
+test rdi, rdi
+jle 0x800b462
+mov r8, rdi
+jmp 0x800b3f0
+nop dword [rax]
+cmp r12, rdx
+jne 0x800b43f
+test rdi, rdi
+jne 0x800b44f
+lea rax, [0x0800b469]
+cmp rbx, rax
+je 0x800b4a9
+mov rsi, qword [rbx]
+mov rax, qword [rbx + 8]
+mov r12d, 0xffffffff
+sub rax, rsi
+cmp r9, rax
+jne 0x800b4a1
+test r9, r9
+je 0x800b497
+mov rdx, r9
+mov rdi, r10
+call memcmp
+test eax, eax
+jne 0x800b4a1
+sub rbx, rbp
+sar rbx, 4
+mov r12d, ebx
+mov eax, r12d
+pop rbx
+pop rbp
+pop r12
+ret
+mov r12d, 0xffffffff
+jmp 0x800b4a1

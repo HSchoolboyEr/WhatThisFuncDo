@@ -1,0 +1,156 @@
+push r12
+mov edx, 1
+push rbp
+push rbx
+mov rbx, rdi
+sub rsp, 0xa0
+mov rdi, qword [rdi]
+lea rbp, [var_bh]
+mov rax, qword [rdi]
+mov rsi, rbp
+call qword [rax + 0x40]
+cmp rax, 1
+jne 0x80018a7
+cmp byte [var_bh], 4
+jne 0x80019c9
+mov rdi, qword [rbx]
+mov edx, 1
+mov rsi, rbp
+mov rax, qword [rdi]
+call qword [rax + 0x40]
+cmp rax, 1
+jne 0x8001942
+cmp byte [var_bh], 8
+jne 0x8001983
+mov rdi, qword [rbx]
+mov edx, 1
+mov rsi, rbp
+mov rax, qword [rdi]
+call qword [rax + 0x40]
+cmp rax, 1
+jne 0x8001906
+cmp byte [var_bh], 4
+jne 0x80019a6
+mov rdi, qword [rbx]
+mov edx, 1
+mov rsi, rbp
+mov rax, qword [rdi]
+call qword [rax + 0x40]
+cmp rax, 1
+jne 0x8001924
+cmp byte [var_bh], 8
+jne 0x8001960
+mov rdi, qword [rbx]
+lea rsi, [var_ch]
+mov edx, 4
+mov rax, qword [rdi]
+call qword [rax + 0x40]
+cmp rax, 4
+jne 0x80018e8
+cmp dword [var_ch], 1
+jne 0x80018c5
+add rsp, 0xa0
+pop rbx
+pop rbp
+pop r12
+ret
+lea r12, [var_10h]
+xor ecx, ecx
+xor edx, edx
+mov esi, 8
+mov rdi, r12
+call _ZN5boost7archive17archive_exceptionC1ENS1_14exception_codeEPKcS4_
+mov rdi, r12
+call _ZN5boost13serialization15throw_exceptionINS_7archive17archive_exceptionEEEvRKT_
+lea r12, [var_10h]
+xor ecx, ecx
+mov esi, 6
+mov rdi, r12
+lea rdx, [0x080018db]
+call _ZN5boost7archive17archive_exceptionC1ENS1_14exception_codeEPKcS4_
+mov rdi, r12
+call _ZN5boost13serialization15throw_exceptionINS_7archive17archive_exceptionEEEvRKT_
+lea rbp, [var_10h]
+xor ecx, ecx
+xor edx, edx
+mov esi, 8
+mov rdi, rbp
+call _ZN5boost7archive17archive_exceptionC1ENS1_14exception_codeEPKcS4_
+mov rdi, rbp
+call _ZN5boost13serialization15throw_exceptionINS_7archive17archive_exceptionEEEvRKT_
+lea r12, [var_10h]
+xor ecx, ecx
+xor edx, edx
+mov esi, 8
+mov rdi, r12
+call _ZN5boost7archive17archive_exceptionC1ENS1_14exception_codeEPKcS4_
+mov rdi, r12
+call _ZN5boost13serialization15throw_exceptionINS_7archive17archive_exceptionEEEvRKT_
+lea r12, [arg_10h]
+xor ecx, ecx
+xor edx, edx
+mov esi, 8
+mov rdi, r12
+call _ZN5boost7archive17archive_exceptionC1ENS1_14exception_codeEPKcS4_
+mov rdi, r12
+call _ZN5boost13serialization15throw_exceptionINS_7archive17archive_exceptionEEEvRKT_
+lea r12, [var_10h]
+xor ecx, ecx
+xor edx, edx
+mov esi, 8
+mov rdi, r12
+call _ZN5boost7archive17archive_exceptionC1ENS1_14exception_codeEPKcS4_
+mov rdi, r12
+call _ZN5boost13serialization15throw_exceptionINS_7archive17archive_exceptionEEEvRKT_
+lea rbp, [arg_10h]
+xor ecx, ecx
+mov esi, 6
+mov rdi, rbp
+lea rdx, [0x08001976]
+call _ZN5boost7archive17archive_exceptionC1ENS1_14exception_codeEPKcS4_
+mov rdi, rbp
+call _ZN5boost13serialization15throw_exceptionINS_7archive17archive_exceptionEEEvRKT_
+lea r12, [arg_10h]
+xor ecx, ecx
+mov esi, 6
+mov rdi, r12
+lea rdx, [0x08001999]
+call _ZN5boost7archive17archive_exceptionC1ENS1_14exception_codeEPKcS4_
+mov rdi, r12
+call _ZN5boost13serialization15throw_exceptionINS_7archive17archive_exceptionEEEvRKT_
+lea r12, [arg_10h]
+xor ecx, ecx
+mov esi, 6
+mov rdi, r12
+lea rdx, [0x080019bc]
+call _ZN5boost7archive17archive_exceptionC1ENS1_14exception_codeEPKcS4_
+mov rdi, r12
+call _ZN5boost13serialization15throw_exceptionINS_7archive17archive_exceptionEEEvRKT_
+lea r12, [var_10h]
+xor ecx, ecx
+mov esi, 6
+mov rdi, r12
+lea rdx, [0x080019df]
+call _ZN5boost7archive17archive_exceptionC1ENS1_14exception_codeEPKcS4_
+mov rdi, r12
+call _ZN5boost13serialization15throw_exceptionINS_7archive17archive_exceptionEEEvRKT_
+mov rbp, rax
+jmp 0x8001a16
+jmp 0x80019ec
+jmp 0x80019ec
+mov r12, rax
+jmp 0x8001a00
+jmp 0x80019f5
+jmp 0x80019ec
+jmp 0x80019ec
+mov rdi, rbp
+call _ZN5boost7archive17archive_exceptionD1Ev
+mov rdi, r12
+call _Unwind_Resume
+jmp 0x80019ec
+jmp 0x80019ec
+jmp 0x80019ec
+mov rdi, r12
+call _ZN5boost7archive17archive_exceptionD1Ev
+mov rdi, rbp
+call _Unwind_Resume

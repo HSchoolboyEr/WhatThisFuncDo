@@ -1,0 +1,13 @@
+push r12
+mov r12, rdi
+push rbx
+mov ebx, edx
+sub rsp, 8
+call method boost::unit_test::(anonymous namespace)::s_log_impl()
+mov dword [rax + 0x58], ebx
+mov rax, r12
+mov byte [r12], 1
+add rsp, 8
+pop rbx
+pop r12
+ret

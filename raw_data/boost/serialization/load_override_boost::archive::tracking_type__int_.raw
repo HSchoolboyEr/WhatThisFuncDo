@@ -1,0 +1,60 @@
+push r12
+push rbp
+mov rbp, rsi
+push rbx
+mov rbx, rdi
+mov rsi, rbx
+sub rsp, 0xa0
+lea rdi, [var_eh]
+call _ZNK5boost7archive6detail14basic_iarchive19get_library_versionEv
+mov rdi, qword [rbx + 0x28]
+cmp word [var_eh], 6
+mov byte [var_dh], 0
+lea rsi, [var_dh]
+mov edx, 1
+mov rax, qword [rdi]
+jbe 0x8001360
+call qword [rax + 0x40]
+cmp rax, 1
+jne 0x800139b
+cmp byte [var_dh], 0
+setne byte [rbp]
+add rsp, 0xa0
+pop rbx
+pop rbp
+pop r12
+ret
+nop word [rax + rax]
+call qword [rax + 0x40]
+cmp rax, 1
+jne 0x800137d
+movzx eax, byte [var_dh]
+mov byte [rbp], al
+add rsp, 0xa0
+pop rbx
+pop rbp
+pop r12
+ret
+lea r12, [var_10h]
+xor ecx, ecx
+xor edx, edx
+mov esi, 8
+mov rdi, r12
+call _ZN5boost7archive17archive_exceptionC1ENS1_14exception_codeEPKcS4_
+mov rdi, r12
+call _ZN5boost13serialization15throw_exceptionINS_7archive17archive_exceptionEEEvRKT_
+lea r12, [var_10h]
+xor ecx, ecx
+xor edx, edx
+mov esi, 8
+mov rdi, r12
+call _ZN5boost7archive17archive_exceptionC1ENS1_14exception_codeEPKcS4_
+mov rdi, r12
+call _ZN5boost13serialization15throw_exceptionINS_7archive17archive_exceptionEEEvRKT_
+mov rbp, rax
+jmp 0x80013c0
+jmp 0x80013b9
+mov rdi, r12
+call _ZN5boost7archive17archive_exceptionD1Ev
+mov rdi, rbp
+call _Unwind_Resume

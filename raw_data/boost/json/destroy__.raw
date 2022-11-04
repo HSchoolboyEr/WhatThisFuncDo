@@ -1,0 +1,79 @@
+push r14
+push r13
+lea r13, [0x08002e6b]
+push r12
+lea r12, [0x08002e74]
+push rbp
+push rbx
+mov r14, qword [rdi]
+mov rsi, qword [r14 + 0x10]
+mov eax, dword [rsi]
+lea rbp, [rsi + 0x10]
+lea rax, [rax + rax*4]
+lea rbx, [rsi + rax*8 + 0x10]
+cmp rbx, rbp
+jne 0x8002ecd
+jmp 0x8002ef2
+nop dword [rax + rax]
+mov rsi, qword [rbx + 0x18]
+cmp rsi, r12
+je 0x8002ee1
+mov rdi, rax
+mov ecx, 1
+and rdi, 0xfffffffffffffffc
+test rax, rax
+mov eax, dword [rbx + 0x20]
+cmove rdi, r13
+lea edx, [rax + 1]
+mov rax, qword [rdi]
+call qword [rax + 0x18]
+mov rdi, rbx
+call _ZN5boost4json5valueD1Ev
+cmp rbp, rbx
+je 0x8002eee
+mov rax, qword [rbx - 0x28]
+sub rbx, 0x28
+mov rdx, rax
+and edx, 3
+cmp rdx, 2
+jne 0x8002e98
+mov rdi, rbx
+call _ZN5boost4json5valueD1Ev
+cmp rbp, rbx
+jne 0x8002ecd
+mov rsi, qword [r14 + 0x10]
+mov eax, dword [rsi + 4]
+test eax, eax
+je 0x8002f31
+mov rdx, qword [r14]
+mov rdi, rdx
+and rdi, 0xfffffffffffffffc
+test rdx, rdx
+lea rdx, [0x08002f0d]
+cmove rdi, rdx
+cmp eax, 0x12
+jbe 0x8002f40
+lea rdx, [rax + rax*4]
+mov ecx, 0x10
+lea rax, [rax + rdx*2]
+lea rdx, [rax*4 + 0x10]
+mov rax, qword [rdi]
+call qword [rax + 0x18]
+pop rbx
+pop rbp
+pop r12
+pop r13
+pop r14
+ret
+nop word [rax + rax]
+lea rax, [rax + rax*4]
+mov ecx, 0x10
+lea rdx, [rax*8 + 0x10]
+mov rax, qword [rdi]
+call qword [rax + 0x18]
+pop rbx
+pop rbp
+pop r12
+pop r13
+pop r14
+ret

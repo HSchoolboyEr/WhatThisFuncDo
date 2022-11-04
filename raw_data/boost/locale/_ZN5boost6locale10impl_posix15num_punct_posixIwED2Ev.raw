@@ -1,0 +1,30 @@
+lea rax, [0x08002107]
+push rbp
+mov rbp, rdi
+mov qword [rdi], rax
+mov rdi, qword [rdi + 0x58]
+lea rax, [arg_68h]
+cmp rdi, rax
+je 0x8002128
+mov rax, qword [arg_68h]
+lea rsi, [rax + 1]
+call _ZdlPvm
+mov rdi, qword [arg_38h]
+lea rax, [arg_48h]
+cmp rdi, rax
+je 0x8002146
+mov rax, qword [arg_48h]
+lea rsi, [rax*4 + 4]
+call _ZdlPvm
+mov rdi, qword [arg_18h]
+lea rax, [arg_28h]
+cmp rdi, rax
+je 0x8002164
+mov rax, qword [arg_28h]
+lea rsi, [rax*4 + 4]
+call _ZdlPvm
+mov rdi, rbp
+pop rbp
+jmp _ZNSt7__cxx118numpunctIwED2Ev
+add byte [rax], al
+add byte [rax], al

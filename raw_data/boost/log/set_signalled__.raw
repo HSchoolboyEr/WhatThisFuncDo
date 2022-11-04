@@ -1,0 +1,22 @@
+mov eax, dword [rdi]
+test eax, eax
+je 0x80001f0
+ret
+nop word [rax + rax]
+mov eax, 1
+xchg dword [rdi], eax
+test eax, eax
+je 0x8000200
+ret
+nop dword [rax]
+sub rsp, 0x10
+mov rsi, rdi
+xor r9d, r9d
+xor r8d, r8d
+push 0
+mov ecx, 1
+mov edx, 0x81
+mov edi, 0xca
+call syscall
+add rsp, 0x18
+ret

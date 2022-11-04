@@ -1,0 +1,38 @@
+push r12
+push rbp
+sub rsp, 0x28
+mov rbp, qword [rdi]
+test rbp, rbp
+je 0x8001b88
+movzx eax, byte [rdi + 0xc]
+lea r12, [var_1h]
+mov ecx, 0x30
+mov r9d, 0x39
+mov r8d, 0x39
+mov edx, 0x1b
+lea rsi, [0x08001b55]
+mov rdi, r12
+mov byte [rsp], al
+xor eax, eax
+call sprintf
+cmp byte [rsp], 0
+mov dword [var_10h], 0xa
+je 0x8001b88
+lea rax, [0x08001b77]
+cmp rbp, rax
+je 0x8001b90
+lea rax, [0x08001b83]
+cmp rbp, rax
+je 0x8001b90
+add rsp, 0x28
+pop rbp
+pop r12
+ret
+mov rsi, r12
+mov rdi, rbp
+mov edx, 0xa
+call _ZNSo5writeEPKcl
+add rsp, 0x28
+pop rbp
+pop r12
+ret

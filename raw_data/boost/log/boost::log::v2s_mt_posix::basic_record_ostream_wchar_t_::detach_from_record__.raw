@@ -1,0 +1,68 @@
+cmp qword [rdi + 0x1a8], 0
+je 0x8002da8
+push r12
+push rbp
+push rbx
+mov rbx, rdi
+mov rdi, qword [rdi + 0x40]
+test rdi, rdi
+je 0x8002d69
+mov rbp, qword [rbx + 0x20]
+mov r12, qword [rbx + 0x28]
+cmp rbp, r12
+je 0x8002d55
+cmp byte [rbx + 0x50], 0
+jne 0x8002d40
+mov rdx, r12
+mov rcx, qword [rdi + 8]
+mov rax, qword [rbx + 0x48]
+sub rdx, rbp
+sar rdx, 2
+cmp rcx, rax
+jae 0x8002db0
+movabs rsi, 0xfffffffffffffff
+sub rax, rcx
+sub rsi, rcx
+cmp rdx, rax
+ja 0x8002dc8
+cmp rsi, rdx
+jae _ZNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEE9_M_appendEPKwm
+lea rdi, [0x08002d39]
+call _ZSt20__throw_length_errorPKc
+nop
+mov rax, r12
+sub rbp, r12
+sar rbp, 2
+movsxd rbp, ebp
+lea rax, [rax + rbp*4]
+mov qword [rbx + 0x28], rax
+mov qword [rbx + 0x40], 0
+mov qword [rbx + 0x48], 0
+mov byte [rbx + 0x50], 0
+lea rbp, [rbx + 0xa0]
+mov esi, 1
+mov rdi, rbp
+call _ZNSt9basic_iosIwSt11char_traitsIwEE5clearESt12_Ios_Iostate
+mov esi, dword [rbx + 0xc0]
+mov rdi, rbp
+mov qword [rbx + 0x1a8], 0
+mov dword [rbx + 0xbc], 0
+call _ZNSt9basic_iosIwSt11char_traitsIwEE5clearESt12_Ios_Iostate
+pop rbx
+pop rbp
+pop r12
+ret
+nop dword [rax]
+ret
+nop dword [rax]
+xor eax, eax
+test rdx, rdx
+jne 0x8002dd1
+mov rsi, rbp
+call _ZNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEE9_M_appendEPKwm
+mov rax, qword [rbx + 0x28]
+jmp 0x8002d43
+cmp rsi, rax
+jb .LC4
+mov rdx, rax
+jmp 0x8002db7

@@ -1,0 +1,171 @@
+push r15
+push r14
+push r13
+push r12
+push rbp
+push rbx
+mov rbx, rdi
+mov edi, 0x48
+sub rsp, 0x18
+call _Znwm
+mov rbp, qword [rbx]
+mov qword [rax + 0x18], rbx
+mov r12, rax
+mov qword [rax + 8], 0
+lea r13, [arg_8h]
+mov qword [rax + 0x10], 0
+mov rdi, r13
+mov qword [rax + 0x20], 0
+lea rax, [0x0801061b]
+mov qword [r12], rax
+mov r14, qword [arg_30h]
+call pthread_mutex_lock
+mov rbx, qword [arg_38h]
+test rbx, rbx
+je pthread_mutex_unlock
+lea r15, [0x0801063c]
+nop dword [rax]
+mov rax, qword [rbx + 8]
+test rax, rax
+je 0x80106e0
+mov rdi, qword [rax + 8]
+cmp rdi, r15
+je 0x801066b
+cmp byte [rdi], 0x2a
+je 0x80106e0
+mov rsi, r15
+call strcmp
+test eax, eax
+jne 0x80106e0
+mov rdi, r13
+call pthread_mutex_unlock
+mov qword [r12 + 0x28], rbx
+mov dword [r12 + 0x30], 0
+mov qword [r12 + 0x38], 0
+mov qword [r12 + 0x40], 0
+mov rbx, qword [rbx + 0x30]
+movzx ebp, byte [rbx + 0x60]
+test bpl, bpl
+jne 0x8010790
+movzx ebp, byte [rbx + 0xf1]
+test bpl, bpl
+jne 0x80106be
+cmp qword [rbx + 0xa8], 0
+je 0x80107c8
+lea rax, [0x080106c5]
+mov qword [r12], rax
+add rsp, 0x18
+mov rax, r12
+pop rbx
+pop rbp
+pop r12
+pop r13
+pop r14
+pop r15
+ret
+nop dword [rax + rax]
+mov rbx, qword [rbx + 0x20]
+test rbx, rbx
+jne 0x8010640
+mov rdi, r13
+call pthread_mutex_unlock
+mov rdi, r14
+call _ZN5boost4asio6detail16service_registry6createINS1_13epoll_reactorENS0_17execution_contextEEEPNS5_7serviceEPv
+mov r15, rax
+lea rax, [0x08010707]
+mov rdi, r13
+mov qword [r15 + 8], rax
+mov qword [r15 + 0x10], 0
+call pthread_mutex_lock
+mov rax, qword [arg_38h]
+mov qword [var_8h], rax
+test rax, rax
+je 0x8010779
+mov rbx, rax
+lea r14, [0x08010733]
+nop dword [rax + rax]
+mov rax, qword [rbx + 8]
+test rax, rax
+je 0x8010770
+mov rdi, qword [rax + 8]
+cmp rdi, r14
+je 0x801075b
+cmp byte [rdi], 0x2a
+je 0x8010770
+mov rsi, r14
+call strcmp
+test eax, eax
+jne 0x8010770
+mov rax, qword [r15]
+mov rdi, r15
+call qword [rax + 8]
+jmp pthread_mutex_unlock
+nop dword [rax]
+mov rbx, qword [rbx + 0x20]
+test rbx, rbx
+jne 0x8010738
+mov rax, qword [var_8h]
+mov rbx, r15
+mov qword [r15 + 0x20], rax
+mov qword [arg_38h], r15
+jmp pthread_mutex_unlock
+nop
+lea r13, [rbx + 0x38]
+mov rdi, r13
+call pthread_mutex_lock
+cmp byte [rbx + 0xf1], 0
+je 0x80107b8
+mov rdi, r13
+call pthread_mutex_unlock
+jmp _ZTVN5boost4asio6detail23reactive_socket_serviceINS0_2ip3udpEEE
+nop word [rax + rax]
+cmp qword [rbx + 0xa8], 0
+jne 0x80107a5
+nop word [rax + rax]
+mov rdi, qword [rbx + 0x18]
+call qword [rbx + 0xb0]
+mov rdx, qword [rbx + 0xe8]
+mov qword [rbx + 0xa8], rax
+lea rax, [rbx + 0xb8]
+mov qword [rbx + 0xb8], 0
+test rdx, rdx
+je 0x8010883
+mov qword [rdx], rax
+mov qword [rbx + 0xe8], rax
+cmp byte [rbx + 0x60], 0
+je 0x8010840
+mov rax, qword [rbx + 0xa0]
+or rax, 1
+mov qword [rbx + 0xa0], rax
+cmp rax, 1
+je 0x8010840
+test bpl, bpl
+je 0x8010898
+lea rdi, [rbx + 0x38]
+call pthread_mutex_unlock
+lea rdi, [rbx + 0x70]
+call pthread_cond_signal
+jmp _ZTVN5boost4asio6detail23reactive_socket_serviceINS0_2ip3udpEEE
+nop
+cmp byte [rbx + 0xd0], 0
+jne 0x8010862
+mov rdi, qword [rbx + 0xa8]
+test rdi, rdi
+je 0x8010862
+mov byte [rbx + 0xd0], 1
+mov rax, qword [rdi]
+call qword [rax + 8]
+test bpl, bpl
+je _ZTVN5boost4asio6detail23reactive_socket_serviceINS0_2ip3udpEEE
+cmp byte [rbx + 0x60], 0
+je _ZTVN5boost4asio6detail23reactive_socket_serviceINS0_2ip3udpEEE
+lea rdi, [rbx + 0x38]
+call pthread_mutex_unlock
+jmp _ZTVN5boost4asio6detail23reactive_socket_serviceINS0_2ip3udpEEE
+movq xmm0, rax
+punpcklqdq xmm0, xmm0
+movups xmmword [rbx + 0xe0], xmm0
+jmp 0x8010805
+lea rdi, [rbx + 0x70]
+call pthread_cond_signal
+jmp _ZTVN5boost4asio6detail23reactive_socket_serviceINS0_2ip3udpEEE

@@ -1,0 +1,123 @@
+push r12
+push rbp
+push rbx
+mov rax, qword [rdi + 0xd0]
+mov rbx, rdi
+test rax, rax
+je 0x80007ab
+test al, 1
+je 0x8000940
+mov r12, qword [rbx + 0xc0]
+mov rbp, qword [rbx + 0xb8]
+cmp r12, rbp
+je 0x80007ee
+nop
+mov rdi, qword [rbp]
+lea rax, [arg_10h]
+cmp rdi, rax
+je 0x8000910
+mov rax, qword [arg_10h]
+add rbp, 0x20
+lea rsi, [rax + 1]
+call _ZdlPvm
+cmp r12, rbp
+jne 0x80007c0
+mov rbp, qword [rbx + 0xb8]
+test rbp, rbp
+je 0x8000805
+mov rsi, qword [rbx + 0xc8]
+mov rdi, rbp
+sub rsi, rbp
+call _ZdlPvm
+mov r12, qword [rbx + 0xa8]
+mov rbp, qword [rbx + 0xa0]
+cmp r12, rbp
+je 0x8000868
+nop dword [rax + rax]
+mov rdi, qword [arg_20h]
+lea rax, [arg_30h]
+cmp rdi, rax
+je 0x800083a
+mov rax, qword [arg_30h]
+lea rsi, [rax + 1]
+call _ZdlPvm
+mov rdi, qword [rbp]
+lea rax, [arg_10h]
+cmp rdi, rax
+je 0x8000928
+mov rax, qword [arg_10h]
+add rbp, 0x40
+lea rsi, [rax + 1]
+call _ZdlPvm
+cmp r12, rbp
+jne 0x8000820
+mov rbp, qword [rbx + 0xa0]
+test rbp, rbp
+je 0x800087f
+mov rsi, qword [rbx + 0xb0]
+mov rdi, rbp
+sub rsi, rbp
+call _ZdlPvm
+mov rdi, qword [rbx + 0x80]
+lea rax, [rbx + 0x90]
+cmp rdi, rax
+je 0x80008a2
+mov rax, qword [rbx + 0x90]
+lea rsi, [rax + 1]
+call _ZdlPvm
+mov rdi, qword [rbx + 0x60]
+lea rax, [rbx + 0x70]
+cmp rdi, rax
+je 0x80008bc
+mov rax, qword [rbx + 0x70]
+lea rsi, [rax + 1]
+call _ZdlPvm
+mov rdi, qword [rbx + 0x40]
+lea rax, [rbx + 0x50]
+cmp rdi, rax
+je 0x80008d6
+mov rax, qword [rbx + 0x50]
+lea rsi, [rax + 1]
+call _ZdlPvm
+mov rdi, qword [rbx + 0x20]
+lea rax, [rbx + 0x30]
+cmp rdi, rax
+je 0x80008f0
+mov rax, qword [rbx + 0x30]
+lea rsi, [rax + 1]
+call _ZdlPvm
+mov rdi, qword [rbx]
+lea rax, [rbx + 0x10]
+cmp rdi, rax
+je 0x8000970
+mov rsi, qword [rbx + 0x10]
+pop rbx
+pop rbp
+pop r12
+add rsi, 1
+jmp _ZdlPvm
+nop dword [rax]
+add rbp, 0x20
+cmp r12, rbp
+jne 0x80007c0
+jmp 0x80007e7
+nop word [rax + rax]
+add rbp, 0x40
+cmp r12, rbp
+jne 0x8000820
+jmp 0x8000861
+nop word [rax + rax]
+and rax, 0xfffffffffffffffe
+mov rax, qword [rax]
+test rax, rax
+je 0x80007ab
+lea rdi, [rdi + 0xd8]
+mov edx, 2
+mov rsi, rdi
+call rax
+jmp 0x80007ab
+nop word cs:[rax + rax]
+pop rbx
+pop rbp
+pop r12
+ret

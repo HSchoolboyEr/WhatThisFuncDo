@@ -1,0 +1,62 @@
+graph
+[
+hierarchic 1
+label ""
+directed 1
+  node [
+    id  0
+    label  "method.boost::log::v2s_mt_posix::sinks::basic_text_ostream_backend_wchar_t_.add_stream_boost::shared_ptr_std::basic_ostream_wchar_t__std::char_traits_wchar_t______const_"
+  ]
+  node [
+    id  1
+    label  "0x08000f00"
+  ]
+  node [
+    id  2
+    label  "0x08000f30"
+  ]
+  node [
+    id  3
+    label  "0x08000f06"
+  ]
+  node [
+    id  4
+    label  "0x08000f1e"
+  ]
+  node [
+    id  5
+    label  "0x08000f19"
+  ]
+  node [
+    id  6
+    label  "0x08000ef8"
+  ]
+  edge [
+    source  0
+    target  1
+  ]
+  edge [
+    source  0
+    target  6
+  ]
+  edge [
+    source  1
+    target  2
+  ]
+  edge [
+    source  1
+    target  3
+  ]
+  edge [
+    source  3
+    target  4
+  ]
+  edge [
+    source  3
+    target  5
+  ]
+  edge [
+    source  5
+    target  4
+  ]
+]

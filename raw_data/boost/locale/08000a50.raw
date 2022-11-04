@@ -1,0 +1,286 @@
+push r15
+push r14
+push r13
+mov r13, rdx
+push r12
+mov r12, rdi
+mov edi, 0x48
+push rbp
+push rbx
+mov rbx, rsi
+sub rsp, 0x48
+call _Znwm
+mov rbp, rax
+mov rax, qword [r13]
+lea rcx, [arg_30h]
+lea rdi, [arg_20h]
+mov qword [arg_20h], rcx
+mov rdx, qword [rax + 8]
+mov rsi, qword [rax]
+mov qword [rsp], rdi
+mov qword [var_8h], rcx
+add rdx, rsi
+call method void std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >::_M_construct<char*>(char*, char*, std::forward_iterator_tag) [clone .constprop.0]
+lea r15, [r12 + 8]
+mov dword [arg_40h], 0
+mov r14, rbx
+cmp r15, rbx
+je 0x8000cb0
+mov r13, qword [arg_28h]
+mov r9, qword [rbx + 0x28]
+mov r11, qword [arg_20h]
+mov r8, qword [rbx + 0x20]
+cmp r13, r9
+mov r10, r9
+cmovbe r10, r13
+test r10, r10
+je 0x8000bd0
+mov rdx, r10
+mov rsi, r8
+mov rdi, r11
+mov qword [var_28h], r9
+mov qword [var_20h], r10
+mov qword [var_18h], r8
+mov qword [var_10h], r11
+call memcmp
+mov r11, qword [var_10h]
+mov r8, qword [var_18h]
+test eax, eax
+mov r10, qword [var_20h]
+mov r9, qword [var_28h]
+jne 0x8000be8
+mov rax, r13
+sub rax, r9
+cmp rax, 0x7fffffff
+jg 0x8000b3c
+cmp rax, 0xffffffff80000000
+jl 0x8000bee
+test eax, eax
+js 0x8000bee
+test r10, r10
+je 0x8000b76
+mov rdx, r10
+mov rsi, r11
+mov rdi, r8
+mov qword [var_28h], r9
+mov qword [var_20h], r10
+mov qword [var_18h], r11
+mov qword [var_10h], r8
+call memcmp
+mov r8, qword [var_10h]
+mov r11, qword [var_18h]
+test eax, eax
+mov r10, qword [var_20h]
+mov r9, qword [var_28h]
+jne 0x8000b90
+mov rax, r9
+sub rax, r13
+cmp rax, 0x7fffffff
+jg 0x8000b98
+cmp rax, 0xffffffff80000000
+jl 0x8000d40
+test eax, eax
+js 0x8000d40
+cmp qword [var_8h], r11
+je 0x8000baf
+mov rax, qword [arg_30h]
+mov rdi, r11
+lea rsi, [rax + 1]
+call _ZdlPvm
+mov rdi, rbp
+mov esi, 0x48
+call _ZdlPvm
+add rsp, 0x48
+mov rax, r14
+pop rbx
+pop rbp
+pop r12
+pop r13
+pop r14
+pop r15
+ret
+nop
+mov rax, r13
+sub rax, r9
+cmp rax, 0x7fffffff
+jle 0x8000b23
+jmp 0x8000b76
+nop dword [rax]
+jns 0x8000b3c
+mov qword [var_10h], r11
+cmp qword [r12 + 0x18], rbx
+je 0x8000c70
+mov rdi, rbx
+call _ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base
+add byte [rax], al
+add byte [rax], al
+mov r9, qword [rax + 0x28]
+mov r10, rax
+cmp r13, r9
+mov rdx, r9
+cmovbe rdx, r13
+test rdx, rdx
+je 0x8000c41
+mov r11, qword [var_10h]
+mov rdi, qword [rax + 0x20]
+mov qword [var_20h], r9
+mov qword [var_18h], rax
+mov rsi, r11
+call memcmp
+mov r10, qword [var_18h]
+mov r9, qword [var_20h]
+test eax, eax
+jne 0x8000c5d
+sub r9, r13
+cmp r9, 0x7fffffff
+jg 0x8000d10
+cmp r9, 0xffffffff80000000
+jl 0x8000c65
+mov eax, r9d
+test eax, eax
+jns 0x8000d10
+cmp qword [r10 + 0x18], 0
+je 0x8000e10
+test rbx, rbx
+setne al
+cmp r15, r14
+je 0x8000c83
+test al, al
+je 0x8000e20
+mov edi, 1
+mov rcx, r15
+mov rdx, r14
+mov rsi, rbp
+call _ZSt29_Rb_tree_insert_and_rebalancebPSt18_Rb_tree_node_baseS0_RS_
+add byte [rax], al
+add byte [rax], al
+add qword [r12 + 0x28], 1
+add rsp, 0x48
+mov rax, rbp
+pop rbx
+pop rbp
+pop r12
+pop r13
+pop r14
+pop r15
+ret
+nop
+cmp qword [r12 + 0x28], 0
+je 0x8000d10
+mov r14, qword [r12 + 0x20]
+mov r13, qword [arg_28h]
+mov rbx, qword [r14 + 0x28]
+mov rdx, r13
+cmp rbx, r13
+cmovbe rdx, rbx
+test rdx, rdx
+je 0x8000ce5
+mov rsi, qword [arg_20h]
+mov rdi, qword [r14 + 0x20]
+call memcmp
+test eax, eax
+jne 0x8000d00
+sub rbx, r13
+cmp rbx, 0x7fffffff
+jg 0x8000d10
+cmp rbx, 0xffffffff80000000
+jl 0x8000e13
+mov eax, ebx
+test eax, eax
+js 0x8000e13
+nop dword [rax + rax]
+mov rsi, qword [rsp]
+mov rdi, r12
+call _ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_iESt10_Select1stIS8_ESt4lessIS5_ESaIS8_EE24_M_get_insert_unique_posERS7_
+mov rbx, rax
+mov r14, rdx
+test rdx, rdx
+jne 0x8000c70
+mov r11, qword [arg_20h]
+mov r14, rax
+jmp 0x8000b98
+nop word [rax + rax]
+mov qword [var_28h], r8
+mov qword [var_20h], r9
+mov qword [var_18h], r10
+mov qword [var_10h], r11
+cmp qword [r12 + 0x20], rbx
+je 0x8000e88
+mov rdi, rbx
+call _ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base
+add byte [rax], al
+add byte [rax], al
+mov r11, qword [var_10h]
+mov r10, qword [var_18h]
+mov rcx, rax
+mov rax, qword [rax + 0x28]
+mov r9, qword [var_20h]
+mov r8, qword [var_28h]
+cmp r13, rax
+mov rdx, rax
+mov qword [var_30h], rax
+cmovbe rdx, r13
+test rdx, rdx
+je 0x8000dd3
+mov rsi, qword [rcx + 0x20]
+mov rdi, r11
+mov qword [var_38h], r8
+mov qword [var_28h], r9
+mov qword [var_20h], r10
+mov qword [var_18h], rcx
+call memcmp
+mov r11, qword [var_10h]
+mov rcx, qword [var_18h]
+test eax, eax
+mov r10, qword [var_20h]
+mov r9, qword [var_28h]
+mov r8, qword [var_38h]
+jne 0x8000def
+mov rax, r13
+sub rax, qword [var_30h]
+cmp rax, 0x7fffffff
+jg 0x8000d10
+cmp rax, 0xffffffff80000000
+jl 0x8000df7
+test eax, eax
+jns 0x8000d10
+cmp qword [rbx + 0x18], 0
+je 0x8000e3a
+mov r14, rcx
+mov edi, 1
+jmp 0x8000c88
+nop dword [rax + rax]
+mov r14, r10
+xor eax, eax
+jmp 0x8000c76
+nop word [rax + rax]
+mov r13, qword [arg_28h]
+mov r9, qword [r14 + 0x28]
+mov r11, qword [arg_20h]
+mov r8, qword [r14 + 0x20]
+cmp r13, r9
+mov r10, r9
+cmovbe r10, r13
+test r10, r10
+je 0x8000e5b
+mov rdi, r11
+mov rdx, r10
+mov rsi, r8
+mov qword [rsp], r9
+call memcmp
+mov r9, qword [rsp]
+test eax, eax
+mov edi, eax
+jne 0x8000e7d
+sub r13, r9
+xor edi, edi
+cmp r13, 0x7fffffff
+jg 0x8000c88
+cmp r13, 0xffffffff80000000
+jl 0x8000c83
+mov edi, r13d
+shr edi, 0x1f
+jmp 0x8000c88
+nop dword [rax]
+xor ebx, ebx
+jmp 0x8000c70

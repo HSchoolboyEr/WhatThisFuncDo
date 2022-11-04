@@ -1,0 +1,32 @@
+push rbx
+mov rsi, qword [rdi + 0x48]
+mov rbx, rdi
+mov rdi, qword [rdi + 0x30]
+test rsi, rsi
+je 0x8004309
+mov rax, rdi
+mov rdx, qword [rbx + 0x38]
+mov ecx, 0x10
+and rax, 0xfffffffffffffffc
+test rdi, rdi
+lea rdi, [0x080042fb]
+cmovne rdi, rax
+mov rax, qword [rdi]
+call qword [rax + 0x18]
+mov rdi, qword [rbx + 0x30]
+test dil, 1
+jne 0x8004318
+pop rbx
+ret
+nop dword [rax]
+and rdi, 0xfffffffffffffffc
+mov rax, 0xffffffffffffffff
+lock xadd qword [rdi + 8], rax
+test rdi, rdi
+je 0x800430f
+cmp rax, 1
+jne 0x800430f
+mov rax, qword [rdi]
+pop rbx
+mov rax, qword [rax + 8]
+jmp rax

@@ -1,0 +1,23 @@
+push r12
+lea rax, [rdi + 0x10]
+xor edx, edx
+mov r12, rdi
+sub rsp, 0x10
+mov qword [rdi], rax
+mov qword [var_8h], 5
+lea rsi, [var_8h]
+call _ZNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEE9_M_createERmm
+mov rdx, qword [var_8h]
+movabs rcx, 0x6100000066
+mov qword [r12], rax
+mov qword [r12 + 0x10], rdx
+mov qword [rax], rcx
+movabs rcx, 0x730000006c
+mov qword [rax + 8], rcx
+mov dword [rax + 0x10], 0x65
+mov qword [r12 + 8], rdx
+mov dword [rax + rdx*4], 0
+add rsp, 0x10
+mov rax, r12
+pop r12
+ret

@@ -1,0 +1,43 @@
+push rbp
+lea rdx, [rsi + rsi*4]
+mov rbp, rdi
+push rbx
+lea rbx, [rdx*8]
+lea rdi, [rbx + 0x140]
+sub rsp, 8
+call malloc
+test rax, rax
+je .text.unlikely
+lea rcx, [rax + 0x20]
+pxor xmm0, xmm0
+lea rdx, [rax + 0x140]
+mov qword [rax + 0x10], 0
+movq xmm1, rcx
+mov qword [rax + 0x30], rdx
+add rdx, rbx
+punpcklqdq xmm1, xmm1
+mov qword [rax + 0x18], 0
+mov qword [rax + 0x38], rdx
+movups xmmword [rax], xmm0
+movups xmmword [rax + 0x20], xmm1
+movups xmmword [rax + 0x40], xmm0
+movups xmmword [rax + 0x50], xmm0
+movups xmmword [rax + 0x60], xmm0
+movups xmmword [rax + 0x70], xmm0
+movups xmmword [rax + 0x80], xmm0
+movups xmmword [rax + 0x90], xmm0
+movups xmmword [rax + 0xa0], xmm0
+movups xmmword [rax + 0xb0], xmm0
+movups xmmword [rax + 0xc0], xmm0
+movups xmmword [rax + 0xd0], xmm0
+movups xmmword [rax + 0xe0], xmm0
+movups xmmword [rax + 0xf0], xmm0
+movups xmmword [rax + 0x100], xmm0
+movups xmmword [rax + 0x110], xmm0
+movups xmmword [rax + 0x120], xmm0
+movups xmmword [rax + 0x130], xmm0
+mov qword [rbp], rax
+add rsp, 8
+pop rbx
+pop rbp
+ret

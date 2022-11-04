@@ -1,0 +1,14 @@
+movabs rax, 0xcbf29ce484222325
+lea rcx, [rsi + rdx]
+add rax, qword [rdi + 8]
+cmp rsi, rcx
+je 0x80027ac
+movabs rdi, 0x100000001b3
+nop dword [rax]
+movsx rdx, byte [rsi]
+add rsi, 1
+xor rax, rdx
+imul rax, rdi
+cmp rsi, rcx
+jne 0x8002798
+ret

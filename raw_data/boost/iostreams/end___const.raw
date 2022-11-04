@@ -1,0 +1,4 @@
+mov rdx, qword [rdi]
+mov rax, qword [rdx + 0x78]
+add rax, qword [rdx + 0x70]
+ret

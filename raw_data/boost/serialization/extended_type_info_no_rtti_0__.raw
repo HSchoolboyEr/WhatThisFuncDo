@@ -1,0 +1,6 @@
+lea rax, [0x08000117]
+mov qword [rdi], rax
+jmp _ZN5boost13serialization18extended_type_infoD2Ev
+add byte [rax], al
+add byte [rax], al
+nop

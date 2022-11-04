@@ -1,0 +1,18 @@
+cmp byte [rdi + 8], 0x85
+je 0x8004948
+mov rax, qword [rdi + 0x10]
+mov dword [rax], 0
+cmp byte [rdi + 8], 0x85
+je 0x8004958
+mov rdi, qword [rdi + 0x10]
+add rdi, 8
+mov byte [rdi], 0
+ret
+nop word [rax + rax]
+mov byte [rdi + 0x17], 0xe
+mov byte [rdi + 9], 0
+ret
+nop dword [rax]
+add rdi, 9
+mov byte [rdi], 0
+ret

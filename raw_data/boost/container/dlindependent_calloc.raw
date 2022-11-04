@@ -1,0 +1,9 @@
+sub rsp, 0x18
+mov rcx, rdx
+mov qword [var_8h], rsi
+lea rdx, [var_8h]
+mov rsi, rdi
+lea rdi, [0x08006d9b]
+call sym.ialloc.constprop.0
+add rsp, 0x18
+ret

@@ -1,0 +1,43 @@
+push r12
+push rbp
+push rbx
+mov rbx, rdi
+sub rsp, 0x10
+mov rbp, rsp
+nop
+call _ZN5boost6fibers7context6activeEv
+mov rdi, rbx
+mov qword [rsp], rbx
+mov r12, rax
+mov byte [var_8h], 0
+call _ZN5boost6fibers6detail13spinlock_ttas4lockEv
+mov rax, qword [rbx + 0x18]
+mov byte [var_8h], 1
+cmp rax, r12
+je .text.unlikely
+test rax, rax
+je 0x8000240
+lea rdi, [rbx + 8]
+mov rdx, r12
+mov rsi, rbp
+call _ZN5boost6fibers10wait_queue16suspend_and_waitERSt11unique_lockINS0_6detail13spinlock_ttasEEPNS0_7contextE
+add byte [rax], al
+add byte [rax], al
+cmp byte [var_8h], 0
+je _ZN5boost6fibers7context6activeEv
+mov rax, qword [rsp]
+test rax, rax
+je _ZN5boost6fibers7context6activeEv
+mov dword [rax], 1
+jmp _ZN5boost6fibers7context6activeEv
+nop word [rax + rax]
+mov rax, qword [rsp]
+mov qword [rbx + 0x18], r12
+test rax, rax
+je 0x8000253
+mov dword [rax], 1
+add rsp, 0x10
+pop rbx
+pop rbp
+pop r12
+ret

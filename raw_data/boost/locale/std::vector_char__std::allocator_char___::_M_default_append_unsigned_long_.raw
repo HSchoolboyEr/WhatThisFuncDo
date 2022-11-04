@@ -1,0 +1,102 @@
+test rsi, rsi
+je 0x8008f30
+movabs rdx, 0x7fffffffffffffff
+push r15
+push r14
+push r13
+mov r13, rdi
+push r12
+push rbp
+push rbx
+mov rbx, rsi
+mov rsi, rdx
+sub rsp, 8
+mov rcx, qword [rdi + 8]
+mov rax, qword [rdi + 0x10]
+mov rbp, rcx
+sub rax, rcx
+sub rbp, qword [rdi]
+sub rsi, rbp
+cmp rbx, rax
+ja 0x8008ec0
+mov rdx, rbx
+mov rdi, rcx
+xor esi, esi
+call memset
+mov rcx, rax
+add rcx, rbx
+mov qword [r13 + 8], rcx
+add rsp, 8
+pop rbx
+pop rbp
+pop r12
+pop r13
+pop r14
+pop r15
+ret
+nop dword [rax]
+cmp rsi, rbx
+jb .LC15
+cmp rbp, rbx
+mov rax, rbx
+cmovae rax, rbp
+add rax, rbp
+mov r14, rax
+jb 0x8008f38
+test rax, rax
+js 0x8008f38
+jne 0x8008f3b
+xor r14d, r14d
+xor r12d, r12d
+mov rdx, rbx
+lea rdi, [r12 + rbp]
+xor esi, esi
+call memset
+mov r15, qword [r13]
+mov rdx, qword [r13 + 8]
+sub rdx, r15
+test rdx, rdx
+jg 0x8008f50
+test r15, r15
+jne 0x8008f70
+add rbx, rbp
+mov qword [r13], r12
+add r12, rbx
+mov qword [r13 + 0x10], r14
+mov qword [r13 + 8], r12
+add rsp, 8
+pop rbx
+pop rbp
+pop r12
+pop r13
+pop r14
+pop r15
+ret
+nop dword [rax]
+ret
+nop dword [rax]
+mov r14, rdx
+mov rdi, r14
+call _Znwm
+mov r12, rax
+add r14, rax
+jmp 0x8008ee8
+nop dword [rax + rax]
+mov rsi, r15
+mov rdi, r12
+call memmove
+mov rsi, qword [r13 + 0x10]
+sub rsi, r15
+mov rdi, r15
+call _ZdlPvm
+jmp 0x8008f0b
+nop dword [rax]
+mov rsi, qword [r13 + 0x10]
+sub rsi, r15
+jmp 0x8008f62
+lea rdi, [0x08008f80]
+call _ZSt20__throw_length_errorPKc
+and eax, 0x6e250069
+invalid
+outsb dx, byte [rsi]
+add bh, bh

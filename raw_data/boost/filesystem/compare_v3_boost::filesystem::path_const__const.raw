@@ -1,0 +1,75 @@
+push r15
+push r14
+push r13
+push r12
+push rbp
+mov rbp, rdi
+push rbx
+sub rsp, 0xd8
+mov rax, qword [rsi + 8]
+lea r14, [var_70h]
+lea rcx, [var_a0h]
+mov qword [var_c0h], rsi
+mov rdi, r14
+mov qword [var_8h], rcx
+lea rbx, [var_b0h]
+lea r12, [var_10h]
+mov qword [var_c8h], rax
+lea r13, [var_50h]
+lea r15, [var_40h]
+mov qword [var_a0h], rbx
+mov qword [var_a8h], 0
+mov byte [var_b0h], 0
+call _ZNK5boost10filesystem4path5beginEv
+add byte [rax], al
+add byte [rax], al
+mov rax, qword [arg_8h]
+mov rdi, r12
+mov rsi, rbp
+mov qword [var_40h], r13
+mov qword [var_68h], rax
+mov qword [var_48h], 0
+mov byte [var_50h], 0
+mov qword [var_60h], rbp
+call _ZNK5boost10filesystem4path5beginEv
+mov rcx, qword [var_8h]
+mov rdi, r12
+mov rdx, r14
+mov rsi, r15
+call _ZN5boost10filesystem6detail14lex_compare_v3ENS0_4path8iteratorES3_S3_S3_
+mov rdi, qword [var_10h]
+mov r12d, eax
+lea rax, [var_20h]
+cmp rdi, rax
+je 0x8002c34
+mov rax, qword [var_20h]
+lea rsi, [rax + 1]
+call _ZdlPvm
+mov rdi, qword [var_40h]
+cmp rdi, r13
+je 0x8002c4c
+mov rax, qword [var_50h]
+lea rsi, [rax + 1]
+call _ZdlPvm
+mov rdi, qword [var_70h]
+lea rax, [var_80h]
+cmp rdi, rax
+je 0x8002c6f
+mov rax, qword [var_80h]
+lea rsi, [rax + 1]
+call _ZdlPvm
+mov rdi, qword [var_a0h]
+cmp rdi, rbx
+je 0x8002c8d
+mov rax, qword [var_b0h]
+lea rsi, [rax + 1]
+call _ZdlPvm
+add rsp, 0xd8
+mov eax, r12d
+pop rbx
+pop rbp
+pop r12
+pop r13
+pop r14
+pop r15
+ret

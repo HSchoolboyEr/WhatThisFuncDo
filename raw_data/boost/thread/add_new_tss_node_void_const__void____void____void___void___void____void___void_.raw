@@ -1,0 +1,27 @@
+push r12
+mov r12, rdi
+push rbp
+mov rbp, rcx
+push rbx
+mov rbx, rsi
+sub rsp, 0x30
+mov qword [var_8h], rdx
+call _ZN5boost6detail23get_current_thread_dataEv
+test rax, rax
+je _ZN5boost6detail25make_external_thread_dataEv
+movq xmm0, rbx
+lea rsi, [var_10h]
+mov qword [var_10h], r12
+lea rdi, [rax + 0xc0]
+movhps xmm0, qword [var_8h]
+mov qword [var_28h], rbp
+movups xmmword [var_18h], xmm0
+call _ZNSt8_Rb_treeIPKvSt4pairIKS1_N5boost6detail13tss_data_nodeEESt10_Select1stIS7_ESt4lessIS1_ESaIS7_EE17_M_emplace_uniqueIJS2_IS1_S6_EEEES2_ISt17_Rb_tree_iteratorIS7_EbEDpOT_
+add rsp, 0x30
+pop rbx
+pop rbp
+pop r12
+ret
+nop dword [rax + rax]
+call _ZN5boost6detail25make_external_thread_dataEv
+jmp 0x8002d40

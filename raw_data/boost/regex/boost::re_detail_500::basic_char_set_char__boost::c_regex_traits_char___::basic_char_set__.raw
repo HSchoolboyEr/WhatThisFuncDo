@@ -1,0 +1,36 @@
+push rbp
+mov rbp, rdi
+push rbx
+sub rsp, 8
+mov rbx, qword [rdi + 0x68]
+test rbx, rbx
+je 0x800d5c1
+mov rdi, qword [rbx + 0x18]
+call .text
+mov rdi, rbx
+mov rbx, qword [rbx + 0x10]
+mov esi, 0x28
+call _ZdlPvm
+test rbx, rbx
+jne 0x800d5a2
+mov rdi, qword [arg_30h]
+test rdi, rdi
+je 0x800d5d6
+mov rsi, qword [arg_40h]
+sub rsi, rdi
+call _ZdlPvm
+mov rbx, qword [arg_10h]
+test rbx, rbx
+je 0x800d5fe
+mov rdi, qword [rbx + 0x18]
+call .text
+mov rdi, rbx
+mov rbx, qword [rbx + 0x10]
+mov esi, 0x28
+call _ZdlPvm
+test rbx, rbx
+jne 0x800d5df
+add rsp, 8
+pop rbx
+pop rbp
+ret

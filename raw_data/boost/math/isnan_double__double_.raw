@@ -1,0 +1,3 @@
+ucomisd xmm0, xmm0
+setp al
+ret

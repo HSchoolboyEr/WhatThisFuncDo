@@ -1,0 +1,132 @@
+push r12
+push rbp
+push rbx
+mov rbp, qword [rdi + 0x10]
+test rbp, rbp
+je 0x8001850
+mov r12, qword [arg_68h]
+pxor xmm0, xmm0
+movups xmmword [arg_60h], xmm0
+test r12, r12
+je 0x8001730
+mov rbx, qword [0x080016e9]
+test rbx, rbx
+jne 0x8001858
+mov eax, dword [r12 + 8]
+lea edx, [rax - 1]
+mov dword [r12 + 8], edx
+cmp eax, 1
+jne 0x8001730
+mov rax, qword [r12]
+mov rdi, r12
+call qword [rax + 0x10]
+test rbx, rbx
+jne 0x80018b0
+mov eax, dword [r12 + 0xc]
+lea edx, [rax - 1]
+mov dword [r12 + 0xc], edx
+cmp eax, 1
+je 0x8001890
+nop dword [rax]
+mov rax, qword [arg_88h]
+lea rdi, [arg_70h]
+call qword [rax]
+mov r12, qword [arg_68h]
+test r12, r12
+je 0x8001798
+mov rbx, qword [0x0800174d]
+test rbx, rbx
+jne 0x8001870
+mov eax, dword [r12 + 8]
+lea edx, [rax - 1]
+mov dword [r12 + 8], edx
+cmp eax, 1
+jne 0x8001798
+mov rax, qword [r12]
+mov rdi, r12
+call qword [rax + 0x10]
+test rbx, rbx
+jne 0x800189f
+mov eax, dword [r12 + 0xc]
+lea edx, [rax - 1]
+mov dword [r12 + 0xc], edx
+cmp eax, 1
+je 0x8001881
+nop dword [rax]
+lea rbx, [arg_30h]
+nop dword [rax]
+mov rdi, rbx
+call pthread_mutex_destroy
+cmp eax, 4
+je 0x80017a0
+mov rdi, qword [arg_10h]
+lea rax, [arg_20h]
+cmp rdi, rax
+je 0x80017c7
+mov rax, qword [arg_20h]
+lea rsi, [rax + 1]
+call _ZdlPvm
+mov r12, qword [rbp]
+mov rbx, qword [r12 + 0x38]
+test rbx, rbx
+je 0x8001820
+nop dword [rax]
+mov rax, qword [rbx]
+mov rdi, rbx
+call qword [rax + 0x10]
+mov rbx, qword [rbx + 0x20]
+test rbx, rbx
+jne 0x80017d8
+mov r12, qword [rbp]
+mov rbx, qword [r12 + 0x38]
+test rbx, rbx
+je 0x8001820
+nop dword [rax + rax]
+mov rdi, rbx
+mov rbx, qword [rbx + 0x20]
+mov rax, qword [rdi]
+call qword [rax + 8]
+mov qword [r12 + 0x38], rbx
+test rbx, rbx
+jne 0x8001800
+mov r12, qword [rbp]
+test r12, r12
+je 0x8001837
+lea rdi, [r12 + 8]
+call pthread_mutex_destroy
+mov esi, 0x40
+mov rdi, r12
+call _ZdlPvm
+pop rbx
+mov rdi, rbp
+mov esi, 0xa8
+pop rbp
+pop r12
+jmp _ZdlPvm
+nop dword [rax + rax]
+pop rbx
+pop rbp
+pop r12
+ret
+nop dword [rax]
+mov eax, 0xffffffff
+lock xadd dword [r12 + 8], eax
+jmp 0x80016ff
+nop dword [rax]
+mov eax, 0xffffffff
+lock xadd dword [r12 + 8], eax
+jmp 0x8001763
+mov rax, qword [r12]
+mov rdi, r12
+call qword [rax + 0x18]
+jmp 0x8001798
+mov rax, qword [r12]
+mov rdi, r12
+call qword [rax + 0x18]
+jmp 0x8001730
+mov eax, 0xffffffff
+lock xadd dword [r12 + 0xc], eax
+jmp 0x8001788
+mov eax, 0xffffffff
+lock xadd dword [r12 + 0xc], eax
+jmp 0x8001724

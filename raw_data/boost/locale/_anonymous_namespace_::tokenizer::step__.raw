@@ -1,0 +1,129 @@
+push rbx
+mov rbx, rdi
+sub rsp, 0x10
+mov rcx, qword [rdi]
+mov rax, qword [rdi + 8]
+lea rdi, [rcx + rax]
+movsx edx, byte [rdi]
+test dl, dl
+je 0x8000743
+movabs r9, 0x100002600
+lea rsi, [rcx + rax + 1]
+sub rsi, rdi
+mov r8d, edx
+cmp dl, 0x20
+ja 0x800070a
+bt r9, rdx
+jb 0x8000730
+movzx ecx, byte [rdi]
+cmp ecx, 0x3c
+jne 0x8000750
+cmp byte [rdi + 1], 0x3c
+jne 0x8000750
+add rax, 2
+mov dword [rbx + 0x10], 0x100
+mov qword [rbx + 8], rax
+add rsp, 0x10
+pop rbx
+ret
+nop dword [rax]
+add rax, 1
+add rdi, rsi
+mov qword [rbx + 8], rax
+movsx edx, byte [rcx + rax]
+test dl, dl
+jne 0x80006fc
+movzx ecx, byte [rdi]
+xor r8d, r8d
+cmp ecx, 0x3c
+je 0x8000712
+nop
+cmp ecx, 0x3e
+jne 0x8000770
+cmp byte [rdi + 1], 0x3e
+jne 0x8000770
+add rax, 2
+mov dword [rbx + 0x10], 0x101
+mov qword [rbx + 8], rax
+add rsp, 0x10
+pop rbx
+ret
+cmp ecx, 0x26
+je 0x8000798
+cmp ecx, 0x7c
+jne 0x80007b8
+cmp byte [rdi + 1], 0x7c
+jne 0x80007b8
+add rax, 2
+mov dword [rbx + 0x10], 0x107
+mov qword [rbx + 8], rax
+jmp 0x8000727
+nop dword [rax]
+cmp byte [rdi + 1], 0x26
+jne 0x8000775
+add rax, 2
+mov dword [rbx + 0x10], 0x106
+mov qword [rbx + 8], rax
+add rsp, 0x10
+pop rbx
+ret
+nop dword [rax + rax]
+cmp ecx, 0x3c
+je 0x80007e0
+cmp ecx, 0x3e
+jne 0x80007fa
+cmp byte [rdi + 1], 0x3d
+jne 0x80007fa
+add rax, 2
+mov dword [rbx + 0x10], 0x102
+mov qword [rbx + 8], rax
+jmp 0x8000727
+nop dword [rax]
+cmp byte [rdi + 1], 0x3d
+jne 0x80007bd
+add rax, 2
+mov dword [rbx + 0x10], 0x103
+mov qword [rbx + 8], rax
+jmp 0x8000727
+cmp ecx, 0x3d
+jne 0x8000819
+cmp byte [rdi + 1], 0x3d
+jne 0x8000819
+add rax, 2
+mov dword [rbx + 0x10], 0x104
+mov qword [rbx + 8], rax
+jmp 0x8000727
+cmp ecx, 0x21
+jne 0x8000838
+cmp byte [rdi + 1], 0x3d
+jne 0x8000838
+add rax, 2
+mov dword [rbx + 0x10], 0x105
+mov qword [rbx + 8], rax
+jmp 0x8000727
+cmp dl, 0x6e
+je 0x8000857
+sub r8d, 0x30
+cmp r8b, 9
+jbe 0x800087b
+test dl, dl
+jne 0x800086b
+mov dword [rbx + 0x10], 0
+jmp 0x8000727
+add rax, 1
+mov dword [rbx + 0x10], 0x109
+mov qword [rbx + 8], rax
+jmp 0x8000727
+add rax, 1
+mov dword [rbx + 0x10], edx
+mov qword [rbx + 8], rax
+jmp 0x8000727
+lea rsi, [var_8h]
+xor edx, edx
+call strtol
+mov dword [rbx + 0x10], 0x108
+mov dword [rbx + 0x14], eax
+mov rax, qword [var_8h]
+sub rax, qword [rbx]
+mov qword [rbx + 8], rax
+jmp 0x8000727

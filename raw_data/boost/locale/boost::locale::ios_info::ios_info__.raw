@@ -1,0 +1,17 @@
+push rbx
+mov rbx, rdi
+mov rdi, qword [rdi + 0x40]
+test rdi, rdi
+je 0x8000332
+call _ZdaPv
+mov rdi, qword [rbx + 0x10]
+lea rax, [rbx + 0x20]
+cmp rdi, rax
+je 0x8000350
+mov rsi, qword [rbx + 0x20]
+pop rbx
+add rsi, 1
+jmp _ZdlPvm
+nop dword [rax]
+pop rbx
+ret

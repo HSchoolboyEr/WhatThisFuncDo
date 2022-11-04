@@ -1,0 +1,16 @@
+push rbx
+mov rbx, rdi
+call _ZN5boost6detail23get_current_thread_dataEv
+test rax, rax
+je 0x8001890
+cmp byte [rax + 0x130], 0
+je 0x8001890
+mov byte [rbx], 1
+call _ZN5boost6detail23get_current_thread_dataEv
+mov byte [rax + 0x130], 0
+pop rbx
+ret
+nop dword [rax + rax]
+mov byte [rbx], 0
+pop rbx
+ret

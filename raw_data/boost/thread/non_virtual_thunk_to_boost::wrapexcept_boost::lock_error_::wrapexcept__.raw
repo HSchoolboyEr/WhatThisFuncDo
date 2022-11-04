@@ -1,0 +1,28 @@
+lea rax, [0x08006767]
+push rbp
+lea rbp, [rdi - 0x30]
+push rbx
+lea rdx, [rax - 0x30]
+movq xmm1, rax
+mov rbx, rdi
+movq xmm0, rdx
+lea rax, [0x08006785]
+punpcklqdq xmm0, xmm1
+sub rsp, 8
+mov qword [rdi], rax
+movups xmmword [rdi - 0x30], xmm0
+mov rdi, qword [rdi + 8]
+test rdi, rdi
+je 0x80067a3
+mov rax, qword [rdi]
+call qword [rax + 0x20]
+lea rax, [0x080067aa]
+lea rdi, [rbx - 0x28]
+mov qword [rbx - 0x28], rax
+call _ZNSt13runtime_errorD2Ev
+add rsp, 8
+mov rdi, rbp
+mov esi, 0x58
+pop rbx
+pop rbp
+jmp _ZdlPvm

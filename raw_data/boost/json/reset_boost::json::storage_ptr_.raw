@@ -1,0 +1,48 @@
+push r12
+mov r12, rsi
+push rbp
+mov rbp, rdi
+push rbx
+mov rbx, qword [rdi + 0x18]
+mov rax, qword [rdi + 0x10]
+cmp rbx, rax
+je 0x80050b1
+cmp byte [rdi + 0x30], 0
+jne 0x80050e8
+mov qword [arg_18h], rax
+mov rdi, qword [arg_38h]
+mov qword [arg_28h], 0
+test dil, 1
+jne 0x8005110
+mov rax, qword [r12]
+pop rbx
+mov qword [r12], 0
+mov qword [arg_38h], rax
+and eax, 3
+cmp rax, 2
+setne byte [arg_30h]
+pop rbp
+pop r12
+ret
+nop dword [rax + rax]
+sub rbx, 0x18
+nop dword [rax]
+mov rdi, rbx
+sub rbx, 0x18
+call _ZN5boost4json5valueD1Ev
+mov rax, qword [arg_10h]
+lea rdx, [rbx + 0x18]
+cmp rax, rdx
+jne 0x80050f0
+jmp 0x80050ad
+nop dword [rax + rax]
+and rdi, 0xfffffffffffffffc
+mov rax, 0xffffffffffffffff
+lock xadd qword [rdi + 8], rax
+test rdi, rdi
+je 0x80050c3
+cmp rax, 1
+jne 0x80050c3
+mov rax, qword [rdi]
+call qword [rax + 8]
+jmp 0x80050c3

@@ -1,0 +1,274 @@
+push rbp
+mov rbp, rsp
+push r15
+push r14
+mov r14, rdi
+push r13
+push r12
+mov r12, rsi
+push rbx
+sub rsp, 0x38
+mov rbx, qword [rdi]
+test rsi, rsi
+je 0x8000a45
+mov dword [rsi], 0
+mov qword [rsi + 8], 0
+mov qword [rsi + 0x10], 0
+mov rax, qword [rbx + 0x10]
+mov r13, qword [rax - 8]
+lea rdx, [rax - 8]
+mov qword [rbx + 0x10], rdx
+mov r15, rdx
+test r13, r13
+je 0x8000aa4
+lock sub dword [r13], 1
+jne 0x8000a9d
+mov rdi, qword [r13 + 0x38]
+test rdi, rdi
+je 0x8000a7b
+mov qword [r13 + 0x38], 0
+call closedir
+mov rdi, qword [r13 + 8]
+lea rax, [r13 + 0x18]
+cmp rdi, rax
+je 0x8000a95
+mov rax, qword [r13 + 0x18]
+lea rsi, [rax + 1]
+call _ZdlPvm
+mov rdi, r13
+call free
+mov rax, qword [rbx + 0x10]
+mov r15, rax
+lea r13, [var_50h]
+cmp qword [rbx + 8], r15
+je 0x8000be1
+nop word [rax + rax]
+lea rdi, [r15 - 8]
+mov rsi, r13
+mov dword [var_50h], 0
+mov qword [var_48h], 0
+mov qword [var_40h], 0
+call _ZN5boost10filesystem6detail28directory_iterator_incrementERNS0_18directory_iteratorEPNS_6system10error_codeE
+mov rax, qword [var_40h]
+test al, 1
+je 0x8000b47
+cmp rax, 1
+je 0x8000b40
+test byte [rbx + 0x20], 8
+jne 0x8000ca8
+mov r15, qword [r14]
+mov qword [r14], 0
+test r15, r15
+je 0x8000b10
+lock sub dword [r15], 1
+je 0x8000d70
+nop dword [rax]
+test r12, r12
+je .text.unlikely
+movdqu xmm0, xmmword [var_50h]
+mov rax, qword [var_40h]
+movups xmmword [r12], xmm0
+mov qword [r12 + 0x10], rax
+lea rsp, [var_28h]
+pop rbx
+pop r12
+pop r13
+pop r14
+pop r15
+pop rbp
+ret
+nop dword [rax + rax]
+mov ecx, dword [var_50h]
+test ecx, ecx
+jne 0x8000ae9
+mov rax, qword [r15 - 8]
+test rax, rax
+je 0x8000b70
+cmp qword [rax + 0x38], 0
+je 0x8000b70
+lea rsp, [var_28h]
+pop rbx
+pop r12
+pop r13
+pop r14
+pop r15
+pop rbp
+ret
+nop word cs:[rax + rax]
+mov rax, qword [rbx + 0x10]
+mov rcx, qword [rax - 8]
+lea rdx, [rax - 8]
+mov qword [rbx + 0x10], rdx
+mov r15, rcx
+test rcx, rcx
+je 0x8000bd0
+lock sub dword [rcx], 1
+jne 0x8000bd0
+mov rdi, qword [rcx + 0x38]
+test rdi, rdi
+je 0x8000ba4
+mov qword [rcx + 0x38], 0
+call closedir
+mov rdi, qword [r15 + 8]
+lea rax, [r15 + 0x18]
+cmp rdi, rax
+je 0x8000bc2
+mov rax, qword [r15 + 0x18]
+lea rsi, [rax + 1]
+mov qword [var_58h], rax
+call _ZdlPvm
+mov rdi, r15
+call free
+nop word [rax + rax]
+mov rax, qword [rbx + 0x10]
+mov r15, rax
+cmp qword [rbx + 8], rax
+jne 0x8000ab8
+mov r13, qword [r14]
+mov qword [r14], 0
+test r13, r13
+je 0x8000b57
+lock sub dword [r13], 1
+jne 0x8000b57
+mov rax, qword [r13 + 8]
+mov rbx, qword [r13 + 0x10]
+mov r14, rax
+cmp rbx, rax
+je 0x8000c76
+mov r12, qword [r14]
+test r12, r12
+je 0x8000c60
+lock sub dword [r12], 1
+jne 0x8000c60
+mov rdi, qword [r12 + 0x38]
+test rdi, rdi
+je 0x8000c38
+mov qword [r12 + 0x38], 0
+call closedir
+mov rdi, qword [r12 + 8]
+lea rax, [r12 + 0x18]
+cmp rdi, rax
+je 0x8000c55
+mov rax, qword [r12 + 0x18]
+lea rsi, [rax + 1]
+call _ZdlPvm
+mov rdi, r12
+call free
+nop dword [rax]
+mov rax, r14
+add rax, 8
+mov r14, rax
+cmp rbx, rax
+jne 0x8000c10
+mov rax, qword [r13 + 8]
+mov r14, rax
+mov rdi, r14
+test r14, r14
+je 0x8000c8a
+mov rsi, qword [r13 + 0x18]
+sub rsi, r14
+call _ZdlPvm
+lea rsp, [var_28h]
+mov rdi, r13
+mov esi, 0x28
+pop rbx
+pop r12
+pop r13
+pop r14
+pop r15
+pop rbp
+jmp _ZdlPvm
+nop dword [rax]
+mov rdi, rbx
+call method boost::filesystem::detail::(anonymous namespace)::recursive_directory_iterator_pop_on_error(boost::filesystem::detail::recur_dir_itr_imp*)
+mov rax, qword [rbx + 8]
+cmp qword [rbx + 0x10], rax
+jne .text.unlikely
+mov r13, qword [r14]
+mov qword [r14], 0
+test r13, r13
+je .text.unlikely
+lock sub dword [r13], 1
+jne .text.unlikely
+mov r14, qword [r13 + 0x10]
+mov rbx, qword [r13 + 8]
+cmp r14, rbx
+je 0x8000d46
+nop word [rax + rax]
+mov rdx, qword [rbx]
+mov r15, rdx
+test rdx, rdx
+je 0x8000d3d
+lock sub dword [rdx], 1
+jne 0x8000d3d
+mov rdi, qword [rdx + 0x38]
+test rdi, rdi
+je 0x8000d17
+mov qword [rdx + 0x38], 0
+call closedir
+mov rdi, qword [r15 + 8]
+lea rax, [r15 + 0x18]
+cmp rdi, rax
+je 0x8000d35
+mov rax, qword [r15 + 0x18]
+lea rsi, [rax + 1]
+mov qword [var_58h], rax
+call _ZdlPvm
+mov rdi, r15
+call free
+add rbx, 8
+cmp r14, rbx
+jne 0x8000cf0
+mov rdi, qword [r13 + 8]
+test rdi, rdi
+je 0x8000d5b
+mov rsi, qword [r13 + 0x18]
+sub rsi, rdi
+call _ZdlPvm
+mov esi, 0x28
+mov rdi, r13
+call _ZdlPvm
+jmp 0x8000b10
+nop dword [rax]
+mov rax, qword [r15 + 8]
+mov rbx, qword [r15 + 0x10]
+mov r14, rax
+cmp rbx, rax
+je 0x8000de6
+mov r13, qword [r14]
+test r13, r13
+je 0x8000dd0
+lock sub dword [r13], 1
+jne 0x8000dd0
+mov rdi, qword [r13 + 0x38]
+test rdi, rdi
+je 0x8000da6
+mov qword [r13 + 0x38], 0
+call closedir
+mov rdi, qword [r13 + 8]
+lea rax, [r13 + 0x18]
+cmp rdi, rax
+je 0x8000dc0
+mov rax, qword [r13 + 0x18]
+lea rsi, [rax + 1]
+call _ZdlPvm
+mov rdi, r13
+call free
+nop dword [rax + rax]
+mov rax, r14
+add rax, 8
+mov r14, rax
+cmp rbx, rax
+jne 0x8000d80
+mov rax, qword [r15 + 8]
+mov r14, rax
+mov rdi, r14
+test r14, r14
+je 0x8000dfa
+mov rsi, qword [r15 + 0x18]
+sub rsi, r14
+call _ZdlPvm
+mov esi, 0x28
+mov rdi, r15
+call _ZdlPvm
+jmp 0x8000b10

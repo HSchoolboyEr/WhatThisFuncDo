@@ -1,0 +1,2 @@
+mov rdi, rsi
+jmp sym boost::container::pmr::null_memory_resource_imp::do_allocate(unsigned long, unsigned long)

@@ -1,0 +1,22 @@
+push r12
+mov r12, rdi
+push rbp
+push rbx
+cmp byte [rsi + 0x18], 0
+mov rbx, rsi
+je 0x80004a8
+mov qword [r12], rbx
+lock add dword [rbx + 8], 1
+pop rbx
+pop rbp
+mov rax, r12
+pop r12
+ret
+nop dword [rax]
+lea rbp, [rsi + 0x20]
+mov rsi, qword [rsi + 0x10]
+mov rdi, rbp
+call _ZN5boost3log12v2s_mt_posix10attributes16named_scope_listC1ERKS3_
+mov byte [rbx + 0x18], 1
+mov qword [rbx + 0x10], rbp
+jmp 0x8000490

@@ -1,0 +1,74 @@
+push r13
+push r12
+mov r12, rsi
+push rbp
+mov rbp, rdi
+push rbx
+mov rsi, rbp
+sub rsp, 0x28
+mov rbx, qword [rdi + 8]
+mov rdi, rsp
+call _ZNK5boost10filesystem4path12extension_v3Ev
+add byte [rax], al
+add byte [rax], al
+mov rdi, qword [rsp]
+lea rax, [var_10h]
+sub rbx, qword [var_8h]
+cmp rdi, rax
+je 0x8003550
+mov rax, qword [var_10h]
+lea rsi, [rax + 1]
+call _ZdlPvm
+mov rax, qword [rbp]
+mov qword [arg_8h], rbx
+add rax, rbx
+mov byte [rax], 0
+mov rdx, qword [r12 + 8]
+mov rax, qword [rbp]
+test rdx, rdx
+je 0x80035d0
+mov rsi, qword [r12]
+cmp byte [rsi], 0x2e
+jne 0x8003590
+add rsp, 0x28
+mov rdi, rbp
+pop rbx
+pop rbp
+pop r12
+pop r13
+jmp _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_appendEPKcm
+nop word [rax + rax]
+mov rbx, qword [arg_8h]
+lea rdx, [arg_10h]
+lea r13, [rbx + 1]
+cmp rax, rdx
+je 0x8003600
+mov rdx, qword [arg_10h]
+cmp r13, rdx
+ja 0x80035e0
+mov byte [rax + rbx], 0x2e
+mov rax, qword [rbp]
+mov qword [arg_8h], r13
+mov byte [rax + rbx + 1], 0
+mov rdx, qword [r12 + 8]
+mov rsi, qword [r12]
+jmp 0x8003575
+nop word cs:[rax + rax]
+add rsp, 0x28
+pop rbx
+pop rbp
+pop r12
+pop r13
+ret
+nop dword [rax + rax]
+mov r8d, 1
+xor ecx, ecx
+xor edx, edx
+mov rsi, rbx
+mov rdi, rbp
+call _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_mutateEmmPKcm
+mov rax, qword [rbp]
+jmp 0x80035aa
+nop dword [rax + rax]
+mov edx, 0xf
+jmp 0x80035a5

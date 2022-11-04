@@ -1,0 +1,80 @@
+push r13
+push r12
+mov r12, rsi
+push rbp
+mov rbp, rdi
+push rbx
+mov rbx, rdx
+sub rsp, 0x68
+mov rax, qword [rdi + 0x10]
+mov esi, dword [rax]
+mov eax, dword [rax + 4]
+add rsi, 1
+cmp rsi, rax
+jbe 0x80066fa
+call _ZN5boost4json6object6rehashEm
+mov rsi, r12
+mov rdx, rbx
+mov rdi, rbp
+call _ZN5boost4json6detail14find_in_objectINS_4core17basic_string_viewIcEEEESt4pairIPNS0_14key_value_pairEmERKNS0_6objectET_
+mov r13, rdx
+test rax, rax
+je 0x8006720
+add rsp, 0x68
+pop rbx
+pop rbp
+pop r12
+pop r13
+ret
+nop dword [rax + rax]
+mov rax, qword [rbp]
+test al, 1
+jne 0x80067b0
+mov qword [var_30h], rax
+mov byte [var_38h], 0
+cmp rbx, 0x7ffffffe
+ja .text.unlikely
+test rax, rax
+jne 0x80067d8
+lea rdi, [0x08006753]
+mov rax, qword [rdi]
+lea rsi, [rbx + 1]
+mov edx, 1
+call qword [rax + 0x10]
+mov rdx, rbx
+mov rsi, r12
+mov rdi, rax
+call memcpy
+lea r11, [var_30h]
+mov rdx, r13
+mov rdi, rbp
+mov byte [rax + rbx], 0
+mov rsi, r11
+mov dword [var_50h], ebx
+mov qword [var_48h], rax
+call _ZN5boost4json6object11insert_implENS0_8pilferedINS0_14key_value_pairEEEm
+add byte [rax], al
+add byte [rax], al
+mov rdi, r11
+mov qword [var_8h], rax
+call _ZN5boost4json14key_value_pairD1Ev
+mov rax, qword [var_8h]
+add rsp, 0x68
+pop rbx
+pop rbp
+pop r12
+pop r13
+ret
+nop dword [rax]
+mov rdi, rax
+and rdi, 0xfffffffffffffffc
+lock add qword [rdi + 8], 1
+mov qword [var_30h], rax
+mov byte [var_38h], 0
+cmp rbx, 0x7ffffffe
+jbe 0x8006753
+jmp .text.unlikely
+nop dword [rax]
+and rax, 0xfffffffffffffffc
+mov rdi, rax
+jmp 0x8006753

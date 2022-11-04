@@ -1,0 +1,70 @@
+push r15
+push r14
+push r13
+mov r13, rdx
+push r12
+mov r12, rsi
+push rbp
+mov rbp, rdi
+push rbx
+sub rsp, 0x28
+call method boost::unit_test::(anonymous namespace)::s_log_impl()
+mov rdx, rax
+mov rax, qword [rax + 0x18]
+mov rcx, qword [rdx + 0x20]
+cmp rcx, rax
+ja 0x8001719
+jmp 0x800172f
+nop
+add rax, 8
+cmp rcx, rax
+jbe 0x800172f
+mov rdx, qword [rax]
+cmp byte [rdx + 0x30], 0
+je 0x8001710
+lea rsi, [var_10h]
+mov rdi, rbp
+call _ZN5boost9unit_test15unit_test_log_tlsERKNS0_3log3endE
+call method boost::unit_test::(anonymous namespace)::s_log_impl()
+mov rbx, qword [rax + 0x18]
+mov rbp, qword [rax + 0x20]
+cmp rbp, rbx
+jbe 0x80017b0
+lea r14, [0x08001748]
+lea r15, [var_10h]
+jmp 0x8001783
+nop
+mov eax, dword [rdi + 8]
+cmp eax, 1
+jg 0x800177a
+mov rdi, qword [rdx + 0x20]
+movdqu xmm0, xmmword [r13]
+mov rcx, r15
+mov rsi, qword [rdx + 8]
+mov rdx, r12
+mov rax, qword [rdi]
+mov rax, qword [rax + 0x38]
+movaps xmmword [var_10h], xmm0
+call rax
+add rbx, 8
+cmp rbp, rbx
+jbe 0x80017b0
+mov rdx, qword [rbx]
+mov rdi, qword [rdx + 0x20]
+mov rax, qword [rdi]
+mov rax, qword [rax + 0xa8]
+cmp rax, r14
+je 0x8001750
+mov qword [var_8h], rdx
+call rax
+mov rdx, qword [var_8h]
+jmp 0x8001753
+nop word [rax + rax]
+add rsp, 0x28
+pop rbx
+pop rbp
+pop r12
+pop r13
+pop r14
+pop r15
+ret

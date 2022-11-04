@@ -1,0 +1,28 @@
+push r13
+mov r13, rdx
+push r12
+mov r12, rsi
+push rbp
+push rbx
+mov rbx, rdi
+sub rsp, 8
+mov rbp, qword [rdi]
+mov rdi, rbp
+call pthread_rwlock_wrlock
+mov rdi, qword [rbx]
+mov esi, dword [r12]
+mov rdx, r13
+add rdi, 0x60
+call _ZN5boost3log12v2s_mt_posix13attribute_set6insertENS1_14attribute_nameERKNS1_9attributeE
+mov rdi, rbp
+mov r12, rax
+mov r13, rdx
+call pthread_rwlock_unlock
+add rsp, 8
+mov rax, r12
+mov rdx, r13
+pop rbx
+pop rbp
+pop r12
+pop r13
+ret

@@ -1,0 +1,44 @@
+mov rax, qword [rdi + 0xd8]
+test sil, sil
+je 0x8005ed0
+add rax, 0x28
+mov qword [rdi + 0xd8], rax
+mov eax, 1
+ret
+nop dword [rax]
+movsxd rdx, dword [rax + 8]
+mov r8, qword [rdi + 0x10]
+mov r9, qword [rax + 0x10]
+mov rcx, qword [r8]
+mov r10, rdx
+add rdx, 2
+lea rsi, [rdx + rdx*2]
+lea rsi, [rcx + rsi*8]
+mov qword [rsi], r9
+test r10d, r10d
+je 0x8005f40
+movzx r11d, byte [rax + 0x20]
+mov r9, qword [rax + 0x18]
+mov dword [r8 + 0x48], r10d
+mov qword [rsi + 8], r9
+mov byte [rsi + 0x10], r11b
+cmp rdx, 2
+jne 0x8005ebc
+movq xmm0, r9
+cmp qword [rcx + 8], r9
+mov qword [rcx], r9
+punpcklqdq xmm0, xmm0
+setne byte [rcx + 0x10]
+mov byte [r8 + 0x30], 0
+mov byte [r8 + 0x4c], 0
+movups xmmword [r8 + 0x20], xmm0
+jmp 0x8005ebc
+nop word cs:[rax + rax]
+cmp qword [rcx + 0x18], r9
+mov qword [rcx + 0x20], r9
+setne byte [rcx + 0x28]
+mov rcx, qword [rax + 0x18]
+movzx edx, byte [rax + 0x20]
+mov qword [rsi + 8], rcx
+mov byte [rsi + 0x10], dl
+jmp 0x8005ebc

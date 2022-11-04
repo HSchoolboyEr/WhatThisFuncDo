@@ -1,0 +1,15 @@
+push r12
+push rbp
+mov rbp, rdi
+mov edi, 0x48
+push rbx
+call _Znwm
+mov rsi, rbp
+mov rdi, rax
+mov r12, rax
+call _ZN5boost6locale10impl_posix19mb2_iconv_converterC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE
+mov rax, r12
+pop rbx
+pop rbp
+pop r12
+ret

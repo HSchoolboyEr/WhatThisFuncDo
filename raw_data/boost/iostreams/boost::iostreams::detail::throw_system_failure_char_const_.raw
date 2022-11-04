@@ -1,0 +1,16 @@
+push r12
+mov rsi, rdi
+push rbp
+sub rsp, 0x28
+mov rbp, rsp
+mov rdi, rbp
+call _ZN5boost9iostreams6detail14system_failureB5cxx11EPKc
+add byte [rax], al
+add byte [rax], al
+mov rdi, rbp
+call _ZN5boost15throw_exceptionINSt8ios_base7failureB5cxx11EEEvRKT_
+mov r12, rax
+mov rdi, rbp
+call _ZNSt8ios_base7failureB5cxx11D1Ev
+mov rdi, r12
+call sym boost::detail::sp_counted_impl_p<boost::iostreams::detail::mapped_file_impl>::dispose()

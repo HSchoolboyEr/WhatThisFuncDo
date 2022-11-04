@@ -1,0 +1,52 @@
+cmp qword [0x08006008], 0
+push r12
+push rbp
+mov ebp, esi
+push rbx
+mov rbx, rdi
+je 0x80060b0
+mov rax, 0xfffffffffffffc00
+sub rax, qword [0x08006025]
+cmp rax, rbx
+jbe 0x80060a8
+mov rsi, qword [0x08006031]
+test rbx, rbx
+mov ecx, 0x22
+lea rax, [rbx + 0x400]
+mov r8d, 0xffffffff
+mov edx, 3
+cmove rax, rsi
+xor edi, edi
+xor r9d, r9d
+lea r12, [rax + rsi - 1]
+neg rsi
+and r12, rsi
+mov rsi, r12
+call mmap
+mov rdi, rax
+cmp rax, 0xffffffffffffffff
+je 0x80060a8
+mov rsi, r12
+call sym.init_user_mstate
+mov dword [rax + 0x390], 1
+mov edx, dword [rax + 0x370]
+test ebp, ebp
+jne 0x80060a0
+and edx, 0xfffffffd
+mov dword [rax + 0x370], edx
+pop rbx
+pop rbp
+pop r12
+ret
+nop word [rax + rax]
+or edx, 2
+jmp 0x800608f
+nop dword [rax]
+pop rbx
+xor eax, eax
+pop rbp
+pop r12
+ret
+nop
+call sym.init_mparams.isra.0
+jmp 0x8006017

@@ -1,0 +1,8 @@
+mov rdi, qword [arg_20h]
+cmp rdi, rbx
+je 0x800ba4c
+mov rax, qword [arg_30h]
+lea rsi, [rax + 1]
+call _ZdlPvm
+mov rdi, rbp
+call sym boost::re_detail_500::basic_regex_creator<char, boost::regex_traits<char, boost::cpp_regex_traits<char> > >::append_set(boost::re_detail_500::basic_char_set<char, boost::regex_traits<char, boost::cpp_regex_traits<char> > > const&, std::integral_constant<bool, true>*) [clone .isra.0] [clone .cold]

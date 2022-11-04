@@ -1,0 +1,140 @@
+push r12
+mov r8, rdx
+lea rax, [rdi + 0xb0]
+push rbp
+push rbx
+sub rsp, 0x40
+cmp qword [rdi + 0xb0], rax
+je 0x80008b8
+mov rax, qword [rdi + 0x20]
+mov rdx, qword [rdi + 0xb8]
+lea r10, [rdi + 0x18]
+test rax, rax
+je 0x80008b8
+mov rsi, qword [rdx + 0x10]
+mov r9, r10
+nop
+mov rcx, qword [rax + 0x10]
+mov rdx, qword [rax + 0x18]
+cmp rsi, qword [rax + 0x20]
+ja 0x8000787
+test rcx, rcx
+je 0x800079b
+mov r9, rax
+mov rax, rcx
+mov rcx, qword [rax + 0x10]
+mov rdx, qword [rax + 0x18]
+cmp rsi, qword [rax + 0x20]
+jbe 0x800076e
+test rdx, rdx
+je 0x8000798
+mov rax, rdx
+jmp 0x8000760
+nop dword [rax]
+mov rax, r9
+cmp r10, rax
+je 0x80008b8
+cmp rsi, qword [rax + 0x20]
+jb 0x80008b8
+lea rbx, [rax + 0x28]
+cmp byte [rbx + 0x68], 0
+jne 0x80008ac
+mov rcx, qword [r8]
+mov rdi, qword [rbx + 0x58]
+mov r8, qword [r8 + 8]
+cmp qword [rbx + 0x50], rdi
+je 0x80007f0
+mov rsi, qword [rdi - 0x20]
+add rsp, 0x40
+sub rdi, 0x28
+sub r8, rcx
+pop rbx
+xor edx, edx
+pop rbp
+pop r12
+jmp _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE10_M_replaceEmmPKcm
+nop word [rax + rax]
+lea rbp, [arg_30h]
+mov qword [arg_20h], rbp
+test r8, r8
+je 0x8000808
+test rcx, rcx
+je .LC3
+sub r8, rcx
+mov qword [arg_18h], r8
+mov r12, r8
+cmp r8, 0xf
+ja 0x80008ce
+cmp r8, 1
+jne 0x80008c1
+movzx eax, byte [rcx]
+mov byte [arg_30h], al
+mov rax, rbp
+mov qword [arg_28h], r12
+mov edi, 0x30
+mov byte [rax + r12], 0
+call _Znwm
+mov rdi, rax
+lea rax, [rax + 0x20]
+mov qword [rdi + 0x10], rax
+mov rax, qword [arg_20h]
+cmp rax, rbp
+je 0x8000915
+mov qword [rdi + 0x10], rax
+mov rax, qword [arg_30h]
+mov qword [rdi + 0x20], rax
+mov rax, qword [arg_28h]
+mov rsi, rbx
+mov qword [arg_20h], rbp
+mov qword [arg_28h], 0
+mov qword [rdi + 0x18], rax
+mov byte [arg_30h], 0
+call _ZNSt8__detail15_List_node_base7_M_hookEPS0_
+add byte [rax], al
+add byte [rax], al
+mov rdi, qword [arg_20h]
+add qword [rbx + 0x10], 1
+cmp rdi, rbp
+je 0x80008ac
+mov rax, qword [arg_30h]
+lea rsi, [rax + 1]
+call _ZdlPvm
+add rsp, 0x40
+pop rbx
+pop rbp
+pop r12
+ret
+nop dword [rax]
+lea rbx, [rdi + 0x40]
+jmp 0x80007b2
+test r8, r8
+jne 0x8000930
+mov rax, rbp
+jmp 0x8000831
+lea rdi, [arg_20h]
+lea rsi, [arg_18h]
+xor edx, edx
+mov qword [arg_8h], rcx
+call _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm
+add byte [rax], al
+add byte [rax], al
+mov rcx, qword [arg_8h]
+mov qword [arg_20h], rax
+mov rdi, rax
+mov rax, qword [arg_18h]
+mov qword [arg_30h], rax
+mov rdx, r12
+mov rsi, rcx
+call memcpy
+mov r12, qword [arg_18h]
+mov rax, qword [arg_20h]
+jmp 0x8000831
+movdqa xmm0, xmmword [arg_30h]
+movups xmmword [rdi + 0x20], xmm0
+jmp 0x800086b
+lea rdi, [0x0800092b]
+call _ZSt19__throw_logic_errorPKc
+add byte [rax], al
+add byte [rax], al
+mov rdi, rbp
+jmp 0x80008fb

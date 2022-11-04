@@ -1,0 +1,50 @@
+push r13
+push r12
+mov r12, rdi
+add rdi, 0x10
+push rbp
+sub rsp, 0x10
+mov qword [r12], rdi
+mov rbp, qword [rsi + 0x38]
+mov r13, qword [rsi + 0x40]
+mov rax, rbp
+add rax, r13
+je 0x8005319
+test rbp, rbp
+je 0x8005396
+mov qword [var_8h], r13
+cmp r13, 0xf
+ja 0x8005360
+cmp r13, 1
+jne 0x8005350
+movzx eax, byte [rbp]
+mov byte [r12 + 0x10], al
+mov qword [r12 + 8], r13
+mov rax, r12
+mov byte [rdi + r13], 0
+add rsp, 0x10
+pop rbp
+pop r12
+pop r13
+ret
+nop word [rax + rax]
+test r13, r13
+je 0x8005333
+jmp 0x8005380
+nop word [rax + rax]
+mov rdi, r12
+lea rsi, [var_8h]
+xor edx, edx
+call _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm
+mov qword [r12], rax
+mov rdi, rax
+mov rax, qword [var_8h]
+mov qword [r12 + 0x10], rax
+mov rdx, r13
+mov rsi, rbp
+call memcpy
+mov r13, qword [var_8h]
+mov rdi, qword [r12]
+jmp 0x8005333
+lea rdi, [0x0800539d]
+call _ZSt19__throw_logic_errorPKc

@@ -1,0 +1,13 @@
+mov rax, qword [rdi]
+mov rdx, qword [rsi]
+mov qword [rdi], rdx
+mov rdx, qword [rsi + 8]
+mov qword [rsi], rax
+mov rax, qword [rdi + 8]
+mov qword [rdi + 8], rdx
+mov rdx, qword [rsi + 0x10]
+mov qword [rsi + 8], rax
+mov rax, qword [rdi + 0x10]
+mov qword [rdi + 0x10], rdx
+mov qword [rsi + 0x10], rax
+ret

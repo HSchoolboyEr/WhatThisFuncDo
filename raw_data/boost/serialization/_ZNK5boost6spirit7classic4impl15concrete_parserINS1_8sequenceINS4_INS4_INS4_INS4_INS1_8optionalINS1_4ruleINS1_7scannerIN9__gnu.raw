@@ -1,0 +1,147 @@
+push r15
+mov r15, rdi
+push r14
+push r13
+push r12
+mov r12, rsi
+push rbp
+push rbx
+sub rsp, 0x28
+mov rax, qword [rdi + 8]
+mov rdx, qword [rsi]
+mov rdi, qword [rax]
+mov rbx, qword [rdx]
+test rdi, rdi
+je 0x8005620
+mov rax, qword [rdi]
+call qword [rax + 0x10]
+mov rdx, qword [r12]
+test rax, rax
+js 0x8005620
+mov rbx, qword [rdx]
+cmp qword [r12 + 8], rbx
+je 0x8005480
+movsx ecx, byte [r15 + 0x10]
+cmp dword [rbx], ecx
+je 0x80054a0
+add rsp, 0x28
+mov rax, 0xffffffffffffffff
+pop rbx
+pop rbp
+pop r12
+pop r13
+pop r14
+pop r15
+ret
+nop word cs:[rax + rax]
+add rax, 1
+add rbx, 4
+mov qword [var_10h], rax
+mov rax, qword [r15 + 0x18]
+mov qword [rdx], rbx
+mov rdi, qword [rax]
+test rdi, rdi
+je 0x8005480
+mov rax, qword [rdi]
+mov rsi, r12
+call qword [rax + 0x10]
+mov qword [var_18h], rax
+test rax, rax
+js 0x8005480
+mov rax, qword [r12]
+mov rdi, qword [r15 + 0x20]
+xor edx, edx
+xor esi, esi
+mov r14, qword [rax]
+call _ZNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEE6resizeEmw
+cmp rbx, r14
+je 0x800552f
+mov rbp, qword [r15 + 0x20]
+mov r13, qword [arg_8h]
+mov rdx, qword [rbp]
+lea rcx, [arg_10h]
+mov r10d, dword [rbx]
+lea rax, [r13 + 1]
+cmp rdx, rcx
+je 0x8005630
+mov rcx, qword [arg_10h]
+cmp rax, rcx
+ja 0x80055c8
+add rbx, 4
+mov dword [rdx + r13*4], r10d
+mov qword [arg_8h], rax
+mov dword [rdx + r13*4 + 4], 0
+cmp r14, rbx
+jne 0x80054ec
+mov rax, qword [r15 + 0x28]
+mov r14, qword [var_10h]
+add r14, qword [var_18h]
+mov rdi, qword [rax]
+test rdi, rdi
+je 0x8005480
+mov rax, qword [rdi]
+mov rsi, r12
+call qword [rax + 0x10]
+test rax, rax
+js 0x8005480
+add r14, rax
+mov rax, qword [r15 + 0x30]
+mov rdx, qword [r12]
+mov rdi, qword [rax]
+mov rbx, qword [rdx]
+test rdi, rdi
+je 0x8005644
+mov rax, qword [rdi]
+mov rsi, r12
+call qword [rax + 0x10]
+test rax, rax
+js 0x8005640
+mov rdx, qword [r12]
+add r14, rax
+mov rax, qword [rdx]
+cmp rax, qword [r12 + 8]
+je 0x8005480
+movsx ecx, byte [r15 + 0x38]
+cmp dword [rax], ecx
+jne 0x8005480
+add rax, 4
+mov qword [rdx], rax
+add rsp, 0x28
+lea rax, [r14 + 1]
+pop rbx
+pop rbp
+pop r12
+pop r13
+pop r14
+pop r15
+ret
+nop dword [rax + rax]
+xor edx, edx
+mov r8d, 1
+xor ecx, ecx
+mov rsi, r13
+mov rdi, rbp
+mov qword [var_8h], rax
+add rbx, 4
+mov dword [var_4h], r10d
+call _ZNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEE9_M_mutateEmmPKwm
+mov rdx, qword [rbp]
+mov r10d, dword [var_4h]
+mov rax, qword [var_8h]
+mov dword [rdx + r13*4], r10d
+mov qword [arg_8h], rax
+mov dword [rdx + r13*4 + 4], 0
+cmp r14, rbx
+jne 0x80054e8
+jmp 0x800552f
+nop dword [rax + rax]
+mov qword [rdx], rbx
+xor eax, eax
+jmp 0x8005470
+nop word [rax + rax]
+mov ecx, 3
+jmp 0x800550c
+nop word [rax + rax]
+mov rdx, qword [r12]
+mov qword [rdx], rbx
+jmp 0x800558e

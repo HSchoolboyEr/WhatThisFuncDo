@@ -1,0 +1,13 @@
+sub rsp, 8
+mov rdi, qword [rdi]
+call pthread_setspecific
+test eax, eax
+jne 0x8000208
+add rsp, 8
+ret
+nop dword [rax]
+mov ecx, eax
+lea rdx, [0x08000211]
+mov esi, 0xa5
+lea rdi, [0x0800021d]
+call _ZN5boost3log12v2s_mt_posix12system_error6throw_EPKcmS4_i

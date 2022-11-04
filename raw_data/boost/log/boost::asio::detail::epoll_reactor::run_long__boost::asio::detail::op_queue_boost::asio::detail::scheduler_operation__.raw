@@ -1,0 +1,198 @@
+push r13
+push r12
+mov r12, rdx
+push rbp
+mov rbp, rdi
+push rbx
+sub rsp, 0x658
+test rsi, rsi
+je 0x8008670
+js 0x80085b0
+lea rdx, [rsi - 1]
+mov rsi, rdx
+movabs rdx, 0x20c49ba5e353f7cf
+shr rsi, 3
+mov rax, rsi
+mul rdx
+shr rdx, 4
+cmp dword [arg_7ch], 0xffffffff
+lea ebx, [rdx + 1]
+mov ecx, ebx
+je 0x80085c4
+mov edi, dword [arg_78h]
+lea rbx, [var_50h]
+mov edx, 0x80
+mov rsi, rbx
+call epoll_wait
+cmp dword [arg_7ch], 0xffffffff
+mov edx, eax
+sete dil
+test eax, eax
+jle 0x80084c5
+sub edx, 1
+lea rsi, [arg_70h]
+mov rax, rbx
+mov r10d, 1
+lea rdx, [rdx + rdx*2]
+lea r9, [arg_7ch]
+lea rcx, [rsp + rdx*4 + 0x5c]
+jmp 0x80084ab
+nop word [rax + rax]
+cmp rdx, r9
+je 0x8008630
+cmp qword [rdx], 0
+mov r8d, dword [rax]
+je 0x8008640
+or dword [rdx + 0x10], r8d
+add rax, 0xc
+cmp rcx, rax
+je 0x80084c5
+mov rdx, qword [rax + 4]
+cmp rdx, rsi
+jne 0x8008488
+cmp dword [arg_7ch], 0xffffffff
+cmove edi, r10d
+add rax, 0xc
+cmp rcx, rax
+jne 0x80084ab
+test dil, dil
+je 0x800859d
+movzx r13d, byte [arg_68h]
+test r13b, r13b
+jne pthread_mutex_lock
+mov rbx, qword [arg_80h]
+test rbx, rbx
+je 0x8008505
+nop dword [rax + rax]
+mov rax, qword [rbx]
+mov rsi, r12
+mov rdi, rbx
+call qword [rax + 0x28]
+mov rbx, qword [rbx + 8]
+test rbx, rbx
+jne 0x80084f0
+mov edi, dword [arg_7ch]
+cmp edi, 0xffffffff
+je 0x8008594
+mov rbx, qword [arg_80h]
+pxor xmm0, xmm0
+movaps xmmword [var_10h], xmm0
+test rbx, rbx
+je 0x800870e
+mov esi, 0x11e1a300
+nop
+mov rax, qword [rbx]
+mov rdi, rbx
+call qword [rax + 0x20]
+mov rbx, qword [rbx + 8]
+mov rsi, rax
+test rbx, rbx
+jne 0x8008530
+movabs rdx, 0x431bde82d7b634db
+xor r8d, r8d
+mov edi, dword [arg_7ch]
+imul rdx
+mov rax, rsi
+sar rax, 0x3f
+sar rdx, 0x12
+sub rdx, rax
+test rsi, rsi
+mov eax, 1
+mov qword [var_20h], rdx
+sete r8b
+jne 0x80086b0
+lea rcx, [var_30h]
+lea rdx, [var_10h]
+mov esi, r8d
+mov qword [var_28h], rax
+call timerfd_settime
+test r13b, r13b
+jne pthread_mutex_unlock
+add rsp, 0x658
+pop rbx
+pop rbp
+pop r12
+pop r13
+ret
+nop dword [rax + rax]
+cmp dword [arg_7ch], 0xffffffff
+mov ebx, 0xffffffff
+mov ecx, 0xffffffff
+jne 0x8008440
+movzx r13d, byte [arg_68h]
+test r13b, r13b
+jne 0x80086c6
+movsxd rsi, ecx
+cmp ebx, 0x493e0
+ja 0x8008698
+mov rbx, qword [arg_80h]
+test rbx, rbx
+je 0x8008607
+nop dword [rax]
+mov rax, qword [rbx]
+mov rdi, rbx
+call qword [rax + 0x18]
+mov rbx, qword [rbx + 8]
+mov rsi, rax
+test rbx, rbx
+jne 0x80085f0
+mov ecx, eax
+test r13b, r13b
+je 0x8008440
+lea rdi, [arg_40h]
+mov dword [var_ch], ecx
+call pthread_mutex_unlock
+mov ecx, dword [var_ch]
+jmp 0x8008440
+nop word cs:[rax + rax]
+mov edi, 1
+jmp 0x80084a2
+nop word [rax + rax]
+cmp rdx, qword [r12 + 8]
+je 0x800849e
+mov dword [rdx + 0x10], r8d
+mov r8, qword [r12 + 8]
+test r8, r8
+je 0x8008680
+mov qword [r8], rdx
+mov qword [r12 + 8], rdx
+jmp 0x80084a2
+nop word cs:[rax + rax]
+xor ecx, ecx
+jmp 0x8008440
+nop word [rax + rax]
+movq xmm0, rdx
+punpcklqdq xmm0, xmm0
+movups xmmword [r12], xmm0
+jmp 0x80084a2
+nop dword [rax + rax]
+mov esi, 0x493e0
+mov ecx, 0x493e0
+jmp 0x80085e1
+nop word [rax + rax]
+imul rdx, rdx, 0xf4240
+sub rsi, rdx
+imul rax, rsi, 0x3e8
+jmp 0x800857d
+lea rdi, [arg_40h]
+mov dword [var_ch], ecx
+call pthread_mutex_lock
+mov ecx, dword [var_ch]
+jmp 0x80085d2
+nop dword [rax]
+lea rdi, [arg_40h]
+call pthread_mutex_unlock
+add rsp, 0x658
+pop rbx
+pop rbp
+pop r12
+pop r13
+ret
+nop word [rax + rax]
+lea rdi, [arg_40h]
+call pthread_mutex_lock
+jmp 0x80084dc
+mov qword [var_20h], 0x12c
+xor r8d, r8d
+xor eax, eax
+jmp 0x800857d

@@ -1,0 +1,2 @@
+movsx r8d, r8b
+jmp _ZNK5boost6locale4util15base_num_formatIcE11do_real_putIlEESt19ostreambuf_iteratorIcSt11char_traitsIcEES8_RSt8ios_basecT_

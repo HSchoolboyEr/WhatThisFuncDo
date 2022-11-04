@@ -1,0 +1,4 @@
+movd eax, xmm0
+test eax, eax
+sets al
+ret

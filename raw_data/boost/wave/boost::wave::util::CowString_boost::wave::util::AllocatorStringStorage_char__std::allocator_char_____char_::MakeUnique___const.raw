@@ -1,0 +1,48 @@
+mov rdx, qword [rdi]
+movzx eax, byte [rdx + 0x10]
+cmp al, 1
+je _ZSt17__throw_bad_allocv
+sub eax, 1
+push r12
+push rbp
+push rbx
+mov rbx, rdi
+mov byte [rdx + 0x10], al
+mov rax, qword [rdi]
+lea rdx, [rax + 0x10]
+mov rax, qword [rax]
+sub rax, rdx
+mov rbp, rax
+je 0x8006978
+mov rdi, rax
+add rdi, 0x18
+js _ZSt17__throw_bad_allocv
+call _Znwm
+lea rdi, [rax + 0x10]
+mov r12, rax
+lea rax, [rdi + rbp]
+movq xmm0, rax
+mov rax, qword [rbx]
+punpcklqdq xmm0, xmm0
+movups xmmword [r12], xmm0
+mov rdx, qword [rax]
+lea rsi, [rax + 0x10]
+sub rdx, rsi
+call memcpy
+mov qword [rbx], r12
+mov byte [r12 + 0x10], 1
+pop rbx
+pop rbp
+pop r12
+ret
+nop dword [rax]
+lea r12, [0x0800697f]
+mov qword [rbx], r12
+mov byte [r12 + 0x10], 1
+pop rbx
+pop rbp
+pop r12
+ret
+nop dword [rax]
+ret
+call _ZSt17__throw_bad_allocv

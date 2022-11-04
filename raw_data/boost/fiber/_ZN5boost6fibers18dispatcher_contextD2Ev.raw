@@ -1,0 +1,3 @@
+lea rax, [0x080022c7]
+mov qword [rdi], rax
+jmp _ZN5boost6fibers7contextD2Ev

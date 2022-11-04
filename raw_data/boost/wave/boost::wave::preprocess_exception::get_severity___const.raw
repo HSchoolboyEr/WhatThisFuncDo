@@ -1,0 +1,6 @@
+movsxd rdx, dword [rdi + 0x418]
+lea rax, [0x08000b3e]
+add byte [rax], al
+add byte [rax], al
+mov eax, dword [rax + rdx*4]
+ret

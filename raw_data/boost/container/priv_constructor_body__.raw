@@ -1,0 +1,35 @@
+mov rax, qword [rdi]
+test rax, rax
+jne 0x8000290
+mov qword [rdi], 0x20
+mov rdx, qword [rdi + 8]
+mov eax, 0x1000
+test rdx, rdx
+je 0x8000288
+mov eax, 0x10
+cmp rdx, 0xf
+ja 0x80002a8
+mov qword [rdi + 8], rax
+ret
+nop dword [rax]
+cmp rax, 0x20
+mov edx, 0x20
+cmovae rax, rdx
+mov qword [rdi], rax
+jmp 0x800026f
+nop word [rax + rax]
+mov eax, 0x1000
+cmp rdx, 0xfff
+ja 0x8000288
+lea rcx, [rdx - 1]
+bsr rax, rdx
+and rdx, rcx
+xor rax, 0x3f
+mov ecx, 0x3f
+cmp rdx, 1
+sbb rcx, 0xffffffffffffffff
+sub ecx, eax
+mov eax, 1
+shl rax, cl
+mov qword [rdi + 8], rax
+ret

@@ -1,0 +1,28 @@
+movq xmm0, rsi
+push r14
+punpcklqdq xmm0, xmm0
+push r13
+push r12
+lea r12, [rdi + 0x40]
+push rbp
+lea rbp, [rdi + 0x20]
+push rbx
+movups xmmword [rdi], xmm0
+movq xmm0, rbp
+punpcklqdq xmm0, xmm0
+mov qword [rdi + 0x10], 0
+movups xmmword [rdi + 0x20], xmm0
+movq xmm0, r12
+punpcklqdq xmm0, xmm0
+mov qword [rdi + 0x30], 0
+mov dword [rdi + 0x18], 1
+mov dword [rdi + 0x38], 1
+movups xmmword [rdi + 0x40], xmm0
+test rsi, rsi
+je .text.unlikely
+pop rbx
+pop rbp
+pop r12
+pop r13
+pop r14
+ret

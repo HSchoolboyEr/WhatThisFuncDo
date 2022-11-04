@@ -1,0 +1,44 @@
+push r15
+lea r15, [rdi + 0x1f0]
+push r14
+mov r14, rdx
+xor edx, edx
+push r13
+mov r13, rsi
+xor esi, esi
+push r12
+push rbp
+mov rbp, rdi
+mov rdi, r15
+call _ZNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEE6resizeEmw
+mov rsi, r13
+mov rdi, rbp
+mov ecx, 0x3c
+lea rdx, [arg_80h]
+call _ZNK5boost7archive17basic_xml_grammarIwE8my_parseERSt13basic_istreamIwSt11char_traitsIwEERKNS_6spirit7classic4ruleINS9_7scannerIN9__gnu_cxx17__normal_iteratorIPwNSt7__cxx1112basic_stringIwS5_SaIwEEEEENS9_16scanner_policiesINS9_16iteration_policyENS9_12ma
+mov esi, 0x3c
+mov rdi, r13
+mov r12d, eax
+call _ZNSt13basic_istreamIwSt11char_traitsIwEE7putbackEw
+add byte [rax], al
+add byte [rax], al
+test r12b, r12b
+jne 0x8005fd0
+pop rbp
+mov eax, r12d
+pop r12
+pop r13
+pop r14
+pop r15
+ret
+nop
+mov rsi, r15
+mov rdi, r14
+call _ZNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEE9_M_assignERKS4_
+pop rbp
+mov eax, r12d
+pop r12
+pop r13
+pop r14
+pop r15
+ret

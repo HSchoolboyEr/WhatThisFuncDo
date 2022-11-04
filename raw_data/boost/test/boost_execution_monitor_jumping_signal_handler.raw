@@ -1,0 +1,12 @@
+sub rsp, 8
+mov r8d, edi
+movq xmm0, rsi
+mov rdi, qword [0x08000423]
+movq xmm1, rdx
+mov esi, r8d
+punpcklqdq xmm0, xmm1
+add rdi, 0x9d0
+movups xmmword [rdi + 0xc8], xmm0
+call siglongjmp
+nop word cs:[rax + rax]
+nop dword [rax]

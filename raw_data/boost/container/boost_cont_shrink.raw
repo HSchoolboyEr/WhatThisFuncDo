@@ -1,0 +1,188 @@
+push r15
+mov r15, rdi
+push r14
+push r13
+mov r13, rcx
+push r12
+mov r12, rdx
+push rbp
+mov rbp, rsi
+push rbx
+sub rsp, 0x18
+mov dword [var_ch], r8d
+test byte [0x08009256], 2
+je 0x800926b
+mov eax, 1
+xchg dword [0x08009263], eax
+test eax, eax
+jne 0x8009330
+mov rax, qword [r15 - 8]
+mov rdx, rax
+and eax, 3
+and rdx, 0xfffffffffffffff8
+cmp rax, 1
+sbb rax, rax
+and eax, 8
+add rax, 8
+sub rdx, rax
+mov qword [r13], rdx
+cmp rbp, 0xffffffffffffff7f
+ja __errno_location
+cmp r12, 0xffffffffffffff7f
+ja __errno_location
+cmp rbp, 0x17
+mov esi, 0x17
+cmovb rbp, rsi
+cmp r12, rbp
+jb 0x800930e
+mov rax, qword [r15 - 8]
+lea rdx, [r15 - 0x10]
+mov rcx, rax
+and rcx, 0xfffffffffffffff8
+cmp rdx, qword [0x080092d0]
+lea rsi, [rdx + rcx]
+jb .text.unlikely
+mov rdi, rax
+and edi, 3
+cmp rdi, 1
+je .text.unlikely
+cmp rdx, rsi
+jae .text.unlikely
+test byte [rsi + 8], 1
+je .text.unlikely
+add rbp, 0x17
+and rbp, 0xfffffffffffffff0
+cmp rcx, rbp
+jae 0x80093a0
+xor eax, eax
+test byte [0x08009317], 2
+jne 0x8009386
+add rsp, 0x18
+pop rbx
+pop rbp
+pop r12
+pop r13
+pop r14
+pop r15
+ret
+nop dword [rax + rax]
+xor ebx, ebx
+mov r14d, 1
+nop dword [rax + rax]
+mov eax, dword [0x08009346]
+test eax, eax
+jne 0x800935b
+mov eax, r14d
+xchg dword [0x08009353], eax
+test eax, eax
+je 0x800926b
+add ebx, 1
+test bl, 0x3f
+jne 0x8009340
+call sched_yield
+jmp 0x8009340
+nop word [rax + rax]
+call __errno_location
+mov dword [rax], 0xc
+xor eax, eax
+test byte [0x08009384], 2
+je 0x8009319
+mov dword [0x08009390], 0
+add rsp, 0x18
+pop rbx
+pop rbp
+pop r12
+pop r13
+pop r14
+pop r15
+ret
+nop
+test rdi, rdi
+je 0x80093d9
+mov rdi, rcx
+sub rdi, rbp
+cmp rdi, 0x1f
+jbe .bss
+mov r8d, dword [var_ch]
+test r8d, r8d
+jne 0x800945d
+mov eax, 8
+sub rbp, rax
+mov eax, 1
+mov qword [r13], rbp
+jmp .bss
+lea rax, [r12 + 0x17]
+mov qword [r13], rcx
+movabs rsi, 0x1ffffffffffffffe
+shr rax, 3
+and rax, rsi
+cmp rax, 0x1f
+jbe .bss
+mov eax, 0x100
+cmp rbp, 0x100
+cmovb rbp, rax
+lea rax, [arg_8h]
+cmp rcx, rax
+jb 0x800942f
+mov rax, qword [0x0800941d]
+mov rsi, rcx
+sub rsi, rbp
+add rax, rax
+cmp rsi, rax
+jbe .bss
+mov rax, qword [0x08009436]
+mov r9d, dword [var_ch]
+mov r12, qword [r15 - 0x10]
+lea rbx, [rbp + rax + 0x3e]
+neg rax
+and rbx, rax
+mov qword [r13], rbx
+test r9d, r9d
+je 0x80094a6
+mov eax, 1
+jmp .bss
+and eax, 1
+add rdx, rbp
+or rdi, 3
+or rax, rbp
+or rax, 2
+mov qword [r15 - 8], rax
+mov rax, rbp
+mov qword [rdx + 8], rdi
+lea rdi, [rdx + 0x10]
+sub rax, rcx
+or qword [rsi + 8], 1
+add qword [0x0800948c], rax
+call sym.mspace_free_lockless.constprop.0
+test byte [r15 - 8], 3
+jne 0x80093c3
+mov eax, 0x10
+jmp 0x80093c8
+lea rbp, [rcx + r12 + 0x20]
+mov rdi, rdx
+xor ecx, ecx
+xor eax, eax
+sub rdi, r12
+mov rdx, rbx
+mov rsi, rbp
+call mremap
+test rax, rax
+je .text.unlikely
+mov rdx, rbx
+movdqa xmm0, xmmword [0x080094d4]
+lea rcx, [rax + r12]
+sub rdx, r12
+sub rdx, 0x20
+cmp rax, qword [0x080094e6]
+mov qword [rcx + 8], rdx
+movups xmmword [rcx + rdx + 8], xmm0
+jae 0x80094f8
+mov qword [0x080094f8], rax
+mov rax, qword [0x080094ff]
+sub rax, rbp
+add rbx, rax
+cmp rbx, qword [0x0800950c]
+mov qword [0x08009513], rbx
+jbe 0x8009453
+mov qword [0x08009520], rbx
+jmp 0x8009453

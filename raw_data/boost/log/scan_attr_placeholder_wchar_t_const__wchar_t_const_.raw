@@ -1,0 +1,23 @@
+push r12
+mov r12, rdi
+push rbp
+push rbx
+cmp rdi, rsi
+je 0x800081d
+mov rbp, rsi
+nop
+mov ebx, dword [r12]
+mov edi, ebx
+call iswalnum
+cmp ebx, 0x5f
+je 0x8000814
+test eax, eax
+je 0x800081d
+add r12, 4
+cmp rbp, r12
+jne 0x8000800
+mov rax, r12
+pop rbx
+pop rbp
+pop r12
+ret

@@ -1,0 +1,174 @@
+push rbp
+mov rbp, rsp
+push r15
+mov r15, rdi
+mov rdi, rcx
+push r14
+mov r14d, r8d
+push r13
+mov r13, rsi
+push r12
+mov r12, rcx
+push rbx
+sub rsp, 0x1e8
+mov qword [var_1f0h], rdx
+fld xword [rbp + 0x10]
+fstp xword [rbp - 0x200]
+call _ZN5boost6locale8ios_info3getERSt8ios_base
+mov rdi, rax
+mov rbx, rax
+call _ZNK5boost6locale8ios_info13display_flagsEv
+cmp rax, 7
+ja 0x8009490
+lea rdx, [0x08009344]
+movsxd rax, dword [rdx + rax*4]
+add rax, rdx
+jmp rax
+nop dword [rax]
+mov rdi, rbx
+call _ZNK5boost6locale8ios_info21date_time_pattern_setEv
+mov rbx, rax
+mov rax, qword [rax]
+test rax, rax
+je .text.unlikely
+mov rdi, qword [rax + 8]
+mov rsi, qword [0x08009372]
+cmp rdi, rsi
+je 0x800938d
+cmp byte [rdi], 0x2a
+je .text.unlikely
+call strcmp
+test eax, eax
+jne .text.unlikely
+mov r15, qword [rbx + 0x10]
+lea rax, [rbp - 0x1a0]
+lea rbx, [rbp - 0x1b0]
+mov qword [rbp - 0x208], rax
+mov qword [rbp - 0x1b0], rax
+test r15, r15
+je .LC6
+mov rdi, r15
+call wcslen
+shl rax, 2
+mov r8, rax
+sar r8, 2
+mov qword [rbp - 0x1b8], r8
+cmp rax, 0xc
+ja 0x8009860
+mov rdi, qword [rbp - 0x208]
+mov rax, r8
+cmp r8, 1
+je 0x8009850
+test r8, r8
+jne 0x8009830
+mov qword [rbp - 0x1a8], rax
+mov r9, rbx
+mov ecx, r14d
+mov rdx, r12
+mov dword [rdi + rax*4], 0
+fld xword [rbp - 0x200]
+mov rdi, r13
+fnstcw word [rbp - 0x1e2]
+mov rsi, qword [rbp - 0x1f0]
+movzx eax, word [rbp - 0x1e2]
+or ah, 0xc
+mov word [rbp - 0x1e4], ax
+fldcw word [rbp - 0x1e4]
+fistp qword [rbp - 0x200]
+fldcw word [rbp - 0x1e2]
+mov r8, qword [rbp - 0x200]
+call .text
+mov rdi, qword [rbp - 0x1b0]
+mov r13, rax
+mov r12, rdx
+cmp rdi, qword [rbp - 0x208]
+je 0x8009608
+mov rax, qword [rbp - 0x1a0]
+lea rsi, [rax*4 + 4]
+call _ZdlPvm
+jmp 0x8009608
+nop word cs:[rax + rax]
+fld xword [rbp - 0x200]
+mov r8d, r14d
+mov rcx, r12
+mov rsi, r13
+mov rdx, qword [var_1f0h]
+mov rdi, r15
+fstp xword [rbp + 0x10]
+lea rsp, [var_28h]
+pop rbx
+pop r12
+pop r13
+pop r14
+pop r15
+pop rbp
+jmp _ZNKSt7num_putIwSt19ostreambuf_iteratorIwSt11char_traitsIwEEE6do_putES3_RSt8ios_basewe
+nop
+lea rbx, [var_1b0h]
+mov rdi, rbx
+call _ZNSt7__cxx1119basic_ostringstreamIwSt11char_traitsIwESaIwEEC1Ev
+call _ZNSt6locale7classicEv
+mov rdx, rax
+lea rax, [var_140h]
+lea rdi, [var_1b8h]
+mov rsi, rax
+mov qword [var_208h], rax
+mov qword [var_210h], rdi
+call _ZNSt9basic_iosIwSt11char_traitsIwEE5imbueERKSt6locale
+mov rdi, qword [var_210h]
+call _ZNSt6localeD1Ev
+mov eax, dword [r12 + 0x18]
+mov r8d, r14d
+mov rsi, r13
+movdqu xmm1, xmmword [r12 + 8]
+push qword [var_1f8h]
+mov rdi, r15
+mov rcx, qword [var_208h]
+push qword [var_200h]
+mov rdx, qword [var_1f0h]
+mov dword [var_128h], eax
+movups xmmword [var_138h], xmm1
+call _ZNKSt7num_putIwSt19ostreambuf_iteratorIwSt11char_traitsIwEEE6do_putES3_RSt8ios_basewe
+mov r13, rax
+lea rax, [0x08009552]
+lea rcx, [0x08009559]
+pop r9
+mov qword [var_140h], rax
+lea rax, [0x08009569]
+movq xmm0, rcx
+pop r10
+movq xmm2, rax
+mov rdi, qword [var_160h]
+lea rax, [var_150h]
+mov qword [r12 + 0x10], 0
+punpcklqdq xmm0, xmm2
+mov r12, rdx
+movaps xmmword [var_1b0h], xmm0
+cmp rdi, rax
+je 0x80095b3
+mov rax, qword [var_150h]
+lea rsi, [rax*4 + 4]
+call _ZdlPvm
+lea rax, [0x080095ba]
+lea rdi, [var_170h]
+mov qword [var_1a8h], rax
+call _ZNSt6localeD1Ev
+mov rdx, qword [0x080095d4]
+mov rdi, qword [var_208h]
+mov rax, qword [rdx - 0x18]
+mov qword [var_1b0h], rdx
+mov rdx, qword [0x080095ed]
+mov qword [rbp + rax - 0x1b0], rdx
+lea rax, [0x080095fc]
+mov qword [var_140h], rax
+call _ZNSt8ios_baseD2Ev
+lea rsp, [var_28h]
+mov rax, r13
+mov rdx, r12
+pop rbx
+pop r12
+pop r13
+pop r14
+pop r15
+pop rbp
+ret

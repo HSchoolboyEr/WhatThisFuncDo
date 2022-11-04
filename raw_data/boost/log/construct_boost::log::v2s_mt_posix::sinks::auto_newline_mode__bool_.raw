@@ -1,0 +1,18 @@
+push r12
+mov r12d, esi
+push rbp
+mov ebp, edx
+push rbx
+mov rbx, rdi
+mov edi, 0x20
+call _Znwm
+pxor xmm0, xmm0
+mov qword [rax + 0x10], 0
+mov dword [rax + 0x18], r12d
+mov byte [rax + 0x1c], bpl
+movups xmmword [rax], xmm0
+mov qword [rbx], rax
+pop rbx
+pop rbp
+pop r12
+ret

@@ -1,0 +1,72 @@
+push r13
+push r12
+push rbp
+push rbx
+mov rbx, rdi
+sub rsp, 0x18
+call method boost::debug::(anonymous namespace)::prepare_window_title(boost::debug::dbg_startup_info const&)
+test rax, rax
+je 0x8000cbf
+mov rbp, rsp
+mov rcx, qword [rbx]
+mov r12, rax
+lea rdx, [0x08000bdb]
+mov esi, 0x10
+mov rdi, rbp
+xor eax, eax
+call snprintf
+cmp byte [rbx + 8], 0
+lea rax, [0x08000bf5]
+lea r8, [0x08000bfc]
+cmove r8, rax
+mov rcx, qword [rbx + 0x30]
+xor eax, eax
+mov r13, qword [rbx + 0x10]
+lea r9, [0x08000c11]
+lea rdx, [0x08000c18]
+mov esi, 0x1f4
+lea rdi, [0x08000c24]
+call snprintf
+sub rsp, 8
+mov rdx, r12
+lea rax, [0x08000c37]
+push 0
+lea r9, [0x08000c40]
+lea rcx, [0x08000c47]
+push rbp
+lea rsi, [0x08000c4f]
+lea rdi, [0x08000c56]
+push r13
+push rax
+lea rax, [0x08000c60]
+push rax
+lea rax, [0x08000c68]
+push rax
+lea rax, [0x08000c70]
+push rax
+lea rax, [0x08000c78]
+push rax
+lea rax, [0x08000c80]
+push rax
+lea rax, [0x08000c88]
+push rax
+lea rax, [0x08000c90]
+push rax
+lea rax, [0x08000c98]
+push rax
+lea rax, [0x08000ca0]
+push rax
+lea rax, [0x08000ca8]
+push rax
+lea rax, [0x08000cb0]
+push rax
+mov r8, qword [rbx + 0x20]
+xor eax, eax
+call method boost::debug::(anonymous namespace)::safe_execlp(char const*, ...)
+mov rsp, rbp
+add rsp, 0x18
+pop rbx
+pop rbp
+pop r12
+pop r13
+ret

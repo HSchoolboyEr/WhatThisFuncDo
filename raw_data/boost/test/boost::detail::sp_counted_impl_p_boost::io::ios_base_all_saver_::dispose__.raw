@@ -1,0 +1,12 @@
+mov rdi, qword [rdi + 0x10]
+test rdi, rdi
+je 0x8003488
+mov rax, qword [rdi]
+mov edx, dword [rdi + 8]
+mov esi, 0x20
+movdqu xmm0, xmmword [rdi + 0x10]
+mov dword [rax + 0x18], edx
+movups xmmword [rax + 8], xmm0
+jmp _ZdlPvm
+nop dword [rax]
+ret

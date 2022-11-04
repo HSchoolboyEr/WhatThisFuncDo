@@ -1,0 +1,136 @@
+push r15
+lea rax, [rsi - 1]
+mov r15, rdi
+push r14
+push r13
+mov r13, rax
+push r12
+shr r13, 0x3f
+mov r12, rdx
+mov rdx, rsi
+push rbp
+add r13, rax
+and edx, 1
+push rbx
+sar r13, 1
+sub rsp, 0x28
+mov qword [var_18h], rsi
+mov qword [var_8h], rcx
+mov qword [var_10h], rdx
+cmp rsi, 2
+jle 0x800e210
+xor ebp, ebp
+jmp 0x800e0e6
+nop dword [rax + rax]
+call strcmp
+test eax, eax
+jns 0x800e0c8
+sub rbx, 1
+mov rdx, rbx
+shl rdx, 4
+lea r14, [r15 + rdx]
+mov rax, qword [r14]
+shl rbp, 4
+add rbp, r15
+mov qword [rbp], rax
+mov rax, qword [r14 + 8]
+mov qword [arg_8h], rax
+cmp rbx, r13
+jge 0x800e120
+mov rbp, rbx
+lea rax, [arg_1h]
+lea rbx, [rax + rax]
+shl rax, 5
+lea r14, [r15 + rax]
+mov rax, qword [r15 + rax - 0x10]
+mov rcx, qword [r14]
+mov rsi, qword [rax + 8]
+mov rdi, qword [rcx + 8]
+cmp byte [rdi], 0x2a
+jne strcmp
+cmp byte [rsi], 0x2a
+jne strcmp
+cmp rdi, rsi
+jb 0x800e0b9
+jmp 0x800e0c8
+nop word [rax + rax]
+cmp qword [var_10h], 0
+je 0x800e1c8
+lea r13, [rbx - 1]
+sar r13, 1
+jmp 0x800e173
+nop dword [rax]
+call strcmp
+test eax, eax
+jns 0x800e1a0
+mov rax, qword [rbp]
+shl rbx, 4
+lea rdx, [r13 - 1]
+add rbx, r15
+mov qword [rbx], rax
+mov rax, qword [arg_8h]
+mov qword [rbx + 8], rax
+mov rax, rdx
+mov rbx, r13
+shr rax, 0x3f
+add rax, rdx
+sar rax, 1
+test r13, r13
+je 0x800e1a8
+mov r13, rax
+mov rbp, r13
+mov rsi, qword [r12 + 8]
+shl rbp, 4
+add rbp, r15
+mov rax, qword [rbp]
+mov rdi, qword [rax + 8]
+cmp byte [rdi], 0x2a
+jne strcmp
+cmp byte [rsi], 0x2a
+jne strcmp
+cmp rdi, rsi
+jb 0x800e141
+nop dword [rax]
+shl rbx, 4
+lea rbp, [r15 + rbx]
+movq xmm0, r12
+movhps xmm0, qword [var_8h]
+movups xmmword [rbp], xmm0
+add rsp, 0x28
+pop rbx
+pop rbp
+pop r12
+pop r13
+pop r14
+pop r15
+ret
+nop dword [rax]
+mov rax, qword [var_18h]
+lea r13, [rbx - 1]
+sar r13, 1
+sub rax, 2
+sar rax, 1
+cmp rax, rbx
+jne 0x800e173
+add rbx, 1
+lea r13, [rbx + rbx]
+shl rbx, 5
+lea rax, [r15 + rbx - 0x10]
+lea rbx, [r13 - 1]
+sub r13, 2
+mov rcx, qword [rax]
+sar r13, 1
+mov qword [r14], rcx
+mov rax, qword [rax + 8]
+mov qword [r14 + 8], rax
+jmp 0x800e173
+nop
+cmp qword [var_10h], 0
+jne 0x800e21e
+cmp rax, 2
+jbe 0x800e223
+mov rbp, r15
+jmp 0x800e1a8
+mov r14, r15
+xor ebx, ebx
+jmp 0x800e1e0

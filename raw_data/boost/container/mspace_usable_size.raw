@@ -1,0 +1,17 @@
+xor r8d, r8d
+test rdi, rdi
+je 0x8007db0
+mov rax, qword [rdi - 8]
+mov rdx, rax
+and edx, 3
+cmp rdx, 1
+je 0x8007db0
+and rax, 0xfffffffffffffff8
+cmp rdx, 1
+sbb rdx, rdx
+and edx, 8
+add rdx, 8
+sub rax, rdx
+mov r8, rax
+mov rax, r8
+ret

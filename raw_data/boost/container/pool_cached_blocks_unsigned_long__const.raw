@@ -1,0 +1,4 @@
+add rdi, 8
+jmp _ZNK5boost9container3pmr13pool_resource18pool_cached_blocksEm
+add byte [rax], al
+add byte [rax], al

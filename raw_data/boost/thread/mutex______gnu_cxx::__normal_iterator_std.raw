@@ -1,0 +1,95 @@
+push r15
+push r14
+push r13
+push r12
+push rbp
+push rbx
+movabs rbx, 0x7ffffffffffffff
+sub rsp, 0x28
+mov r15, qword [rdi + 8]
+mov r12, qword [rdi]
+mov rax, r15
+sub rax, r12
+sar rax, 4
+cmp rax, rbx
+je .LC41
+test rax, rax
+mov ecx, 1
+mov rbp, rsi
+mov r13, rdi
+cmovne rcx, rax
+add rax, rcx
+setb cl
+sub rsi, r12
+movzx ecx, cl
+test rcx, rcx
+jne 0x800a8c8
+test rax, rax
+jne 0x800a888
+mov qword [var_8h], 0
+mov ebx, 0x10
+xor r14d, r14d
+movdqu xmm2, xmmword [rdx]
+movups xmmword [r14 + rsi], xmm2
+cmp rbp, r12
+je 0x800a82a
+mov rcx, rbp
+mov rdx, r14
+mov rax, r12
+sub rcx, r12
+nop dword [rax]
+movdqu xmm1, xmmword [rax]
+add rax, 0x10
+add rdx, 0x10
+movups xmmword [rdx - 0x10], xmm1
+cmp rax, rbp
+jne 0x800a810
+lea rbx, [r14 + rcx + 0x10]
+cmp rbp, r15
+je 0x800a843
+sub r15, rbp
+mov rdi, rbx
+mov rsi, rbp
+mov rdx, r15
+add rbx, r15
+call memcpy
+test r12, r12
+je 0x800a857
+mov rsi, qword [r13 + 0x10]
+mov rdi, r12
+sub rsi, r12
+call _ZdlPvm
+mov rax, qword [var_8h]
+movq xmm0, r14
+movq xmm3, rbx
+punpcklqdq xmm0, xmm3
+mov qword [r13 + 0x10], rax
+movups xmmword [r13], xmm0
+add rsp, 0x28
+pop rbx
+pop rbp
+pop r12
+pop r13
+pop r14
+pop r15
+ret
+nop word [rax + rax]
+cmp rax, rbx
+cmovbe rbx, rax
+shl rbx, 4
+mov rdi, rbx
+mov qword [var_18h], rdx
+mov qword [var_10h], rsi
+call _Znwm
+mov rsi, qword [var_10h]
+mov rdx, qword [var_18h]
+mov r14, rax
+add rax, rbx
+mov qword [var_8h], rax
+lea rbx, [r14 + 0x10]
+jmp 0x800a7f3
+nop dword [rax + rax]
+movabs rbx, 0x7ffffffffffffff0
+jmp 0x800a893
+lea rdi, [0x0800a8db]
+call sym boost::detail::thread_data_base::notify_all_at_thread_exit(boost::condition_variable*, boost::mutex*)

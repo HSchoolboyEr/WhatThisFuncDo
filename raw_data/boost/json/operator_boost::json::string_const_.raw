@@ -1,0 +1,153 @@
+push r14
+push r13
+push r12
+mov r12, rdi
+push rbp
+sub rsp, 0x48
+mov rax, qword [rdi]
+mov qword [rsp], rax
+test al, 1
+jne 0x800c8a0
+mov qword [var_20h], rax
+movabs rax, 0xe00000000000000
+mov qword [var_30h], rax
+movzx eax, byte [rsi + 8]
+mov qword [rsp], 0
+mov qword [var_8h], 0
+mov qword [var_28h], 0x85
+cmp al, 5
+je 0x800c8e0
+movsx rdx, byte [rsi + 0x17]
+mov r13d, 0xe
+lea rbp, [rsi + 9]
+sub r13, rdx
+cmp al, 0x85
+je 0x800c765
+mov rsi, qword [rsi + 0x10]
+lea rbp, [rsi + 8]
+cmp r13, 0xe
+ja 0x800c7d0
+mov eax, 0xe
+lea r14, [var_20h]
+sub eax, r13d
+mov byte [var_37h], al
+mov byte [rsp + r13 + 0x29], 0
+test r13, r13
+jne 0x800c97d
+mov rdi, qword [var_8h]
+test dil, 1
+jne 0x800c879
+mov rsi, r12
+mov rdi, r14
+call _ZN5boost4json5value4swapERS1_
+mov rdi, r14
+call _ZN5boost4json5valueD1Ev
+mov rdi, qword [rsp]
+test dil, 1
+jne 0x800c8b8
+add rsp, 0x48
+mov rax, r12
+pop rbp
+pop r12
+pop r13
+pop r14
+ret
+nop word [rax + rax]
+lea r14, [var_20h]
+cmp r13, 0x7ffffffe
+ja 0x800c966
+cmp r13, 0x1c
+mov esi, 0x1c
+lea rdi, [var_10h]
+mov rdx, r14
+cmovae rsi, r13
+call method boost::json::detail::string_impl::string_impl(unsigned long, boost::json::storage_ptr const&) [clone .part.0]
+movzx eax, byte [var_28h]
+cmp al, 5
+je 0x800c930
+cmp al, 0x45
+je 0x800c8f0
+movdqu xmm0, xmmword [var_10h]
+movzx eax, byte [var_10h]
+movups xmmword [var_28h], xmm0
+cmp al, 0x85
+je 0x800c96b
+mov rax, qword [var_30h]
+mov dword [rax], r13d
+cmp byte [var_28h], 0x85
+lea rax, [var_29h]
+je 0x800c846
+mov rax, qword [var_30h]
+add rax, 8
+mov byte [rax + r13], 0
+cmp byte [var_28h], 0x85
+je 0x800c97d
+mov rax, qword [var_30h]
+lea rdi, [rax + 8]
+mov rdx, r13
+mov rsi, rbp
+call memcpy
+mov rdi, qword [var_8h]
+test dil, 1
+je 0x800c79a
+and rdi, 0xfffffffffffffffc
+lock sub qword [rdi + 8], 1
+jne 0x800c79a
+test rdi, rdi
+je 0x800c79a
+mov rax, qword [rdi]
+call qword [rax + 8]
+jmp 0x800c79a
+nop dword [rax]
+and rax, 0xfffffffffffffffc
+lock add qword [rax + 8], 1
+mov rax, qword [rsp]
+jmp 0x800c70d
+nop dword [rax + rax]
+and rdi, 0xfffffffffffffffc
+lock sub qword [rdi + 8], 1
+jne 0x800c7bb
+test rdi, rdi
+je 0x800c7bb
+mov rax, qword [rdi]
+call qword [rax + 8]
+jmp 0x800c7bb
+nop dword [rax]
+mov rsi, qword [rsi + 0x10]
+mov r13d, dword [rsi]
+jmp 0x800c761
+nop dword [rax]
+mov rax, qword [var_20h]
+mov rsi, qword [var_30h]
+mov ecx, 0x10
+mov rdi, rax
+and rdi, 0xfffffffffffffffc
+test rax, rax
+lea rax, [0x0800c910]
+cmove rdi, rax
+mov eax, dword [var_2ch]
+lea edx, [rax + 1]
+mov rax, qword [rdi]
+call qword [rax + 0x18]
+jmp 0x800c811
+nop word cs:[rax + rax]
+mov rax, qword [var_20h]
+mov rsi, qword [var_30h]
+mov ecx, 4
+mov rdi, rax
+mov edx, dword [rsi + 4]
+and rdi, 0xfffffffffffffffc
+test rax, rax
+lea rax, [0x0800c953]
+cmove rdi, rax
+add rdx, 9
+mov rax, qword [rdi]
+call qword [rax + 0x18]
+jmp 0x800c811
+call method boost::json::detail::string_impl::growth(unsigned long, unsigned long) [clone .part.0]
+mov eax, 0xe
+sub eax, r13d
+mov byte [var_37h], al
+mov byte [rsp + r13 + 0x29], 0
+lea rdi, [arg_29h]
+jmp 0x800c85f

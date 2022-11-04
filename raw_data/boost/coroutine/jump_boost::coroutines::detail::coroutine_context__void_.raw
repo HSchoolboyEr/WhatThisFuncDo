@@ -1,0 +1,14 @@
+mov r8, rsi
+sub rsp, 0x18
+movq xmm0, rdi
+movq xmm1, rdx
+mov rdi, qword [r8 + 0x20]
+mov rsi, rsp
+punpcklqdq xmm0, xmm1
+movaps xmmword [rsp], xmm0
+call jump_fcontext
+mov rcx, qword [rdx]
+mov qword [rcx + 0x20], rax
+mov rax, qword [rdx + 8]
+add rsp, 0x18
+ret

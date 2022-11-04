@@ -1,0 +1,19 @@
+push r12
+lea r12, [rdi + 0x88]
+push rbp
+mov rbp, rsi
+push rbx
+mov rbx, rdi
+mov rdi, r12
+mov qword [rsi], 0
+call pthread_mutex_lock
+test eax, eax
+jne .text.unlikely
+mov rax, qword [rbx + 0x80]
+mov rdi, r12
+mov qword [rax], rbp
+mov qword [rbx + 0x80], rbp
+pop rbx
+pop rbp
+pop r12
+jmp pthread_mutex_unlock

@@ -1,0 +1,38 @@
+push r13
+mov r13, rdi
+push r12
+xor r12d, r12d
+push rbp
+push rbx
+sub rsp, 8
+mov rdx, qword [rdi + 8]
+mov rax, qword [rsi]
+mov rdi, qword [rdx]
+mov rbp, qword [rax]
+test rdi, rdi
+je 0x8001e4b
+mov rbx, rsi
+nop dword [rax]
+mov rax, qword [rdi]
+mov rsi, rbx
+call qword [rax + 0x10]
+test rax, rax
+js 0x8001e60
+mov rdx, qword [r13 + 8]
+add r12, rax
+mov rax, qword [rbx]
+mov rdi, qword [rdx]
+mov rbp, qword [rax]
+test rdi, rdi
+jne 0x8001e28
+mov qword [rax], rbp
+add rsp, 8
+mov rax, r12
+pop rbx
+pop rbp
+pop r12
+pop r13
+ret
+nop dword [rax]
+mov rax, qword [rbx]
+jmp 0x8001e4b

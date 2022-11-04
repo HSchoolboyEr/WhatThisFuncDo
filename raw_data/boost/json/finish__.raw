@@ -1,0 +1,35 @@
+push rbp
+xor ecx, ecx
+xor edx, edx
+xor esi, esi
+sub rsp, 0x40
+mov rbp, rsp
+mov dword [rsp], 0
+mov qword [var_8h], 0
+mov r8, rbp
+mov qword [var_10h], 0
+call _ZN5boost4json12basic_parserINS0_6detail7handlerEE10write_someEbPKcmRNS_6system10error_codeE
+mov rax, qword [var_10h]
+test al, 1
+je 0x8010f65
+cmp rax, 1
+jne 0x8010f70
+mov eax, dword [rsp]
+test eax, eax
+jne 0x8010f70
+add rsp, 0x40
+pop rbp
+ret
+nop dword [rax + rax]
+lea rax, [0x08010f77]
+lea rdx, [0x08010f7e]
+mov rdi, rbp
+movq xmm1, rax
+movq xmm0, rdx
+lea rsi, [arg_20h]
+mov rax, qword [0x08010f97]
+punpcklqdq xmm0, xmm1
+mov qword [arg_30h], rax
+movaps xmmword [arg_20h], xmm0
+call _ZN5boost4json6detail18throw_system_errorERKNS_6system10error_codeERKNS_15source_locationE
+nop word [rax + rax]

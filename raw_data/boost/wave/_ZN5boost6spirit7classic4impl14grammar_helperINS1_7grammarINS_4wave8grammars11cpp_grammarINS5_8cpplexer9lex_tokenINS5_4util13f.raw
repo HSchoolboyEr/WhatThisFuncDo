@@ -1,0 +1,57 @@
+mov rdx, qword [rdi + 8]
+mov rax, qword [rdi + 0x10]
+mov rcx, qword [rsi + 0x10]
+sub rax, rdx
+sar rax, 3
+cmp rax, rcx
+jbe 0x80069a0
+push r12
+push rbp
+lea rbp, [rcx*8]
+add rdx, rbp
+push rbx
+mov rbx, rdi
+mov r12, qword [rdx]
+test r12, r12
+je 0x800695e
+mov rdi, r12
+call _ZN5boost4wave8grammars11cpp_grammarINS0_8cpplexer9lex_tokenINS0_4util13file_positionINS5_11flex_stringIcSt11char_traitsIcESaIcENS5_9CowStringINS5_22AllocatorStringStorageIcSA_EEPcEEEEEEEENSt7__cxx114listISI_NS_19fast_pool_allocatorISI_NS_33default_user_
+mov esi, 0x120
+mov rdi, r12
+call _ZdlPvm
+mov rdx, qword [rbx + 8]
+add rdx, rbp
+mov qword [rdx], 0
+sub qword [rbx + 0x20], 1
+jne 0x8006995
+mov rbp, qword [rbx + 0x30]
+pxor xmm0, xmm0
+movups xmmword [rbx + 0x28], xmm0
+test rbp, rbp
+je 0x8006995
+lock sub dword [arg_8h], 1
+jne 0x8006995
+mov rax, qword [rbp]
+mov rdi, rbp
+call qword [rax + 0x10]
+lock sub dword [arg_ch], 1
+je 0x80069a8
+pop rbx
+xor eax, eax
+pop rbp
+pop r12
+ret
+nop dword [rax]
+xor eax, eax
+ret
+nop dword [rax + rax]
+mov rax, qword [rbp]
+lea rcx, [0x080069b3]
+mov rdi, rbp
+mov rdx, qword [rax + 0x18]
+cmp rdx, rcx
+jne 0x80069c4
+call qword [rax + 8]
+jmp 0x8006995
+call rdx
+jmp 0x8006995

@@ -1,0 +1,16 @@
+push r12
+push rbp
+mov rbp, rdi
+sub rsp, 8
+movzx r12d, byte [rsi]
+call _ZN5boost7archive26BOOST_ARCHIVE_XML_TRACKINGEv
+add byte [rax], al
+add byte [rax], al
+add rsp, 8
+mov rdi, rbp
+lea rcx, [0x080018e1]
+mov edx, r12d
+pop rbp
+mov rsi, rax
+pop r12
+jmp _ZN5boost7archive18basic_xml_oarchiveINS0_12xml_oarchiveEE15write_attributeEPKciS5_

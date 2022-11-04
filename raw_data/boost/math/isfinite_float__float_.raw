@@ -1,0 +1,5 @@
+andps xmm0, xmmword [0x080000c7]
+movss xmm1, dword [0x080000cf]
+ucomiss xmm1, xmm0
+setae al
+ret

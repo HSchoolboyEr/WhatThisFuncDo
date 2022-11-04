@@ -1,0 +1,428 @@
+push r14
+movapd xmm2, xmm1
+movapd xmm3, xmm0
+push r12
+addsd xmm2, xmm1
+push rbp
+push rbx
+movapd xmm5, xmm2
+mulsd xmm5, xmm2
+sub rsp, 0x48
+movsd xmm4, qword [0x08001f36]
+movsd xmm6, qword [0x08001f3e]
+movsd xmm8, qword [0x08001f47]
+mulsd xmm4, xmm0
+movapd xmm9, xmm5
+movapd xmm2, xmm5
+mulsd xmm9, xmm5
+addsd xmm2, xmm5
+mulsd xmm4, xmm0
+mulsd xmm5, xmm9
+movapd xmm0, xmm4
+subsd xmm0, qword [0x08001f72]
+movapd xmm10, xmm4
+subsd xmm10, qword [0x08001f80]
+subsd xmm4, qword [0x08001f88]
+mulsd xmm6, xmm0
+movapd xmm7, xmm0
+divsd xmm7, xmm2
+movapd xmm2, xmm9
+mulsd xmm2, xmm8
+mulsd xmm6, xmm10
+divsd xmm6, xmm2
+movsd xmm2, qword [0x08001faf]
+mulsd xmm2, xmm0
+movapd xmm0, xmm4
+addsd xmm7, qword [0x08001fbf]
+mulsd xmm2, xmm10
+mulsd xmm0, xmm2
+movapd xmm2, xmm5
+mulsd xmm2, xmm8
+mulsd xmm2, qword [0x08001fd9]
+divsd xmm0, xmm2
+movsd xmm2, qword [0x08001fe5]
+mulsd xmm2, xmm1
+addsd xmm6, xmm7
+addsd xmm0, xmm6
+pxor xmm6, xmm6
+addsd xmm0, xmm0
+divsd xmm0, xmm2
+ucomisd xmm6, xmm0
+ja 0x8002723
+sqrtsd xmm0, xmm0
+movsd qword [var_18h], xmm0
+lea r12, [var_38h]
+lea rbp, [var_30h]
+movapd xmm0, xmm1
+movsd qword [var_20h], xmm3
+mov rsi, rbp
+mov rdi, r12
+movsd qword [rsp], xmm1
+call sincos
+movsd xmm3, qword [var_30h]
+movsd xmm1, qword [rsp]
+movsd xmm6, qword [var_38h]
+movsd qword [var_8h], xmm3
+movsd xmm3, qword [var_20h]
+movsd qword [var_10h], xmm6
+movapd xmm0, xmm3
+movsd qword [rsp], xmm3
+call _ZN5boost4math6detail26asymptotic_bessel_phase_mxIdEET_S3_S3_
+add byte [rax], al
+add byte [rax], al
+movsd xmm1, qword [0x0800206e]
+movsd xmm3, qword [rsp]
+movq r14, xmm0
+movsd xmm0, qword [0x08002080]
+mulsd xmm1, xmm3
+addsd xmm1, xmm0
+movapd xmm2, xmm1
+andpd xmm2, xmmword [0x08002094]
+comisd xmm0, xmm2
+jbe 0x8002390
+movsd xmm0, qword [0x080020a6]
+movsd qword [var_20h], xmm1
+mulsd xmm0, xmm1
+call cos
+movsd xmm1, qword [var_20h]
+movsd qword [rsp], xmm0
+movapd xmm5, xmm0
+pxor xmm7, xmm7
+mov edx, 1
+mov ecx, 0
+ucomisd xmm5, xmm7
+setp al
+cmovne eax, edx
+setnp dl
+cmovne edx, ecx
+test dl, dl
+je 0x8002200
+test al, al
+je 0x8002200
+movsd qword [var_20h], xmm1
+call __errno_location
+mov qword [rsp], 0
+movsd xmm1, qword [var_20h]
+mov dword [rax], 0x22
+pxor xmm4, xmm4
+comisd xmm4, xmm1
+ja 0x8002250
+movsd xmm3, qword [0x08002127]
+comisd xmm3, xmm1
+jbe .LC5
+movsd xmm0, qword [0x08002139]
+mulsd xmm0, xmm1
+call sin
+pxor xmm5, xmm5
+ucomisd xmm0, xmm5
+setp dl
+mov eax, 1
+mov ecx, 0
+cmovne edx, eax
+setnp al
+cmovne eax, ecx
+and eax, edx
+test al, al
+jne __errno_location
+movsd xmm7, qword [var_10h]
+movsd xmm4, qword [var_8h]
+movsd xmm1, qword [0x0800217e]
+mulsd xmm7, xmm0
+mulsd xmm4, xmm0
+andpd xmm0, xmmword [0x0800218e]
+comisd xmm1, xmm0
+movsd qword [var_20h], xmm7
+movsd qword [var_28h], xmm4
+jbe 0x80021a8
+test dl, dl
+jne __errno_location
+movq xmm0, r14
+mov rsi, rbp
+mov rdi, r12
+call sincos
+movsd xmm7, qword [rsp]
+movsd xmm0, qword [var_8h]
+movsd xmm1, qword [var_10h]
+mulsd xmm0, xmm7
+mulsd xmm1, xmm7
+addsd xmm0, qword [var_20h]
+subsd xmm1, qword [var_28h]
+mulsd xmm0, qword [var_30h]
+mulsd xmm1, qword [var_38h]
+subsd xmm0, xmm1
+mulsd xmm0, qword [var_18h]
+add rsp, 0x48
+pop rbx
+pop rbp
+pop r12
+pop r14
+ret
+nop
+movsd xmm0, qword [rsp]
+movsd xmm2, qword [0x0800220d]
+andpd xmm0, xmmword [0x08002215]
+comisd xmm2, xmm0
+jbe 0x8002111
+test al, al
+je 0x8002111
+movsd qword [var_20h], xmm1
+call __errno_location
+movsd xmm1, qword [var_20h]
+pxor xmm4, xmm4
+mov dword [rax], 0x22
+comisd xmm4, xmm1
+jbe .LC6
+nop dword [rax]
+comisd xmm1, xmm4
+movq xmm3, qword [0x0800225c]
+movapd xmm2, xmm1
+xorpd xmm2, xmm3
+ja 0x80024f0
+comisd xmm1, xmmword [0x08002272]
+jbe .LC55
+movsd xmm0, qword [0x08002280]
+mulsd xmm0, xmm2
+call sin
+movq xmm3, qword [0x08002291]
+pxor xmm7, xmm7
+movapd xmm1, xmm0
+xorpd xmm3, xmm1
+ucomisd xmm1, xmm7
+movapd xmm0, xmm3
+jmp 0x800214a
+nop word [rax + rax]
+movsd xmm4, qword [0x080022b8]
+xor ebx, ebx
+mov eax, 1
+comisd xmm4, xmm1
+jbe 0x80022d4
+xorpd xmm1, xmmword [0x080022cd]
+xor eax, eax
+mov ebx, 1
+movsd xmm3, qword [0x080022dc]
+movsd xmm4, qword [0x080022e4]
+movapd xmm0, xmm1
+movapd xmm2, xmm1
+andpd xmm0, xmm3
+ucomisd xmm4, xmm0
+ja 0x8002440
+movsd xmm0, qword [0x08002302]
+movsd xmm5, qword [0x0800230a]
+mulsd xmm0, xmm2
+movapd xmm3, xmm0
+andpd xmm3, xmm5
+ucomisd xmm4, xmm3
+ja 0x8002480
+addsd xmm0, xmm0
+subsd xmm1, xmm2
+subsd xmm0, xmm2
+andpd xmm0, xmmword [0x08002334]
+ucomisd xmm0, qword [0x0800233c]
+cmova ebx, eax
+comisd xmm1, xmmword [0x08002347]
+ja .LC5
+ucomisd xmm1, qword [0x08002355]
+jnp 0x800240e
+movsd xmm0, qword [0x08002363]
+mulsd xmm0, xmm1
+call sin
+movapd xmm1, xmm0
+test bl, bl
+je 0x80024c0
+xorpd xmm0, xmmword [0x08002380]
+pxor xmm6, xmm6
+ucomisd xmm1, xmm6
+jmp 0x800214a
+nop dword [rax]
+movapd xmm0, xmm1
+movsd qword [var_20h], xmm1
+call sym..text
+movsd xmm1, qword [var_20h]
+movsd qword [rsp], xmm0
+movapd xmm5, xmm0
+jmp 0x80020c4
+nop dword [rax + rax]
+call __errno_location
+pxor xmm6, xmm6
+pxor xmm7, xmm7
+mulsd xmm6, qword [var_10h]
+mov dword [rax], 0x22
+mulsd xmm7, qword [var_8h]
+movsd qword [var_20h], xmm6
+movsd qword [var_28h], xmm7
+jmp 0x80021a8
+nop dword [rax + rax]
+movsd xmm7, qword [0x080023f8]
+subsd xmm7, xmm1
+movapd xmm1, xmm7
+ucomisd xmm1, qword [0x08002408]
+jp .LC9
+jne .LC9
+test bl, bl
+jne .LC2
+movsd xmm7, qword [var_8h]
+movsd xmm6, qword [var_10h]
+movsd qword [var_28h], xmm7
+movsd qword [var_20h], xmm6
+jmp 0x80021a8
+nop dword [rax]
+cvttsd2si rdx, xmm1
+pxor xmm0, xmm0
+movsd xmm5, qword [0x08002451]
+andnpd xmm3, xmm1
+cvtsi2sd xmm0, rdx
+movapd xmm2, xmm0
+cmpnlesd xmm2, xmm1
+andpd xmm2, xmm5
+subsd xmm0, xmm2
+movapd xmm2, xmm3
+orpd xmm2, xmm0
+jmp .LC6
+nop dword [rax + rax]
+cvttsd2si rdx, xmm0
+pxor xmm3, xmm3
+movsd xmm7, qword [0x08002491]
+andnpd xmm5, xmm0
+cvtsi2sd xmm3, rdx
+movapd xmm4, xmm3
+cmpnlesd xmm4, xmm0
+andpd xmm4, xmm7
+subsd xmm3, xmm4
+orpd xmm3, xmm5
+movapd xmm0, xmm3
+jmp 0x8002320
+nop dword [rax + rax]
+pxor xmm6, xmm6
+mov eax, 1
+ucomisd xmm0, xmm6
+setp dl
+cmovne edx, eax
+setnp al
+cmovne eax, ebx
+and eax, edx
+jmp 0x8002162
+call __errno_location
+mov dword [rax], 0x22
+jmp 0x80021a8
+movapd xmm0, xmm2
+call sym._ZN5boost4math6detail10sin_pi_impIdNS0_8policies6policyINS3_12domain_errorILNS3_17error_policy_typeE1EEENS3_10pole_errorILS6_1
+movq xmm3, qword [0x08002501]
+movapd xmm1, xmm0
+xorpd xmm3, xmm1
+movapd xmm0, xmm3
+jmp 0x8002380
+nop word [rax + rax]
+movsd xmm6, qword [0x08002520]
+movsd xmm5, qword [0x08002528]
+movapd xmm4, xmm6
+comisd xmm1, xmm6
+cmpltsd xmm4, xmm1
+setbe bl
+seta al
+andpd xmm1, xmm4
+andnpd xmm4, xmm2
+orpd xmm4, xmm1
+movapd xmm2, xmm4
+movsd xmm4, qword [0x08002553]
+movapd xmm0, xmm2
+movapd xmm1, xmm2
+andpd xmm0, xmm5
+ucomisd xmm4, xmm0
+ja 0x8002688
+movsd xmm0, qword [0x08002571]
+movsd xmm7, qword [0x08002579]
+mulsd xmm0, xmm1
+movapd xmm5, xmm0
+andpd xmm5, xmm7
+ucomisd xmm4, xmm5
+ja 0x8002648
+addsd xmm0, xmm0
+subsd xmm2, xmm1
+subsd xmm0, xmm1
+andpd xmm0, xmmword [0x080025a3]
+ucomisd xmm0, qword [0x080025ab]
+cmovbe ebx, eax
+comisd xmm2, xmmword [0x080025b6]
+ja 0x8002630
+ucomisd xmm2, qword [0x080025c0]
+jnp 0x80026e8
+movsd xmm0, qword [0x080025ce]
+mulsd xmm0, xmm2
+call sin
+movq xmm3, qword [0x080025df]
+xorpd xmm3, xmm0
+test bl, bl
+je 0x80026c0
+pxor xmm4, xmm4
+ucomisd xmm0, xmm4
+jmp 0x800214a
+nop dword [rax + rax]
+movq xmm0, qword [0x08002608]
+movsd xmm4, qword [var_10h]
+movsd xmm7, qword [var_8h]
+xorpd xmm4, xmm0
+xorpd xmm0, xmm7
+movsd qword [var_20h], xmm4
+movsd qword [var_28h], xmm0
+jmp 0x80021a8
+nop dword [rax]
+movsd xmm7, qword [0x08002638]
+subsd xmm7, xmm2
+movapd xmm2, xmm7
+jmp .LC6
+nop dword [rax]
+cvttsd2si rdx, xmm0
+pxor xmm5, xmm5
+andnpd xmm7, xmm0
+movsd xmm11, qword [0x0800265e]
+cvtsi2sd xmm5, rdx
+movapd xmm4, xmm5
+cmpnlesd xmm4, xmm0
+andpd xmm4, xmm11
+subsd xmm5, xmm4
+orpd xmm5, xmm7
+movapd xmm0, xmm5
+jmp 0x800258f
+nop word [rax + rax]
+cvttsd2si rdx, xmm2
+pxor xmm0, xmm0
+movsd xmm7, qword [0x08002699]
+andnpd xmm5, xmm2
+cvtsi2sd xmm0, rdx
+movapd xmm1, xmm0
+cmpnlesd xmm1, xmm2
+andpd xmm1, xmm7
+subsd xmm0, xmm1
+movapd xmm1, xmm5
+orpd xmm1, xmm0
+jmp .LC6
+pxor xmm5, xmm5
+mov eax, 1
+ucomisd xmm0, xmm5
+movapd xmm0, xmm3
+setp dl
+cmovne edx, eax
+setnp al
+cmovne eax, ebx
+and eax, edx
+jmp 0x8002162
+nop dword [rax]
+jne .LC9
+mov rax, qword [0x080026f5]
+movq xmm0, rax
+test bl, bl
+jne 0x8002702
+movapd xmm0, xmm6
+movsd xmm6, qword [var_10h]
+mulsd xmm6, xmm0
+mulsd xmm0, qword [var_8h]
+movsd qword [var_20h], xmm6
+movsd qword [var_28h], xmm0
+jmp 0x80021a8
+movsd qword [var_8h], xmm1
+movsd qword [rsp], xmm3
+call sqrt
+movsd xmm1, qword [var_8h]
+movsd xmm3, qword [rsp]
+movsd qword [var_18h], xmm0
+jmp 0x8002011

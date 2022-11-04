@@ -1,0 +1,63 @@
+push r12
+push rbp
+mov rbp, rsi
+sub rsp, 0x28
+cmp byte [rdi + 0xc], 0
+jne 0x8000610
+mov rax, qword [rbp]
+mov rax, qword [rax - 0x18]
+mov r12, qword [rbp + rax + 0xf0]
+test r12, r12
+je _ZSt16__throw_bad_castv
+cmp byte [r12 + 0x38], 0
+je 0x80005e0
+movsx esi, byte [r12 + 0x43]
+mov rdi, rbp
+call _ZNSo3putEc
+add rsp, 0x28
+pop rbp
+mov rdi, rax
+pop r12
+jmp _ZNSo5flushEv
+nop
+mov rdi, r12
+call _ZNKSt5ctypeIcE13_M_widen_initEv
+mov rax, qword [r12]
+mov esi, 0xa
+lea rdx, [0x080005f8]
+mov rax, qword [rax + 0x30]
+cmp rax, rdx
+je 0x80005c7
+mov rdi, r12
+call rax
+movsx esi, al
+jmp 0x80005c7
+nop dword [rax + rax]
+lea r12, [arg_1h]
+xor eax, eax
+mov ecx, 0x30
+mov byte [rsp], 1
+mov r9d, 0x39
+mov r8d, 0x39
+mov edx, 0x1b
+mov rdi, r12
+lea rsi, [0x0800063b]
+call sprintf
+cmp byte [rsp], 0
+mov dword [arg_10h], 0xa
+je 0x80005a0
+lea rax, [0x08000659]
+cmp rbp, rax
+je 0x800066e
+lea rax, [0x08000665]
+cmp rbp, rax
+jne 0x80005a0
+mov edx, 0xa
+mov rsi, r12
+mov rdi, rbp
+call _ZNSo5writeEPKcl
+add byte [rax], al
+add byte [rax], al
+jmp 0x80005a0
+call _ZSt16__throw_bad_castv
+nop dword [rax + rax]

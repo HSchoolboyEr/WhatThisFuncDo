@@ -1,0 +1,8 @@
+lea rax, [0x08000927]
+push rbx
+mov rbx, rdi
+mov qword [rdi], rax
+call _ZN5boost7archive6detail14basic_iarchiveD2Ev
+lea rdi, [rbx + 0x28]
+pop rbx
+jmp _ZN5boost7archive23basic_binary_iprimitiveINS0_15binary_iarchiveEcSt11char_traitsIcEED2Ev

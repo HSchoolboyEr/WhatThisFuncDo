@@ -1,0 +1,61 @@
+push r14
+push r13
+push r12
+mov r12, rsi
+push rbp
+push rbx
+mov rbx, rdi
+mov edi, 0xd0
+sub rsp, 0x30
+call _Znwm
+xor esi, esi
+mov dword [rax + 8], 0
+mov rbp, rax
+add rax, 8
+mov qword [rax + 8], 0
+lea r13, [arg_30h]
+mov rdi, r13
+mov qword [arg_18h], rax
+mov qword [arg_20h], rax
+mov qword [arg_28h], 0
+call pthread_mutex_init
+test eax, eax
+jne 0x80012e0
+mov rax, qword [0x0800126b]
+pxor xmm0, xmm0
+mov rsi, r12
+lea r14, [arg_68h]
+lea rdi, [arg_c8h]
+movups xmmword [arg_68h], xmm0
+mov qword [arg_58h], rax
+xor eax, eax
+mov word [arg_60h], ax
+lea rax, [arg_sp_28h]
+mov dword [arg_sp_28h], 0
+mov qword [arg_a8h], 0
+mov qword [arg_b0h], rax
+mov qword [arg_b8h], rax
+mov qword [arg_c0h], 0
+movups xmmword [arg_78h], xmm0
+movups xmmword [arg_88h], xmm0
+call _ZN5boost6locale28localization_backend_managerC1ERKS1_
+mov qword [rbx], rbp
+add rsp, 0x30
+pop rbx
+pop rbp
+pop r12
+pop r13
+pop r14
+ret
+mov r13, rsp
+lea rdx, [0x080012ea]
+mov esi, eax
+mov rdi, r13
+call _ZN5boost16thread_exceptionC2EiPKc
+jmp .text.unlikely
+mov r12, rax
+jmp .text.unlikely
+mov r12, rax
+jmp .text.unlikely
+nop
+nop word [rax + rax]

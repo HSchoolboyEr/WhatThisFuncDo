@@ -1,0 +1,167 @@
+push r14
+mov r14, rsi
+push r13
+push r12
+mov r12, rdi
+push rbp
+push rbx
+sub rsp, 0x30
+mov rdi, qword [rdi]
+mov qword [rsp], rdi
+test dil, 1
+jne 0x800ea78
+mov rsi, qword [r14]
+mov qword [var_10h], rdi
+movabs rax, 0xe00000000000000
+mov qword [rsp], 0
+mov qword [var_8h], 0
+mov qword [var_18h], 0x85
+mov qword [var_20h], rax
+test rsi, rsi
+jne 0x800ea58
+lea rsi, [0x0800e8e4]
+test rdi, rdi
+je 0x800e970
+and rdi, 0xfffffffffffffffc
+cmp rdi, rsi
+je 0x800eb21
+mov rax, qword [rdi]
+call qword [rax + 0x20]
+test al, al
+jne 0x800e9c0
+movzx eax, byte [r14 + 8]
+cmp al, 5
+je 0x800eac0
+movsx rdx, byte [r14 + 0x17]
+mov r13d, 0xe
+sub r13, rdx
+cmp al, 0x85
+je 0x800eb18
+mov rbx, qword [r14 + 0x10]
+lea r14, [rbx + 8]
+lea rbp, [var_10h]
+lea rdi, [var_18h]
+mov rsi, r13
+mov rdx, rbp
+call _ZN5boost4json6detail11string_impl6assignEmRKNS0_11storage_ptrE
+mov rdi, rax
+test r13, r13
+je 0x800e95b
+mov rdx, r13
+mov rsi, r14
+call memcpy
+mov rdi, qword [var_8h]
+mov eax, edi
+and eax, 1
+jmp 0x800ea27
+nop word [rax + rax]
+movdqu xmm1, xmmword [r14 + 8]
+mov eax, 0x85
+lea rbp, [var_10h]
+movups xmmword [var_18h], xmm1
+mov byte [r14 + 0x17], 0xe
+mov word [r14 + 8], ax
+mov rsi, r12
+mov rdi, rbp
+call _ZN5boost4json5value4swapERS1_
+mov rdi, rbp
+call _ZN5boost4json5valueD1Ev
+mov rdi, qword [rsp]
+test dil, 1
+jne 0x800ea90
+add rsp, 0x30
+mov rax, r12
+pop rbx
+pop rbp
+pop r12
+pop r13
+pop r14
+ret
+movzx eax, byte [var_18h]
+cmp al, 5
+jne 0x800ead0
+mov rax, qword [var_10h]
+mov rsi, qword [var_20h]
+mov ecx, 4
+mov rdi, rax
+mov edx, dword [rsi + 4]
+and rdi, 0xfffffffffffffffc
+test rax, rax
+lea rax, [0x0800e9f0]
+cmove rdi, rax
+add rdx, 9
+mov rax, qword [rdi]
+call qword [rax + 0x18]
+mov rdi, qword [var_8h]
+mov eax, edi
+and eax, 1
+mov edx, 0x85
+movdqu xmm0, xmmword [r14 + 8]
+mov byte [r14 + 0x17], 0xe
+lea rbp, [var_10h]
+mov word [r14 + 8], dx
+movups xmmword [var_18h], xmm0
+test al, al
+je 0x800e98f
+and rdi, 0xfffffffffffffffc
+lock sub qword [rdi + 8], 1
+jne 0x800e98f
+test rdi, rdi
+je 0x800e98f
+mov rax, qword [rdi]
+call qword [rax + 8]
+jmp 0x800e98f
+nop dword [rax + rax]
+and rsi, 0xfffffffffffffffc
+test rdi, rdi
+jne 0x800e8ed
+lea rdi, [0x0800ea6c]
+jmp 0x800e8f1
+nop dword [rax]
+and rdi, 0xfffffffffffffffc
+lock add qword [rdi + 8], 1
+mov rdi, qword [rsp]
+jmp 0x800e8a3
+nop dword [rax + rax]
+and rdi, 0xfffffffffffffffc
+mov rax, 0xffffffffffffffff
+lock xadd qword [rdi + 8], rax
+test rdi, rdi
+je 0x800e9b0
+cmp rax, 1
+jne 0x800e9b0
+mov rax, qword [rdi]
+call qword [rax + 8]
+jmp 0x800e9b0
+nop
+mov rbx, qword [r14 + 0x10]
+mov r13d, dword [rbx]
+jmp 0x800e92f
+nop dword [rax]
+cmp al, 0x45
+jne 0x800eb05
+mov rax, qword [var_10h]
+mov rsi, qword [var_20h]
+mov ecx, 0x10
+mov rdi, rax
+and rdi, 0xfffffffffffffffc
+test rax, rax
+lea rax, [0x0800eaf4]
+cmove rdi, rax
+mov eax, dword [var_1ch]
+lea edx, [rax + 1]
+mov rax, qword [rdi]
+call qword [rax + 0x18]
+mov rdi, qword [var_8h]
+mov eax, edi
+and eax, 1
+jmp 0x800ea08
+nop dword [rax]
+add r14, 9
+jmp 0x800e933
+movdqu xmm2, xmmword [r14 + 8]
+lea rbp, [var_10h]
+movups xmmword [var_18h], xmm2
+mov byte [r14 + 0x17], 0xe
+mov word [r14 + 8], 0x85
+jmp 0x800e98f

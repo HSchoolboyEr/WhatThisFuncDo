@@ -1,0 +1,15 @@
+lea rax, [0x080010b7]
+push rbp
+mov rbp, rdi
+mov qword [rdi], rax
+mov rdi, qword [rdi + 0x10]
+lea rax, [arg_20h]
+cmp rdi, rax
+je 0x80010dc
+mov rax, qword [arg_20h]
+lea rsi, [rax*4 + 4]
+call _ZdlPvm
+mov rdi, rbp
+mov esi, 0x30
+pop rbp
+jmp _ZN5boost3log12v2s_mt_posix9attribute4impldlEPvm

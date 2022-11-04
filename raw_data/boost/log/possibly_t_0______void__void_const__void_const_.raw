@@ -1,0 +1,2 @@
+push rax
+call method void boost::asio::execution::detail::any_executor_base::query_fn<void, boost::asio::execution::detail::blocking::never_t<0> >(void*, void const*, void const*)

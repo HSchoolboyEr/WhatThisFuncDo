@@ -1,0 +1,99 @@
+cmp qword [rdi + 0x178], 0
+je 0x8002400
+push r15
+push r14
+push r13
+push r12
+push rbp
+push rbx
+mov rbx, rdi
+sub rsp, 0x18
+mov rdi, qword [rdi + 0x40]
+test rdi, rdi
+je 0x80023bc
+mov rbp, qword [rbx + 0x20]
+mov r12, qword [rbx + 0x28]
+cmp rbp, r12
+je 0x80023a8
+cmp byte [rbx + 0x50], 0
+jne 0x8002398
+mov rax, qword [rdi + 8]
+mov r13, qword [rbx + 0x48]
+mov r14, r12
+sub r14, rbp
+cmp rax, r13
+jb 0x8002408
+xor r13d, r13d
+mov r15, rsp
+lea rsi, [rbx + 0x38]
+mov rdi, r15
+call _ZNSt6localeC1ERKS_
+mov rdi, r15
+call _ZSt9use_facetISt7codecvtIwc11__mbstate_tEERKT_RKSt6locale
+mov rdi, rax
+lea rcx, [rbp + r13]
+lea rsi, [var_8h]
+mov r8, r14
+mov qword [var_8h], 0
+mov rax, qword [rax]
+mov rdx, rbp
+call qword [rax + 0x38]
+mov rdi, r15
+movsxd r13, eax
+call _ZNSt6localeD1Ev
+mov rdi, qword [rbx + 0x40]
+movabs rax, 0x3fffffffffffffff
+sub rax, qword [rdi + 8]
+cmp rax, r13
+jb .LC4
+mov rdx, r13
+mov rsi, rbp
+call _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_appendEPKcm
+mov rax, qword [rbx + 0x28]
+jmp 0x800239b
+nop dword [rax]
+mov rax, r12
+sub rbp, r12
+movsxd rbp, ebp
+add rbp, rax
+mov qword [rbx + 0x28], rbp
+mov qword [rbx + 0x40], 0
+mov qword [rbx + 0x48], 0
+mov byte [rbx + 0x50], 0
+lea rbp, [rbx + 0x70]
+mov esi, 1
+mov rdi, rbp
+call _ZNSt9basic_iosIcSt11char_traitsIcEE5clearESt12_Ios_Iostate
+mov esi, dword [rbx + 0x90]
+mov rdi, rbp
+mov qword [rbx + 0x178], 0
+mov dword [rbx + 0x8c], 0
+call _ZNSt9basic_iosIcSt11char_traitsIcEE5clearESt12_Ios_Iostate
+add rsp, 0x18
+pop rbx
+pop rbp
+pop r12
+pop r13
+pop r14
+pop r15
+ret
+nop
+ret
+nop dword [rax]
+sub r13, rax
+cmp r14, r13
+ja 0x8002321
+movabs rdx, 0x3fffffffffffffff
+sub rdx, rax
+cmp r14, rdx
+ja 0x800243a
+mov rdx, r14
+mov rsi, rbp
+call _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_appendEPKcm
+mov rax, qword [rbx + 0x28]
+jmp 0x800239b
+lea rdi, [0x08002441]
+call _ZSt20__throw_length_errorPKc
+mov rdi, r15
+call _ZNSt6localeD1Ev
+call _ZSt9terminatev

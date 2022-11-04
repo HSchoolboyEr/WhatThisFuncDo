@@ -1,0 +1,56 @@
+push r14
+push r13
+push r12
+mov r12, rdi
+mov edi, 0x68
+push rbp
+push rbx
+call _Znwm
+mov rbp, rax
+lea rbx, [rax + 8]
+mov rax, qword [0x08006c23]
+mov qword [arg_10h], 0
+mov rdi, rbp
+mov qword [arg_8h], rax
+lea rax, [0x08006c39]
+mov qword [rbp], rax
+mov byte [arg_18h], 0
+call _ZN5boost6detail18sp_counted_impl_pdIPNS_3log12v2s_mt_posix5sinks3aux12default_sinkENS0_13sp_ms_deleterIS6_EEE19get_untyped_deleterEv
+lea r13, [rax + 8]
+mov r14, rax
+mov rdi, r13
+call _ZN5boost3log12v2s_mt_posix5sinks3aux12default_sinkC1Ev
+add byte [rax], al
+add byte [rax], al
+movq xmm0, r13
+movq xmm1, rbp
+mov byte [r14], 1
+punpcklqdq xmm0, xmm1
+movups xmmword [r12], xmm0
+lock add dword [rbx], 1
+lock sub dword [rbx], 1
+je 0x8006c88
+pop rbx
+mov rax, r12
+pop rbp
+pop r12
+pop r13
+pop r14
+ret
+nop word [rax + rax]
+mov rax, qword [rbp]
+mov rdi, rbp
+call qword [rax + 0x10]
+lock sub dword [arg_ch], 1
+jne 0x8006c76
+mov rax, qword [rbp]
+lea rcx, [0x08006ca4]
+mov rdi, rbp
+mov rdx, qword [rax + 0x18]
+cmp rdx, rcx
+jne 0x8006cb8
+call qword [rax + 8]
+jmp 0x8006c76
+nop dword [rax]
+call rdx
+jmp 0x8006c76

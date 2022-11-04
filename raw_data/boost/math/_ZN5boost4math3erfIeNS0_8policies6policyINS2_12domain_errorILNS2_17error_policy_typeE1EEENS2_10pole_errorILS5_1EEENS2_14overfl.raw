@@ -1,0 +1,42 @@
+sub rsp, 8
+xor edi, edi
+push qword [arg_18h]
+push qword [arg_18h_2]
+call .text
+pop rax
+pop rdx
+fld st(0)
+fabs
+fld xword [0x08000ebf]
+fxch st(1)
+fcomi st(1)
+fstp st(1)
+ja 0x8000efd
+fldz
+mov edx, 1
+mov ecx, 0
+fucompi st(2)
+fstp st(1)
+setp al
+cmovne eax, edx
+setnp dl
+cmovne edx, ecx
+test dl, dl
+je 0x8000eeb
+test al, al
+jne 0x8000f03
+fld xword [0x08000ef1]
+fcompi st(1)
+fstp st(0)
+jbe 0x8000f10
+test al, al
+je 0x8000f10
+jmp __errno_location
+fstp st(0)
+fstp st(0)
+jmp __errno_location
+fstp st(0)
+call __errno_location
+mov dword [rax], 0x22
+add rsp, 8
+ret

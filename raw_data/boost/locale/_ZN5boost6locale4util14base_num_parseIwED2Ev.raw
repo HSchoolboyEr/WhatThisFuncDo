@@ -1,0 +1,3 @@
+lea rax, [0x08002e07]
+mov qword [rdi], rax
+jmp _ZNSt6locale5facetD2Ev

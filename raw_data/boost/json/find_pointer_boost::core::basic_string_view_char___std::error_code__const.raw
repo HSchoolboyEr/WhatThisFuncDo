@@ -1,0 +1,37 @@
+push r12
+push rbx
+mov rbx, rcx
+sub rsp, 0x28
+mov rcx, rsp
+mov dword [rsp], 0
+mov qword [var_8h], 0
+mov qword [var_10h], 0
+call _ZNK5boost4json5value12find_pointerENS_4core17basic_string_viewIcEERNS_6system10error_codeE
+add byte [rax], al
+add byte [rax], al
+mov r12, rax
+mov rax, qword [var_10h]
+cmp rax, 1
+je 0x8004240
+test rax, rax
+jne 0x8004230
+call _ZNSt3_V215system_categoryEv
+xor edx, edx
+mov qword [rbx + 8], rax
+mov rax, r12
+mov dword [rbx], edx
+add rsp, 0x28
+pop rbx
+pop r12
+ret
+nop word cs:[rax + rax]
+mov rdi, qword [var_8h]
+call _ZNK5boost6system14error_categorycvRKNSt3_V214error_categoryEEv
+add byte [rax], al
+add byte [rax], al
+mov edx, dword [rsp]
+jmp 0x8004215
+nop
+mov edx, dword [rsp]
+mov rax, qword [var_8h]
+jmp 0x8004215

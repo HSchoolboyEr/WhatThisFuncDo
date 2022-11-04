@@ -1,0 +1,93 @@
+push r13
+push r12
+push rbp
+push rbx
+mov rbx, rdi
+mov edi, 0x40
+sub rsp, 0x18
+call _Znwm
+lea rsi, [rbx + 8]
+mov r12, rax
+lea rax, [0x08014605]
+lea r13, [r12 + 8]
+mov qword [r12], rax
+mov rdi, r13
+call _ZNSt11logic_errorC2ERKS_
+lea rax, [0x0801461d]
+mov rbp, qword [rbx + 0x20]
+mov qword [r12 + 8], rax
+lea rax, [0x0801462d]
+mov qword [r12 + 0x18], rax
+mov qword [r12 + 0x20], rbp
+test rbp, rbp
+je 0x801464a
+mov rax, qword [rbp]
+mov rdi, rbp
+call qword [rax + 0x18]
+mov rbp, qword [rbx + 0x20]
+mov rdi, qword [rbx + 0x38]
+movdqu xmm1, xmmword [rbx + 0x28]
+mov rdx, qword [rbx + 0x28]
+mov rsi, qword [rbx + 0x30]
+mov eax, dword [rbx + 0x38]
+mov ecx, dword [rbx + 0x3c]
+mov qword [r12 + 0x38], rdi
+lea rdi, [0x0801466d]
+lea r8, [rdi - 0x30]
+movq xmm2, rdi
+add rdi, 0x28
+movups xmmword [r12 + 0x28], xmm1
+movq xmm0, r8
+mov qword [r12 + 0x18], rdi
+punpcklqdq xmm0, xmm2
+movups xmmword [r12], xmm0
+test rbp, rbp
+je 0x80146d9
+mov rax, qword [rbp]
+lea rdi, [var_8h]
+mov rsi, rbp
+call qword [rax + 0x28]
+mov rbp, qword [var_8h]
+test rbp, rbp
+je 0x80146cb
+mov rax, qword [rbp]
+mov rdi, rbp
+call qword [rax + 0x18]
+mov rdi, qword [var_8h]
+test rdi, rdi
+je 0x80146cb
+mov rax, qword [rdi]
+call qword [rax + 0x20]
+mov rsi, qword [rbx + 0x30]
+mov eax, dword [rbx + 0x38]
+mov rdx, qword [rbx + 0x28]
+mov ecx, dword [rbx + 0x3c]
+movq xmm0, rdx
+movq xmm3, rsi
+movd xmm4, ecx
+mov rdi, qword [r12 + 0x20]
+punpcklqdq xmm0, xmm3
+movups xmmword [r12 + 0x28], xmm0
+movd xmm0, eax
+punpckldq xmm0, xmm4
+movq qword [r12 + 0x38], xmm0
+test rdi, rdi
+je 0x8014710
+mov rax, qword [rdi]
+call qword [rax + 0x20]
+mov qword [r12 + 0x20], rbp
+test rbp, rbp
+je 0x801472e
+mov rax, qword [rbp]
+mov rdi, rbp
+call qword [rax + 0x18]
+mov rax, qword [rbp]
+mov rdi, rbp
+call qword [rax + 0x20]
+add rsp, 0x18
+mov rax, r12
+pop rbx
+pop rbp
+pop r12
+pop r13
+ret

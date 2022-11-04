@@ -1,0 +1,47 @@
+push r12
+mov r12, rsi
+test rsi, rsi
+je 0x8007675
+mov rax, r12
+imul rsi, rdx
+mov rcx, rdx
+or rax, rdx
+test rax, 0xffffffffffff0000
+je 0x80076a0
+xor edx, edx
+mov rax, rsi
+div r12
+mov r12, 0xffffffffffffffff
+cmp rax, rcx
+cmove r12, rsi
+lea rax, [0x0800767c]
+cmp rdi, rax
+je 0x80076af
+mov rsi, r12
+call mspace_malloc
+mov r8, rax
+test r8, r8
+je 0x8007698
+test byte [r8 - 8], 3
+jne 0x80076c0
+mov rax, r8
+pop r12
+ret
+nop
+lea rax, [0x080076a7]
+mov r12, rsi
+cmp rdi, rax
+jne 0x8007681
+mov rdi, r12
+call dlmalloc
+mov r8, rax
+jmp 0x800768c
+nop dword [rax]
+mov rdx, r12
+mov rdi, r8
+xor esi, esi
+call memset
+pop r12
+mov r8, rax
+mov rax, r8
+ret

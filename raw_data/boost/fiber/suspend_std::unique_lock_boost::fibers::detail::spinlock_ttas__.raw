@@ -1,0 +1,10 @@
+push rbp
+mov rdi, qword [rdi + 0x28]
+mov rbp, rsi
+mov rax, qword [rdi]
+call qword [rax + 0x18]
+mov rsi, rbp
+pop rbp
+mov rdi, rax
+jmp _ZN5boost6fibers7context6resumeERSt11unique_lockINS0_6detail13spinlock_ttasEE
+nop word [rax + rax]

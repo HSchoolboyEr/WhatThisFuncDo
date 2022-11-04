@@ -1,0 +1,21 @@
+push rbp
+push rbx
+mov rbx, rsi
+sub rsp, 8
+movsx esi, byte [rsi]
+test sil, sil
+je 0x800013d
+mov rbp, rdi
+nop dword [rax]
+mov rdi, qword [rbp]
+add rbx, 1
+call _ZNSt13basic_ostreamIwSt11char_traitsIwEE3putEw
+add byte [rax], al
+add byte [rax], al
+movsx esi, byte [rbx]
+test sil, sil
+jne 0x8000128
+add rsp, 8
+pop rbx
+pop rbp
+ret

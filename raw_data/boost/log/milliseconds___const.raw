@@ -1,0 +1,9 @@
+movabs rdx, 0x431bde82d7b634db
+mov rcx, qword [rdi]
+mov rax, rcx
+sar rcx, 0x3f
+imul rdx
+sar rdx, 0x12
+mov rax, rdx
+sub rax, rcx
+ret

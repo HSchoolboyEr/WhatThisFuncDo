@@ -1,0 +1,16 @@
+push r12
+mov r12, rdi
+mov edi, 0x90
+push rbp
+push rax
+call __cxa_allocate_exception
+mov rsi, r12
+mov rdi, rax
+mov rbp, rax
+call _ZN5boost7archive17archive_exceptionC1ERKS1_
+add byte [rax], al
+add byte [rax], al
+mov rdx, qword [0x08001648]
+lea rsi, [0x0800164f]
+mov rdi, rbp
+call __cxa_throw

@@ -1,0 +1,4 @@
+mov rax, qword [rdi + 0x88]
+mov eax, dword [rax + 0x218]
+mov dword [rsi], eax
+ret

@@ -1,0 +1,21 @@
+push rbp
+mov rbp, rdi
+push rbx
+lea rbx, [0x0800016c]
+sub rsp, 8
+mov rdi, rbx
+call pthread_mutex_lock
+cmp eax, 4
+je 0x8000170
+lea rbx, [0x08000184]
+mov dword [rbp], 0
+nop dword [rax + rax]
+mov rdi, rbx
+call pthread_mutex_unlock
+cmp eax, 4
+je 0x8000190
+add rsp, 8
+lea rdi, [0x080001a8]
+pop rbx
+pop rbp
+jmp pthread_cond_broadcast

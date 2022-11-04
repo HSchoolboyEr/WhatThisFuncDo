@@ -1,0 +1,7 @@
+mov rdx, qword [rdi + 0x28]
+lea rax, [rdx + rdx]
+test rdx, rdx
+mov rdx, 0xffffffffffffffff
+cmovs rax, rdx
+mov qword [rdi + 0x28], rax
+ret

@@ -1,0 +1,93 @@
+mov rdi, qword [rsi]
+mov rcx, rdx
+cmp rdi, rdx
+je 0x8001638
+movzx eax, byte [rdi]
+lea r9, [rdi + 1]
+test al, al
+jns 0x8001628
+cmp al, 0xc1
+jbe 0x8001619
+cmp al, 0xdf
+jbe 0x8001648
+cmp al, 0xef
+jbe 0x8001660
+cmp al, 0xf4
+ja 0x8001619
+cmp rdx, r9
+je 0x8001638
+movzx edx, byte [rdi + 1]
+mov r8d, 0xffffffff
+mov r9d, edx
+and r9d, 0xffffffc0
+cmp r9b, 0x80
+jne 0x800162f
+and eax, 7
+and edx, 0x3f
+lea r9, [rdi + 2]
+mov r10d, 4
+shl eax, 6
+or eax, edx
+cmp rcx, r9
+je 0x8001638
+movzx edx, byte [r9]
+mov r8d, 0xffffffff
+mov edi, edx
+and edi, 0xffffffc0
+cmp dil, 0x80
+jne 0x800162f
+shl eax, 6
+lea rdi, [r9 + 1]
+mov r8d, eax
+mov eax, edx
+and eax, 0x3f
+or eax, r8d
+cmp rcx, rdi
+je 0x8001638
+movzx edx, byte [rdi]
+lea r9, [rdi + 1]
+mov r8d, 0xffffffff
+mov ecx, edx
+and ecx, 0xffffffc0
+cmp cl, 0x80
+jne 0x800162f
+shl eax, 6
+and edx, 0x3f
+or edx, eax
+lea eax, [rdx - 0x80]
+mov r8d, edx
+cmp eax, 0x10ff7f
+ja 0x8001619
+lea eax, [rdx - 0xd800]
+cmp eax, 0x7ff
+jbe 0x8001619
+mov eax, 2
+cmp edx, 0x7ff
+jbe 0x8001614
+xor eax, eax
+cmp edx, 0xffff
+seta al
+add eax, 3
+cmp eax, r10d
+je 0x800162c
+mov r8d, 0xffffffff
+mov eax, r8d
+ret
+nop dword [rax + rax]
+movzx r8d, al
+mov qword [rsi], r9
+mov eax, r8d
+ret
+nop dword [rax + rax]
+mov r8d, 0xfffffffe
+mov eax, r8d
+ret
+nop word [rax + rax]
+and eax, 0x1f
+mov rdi, r9
+mov r10d, 2
+jmp 0x80015bb
+nop dword [rax]
+and eax, 0xf
+mov r10d, 3
+jmp 0x8001587

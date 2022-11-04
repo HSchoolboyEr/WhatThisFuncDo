@@ -1,0 +1,191 @@
+push r12
+mov r12, rdx
+push rbp
+mov rbp, rsi
+push rbx
+mov rbx, rdi
+sub rsp, 0x20
+movzx ecx, byte [rdi]
+cmp cl, 5
+je 0x800ed00
+movsx rdx, byte [rdi + 0xf]
+lea rax, [rsi + 0xe]
+lea rsi, [rdx + 0x7ffffff0]
+cmp rbp, rsi
+ja .text.unlikely
+sub rax, rdx
+cmp rbp, rdx
+jbe 0x800ece0
+cmp rax, 0x7ffffffe
+ja 0x800ee1b
+mov edx, 0xe
+add rdx, rdx
+cmp rdx, rax
+cmovae rax, rdx
+mov esi, eax
+cmp eax, 0xe
+ja 0x800ed4b
+mov edx, 0xe
+mov byte [rsp], 0x85
+sub edx, eax
+mov eax, 0xffffff85
+mov byte [var_fh], dl
+mov byte [rsp + rsi + 1], 0
+cmp cl, 5
+je 0x800ed66
+movsx rsi, byte [rbx + 0xf]
+mov edx, 0xe
+sub rdx, rsi
+lea rsi, [rbx + 1]
+cmp cl, 0x85
+je 0x800ec08
+mov rsi, qword [rbx + 8]
+add rsi, 8
+lea rdi, [var_1h]
+cmp al, 0x85
+je memcpy
+mov rax, qword [var_8h]
+lea rdi, [rax + 8]
+call memcpy
+movzx edx, byte [rbx]
+cmp dl, 5
+je 0x800ee10
+movsx rcx, byte [rbx + 0xf]
+mov eax, 0xe
+sub rax, rcx
+add rax, rbp
+cmp byte [rsp], 0x85
+je 0x800edf8
+mov rdx, qword [var_8h]
+mov dword [rdx], eax
+cmp byte [rsp], 0x85
+lea rdx, [var_1h]
+je 0x800ec60
+mov rcx, qword [var_8h]
+lea rdx, [rcx + 8]
+mov byte [rdx + rax], 0
+movzx edx, byte [rbx]
+cmp dl, 5
+je 0x800edc0
+cmp dl, 0x45
+jne 0x800eca3
+mov rax, qword [r12]
+mov edx, dword [rbx + 4]
+mov ecx, 0x10
+mov rsi, qword [rbx + 8]
+mov rdi, rax
+and rdi, 0xfffffffffffffffc
+test rax, rax
+lea rax, [0x0800ec96]
+cmove rdi, rax
+add edx, 1
+mov rax, qword [rdi]
+call qword [rax + 0x18]
+movdqa xmm1, xmmword [rsp]
+movzx eax, byte [rsp]
+movups xmmword [rbx], xmm1
+cmp al, 0x85
+je 0x800ecf8
+mov rcx, qword [rbx + 8]
+lea rdx, [rcx + 8]
+cmp al, 5
+je 0x800ed78
+movsx rcx, byte [rbx + 0xf]
+mov eax, 0xe
+add rsp, 0x20
+pop rbx
+sub rax, rcx
+sub rax, rbp
+pop rbp
+pop r12
+add rax, rdx
+ret
+nop
+cmp cl, 0x85
+jne 0x800ed90
+mov edx, 0xe
+sub edx, eax
+mov byte [rdi + 0xf], dl
+mov byte [rdi + rax + 1], 0
+lea rdx, [rbx + 1]
+jmp 0x800ecc3
+nop
+mov rdi, qword [rdi + 8]
+mov r8d, 0x7ffffffe
+mov rax, r8
+mov esi, dword [rdi]
+sub rax, rsi
+cmp rbp, rax
+ja .text.unlikely
+mov edx, dword [rdi + 4]
+lea rax, [rbp + rsi]
+mov r9, rdx
+sub r9, rsi
+cmp rbp, r9
+jbe 0x800ed94
+cmp rax, 0x7ffffffe
+ja 0x800ee1b
+sub r8, rdx
+mov esi, 0x7ffffffe
+cmp rdx, r8
+jbe 0x800ebb3
+mov rdi, rsp
+mov rdx, r12
+call method boost::json::detail::string_impl::string_impl(unsigned long, boost::json::storage_ptr const&) [clone .part.0]
+movzx ecx, byte [rbx]
+movzx eax, byte [rsp]
+cmp cl, 5
+jne 0x800ebea
+mov rsi, qword [rbx + 8]
+mov edx, dword [rsi]
+jmp 0x800ec04
+nop dword [rax]
+mov eax, dword [rcx]
+add rsp, 0x20
+pop rbx
+sub rax, rbp
+pop rbp
+pop r12
+add rax, rdx
+ret
+nop dword [rax]
+mov rdi, qword [rdi + 8]
+mov dword [rdi], eax
+cmp byte [rbx], 0x85
+lea rdx, [rbx + 1]
+je 0x800eda7
+mov rcx, qword [rbx + 8]
+lea rdx, [rcx + 8]
+mov byte [rdx + rax], 0
+movzx eax, byte [rbx]
+cmp al, 0x85
+jne 0x800ecb3
+jmp 0x800ecf8
+nop dword [rax + rax]
+mov rax, qword [r12]
+mov rsi, qword [rbx + 8]
+mov ecx, 4
+mov rdi, rax
+mov edx, dword [rsi + 4]
+and rdi, 0xfffffffffffffffc
+test rax, rax
+lea rax, [0x0800ede1]
+cmove rdi, rax
+add rdx, 9
+mov rax, qword [rdi]
+call qword [rax + 0x18]
+jmp 0x800eca3
+nop dword [rax]
+mov ecx, 0xe
+sub ecx, eax
+mov byte [var_fh], cl
+mov byte [rsp + rax + 1], 0
+jmp 0x800ec67
+nop dword [rax]
+mov rax, qword [rbx + 8]
+mov eax, dword [rax]
+jmp 0x800ec38
+call method boost::json::detail::string_impl::growth(unsigned long, unsigned long) [clone .part.0]
+jmp .text.unlikely
+nop
+nop word cs:[rax + rax]

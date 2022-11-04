@@ -1,0 +1,10 @@
+lea rax, [0x080018d7]
+cmp byte [rdi + 8], 0
+mov qword [rdi], rax
+jne 0x80018e8
+ret
+nop dword [rax]
+sub rsp, 8
+call _ZN5boost9unit_test9framework25deregister_global_fixtureERNS0_14global_fixtureE
+add rsp, 8
+ret

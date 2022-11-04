@@ -1,0 +1,17 @@
+mov rax, qword [rdi + 0x10]
+xor r8d, r8d
+test rax, rax
+je 0x800027a
+mov rcx, qword [rdi]
+lea rdx, [rcx + 1]
+mov qword [rdi], rdx
+cmp rdx, qword [rdi + 0x18]
+je 0x8000280
+sub rax, 1
+mov r8d, 1
+mov qword [rdi + 0x10], rax
+mov eax, r8d
+ret
+nop
+mov qword [rdi], 0
+jmp 0x800026c

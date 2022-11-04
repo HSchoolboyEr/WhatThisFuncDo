@@ -1,0 +1,5 @@
+mov rax, qword [0x08005eb7]
+mov rdx, 0xffffffffffffffff
+test rax, rax
+cmove rax, rdx
+ret

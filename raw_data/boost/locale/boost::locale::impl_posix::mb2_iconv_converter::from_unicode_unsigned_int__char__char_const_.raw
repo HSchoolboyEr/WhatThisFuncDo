@@ -1,0 +1,76 @@
+push r13
+mov r13, rcx
+push r12
+push rbp
+push rbx
+mov rbx, rdx
+sub rsp, 0x38
+test esi, esi
+jne 0x8000460
+cmp rcx, rdx
+je 0x8000530
+mov byte [rdx], 0
+mov eax, 1
+add rsp, 0x38
+pop rbx
+pop rbp
+pop r12
+pop r13
+ret
+mov r12, rdi
+mov rdi, qword [rdi + 0x40]
+mov ebp, esi
+cmp rdi, 0xffffffffffffffff
+je 0x8000540
+lea rax, [var_28h]
+lea rcx, [var_18h]
+mov dword [var_28h], ebp
+mov qword [var_8h], rax
+xor eax, eax
+lea rdx, [var_10h]
+lea rsi, [var_8h]
+mov word [var_5h], ax
+lea r8, [var_20h]
+lea rax, [var_5h]
+mov dword [var_2ch], 0
+mov qword [var_10h], 8
+mov byte [var_7h], 0
+mov qword [var_18h], rax
+mov qword [var_20h], 3
+call iconv
+cmp qword [var_10h], 0
+mov eax, 0xffffffff
+jne 0x8000455
+mov rcx, qword [var_20h]
+cmp rcx, 1
+ja 0x8000455
+mov edx, 2
+mov eax, 0xfffffffe
+sub rdx, rcx
+mov rcx, r13
+sub rcx, rbx
+cmp rdx, rcx
+ja 0x8000455
+movzx eax, byte [var_5h]
+mov byte [rbx], al
+cmp rdx, 1
+je 0x800051b
+movzx eax, byte [var_6h]
+mov byte [rbx + 1], al
+add rsp, 0x38
+mov eax, edx
+pop rbx
+pop rbp
+pop r12
+pop r13
+ret
+nop dword [rax + rax]
+mov eax, 0xfffffffe
+jmp 0x8000455
+nop word [rax + rax]
+mov rdi, qword [r12 + 0x18]
+lea rsi, [0x0800054c]
+call iconv_open
+mov qword [r12 + 0x40], rax
+mov rdi, rax
+jmp 0x8000473

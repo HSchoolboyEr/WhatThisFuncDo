@@ -1,0 +1,13 @@
+mov rcx, qword [rdi + 0x10]
+mov eax, dword [rcx]
+test eax, eax
+jne 0x80038b0
+xor eax, eax
+ret
+nop dword [rax]
+sub rsp, 8
+call _ZN5boost4json6detail14find_in_objectINS_4core17basic_string_viewIcEEEESt4pairIPNS0_14key_value_pairEmERKNS0_6objectET_
+test rax, rax
+setne al
+add rsp, 8
+ret

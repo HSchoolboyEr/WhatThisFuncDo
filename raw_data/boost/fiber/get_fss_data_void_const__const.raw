@@ -1,0 +1,32 @@
+mov rax, qword [rdi + 0x50]
+lea r8, [rdi + 0x48]
+test rax, rax
+je 0x80012e8
+mov rdi, r8
+mov rcx, qword [rax + 0x10]
+mov rdx, qword [rax + 0x18]
+cmp rsi, qword [rax + 0x20]
+ja 0x80012c7
+test rcx, rcx
+je 0x80012db
+mov rdi, rax
+mov rax, rcx
+mov rcx, qword [rax + 0x10]
+mov rdx, qword [rax + 0x18]
+cmp rsi, qword [rax + 0x20]
+jbe 0x80012ae
+test rdx, rdx
+je 0x80012d8
+mov rax, rdx
+jmp 0x80012a0
+nop dword [rax]
+mov rax, rdi
+cmp r8, rax
+je 0x80012e6
+cmp rsi, qword [rax + 0x20]
+jae 0x80012f0
+xor eax, eax
+ret
+nop dword [rax]
+mov rax, qword [rax + 0x28]
+ret

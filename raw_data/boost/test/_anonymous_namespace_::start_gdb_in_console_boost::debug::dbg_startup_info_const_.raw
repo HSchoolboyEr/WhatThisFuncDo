@@ -1,0 +1,15 @@
+sub rsp, 8
+call method boost::debug::(anonymous namespace)::prepare_gdb_cmnd_file(boost::debug::dbg_startup_info const&)
+test rax, rax
+je 0x8000ae8
+mov rcx, rax
+xor r8d, r8d
+xor eax, eax
+add rsp, 8
+lea rdx, [0x08000ad1]
+lea rsi, [0x08000ad8]
+lea rdi, [0x08000adf]
+jmp method boost::debug::(anonymous namespace)::safe_execlp(char const*, ...)
+nop dword [rax]
+add rsp, 8
+ret

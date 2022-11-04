@@ -1,0 +1,169 @@
+push r13
+push r12
+push rbp
+push rbx
+mov rbx, rdi
+sub rsp, 0x18
+test rsi, rsi
+je 0x80008a0
+add dword [rsi + 0x14], 1
+mov r13d, dword [rsi + 0x10]
+mov rbp, rsi
+mov eax, dword [rdi]
+mov r12d, eax
+and r12d, 0xfffffffe
+add r12d, 4
+lock cmpxchg dword [rbx], r12d
+jne 0x80007c3
+test al, 2
+jne 0x8000830
+lea r12, [arg_10h]
+sub rsp, 8
+xor r9d, r9d
+xor r8d, r8d
+mov ecx, r13d
+push 0
+mov edx, 0x80
+mov rsi, r12
+mov edi, 0xca
+xor eax, eax
+call syscall
+pop r10
+pop r11
+cmp eax, 4
+je 0x80007dd
+mov ecx, 0xa
+mov eax, dword [rbx]
+test al, 1
+jne 0x8000878
+mov edx, eax
+or edx, 1
+lock cmpxchg dword [rbx], edx
+jne 0x8000878
+sub dword [arg_14h], 1
+add rsp, 0x18
+pop rbx
+pop rbp
+pop r12
+pop r13
+ret
+nop
+sub rsp, 8
+mov ecx, 1
+mov edx, 0x81
+xor eax, eax
+push 0
+xor r9d, r9d
+xor r8d, r8d
+mov rsi, rbx
+mov edi, 0xca
+call syscall
+pop rdx
+pop rcx
+test eax, eax
+jne 0x80007d9
+mov edx, r12d
+mov eax, r12d
+and edx, 0xfffffffd
+lock cmpxchg dword [rbx], edx
+jmp 0x80007d9
+nop dword [rax]
+pause
+sub ecx, 1
+jne 0x800080e
+mov eax, dword [rbx]
+test al, 1
+jne 0x8000950
+mov edx, eax
+or edx, 1
+lock cmpxchg dword [rbx], edx
+je 0x800081f
+jmp 0x8000881
+nop word cs:[rax + rax]
+mov eax, dword [rdi]
+mov ebp, eax
+and ebp, 0xfffffffe
+add ebp, 4
+lock cmpxchg dword [rbx], ebp
+jne 0x80008a2
+test al, 2
+jne 0x8000910
+mov rdi, rsp
+xor esi, esi
+mov qword [rsp], 0
+mov qword [var_8h], 0x3e8
+call nanosleep
+mov ecx, 0xa
+mov eax, dword [rbx]
+test al, 1
+jne 0x80008e9
+mov edx, eax
+or edx, 1
+lock cmpxchg dword [rbx], edx
+je 0x8000823
+pause
+sub ecx, 1
+jne 0x80008d4
+mov eax, dword [rbx]
+test al, 1
+jne 0x800098a
+mov edx, eax
+or edx, 1
+lock cmpxchg dword [rbx], edx
+je 0x8000823
+jmp 0x80008f2
+nop dword [rax + rax]
+sub rsp, 8
+mov rsi, rbx
+mov edi, 0xca
+xor r9d, r9d
+push 0
+xor r8d, r8d
+mov ecx, 1
+mov edx, 0x81
+xor eax, eax
+call syscall
+pop rsi
+pop rdi
+test eax, eax
+jne 0x80008b4
+mov edx, ebp
+mov eax, ebp
+and edx, 0xfffffffd
+lock cmpxchg dword [rbx], edx
+jmp 0x80008b4
+nop
+mov ecx, eax
+or ecx, 2
+lock cmpxchg dword [rbx], ecx
+jne 0x8000881
+sub rsp, 8
+xor r9d, r9d
+xor r8d, r8d
+mov edx, 0x80
+push 0
+mov rsi, rbx
+mov edi, 0xca
+xor eax, eax
+call syscall
+mov eax, dword [rbx]
+pop r8
+pop r9
+jmp 0x8000881
+mov ecx, eax
+or ecx, 2
+lock cmpxchg dword [rbx], ecx
+jne 0x80008f2
+sub rsp, 8
+mov edx, 0x80
+xor r9d, r9d
+xor r8d, r8d
+push 0
+mov rsi, rbx
+mov edi, 0xca
+xor eax, eax
+call syscall
+mov eax, dword [rbx]
+pop rdx
+pop rcx
+jmp 0x80008f2

@@ -1,0 +1,3 @@
+mov byte [rsp - 1], 0
+lock not byte [rsp - 1]
+ret

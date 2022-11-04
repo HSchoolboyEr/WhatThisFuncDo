@@ -1,0 +1,149 @@
+push r15
+push r14
+push r13
+mov r13, rsi
+push r12
+mov r12, rdi
+push rbp
+push rbx
+sub rsp, 0x38
+test rsi, rsi
+je 0x8004c6f
+mov dword [rsi], 0
+mov qword [rsi + 8], 0
+mov qword [rsi + 0x10], 0
+lea rdi, [0x08004c76]
+call getenv
+mov rbp, rax
+test rax, rax
+je .LC44
+lea rbx, [var_20h]
+mov rdi, rbp
+lea r15, [var_10h]
+mov qword [var_10h], rbx
+call strlen
+mov qword [var_8h], rax
+mov r14, rax
+cmp rax, 0xf
+ja 0x8004d40
+cmp r14, 1
+jne 0x8004d80
+movzx eax, byte [rbp]
+mov byte [var_20h], al
+mov rax, rbx
+mov qword [var_18h], r14
+mov byte [rax + r14], 0
+cmp qword [var_18h], 0
+je .LC47
+lea rdi, [var_8h]
+mov rdx, r13
+mov rsi, r15
+call method boost::filesystem::detail::(anonymous namespace)::status_impl(boost::filesystem::path const&, boost::system::error_code*, int) [clone .constprop.0]
+test r13, r13
+jne 0x8004e68
+cmp dword [var_8h], 3
+jne .LC47
+lea rax, [r12 + 0x10]
+mov qword [r12], rax
+mov rax, qword [var_10h]
+cmp rax, rbx
+je 0x8004d98
+mov qword [r12], rax
+mov rax, qword [var_20h]
+mov qword [r12 + 0x10], rax
+mov rax, qword [arg_18h]
+mov qword [r12 + 8], rax
+add rsp, 0x38
+mov rax, r12
+pop rbx
+pop rbp
+pop r12
+pop r13
+pop r14
+pop r15
+ret
+mov rdi, r15
+lea rsi, [var_8h]
+xor edx, edx
+call _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm
+mov qword [var_10h], rax
+mov rdi, rax
+mov rax, qword [var_8h]
+mov qword [var_20h], rax
+mov rdx, r14
+mov rsi, rbp
+call memcpy
+mov r14, qword [var_8h]
+mov rax, qword [var_10h]
+jmp 0x8004cc5
+nop dword [rax + rax]
+test r14, r14
+jne 0x8004ec6
+mov rax, rbx
+jmp 0x8004cc5
+nop dword [rax]
+movdqa xmm0, xmmword [var_20h]
+movups xmmword [r12 + 0x10], xmm0
+jmp 0x8004d24
+nop dword [rax]
+lea rcx, [0x08004db7]
+mov rdx, r13
+mov rsi, r15
+mov edi, 0x14
+call _ZN5boost10filesystem10emit_errorEiRKNS0_4pathEPNS_6system10error_codeEPKc
+lea rax, [r12 + 0x10]
+mov qword [r12], rax
+mov rax, qword [var_10h]
+cmp rax, rbx
+jne 0x8004d16
+movdqa xmm1, xmmword [var_20h]
+movups xmmword [r12 + 0x10], xmm1
+jmp 0x8004d24
+nop
+lea rdi, [0x08004df7]
+call getenv
+mov rbp, rax
+test rax, rax
+jne 0x8004c87
+lea rdi, [0x08004e0f]
+call getenv
+mov rbp, rax
+test rax, rax
+jne 0x8004c87
+lea rdi, [0x08004e27]
+call getenv
+mov rbp, rax
+test rax, rax
+jne 0x8004c87
+lea rbx, [var_20h]
+lea rbp, [0x08004e44]
+mov qword [var_8h], 4
+mov r14d, 4
+mov qword [var_10h], rbx
+mov rdi, rbx
+lea r15, [var_10h]
+jmp 0x8004d61
+nop dword [rax]
+mov rax, qword [r13 + 0x10]
+test al, 1
+je 0x8004cf4
+cmp rax, 1
+je 0x8004eb8
+mov rdi, qword [var_10h]
+lea rax, [r12 + 0x10]
+mov qword [r12 + 8], 0
+mov qword [r12], rax
+mov byte [r12 + 0x10], 0
+cmp rdi, rbx
+je 0x8004d2e
+mov rax, qword [var_20h]
+lea rsi, [rax + 1]
+call _ZdlPvm
+jmp 0x8004d2e
+nop dword [rax + rax]
+mov eax, dword [r13]
+test eax, eax
+je 0x8004cf4
+jmp 0x8004e7a
+mov rdi, rbx
+jmp 0x8004d61

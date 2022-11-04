@@ -1,0 +1,3 @@
+mov r8, rcx
+xor ecx, ecx
+jmp sym.ialloc

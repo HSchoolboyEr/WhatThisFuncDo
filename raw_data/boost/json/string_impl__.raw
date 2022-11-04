@@ -1,0 +1,4 @@
+mov eax, 0x85
+mov byte [rdi + 0xf], 0xe
+mov word [rdi], ax
+ret

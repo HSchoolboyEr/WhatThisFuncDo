@@ -1,0 +1,1360 @@
+push r15
+mov r15, rsi
+push r14
+push r13
+push r12
+push rbp
+push rbx
+mov rbx, rdi
+sub rsp, 0x18
+mov r13, qword [rsi]
+mov rbp, qword [r13]
+cmp rbp, qword [rsi + 8]
+je 0x8009c9f
+movzx eax, byte [rbp]
+cmp al, byte [rdi]
+je 0x8009dc0
+cmp al, byte [rdi + 0x30]
+je 0x800a4d8
+cmp al, byte [rbx + 0x60]
+je 0x800a378
+cmp al, byte [rbx + 0x90]
+je 0x800a720
+cmp al, byte [rbx + 0xc0]
+je 0x800a6a8
+cmp al, byte [rbx + 0xf0]
+je 0x800a630
+cmp al, byte [rbx + 0x120]
+je 0x800a5b8
+cmp al, byte [rbx + 0x150]
+je 0x800a460
+cmp al, byte [rbx + 0x180]
+je 0x800a3e8
+cmp al, byte [rbx + 0x1b0]
+je 0x800a540
+cmp al, byte [rbx + 0x1e0]
+je 0x8009e58
+cmp rbp, qword [r15 + 8]
+je 0x8009cb5
+movzx eax, byte [rbx + 0x210]
+cmp byte [rbp], al
+je 0x800a180
+mov qword [r13], rbp
+cmp rbp, qword [r15 + 8]
+je 0x8009ccf
+movzx eax, byte [rbx + 0x280]
+cmp byte [rbp], al
+je 0x8009f90
+mov qword [r13], rbp
+cmp rbp, qword [r15 + 8]
+je 0x8009ce9
+movzx eax, byte [rbx + 0x2b8]
+cmp byte [rbp], al
+je 0x8009f00
+mov qword [r13], rbp
+mov r12, 0xffffffffffffffff
+cmp rbp, qword [r15 + 8]
+je 0x8009da8
+movzx eax, byte [rbp]
+lea r14d, [rax - 0x30]
+cmp r14b, 7
+ja 0x8009da8
+lea rax, [arg_1h]
+movsx r14d, r14b
+mov qword [r13], rax
+cmp qword [r15 + 8], rax
+jne 0x800a940
+mov eax, 1
+mov r12, rax
+mov rbp, qword [rbx + 0x300]
+mov rdi, rbp
+call _ZN5boost6detail12get_tss_dataEPKv
+test rax, rax
+je 0x800ab70
+mov rdi, rbp
+call _ZN5boost6detail12get_tss_dataEPKv
+mov rbp, qword [rbx + 0x308]
+mov r13, qword [rax]
+mov rdi, rbp
+call _ZN5boost6detail12get_tss_dataEPKv
+test rax, rax
+je 0x800ab20
+mov rdi, rbp
+call _ZN5boost6detail12get_tss_dataEPKv
+mov rdx, qword [rbx + 0x310]
+mov rax, qword [rax]
+cmp byte [rax + 4], 0
+mov eax, dword [r13]
+je _ZZNK5boost4wave8grammars4impl25compose_character_literalclERjbRbjE14overflow_masks
+and eax, dword [0x08009d8f]
+jne 0x800a858
+mov dword [r13], 0
+and r14d, dword [0x08009da4]
+add byte [rax], al
+add byte [rax], al
+mov dword [r13], r14d
+add rsp, 0x18
+mov rax, r12
+pop rbx
+pop rbp
+pop r12
+pop r13
+pop r14
+pop r15
+ret
+nop word [rax + rax]
+add rbp, 1
+mov qword [r13], rbp
+mov rbp, qword [rdi + 0x10]
+mov rdi, rbp
+call _ZN5boost6detail12get_tss_dataEPKv
+test rax, rax
+je 0x800a7e0
+mov rdi, rbp
+call _ZN5boost6detail12get_tss_dataEPKv
+mov rbp, qword [rbx + 0x18]
+mov r12, qword [rax]
+mov rdi, rbp
+call _ZN5boost6detail12get_tss_dataEPKv
+test rax, rax
+je 0x800a798
+mov rdi, rbp
+call _ZN5boost6detail12get_tss_dataEPKv
+mov rcx, qword [rbx + 0x20]
+mov r8, rax
+mov eax, dword [rbx + 0x28]
+mov rdx, qword [r8]
+cmp byte [rdx + 4], 0
+mov edx, dword [r12]
+je _ZZNK5boost4wave8grammars4impl25compose_character_literalclERjbRbjE14overflow_masks
+and edx, dword [0x08009e26]
+jne 0x8009ef0
+mov dword [r12], 0
+and eax, dword [0x08009e3a]
+mov dword [r12], eax
+add rsp, 0x18
+mov eax, 1
+pop rbx
+pop rbp
+pop r12
+pop r13
+pop r14
+pop r15
+ret
+nop word [rax + rax]
+add rbp, 1
+mov qword [r13], rbp
+mov rbp, qword [rbx + 0x1f0]
+mov rdi, rbp
+call _ZN5boost6detail12get_tss_dataEPKv
+test rax, rax
+je 0x800abc0
+mov rdi, rbp
+call _ZN5boost6detail12get_tss_dataEPKv
+mov rbp, qword [rbx + 0x1f8]
+mov r12, qword [rax]
+mov rdi, rbp
+call _ZN5boost6detail12get_tss_dataEPKv
+test rax, rax
+je 0x800aa30
+mov rdi, rbp
+call _ZN5boost6detail12get_tss_dataEPKv
+mov rcx, qword [rbx + 0x200]
+mov r8, rax
+movsx eax, byte [rbx + 0x208]
+mov rdx, qword [r8]
+cmp byte [rdx + 4], 0
+mov edx, dword [r12]
+jne _ZZNK5boost4wave8grammars4impl25compose_character_literalclERjbRbjE14overflow_masks
+nop dword [rax]
+mov esi, edx
+and esi, dword [0x08009ed0]
+jne 0x8009ef0
+shl edx, 8
+mov dword [r12], edx
+and eax, dword [0x08009edf]
+or eax, edx
+mov dword [r12], eax
+jmp 0x8009e3e
+nop word [rax + rax]
+mov byte [rcx], 1
+jmp 0x8009e3e
+nop dword [rax + rax]
+lea r14, [arg_1h]
+mov qword [r13], r14
+cmp r14, qword [r15 + 8]
+je 0x8009ce9
+xor r12d, r12d
+xor edx, edx
+movzx edi, byte [r14]
+movsx eax, dil
+lea ecx, [rdi - 0x30]
+sub eax, 0x30
+cmp ecx, 9
+jbe 0x8009f4b
+mov qword [var_8h], rdx
+call tolower
+mov rdx, qword [var_8h]
+lea ecx, [rax - 0x61]
+cmp cl, 5
+ja 0x8009ce9
+movsx eax, al
+sub eax, 0x57
+cmp r12d, 0xfffffff
+ja 0x8009ce9
+mov ecx, eax
+shl r12d, 4
+not ecx
+cmp r12d, ecx
+ja 0x8009ce9
+add r14, 1
+add rdx, 1
+add r12d, eax
+mov qword [r13], r14
+cmp rdx, 8
+je 0x800a860
+cmp qword [r15 + 8], r14
+jne 0x8009f17
+jmp 0x8009ce9
+nop dword [rax]
+lea rax, [arg_1h]
+mov qword [r13], rax
+cmp rax, qword [r15 + 8]
+je 0x8009ccf
+movzx edi, byte [arg_1h]
+movsx eax, dil
+lea edx, [rdi - 0x30]
+lea r12d, [rax - 0x30]
+cmp edx, 9
+jbe 0x8009fce
+call tolower
+lea edx, [rax - 0x61]
+cmp dl, 5
+ja 0x8009ccf
+movsx eax, al
+lea r12d, [rax - 0x57]
+lea rax, [arg_2h]
+mov qword [r13], rax
+cmp qword [r15 + 8], rax
+je 0x8009ccf
+movzx edi, byte [arg_2h]
+lea edx, [rdi - 0x30]
+cmp edx, 9
+jbe 0x800b2ab
+call tolower
+lea edx, [rax - 0x61]
+cmp dl, 5
+ja 0x8009ccf
+movsx eax, al
+lea edx, [rax - 0x57]
+cmp r12d, 0xfffffff
+ja 0x8009ccf
+mov eax, r12d
+mov ecx, edx
+shl eax, 4
+not ecx
+cmp ecx, eax
+jb 0x8009ccf
+lea r12d, [rax + rdx]
+lea rax, [arg_3h]
+mov qword [r13], rax
+cmp qword [r15 + 8], rax
+je 0x8009ccf
+movzx edi, byte [arg_3h]
+movsx eax, dil
+lea edx, [rdi - 0x30]
+lea ecx, [rax - 0x30]
+cmp edx, 9
+jbe 0x800a066
+call tolower
+lea edx, [rax - 0x61]
+cmp dl, 5
+ja 0x8009ccf
+movsx eax, al
+lea ecx, [rax - 0x57]
+cmp r12d, 0xfffffff
+ja 0x8009ccf
+mov eax, ecx
+shl r12d, 4
+not eax
+cmp eax, r12d
+jb 0x8009ccf
+lea rax, [arg_4h]
+add r12d, ecx
+mov qword [r13], rax
+cmp qword [r15 + 8], rax
+je 0x8009ccf
+movzx edi, byte [arg_4h]
+lea edx, [rdi - 0x30]
+cmp edx, 9
+jbe 0x800b3da
+call tolower
+lea edx, [rax - 0x61]
+cmp dl, 5
+ja 0x8009ccf
+movsx eax, al
+sub eax, 0x57
+cmp r12d, 0xfffffff
+ja 0x8009ccf
+mov edx, eax
+shl r12d, 4
+not edx
+cmp r12d, edx
+ja 0x8009ccf
+add rbp, 5
+add r12d, eax
+mov qword [r13], rbp
+mov rbp, qword [rbx + 0x298]
+mov rdi, rbp
+call _ZN5boost6detail12get_tss_dataEPKv
+test rax, rax
+je 0x800b265
+mov rdi, rbp
+call _ZN5boost6detail12get_tss_dataEPKv
+mov rbp, qword [rbx + 0x2a0]
+mov r13, qword [rax]
+mov rdi, rbp
+call _ZN5boost6detail12get_tss_dataEPKv
+test rax, rax
+je 0x800b21f
+mov rdi, rbp
+call _ZN5boost6detail12get_tss_dataEPKv
+mov rdx, qword [rbx + 0x2a8]
+mov rax, qword [rax]
+cmp byte [rax + 4], 0
+mov eax, dword [r13]
+je _ZZNK5boost4wave8grammars4impl25compose_character_literalclERjbRbjE14overflow_masks
+and eax, dword [0x0800a14a]
+jne 0x800a9a8
+mov dword [r13], 0
+and r12d, dword [0x0800a15f]
+mov dword [r13], r12d
+add rsp, 0x18
+mov eax, 5
+pop rbx
+pop rbp
+pop r12
+pop r13
+pop r14
+pop r15
+ret
+nop word [rax + rax]
+lea r14, [arg_1h]
+mov r12, qword [rbx + 0x218]
+mov qword [r13], r14
+mov rdi, r12
+call _ZN5boost6detail12get_tss_dataEPKv
+test rax, rax
+je 0x800a9e8
+mov rdi, r12
+call _ZN5boost6detail12get_tss_dataEPKv
+mov r13, qword [r15]
+mov rax, qword [rax]
+cmp byte [rax + 4], 0
+jne 0x800a2a0
+mov qword [r13], r14
+cmp r14, qword [r15 + 8]
+je 0x8009cb5
+movzx edi, byte [arg_1h]
+movsx eax, dil
+lea edx, [rdi - 0x30]
+lea r14d, [rax - 0x30]
+cmp edx, 9
+jbe 0x800a1f2
+call tolower
+lea edx, [rax - 0x61]
+cmp dl, 5
+ja 0x8009cb5
+movsx eax, al
+lea r14d, [rax - 0x57]
+lea rax, [arg_2h]
+mov qword [r13], rax
+cmp rax, qword [r15 + 8]
+jne 0x800b106
+mov r12d, 1
+mov rbp, qword [rbx + 0x260]
+mov rdi, rbp
+call _ZN5boost6detail12get_tss_dataEPKv
+test rax, rax
+je 0x800b34e
+mov rdi, rbp
+call _ZN5boost6detail12get_tss_dataEPKv
+mov r13, qword [rbx + 0x268]
+mov rbp, qword [rax]
+mov rdi, r13
+call _ZN5boost6detail12get_tss_dataEPKv
+test rax, rax
+je 0x800b394
+mov rdi, r13
+call _ZN5boost6detail12get_tss_dataEPKv
+mov rdx, qword [rbx + 0x270]
+mov rax, qword [rax]
+cmp byte [rax + 4], 0
+mov eax, dword [rbp]
+je _ZZNK5boost4wave8grammars4impl25compose_character_literalclERjbRbjE14overflow_masks
+and eax, dword [0x0800a26a]
+jne 0x800a9b0
+mov dword [rbp], 0
+and r14d, dword [0x0800a27e]
+mov dword [rbp], r14d
+add rsp, 0x18
+lea rax, [r12 + 1]
+pop rbx
+pop rbp
+pop r12
+pop r13
+pop r14
+pop r15
+ret
+nop word cs:[rax + rax]
+mov r12, qword [r13]
+cmp r12, qword [r15 + 8]
+je 0x8009cb5
+xor r14d, r14d
+xor edx, edx
+movzx edi, byte [r12]
+movsx eax, dil
+lea ecx, [rdi - 0x30]
+sub eax, 0x30
+cmp ecx, 9
+jbe 0x800a8f4
+mov qword [var_8h], rdx
+call tolower
+mov rdx, qword [var_8h]
+lea ecx, [rax - 0x61]
+cmp cl, 5
+jbe 0x800a8ee
+test rdx, rdx
+je 0x8009cb5
+mov r12, rdx
+mov rbp, qword [rbx + 0x230]
+mov rdi, rbp
+call _ZN5boost6detail12get_tss_dataEPKv
+test rax, rax
+je 0x800b2fd
+mov rdi, rbp
+call _ZN5boost6detail12get_tss_dataEPKv
+mov r13, qword [rbx + 0x238]
+mov rbp, qword [rax]
+mov rdi, r13
+call _ZN5boost6detail12get_tss_dataEPKv
+test rax, rax
+je 0x800b2b7
+mov rdi, r13
+call _ZN5boost6detail12get_tss_dataEPKv
+mov rdx, qword [rbx + 0x240]
+mov rax, qword [rax]
+cmp byte [rax + 4], 0
+mov eax, dword [rbp]
+jne _ZZNK5boost4wave8grammars4impl25compose_character_literalclERjbRbjE14overflow_masks
+mov ecx, eax
+and ecx, dword [0x0800a354]
+jne 0x800a9b0
+shl eax, 8
+mov dword [rbp], eax
+and r14d, dword [0x0800a367]
+or r14d, eax
+mov dword [rbp], r14d
+jmp 0x800a282
+nop dword [rax + rax]
+add rbp, 1
+mov qword [r13], rbp
+mov rbp, qword [rbx + 0x70]
+mov rdi, rbp
+call _ZN5boost6detail12get_tss_dataEPKv
+test rax, rax
+je 0x800aad0
+mov rdi, rbp
+call _ZN5boost6detail12get_tss_dataEPKv
+mov rbp, qword [rbx + 0x78]
+mov r12, qword [rax]
+mov rdi, rbp
+call _ZN5boost6detail12get_tss_dataEPKv
+test rax, rax
+je 0x800aa80
+mov rdi, rbp
+call _ZN5boost6detail12get_tss_dataEPKv
+mov rcx, qword [rbx + 0x80]
+mov r8, rax
+mov eax, dword [rbx + 0x88]
+mov rdx, qword [r8]
+cmp byte [rdx + 4], 0
+mov edx, dword [r12]
+je _ZZNK5boost4wave8grammars4impl25compose_character_literalclERjbRbjE14overflow_masks
+jmp _ZZNK5boost4wave8grammars4impl25compose_character_literalclERjbRbjE14overflow_masks
+nop dword [rax + rax]
+add rbp, 1
+mov qword [r13], rbp
+mov rbp, qword [rbx + 0x190]
+mov rdi, rbp
+call _ZN5boost6detail12get_tss_dataEPKv
+test rax, rax
+je 0x800b0c0
+mov rdi, rbp
+call _ZN5boost6detail12get_tss_dataEPKv
+mov rbp, qword [rbx + 0x198]
+mov r12, qword [rax]
+mov rdi, rbp
+call _ZN5boost6detail12get_tss_dataEPKv
+test rax, rax
+je 0x800b070
+mov rdi, rbp
+call _ZN5boost6detail12get_tss_dataEPKv
+mov rcx, qword [rbx + 0x1a0]
+mov r8, rax
+movsx eax, byte [rbx + 0x1a8]
+mov rdx, qword [r8]
+cmp byte [rdx + 4], 0
+mov edx, dword [r12]
+je _ZZNK5boost4wave8grammars4impl25compose_character_literalclERjbRbjE14overflow_masks
+jmp _ZZNK5boost4wave8grammars4impl25compose_character_literalclERjbRbjE14overflow_masks
+nop word [rax + rax]
+add rbp, 1
+mov qword [r13], rbp
+mov rbp, qword [rbx + 0x160]
+mov rdi, rbp
+call _ZN5boost6detail12get_tss_dataEPKv
+test rax, rax
+je 0x800b020
+mov rdi, rbp
+call _ZN5boost6detail12get_tss_dataEPKv
+mov rbp, qword [rbx + 0x168]
+mov r12, qword [rax]
+mov rdi, rbp
+call _ZN5boost6detail12get_tss_dataEPKv
+test rax, rax
+je 0x800afd0
+mov rdi, rbp
+call _ZN5boost6detail12get_tss_dataEPKv
+mov rcx, qword [rbx + 0x170]
+mov r8, rax
+movsx eax, byte [rbx + 0x178]
+mov rdx, qword [r8]
+cmp byte [rdx + 4], 0
+mov edx, dword [r12]
+je _ZZNK5boost4wave8grammars4impl25compose_character_literalclERjbRbjE14overflow_masks
+jmp _ZZNK5boost4wave8grammars4impl25compose_character_literalclERjbRbjE14overflow_masks
+nop word [rax + rax]
+add rbp, 1
+mov qword [r13], rbp
+mov rbp, qword [rbx + 0x40]
+mov rdi, rbp
+call _ZN5boost6detail12get_tss_dataEPKv
+test rax, rax
+je 0x800af80
+mov rdi, rbp
+call _ZN5boost6detail12get_tss_dataEPKv
+mov rbp, qword [rbx + 0x48]
+mov r12, qword [rax]
+mov rdi, rbp
+call _ZN5boost6detail12get_tss_dataEPKv
+test rax, rax
+je 0x800af30
+mov rdi, rbp
+call _ZN5boost6detail12get_tss_dataEPKv
+mov rcx, qword [rbx + 0x50]
+mov r8, rax
+mov eax, dword [rbx + 0x58]
+mov rdx, qword [r8]
+cmp byte [rdx + 4], 0
+mov edx, dword [r12]
+je _ZZNK5boost4wave8grammars4impl25compose_character_literalclERjbRbjE14overflow_masks
+jmp _ZZNK5boost4wave8grammars4impl25compose_character_literalclERjbRbjE14overflow_masks
+nop dword [rax]
+add rbp, 1
+mov qword [r13], rbp
+mov rbp, qword [rbx + 0x1c0]
+mov rdi, rbp
+call _ZN5boost6detail12get_tss_dataEPKv
+test rax, rax
+je 0x800aee0
+mov rdi, rbp
+call _ZN5boost6detail12get_tss_dataEPKv
+mov rbp, qword [rbx + 0x1c8]
+mov r12, qword [rax]
+mov rdi, rbp
+call _ZN5boost6detail12get_tss_dataEPKv
+test rax, rax
+je 0x800ae90
+mov rdi, rbp
+call _ZN5boost6detail12get_tss_dataEPKv
+mov rcx, qword [rbx + 0x1d0]
+mov r8, rax
+movsx eax, byte [rbx + 0x1d8]
+mov rdx, qword [r8]
+cmp byte [rdx + 4], 0
+mov edx, dword [r12]
+je _ZZNK5boost4wave8grammars4impl25compose_character_literalclERjbRbjE14overflow_masks
+jmp _ZZNK5boost4wave8grammars4impl25compose_character_literalclERjbRbjE14overflow_masks
+nop word [rax + rax]
+add rbp, 1
+mov qword [r13], rbp
+mov rbp, qword [rbx + 0x130]
+mov rdi, rbp
+call _ZN5boost6detail12get_tss_dataEPKv
+test rax, rax
+je 0x800ae40
+mov rdi, rbp
+call _ZN5boost6detail12get_tss_dataEPKv
+mov rbp, qword [rbx + 0x138]
+mov r12, qword [rax]
+mov rdi, rbp
+call _ZN5boost6detail12get_tss_dataEPKv
+test rax, rax
+je 0x800adf0
+mov rdi, rbp
+call _ZN5boost6detail12get_tss_dataEPKv
+mov rcx, qword [rbx + 0x140]
+mov r8, rax
+mov eax, dword [rbx + 0x148]
+mov rdx, qword [r8]
+cmp byte [rdx + 4], 0
+mov edx, dword [r12]
+je _ZZNK5boost4wave8grammars4impl25compose_character_literalclERjbRbjE14overflow_masks
+jmp _ZZNK5boost4wave8grammars4impl25compose_character_literalclERjbRbjE14overflow_masks
+nop dword [rax]
+add rbp, 1
+mov qword [r13], rbp
+mov rbp, qword [rbx + 0x100]
+mov rdi, rbp
+call _ZN5boost6detail12get_tss_dataEPKv
+test rax, rax
+je 0x800ada0
+mov rdi, rbp
+call _ZN5boost6detail12get_tss_dataEPKv
+mov rbp, qword [rbx + 0x108]
+mov r12, qword [rax]
+mov rdi, rbp
+call _ZN5boost6detail12get_tss_dataEPKv
+test rax, rax
+je 0x800ad50
+mov rdi, rbp
+call _ZN5boost6detail12get_tss_dataEPKv
+mov rcx, qword [rbx + 0x110]
+mov r8, rax
+mov eax, dword [rbx + 0x118]
+mov rdx, qword [r8]
+cmp byte [rdx + 4], 0
+mov edx, dword [r12]
+je _ZZNK5boost4wave8grammars4impl25compose_character_literalclERjbRbjE14overflow_masks
+jmp _ZZNK5boost4wave8grammars4impl25compose_character_literalclERjbRbjE14overflow_masks
+nop dword [rax]
+add rbp, 1
+mov qword [r13], rbp
+mov rbp, qword [rbx + 0xd0]
+mov rdi, rbp
+call _ZN5boost6detail12get_tss_dataEPKv
+test rax, rax
+je 0x800ad00
+mov rdi, rbp
+call _ZN5boost6detail12get_tss_dataEPKv
+mov rbp, qword [rbx + 0xd8]
+mov r12, qword [rax]
+mov rdi, rbp
+call _ZN5boost6detail12get_tss_dataEPKv
+test rax, rax
+je 0x800acb0
+mov rdi, rbp
+call _ZN5boost6detail12get_tss_dataEPKv
+mov rcx, qword [rbx + 0xe0]
+mov r8, rax
+mov eax, dword [rbx + 0xe8]
+mov rdx, qword [r8]
+cmp byte [rdx + 4], 0
+mov edx, dword [r12]
+je _ZZNK5boost4wave8grammars4impl25compose_character_literalclERjbRbjE14overflow_masks
+jmp _ZZNK5boost4wave8grammars4impl25compose_character_literalclERjbRbjE14overflow_masks
+nop dword [rax]
+add rbp, 1
+mov qword [r13], rbp
+mov rbp, qword [rbx + 0xa0]
+mov rdi, rbp
+call _ZN5boost6detail12get_tss_dataEPKv
+test rax, rax
+je 0x800ac60
+mov rdi, rbp
+call _ZN5boost6detail12get_tss_dataEPKv
+mov rbp, qword [rbx + 0xa8]
+mov r12, qword [rax]
+mov rdi, rbp
+call _ZN5boost6detail12get_tss_dataEPKv
+test rax, rax
+je 0x800ac10
+mov rdi, rbp
+call _ZN5boost6detail12get_tss_dataEPKv
+mov rcx, qword [rbx + 0xb0]
+mov r8, rax
+mov eax, dword [rbx + 0xb8]
+mov rdx, qword [r8]
+cmp byte [rdx + 4], 0
+mov edx, dword [r12]
+je _ZZNK5boost4wave8grammars4impl25compose_character_literalclERjbRbjE14overflow_masks
+jmp _ZZNK5boost4wave8grammars4impl25compose_character_literalclERjbRbjE14overflow_masks
+nop dword [rax]
+mov edi, 8
+call _Znwm
+mov rdi, rbp
+mov qword [rax], 0
+mov r13, rax
+call _ZN5boost6detail12get_tss_dataEPKv
+cmp r13, rax
+je _ZN5boost6detail12get_tss_dataEPKv
+mov rdx, qword [rbp]
+mov r8d, 1
+mov rcx, r13
+mov rdi, rbp
+lea rsi, [0x0800a7d4]
+call _ZN5boost6detail12set_tss_dataEPKvPFvPFvPvES3_ES5_S3_b
+jmp _ZN5boost6detail12get_tss_dataEPKv
+nop
+mov edi, 8
+call _Znwm
+mov rdi, rbp
+mov qword [rax], 0
+mov r12, rax
+call _ZN5boost6detail12get_tss_dataEPKv
+cmp r12, rax
+je _ZN5boost6detail12get_tss_dataEPKv
+mov rdx, qword [rbp]
+mov r8d, 1
+mov rcx, r12
+mov rdi, rbp
+lea rsi, [0x0800a81c]
+call _ZN5boost6detail12set_tss_dataEPKvPFvPFvPvES3_ES5_S3_b
+jmp _ZN5boost6detail12get_tss_dataEPKv
+nop word cs:[rax + rax]
+mov ecx, eax
+and ecx, dword [0x0800a838]
+jne 0x800a858
+shl eax, 8
+mov dword [r13], eax
+and r14d, dword [0x0800a848]
+or eax, r14d
+mov dword [r13], eax
+jmp 0x8009da8
+nop dword [rax]
+mov byte [rdx], 1
+jmp 0x8009da8
+mov rbp, qword [rbx + 0x2d0]
+mov rdi, rbp
+call _ZN5boost6detail12get_tss_dataEPKv
+test rax, rax
+je 0x800b1d9
+mov rdi, rbp
+call _ZN5boost6detail12get_tss_dataEPKv
+mov rbp, qword [rbx + 0x2d8]
+mov r13, qword [rax]
+mov rdi, rbp
+call _ZN5boost6detail12get_tss_dataEPKv
+test rax, rax
+je 0x800b193
+mov rdi, rbp
+call _ZN5boost6detail12get_tss_dataEPKv
+mov rdx, qword [rbx + 0x2e0]
+mov rax, qword [rax]
+cmp byte [rax + 4], 0
+mov eax, dword [r13]
+je _ZZNK5boost4wave8grammars4impl25compose_character_literalclERjbRbjE14overflow_masks
+and eax, dword [0x0800a8c1]
+jne 0x800a978
+mov dword [r13], 0
+and r12d, dword [0x0800a8d6]
+mov dword [r13], r12d
+add rsp, 0x18
+mov eax, 9
+pop rbx
+pop rbp
+pop r12
+pop r13
+pop r14
+pop r15
+ret
+movsx eax, al
+sub eax, 0x57
+cmp r14d, 0xfffffff
+ja 0x8009cb5
+mov ecx, eax
+shl r14d, 4
+not ecx
+cmp r14d, ecx
+ja 0x8009cb5
+add r12, 1
+add rdx, 1
+add r14d, eax
+mov qword [r13], r12
+cmp rdx, 8
+je 0x800b343
+cmp qword [r15 + 8], r12
+jne 0x800a2b3
+jmp 0x800a2ef
+nop word [rax + rax]
+movzx eax, byte [arg_1h]
+sub eax, 0x30
+cmp al, 7
+ja 0x8009d26
+movsx eax, al
+lea r14d, [rax + r14*8]
+lea rax, [arg_2h]
+mov qword [r13], rax
+cmp qword [r15 + 8], rax
+jne 0x800b16a
+mov eax, 2
+jmp 0x8009d2b
+nop word [rax + rax]
+mov byte [rdx], 1
+jmp 0x800a8da
+mov ecx, eax
+and ecx, dword [0x0800a988]
+jne 0x800a978
+shl eax, 8
+mov dword [r13], eax
+and r12d, dword [0x0800a998]
+or r12d, eax
+mov dword [r13], r12d
+jmp 0x800a8da
+nop dword [rax]
+mov byte [rdx], 1
+jmp 0x800a163
+mov byte [rdx], 1
+jmp 0x800a282
+nop dword [rax + rax]
+mov ecx, eax
+and ecx, dword [0x0800a9c8]
+jne 0x800a9a8
+shl eax, 8
+mov dword [r13], eax
+and r12d, dword [0x0800a9d8]
+or r12d, eax
+mov dword [r13], r12d
+jmp 0x800a163
+nop dword [rax]
+mov edi, 8
+call _Znwm
+mov rdi, r12
+mov qword [rax], 0
+mov r13, rax
+call _ZN5boost6detail12get_tss_dataEPKv
+cmp r13, rax
+je _ZN5boost6detail12get_tss_dataEPKv
+mov rdx, qword [r12]
+mov r8d, 1
+mov rcx, r13
+mov rdi, r12
+lea rsi, [0x0800aa24]
+call _ZN5boost6detail12set_tss_dataEPKvPFvPFvPvES3_ES5_S3_b
+jmp _ZN5boost6detail12get_tss_dataEPKv
+nop
+mov edi, 8
+call _Znwm
+mov rdi, rbp
+mov qword [rax], 0
+mov r13, rax
+call _ZN5boost6detail12get_tss_dataEPKv
+cmp r13, rax
+je _ZN5boost6detail12get_tss_dataEPKv
+mov rdx, qword [rbp]
+mov r8d, 1
+mov rcx, r13
+mov rdi, rbp
+lea rsi, [0x0800aa6c]
+call _ZN5boost6detail12set_tss_dataEPKvPFvPFvPvES3_ES5_S3_b
+jmp _ZN5boost6detail12get_tss_dataEPKv
+nop word cs:[rax + rax]
+mov edi, 8
+call _Znwm
+mov rdi, rbp
+mov qword [rax], 0
+mov r13, rax
+call _ZN5boost6detail12get_tss_dataEPKv
+cmp r13, rax
+je _ZN5boost6detail12get_tss_dataEPKv
+mov rdx, qword [rbp]
+mov r8d, 1
+mov rcx, r13
+mov rdi, rbp
+lea rsi, [0x0800aabc]
+call _ZN5boost6detail12set_tss_dataEPKvPFvPFvPvES3_ES5_S3_b
+jmp _ZN5boost6detail12get_tss_dataEPKv
+nop word cs:[rax + rax]
+mov edi, 8
+call _Znwm
+mov rdi, rbp
+mov qword [rax], 0
+mov r12, rax
+call _ZN5boost6detail12get_tss_dataEPKv
+cmp r12, rax
+je _ZN5boost6detail12get_tss_dataEPKv
+mov rdx, qword [rbp]
+mov r8d, 1
+mov rcx, r12
+mov rdi, rbp
+lea rsi, [0x0800ab0c]
+call _ZN5boost6detail12set_tss_dataEPKvPFvPFvPvES3_ES5_S3_b
+jmp _ZN5boost6detail12get_tss_dataEPKv
+nop word cs:[rax + rax]
+mov edi, 8
+call _Znwm
+mov rdi, rbp
+mov qword [rax], 0
+mov r15, rax
+call _ZN5boost6detail12get_tss_dataEPKv
+cmp r15, rax
+je _ZN5boost6detail12get_tss_dataEPKv
+mov rdx, qword [rbp]
+mov r8d, 1
+mov rcx, r15
+mov rdi, rbp
+lea rsi, [0x0800ab5c]
+call _ZN5boost6detail12set_tss_dataEPKvPFvPFvPvES3_ES5_S3_b
+jmp _ZN5boost6detail12get_tss_dataEPKv
+nop word cs:[rax + rax]
+mov edi, 8
+call _Znwm
+mov rdi, rbp
+mov qword [rax], 0
+mov r13, rax
+call _ZN5boost6detail12get_tss_dataEPKv
+cmp r13, rax
+je _ZN5boost6detail12get_tss_dataEPKv
+mov rdx, qword [rbp]
+mov r8d, 1
+mov rcx, r13
+mov rdi, rbp
+lea rsi, [0x0800abac]
+call _ZN5boost6detail12set_tss_dataEPKvPFvPFvPvES3_ES5_S3_b
+jmp _ZN5boost6detail12get_tss_dataEPKv
+nop word cs:[rax + rax]
+mov edi, 8
+call _Znwm
+mov rdi, rbp
+mov qword [rax], 0
+mov r12, rax
+call _ZN5boost6detail12get_tss_dataEPKv
+cmp r12, rax
+je _ZN5boost6detail12get_tss_dataEPKv
+mov rdx, qword [rbp]
+mov r8d, 1
+mov rcx, r12
+mov rdi, rbp
+lea rsi, [0x0800abfc]
+call _ZN5boost6detail12set_tss_dataEPKvPFvPFvPvES3_ES5_S3_b
+jmp _ZN5boost6detail12get_tss_dataEPKv
+nop word cs:[rax + rax]
+mov edi, 8
+call _Znwm
+mov rdi, rbp
+mov qword [rax], 0
+mov r13, rax
+call _ZN5boost6detail12get_tss_dataEPKv
+cmp r13, rax
+je _ZN5boost6detail12get_tss_dataEPKv
+mov rdx, qword [rbp]
+mov r8d, 1
+mov rcx, r13
+mov rdi, rbp
+lea rsi, [0x0800ac4c]
+call _ZN5boost6detail12set_tss_dataEPKvPFvPFvPvES3_ES5_S3_b
+jmp _ZN5boost6detail12get_tss_dataEPKv
+nop word cs:[rax + rax]
+mov edi, 8
+call _Znwm
+mov rdi, rbp
+mov qword [rax], 0
+mov r12, rax
+call _ZN5boost6detail12get_tss_dataEPKv
+cmp r12, rax
+je _ZN5boost6detail12get_tss_dataEPKv
+mov rdx, qword [rbp]
+mov r8d, 1
+mov rcx, r12
+mov rdi, rbp
+lea rsi, [0x0800ac9c]
+call _ZN5boost6detail12set_tss_dataEPKvPFvPFvPvES3_ES5_S3_b
+jmp _ZN5boost6detail12get_tss_dataEPKv
+nop word cs:[rax + rax]
+mov edi, 8
+call _Znwm
+mov rdi, rbp
+mov qword [rax], 0
+mov r13, rax
+call _ZN5boost6detail12get_tss_dataEPKv
+cmp r13, rax
+je _ZN5boost6detail12get_tss_dataEPKv
+mov rdx, qword [rbp]
+mov r8d, 1
+mov rcx, r13
+mov rdi, rbp
+lea rsi, [0x0800acec]
+call _ZN5boost6detail12set_tss_dataEPKvPFvPFvPvES3_ES5_S3_b
+jmp _ZN5boost6detail12get_tss_dataEPKv
+nop word cs:[rax + rax]
+mov edi, 8
+call _Znwm
+mov rdi, rbp
+mov qword [rax], 0
+mov r12, rax
+call _ZN5boost6detail12get_tss_dataEPKv
+cmp r12, rax
+je _ZN5boost6detail12get_tss_dataEPKv
+mov rdx, qword [rbp]
+mov r8d, 1
+mov rcx, r12
+mov rdi, rbp
+lea rsi, [0x0800ad3c]
+call _ZN5boost6detail12set_tss_dataEPKvPFvPFvPvES3_ES5_S3_b
+jmp _ZN5boost6detail12get_tss_dataEPKv
+nop word cs:[rax + rax]
+mov edi, 8
+call _Znwm
+mov rdi, rbp
+mov qword [rax], 0
+mov r13, rax
+call _ZN5boost6detail12get_tss_dataEPKv
+cmp r13, rax
+je _ZN5boost6detail12get_tss_dataEPKv
+mov rdx, qword [rbp]
+mov r8d, 1
+mov rcx, r13
+mov rdi, rbp
+lea rsi, [0x0800ad8c]
+call _ZN5boost6detail12set_tss_dataEPKvPFvPFvPvES3_ES5_S3_b
+jmp _ZN5boost6detail12get_tss_dataEPKv
+nop word cs:[rax + rax]
+mov edi, 8
+call _Znwm
+mov rdi, rbp
+mov qword [rax], 0
+mov r12, rax
+call _ZN5boost6detail12get_tss_dataEPKv
+cmp r12, rax
+je _ZN5boost6detail12get_tss_dataEPKv
+mov rdx, qword [rbp]
+mov r8d, 1
+mov rcx, r12
+mov rdi, rbp
+lea rsi, [0x0800addc]
+call _ZN5boost6detail12set_tss_dataEPKvPFvPFvPvES3_ES5_S3_b
+jmp _ZN5boost6detail12get_tss_dataEPKv
+nop word cs:[rax + rax]
+mov edi, 8
+call _Znwm
+mov rdi, rbp
+mov qword [rax], 0
+mov r13, rax
+call _ZN5boost6detail12get_tss_dataEPKv
+cmp r13, rax
+je _ZN5boost6detail12get_tss_dataEPKv
+mov rdx, qword [rbp]
+mov r8d, 1
+mov rcx, r13
+mov rdi, rbp
+lea rsi, [0x0800ae2c]
+call _ZN5boost6detail12set_tss_dataEPKvPFvPFvPvES3_ES5_S3_b
+jmp _ZN5boost6detail12get_tss_dataEPKv
+nop word cs:[rax + rax]
+mov edi, 8
+call _Znwm
+mov rdi, rbp
+mov qword [rax], 0
+mov r12, rax
+call _ZN5boost6detail12get_tss_dataEPKv
+cmp r12, rax
+je _ZN5boost6detail12get_tss_dataEPKv
+mov rdx, qword [rbp]
+mov r8d, 1
+mov rcx, r12
+mov rdi, rbp
+lea rsi, [0x0800ae7c]
+call _ZN5boost6detail12set_tss_dataEPKvPFvPFvPvES3_ES5_S3_b
+jmp _ZN5boost6detail12get_tss_dataEPKv
+nop word cs:[rax + rax]
+mov edi, 8
+call _Znwm
+mov rdi, rbp
+mov qword [rax], 0
+mov r13, rax
+call _ZN5boost6detail12get_tss_dataEPKv
+cmp r13, rax
+je _ZN5boost6detail12get_tss_dataEPKv
+mov rdx, qword [rbp]
+mov r8d, 1
+mov rcx, r13
+mov rdi, rbp
+lea rsi, [0x0800aecc]
+call _ZN5boost6detail12set_tss_dataEPKvPFvPFvPvES3_ES5_S3_b
+jmp _ZN5boost6detail12get_tss_dataEPKv
+nop word cs:[rax + rax]
+mov edi, 8
+call _Znwm
+mov rdi, rbp
+mov qword [rax], 0
+mov r12, rax
+call _ZN5boost6detail12get_tss_dataEPKv
+cmp r12, rax
+je _ZN5boost6detail12get_tss_dataEPKv
+mov rdx, qword [rbp]
+mov r8d, 1
+mov rcx, r12
+mov rdi, rbp
+lea rsi, [0x0800af1c]
+call _ZN5boost6detail12set_tss_dataEPKvPFvPFvPvES3_ES5_S3_b
+jmp _ZN5boost6detail12get_tss_dataEPKv
+nop word cs:[rax + rax]
+mov edi, 8
+call _Znwm
+mov rdi, rbp
+mov qword [rax], 0
+mov r13, rax
+call _ZN5boost6detail12get_tss_dataEPKv
+cmp r13, rax
+je _ZN5boost6detail12get_tss_dataEPKv
+mov rdx, qword [rbp]
+mov r8d, 1
+mov rcx, r13
+mov rdi, rbp
+lea rsi, [0x0800af6c]
+call _ZN5boost6detail12set_tss_dataEPKvPFvPFvPvES3_ES5_S3_b
+jmp _ZN5boost6detail12get_tss_dataEPKv
+nop word cs:[rax + rax]
+mov edi, 8
+call _Znwm
+mov rdi, rbp
+mov qword [rax], 0
+mov r12, rax
+call _ZN5boost6detail12get_tss_dataEPKv
+cmp r12, rax
+je _ZN5boost6detail12get_tss_dataEPKv
+mov rdx, qword [rbp]
+mov r8d, 1
+mov rcx, r12
+mov rdi, rbp
+lea rsi, [0x0800afbc]
+call _ZN5boost6detail12set_tss_dataEPKvPFvPFvPvES3_ES5_S3_b
+jmp _ZN5boost6detail12get_tss_dataEPKv
+nop word cs:[rax + rax]
+mov edi, 8
+call _Znwm
+mov rdi, rbp
+mov qword [rax], 0
+mov r13, rax
+call _ZN5boost6detail12get_tss_dataEPKv
+cmp r13, rax
+je _ZN5boost6detail12get_tss_dataEPKv
+mov rdx, qword [rbp]
+mov r8d, 1
+mov rcx, r13
+mov rdi, rbp
+lea rsi, [0x0800b00c]
+call _ZN5boost6detail12set_tss_dataEPKvPFvPFvPvES3_ES5_S3_b
+jmp _ZN5boost6detail12get_tss_dataEPKv
+nop word cs:[rax + rax]
+mov edi, 8
+call _Znwm
+mov rdi, rbp
+mov qword [rax], 0
+mov r12, rax
+call _ZN5boost6detail12get_tss_dataEPKv
+cmp r12, rax
+je _ZN5boost6detail12get_tss_dataEPKv
+mov rdx, qword [rbp]
+mov r8d, 1
+mov rcx, r12
+mov rdi, rbp
+lea rsi, [0x0800b05c]
+call _ZN5boost6detail12set_tss_dataEPKvPFvPFvPvES3_ES5_S3_b
+jmp _ZN5boost6detail12get_tss_dataEPKv
+nop word cs:[rax + rax]
+mov edi, 8
+call _Znwm
+mov rdi, rbp
+mov qword [rax], 0
+mov r13, rax
+call _ZN5boost6detail12get_tss_dataEPKv
+cmp r13, rax
+je _ZN5boost6detail12get_tss_dataEPKv
+mov rdx, qword [rbp]
+mov r8d, 1
+mov rcx, r13
+mov rdi, rbp
+lea rsi, [0x0800b0ac]
+call _ZN5boost6detail12set_tss_dataEPKvPFvPFvPvES3_ES5_S3_b
+jmp _ZN5boost6detail12get_tss_dataEPKv
+nop word cs:[rax + rax]
+mov edi, 8
+call _Znwm
+mov rdi, rbp
+mov qword [rax], 0
+mov r12, rax
+call _ZN5boost6detail12get_tss_dataEPKv
+cmp r12, rax
+je _ZN5boost6detail12get_tss_dataEPKv
+mov rdx, qword [rbp]
+mov r8d, 1
+mov rcx, r12
+mov rdi, rbp
+lea rsi, [0x0800b0fc]
+call _ZN5boost6detail12set_tss_dataEPKvPFvPFvPvES3_ES5_S3_b
+jmp _ZN5boost6detail12get_tss_dataEPKv
+movzx edi, byte [arg_2h]
+movsx eax, dil
+lea edx, [rdi - 0x30]
+sub eax, 0x30
+cmp edx, 9
+jbe 0x800b136
+call tolower
+mov r12d, 1
+lea edx, [rax - 0x61]
+cmp dl, 5
+ja 0x800a20a
+movsx eax, al
+sub eax, 0x57
+cmp r14d, 0xfffffff
+ja 0x8009cb5
+mov edx, eax
+shl r14d, 4
+not edx
+cmp r14d, edx
+ja 0x8009cb5
+add rbp, 3
+add r14d, eax
+mov r12d, 2
+mov qword [r13], rbp
+jmp 0x800a20a
+movzx eax, byte [arg_2h]
+sub eax, 0x30
+cmp al, 7
+ja 0x800a968
+movsx eax, al
+add rbp, 3
+mov r12d, 3
+mov qword [r13], rbp
+lea r14d, [rax + r14*8]
+jmp 0x8009d2e
+mov edi, 8
+call _Znwm
+mov rdi, rbp
+mov qword [rax], 0
+mov r14, rax
+call _ZN5boost6detail12get_tss_dataEPKv
+cmp r14, rax
+je _ZN5boost6detail12get_tss_dataEPKv
+mov rdx, qword [rbp]
+mov r8d, 1
+mov rcx, r14
+mov rdi, rbp
+lea rsi, [0x0800b1cf]
+call _ZN5boost6detail12set_tss_dataEPKvPFvPFvPvES3_ES5_S3_b
+jmp _ZN5boost6detail12get_tss_dataEPKv
+mov edi, 8
+call _Znwm
+mov rdi, rbp
+mov qword [rax], 0
+mov r13, rax
+call _ZN5boost6detail12get_tss_dataEPKv
+cmp r13, rax
+je _ZN5boost6detail12get_tss_dataEPKv
+mov rdx, qword [rbp]
+mov r8d, 1
+mov rcx, r13
+mov rdi, rbp
+lea rsi, [0x0800b215]
+call _ZN5boost6detail12set_tss_dataEPKvPFvPFvPvES3_ES5_S3_b
+jmp _ZN5boost6detail12get_tss_dataEPKv
+mov edi, 8
+call _Znwm
+mov rdi, rbp
+mov qword [rax], 0
+mov r14, rax
+call _ZN5boost6detail12get_tss_dataEPKv
+cmp r14, rax
+je _ZN5boost6detail12get_tss_dataEPKv
+mov rdx, qword [rbp]
+mov r8d, 1
+mov rcx, r14
+mov rdi, rbp
+lea rsi, [0x0800b25b]
+call _ZN5boost6detail12set_tss_dataEPKvPFvPFvPvES3_ES5_S3_b
+jmp _ZN5boost6detail12get_tss_dataEPKv
+mov edi, 8
+call _Znwm
+mov rdi, rbp
+mov qword [rax], 0
+mov r13, rax
+call _ZN5boost6detail12get_tss_dataEPKv
+cmp r13, rax
+je _ZN5boost6detail12get_tss_dataEPKv
+mov rdx, qword [rbp]
+mov r8d, 1
+mov rcx, r13
+mov rdi, rbp
+lea rsi, [0x0800b2a1]
+call _ZN5boost6detail12set_tss_dataEPKvPFvPFvPvES3_ES5_S3_b
+jmp _ZN5boost6detail12get_tss_dataEPKv
+movsx eax, dil
+lea edx, [rax - 0x30]
+jmp 0x800a007
+mov edi, 8
+call _Znwm
+mov rdi, r13
+mov qword [rax], 0
+mov r15, rax
+call _ZN5boost6detail12get_tss_dataEPKv
+cmp r15, rax
+je _ZN5boost6detail12get_tss_dataEPKv
+mov rdx, qword [r13]
+mov r8d, 1
+mov rcx, r15
+mov rdi, r13
+lea rsi, [0x0800b2f3]
+call _ZN5boost6detail12set_tss_dataEPKvPFvPFvPvES3_ES5_S3_b
+jmp _ZN5boost6detail12get_tss_dataEPKv
+mov edi, 8
+call _Znwm
+mov rdi, rbp
+mov qword [rax], 0
+mov r13, rax
+call _ZN5boost6detail12get_tss_dataEPKv
+cmp r13, rax
+je _ZN5boost6detail12get_tss_dataEPKv
+mov rdx, qword [rbp]
+mov r8d, 1
+mov rcx, r13
+mov rdi, rbp
+lea rsi, [0x0800b339]
+call _ZN5boost6detail12set_tss_dataEPKvPFvPFvPvES3_ES5_S3_b
+jmp _ZN5boost6detail12get_tss_dataEPKv
+mov r12d, 8
+jmp 0x800a2f2
+mov edi, 8
+call _Znwm
+mov rdi, rbp
+mov qword [rax], 0
+mov r13, rax
+call _ZN5boost6detail12get_tss_dataEPKv
+cmp r13, rax
+je _ZN5boost6detail12get_tss_dataEPKv
+mov rdx, qword [rbp]
+mov r8d, 1
+mov rcx, r13
+mov rdi, rbp
+lea rsi, [0x0800b38a]
+call _ZN5boost6detail12set_tss_dataEPKvPFvPFvPvES3_ES5_S3_b
+jmp _ZN5boost6detail12get_tss_dataEPKv
+mov edi, 8
+call _Znwm
+mov rdi, r13
+mov qword [rax], 0
+mov r15, rax
+call _ZN5boost6detail12get_tss_dataEPKv
+cmp r15, rax
+je _ZN5boost6detail12get_tss_dataEPKv
+mov rdx, qword [r13]
+mov r8d, 1
+mov rcx, r15
+mov rdi, r13
+lea rsi, [0x0800b3d0]
+call _ZN5boost6detail12set_tss_dataEPKvPFvPFvPvES3_ES5_S3_b
+jmp _ZN5boost6detail12get_tss_dataEPKv
+movsx eax, dil
+sub eax, 0x30
+jmp 0x800a0c0

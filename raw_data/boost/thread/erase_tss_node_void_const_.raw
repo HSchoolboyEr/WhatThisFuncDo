@@ -1,0 +1,113 @@
+push r14
+push r13
+push r12
+push rbp
+mov rbp, rdi
+push rbx
+call _ZN5boost6detail23get_current_thread_dataEv
+test rax, rax
+je 0x8001aac
+mov rdi, qword [rax + 0xd0]
+lea r12, [rax + 0xc8]
+mov r13, rax
+mov rdx, r12
+test rdi, rdi
+je 0x8001b7c
+mov rax, rdi
+jmp 0x8001a59
+nop dword [rax + rax]
+mov rax, qword [rax + 0x18]
+test rax, rax
+je 0x8001a70
+cmp qword [rax + 0x20], rbp
+jb 0x8001a50
+mov rbx, qword [rax + 0x10]
+jbe 0x8001ab8
+mov rdx, rax
+mov rax, rbx
+test rax, rax
+jne 0x8001a59
+cmp r12, rdx
+sete al
+cmp qword [r13 + 0xd8], rdx
+jne 0x8001aac
+test al, al
+je 0x8001aac
+call method std::_Rb_tree<void const*, std::pair<void const* const, boost::detail::tss_data_node>, std::_Select1st<std::pair<void const* const, boost::detail::tss_data_node> >, std::less<void const*>, std::allocator<std::pair<void const* const, boost::detail::tss_data_node> > >::_M_erase(std::_Rb_tree_node<std::pair<void const* const, boost::detail::tss_data_node> >*) [clone .isra.0]
+mov qword [r13 + 0xd8], r12
+mov qword [r13 + 0xd0], 0
+mov qword [r13 + 0xe0], r12
+mov qword [r13 + 0xe8], 0
+pop rbx
+pop rbp
+pop r12
+pop r13
+pop r14
+ret
+nop dword [rax]
+mov r14, qword [rax + 0x18]
+test r14, r14
+jne 0x8001ad3
+jmp 0x8001af0
+nop dword [rax + rax]
+test rcx, rcx
+je 0x8001af3
+mov rdx, r14
+mov r14, rcx
+mov rcx, qword [r14 + 0x10]
+mov rsi, qword [r14 + 0x18]
+cmp qword [r14 + 0x20], rbp
+ja 0x8001ac8
+test rsi, rsi
+je 0x8001af0
+mov rcx, rsi
+jmp 0x8001ad0
+nop dword [rax + rax]
+mov r14, rdx
+test rbx, rbx
+jne 0x8001b0b
+jmp 0x8001b28
+nop word [rax + rax]
+test rdx, rdx
+je 0x8001b2b
+mov rax, rbx
+mov rbx, rdx
+mov rdx, qword [rbx + 0x10]
+mov rcx, qword [rbx + 0x18]
+cmp qword [rbx + 0x20], rbp
+jae 0x8001b00
+test rcx, rcx
+je 0x8001b28
+mov rdx, rcx
+jmp 0x8001b08
+nop dword [rax + rax]
+mov rbx, rax
+cmp qword [r13 + 0xd8], rbx
+jne 0x8001b6e
+cmp r12, r14
+jne 0x8001b6e
+jmp 0x8001a83
+nop
+mov rdi, rbx
+mov rbp, rbx
+call _ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base
+add byte [rax], al
+add byte [rax], al
+mov rsi, r12
+mov rdi, rbp
+mov rbx, rax
+call _ZSt28_Rb_tree_rebalance_for_erasePSt18_Rb_tree_node_baseRS_
+mov esi, 0x40
+mov rdi, rax
+call _ZdlPvm
+sub qword [r13 + 0xe8], 1
+cmp rbx, r14
+jne 0x8001b40
+pop rbx
+pop rbp
+pop r12
+pop r13
+pop r14
+ret
+mov eax, 1
+jmp 0x8001a76

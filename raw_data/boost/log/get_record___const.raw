@@ -1,0 +1,7 @@
+push rbx
+mov rbx, rdi
+lea rdi, [rdi + 0x98]
+call _ZNSt13basic_ostreamIwSt11char_traitsIwEE5flushEv
+mov rax, qword [rbx + 0x1a8]
+pop rbx
+ret

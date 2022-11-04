@@ -1,0 +1,3 @@
+xor edx, edx
+mov esi, 2
+jmp _ZN5boost3log12v2s_mt_posix5sinks26basic_text_ostream_backendIcE9constructENS2_17auto_newline_modeEb

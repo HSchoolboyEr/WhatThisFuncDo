@@ -1,0 +1,9 @@
+mov rax, qword [rdi + 0x18]
+test rax, rax
+je 0x80006c8
+mov rax, qword [rax + 8]
+xor edx, edx
+cmp byte [rax], 0x2a
+sete dl
+add rax, rdx
+ret

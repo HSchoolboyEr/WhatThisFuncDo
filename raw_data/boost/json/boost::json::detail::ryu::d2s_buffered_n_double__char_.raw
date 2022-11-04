@@ -1,0 +1,436 @@
+push r15
+movq rsi, xmm0
+movq rdx, xmm0
+push r14
+shr rsi, 0x34
+shr rdx, 0x3f
+push r13
+and esi, 0x7ff
+push r12
+movq r12, xmm0
+push rbp
+push rbx
+mov rbx, rdi
+movabs rdi, 0xfffffffffffff
+and rdi, r12
+sub rsp, 0x28
+cmp esi, 0x7ff
+je 0x8010080
+test esi, esi
+jne 0x800ff30
+test rdi, rdi
+jne 0x800ff30
+xor eax, eax
+test r12, r12
+js 0x80100b8
+add rdx, rbx
+mov ecx, 0x4530
+add eax, 3
+mov word [rdx], cx
+mov byte [rdx + 2], 0x30
+add rsp, 0x28
+pop rbx
+pop rbp
+pop r12
+pop r13
+pop r14
+pop r15
+ret
+nop dword [rax]
+lea eax, [rsi - 0x3ff]
+cmp eax, 0x34
+jbe 0x8010110
+call _ZN5boost4json6detail3ryu6detail3d2dEmj
+lea rbp, [rbx + 1]
+mov r8, rax
+mov r11d, edx
+mov ecx, eax
+test r12, r12
+jns 0x80100c8
+mov byte [rbx], 0x2d
+mov r13d, 2
+mov qword [var_8h], 1
+mov dword [var_18h], 1
+mov qword [var_10h], rbp
+lea rbp, [rbx + 2]
+movabs rax, 0x2386f26fc0ffff
+cmp r8, rax
+ja 0x80101b8
+movabs rax, 0x38d7ea4c67fff
+cmp r8, rax
+ja 0x8010470
+movabs rax, 0x5af3107a3fff
+cmp r8, rax
+ja 0x8010490
+movabs rax, 0x9184e729fff
+cmp r8, rax
+ja 0x80104c0
+movabs rax, 0xe8d4a50fff
+cmp r8, rax
+ja 0x80104d8
+movabs rax, 0x174876e7ff
+cmp r8, rax
+ja 0x80104f0
+movabs rax, 0x2540be3ff
+cmp r8, rax
+ja 0x8010508
+cmp r8, 0x3b9ac9ff
+ja 0x8010520
+cmp r8, 0x5f5e0ff
+ja 0x80104a8
+cmp r8, 0x98967f
+ja 0x801055c
+cmp r8, 0xf423f
+ja 0x8010571
+cmp r8, 0x1869f
+ja 0x8010586
+cmp r8, 0x270f
+ja 0x80105a3
+cmp r8, 0x3e7
+ja 0x80105b8
+cmp r8, 0x63
+ja 0x80105cd
+cmp r8, 0xa
+sbb eax, eax
+xor esi, esi
+add eax, 2
+mov dword [var_1ch], eax
+mov r12d, eax
+jmp 0x8010298
+nop dword [rax]
+test rdi, rdi
+jne 0x80100f0
+xor eax, eax
+test r12, r12
+jns 0x8010094
+mov byte [rbx], 0x2d
+mov eax, 1
+movabs rcx, 0x7974696e69666e49
+add eax, 8
+mov qword [rbx + rdx], rcx
+add rsp, 0x28
+pop rbx
+pop rbp
+pop r12
+pop r13
+pop r14
+pop r15
+ret
+nop dword [rax]
+mov byte [rbx], 0x2d
+mov eax, 1
+jmp 0x800ff0b
+nop dword [rax]
+mov qword [var_10h], rbx
+mov r13d, 1
+mov qword [var_8h], 0
+mov dword [var_18h], 0
+jmp 0x800ff7c
+nop dword [rax]
+mov esi, 0x614e
+mov byte [rbx + 2], 0x4e
+mov eax, 3
+mov word [rbx], si
+jmp 0x800ff1d
+nop word cs:[rax + rax]
+mov ecx, 0x433
+mov r9, 0xffffffffffffffff
+mov r8, rdi
+sub ecx, esi
+bts r8, 0x34
+shl r9, cl
+not r9
+and r9, r8
+mov qword [var_8h], r9
+jne _ZN5boost4json6detail3ryu6detail3d2dEmj
+movabs rdi, 0xcccccccccccccccd
+shr r8, cl
+mov rax, r8
+mov ecx, r8d
+mul rdi
+shr rdx, 3
+lea eax, [rdx + rdx*4]
+add eax, eax
+cmp eax, r8d
+jne 0x8010538
+mov esi, 1
+nop word [rax + rax]
+mov rax, rdx
+mov r8, rdx
+mov r11d, esi
+mul rdi
+mov ecx, r8d
+lea esi, [rsi + 1]
+shr rdx, 3
+lea eax, [rdx + rdx*4]
+add eax, eax
+cmp r8d, eax
+je 0x8010170
+lea rbp, [rbx + 1]
+test r12, r12
+js 0x800ff59
+mov qword [var_10h], rbx
+mov r13d, 1
+mov dword [var_18h], 0
+jmp 0x800ff8f
+nop dword [rax]
+mov dword [var_1ch], 0x11
+mov edi, 0x11
+mov r12d, 0x11
+mov rax, r8
+xor esi, esi
+shr rax, 0x20
+je 0x8010298
+mov rax, r8
+mov r8d, 0xd1b71759
+add rdi, qword [var_8h]
+movabs rdx, 0xabcc77118461cefd
+mul rdx
+shr rdx, 0x1a
+imul eax, edx, 0x5f5e100
+sub ecx, eax
+mov esi, ecx
+imul rsi, r8
+mov rax, rsi
+shr rsi, 0x2d
+shr rax, 0x2d
+imul r9d, eax, 0x2710
+mov eax, ecx
+mov ecx, esi
+imul r8, rcx
+mov ecx, esi
+sub eax, r9d
+mov esi, eax
+shr r8, 0x2d
+imul rsi, rsi, 0x51eb851f
+imul r8d, r8d, 0x2710
+shr rsi, 0x25
+sub ecx, r8d
+imul r8d, esi, 0x64
+add esi, esi
+sub eax, r8d
+lea r8, [0x08010251]
+add byte [rax], al
+add byte [rax], al
+add eax, eax
+movzx eax, word [r8 + rax]
+mov word [rbx + rdi - 1], ax
+movzx eax, word [r8 + rsi]
+mov word [rbx + rdi - 3], ax
+mov eax, ecx
+imul rax, rax, 0x51eb851f
+shr rax, 0x25
+imul esi, eax, 0x64
+add eax, eax
+sub ecx, esi
+mov esi, 8
+add ecx, ecx
+movzx ecx, word [r8 + rcx]
+mov word [rbx + rdi - 5], cx
+movzx eax, word [r8 + rax]
+mov ecx, edx
+mov word [rbx + rdi - 7], ax
+cmp ecx, 0x270f
+jbe 0x8010319
+mov r14d, r12d
+lea r8, [0x080102aa]
+add r14, qword [var_8h]
+mov r15d, 0xd1b71759
+nop dword [rax]
+mov eax, ecx
+mov edx, ecx
+mov r9d, ecx
+imul rax, r15
+mov rdi, rax
+shr rax, 0x2d
+shr rdi, 0x2d
+mov rcx, rax
+mov eax, esi
+add esi, 4
+imul edi, edi, 0x2710
+sub edx, edi
+mov rdi, r14
+sub rdi, rax
+mov eax, edx
+imul rax, rax, 0x51eb851f
+shr rax, 0x25
+imul r10d, eax, 0x64
+add eax, eax
+sub edx, r10d
+add edx, edx
+movzx edx, word [r8 + rdx]
+mov word [rbx + rdi - 1], dx
+movzx eax, word [r8 + rax]
+mov word [rbx + rdi - 3], ax
+cmp r9d, 0x5f5e0ff
+ja 0x80102b8
+cmp ecx, 0x63
+jbe 0x801035b
+mov eax, ecx
+mov r15, qword [var_8h]
+mov edi, esi
+add esi, 2
+imul rax, rax, 0x51eb851f
+shr rax, 0x25
+imul edx, eax, 0x64
+sub ecx, edx
+lea edx, [rcx + rcx]
+mov ecx, eax
+mov eax, edx
+lea rdx, [0x08010348]
+movzx edx, word [rdx + rax]
+mov eax, r12d
+lea rax, [r15 + rax - 1]
+sub rax, rdi
+mov word [rbx + rax], dx
+cmp ecx, 9
+jbe 0x8010430
+mov eax, dword [var_18h]
+add ecx, ecx
+lea rdx, [0x08010371]
+add eax, r12d
+sub eax, esi
+lea esi, [rcx + 1]
+movzx esi, byte [rdx + rsi]
+mov byte [rbx + rax], sil
+movzx eax, byte [rdx + rcx]
+mov rsi, qword [var_10h]
+mov byte [rsi], al
+cmp r12d, 1
+je 0x80103a5
+mov eax, dword [var_18h]
+mov byte [rbp], 0x2e
+lea ebp, [r12 + rax + 1]
+mov r13, rbp
+add rbp, rbx
+lea eax, [r13 + 1]
+add r11d, dword [var_1ch]
+mov byte [rbp], 0x45
+movsxd rcx, eax
+mov edx, r11d
+add rcx, rbx
+sub edx, 1
+jns 0x80103d5
+lea eax, [r13 + 2]
+mov byte [rcx], 0x2d
+mov edx, 1
+movsxd rcx, eax
+sub edx, r11d
+add rcx, rbx
+cmp edx, 0x63
+jle 0x8010440
+movsxd rsi, edx
+mov edi, edx
+lea r8, [0x080103e6]
+imul rsi, rsi, 0x66666667
+sar edi, 0x1f
+sar rsi, 0x22
+sub esi, edi
+lea edi, [rsi + rsi]
+lea esi, [rsi + rsi*4]
+movsxd rdi, edi
+add esi, esi
+movzx edi, word [r8 + rdi]
+sub edx, esi
+add edx, 0x30
+mov word [rcx], di
+lea ecx, [rax + 2]
+add eax, 3
+movsxd rcx, ecx
+mov byte [rbx + rcx], dl
+add rsp, 0x28
+pop rbx
+pop rbp
+pop r12
+pop r13
+pop r14
+pop r15
+ret
+nop dword [rax]
+mov rax, qword [var_10h]
+add ecx, 0x30
+mov byte [rax], cl
+jmp 0x801038c
+nop
+cmp edx, 9
+jle 0x8010460
+add edx, edx
+lea rsi, [0x0801044e]
+add eax, 2
+movsxd rdx, edx
+movzx edx, word [rsi + rdx]
+mov word [rcx], dx
+jmp 0x800ff1d
+add edx, 0x30
+add eax, 1
+mov byte [rcx], dl
+jmp 0x800ff1d
+nop dword [rax]
+mov dword [var_1ch], 0x10
+mov edi, 0x10
+mov r12d, 0x10
+jmp 0x80101cb
+nop dword [rax + rax]
+mov dword [var_1ch], 0xf
+mov edi, 0xf
+mov r12d, 0xf
+jmp 0x80101cb
+mov dword [var_1ch], 9
+mov r12d, 9
+xor esi, esi
+jmp 0x8010298
+nop dword [rax]
+mov dword [var_1ch], 0xe
+mov edi, 0xe
+mov r12d, 0xe
+jmp 0x80101cb
+mov dword [var_1ch], 0xd
+mov edi, 0xd
+mov r12d, 0xd
+jmp 0x80101cb
+mov dword [var_1ch], 0xc
+mov edi, 0xc
+mov r12d, 0xc
+jmp 0x80101cb
+mov dword [var_1ch], 0xb
+mov edi, 0xb
+mov r12d, 0xb
+jmp 0x80101cb
+mov dword [var_1ch], 0xa
+mov edi, 0xa
+mov r12d, 0xa
+jmp 0x80101cb
+lea rbp, [rbx + 1]
+test r12, r12
+js 0x801059b
+mov qword [var_10h], rbx
+mov r13d, 1
+xor r11d, r11d
+mov dword [var_18h], 0
+jmp 0x800ff8f
+mov dword [var_1ch], 8
+mov r12d, 8
+xor esi, esi
+jmp 0x8010298
+mov dword [var_1ch], 7
+mov r12d, 7
+xor esi, esi
+jmp 0x8010298
+mov dword [var_1ch], 6
+mov r12d, 6
+xor esi, esi
+jmp 0x8010298
+xor r11d, r11d
+jmp 0x800ff59
+mov dword [var_1ch], 5
+mov r12d, 5
+xor esi, esi
+jmp 0x8010298
+mov dword [var_1ch], 4
+mov r12d, 4
+xor esi, esi
+jmp 0x8010298
+mov dword [var_1ch], 3
+mov r12d, 3
+xor esi, esi
+jmp 0x8010298

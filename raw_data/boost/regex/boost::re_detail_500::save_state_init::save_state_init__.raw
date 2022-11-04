@@ -1,0 +1,40 @@
+push rbp
+push rbx
+mov rbx, rdi
+sub rsp, 8
+mov rax, qword [rdi]
+mov rbp, qword [rax]
+movzx eax, byte [0x0800a4b6]
+test al, al
+je 0x800a500
+lea rdx, [0x0800a4c1]
+lea rcx, [rdx + 0x80]
+mov rax, qword [rdx]
+test rax, rax
+je 0x800a4e8
+add rdx, 8
+cmp rdx, rcx
+jne 0x800a4c8
+mov rdi, rbp
+call _ZdlPv
+jmp 0x800a4ef
+nop dword [rax + rax]
+lock cmpxchg qword [rdx], rbp
+jne 0x800a4d0
+mov rax, qword [rbx]
+mov qword [rax], 0
+add rsp, 8
+pop rbx
+pop rbp
+ret
+lea rdi, [0x0800a507]
+call __cxa_guard_acquire
+test eax, eax
+je 0x800a4ba
+lea rdi, [0x0800a517]
+call __cxa_guard_release
+lea rdx, [0x0800a523]
+lea rsi, [0x0800a52a]
+lea rdi, [0x0800a531]
+call __cxa_atexit
+jmp 0x800a4ba

@@ -1,0 +1,132 @@
+push r15
+lea rax, [0x08009919]
+lea rcx, [0x08009920]
+push r14
+lea rdx, [rax - 0x40]
+movq xmm2, rax
+lea rsi, [rcx + 0x20]
+push r13
+movq xmm1, rdx
+push r12
+punpcklqdq xmm1, xmm2
+mov r12, rdi
+push rbp
+push rbx
+lea rbx, [rdx - 0x30]
+sub rsp, 0x98
+mov rax, qword [0x08009953]
+lea r13, [var_20h]
+lea rbp, [var_50h]
+mov qword [var_48h], rsi
+mov rdi, rbp
+mov rsi, r13
+mov qword [var_28h], 0
+mov qword [var_30h], 0
+mov qword [var_38h], 0
+mov qword [var_40h], rax
+mov qword [var_20h], rcx
+mov qword [var_58h], 0
+mov qword [var_60h], 0
+mov qword [var_68h], 0
+mov qword [var_70h], rax
+mov qword [var_50h], rbx
+movaps xmmword [rsp], xmm1
+movups xmmword [var_78h], xmm1
+call _ZN5boost16exception_detail20copy_boost_exceptionEPNS_9exceptionEPKS1_
+lea rax, [0x080099c7]
+lea rcx, [0x080099ce]
+mov dword [var_70h], 0xae
+movq xmm3, rax
+movq xmm0, rcx
+punpcklqdq xmm0, xmm3
+movaps xmmword [var_60h], xmm0
+movzx eax, byte [0x080099f0]
+add byte [rax], al
+add byte [rax], al
+test al, al
+je 0x8009a50
+mov rax, qword [0x080099fb]
+movdqu xmm4, xmmword [0x08009a03]
+movups xmmword [r12], xmm4
+test rax, rax
+je 0x8009a12
+lock add dword [rax + 8], 1
+movdqa xmm5, xmmword [rsp]
+mov rdi, rbp
+mov qword [var_50h], rbx
+movups xmmword [var_78h], xmm5
+call _ZN5boost16exception_detail14bad_exception_D2Ev
+mov rdi, r13
+call _ZN5boost16exception_detail14bad_exception_D1Ev
+add rsp, 0x98
+mov rax, r12
+pop rbx
+pop rbp
+pop r12
+pop r13
+pop r14
+pop r15
+ret
+nop word cs:[rax + rax]
+lea rdi, [0x08009a57]
+call __cxa_guard_acquire
+test eax, eax
+je 0x80099f4
+mov edi, 0x38
+call _Znwm
+mov r14, rax
+mov rdi, qword [var_58h]
+lea rax, [0x08009a79]
+mov qword [r14 + 0x30], rax
+lea rax, [0x08009a84]
+mov qword [r14], rax
+mov qword [r14 + 8], rdi
+test rdi, rdi
+je 0x8009aab
+mov rax, qword [rdi]
+lea rdx, [0x08009a9a]
+mov rax, qword [rax + 0x18]
+cmp rax, rdx
+jne 0x8009b50
+add dword [rdi + 0x58], 1
+movdqa xmm7, xmmword [var_60h]
+mov rax, qword [var_70h]
+mov qword [r14], rbx
+movups xmmword [r14 + 0x10], xmm7
+movdqa xmm7, xmmword [rsp]
+mov qword [r14 + 0x20], rax
+movups xmmword [r14 + 0x28], xmm7
+lea rax, [r14 + 0x30]
+mov edi, 0x18
+mov qword [var_18h], rax
+call _Znwm
+mov r15, rax
+movq xmm0, qword [var_18h]
+mov rax, qword [0x08009aef]
+lea rdx, [0x08009af6]
+movq xmm6, r15
+mov qword [r15], rdx
+punpcklqdq xmm0, xmm6
+mov qword [r15 + 8], rax
+mov qword [r15 + 0x10], r14
+movups xmmword [0x08009b11], xmm0
+lock add dword [r15 + 8], 1
+lea rdi, [0x08009b1e]
+call __cxa_guard_release
+lea rdx, [0x08009b2a]
+lea rsi, [0x08009b31]
+lea rdi, [0x08009b38]
+call __cxa_atexit
+mov rdi, r15
+call _ZN5boost6detail15sp_counted_base7releaseEv
+jmp _ZZN5boost16exception_detail27get_static_exception_objectINS0_14bad_exception_EEENS_13exception_ptrEvE2ep
+nop word [rax + rax]
+call rax
+movdqa xmm6, xmmword [var_60h]
+mov rax, qword [var_70h]
+mov qword [r14], rbx
+movups xmmword [r14 + 0x10], xmm6
+movdqa xmm6, xmmword [rsp]
+mov qword [r14 + 0x20], rax
+movups xmmword [r14 + 0x28], xmm6
+jmp 0x8009acc

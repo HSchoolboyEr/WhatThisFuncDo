@@ -1,0 +1,2 @@
+imul rax, rdi, 0x3b9aca00
+ret

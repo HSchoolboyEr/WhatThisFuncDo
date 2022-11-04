@@ -1,0 +1,11 @@
+mov rax, qword [rsi]
+mov qword [rdi], rax
+and rax, 0xfffffffffffffffc
+jne 0x8004f38
+mov qword [rdi + 0x20], rdi
+ret
+nop dword [rax]
+mov rax, qword [rax + 8]
+lock add qword [rax + 0xd8], 1
+mov qword [rdi + 0x20], rdi
+ret

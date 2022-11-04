@@ -1,0 +1,8 @@
+push r12
+mov r12, rdi
+lea rdi, [rdi + 8]
+mov r9, r12
+call _ZN5boost4json6detail11string_impl7replaceEmmPKcmRKNS0_11storage_ptrE
+mov rax, r12
+pop r12
+ret

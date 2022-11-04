@@ -1,0 +1,64 @@
+push r15
+push r14
+push r13
+push r12
+push rbp
+mov rbp, rdi
+push rbx
+sub rsp, 0xa8
+mov rsi, qword [rdi + 0x88]
+mov r12, qword [arg_80h]
+lea rdi, [rsi + 4]
+mov qword [arg_88h], rdi
+cmp rdi, r12
+je 0x80108b8
+movsxd rax, dword [rsi + 4]
+test eax, 0xffffff80
+je 0x8010890
+mov rdi, rbp
+call _ZN5boost13re_detail_50018basic_regex_parserIwNS_14c_regex_traitsIwEEE18unescape_characterEv
+mov rdi, rbp
+mov esi, eax
+call .text
+mov r13d, 1
+add rsp, 0xa8
+mov eax, r13d
+pop rbx
+pop rbp
+pop r12
+pop r13
+pop r14
+pop r15
+ret
+nop word [rax + rax]
+lea rdx, [0x08010897]
+movzx eax, byte [rdx + rax]
+sub eax, 0x11
+cmp al, 0x2a
+ja 0x801085d
+lea rdx, [0x080108a9]
+movzx eax, al
+movsxd rax, dword [rdx + rax*4]
+add rax, rdx
+jmp rax
+nop dword [rax]
+lea rdi, [var_10h]
+lea rsi, [0x080108c4]
+call .text
+mov rdx, qword [arg_88h]
+mov r8, qword [var_18h]
+mov esi, 5
+sub rdx, qword [arg_78h]
+mov rcx, qword [var_10h]
+mov rdi, rbp
+sar rdx, 2
+call .text
+mov rdi, qword [var_10h]
+lea rax, [var_20h]
+cmp rdi, rax
+je 0x801090c
+mov rax, qword [var_20h]
+lea rsi, [rax + 1]
+call _ZdlPvm
+xor r13d, r13d
+jmp 0x8010875

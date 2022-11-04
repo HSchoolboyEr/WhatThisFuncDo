@@ -1,0 +1,201 @@
+push r15
+push r14
+mov r14, rsi
+push r13
+mov r13, rdi
+push r12
+mov r12, rdx
+push rbp
+push rbx
+sub rsp, 0x48
+mov rbp, qword [rdi + 0x20]
+mov byte [arg_2ch], 0
+cmp rsi, qword [arg_78h]
+je 0x8000d30
+mov rax, qword [arg_58h]
+mov rbx, qword [arg_40h]
+mov qword [arg_10h], rax
+lea rax, [arg_38h]
+mov qword [arg_8h], rax
+test rbx, rbx
+je 0x8000b58
+nop dword [rax]
+mov rax, qword [rbx + 0x20]
+mov rdi, qword [r12 + 8]
+mov rsi, qword [rax + 8]
+call _ZNK5boost13serialization18extended_type_infoltERKS1_
+mov rcx, qword [rbx + 0x10]
+mov rdx, qword [rbx + 0x18]
+test al, al
+jne 0x8000b48
+test rdx, rdx
+je 0x8000d58
+mov rbx, rdx
+jmp 0x8000b18
+nop dword [rax]
+test rcx, rcx
+je 0x8000b60
+mov rbx, rcx
+jmp 0x8000b18
+nop word [rax + rax]
+lea rbx, [arg_38h]
+nop dword [rax]
+cmp qword [arg_48h], rbx
+je 0x8000d80
+mov rdi, rbx
+mov r15, rbx
+call _ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base
+mov rbx, rax
+mov rax, qword [rbx + 0x20]
+mov rsi, qword [r12 + 8]
+mov rdi, qword [rax + 8]
+call _ZNK5boost13serialization18extended_type_infoltERKS1_
+test al, al
+je 0x8000c30
+test r15, r15
+je 0x8000da3
+mov byte [arg_18h], 1
+cmp qword [arg_8h], r15
+jne 0x8000d88
+mov edi, 0x30
+call _Znwm
+mov qword [rax + 0x20], r12
+mov rbx, rax
+movzx eax, word [arg_10h]
+mov rdx, r15
+movzx edi, byte [arg_18h]
+mov rcx, qword [arg_8h]
+mov rsi, rbx
+mov word [rbx + 0x28], ax
+call _ZSt29_Rb_tree_insert_and_rebalancebPSt18_Rb_tree_node_baseS0_RS_
+xor eax, eax
+add qword [arg_58h], 1
+mov rsi, qword [arg_68h]
+mov qword [arg_20h], r12
+mov qword [arg_28h], 0
+mov dword [arg_30h], 0
+mov word [arg_34h], ax
+cmp rsi, qword [arg_70h]
+je 0x8000db0
+mov eax, dword [arg_30h]
+mov qword [rsi], r12
+add rsi, 0x18
+mov qword [rsi - 0x10], 0
+mov dword [rsi - 8], eax
+movzx eax, byte [arg_34h]
+mov byte [rsi - 3], 0
+mov byte [rsi - 4], al
+mov qword [arg_68h], rsi
+movsx rax, word [rbx + 0x28]
+lea rdx, [rax + rax*2]
+mov word [arg_10h], ax
+mov rax, qword [arg_60h]
+lea r15, [rax + rdx*8]
+mov rax, qword [r12 + 0x10]
+cmp byte [r15 + 0x15], 0
+mov qword [r15 + 8], rax
+jne 0x8000c64
+mov rdx, r15
+mov rsi, r13
+mov rdi, rbp
+call method boost::archive::detail::basic_iarchive_impl::load_preamble(boost::archive::detail::basic_iarchive&, boost::archive::detail::basic_iarchive_impl::cobject_id&) [clone .part.0]
+mov eax, dword [arg_20h]
+mov rbx, qword [arg_10h]
+sub rbx, qword [arg_8h]
+mov dword [arg_8h], eax
+movzx eax, byte [r15 + 0x14]
+sar rbx, 4
+mov dword [arg_20h], ebx
+test al, al
+je 0x8000cf6
+mov rax, qword [r13]
+lea rsi, [arg_20h]
+mov dword [arg_20h], 0
+mov rdi, r13
+mov qword [arg_18h], rsi
+call qword [rax + 8]
+mov rsi, qword [arg_10h]
+mov rdx, qword [arg_8h]
+mov rax, rsi
+sub rax, rdx
+sar rax, 4
+cmp dword [arg_20h], eax
+jb 0x8000d60
+movzx eax, word [arg_10h]
+mov qword [arg_20h], r14
+mov byte [arg_28h], 0
+mov word [arg_2ah], ax
+cmp rsi, qword [arg_18h]
+je 0x8000dc3
+mov qword [rsi], r14
+add rsi, 0x10
+mov byte [rsi - 8], 0
+mov word [rsi - 6], ax
+mov qword [arg_10h], rsi
+sub rsi, rdx
+sar rsi, 4
+mov dword [arg_24h], esi
+mov rax, qword [r12]
+mov ecx, dword [r15 + 0x10]
+mov rdx, r14
+mov rsi, r13
+mov rdi, r12
+call qword [rax + 0x10]
+mov eax, dword [arg_8h]
+mov dword [arg_28h], ebx
+mov byte [arg_2ch], 0
+mov dword [arg_20h], eax
+add rsp, 0x48
+pop rbx
+pop rbp
+pop r12
+pop r13
+pop r14
+pop r15
+ret
+nop word [rax + rax]
+cmp rdx, qword [arg_80h]
+jne 0x8000af9
+mov rax, qword [rdx]
+mov ecx, dword [arg_88h]
+mov rdx, rsi
+mov rsi, rdi
+mov rdi, r12
+call qword [rax + 0x10]
+jmp 0x8000d67
+nop dword [rax]
+mov r15, rbx
+jmp 0x8000b78
+mov eax, dword [arg_8h]
+mov dword [arg_20h], eax
+mov byte [arg_2ch], 0
+add rsp, 0x48
+pop rbx
+pop rbp
+pop r12
+pop r13
+pop r14
+pop r15
+ret
+nop word [rax + rax]
+mov r15, rbx
+jmp 0x8000b9b
+mov rax, qword [r15 + 0x20]
+mov rdi, qword [r12 + 8]
+mov rsi, qword [rax + 8]
+call _ZNK5boost13serialization18extended_type_infoltERKS1_
+mov byte [arg_18h], al
+jmp 0x8000bab
+xor ebx, ebx
+jmp 0x8000c30
+nop word [rax + rax]
+lea rdx, [arg_20h]
+lea rdi, [arg_60h]
+call _ZNSt6vectorIN5boost7archive6detail19basic_iarchive_impl10cobject_idESaIS4_EE17_M_realloc_insertIJS4_EEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_
+jmp 0x8000c30
+mov rdx, qword [arg_18h]
+lea rdi, [arg_8h]
+call _ZNSt6vectorIN5boost7archive6detail19basic_iarchive_impl7aobjectESaIS4_EE17_M_realloc_insertIJS4_EEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_
+mov rsi, qword [arg_10h]
+mov rdx, qword [arg_8h]
+jmp 0x8000cec

@@ -1,0 +1,140 @@
+push r15
+push r14
+push r13
+lea r13, [rdi + 0x18]
+push r12
+mov r12, rsi
+push rbp
+push rbx
+mov rbx, rdi
+sub rsp, 0x48
+mov esi, dword [rdi + 0x18]
+mov rdi, r12
+mov byte [var_fh], 0
+call _ZNK5boost3log12v2s_mt_posix19attribute_value_set4findENS1_14attribute_nameE
+add byte [rax], al
+add byte [rax], al
+mov rdi, r12
+mov rbp, rax
+call _ZNK5boost3log12v2s_mt_posix19attribute_value_set3endEv
+add byte [rax], al
+add byte [rax], al
+cmp rbp, rax
+je 0x8007e5e
+add rbx, 0x20
+lea rax, [var_fh]
+cmp qword [arg_18h], 0
+mov qword [var_10h], rbx
+mov qword [var_18h], rax
+je 0x8007e5e
+lea rax, [0x08007ded]
+cmp byte [0x08007df4], 2
+mov qword [var_20h], rax
+jne 0x8007e78
+mov qword [var_30h], 4
+lea rax, [0x08007e0b]
+mov qword [var_20h], rax
+mov rax, qword [0x08007e17]
+mov qword [var_28h], rax
+lea rax, [var_10h]
+mov qword [var_38h], rax
+mov rdi, qword [arg_18h]
+test rdi, rdi
+je 0x8007e5e
+mov rax, qword [rdi]
+lea rsi, [var_20h]
+call qword [rax + 0x18]
+test al, al
+jne 0x8007e5e
+mov rdi, qword [arg_18h]
+test rdi, rdi
+je 0x8007e5e
+mov rax, qword [rdi]
+lea rdx, [0x08007e51]
+add byte [rax], al
+add byte [rax], al
+mov rax, qword [rax + 0x28]
+cmp rax, rdx
+jne 0x8007f78
+movzx eax, byte [var_fh]
+add rsp, 0x48
+pop rbx
+pop rbp
+pop r12
+pop r13
+pop r14
+pop r15
+ret
+nop word [rax + rax]
+lea r15, [var_20h]
+lea rbx, [0x08007e84]
+lea r14, [0x08007e8b]
+lea r12, [method.void_boost::log::v2s_mt_posix::type_dispatcher::callback_base::trampoline_boost::log::v2s_mt_posix::save_result_wrapper_boost::log::v2s_mt_posix::aux._anonymous_namespace_::matches_predicate_const__bool___std::__cxx11::basic_string_char__std::char]
+mov rdi, r15
+call _ZNK5boost3log12v2s_mt_posix3aux17once_block_sentry16enter_once_blockEv
+add byte [rax], al
+add byte [rax], al
+test al, al
+jne 0x8007f58
+movzx eax, byte [0x08007ea9]
+test al, al
+je .bss
+lea rax, [0x08007eb8]
+mov qword [rbx], r14
+mov edx, 4
+mov rdi, rbx
+mov qword [0x08007eca], rax
+lea rax, [sym.void_boost::log::v2s_mt_posix::type_dispatcher::callback_base::trampoline_boost::log::v2s_mt_posix::save_result_wrapper_boost::log::v2s_mt_posix::aux::_anonymous_namespace_::matches_predicate_const__bool___boost::log::v2s_mt_posix::basic_string_literal_char__std::char_traits_char______void__boost::log::v2s_mt_posix::basic_string_literal_char__std::char_traits_char____const_]
+lea rsi, [0x08007ed8]
+mov qword [0x08007edf], rax
+lea rax, [0x08007ee6]
+mov qword [0x08007eed], rax
+lea rax, [method.void_boost::log::v2s_mt_posix::type_dispatcher::callback_base::trampoline_boost::log::v2s_mt_posix::save_result_wrapper_boost::log::v2s_mt_posix::aux._anonymous_namespace_::matches_predicate_const__bool___std::__cxx11::basic_string_wchar_t__std::c]
+mov qword [0x08007efb], rax
+lea rax, [0x08007f02]
+mov qword [0x08007f09], rax
+lea rax, [method.void_boost::log::v2s_mt_posix::type_dispatcher::callback_base::trampoline_boost::log::v2s_mt_posix::save_result_wrapper_boost::log::v2s_mt_posix::aux._anonymous_namespace_::matches_predicate_const__bool___boost::log::v2s_mt_posix::basic_string_lit]
+mov qword [0x08007f17], rax
+mov qword [0x08007f1e], r12
+call _ZSt16__introsort_loopIPSt4pairIN5boost9typeindex14stl_type_indexEPvElN9__gnu_cxx5__ops15_Iter_comp_iterINS1_3log12v2s_mt_posix3aux21dispatching_map_orderEEEEvT_SF_T0_T1_
+lea rsi, [0x08007f2a]
+mov rdi, rbx
+call method void std::__insertion_sort<std::pair<boost::typeindex::stl_type_index, void*>*, __gnu_cxx::__ops::_Iter_comp_iter<boost::log::v2s_mt_posix::aux::dispatching_map_order> >(std::pair<boost::typeindex::stl_type_index, void*>*, std::pair<boost::typeindex::stl_type_index, void*>*, __gnu_cxx::__ops::_Iter_comp_iter<boost::log::v2s_mt_posix::aux::dispatching_map_order>) [clone .isra.0]
+mov rdi, r15
+mov qword [0x08007f3c], rbx
+call _ZN5boost3log12v2s_mt_posix3aux17once_block_sentry6commitEv
+add byte [rax], al
+add byte [rax], al
+mov rax, qword [var_20h]
+cmp byte [rax], 2
+je 0x8007dfb
+jmp _ZNK5boost3log12v2s_mt_posix3aux17once_block_sentry16enter_once_blockEv
+nop dword [rax]
+mov rax, qword [var_20h]
+cmp byte [rax], 2
+je 0x8007dfb
+mov rdi, r15
+call _ZN5boost3log12v2s_mt_posix3aux17once_block_sentry8rollbackEv
+add byte [rax], al
+add byte [rax], al
+jmp 0x8007dfb
+nop dword [rax + rax]
+call rax
+jmp 0x8007e5e
+nop
+lea rdi, [0x08007f87]
+call __cxa_guard_acquire
+test eax, eax
+je _ZTIN5boost3log12v2s_mt_posix20basic_string_literalIcSt11char_traitsIcEEE
+lea rax, [0x08007f9b]
+lea rdi, [0x08007fa2]
+mov qword [0x08007fad], 0
+mov qword [rbx], rax
+mov qword [0x08007fb7], rax
+mov qword [0x08007fbe], rax
+mov qword [0x08007fc5], rax
+mov qword [0x08007fd0], 0
+mov qword [0x08007fdb], 0
+mov qword [0x08007fe6], 0
+call __cxa_guard_release
+jmp _ZTIN5boost3log12v2s_mt_posix20basic_string_literalIcSt11char_traitsIcEEE

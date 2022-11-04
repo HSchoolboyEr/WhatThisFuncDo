@@ -1,0 +1,51 @@
+push r14
+push r13
+push r12
+push rbp
+push rbx
+mov rbx, rdi
+lea rdi, [rdi + 0x30]
+lea rbp, [rbx + 0x28]
+sub rsp, 0x10
+call _ZNSt6localeD1Ev
+add byte [rax], al
+add byte [rax], al
+mov rdi, qword [rbx + 0x20]
+lea r13, [var_8h]
+mov rax, qword [rdi]
+call qword [rax + 0x30]
+mov r12, qword [rbx + 0x20]
+mov rdi, r13
+lea r14, [r12 + 0x38]
+mov rsi, r14
+call _ZNSt6localeC1ERKS_
+add byte [rax], al
+add byte [rax], al
+mov rax, qword [r12]
+mov rsi, rbp
+mov rdi, r12
+call qword [rax + 0x10]
+mov rsi, rbp
+mov rdi, r14
+call _ZNSt6localeaSERKS_
+add byte [rax], al
+add byte [rax], al
+mov rdi, r13
+call _ZNSt6localeD1Ev
+mov rdi, rbp
+call _ZNSt6localeD1Ev
+lea rax, [0x0800153e]
+lea rdi, [rbx + 8]
+mov qword [rbx + 8], rax
+add rsp, 0x10
+pop rbx
+pop rbp
+pop r12
+pop r13
+pop r14
+jmp _ZNSt7codecvtIcc11__mbstate_tED2Ev
+mov rdi, r13
+call _ZNSt6localeD1Ev
+call _ZSt9terminatev
+add byte [rax], al
+add byte [rax], al

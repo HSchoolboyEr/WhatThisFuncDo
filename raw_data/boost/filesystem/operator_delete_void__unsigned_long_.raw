@@ -1,0 +1,2 @@
+jmp free
+nop word cs:[rax + rax]

@@ -1,0 +1,19 @@
+mov rax, qword [rdi + 0xd8]
+push rbx
+mov rbx, rdi
+sub rax, 8
+cmp qword [rdi + 0xd0], rax
+ja _ZN5boost13re_detail_50012perl_matcherIPKwSaINS_9sub_matchIS3_EEENS_14c_regex_traitsIwEEE12extend_stackEv
+mov dword [rax], 0x11
+mov qword [rbx + 0xd8], rax
+mov rax, qword [rbx + 0x58]
+mov rax, qword [rax + 8]
+mov qword [rbx + 0x58], rax
+mov eax, 1
+pop rbx
+ret
+nop dword [rax + rax]
+call _ZN5boost13re_detail_50012perl_matcherIPKwSaINS_9sub_matchIS3_EEENS_14c_regex_traitsIwEEE12extend_stackEv
+mov rax, qword [rbx + 0xd8]
+sub rax, 8
+jmp 0x800ea28

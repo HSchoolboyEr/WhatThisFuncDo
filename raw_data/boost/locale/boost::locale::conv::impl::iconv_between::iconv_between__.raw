@@ -1,0 +1,12 @@
+lea rax, [0x08001277]
+push rbp
+mov rbp, rdi
+mov qword [rdi], rax
+mov rdi, qword [rdi + 8]
+cmp rdi, 0xffffffffffffffff
+je 0x800128d
+call iconv_close
+mov rdi, rbp
+mov esi, 0x18
+pop rbp
+jmp _ZdlPvm

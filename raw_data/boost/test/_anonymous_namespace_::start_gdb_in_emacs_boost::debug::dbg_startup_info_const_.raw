@@ -1,0 +1,48 @@
+push rbp
+push rbx
+mov rbx, rdi
+sub rsp, 0x208
+call method boost::debug::(anonymous namespace)::prepare_gdb_cmnd_file(boost::debug::dbg_startup_info const&)
+test rax, rax
+je 0x8000e14
+mov rbp, rsp
+mov rcx, rax
+mov esi, 0x1f4
+xor eax, eax
+lea rdx, [0x08000dca]
+mov rdi, rbp
+call snprintf
+mov rdi, rbx
+call method boost::debug::(anonymous namespace)::prepare_window_title(boost::debug::dbg_startup_info const&)
+mov rdx, rax
+test rax, rax
+je 0x8000e14
+mov r8, qword [rbx + 0x20]
+cmp qword [rbx + 0x28], r8
+je 0x8000e20
+push 0
+lea r9, [0x08000df5]
+xor eax, eax
+lea rcx, [0x08000dfe]
+push rbp
+lea rsi, [0x08000e06]
+lea rdi, [0x08000e0d]
+call method boost::debug::(anonymous namespace)::safe_execlp(char const*, ...)
+pop rax
+pop rdx
+add rsp, 0x208
+pop rbx
+pop rbp
+ret
+nop
+mov r8, rbp
+xor r9d, r9d
+lea rcx, [0x08000e2d]
+xor eax, eax
+lea rsi, [0x08000e36]
+lea rdi, [0x08000e3d]
+call method boost::debug::(anonymous namespace)::safe_execlp(char const*, ...)
+add rsp, 0x208
+pop rbx
+pop rbp
+ret

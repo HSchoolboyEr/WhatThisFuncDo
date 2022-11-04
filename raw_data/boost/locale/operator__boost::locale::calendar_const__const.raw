@@ -1,0 +1,8 @@
+sub rsp, 8
+mov rdi, qword [rdi + 0x28]
+mov rsi, qword [rsi + 0x28]
+mov rax, qword [rdi]
+call qword [rax + 0x60]
+add rsp, 8
+xor eax, 1
+ret

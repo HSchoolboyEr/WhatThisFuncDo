@@ -1,0 +1,160 @@
+push r15
+push r14
+mov r14, rsi
+push r13
+mov r13, rdx
+push r12
+mov r12, rsi
+push rbp
+sub r12, rdi
+push rbx
+mov rax, r12
+sar r12, 7
+mov rbx, rdi
+sar rax, 5
+sub rsp, 8
+test r12, r12
+jle 0x80009aa
+shl r12, 7
+mov r15, qword [rdx]
+mov rbp, qword [rdx + 8]
+add r12, rdi
+jmp 0x80008db
+nop dword [rax]
+cmp rbp, qword [rbx + 0x28]
+je 0x8000910
+cmp rbp, qword [rbx + 0x48]
+je 0x8000940
+cmp rbp, qword [rbx + 0x68]
+je 0x8000970
+sub rbx, 0xffffffffffffff80
+cmp rbx, r12
+je 0x80009a0
+cmp qword [rbx + 8], rbp
+jne 0x80008b8
+test rbp, rbp
+je 0x80008f8
+mov rdi, qword [rbx]
+mov rdx, rbp
+mov rsi, r15
+call memcmp
+test eax, eax
+jne 0x80008b8
+mov rax, rbx
+add rsp, 8
+pop rbx
+pop rbp
+pop r12
+pop r13
+pop r14
+pop r15
+ret
+nop word [rax + rax]
+test rbp, rbp
+je 0x8000928
+mov rdi, qword [rbx + 0x20]
+mov rdx, rbp
+mov rsi, r15
+call memcmp
+test eax, eax
+jne 0x80008be
+add rsp, 8
+lea rax, [rbx + 0x20]
+pop rbx
+pop rbp
+pop r12
+pop r13
+pop r14
+pop r15
+ret
+nop dword [rax + rax]
+test rbp, rbp
+je 0x800095c
+mov rdi, qword [rbx + 0x40]
+mov rdx, rbp
+mov rsi, r15
+call memcmp
+test eax, eax
+jne 0x80008c4
+add rsp, 8
+lea rax, [rbx + 0x40]
+pop rbx
+pop rbp
+pop r12
+pop r13
+pop r14
+pop r15
+ret
+nop
+test rbp, rbp
+je 0x800098c
+mov rdi, qword [rbx + 0x60]
+mov rdx, rbp
+mov rsi, r15
+call memcmp
+test eax, eax
+jne 0x80008ce
+add rsp, 8
+lea rax, [rbx + 0x60]
+pop rbx
+pop rbp
+pop r12
+pop r13
+pop r14
+pop r15
+ret
+nop
+mov rax, r14
+sub rax, rbx
+sar rax, 5
+cmp rax, 2
+je 0x8000a06
+cmp rax, 3
+je 0x80009c4
+cmp rax, 1
+je 0x80009d8
+mov rax, r14
+jmp 0x80008fb
+mov rbp, qword [r13]
+mov r12, qword [r13 + 8]
+cmp qword [rbx + 8], r12
+je 0x8000a1a
+add rbx, 0x20
+jmp 0x8000a0e
+mov rbp, qword [r13]
+mov r12, qword [r13 + 8]
+cmp qword [rbx + 8], r12
+jne 0x80009bc
+test r12, r12
+je 0x80008f8
+mov rdi, qword [rbx]
+mov rdx, r12
+mov rsi, rbp
+call memcmp
+test eax, eax
+jne 0x80009bc
+jmp 0x80008f8
+mov rbp, qword [r13]
+mov r12, qword [r13 + 8]
+cmp r12, qword [rbx + 8]
+je 0x8000a3a
+add rbx, 0x20
+jmp 0x80009e0
+test r12, r12
+je 0x80008f8
+mov rdi, qword [rbx]
+mov rdx, r12
+mov rsi, rbp
+call memcmp
+test eax, eax
+jne 0x80009d2
+jmp 0x80008f8
+test r12, r12
+je 0x80008f8
+mov rdi, qword [rbx]
+mov rdx, r12
+mov rsi, rbp
+call memcmp
+test eax, eax
+jne 0x8000a14
+jmp 0x80008f8

@@ -1,0 +1,57 @@
+push rbp
+mov rbp, rsp
+sub rsp, 0x20
+fld xword [rbp + 0x20]
+fld1
+fsub st(1)
+fstp xword [rsp]
+push qword [arg_18h]
+push qword [arg_10h]
+push qword [arg_38h]
+push qword [arg_30h]
+sub rsp, 0x10
+fstp xword [rsp]
+call sym._ZN5boost4math6detail13ellint_pi_impIeNS0_8policies6policyINS3_12domain_errorILNS3_17error_policy_typeE1EEENS3_10pole_errorILS
+fld st(0)
+add rsp, 0x40
+fabs
+fld xword [0x08004c78]
+fxch st(1)
+fcomi st(1)
+fstp st(1)
+ja 0x8004cd0
+fldz
+mov edx, 1
+mov ecx, 0
+fucompi st(2)
+setp al
+cmovne eax, edx
+setnp dl
+cmovne edx, ecx
+test dl, dl
+je 0x8004cb8
+test al, al
+je 0x8004cb8
+fstp st(0)
+fstp st(0)
+call __errno_location
+mov dword [rax], 0x22
+fldz
+leave
+ret
+nop dword [rax]
+fld xword [0x08004cbe]
+fcompi st(1)
+fstp st(0)
+jbe 0x8004cb3
+test al, al
+je 0x8004cb3
+jmp 0x8004cd2
+nop word [rax + rax]
+fstp st(0)
+fstp xword [rbp - 0x10]
+call __errno_location
+fld xword [rbp - 0x10]
+mov dword [rax], 0x22
+leave
+ret

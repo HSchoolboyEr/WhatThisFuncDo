@@ -1,0 +1,7 @@
+cmp byte [rdi + 0x28], 0
+jne _ZNK5boost13serialization16void_cast_detail20void_caster_shortcut10vbc_upcastEPKv
+mov rax, rsi
+sub rax, qword [rdi + 0x18]
+ret
+nop
+jmp _ZNK5boost13serialization16void_cast_detail20void_caster_shortcut10vbc_upcastEPKv

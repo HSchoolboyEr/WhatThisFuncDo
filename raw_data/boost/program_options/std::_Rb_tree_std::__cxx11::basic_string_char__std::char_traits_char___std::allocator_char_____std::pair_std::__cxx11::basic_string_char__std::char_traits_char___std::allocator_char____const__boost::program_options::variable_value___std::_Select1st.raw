@@ -1,0 +1,62 @@
+test rdi, rdi
+je 0x8000350
+push r13
+lea r13, [0x080002a2]
+add byte [rax], al
+add byte [rax], al
+push r12
+push rbp
+mov rbp, rdi
+push rbx
+sub rsp, 8
+mov rdi, qword [arg_18h]
+call method std::_Rb_tree<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::pair<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const, boost::program_options::variable_value>, std::_Select1st<std::pair<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const, boost::program_options::variable_value> >, std::less<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > >>::() [clone ]
+mov r12, qword [arg_58h]
+mov rbx, qword [arg_10h]
+test r12, r12
+je 0x80002cc
+lock sub dword [r12 + 8], 1
+je 0x8000320
+mov rdi, qword [arg_40h]
+test rdi, rdi
+je 0x80002db
+mov rax, qword [rdi]
+call qword [rax + 8]
+mov rdi, qword [arg_20h]
+lea rax, [arg_30h]
+cmp rdi, rax
+je 0x80002f5
+mov rax, qword [arg_30h]
+lea rsi, [rax + 1]
+call _ZdlPvm
+mov esi, 0x60
+mov rdi, rbp
+call _ZdlPvm
+test rbx, rbx
+je 0x8000310
+mov rbp, rbx
+jmp 0x80002ad
+nop dword [rax]
+add rsp, 8
+pop rbx
+pop rbp
+pop r12
+pop r13
+ret
+nop dword [rax + rax]
+mov rax, qword [r12]
+mov rdi, r12
+call qword [rax + 0x10]
+lock sub dword [r12 + 0xc], 1
+jne 0x80002cc
+mov rax, qword [r12]
+mov rdi, r12
+mov rdx, qword [rax + 0x18]
+cmp rdx, r13
+jne 0x8000351
+call qword [rax + 8]
+jmp 0x80002cc
+nop dword [rax + rax]
+ret
+call rdx
+jmp 0x80002cc

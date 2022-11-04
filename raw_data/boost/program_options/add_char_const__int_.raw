@@ -1,0 +1,126 @@
+push r15
+push r14
+mov r14, rsi
+push r13
+push r12
+mov r12, rdi
+push rbp
+push rbx
+sub rsp, 0x38
+cmp edx, 0xffffffff
+je strlen
+lea rbx, [var_20h]
+lea r13, [var_10h]
+mov qword [var_10h], rbx
+test rsi, rsi
+je .LC0
+mov rdi, rsi
+mov ebp, edx
+call strlen
+mov qword [var_8h], rax
+mov r15, rax
+cmp rax, 0xf
+ja 0x8000200
+cmp rax, 1
+jne 0x8000268
+movzx edx, byte [r14]
+mov byte [var_20h], dl
+mov rdx, rbx
+mov qword [var_18h], rax
+xor edi, edi
+mov byte [rdx + rax], 0
+mov r14, qword [r12 + 8]
+movsxd rdx, ebp
+mov rsi, qword [r12]
+mov rcx, rdx
+mov rax, r14
+sub rax, rsi
+sar rax, 5
+add rcx, rax
+setb dil
+cmp rcx, rax
+ja 0x8000278
+test rdi, rdi
+je 0x80001d0
+shl rcx, 5
+lea r13, [rsi + rcx]
+cmp r14, r13
+je 0x80001d0
+mov rbp, r13
+nop
+mov rdi, qword [rbp]
+lea rax, [arg_10h]
+cmp rdi, rax
+je 0x8000290
+mov rax, qword [arg_10h]
+add rbp, 0x20
+lea rsi, [rax + 1]
+call _ZdlPvm
+cmp r14, rbp
+jne 0x80001a0
+mov qword [r12 + 8], r13
+nop dword [rax]
+mov rdi, qword [var_10h]
+cmp rdi, rbx
+je 0x80001e8
+mov rax, qword [var_20h]
+lea rsi, [rax + 1]
+call _ZdlPvm
+add rsp, 0x38
+mov rax, r12
+pop rbx
+pop rbp
+pop r12
+pop r13
+pop r14
+pop r15
+ret
+nop word [rax + rax]
+mov rdi, r13
+lea rsi, [var_8h]
+xor edx, edx
+call _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm
+add byte [rax], al
+add byte [rax], al
+mov qword [var_10h], rax
+mov rdi, rax
+mov rax, qword [var_8h]
+mov qword [var_20h], rax
+mov rdx, r15
+mov rsi, r14
+call memcpy
+mov rax, qword [var_8h]
+mov rdx, qword [var_10h]
+jmp 0x8000156
+nop dword [rax + rax]
+mov rdi, rsi
+call strlen
+mov rdx, qword [r12 + 0x20]
+mov rcx, r14
+xor esi, esi
+mov r8, rax
+lea rdi, [r12 + 0x18]
+call _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE10_M_replaceEmmPKcm
+jmp 0x80001e8
+nop dword [rax]
+test rax, rax
+jne 0x80002ae
+mov rdx, rbx
+jmp 0x8000156
+nop dword [rax]
+mov rcx, r13
+mov rsi, r14
+mov rdi, r12
+call _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE14_M_fill_insertEN9__gnu_cxx17__normal_iteratorIPS5_S7_EEmRKS5_
+jmp 0x80001d0
+nop dword [rax + rax]
+add rbp, 0x20
+cmp r14, rbp
+jne 0x80001a0
+jmp 0x80001c7
+lea rdi, [0x080002a9]
+call _ZSt19__throw_logic_errorPKc
+add byte [rax], al
+add byte [rax], al
+mov rdi, rbx
+jmp 0x8000221

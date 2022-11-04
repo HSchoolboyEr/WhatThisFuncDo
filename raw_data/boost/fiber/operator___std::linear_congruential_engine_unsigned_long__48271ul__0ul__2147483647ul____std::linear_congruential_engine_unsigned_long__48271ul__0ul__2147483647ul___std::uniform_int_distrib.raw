@@ -1,0 +1,232 @@
+push r15
+mov r11, rdi
+push r14
+push r13
+push r12
+push rbp
+push rbx
+mov rbp, qword [rsi]
+mov r8, qword [rsi + 8]
+mov rcx, qword [rdi]
+sub r8, rbp
+cmp r8, 0x7ffffffc
+ja 0x8000414
+add r8, 1
+mov eax, 0x7ffffffd
+xor edx, edx
+movabs rdi, 0x200000005
+div r8
+imul r8, rax
+mov r9, rax
+nop word [rax + rax]
+imul rsi, rcx, 0xbc8f
+mov rax, rsi
+mov rcx, rsi
+mul rdi
+sub rcx, rdx
+shr rcx, 1
+add rcx, rdx
+shr rcx, 0x1e
+mov rdx, rcx
+shl rdx, 0x1f
+sub rdx, rcx
+sub rsi, rdx
+lea rax, [rsi - 1]
+mov rcx, rsi
+cmp r8, rax
+jbe 0x80003c8
+xor edx, edx
+mov qword [r11], rsi
+div r9
+pop rbx
+add rax, rbp
+pop rbp
+pop r12
+pop r13
+pop r14
+pop r15
+ret
+cmp r8, 0x7ffffffd
+je 0x800066f
+mov rdx, r8
+mov r13d, 0x7ffffffd
+movabs r12, 0x8000000200000009
+movabs rsi, 0x400000020000000d
+movabs r15, 0x3ffffffd80000005
+shr rdx, 1
+movabs rdi, 0x200000005
+mov rax, rdx
+mul r12
+shr rdx, 0x1d
+mov r12, rdx
+mov rdx, r8
+shr rdx, 2
+lea r14, [r12 + 1]
+mov rax, rdx
+mul rsi
+shr rdx, 0x3a
+lea rax, [rdx + 1]
+mov qword [rsp - 8], rax
+cmp r8, r15
+ja 0x8000545
+mov rax, r13
+xor edx, edx
+mov r9, r14
+div r14
+imul r9, rax
+mov r10, rax
+nop dword [rax]
+imul rsi, rcx, 0xbc8f
+mov rax, rsi
+mov rcx, rsi
+mul rdi
+sub rcx, rdx
+shr rcx, 1
+add rcx, rdx
+shr rcx, 0x1e
+mov rax, rcx
+shl rax, 0x1f
+sub rax, rcx
+sub rsi, rax
+mov rcx, rsi
+lea rsi, [rsi - 1]
+cmp r9, rsi
+jbe 0x80004a0
+imul r9, rcx, 0xbc8f
+mov rax, r9
+mov rcx, r9
+mul rdi
+sub rcx, rdx
+shr rcx, 1
+add rcx, rdx
+xor edx, edx
+shr rcx, 0x1e
+mov rax, rcx
+shl rax, 0x1f
+sub rax, rcx
+mov rcx, r9
+sub rcx, rax
+mov rax, rsi
+div r10
+lea r9, [rcx - 1]
+mov rsi, rax
+mov rax, rsi
+xor edx, edx
+mov qword [r11], rcx
+shl rax, 0x1e
+sub rax, rsi
+add rax, rax
+add rax, r9
+setb dl
+cmp r8, rax
+jb 0x8000481
+test rdx, rdx
+je 0x8000406
+cmp r8, r15
+jbe 0x800048a
+cmp r12, 0x7ffffffd
+je 0x8000635
+mov rsi, qword [rsp - 8]
+mov rax, r13
+xor edx, edx
+div rsi
+imul rsi, rax
+mov rbx, rax
+mov r10, rsi
+nop dword [rax]
+imul rsi, rcx, 0xbc8f
+mov rax, rsi
+mov rcx, rsi
+mul rdi
+sub rcx, rdx
+shr rcx, 1
+add rcx, rdx
+shr rcx, 0x1e
+mov rax, rcx
+shl rax, 0x1f
+sub rax, rcx
+sub rsi, rax
+lea rax, [rsi - 1]
+mov rcx, rsi
+cmp r10, rax
+jbe 0x8000570
+xor edx, edx
+imul rsi, rsi, 0xbc8f
+div rbx
+mov rcx, rsi
+mov r9, rax
+shl r9, 0x1e
+sub r9, rax
+mov rax, rsi
+mul rdi
+add r9, r9
+sub rcx, rdx
+shr rcx, 1
+add rcx, rdx
+shr rcx, 0x1e
+mov rax, rcx
+shl rax, 0x1f
+sub rax, rcx
+sub rsi, rax
+mov qword [r11], rsi
+mov rcx, rsi
+lea rsi, [rsi + r9 - 1]
+cmp r12, rsi
+jb 0x8000570
+cmp r9, rsi
+ja 0x8000570
+imul r9, rcx, 0xbc8f
+mov rax, r9
+mov rcx, r9
+mul rdi
+sub rcx, rdx
+shr rcx, 1
+add rcx, rdx
+shr rcx, 0x1e
+mov rax, rcx
+shl rax, 0x1f
+sub rax, rcx
+mov rcx, r9
+sub rcx, rax
+lea r9, [rcx - 1]
+jmp 0x8000512
+imul rcx, rcx, 0xbc8f
+mov rax, rcx
+mul rdi
+mov rax, rcx
+sub rax, rdx
+shr rax, 1
+add rax, rdx
+shr rax, 0x1e
+mov rdx, rax
+shl rdx, 0x1f
+sub rdx, rax
+mov rax, rcx
+sub rax, rdx
+imul r9, rax, 0xbc8f
+lea rsi, [rax - 1]
+jmp 0x8000606
+imul rcx, rcx, 0xbc8f
+movabs rdx, 0x200000005
+mov rax, rcx
+mul rdx
+mov rax, rcx
+sub rax, rdx
+shr rax, 1
+add rdx, rax
+shr rdx, 0x1e
+mov rax, rdx
+shl rax, 0x1f
+sub rax, rdx
+mov rdx, rcx
+sub rdx, rax
+lea rax, [rdx - 1]
+mov qword [rdi], rdx
+pop rbx
+add rax, rbp
+pop rbp
+pop r12
+pop r13
+pop r14
+pop r15
+ret

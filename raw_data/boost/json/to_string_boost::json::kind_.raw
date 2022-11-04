@@ -1,0 +1,38 @@
+cmp dil, 7
+ja .LC59
+lea rdx, [0x08002341]
+movzx edi, dil
+movsxd rax, dword [rdx + rdi*4]
+add rax, rdx
+jmp rax
+nop
+lea rax, [0x08002357]
+mov edx, 6
+ret
+nop dword [rax]
+lea rax, [0x08002367]
+mov edx, 4
+ret
+nop dword [rax]
+lea rax, [0x08002377]
+mov edx, 5
+ret
+nop dword [rax]
+lea rax, [0x08002387]
+mov edx, 6
+ret
+nop dword [rax]
+lea rax, [0x08002397]
+mov edx, 6
+ret
+nop dword [rax]
+lea rax, [0x080023a7]
+mov edx, 6
+ret
+nop dword [rax]
+lea rax, [0x080023b7]
+mov edx, 5
+ret
+lea rax, [0x080023c4]
+mov edx, 4
+ret

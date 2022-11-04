@@ -1,0 +1,58 @@
+movq xmm2, qword [0x08000048]
+movsd xmm5, qword [0x08000050]
+movapd xmm1, xmm0
+andpd xmm0, xmm2
+ucomisd xmm5, xmm0
+jae 0x8000098
+sub rsp, 0x18
+movsd qword [var_8h], xmm1
+call __errno_location
+movsd xmm1, qword [var_8h]
+comisd xmm1, xmmword [0x0800007b]
+mov dword [rax], 0x22
+mov rax, qword [0x08000088]
+movq xmm0, rax
+jbe 0x80000c0
+add rsp, 0x18
+ret
+nop dword [rax]
+comisd xmm1, xmmword [0x080000a0]
+movapd xmm0, xmm1
+movsd xmm3, qword [0x080000ac]
+andpd xmm1, xmm2
+jb 0x80000d0
+ucomisd xmm3, xmm1
+ja 0x8000110
+ret
+nop dword [rax]
+movsd xmm0, qword [0x080000c8]
+add rsp, 0x18
+ret
+nop dword [rax]
+ucomisd xmm3, xmm1
+jbe 0x80000b8
+cvttsd2si rax, xmm0
+pxor xmm1, xmm1
+movapd xmm3, xmm0
+movsd xmm4, qword [0x080000eb]
+andnpd xmm2, xmm0
+cvtsi2sd xmm1, rax
+cmpnlesd xmm3, xmm1
+andpd xmm3, xmm4
+addsd xmm1, xmm3
+orpd xmm1, xmm2
+movapd xmm0, xmm1
+ret
+nop word [rax + rax]
+cvttsd2si rax, xmm0
+pxor xmm1, xmm1
+movsd xmm4, qword [0x08000121]
+andnpd xmm2, xmm0
+cvtsi2sd xmm1, rax
+movapd xmm3, xmm1
+cmpnlesd xmm3, xmm0
+andpd xmm3, xmm4
+subsd xmm1, xmm3
+orpd xmm1, xmm2
+movapd xmm0, xmm1
+ret

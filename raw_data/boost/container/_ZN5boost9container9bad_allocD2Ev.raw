@@ -1,0 +1,3 @@
+lea rax, [0x08000af7]
+mov qword [rdi], rax
+jmp _ZNSt9exceptionD2Ev

@@ -1,0 +1,54 @@
+push r13
+push r12
+push rbp
+push rbx
+mov rbx, rdi
+lea rdi, [0x08002a50]
+sub rsp, 8
+call _ZNKSt6locale2id5_M_idEv
+mov r12, rax
+mov rax, qword [rbx]
+mov rax, qword [rax + 0x18]
+lea r13, [rax + r12*8]
+mov rax, qword [r13]
+test rax, rax
+je 0x8002a80
+add rsp, 8
+pop rbx
+pop rbp
+pop r12
+pop r13
+ret
+nop dword [rax + rax]
+mov edi, 0x90
+call _Znwm
+mov rbp, rax
+mov dword [rax + 8], 0
+mov rsi, rbx
+lea rax, [0x08002a9e]
+mov qword [rbp], rax
+xor eax, eax
+mov rdi, rbp
+mov qword [arg_10h], 0
+mov qword [arg_18h], 0
+mov byte [arg_20h], 0
+mov qword [arg_28h], 0
+mov qword [arg_30h], 0
+mov qword [arg_38h], 0
+mov qword [arg_40h], 0
+mov word [arg_48h], ax
+mov byte [arg_88h], 0
+call _ZNSt16__numpunct_cacheIcE8_M_cacheERKSt6locale
+add byte [rax], al
+add byte [rax], al
+mov rdi, qword [rbx]
+mov rdx, r12
+mov rsi, rbp
+call _ZNSt6locale5_Impl16_M_install_cacheEPKNS_5facetEm
+mov rax, qword [r13]
+add rsp, 8
+pop rbx
+pop rbp
+pop r12
+pop r13
+ret

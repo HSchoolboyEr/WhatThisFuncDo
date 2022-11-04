@@ -1,0 +1,8 @@
+sub rsp, 8
+mov edi, 0x54
+call sysconf
+mov edx, 0
+test eax, eax
+cmovs eax, edx
+add rsp, 8
+ret

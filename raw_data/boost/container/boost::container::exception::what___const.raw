@@ -1,0 +1,5 @@
+mov rax, qword [rdi + 8]
+lea rdx, [0x08000acb]
+test rax, rax
+cmove rax, rdx
+ret

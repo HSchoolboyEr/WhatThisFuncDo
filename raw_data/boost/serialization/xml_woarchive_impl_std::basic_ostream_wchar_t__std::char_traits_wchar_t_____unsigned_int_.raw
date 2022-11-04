@@ -1,0 +1,88 @@
+push r15
+push r14
+push r13
+lea r13, [rdi + 0x30]
+push r12
+mov r12d, edx
+mov edx, 1
+push rbp
+mov rbp, rdi
+mov rdi, r13
+push rbx
+mov rbx, rsi
+sub rsp, 0x18
+call _ZN5boost7archive21basic_text_oprimitiveISt13basic_ostreamIwSt11char_traitsIwEEEC2ERS5_b
+mov esi, r12d
+mov rdi, rbp
+call _ZN5boost7archive18basic_xml_oarchiveINS0_13xml_woarchiveEEC2Ej
+add byte [rax], al
+add byte [rax], al
+lea rax, [0x0800152a]
+and r12d, 2
+mov qword [rbp], rax
+je 0x8001548
+add rsp, 0x18
+pop rbx
+pop rbp
+pop r12
+pop r13
+pop r14
+pop r15
+ret
+nop dword [rax + rax]
+mov edi, 0x18
+call _Znwm
+xor esi, esi
+mov rdi, rax
+mov r14, rax
+call _ZN5boost7archive6detail18utf8_codecvt_facetC1Em
+add byte [rax], al
+add byte [rax], al
+mov rax, qword [rbx]
+lea r12, [var_8h]
+mov r15, rsp
+mov rdi, r12
+mov rsi, qword [rax - 0x18]
+add rsi, rbx
+add rsi, 0xd0
+call _ZNSt6localeC1ERKS_
+add byte [rax], al
+add byte [rax], al
+mov rdx, r14
+mov rsi, r12
+mov rdi, r15
+call _ZNSt6localeC1IN5boost7archive6detail18utf8_codecvt_facetEEERKS_PT_
+lea r14, [arg_70h]
+mov rsi, r15
+mov rdi, r14
+call _ZNSt6localeaSERKS_
+add byte [rax], al
+add byte [rax], al
+mov rdi, r15
+call _ZNSt6localeD1Ev
+add byte [rax], al
+add byte [rax], al
+mov rdi, r12
+call _ZNSt6localeD1Ev
+mov rdi, rbx
+call _ZNSt13basic_ostreamIwSt11char_traitsIwEE5flushEv
+add byte [rax], al
+add byte [rax], al
+mov rax, qword [rbx]
+mov rdx, r14
+mov rdi, r12
+add rbx, qword [rax - 0x18]
+mov rsi, rbx
+call _ZNSt9basic_iosIwSt11char_traitsIwEE5imbueERKSt6locale
+add byte [rax], al
+add byte [rax], al
+mov rdi, r12
+call _ZNSt6localeD1Ev
+add rsp, 0x18
+pop rbx
+pop rbp
+pop r12
+pop r13
+pop r14
+pop r15
+ret

@@ -1,0 +1,32 @@
+push r12
+mov r12, rsi
+push rbp
+mov rbp, rdi
+sub rsp, 8
+mov rax, qword [rdi + 0x10]
+mov esi, dword [rax]
+mov eax, dword [rax + 4]
+add rsi, 1
+cmp rsi, rax
+jbe 0x8006814
+call _ZN5boost4json6object6rehashEm
+mov edx, dword [r12 + 0x20]
+mov rsi, qword [r12 + 0x18]
+mov rdi, rbp
+call _ZN5boost4json6detail14find_in_objectINS_4core17basic_string_viewIcEEEESt4pairIPNS0_14key_value_pairEmERKNS0_6objectET_
+test rax, rax
+je 0x8006838
+add rsp, 8
+xor edx, edx
+pop rbp
+pop r12
+ret
+nop dword [rax]
+mov rsi, r12
+mov rdi, rbp
+call _ZN5boost4json6object11insert_implENS0_8pilferedINS0_14key_value_pairEEEm
+add rsp, 8
+mov edx, 1
+pop rbp
+pop r12
+ret

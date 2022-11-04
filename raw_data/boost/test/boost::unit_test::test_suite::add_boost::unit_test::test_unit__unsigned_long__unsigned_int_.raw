@@ -1,0 +1,58 @@
+push r13
+mov r13, rdi
+push r12
+push rbp
+mov rbp, rsi
+push rbx
+mov rbx, rdx
+sub rsp, 8
+mov dword [rsi + 0xc8], ecx
+mov rsi, qword [rdi + 0x128]
+cmp rsi, qword [rdi + 0x130]
+je 0x8003870
+mov rax, qword [arg_30h]
+add rsi, 8
+mov qword [rsi - 8], rax
+mov qword [rdi + 0x128], rsi
+mov rax, qword [r13 + 0x38]
+mov r12, qword [arg_d0h]
+mov qword [arg_38h], rax
+test r12, r12
+je 0x800382a
+mov rdi, qword [r13 + 0x40]
+add qword [r13 + 0xd8], r12
+mov r13d, 0xffffffff
+cmp rdi, r13
+je 0x800382a
+nop word [rax + rax]
+mov esi, 0x10
+call _ZN5boost9unit_test9framework3getEmNS0_14test_unit_typeE
+mov rdi, qword [rax + 0x38]
+add qword [rax + 0xd0], r12
+cmp rdi, r13
+jne 0x8003810
+test rbx, rbx
+je 0x8003862
+mov rdi, qword [arg_38h]
+add qword [arg_d0h], rbx
+mov ebp, 0xffffffff
+cmp rdi, rbp
+je 0x8003862
+nop dword [rax]
+mov esi, 0x10
+call _ZN5boost9unit_test9framework3getEmNS0_14test_unit_typeE
+mov rdi, qword [rax + 0x38]
+add qword [rax + 0xd0], rbx
+cmp rdi, rbp
+jne 0x8003848
+add rsp, 8
+pop rbx
+pop rbp
+pop r12
+pop r13
+ret
+nop dword [rax]
+lea rdx, [arg_30h]
+lea rdi, [rdi + 0x120]
+call _ZNSt6vectorImSaImEE17_M_realloc_insertIJRKmEEEvN9__gnu_cxx17__normal_iteratorIPmS1_EEDpOT_
+jmp 0x80037e0

@@ -1,0 +1,92 @@
+push r15
+push r14
+push r13
+push r12
+push rbp
+mov rbp, rsi
+push rbx
+mov rbx, rdi
+sub rsp, 0x18
+test byte [rsi + 0xe0], 6
+je 0x8000e80
+lea rdi, [rbx + 0x18]
+call _ZN5boost6fibers6detail13spinlock_ttas4lockEv
+add byte [rax], al
+add byte [rax], al
+mov r12, qword [rbx + 0x20]
+mov rdi, qword [rbx + 0x30]
+xor edx, edx
+lea rax, [r12 + 1]
+div rdi
+cmp qword [rbx + 0x28], rdx
+je 0x8000e90
+mov rdi, qword [rbx + 0x38]
+mov qword [rdi + r12*8], rbp
+mov qword [rbx + 0x20], rdx
+mov dword [rbx + 0x18], 1
+add rsp, 0x18
+pop rbx
+pop rbp
+pop r12
+pop r13
+pop r14
+pop r15
+ret
+mov rdi, rsi
+call _ZN5boost6fibers7context6detachEv
+add byte [rax], al
+add byte [rax], al
+jmp 0x8000e3d
+nop word [rax + rax]
+lea rdx, [rdi + rdi]
+mov r13, qword [rbx + 0x38]
+movabs rax, 0xfffffffffffffff
+cmp rdx, rax
+ja .text.unlikely
+shl rdi, 4
+call _Znam
+mov r14, qword [rbx + 0x30]
+mov rcx, qword [rbx + 0x28]
+mov qword [rbx + 0x38], rax
+mov rdi, rax
+mov r15, r14
+lea rsi, [r13 + rcx*8]
+mov qword [var_8h], rcx
+lea r12, [r14 - 1]
+sub r15, rcx
+shl r15, 3
+mov rdx, r15
+call memcpy
+mov rcx, qword [var_8h]
+lea r8, [r14 + r14]
+mov rdi, rax
+test rcx, rcx
+jne 0x8000f20
+mov qword [rbx + 0x28], 0
+mov qword [rbx + 0x20], r12
+mov qword [rbx + 0x30], r8
+test r13, r13
+jne 0x8000f51
+mov rax, r14
+xor edx, edx
+div r8
+jmp 0x8000e62
+nop word cs:[rax + rax]
+mov rax, qword [rbx + 0x20]
+add rdi, r15
+mov rsi, r13
+mov qword [var_8h], r8
+lea rdx, [rax*8]
+call memcpy
+mov r8, qword [var_8h]
+mov qword [rbx + 0x20], r12
+mov qword [rbx + 0x28], 0
+mov qword [rbx + 0x30], r8
+mov rdi, r13
+call _ZdaPv
+mov r12, qword [rbx + 0x20]
+xor edx, edx
+mov rdi, qword [rbx + 0x38]
+lea rax, [r12 + 1]
+div qword [rbx + 0x30]
+jmp 0x8000e62

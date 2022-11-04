@@ -1,0 +1,56 @@
+push r12
+lea rax, [0x08001fb9]
+push rbp
+mov rbp, rdi
+sub rsp, 8
+mov r12, qword [rdi + 0x20]
+mov qword [rdi], rax
+test r12, r12
+je 0x8001fd6
+lock sub dword [r12 + 8], 1
+je 0x8002030
+mov r12, qword [arg_10h]
+test r12, r12
+je 0x8001fe8
+lock sub dword [r12 + 8], 1
+je 0x8002000
+add rsp, 8
+mov rdi, rbp
+mov esi, 0x28
+pop rbp
+pop r12
+jmp _ZdlPvm
+nop dword [rax]
+mov rax, qword [r12]
+mov rdi, r12
+call qword [rax + 0x10]
+lock sub dword [r12 + 0xc], 1
+jne 0x8001fe8
+mov rax, qword [r12]
+lea rcx, [0x0800201e]
+mov rdi, r12
+mov rdx, qword [rax + 0x18]
+cmp rdx, rcx
+jne 0x8002068
+call qword [rax + 8]
+jmp 0x8001fe8
+nop
+mov rax, qword [r12]
+mov rdi, r12
+call qword [rax + 0x10]
+lock sub dword [r12 + 0xc], 1
+jne 0x8001fd6
+mov rax, qword [r12]
+lea rcx, [0x0800204e]
+mov rdi, r12
+mov rdx, qword [rax + 0x18]
+cmp rdx, rcx
+jne 0x8002070
+call qword [rax + 8]
+jmp 0x8001fd6
+nop word [rax + rax]
+call rdx
+jmp 0x8001fe8
+nop
+call rdx
+jmp 0x8001fd6

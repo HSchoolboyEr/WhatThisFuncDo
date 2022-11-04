@@ -1,0 +1,6 @@
+mov rdi, qword [rdi + 0x38]
+jmp _ZN5boost6fibers9scheduler21attach_worker_contextEPNS0_7contextE
+add byte [rax], al
+add byte [rax], al
+nop
+nop word [rax + rax]

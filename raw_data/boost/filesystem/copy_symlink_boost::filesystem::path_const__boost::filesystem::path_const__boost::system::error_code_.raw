@@ -1,0 +1,51 @@
+push r13
+mov r13, rsi
+mov rsi, rdi
+push r12
+mov r12, rdx
+push rbp
+sub rsp, 0x20
+mov rbp, rsp
+mov rdi, rbp
+call _ZN5boost10filesystem6detail12read_symlinkERKNS0_4pathEPNS_6system10error_codeE
+add byte [rax], al
+add byte [rax], al
+test r12, r12
+je 0x8003992
+mov rax, qword [r12 + 0x10]
+test al, 1
+je 0x8003978
+cmp rax, 1
+je 0x8003970
+mov rdi, qword [rsp]
+lea rax, [var_10h]
+cmp rdi, rax
+je 0x800395d
+mov rax, qword [var_10h]
+lea rsi, [rax + 1]
+call _ZdlPvm
+add rsp, 0x20
+pop rbp
+pop r12
+pop r13
+ret
+nop word [rax + rax]
+mov eax, dword [r12]
+test eax, eax
+jne 0x8003941
+mov dword [r12], 0
+mov qword [r12 + 8], 0
+mov qword [r12 + 0x10], 0
+mov rsi, qword [r13]
+mov rdi, qword [rsp]
+call symlink
+test eax, eax
+jns 0x8003941
+call __errno_location
+mov rcx, r12
+mov rdx, r13
+mov rsi, rbp
+mov edi, dword [rax]
+lea r8, [0x080039ba]
+call _ZN5boost10filesystem10emit_errorEiRKNS0_4pathES3_PNS_6system10error_codeEPKc
+jmp 0x8003941

@@ -1,0 +1,148 @@
+push r15
+push r14
+push r13
+push r12
+mov r12, rdi
+push rbp
+push rbx
+sub rsp, 0x48
+mov rax, qword [rdi]
+mov rbx, qword [rax - 0x18]
+add rbx, rdi
+mov eax, dword [rbx + 0x20]
+test eax, eax
+jne 0x8000e3d
+mov edx, dword [rbx + 0x18]
+mov rcx, qword [rsi]
+lea rax, [0x08000c73]
+shr edx, 0xe
+mov r11, rcx
+mov rdi, rcx
+mov r9, rcx
+and edx, 1
+shr r11, 0x20
+mov r14, rcx
+mov r13, rcx
+shl rdx, 4
+shr rdi, 0x24
+mov r8, r11
+mov r11, rcx
+add rdx, rax
+and edi, 0xf
+shr r9, 0x1c
+and r8d, 0xf
+movzx eax, byte [rdx + 0xa]
+shr r11, 0x18
+mov qword [rsp], rdi
+shr r14, 0x2c
+mov r10, r9
+mov rdi, r11
+mov r9, rcx
+mov r11, rcx
+lea esi, [rax + 0x17]
+mov rax, rcx
+and r10d, 0xf
+shr r9, 0x14
+shr rax, 0x28
+shr r11, 0xc
+and r14d, 0xf
+mov rbx, rcx
+and eax, 0xf
+movzx r14d, byte [rdx + r14]
+mov qword [var_10h], r8
+mov rbp, rcx
+movzx eax, byte [rdx + rax]
+mov qword [var_18h], r10
+shr r13, 0x30
+mov r8, r9
+mov r10, r11
+mov r9, rcx
+mov r11, rcx
+mov r15, rcx
+shr rbx, 0x38
+shr rbp, 0x34
+and r13d, 0xf
+and edi, 0xf
+shr r9, 0x10
+shr r11, 8
+movzx r13d, byte [rdx + r13]
+and ebx, 0xf
+shl rax, 8
+and r11d, 0xf
+shr r15, 0x3c
+and ebp, 0xf
+and r8d, 0xf
+and r9d, 0xf
+and r10d, 0xf
+or rax, r14
+shl rax, 8
+movzx ebp, byte [rdx + rbp]
+movzx ebx, byte [rdx + rbx]
+movzx esi, sil
+or rax, r13
+movzx r10d, byte [rdx + r10]
+movzx r9d, byte [rdx + r9]
+shl rax, 8
+movzx r8d, byte [rdx + r8]
+movzx edi, byte [rdx + rdi]
+or rax, rbp
+lea rbp, [var_20h]
+shl rax, 8
+or rax, rbx
+movzx ebx, byte [rdx + r15]
+shl rax, 8
+or rax, rbx
+movzx ebx, byte [rdx]
+shl rax, 8
+or rax, rsi
+movzx esi, byte [rdx + r11]
+shl rax, 8
+shl rsi, 8
+or rax, rbx
+or rsi, r10
+mov r10, qword [var_18h]
+shl rsi, 8
+or rsi, r9
+shl rsi, 8
+or rsi, r8
+mov r8, qword [var_10h]
+shl rsi, 8
+or rsi, rdi
+movzx edi, byte [rdx + r10]
+shl rsi, 8
+or rsi, rdi
+movzx edi, byte [rdx + r8]
+shl rsi, 8
+or rsi, rdi
+mov rdi, qword [rsp]
+mov qword [rsp], rax
+mov rax, rcx
+shr rax, 4
+shl rsi, 8
+and ecx, 0xf
+movzx edi, byte [rdx + rdi]
+and eax, 0xf
+movzx eax, byte [rdx + rax]
+or rsi, rdi
+mov rdi, rbp
+mov qword [var_8h], rsi
+movdqa xmm0, xmmword [rsp]
+mov byte [var_30h], al
+movzx eax, byte [rdx + rcx]
+movaps xmmword [var_20h], xmm0
+mov byte [var_31h], al
+mov byte [var_32h], 0
+call strlen
+mov rsi, rbp
+mov rdi, r12
+mov rdx, rax
+call _ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l
+add rsp, 0x48
+mov rax, r12
+pop rbx
+pop rbp
+pop r12
+pop r13
+pop r14
+pop r15
+ret

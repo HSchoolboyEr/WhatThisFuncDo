@@ -1,0 +1,161 @@
+push r15
+push r14
+push r13
+push r12
+push rbp
+movabs rbp, 0x3ffffffffffffff
+push rbx
+sub rsp, 0x38
+mov r12, qword [rdi + 8]
+mov r14, qword [rdi]
+mov rax, r12
+sub rax, r14
+sar rax, 5
+cmp rax, rbp
+je .LC5
+test rax, rax
+mov rcx, rdx
+mov edx, 1
+mov r10, rsi
+cmovne rdx, rax
+mov r13, rdi
+mov r9, rsi
+mov r15, rsi
+add rax, rdx
+setb dl
+sub r10, r14
+movzx edx, dl
+test rdx, rdx
+jne 0x800baa0
+test rax, rax
+jne 0x800b9f0
+mov qword [var_18h], 0
+mov ebx, 0x20
+mov qword [var_8h], 0
+add r10, qword [var_8h]
+mov rax, qword [rcx]
+lea rbp, [rcx + 0x10]
+lea rdi, [r10 + 0x10]
+mov qword [r10], rdi
+cmp rax, rbp
+je 0x800bab0
+mov qword [r10], rax
+mov rax, qword [rcx + 0x10]
+mov qword [r10 + 0x10], rax
+mov rax, qword [rcx + 8]
+mov qword [rcx], rbp
+mov qword [rcx + 8], 0
+mov qword [r10 + 8], rax
+mov dword [rcx + 0x10], 0
+cmp r9, r14
+je 0x800b96c
+mov rbx, qword [var_8h]
+mov rbp, r14
+lea rdi, [rbx + 0x10]
+lea rax, [arg_10h]
+mov qword [rbx], rdi
+mov rsi, qword [rbp]
+cmp rsi, rax
+je 0x800ba40
+mov rax, qword [arg_10h]
+add rbp, 0x20
+mov qword [rbx], rsi
+add rbx, 0x20
+mov qword [rbx - 0x10], rax
+mov rax, qword [var_bp_18h]
+mov qword [rbx - 0x18], rax
+cmp rbp, r9
+jne 0x800b930
+add rbx, 0x20
+cmp r9, r12
+je 0x800b9af
+nop dword [rax]
+mov rsi, qword [r15]
+lea rdi, [rbx + 0x10]
+lea rax, [r15 + 0x10]
+mov qword [rbx], rdi
+cmp rsi, rax
+je 0x800ba78
+mov rax, qword [r15 + 0x10]
+add r15, 0x20
+mov qword [rbx], rsi
+add rbx, 0x20
+mov qword [rbx - 0x10], rax
+mov rax, qword [r15 - 0x18]
+mov qword [rbx - 0x18], rax
+cmp r15, r12
+jne 0x800b978
+test r14, r14
+je 0x800b9c3
+mov rsi, qword [r13 + 0x10]
+mov rdi, r14
+sub rsi, r14
+call _ZdlPvm
+movq xmm0, qword [var_8h]
+mov rax, qword [var_18h]
+movq xmm1, rbx
+punpcklqdq xmm0, xmm1
+mov qword [r13 + 0x10], rax
+movups xmmword [r13], xmm0
+add rsp, 0x38
+pop rbx
+pop rbp
+pop r12
+pop r13
+pop r14
+pop r15
+ret
+nop
+cmp rax, rbp
+cmovbe rbp, rax
+shl rbp, 5
+mov rdi, rbp
+mov qword [var_28h], rcx
+mov qword [var_20h], r9
+mov qword [var_10h], r10
+call _Znwm
+mov r10, qword [var_10h]
+mov r9, qword [var_20h]
+add rbp, rax
+mov qword [var_8h], rax
+mov rcx, qword [var_28h]
+lea rbx, [rax + 0x20]
+mov qword [var_18h], rbp
+jmp 0x800b8e2
+nop word [rax + rax]
+mov edx, 4
+mov qword [var_10h], r9
+add rbp, 0x20
+add rbx, 0x20
+call wmemcpy
+mov rax, qword [var_bp_18h]
+mov r9, qword [var_10h]
+mov qword [rbx - 0x18], rax
+cmp r9, rbp
+jne 0x800b930
+jmp 0x800b968
+nop word [rax + rax]
+mov edx, 4
+add r15, 0x20
+add rbx, 0x20
+call wmemcpy
+mov rax, qword [r15 - 0x18]
+mov qword [rbx - 0x18], rax
+cmp r12, r15
+jne 0x800b978
+jmp 0x800b9af
+movabs rbp, 0x7fffffffffffffe0
+jmp 0x800b9fb
+nop
+mov edx, 4
+mov rsi, rbp
+mov qword [var_28h], rcx
+mov qword [var_20h], r9
+mov qword [var_10h], r10
+call wmemcpy
+mov r10, qword [var_10h]
+mov r9, qword [var_20h]
+mov rcx, qword [var_28h]
+jmp 0x800b909
+lea rdi, [0x0800bae7]
+call _ZSt20__throw_length_errorPKc

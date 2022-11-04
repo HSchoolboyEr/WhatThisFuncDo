@@ -1,0 +1,38 @@
+mov r8, rdi
+test rsi, rsi
+je 0x800d840
+lea r9, [0x0800d7c3]
+xor eax, eax
+nop dword [rax]
+mov edi, dword [rsi]
+lea edx, [rdi - 0x10]
+cmp edx, 0xd
+ja 0x800d82a
+movsxd rdx, dword [r9 + rdx*4]
+add rdx, r9
+jmp rdx
+nop dword [rax + rax]
+mov edx, dword [r8 + 0x1c]
+lea ecx, [rdx + 1]
+mov dword [r8 + 0x1c], ecx
+mov dword [rsi + 0x130], edx
+lea rdi, [rsi + 0x20]
+mov edx, esi
+mov qword [rsi + 0x18], 0
+mov qword [rsi + 0x110], 0
+and rdi, 0xfffffffffffffff8
+sub edx, edi
+lea ecx, [rdx + 0x118]
+shr ecx, 3
+rep stosq qword [rdi], rax
+mov dword [rsi + 0x118], 0
+add qword [rsi + 0x10], rsi
+mov rdx, qword [rsi + 8]
+test rdx, rdx
+je 0x800d840
+add rdx, rsi
+mov qword [rsi + 8], rdx
+mov rsi, rdx
+jmp 0x800d7c8
+nop
+ret

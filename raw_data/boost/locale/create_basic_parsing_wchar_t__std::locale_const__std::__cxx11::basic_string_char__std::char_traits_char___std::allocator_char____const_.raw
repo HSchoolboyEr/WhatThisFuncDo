@@ -1,0 +1,184 @@
+push r15
+push r14
+mov r14, rsi
+push r13
+push r12
+mov r12, rdi
+mov edi, 0x18
+push rbp
+push rbx
+mov rbx, rdx
+sub rsp, 0x28
+mov r15, qword [rdx]
+call _Znwm
+xor esi, esi
+mov r13, rax
+mov dword [rax + 8], 0
+lea rax, [0x080084a7]
+mov qword [r13], rax
+mov rdi, r13
+mov qword [r13 + 0x10], 0
+call _ZNSt7__cxx118numpunctIwE22_M_initialize_numpunctEP15__locale_struct
+lea rax, [0x080084c2]
+mov qword [r13], rax
+cmp byte [r15], 0x43
+jne 0x80086e0
+cmp byte [r15 + 1], 0
+jne 0x80086e0
+mov rsi, r14
+mov rdi, r12
+mov rdx, r13
+call _ZNSt6localeC1INSt7__cxx1115numpunct_bynameIwEEEERKS_PT_
+mov edi, 0x18
+mov r14, qword [rbx]
+call _Znwm
+mov r13, rax
+mov dword [rax + 8], 0
+xor edx, edx
+xor esi, esi
+lea rax, [0x0800850b]
+mov qword [r13 + 0x10], 0
+mov rdi, r13
+mov qword [r13], rax
+call _ZNSt7__cxx1110moneypunctIwLb1EE24_M_initialize_moneypunctEP15__locale_structPKc
+add byte [rax], al
+add byte [rax], al
+lea rax, [0x08008526]
+mov qword [r13], rax
+cmp byte [r14], 0x43
+jne 0x8008690
+cmp byte [r14 + 1], 0
+jne 0x8008690
+lea rbp, [var_8h]
+mov rdx, r13
+mov rsi, r12
+mov rdi, rbp
+call _ZNSt6localeC1INSt7__cxx1117moneypunct_bynameIwLb1EEEEERKS_PT_
+mov rsi, rbp
+mov rdi, r12
+call _ZNSt6localeaSERKS_
+mov rdi, rbp
+call _ZNSt6localeD1Ev
+mov edi, 0x18
+mov r14, qword [rbx]
+call _Znwm
+mov r13, rax
+mov dword [rax + 8], 0
+xor edx, edx
+xor esi, esi
+lea rax, [0x08008587]
+mov qword [r13 + 0x10], 0
+mov rdi, r13
+mov qword [r13], rax
+call _ZNSt7__cxx1110moneypunctIwLb0EE24_M_initialize_moneypunctEP15__locale_structPKc
+add byte [rax], al
+add byte [rax], al
+lea rax, [0x080085a2]
+mov qword [r13], rax
+cmp byte [r14], 0x43
+jne 0x8008640
+cmp byte [r14 + 1], 0
+jne 0x8008640
+lea rbp, [var_10h]
+mov rdx, r13
+mov rsi, r12
+mov rdi, rbp
+call _ZNSt6localeC1INSt7__cxx1117moneypunct_bynameIwLb0EEEEERKS_PT_
+mov rsi, rbp
+mov rdi, r12
+call _ZNSt6localeaSERKS_
+mov rdi, rbp
+call _ZNSt6localeD1Ev
+mov edi, 0x540
+mov rbp, qword [rbx]
+call _Znwm
+xor edx, edx
+mov rsi, rbp
+mov rdi, rax
+mov r13, rax
+call _ZNSt12ctype_bynameIwEC1EPKcm
+add byte [rax], al
+add byte [rax], al
+lea rbp, [var_18h]
+mov rdx, r13
+mov rsi, r12
+mov rdi, rbp
+call _ZNSt6localeC1ISt12ctype_bynameIwEEERKS_PT_
+add byte [rax], al
+add byte [rax], al
+mov rsi, rbp
+mov rdi, r12
+call _ZNSt6localeaSERKS_
+mov rdi, rbp
+call _ZNSt6localeD1Ev
+add rsp, 0x28
+mov rax, r12
+pop rbx
+pop rbp
+pop r12
+pop r13
+pop r14
+pop r15
+ret
+nop word cs:[rax + rax]
+mov ecx, 6
+lea rdi, [0x0800864c]
+mov rsi, r14
+repe cmpsb byte [rsi], byte [rdi]
+seta al
+sbb al, 0
+test al, al
+je 0x80085bb
+lea rbp, [var_18h]
+xor edx, edx
+mov rsi, r14
+mov rdi, rbp
+call _ZNSt6locale5facet18_S_create_c_localeERP15__locale_structPKcS2_
+mov rsi, qword [var_18h]
+xor edx, edx
+mov rdi, r13
+call _ZNSt7__cxx1110moneypunctIwLb0EE24_M_initialize_moneypunctEP15__locale_structPKc
+mov rdi, rbp
+call _ZNSt6locale5facet19_S_destroy_c_localeERP15__locale_struct
+jmp 0x80085bb
+nop dword [rax]
+mov ecx, 6
+lea rdi, [0x0800869c]
+mov rsi, r14
+repe cmpsb byte [rsi], byte [rdi]
+seta al
+sbb al, 0
+test al, al
+je 0x800853f
+lea rbp, [var_18h]
+xor edx, edx
+mov rsi, r14
+mov rdi, rbp
+call _ZNSt6locale5facet18_S_create_c_localeERP15__locale_structPKcS2_
+mov rsi, qword [var_18h]
+xor edx, edx
+mov rdi, r13
+call _ZNSt7__cxx1110moneypunctIwLb1EE24_M_initialize_moneypunctEP15__locale_structPKc
+mov rdi, rbp
+call _ZNSt6locale5facet19_S_destroy_c_localeERP15__locale_struct
+jmp 0x800853f
+nop dword [rax]
+mov ecx, 6
+lea rdi, [0x080086ec]
+mov rsi, r15
+repe cmpsb byte [rsi], byte [rdi]
+seta al
+sbb al, 0
+test al, al
+je 0x80084db
+lea rbp, [var_18h]
+xor edx, edx
+mov rsi, r15
+mov rdi, rbp
+call _ZNSt6locale5facet18_S_create_c_localeERP15__locale_structPKcS2_
+mov rsi, qword [var_18h]
+mov rdi, r13
+call _ZNSt7__cxx118numpunctIwE22_M_initialize_numpunctEP15__locale_struct
+mov rdi, rbp
+call _ZNSt6locale5facet19_S_destroy_c_localeERP15__locale_struct
+jmp 0x80084db

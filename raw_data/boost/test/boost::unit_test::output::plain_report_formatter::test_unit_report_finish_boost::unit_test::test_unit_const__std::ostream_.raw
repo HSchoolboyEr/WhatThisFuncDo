@@ -1,0 +1,2 @@
+sub qword [rdi + 8], 2
+ret

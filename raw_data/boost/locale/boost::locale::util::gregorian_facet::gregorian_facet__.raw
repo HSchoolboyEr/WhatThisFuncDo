@@ -1,0 +1,19 @@
+lea rax, [0x080008d7]
+push rbp
+mov rbp, rdi
+mov qword [rdi], rax
+mov rdi, qword [rdi + 0x10]
+lea rax, [arg_20h]
+cmp rdi, rax
+je 0x80008f8
+mov rax, qword [arg_20h]
+lea rsi, [rax + 1]
+call _ZdlPvm
+lea rax, [0x080008ff]
+mov rdi, rbp
+mov qword [rbp], rax
+call _ZNSt6locale5facetD2Ev
+mov rdi, rbp
+mov esi, 0x30
+pop rbp
+jmp _ZdlPvm

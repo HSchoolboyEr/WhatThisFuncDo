@@ -1,0 +1,60 @@
+push rbp
+mov rbp, rsi
+push rbx
+sub rsp, 8
+mov eax, dword [rsi + 0x10]
+mov rbx, qword [rdi]
+and eax, 0xf
+shl rax, 4
+lea rdx, [rbx + rax]
+mov rcx, qword [rdx + 0x68]
+cmp qword [rdx + 0x60], rsi
+je 0x80007a0
+cmp rcx, rsi
+je 0x8000790
+mov rax, qword [arg_8h]
+mov rdx, qword [rbp]
+mov qword [rdx + 8], rax
+mov qword [rax], rdx
+sub qword [rbx], 1
+mov rdi, qword [arg_18h]
+test rdi, rdi
+je 0x800076c
+lock sub dword [rdi + 8], 1
+je 0x80007b0
+mov rax, qword [rbx + 0x58]
+cmp rax, 7
+ja 0x80007c0
+mov qword [rbx + rax*8 + 0x18], rbp
+add rax, 1
+mov qword [rbx + 0x58], rax
+add rsp, 8
+pop rbx
+pop rbp
+ret
+nop word [rax + rax]
+mov rax, qword [rsi]
+mov qword [rdx + 0x68], rax
+jmp 0x8000749
+nop dword [rax]
+cmp rcx, rsi
+je 0x80007d8
+mov rax, qword [rsi + 8]
+mov qword [rdx + 0x60], rax
+jmp 0x8000749
+nop
+mov rax, qword [rdi]
+call qword [rax + 8]
+mov rax, qword [rbx + 0x58]
+cmp rax, 7
+jbe 0x8000776
+add rsp, 8
+mov rdi, rbp
+mov esi, 0x20
+pop rbx
+pop rbp
+jmp _ZdlPvm
+nop dword [rax + rax]
+pxor xmm0, xmm0
+movups xmmword [rbx + rax + 0x60], xmm0
+jmp 0x8000749

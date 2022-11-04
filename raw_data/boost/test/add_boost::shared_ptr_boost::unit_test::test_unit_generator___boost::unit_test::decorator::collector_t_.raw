@@ -1,0 +1,159 @@
+push r14
+push r13
+mov r13, rdx
+push r12
+push rbp
+mov rbp, rdi
+push rbx
+mov rbx, rsi
+mov rsi, rdx
+sub rsp, 0x50
+mov rdi, rsp
+call _ZNK5boost9unit_test9decorator11collector_t19get_lazy_decoratorsEv
+add byte [rax], al
+add byte [rax], al
+movdqu xmm1, xmmword [rbx]
+mov rax, qword [rbx + 8]
+movaps xmmword [var_20h], xmm1
+test rax, rax
+je 0x8004247
+lock add dword [rax + 8], 1
+movdqa xmm2, xmmword [rsp]
+mov rax, qword [var_10h]
+mov r12, qword [arg_170h]
+mov qword [var_40h], rax
+movaps xmmword [var_30h], xmm2
+cmp r12, qword [arg_178h]
+je 0x8004400
+mov rax, qword [var_28h]
+movdqa xmm3, xmmword [var_20h]
+movups xmmword [r12], xmm3
+test rax, rax
+je 0x8004289
+lock add dword [rax + 8], 1
+mov rbx, qword [var_38h]
+pxor xmm0, xmm0
+sub rbx, qword [var_30h]
+mov qword [r12 + 0x20], 0
+movups xmmword [r12 + 0x10], xmm0
+je 0x80043f0
+movabs rax, 0x7ffffffffffffff0
+cmp rbx, rax
+ja _ZSt17__throw_bad_allocv
+mov rdi, rbx
+call _Znwm
+movq xmm0, rax
+add rbx, rax
+punpcklqdq xmm0, xmm0
+mov qword [r12 + 0x20], rbx
+movups xmmword [r12 + 0x10], xmm0
+mov rsi, qword [var_38h]
+mov rdx, qword [var_30h]
+cmp rsi, rdx
+je 0x8004457
+sub rsi, rdx
+add rsi, rax
+nop word [rax + rax]
+mov rcx, qword [rdx]
+mov qword [rax], rcx
+mov rcx, qword [rdx + 8]
+mov qword [rax + 8], rcx
+test rcx, rcx
+je 0x8004318
+lock add dword [rcx + 8], 1
+add rax, 0x10
+add rdx, 0x10
+cmp rax, rsi
+jne 0x8004300
+mov qword [r12 + 0x18], rsi
+add qword [arg_170h], 0x28
+mov rdi, r13
+lea r14, [var_20h]
+call _ZN5boost9unit_test9decorator11collector_t5resetEv
+mov r13, qword [var_38h]
+mov r12, qword [var_30h]
+cmp r13, r12
+je 0x80043b5
+lea rbx, [0x08004355]
+jmp 0x8004369
+nop word [rax + rax]
+add r12, 0x10
+cmp r13, r12
+je 0x80043b0
+mov rbp, qword [r12 + 8]
+test rbp, rbp
+je 0x8004360
+lock sub dword [var_8h], 1
+jne 0x8004360
+mov rax, qword [rbp]
+mov rdi, rbp
+call qword [rax + 0x10]
+lock sub dword [var_ch], 1
+jne 0x8004360
+mov rax, qword [rbp]
+mov rdi, rbp
+mov rdx, qword [rax + 0x18]
+cmp rdx, rbx
+jne 0x8004450
+call qword [rax + 8]
+add r12, 0x10
+cmp r13, r12
+jne 0x8004369
+nop dword [rax + rax]
+mov r12, qword [var_30h]
+test r12, r12
+je 0x80043ca
+mov rsi, qword [var_40h]
+mov rdi, r12
+sub rsi, r12
+call _ZdlPvm
+mov rbp, qword [var_28h]
+test rbp, rbp
+je 0x80043db
+lock sub dword [var_8h], 1
+je 0x8004420
+add rsp, 0x50
+pop rbx
+pop rbp
+pop r12
+pop r13
+pop r14
+ret
+nop dword [rax + rax]
+xor eax, eax
+jmp 0x80042c7
+nop word [rax + rax]
+lea r14, [var_20h]
+lea rdi, [arg_168h]
+mov rsi, r12
+mov rdx, r14
+call _ZNSt6vectorISt4pairIN5boost10shared_ptrINS1_9unit_test19test_unit_generatorEEES_INS2_INS3_9decorator4baseEEESaIS8_EEESaISB_EE17_M_realloc_insertIJRKSB_EEEvN9__gnu_cxx17__normal_iteratorIPSB_SD_EEDpOT_
+jmp 0x8004332
+nop dword [rax]
+mov rax, qword [rbp]
+mov rdi, rbp
+call qword [rax + 0x10]
+lock sub dword [var_ch], 1
+jne 0x80043db
+mov rax, qword [rbp]
+lea rcx, [0x0800443c]
+mov rdi, rbp
+mov rdx, qword [rax + 0x18]
+cmp rdx, rcx
+jne 0x800445f
+call qword [rax + 8]
+jmp 0x80043db
+nop dword [rax]
+call rdx
+jmp 0x8004360
+mov rsi, rax
+jmp 0x8004325
+call rdx
+jmp 0x80043db
+call _ZSt17__throw_bad_allocv
+mov rbp, rax
+jmp .text.unlikely
+mov rbp, rax
+jmp .text.unlikely
+nop
+nop dword [rax]

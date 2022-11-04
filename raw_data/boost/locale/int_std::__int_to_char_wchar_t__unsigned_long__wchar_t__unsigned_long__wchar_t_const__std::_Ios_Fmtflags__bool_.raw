@@ -1,0 +1,56 @@
+mov r9, rdi
+mov r10, rdx
+test r8b, r8b
+je 0x800c190
+movabs r8, 0xcccccccccccccccd
+mov rcx, rdi
+nop dword [rax + rax]
+mov rax, rsi
+mov rdi, rsi
+sub rcx, 4
+mul r8
+shr rdx, 3
+lea rax, [rdx + rdx*4]
+add rax, rax
+sub rdi, rax
+mov eax, dword [r10 + rdi*4 + 0x10]
+mov dword [rcx], eax
+mov rax, rsi
+mov rsi, rdx
+cmp rax, 9
+ja 0x800c150
+mov rax, r9
+sub rax, rcx
+sar rax, 2
+ret
+nop dword [rax]
+mov eax, ecx
+and eax, 0x4a
+cmp eax, 0x40
+je 0x800c1d3
+and ecx, 0x4000
+cmp ecx, 1
+mov rcx, rdi
+sbb rdx, rdx
+and rdx, 0xfffffffffffffff0
+add rdx, 0x14
+nop dword [rax]
+mov rax, rsi
+sub rcx, 4
+and eax, 0xf
+add rax, rdx
+shr rsi, 4
+mov eax, dword [r10 + rax*4]
+mov dword [rcx], eax
+jne 0x800c1b8
+jmp 0x800c17e
+mov rcx, rdi
+nop word cs:[rax + rax]
+mov rax, rsi
+sub rcx, 4
+and eax, 7
+shr rsi, 3
+mov eax, dword [r10 + rax*4 + 0x10]
+mov dword [rcx], eax
+jne 0x800c1e0
+jmp 0x800c17e

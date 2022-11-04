@@ -1,0 +1,2 @@
+sub rdi, 0x28
+jmp sym boost::asio::detail::epoll_reactor::run(long, boost::asio::detail::op_queue<boost::asio::detail::scheduler_operation>&)

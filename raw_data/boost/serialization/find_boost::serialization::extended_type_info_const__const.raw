@@ -1,0 +1,54 @@
+push r13
+push r12
+push rbp
+push rbx
+sub rsp, 8
+mov rbx, qword [rdi + 0x10]
+test rbx, rbx
+je 0x8000243
+lea r12, [rdi + 8]
+mov r13, rsi
+mov rbp, r12
+nop dword [rax]
+mov rax, qword [rbx + 0x20]
+mov rsi, r13
+mov rdi, qword [rax]
+call _ZNK5boost13serialization18extended_type_infoltERKS1_
+mov rcx, qword [rbx + 0x10]
+mov rdx, qword [rbx + 0x18]
+test al, al
+je 0x8000218
+test rdx, rdx
+je 0x8000228
+mov rbx, rdx
+jmp 0x80001f0
+nop dword [rax]
+test rcx, rcx
+je 0x800022b
+mov rbp, rbx
+mov rbx, rcx
+jmp 0x80001f0
+nop dword [rax]
+mov rbx, rbp
+cmp r12, rbx
+je 0x8000243
+mov rax, qword [rbx + 0x20]
+mov rdi, r13
+mov rsi, qword [rax]
+call _ZNK5boost13serialization18extended_type_infoltERKS1_
+test al, al
+je 0x8000250
+add rsp, 8
+xor eax, eax
+pop rbx
+pop rbp
+pop r12
+pop r13
+ret
+mov rax, qword [rbx + 0x20]
+add rsp, 8
+pop rbx
+pop rbp
+pop r12
+pop r13
+ret

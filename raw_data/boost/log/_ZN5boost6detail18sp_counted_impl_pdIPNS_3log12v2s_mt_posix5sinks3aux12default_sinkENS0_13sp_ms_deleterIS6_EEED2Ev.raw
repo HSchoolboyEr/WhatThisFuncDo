@@ -1,0 +1,10 @@
+lea rax, [0x080031d7]
+cmp byte [rdi + 0x18], 0
+mov qword [rdi], rax
+je 0x80031f0
+mov rax, qword [rdi + 0x20]
+lea r8, [rdi + 0x20]
+mov rdi, r8
+mov rax, qword [rax]
+jmp rax
+ret

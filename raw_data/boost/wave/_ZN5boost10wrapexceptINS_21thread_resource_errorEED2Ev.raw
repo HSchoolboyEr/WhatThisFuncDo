@@ -1,0 +1,62 @@
+lea rax, [0x08001807]
+push rbx
+mov rbx, rdi
+lea rdx, [rax - 0x30]
+movq xmm1, rax
+lea rax, [0x0800181b]
+movq xmm0, rdx
+mov qword [rdi + 0x30], rax
+punpcklqdq xmm0, xmm1
+movups xmmword [rdi], xmm0
+mov rdi, qword [rdi + 0x38]
+test rdi, rdi
+je 0x800183a
+mov rax, qword [rdi]
+call qword [rax + 0x20]
+lea rax, [0x08001841]
+lea rdi, [rbx + 8]
+mov qword [rbx + 8], rax
+pop rbx
+jmp _ZNSt13runtime_errorD2Ev
+nop
+lea rax, [0x08001857]
+push rbx
+mov rbx, rdi
+lea rdx, [rax - 0x30]
+movq xmm1, rax
+lea rax, [0x0800186b]
+movq xmm0, rdx
+mov qword [rdi], rax
+punpcklqdq xmm0, xmm1
+movups xmmword [rdi - 0x30], xmm0
+mov rdi, qword [rdi + 8]
+test rdi, rdi
+je 0x800188a
+mov rax, qword [rdi]
+call qword [rax + 0x20]
+lea rax, [0x08001891]
+lea rdi, [rbx - 0x28]
+mov qword [rbx - 0x28], rax
+pop rbx
+jmp _ZNSt13runtime_errorD2Ev
+nop
+lea rax, [0x080018a7]
+push rbp
+mov rbp, rdi
+lea rdx, [rax - 0x30]
+movq xmm1, rax
+lea rax, [0x080018bb]
+movq xmm0, rdx
+mov qword [rdi + 0x28], rax
+punpcklqdq xmm0, xmm1
+movups xmmword [rdi - 8], xmm0
+mov rdi, qword [rdi + 0x30]
+test rdi, rdi
+je 0x80018db
+mov rax, qword [rdi]
+call qword [rax + 0x20]
+lea rax, [0x080018e2]
+mov rdi, rbp
+mov qword [rbp], rax
+pop rbp
+jmp _ZNSt13runtime_errorD2Ev

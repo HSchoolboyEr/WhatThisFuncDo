@@ -1,0 +1,133 @@
+push r13
+push r12
+push rbp
+push rbx
+sub rsp, 0xa8
+mov rbp, qword [rdi + 0x28]
+mov r12, qword [rdi + 0x20]
+cmp rbp, r12
+je 0x8007578
+movzx r13d, byte [rdi + 0x78]
+mov rbx, rdi
+mov edi, dword [rbp]
+test r13b, r13b
+je 0x8007355
+call towlower
+mov edi, eax
+lea eax, [rdi - 1]
+cmp eax, 0xfffd
+ja 0x800741b
+movdqa xmm0, xmmword [0x0800736b]
+mov edx, edi
+mov qword [var_90h], 0xfffffffffe23fe20
+movaps xmmword [rsp], xmm0
+movdqa xmm0, xmmword [0x08007385]
+movaps xmmword [var_10h], xmm0
+movdqa xmm0, xmmword [0x08007392]
+movaps xmmword [var_20h], xmm0
+movdqa xmm0, xmmword [0x0800739f]
+movaps xmmword [var_30h], xmm0
+movdqa xmm0, xmmword [0x080073ac]
+movaps xmmword [var_40h], xmm0
+movdqa xmm0, xmmword [0x080073b9]
+movaps xmmword [var_50h], xmm0
+movdqa xmm0, xmmword [0x080073c6]
+movaps xmmword [var_60h], xmm0
+movdqa xmm0, xmmword [0x080073d3]
+movaps xmmword [var_70h], xmm0
+movdqa xmm0, xmmword [0x080073e0]
+movaps xmmword [var_80h], xmm0
+cmp di, 0x361
+jbe 0x8007590
+lea rax, [var_2h]
+nop dword [rax + rax]
+mov rcx, rax
+add rax, 4
+cmp dx, word [rax]
+ja 0x8007400
+movzx ecx, word [rcx + 2]
+xor eax, eax
+cmp dx, cx
+jae 0x800754e
+add rbp, 4
+mov qword [rbx + 0x28], rbp
+cmp r12, rbp
+je 0x800753d
+movdqa xmm7, xmmword [0x08007434]
+movdqa xmm6, xmmword [0x0800743c]
+movdqa xmm5, xmmword [0x08007444]
+movdqa xmm4, xmmword [0x0800744c]
+movdqa xmm3, xmmword [0x08007454]
+movdqa xmm2, xmmword [0x0800745c]
+movdqa xmm1, xmmword [0x08007464]
+movdqa xmm0, xmmword [0x0800746c]
+movdqa xmm8, xmmword [0x08007475]
+mov edi, dword [rbp]
+test r13b, r13b
+je 0x80074cd
+call towlower
+movdqa xmm0, xmmword [0x0800748a]
+movdqa xmm1, xmmword [0x08007492]
+movdqa xmm2, xmmword [0x0800749a]
+movdqa xmm3, xmmword [0x080074a2]
+mov edi, eax
+movdqa xmm4, xmmword [0x080074ac]
+movdqa xmm5, xmmword [0x080074b4]
+movdqa xmm6, xmmword [0x080074bc]
+movdqa xmm7, xmmword [0x080074c4]
+movdqa xmm8, xmmword [0x080074cd]
+lea eax, [rdi - 1]
+cmp eax, 0xfffd
+ja 0x800753d
+mov qword [var_90h], 0xfffffffffe23fe20
+mov edx, edi
+movaps xmmword [rsp], xmm8
+movaps xmmword [var_10h], xmm7
+movaps xmmword [var_20h], xmm6
+movaps xmmword [var_30h], xmm5
+movaps xmmword [var_40h], xmm4
+movaps xmmword [var_50h], xmm3
+movaps xmmword [var_60h], xmm2
+movaps xmmword [var_70h], xmm1
+movaps xmmword [var_80h], xmm0
+cmp di, 0x361
+jbe 0x80075a0
+lea rax, [var_2h]
+nop dword [rax]
+mov rcx, rax
+add rax, 4
+cmp dx, word [rax]
+ja 0x8007528
+movzx eax, word [rcx + 2]
+cmp dx, ax
+jae 0x8007560
+mov rax, qword [rbx + 0x58]
+mov rax, qword [rax + 8]
+mov qword [rbx + 0x58], rax
+mov eax, 1
+add rsp, 0xa8
+pop rbx
+pop rbp
+pop r12
+pop r13
+ret
+nop dword [rax]
+add rbp, 4
+mov qword [rbx + 0x28], rbp
+cmp r12, rbp
+jne 0x8007475
+jmp 0x800753d
+nop dword [rax + rax]
+add rsp, 0xa8
+xor eax, eax
+pop rbx
+pop rbp
+pop r12
+pop r13
+ret
+nop dword [rax + rax]
+mov ecx, 0x300
+jmp 0x8007410
+nop word [rax + rax]
+mov eax, 0x300
+jmp 0x8007538

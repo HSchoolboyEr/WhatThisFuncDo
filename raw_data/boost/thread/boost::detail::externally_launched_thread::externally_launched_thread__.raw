@@ -1,0 +1,61 @@
+push r15
+lea rax, [0x08009379]
+push r14
+push r13
+push r12
+mov r12, rdi
+push rbp
+push rbx
+sub rsp, 8
+mov qword [rdi], rax
+mov rax, qword [rdi + 0x100]
+cmp rax, qword [rdi + 0x108]
+je 0x80093a2
+mov qword [rdi + 0x108], rax
+mov r15, qword [r12 + 0x118]
+mov r13, qword [r12 + 0x120]
+cmp r15, r13
+je 0x8009418
+mov rbx, r15
+lea r14, [0x080093c1]
+jmp 0x80093d1
+nop dword [rax + rax]
+add rbx, 0x10
+cmp r13, rbx
+je 0x8009410
+mov rbp, qword [rbx + 8]
+test rbp, rbp
+je 0x80093c8
+lock sub dword [arg_8h], 1
+jne 0x80093c8
+mov rax, qword [rbp]
+mov rdi, rbp
+call qword [rax + 0x10]
+lock sub dword [arg_ch], 1
+jne 0x80093c8
+mov rax, qword [rbp]
+mov rdi, rbp
+mov rdx, qword [rax + 0x18]
+cmp rdx, r14
+jne 0x8009440
+call qword [rax + 8]
+add rbx, 0x10
+cmp r13, rbx
+jne 0x80093d1
+nop
+mov qword [r12 + 0x120], r15
+mov rdi, r12
+call _ZN5boost6detail16thread_data_baseD2Ev
+add rsp, 8
+mov rdi, r12
+mov esi, 0x138
+pop rbx
+pop rbp
+pop r12
+pop r13
+pop r14
+pop r15
+jmp _ZdlPvm
+nop dword [rax + rax]
+call rdx
+jmp 0x80093c8

@@ -1,0 +1,62 @@
+push rbp
+push rbx
+mov rbx, rdi
+sub rsp, 8
+mov rax, qword [rdi + 0x10]
+mov rdx, qword [rax + 0x70]
+cmp rdx, 1
+jg 0x800b4a0
+jne 0x800b480
+mov qword [rax + 0x70], 0
+mov rax, qword [rbx + 0x10]
+mov rdx, qword [rax + 0x60]
+test rdx, rdx
+je 0x800b439
+mov rbp, qword [rbx + 8]
+mov rdi, qword [rbp]
+cmp byte [rdi + 0x30], 0
+jne 0x800b440
+mov rcx, qword [rbx]
+mov rsi, qword [rcx + 0xe8]
+test rsi, rsi
+je 0x800b470
+mov qword [rsi], rdx
+mov rdx, qword [rax + 0x68]
+pxor xmm0, xmm0
+mov qword [rcx + 0xe8], rdx
+movups xmmword [rax + 0x60], xmm0
+add rsp, 8
+pop rbx
+pop rbp
+ret
+cmp byte [arg_8h], 0
+jne 0x800b414
+add rdi, 8
+call pthread_mutex_lock
+mov byte [arg_8h], 1
+mov rax, qword [rbx + 0x10]
+mov rdx, qword [rax + 0x60]
+test rdx, rdx
+jne 0x800b414
+add rsp, 8
+pop rbx
+pop rbp
+ret
+nop word [rax + rax]
+mov qword [rcx + 0xe0], rdx
+jmp 0x800b426
+nop dword [rax]
+mov rdi, qword [rdi]
+lock sub qword [rdi + 0xd8], 1
+je _ZN5boost4asio6detail9scheduler4stopEv
+mov rax, qword [rbx + 0x10]
+jmp 0x800b3f1
+nop word [rax + rax]
+mov rax, qword [rdi]
+sub rdx, 1
+lock add qword [rax + 0xd8], rdx
+mov rax, qword [rdi + 0x10]
+jmp 0x800b3f1
+nop dword [rax + rax]
+call _ZN5boost4asio6detail9scheduler4stopEv
+jmp 0x800b48e

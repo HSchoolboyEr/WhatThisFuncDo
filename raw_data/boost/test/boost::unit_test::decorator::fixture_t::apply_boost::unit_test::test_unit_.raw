@@ -1,0 +1,22 @@
+mov r8, qword [rsi + 0x108]
+cmp r8, qword [rsi + 0x110]
+je 0x8001530
+mov rax, qword [rdi + 8]
+mov qword [r8], rax
+mov rax, qword [rdi + 0x10]
+mov qword [r8 + 8], rax
+test rax, rax
+je 0x8001520
+lock add dword [rax + 8], 1
+mov r8, qword [rsi + 0x108]
+add r8, 0x10
+mov qword [rsi + 0x108], r8
+ret
+nop dword [rax]
+lea rdx, [rdi + 8]
+lea rdi, [rsi + 0x100]
+mov rsi, r8
+jmp _ZNSt6vectorIN5boost10shared_ptrINS0_9unit_test17test_unit_fixtureEEESaIS4_EE17_M_realloc_insertIJRKS4_EEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_
+nop
+nop word cs:[rax + rax]
+nop

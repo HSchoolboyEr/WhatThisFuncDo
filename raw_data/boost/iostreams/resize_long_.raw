@@ -1,0 +1,2 @@
+mov rdi, qword [rdi + 8]
+jmp method boost::iostreams::detail::mapped_file_impl::resize(long)

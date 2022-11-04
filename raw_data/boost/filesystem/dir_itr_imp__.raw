@@ -1,0 +1,18 @@
+push rbx
+mov rbx, rdi
+mov rdi, qword [rdi + 0x38]
+test rdi, rdi
+je 0x80003ea
+mov qword [rbx + 0x38], 0
+call closedir
+mov rdi, qword [rbx + 8]
+lea rax, [rbx + 0x18]
+cmp rdi, rax
+je 0x8000408
+mov rsi, qword [rbx + 0x18]
+pop rbx
+add rsi, 1
+jmp _ZdlPvm
+nop dword [rax]
+pop rbx
+ret

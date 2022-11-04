@@ -1,0 +1,34 @@
+push rbx
+mov rdx, rsi
+mov rbx, rdi
+mov rsi, qword [rdi + 0x78]
+cmp rsi, qword [rdi + 0x80]
+je 0x8004668
+mov qword [rsi], 0
+mov rax, qword [rdx]
+test rax, rax
+je 0x800465d
+mov qword [rsi], rax
+lea r8, [rsi + 8]
+lea rdi, [rdx + 8]
+test al, 1
+jne 0x8004678
+and rax, 0xfffffffffffffffe
+xor edx, edx
+mov rsi, r8
+call qword [rax]
+add qword [rbx + 0x78], 0x20
+pop rbx
+ret
+nop dword [rax]
+lea rdi, [rdi + 0x70]
+pop rbx
+jmp _ZNSt6vectorIN5boost8functionIFNS0_10test_tools16assertion_resultEmEEESaIS5_EE17_M_realloc_insertIJRKS5_EEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_
+nop word [rax + rax]
+movdqu xmm0, xmmword [rdx + 8]
+movups xmmword [rsi + 8], xmm0
+mov rax, qword [rdi + 0x10]
+mov qword [r8 + 0x10], rax
+add qword [rbx + 0x78], 0x20
+pop rbx
+ret

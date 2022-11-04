@@ -1,0 +1,28 @@
+mov rax, rsi
+mov rsi, rdx
+mov qword [rdi + 0x28], 0
+mov rdx, qword [rax]
+mov qword [rdi + 8], rsi
+mov qword [rax], 0
+mov qword [rdi], rdx
+mov byte [rdi + 0x30], 1
+cmp rcx, 0x17f
+jbe 0x8005068
+mov rax, rcx
+movq xmm0, rsi
+movabs rdx, 0xaaaaaaaaaaaaaaab
+mov qword [rdi + 0x38], 0
+mul rdx
+punpcklqdq xmm0, xmm0
+movups xmmword [rdi + 0x10], xmm0
+shr rdx, 4
+lea rax, [rdx + rdx*2]
+lea rax, [rsi + rax*8]
+mov qword [rdi + 0x20], rax
+ret
+nop word [rax + rax]
+pxor xmm0, xmm0
+mov qword [rdi + 0x20], 0
+mov qword [rdi + 0x38], 0
+movups xmmword [rdi + 0x10], xmm0
+ret

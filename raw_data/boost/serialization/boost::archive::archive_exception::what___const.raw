@@ -1,0 +1,2 @@
+lea rax, [rdi + 8]
+ret

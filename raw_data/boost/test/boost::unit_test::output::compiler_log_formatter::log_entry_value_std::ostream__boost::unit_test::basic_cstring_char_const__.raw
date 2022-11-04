@@ -1,0 +1,69 @@
+push r13
+mov r13, rsi
+push r12
+push rbp
+push rbx
+sub rsp, 0x38
+mov r12, qword [rdx + 8]
+mov rbp, qword [rdx]
+lea rbx, [var_20h]
+mov qword [var_10h], rbx
+test r12, r12
+je 0x80006bc
+test rbp, rbp
+je .LC14
+sub r12, rbp
+mov qword [arg_8h], r12
+cmp r12, 0xf
+ja 0x8000730
+cmp r12, 1
+jne 0x8000720
+movzx eax, byte [rbp]
+mov byte [arg_20h], al
+mov rax, rbx
+mov qword [arg_18h], r12
+mov rdi, r13
+mov byte [rax + r12], 0
+mov rdx, qword [arg_18h]
+mov rsi, qword [arg_10h]
+call _ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l
+mov rdi, qword [arg_10h]
+cmp rdi, rbx
+je 0x800070f
+mov rax, qword [arg_20h]
+lea rsi, [rax + 1]
+call _ZdlPvm
+add rsp, 0x38
+pop rbx
+pop rbp
+pop r12
+pop r13
+ret
+nop word [rax + rax]
+test r12, r12
+jne 0x8000779
+mov rax, rbx
+jmp 0x80006db
+nop word [rax + rax]
+lea rdi, [arg_10h]
+lea rsi, [arg_8h]
+xor edx, edx
+call _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm
+add byte [rax], al
+add byte [rax], al
+mov qword [arg_10h], rax
+mov rdi, rax
+mov rax, qword [arg_8h]
+mov qword [arg_20h], rax
+mov rdx, r12
+mov rsi, rbp
+call memcpy
+mov r12, qword [arg_8h]
+mov rax, qword [arg_10h]
+jmp 0x80006db
+lea rdi, [0x08000774]
+call _ZSt19__throw_logic_errorPKc
+add byte [rax], al
+add byte [rax], al
+mov rdi, rbx
+jmp 0x8000753

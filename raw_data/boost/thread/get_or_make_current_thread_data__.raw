@@ -1,0 +1,9 @@
+sub rsp, 8
+call _ZN5boost6detail23get_current_thread_dataEv
+test rax, rax
+je 0x8001e88
+add rsp, 8
+ret
+nop dword [rax + rax]
+add rsp, 8
+jmp sym boost::detail::make_external_thread_data()

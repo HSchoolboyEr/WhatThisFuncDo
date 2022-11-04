@@ -1,0 +1,142 @@
+push r15
+push r14
+push r13
+mov r13d, edx
+push r12
+push rbp
+mov rbp, rsi
+push rbx
+mov rbx, rdi
+mov edi, 8
+sub rsp, 0x68
+call _Znwm
+mov qword [rbx + 8], 0
+mov edi, 0x18
+mov r12, rax
+mov rax, qword [0x08001848]
+mov qword [rbx], r12
+mov qword [r12], rax
+call _Znwm
+mov qword [rax + 0x10], r12
+mov rdx, qword [0x0800185f]
+lea rcx, [0x08001866]
+mov r12, qword [rbx + 8]
+mov qword [rax], rcx
+mov qword [rax + 8], rdx
+mov qword [rbx + 8], rax
+test r12, r12
+je 0x8001887
+lock sub dword [r12 + 8], 1
+je 0x80019b0
+mov r15, qword [rbp]
+mov r12, qword [var_8h]
+lea r14, [var_20h]
+mov qword [var_10h], r14
+mov rax, r15
+add rax, r12
+je 0x80018aa
+test r15, r15
+je .LC27
+mov qword [var_sp_8h], r12
+cmp r12, 0xf
+ja 0x8001970
+cmp r12, 1
+jne 0x8001950
+movzx eax, byte [r15]
+lea rbp, [var_10h]
+mov byte [var_20h], al
+mov rax, r14
+mov qword [var_8h], r12
+mov rdi, qword [rbx]
+mov edx, r13d
+mov rsi, rbp
+mov byte [rax + r12], 0
+lea r12, [var_40h]
+mov qword [var_30h], r12
+mov qword [var_38h], 0
+mov dword [var_40h], 0
+mov byte [var_50h], 0
+call _ZN5boost9iostreams6detail20file_descriptor_impl4openERKNS1_4pathESt13_Ios_Openmode
+mov rdi, qword [var_30h]
+cmp rdi, r12
+je 0x8001927
+mov rax, qword [var_40h]
+lea rsi, [rax*4 + 4]
+call _ZdlPvm
+mov rdi, qword [var_10h]
+cmp rdi, r14
+je 0x800193f
+mov rax, qword [var_20h]
+lea rsi, [rax + 1]
+call _ZdlPvm
+add rsp, 0x68
+pop rbx
+pop rbp
+pop r12
+pop r13
+pop r14
+pop r15
+ret
+nop
+test r12, r12
+jne 0x8001a4f
+mov rax, r14
+lea rbp, [var_10h]
+jmp 0x80018d3
+nop word cs:[rax + rax]
+lea rbp, [var_10h]
+lea rsi, [var_sp_8h]
+xor edx, edx
+mov rdi, rbp
+call _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm
+mov qword [var_10h], rax
+mov rdi, rax
+mov rax, qword [var_sp_8h]
+mov qword [var_20h], rax
+mov rdx, r12
+mov rsi, r15
+call memcpy
+mov r12, qword [var_sp_8h]
+mov rax, qword [var_10h]
+jmp 0x80018d3
+mov rax, qword [r12]
+lea rdx, [0x080019bb]
+mov rax, qword [rax + 0x10]
+cmp rax, rdx
+jne 0x8001a48
+mov r14, qword [r12 + 0x10]
+test r14, r14
+je 0x80019ee
+mov edi, dword [r14]
+cmp edi, 0xffffffff
+je 0x80019e1
+test byte [r14 + 4], 1
+jne close
+mov esi, 8
+mov rdi, r14
+call _ZdlPvm
+lock sub dword [r12 + 0xc], 1
+jne 0x8001887
+mov rax, qword [r12]
+lea rcx, [0x08001a06]
+mov rdi, r12
+mov rdx, qword [rax + 0x18]
+cmp rdx, rcx
+jne 0x8001a30
+call qword [rax + 8]
+jmp 0x8001887
+nop word [rax + rax]
+call close
+jmp 0x80019e1
+nop word [rax + rax]
+call rdx
+jmp 0x8001887
+lea rdi, [0x08001a3e]
+call _ZSt19__throw_logic_errorPKc
+nop dword [rax + rax]
+mov rdi, r12
+call rax
+jmp 0x80019ee
+mov rdi, r14
+lea rbp, [var_10h]
+jmp 0x8001996

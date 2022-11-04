@@ -1,0 +1,12 @@
+push rbp
+push rbx
+lea rbx, [0x08006d86]
+sub rsp, 0x18
+mov qword [var_8h], rbx
+call .text.unlikely
+mov rbp, rax
+lea rdi, [var_8h]
+mov qword [var_8h], rbx
+call _ZNSt9exceptionD2Ev
+mov rdi, rbp
+call method boost::asio::execution::detail::any_executor_base::blocking_execute_void(boost::asio::execution::detail::any_executor_base const&, boost::asio::detail::executor_function_view)

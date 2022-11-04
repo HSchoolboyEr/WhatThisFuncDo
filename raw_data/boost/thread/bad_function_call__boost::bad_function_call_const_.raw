@@ -1,0 +1,29 @@
+push r12
+mov r12, rdi
+mov edi, 0x40
+push rbp
+push rax
+call __cxa_allocate_exception
+mov rsi, r12
+mov rbp, rax
+lea rax, [0x0800a3e0]
+lea rdi, [arg_8h]
+mov qword [rbp], rax
+call _ZNSt13runtime_errorC2ERKS_
+mov rax, qword [0x0800a3f4]
+lea rdx, [0x0800a3fb]
+lea rsi, [0x0800a402]
+mov rdi, rbp
+mov qword [arg_20h], 0
+mov qword [arg_38h], rax
+lea rax, [0x0800a418]
+lea rcx, [rax - 0x30]
+movq xmm1, rax
+add rax, 0x28
+mov qword [arg_28h], 0
+movq xmm0, rcx
+mov qword [arg_30h], 0
+punpcklqdq xmm0, xmm1
+mov qword [arg_18h], rax
+movups xmmword [rbp], xmm0
+call method void boost::conversion::detail::throw_bad_cast<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, unsigned int>()

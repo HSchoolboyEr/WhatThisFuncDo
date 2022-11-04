@@ -1,0 +1,63 @@
+push r15
+mov r15, rdx
+push r14
+push r13
+mov r13, rcx
+push r12
+mov r12, rdi
+push rbp
+mov rbp, rsi
+push rbx
+sub rsp, 0x408
+test rsi, rsi
+je strlen
+cmp rbp, r12
+je 0x80003ac
+mov rax, rbp
+sub rax, r12
+lea rcx, [rax + rax*2]
+cmp rcx, 0x100
+jbe 0x8000390
+movabs rax, 0x1ffffffffffffffe
+cmp rcx, rax
+ja .text.unlikely
+lea rbx, [rcx*4]
+mov rdi, rbx
+call _Znam
+mov r9, r13
+mov r8, r15
+mov rsi, rbp
+lea rcx, [rax + rbx]
+mov rdx, rax
+mov rdi, r12
+mov r14, rax
+call sym (anonymous namespace)::convert_aux(char const*, char const*, wchar_t*, wchar_t*, std::__cxx11::basic_string<wchar_t, std::char_traits<wchar_t>, std::allocator<wchar_t> >&, std::codecvt<wchar_t, char, __mbstate_t> const&)
+add rsp, 0x408
+mov rdi, r14
+pop rbx
+pop rbp
+pop r12
+pop r13
+pop r14
+pop r15
+jmp _ZdaPv
+nop dword [rax]
+mov rdx, rsp
+mov r9, r13
+mov r8, r15
+mov rsi, rbp
+lea rcx, [var_400h]
+mov rdi, r12
+call sym (anonymous namespace)::convert_aux(char const*, char const*, wchar_t*, wchar_t*, std::__cxx11::basic_string<wchar_t, std::char_traits<wchar_t>, std::allocator<wchar_t> >&, std::codecvt<wchar_t, char, __mbstate_t> const&)
+add rsp, 0x408
+pop rbx
+pop rbp
+pop r12
+pop r13
+pop r14
+pop r15
+ret
+nop
+call strlen
+lea rbp, [r12 + rax]
+jmp 0x8000316

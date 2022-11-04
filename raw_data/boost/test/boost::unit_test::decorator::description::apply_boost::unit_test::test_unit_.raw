@@ -1,0 +1,11 @@
+mov rcx, qword [rdi + 8]
+mov r8, qword [rdi + 0x10]
+xor edx, edx
+lea rdi, [rsi + 0xa8]
+mov r9, qword [rsi + 0xb0]
+sub r8, rcx
+mov rsi, r9
+jmp _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE10_M_replaceEmmPKcm
+nop
+nop word cs:[rax + rax]
+nop

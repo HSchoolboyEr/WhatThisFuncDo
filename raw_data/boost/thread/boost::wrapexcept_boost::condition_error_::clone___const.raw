@@ -1,0 +1,58 @@
+push r13
+push r12
+push rbp
+push rbx
+mov rbx, rdi
+mov edi, 0x58
+sub rsp, 8
+call _Znwm
+lea rsi, [rbx + 8]
+mov r12, rax
+lea rax, [0x08008745]
+lea rbp, [r12 + 8]
+mov qword [r12], rax
+mov rdi, rbp
+call _ZNSt13runtime_errorC2ERKS_
+mov rax, qword [rbx + 0x28]
+movdqu xmm1, xmmword [rbx + 0x18]
+mov rdi, qword [rbx + 0x38]
+mov qword [r12 + 0x28], rax
+lea rax, [0x0800876f]
+mov qword [r12 + 8], rax
+lea rax, [0x0800877b]
+mov qword [r12 + 0x30], rax
+mov qword [r12 + 0x38], rdi
+movups xmmword [r12 + 0x18], xmm1
+test rdi, rdi
+je 0x80087a7
+mov rax, qword [rdi]
+lea rdx, [0x0800879a]
+mov rax, qword [rax + 0x18]
+cmp rax, rdx
+jne 0x8008800
+add dword [rdi + 0x58], 1
+mov rax, qword [rbx + 0x50]
+movdqu xmm2, xmmword [rbx + 0x40]
+lea rsi, [rbx + 0x30]
+lea rdi, [r12 + 0x30]
+mov qword [r12 + 0x50], rax
+lea rax, [0x080087c5]
+lea rcx, [rax - 0x30]
+movq xmm3, rax
+add rax, 0x28
+movups xmmword [r12 + 0x40], xmm2
+movq xmm0, rcx
+mov qword [r12 + 0x30], rax
+punpcklqdq xmm0, xmm3
+movups xmmword [r12], xmm0
+call _ZN5boost16exception_detail20copy_boost_exceptionEPNS_9exceptionEPKS1_
+add rsp, 8
+mov rax, r12
+pop rbx
+pop rbp
+pop r12
+pop r13
+ret
+nop
+call rax
+jmp 0x80087a7

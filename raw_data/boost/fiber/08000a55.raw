@@ -1,0 +1,26 @@
+mov rbx, rax
+call __cxa_end_catch
+mov rax, rbx
+xor edx, edx
+cmp byte [arg_8h], 0
+jne 0x8000aa1
+mov rbp, rax
+test dl, dl
+je 0x8000a78
+mov rdi, r13
+call _ZN5boost6fibers5mutex6unlockEv
+mov rdi, rbp
+call _Unwind_Resume
+mov edx, 1
+jmp 0x8000a62
+sub rax, 1
+jne __cxa_begin_catch
+call __cxa_begin_catch
+call __cxa_rethrow
+call __cxa_begin_catch
+call _ZSt9terminatev
+mov rcx, qword [rsp]
+test rcx, rcx
+je 0x8000a69
+mov dword [rcx], 1
+jmp 0x8000a69

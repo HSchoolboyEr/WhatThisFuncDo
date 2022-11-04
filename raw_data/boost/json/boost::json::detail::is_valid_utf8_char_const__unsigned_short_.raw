@@ -1,0 +1,72 @@
+mov eax, esi
+shr ax, 8
+cmp si, 0x7ff
+ja .text._ZN5boost4json6detail13is_valid_utf8EPKct
+lea rdx, [0x080160b8]
+movzx eax, ax
+movsxd rax, dword [rdx + rax*4]
+add rax, rdx
+jmp rax
+nop dword [rax]
+mov eax, dword [rdi]
+and eax, 0xc0c0f000
+cmp eax, 0x80808000
+sete al
+ret
+nop dword [rax + rax]
+movzx eax, word [rdi]
+mov dword [rsp - 4], 0
+mov word [rsp - 4], ax
+mov eax, dword [rsp - 4]
+and eax, 0xc000
+cmp eax, 0x8000
+sete al
+ret
+nop word [rax + rax]
+movzx eax, word [rdi]
+mov dword [rsp - 4], 0
+mov word [rsp - 4], ax
+movzx eax, byte [rdi + 2]
+mov byte [rsp - 2], al
+mov eax, dword [rsp - 4]
+and eax, 0xc0e000
+cmp eax, 0x80a000
+sete al
+ret
+nop word [rax + rax]
+movzx eax, word [rdi]
+mov dword [rsp - 4], 0
+mov word [rsp - 4], ax
+movzx eax, byte [rdi + 2]
+mov byte [rsp - 2], al
+mov eax, dword [rsp - 4]
+and eax, 0xc0c000
+cmp eax, 0x808000
+sete al
+ret
+nop word [rax + rax]
+movzx eax, word [rdi]
+mov dword [rsp - 4], 0
+mov word [rsp - 4], ax
+movzx eax, byte [rdi + 2]
+mov byte [rsp - 2], al
+mov eax, dword [rsp - 4]
+and eax, 0xc0e000
+cmp eax, 0x808000
+sete al
+ret
+nop word [rax + rax]
+mov eax, dword [rdi]
+and eax, 0xc0c0ff00
+add eax, 0x7f7f7000
+cmp eax, 0x2f00
+setbe al
+ret
+nop dword [rax]
+mov eax, dword [rdi]
+and eax, 0xc0c0c000
+cmp eax, 0x80808000
+sete al
+ret
+xor eax, eax
+ret

@@ -1,0 +1,22 @@
+push rbp
+mov rbp, rsi
+push rbx
+mov rbx, rdi
+lea rdi, [rdi + 8]
+sub rsp, 8
+call _ZN5boost6fibers6detail13spinlock_ttas4lockEv
+mov rdx, qword [rbx + 0x20]
+lea rax, [arg_10h]
+mov rcx, qword [rdx]
+mov qword [arg_10h], rcx
+mov qword [rdx], rax
+add qword [rbx + 0x10], 1
+mov qword [rbx + 0x20], rax
+mov dword [rbx + 8], 1
+mov rdi, qword [rbx + 0x28]
+mov rax, qword [rdi]
+mov rax, qword [rax + 0x30]
+add rsp, 8
+pop rbx
+pop rbp
+jmp rax

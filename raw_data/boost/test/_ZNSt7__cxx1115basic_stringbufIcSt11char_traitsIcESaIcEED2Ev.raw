@@ -1,0 +1,16 @@
+lea rax, [0x08000867]
+push rbx
+mov rbx, rdi
+mov qword [rdi], rax
+mov rdi, qword [rdi + 0x48]
+lea rax, [rbx + 0x58]
+cmp rdi, rax
+je 0x8000888
+mov rax, qword [rbx + 0x58]
+lea rsi, [rax + 1]
+call _ZdlPvm
+lea rax, [0x0800088f]
+lea rdi, [rbx + 0x38]
+mov qword [rbx], rax
+pop rbx
+jmp _ZNSt6localeD1Ev

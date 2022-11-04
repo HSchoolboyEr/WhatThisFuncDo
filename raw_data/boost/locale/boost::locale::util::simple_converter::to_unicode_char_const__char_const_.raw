@@ -1,0 +1,11 @@
+mov rax, qword [rsi]
+cmp rax, rdx
+je 0x80012b0
+lea rdx, [rax + 1]
+mov qword [rsi], rdx
+movzx eax, byte [rax]
+mov eax, dword [rdi + rax*4 + 8]
+ret
+nop word [rax + rax]
+mov eax, 0xfffffffe
+ret

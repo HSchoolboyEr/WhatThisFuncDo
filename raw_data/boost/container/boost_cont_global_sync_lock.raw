@@ -1,0 +1,34 @@
+cmp qword [0x08009c48], 0
+push r12
+push rbp
+push rbx
+je 0x8009c70
+mov eax, 1
+xchg dword [0x08009c59], eax
+test eax, eax
+jne 0x8009c80
+pop rbx
+mov eax, 1
+pop rbp
+pop r12
+ret
+nop word [rax + rax]
+call sym.init_mparams.isra.0
+jmp 0x8009c4e
+nop word [rax + rax]
+xor ebx, ebx
+lea rbp, [0x08009c89]
+mov r12d, 1
+nop
+mov eax, dword [rbp]
+test eax, eax
+jne 0x8009ca4
+mov eax, r12d
+xchg dword [0x08009ca0], eax
+test eax, eax
+je 0x8009c5d
+add ebx, 1
+test bl, 0x3f
+jne 0x8009c90
+call sched_yield
+jmp 0x8009c90

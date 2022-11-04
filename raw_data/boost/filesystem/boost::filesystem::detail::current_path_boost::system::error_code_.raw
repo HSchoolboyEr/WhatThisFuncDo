@@ -1,0 +1,131 @@
+push r15
+push r14
+push r13
+push r12
+mov r12, rdi
+push rbp
+mov rbp, rsi
+mov esi, 0x400
+push rbx
+lea rbx, [rdi + 0x10]
+sub rsp, 0x418
+mov qword [rdi], rbx
+mov qword [rdi + 8], 0
+mov byte [rdi + 0x10], 0
+lea rdi, [var_10h]
+call getcwd
+test rax, rax
+je __errno_location
+mov rdi, rax
+mov r13, rax
+call strlen
+mov rdx, qword [r12 + 8]
+mov rcx, r13
+xor esi, esi
+mov r8, rax
+mov rdi, r12
+call _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE10_M_replaceEmmPKcm
+test rbp, rbp
+je 0x8001c2a
+mov dword [rbp], 0
+mov qword [arg_8h], 0
+mov qword [arg_10h], 0
+add rsp, 0x418
+mov rax, r12
+pop rbx
+pop rbp
+pop r12
+pop r13
+pop r14
+pop r15
+ret
+nop
+call __errno_location
+mov edi, dword [rax]
+mov r14, rax
+test edi, edi
+je 0x8001c57
+cmp edi, 0x22
+jne .LC22
+test rbp, rbp
+je 0x8001d08
+mov dword [rbp], 0
+mov r15d, 0x800
+mov qword [arg_8h], 0
+mov qword [arg_10h], 0
+mov dword [arg_ch], 5
+mov rdi, r15
+call _Znam
+mov rsi, r15
+mov rdi, rax
+mov r13, rax
+call getcwd
+test rax, rax
+je 0x8001d6c
+mov rdi, r13
+call strlen
+mov rdx, qword [r12 + 8]
+mov rcx, r13
+xor esi, esi
+mov r8, rax
+mov rdi, r12
+call _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE10_M_replaceEmmPKcm
+test rbp, rbp
+je 0x8001cdd
+mov dword [rbp], 0
+mov qword [arg_8h], 0
+mov qword [arg_10h], 0
+mov rdi, r13
+call _ZdaPv
+jmp 0x8001c2a
+nop word [rax + rax]
+lea rdx, [0x08001cf7]
+mov rsi, rbp
+call _ZN5boost10filesystem10emit_errorEiPNS_6system10error_codeEPKc
+add byte [rax], al
+add byte [rax], al
+jmp 0x8001c2a
+nop dword [rax]
+mov dword [arg_ch], 5
+mov r15d, 0x800
+mov rdi, r15
+call _Znam
+mov rsi, r15
+mov rdi, rax
+mov r13, rax
+call getcwd
+test rax, rax
+jne strlen
+mov edi, dword [r14]
+cmp edi, 0x22
+je 0x8001d41
+test edi, edi
+jne 0x8001da7
+mov rdi, r13
+add r15, r15
+call _ZdaPv
+sub dword [arg_ch], 1
+jne 0x8001d16
+lea rdx, [0x08001d5a]
+mov rsi, rbp
+mov edi, 0x24
+call _ZN5boost10filesystem10emit_errorEiPNS_6system10error_codeEPKc
+jmp 0x8001c2a
+mov edi, dword [r14]
+test edi, edi
+je 0x8001d78
+cmp edi, 0x22
+jne 0x8001da7
+mov dword [rbp], 0
+mov rdi, r13
+add r15, r15
+mov qword [arg_8h], 0
+mov qword [arg_10h], 0
+call _ZdaPv
+sub dword [arg_ch], 1
+jne _Znam
+jmp 0x8001d53
+lea rdx, [0x08001dae]
+mov rsi, rbp
+call _ZN5boost10filesystem10emit_errorEiPNS_6system10error_codeEPKc
+jmp _ZdaPv

@@ -1,0 +1,45 @@
+push rbp
+lea rbp, [0x08000528]
+push rbx
+mov rbx, rdi
+sub rsp, 0x38
+movzx eax, byte [0x08000537]
+test al, al
+je 0x8000580
+lea rax, [0x08000542]
+lea rsi, [var_8h]
+mov dword [var_18h], 0
+mov qword [var_10h], rax
+lea rdi, [0x0800055b]
+lea rax, [var_10h]
+mov qword [var_20h], rbx
+mov qword [var_8h], rax
+call _ZNKSt8_Rb_treeIPKN5boost13serialization18extended_type_infoES4_St9_IdentityIS4_ENS1_6detail11key_compareESaIS4_EE4findERKS4_
+cmp rax, rbp
+je 0x80005f0
+mov rax, qword [rax + 0x20]
+add rsp, 0x38
+pop rbx
+pop rbp
+ret
+nop
+lea rdi, [0x08000587]
+lea rbp, [0x0800058e]
+call __cxa_guard_acquire
+test eax, eax
+je 0x800053b
+lea rdi, [0x0800059e]
+mov qword [0x080005a5], rbp
+mov qword [0x080005ac], rbp
+mov dword [0x080005b6], 0
+mov qword [0x080005c1], 0
+mov qword [0x080005cc], 0
+call __cxa_guard_release
+lea rdx, [0x080005d8]
+lea rsi, [var_bp_8h]
+lea rdi, [0x080005e3]
+call __cxa_atexit
+jmp _ZTVN5boost13serialization6detail22extended_type_info_argE
+nop dword [rax]
+xor eax, eax
+jmp 0x8000578

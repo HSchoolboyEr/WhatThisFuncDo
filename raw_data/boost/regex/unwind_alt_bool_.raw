@@ -1,0 +1,14 @@
+mov ecx, esi
+mov rdx, qword [rdi + 0xd8]
+mov eax, esi
+xor ecx, 1
+test sil, sil
+jne 0x8003df3
+mov rsi, qword [rdx + 8]
+mov qword [rdi + 0x58], rsi
+mov rsi, qword [rdx + 0x10]
+mov qword [rdi + 0x28], rsi
+add rdx, 0x18
+mov byte [rdi + 0xe6], cl
+mov qword [rdi + 0xd8], rdx
+ret

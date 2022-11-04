@@ -1,0 +1,28 @@
+mov rax, qword [rdi + 0x10]
+mov eax, dword [rax]
+test eax, eax
+jne 0x8003770
+xor eax, eax
+ret
+nop dword [rax]
+sub rsp, 0x18
+mov qword [var_8h], rdi
+call _ZN5boost4json6detail14find_in_objectINS_4core17basic_string_viewIcEEEESt4pairIPNS0_14key_value_pairEmERKNS0_6objectET_
+mov rsi, rax
+test rax, rax
+je 0x80037b0
+mov rdi, qword [var_8h]
+mov rax, qword [rdi + 0x10]
+mov edx, dword [rax]
+lea rdx, [rdx + rdx*4]
+lea rax, [rax + rdx*8 + 0x10]
+cmp rsi, rax
+je 0x80037b0
+call _ZN5boost4json6object5eraseEPKNS0_14key_value_pairE
+mov eax, 1
+add rsp, 0x18
+ret
+nop
+xor eax, eax
+add rsp, 0x18
+ret

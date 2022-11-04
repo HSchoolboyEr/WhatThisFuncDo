@@ -1,0 +1,39 @@
+push rbp
+lea rax, [0x08001cc8]
+push rbx
+mov rbx, rdi
+sub rsp, 8
+mov qword [rdi], rax
+call _ZSt19uncaught_exceptionsv
+add byte [rax], al
+add byte [rax], al
+test eax, eax
+jne 0x8001ce8
+mov rdi, rbx
+call _ZNK5boost7archive6detail14basic_iarchive9get_flagsEv
+test al, 1
+je 0x8001d30
+mov rbp, qword [rbx + 0x90]
+test rbp, rbp
+je 0x8001d09
+mov rdi, rbp
+call _ZN5boost7archive17basic_xml_grammarIwED1Ev
+mov esi, 0x240
+mov rdi, rbp
+call _ZdlPvm
+lea rdi, [rbx + 0x88]
+call _ZNSt6localeD1Ev
+mov rdi, rbx
+call _ZN5boost7archive18basic_xml_iarchiveINS0_13xml_wiarchiveEED2Ev
+add rsp, 8
+lea rdi, [rbx + 0x30]
+pop rbx
+pop rbp
+jmp _ZN5boost7archive21basic_text_iprimitiveISt13basic_istreamIwSt11char_traitsIwEEED2Ev
+nop dword [rax]
+mov rsi, qword [rbx + 0x30]
+mov rdi, qword [rbx + 0x90]
+call _ZN5boost7archive17basic_xml_grammarIwE6windupERSt13basic_istreamIwSt11char_traitsIwEE
+add byte [rax], al
+add byte [rax], al
+jmp 0x8001ce8

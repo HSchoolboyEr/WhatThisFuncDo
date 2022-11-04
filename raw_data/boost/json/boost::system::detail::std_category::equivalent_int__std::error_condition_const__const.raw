@@ -1,0 +1,159 @@
+push r14
+mov r14d, esi
+push r13
+mov r13, rdi
+push r12
+push rbp
+push rbx
+mov rbx, rdx
+sub rsp, 0x10
+mov r12, qword [rdx + 8]
+cmp rdi, r12
+je 0x8015ed0
+call _ZNSt3_V216generic_categoryEv
+mov rbp, rax
+cmp rax, r12
+je 0x8015e58
+lea rdi, [0x08015e06]
+call _ZNK5boost6system14error_categorycvRKNSt3_V214error_categoryEEv
+mov rdi, qword [rbx + 8]
+cmp rdi, rax
+je 0x8015e58
+test rdi, rdi
+je 0x8015f30
+xor ecx, ecx
+lea rdx, [0x08015e26]
+lea rsi, [0x08015e2d]
+call __dynamic_cast
+test rax, rax
+je 0x8015f30
+mov rax, qword [rax + 8]
+mov edx, dword [rbx]
+mov rdi, qword [r13 + 8]
+mov dword [rsp], edx
+mov qword [var_8h], rax
+jmp 0x8015ede
+nop word [rax + rax]
+mov eax, dword [rbx]
+mov rdi, qword [r13 + 8]
+lea rdx, [0x08015e65]
+add byte [rax], al
+add byte [rax], al
+mov dword [rsp], eax
+lea rax, [0x08015e6f]
+mov qword [var_8h], rax
+mov rax, qword [rdi]
+mov rcx, qword [rax + 0x10]
+cmp rcx, rdx
+jne 0x8015f90
+mov esi, r14d
+call qword [rax + 8]
+mov r8d, eax
+xor eax, eax
+cmp dword [rsp], r8d
+jne 0x8015ebf
+mov rax, qword [var_8h]
+test rdx, rdx
+je 0x8015fa8
+test rax, rax
+je 0x8015fc8
+mov rcx, qword [rax + 8]
+test rcx, rcx
+jne 0x8015f80
+cmp rax, rdx
+sete al
+add rsp, 0x10
+pop rbx
+pop rbp
+pop r12
+pop r13
+pop r14
+ret
+nop dword [rax]
+mov rdi, qword [rdi + 8]
+mov eax, dword [rdx]
+mov qword [var_8h], rdi
+mov dword [rsp], eax
+mov rax, qword [rdi]
+lea rdx, [0x08015ee8]
+mov rcx, qword [rax + 0x10]
+cmp rcx, rdx
+jne 0x8015f90
+mov esi, r14d
+call qword [rax + 8]
+mov r8d, eax
+xor eax, eax
+cmp dword [rsp], r8d
+jne 0x8015ebf
+mov rax, qword [var_8h]
+test rdx, rdx
+je 0x8015fa8
+test rax, rax
+je 0x8015fc8
+mov rcx, qword [rax + 8]
+test rcx, rcx
+jne 0x8015f80
+cmp rdx, rax
+sete al
+jmp 0x8015ebf
+nop
+mov rax, qword [r13]
+lea rdx, [0x08015f3b]
+add byte [rax], al
+add byte [rax], al
+mov rax, qword [rax + 0x28]
+cmp rax, rdx
+jne 0x8015fe0
+mov rdi, qword [r13 + 8]
+mov esi, r14d
+mov rax, qword [rdi]
+call qword [rax + 8]
+mov rdi, rdx
+mov r12d, eax
+test rdx, rdx
+je 0x8015f68
+call _ZNK5boost6system14error_categorycvRKNSt3_V214error_categoryEEv
+mov rbp, rax
+xor eax, eax
+cmp rbp, qword [rbx + 8]
+jne 0x8015ebf
+cmp dword [rbx], r12d
+sete al
+jmp 0x8015ebf
+nop
+cmp qword [rdx + 8], rcx
+sete al
+jmp 0x8015ebf
+nop dword [rax]
+mov rdx, rsp
+mov esi, r14d
+call rcx
+add rsp, 0x10
+pop rbx
+pop rbp
+pop r12
+pop r13
+pop r14
+ret
+nop dword [rax]
+test rax, rax
+je 0x8015ff8
+movabs rdx, 0xb2ab117a257edfd0
+cmp qword [rax + 8], rdx
+sete al
+jmp 0x8015ebf
+nop dword [rax + rax]
+movabs rax, 0xb2ab117a257edfd0
+cmp qword [rdx + 8], rax
+sete al
+jmp 0x8015ebf
+nop
+mov esi, r14d
+mov rdi, r13
+call rax
+mov r12d, eax
+mov rbp, rdx
+jmp 0x8015f68
+nop dword [rax + rax]
+mov eax, 1
+jmp 0x8015ebf

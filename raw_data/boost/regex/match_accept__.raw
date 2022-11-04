@@ -1,0 +1,68 @@
+push r12
+push rbp
+mov rbp, rdi
+push rbx
+mov rax, qword [rdi + 0xc0]
+cmp qword [rdi + 0xb8], rax
+je 0x8017610
+mov rbx, qword [rdi + 0x58]
+mov r12d, dword [rax - 0x70]
+test rbx, rbx
+je 0x80175d4
+mov eax, dword [rbx]
+cmp eax, 1
+je 0x80175e0
+cmp eax, 6
+je 0x80175d4
+mov rdx, qword [rbx + 8]
+test eax, eax
+je 0x8017628
+mov qword [arg_58h], rdx
+mov rbx, rdx
+test rbx, rbx
+jne 0x80175b4
+pop rbx
+mov eax, 1
+pop rbp
+pop r12
+ret
+nop
+mov rdi, rbp
+cmp r12d, dword [rbx + 0x10]
+jne _ZN5boost13re_detail_50012perl_matcherIPKwSaINS_9sub_matchIS3_EEENS_14c_regex_traitsIwEEE13match_endmarkEv
+pop rbx
+pop rbp
+pop r12
+jmp _ZN5boost13re_detail_50012perl_matcherIPKwSaINS_9sub_matchIS3_EEENS_14c_regex_traitsIwEEE13match_endmarkEv
+nop word [rax + rax]
+call _ZN5boost13re_detail_50012perl_matcherIPKwSaINS_9sub_matchIS3_EEENS_14c_regex_traitsIwEEE13match_endmarkEv
+mov rax, qword [arg_58h]
+test rax, rax
+je 0x8017640
+mov rbx, rax
+jmp 0x80175b4
+nop dword [rax + rax]
+pop rbx
+mov edx, 1
+pop rbp
+mov esi, 0x7fffffff
+pop r12
+jmp _ZN5boost13re_detail_50012perl_matcherIPKwSaINS_9sub_matchIS3_EEENS_14c_regex_traitsIwEEE16skip_until_parenEib
+nop dword [rax + rax]
+mov esi, dword [rbx + 0x10]
+mov qword [arg_58h], rdx
+mov rdi, rbp
+xor edx, edx
+call _ZN5boost13re_detail_50012perl_matcherIPKwSaINS_9sub_matchIS3_EEENS_14c_regex_traitsIwEEE16skip_until_parenEib
+mov rbx, qword [arg_58h]
+jmp 0x80175cf
+nop
+mov esi, 1
+mov rdi, rbp
+call _ZN5boost13re_detail_50012perl_matcherIPKwSaINS_9sub_matchIS3_EEENS_14c_regex_traitsIwEEE6unwindEb
+mov rax, qword [arg_58h]
+test rax, rax
+jne 0x8017606
+mov rbx, qword [rbx + 8]
+mov qword [arg_58h], rbx
+jmp 0x80175cf

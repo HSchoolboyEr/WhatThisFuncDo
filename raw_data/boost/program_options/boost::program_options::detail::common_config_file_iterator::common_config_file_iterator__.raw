@@ -1,0 +1,121 @@
+lea rax, [0x080038a7]
+push r12
+mov r12, rdi
+push rbp
+push rbx
+mov qword [rdi], rax
+mov rdi, qword [rdi + 0xd0]
+lea rax, [r12 + 0xe0]
+cmp rdi, rax
+je 0x80038d6
+mov rax, qword [r12 + 0xe0]
+lea rsi, [rax + 1]
+call _ZdlPvm
+mov rbp, qword [r12 + 0xb0]
+test rbp, rbp
+je 0x8003928
+mov rdi, qword [arg_18h]
+call .text
+mov rdi, qword [arg_20h]
+lea rax, [arg_30h]
+mov rbx, qword [arg_10h]
+cmp rdi, rax
+je 0x800390a
+mov rax, qword [arg_30h]
+lea rsi, [rax + 1]
+call _ZdlPvm
+mov esi, 0x40
+mov rdi, rbp
+call _ZdlPvm
+test rbx, rbx
+je 0x8003928
+mov rbp, rbx
+jmp 0x80038e3
+nop dword [rax]
+mov rbp, qword [r12 + 0x80]
+test rbp, rbp
+je 0x8003978
+mov rdi, qword [arg_18h]
+call .text
+mov rdi, qword [arg_20h]
+lea rax, [arg_30h]
+mov rbx, qword [arg_10h]
+cmp rdi, rax
+je 0x800395c
+mov rax, qword [arg_30h]
+lea rsi, [rax + 1]
+call _ZdlPvm
+mov esi, 0x40
+mov rdi, rbp
+call _ZdlPvm
+test rbx, rbx
+je 0x8003978
+mov rbp, rbx
+jmp 0x8003935
+nop dword [rax + rax]
+mov rbx, qword [r12 + 0x58]
+mov rbp, qword [r12 + 0x50]
+cmp rbx, rbp
+je 0x80039bc
+nop word [rax + rax]
+mov rdi, qword [rbp]
+lea rax, [arg_10h]
+cmp rdi, rax
+je 0x8003a50
+mov rax, qword [arg_10h]
+add rbp, 0x20
+lea rsi, [rax + 1]
+call _ZdlPvm
+cmp rbx, rbp
+jne 0x8003990
+mov rbp, qword [r12 + 0x50]
+test rbp, rbp
+je 0x80039d1
+mov rsi, qword [r12 + 0x60]
+mov rdi, rbp
+sub rsi, rbp
+call _ZdlPvm
+mov rbx, qword [r12 + 0x40]
+mov rbp, qword [r12 + 0x38]
+cmp rbx, rbp
+je 0x8003a08
+mov rdi, qword [rbp]
+lea rax, [arg_10h]
+cmp rdi, rax
+je 0x8003a68
+mov rax, qword [arg_10h]
+add rbp, 0x20
+lea rsi, [rax + 1]
+call _ZdlPvm
+cmp rbx, rbp
+jne 0x80039e0
+mov rbp, qword [r12 + 0x38]
+test rbp, rbp
+je 0x8003a1d
+mov rsi, qword [r12 + 0x48]
+mov rdi, rbp
+sub rsi, rbp
+call _ZdlPvm
+mov rdi, qword [r12 + 0x10]
+lea rax, [r12 + 0x20]
+cmp rdi, rax
+je 0x8003a3a
+mov rax, qword [r12 + 0x20]
+lea rsi, [rax + 1]
+call _ZdlPvm
+pop rbx
+mov rdi, r12
+pop rbp
+mov esi, 0xf8
+pop r12
+jmp _ZdlPvm
+nop dword [rax + rax]
+add rbp, 0x20
+cmp rbx, rbp
+jne 0x8003990
+jmp 0x80039b7
+nop word [rax + rax]
+add rbp, 0x20
+cmp rbx, rbp
+jne 0x80039e0
+jmp 0x8003a03

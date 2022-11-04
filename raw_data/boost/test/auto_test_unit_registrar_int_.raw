@@ -1,0 +1,18 @@
+xor esi, esi
+xor edi, edi
+jmp _ZN5boost9unit_test9framework23current_auto_test_suiteEPNS0_10test_suiteEb
+add byte [rax], al
+add byte [rax], al
+nop
+nop word [rax + rax]
+lea rax, [0x08001897]
+push rbx
+mov rbx, rdi
+mov qword [rdi], rax
+mov byte [rdi + 8], 0
+call _ZN5boost9unit_test9framework23register_global_fixtureERNS0_14global_fixtureE
+add byte [rax], al
+add byte [rax], al
+mov byte [rbx + 8], 1
+pop rbx
+ret

@@ -1,0 +1,123 @@
+push r15
+lea rax, [0x08003bb9]
+push r14
+lea r14, [0x08003bc2]
+movq xmm2, rax
+push r13
+lea r13, [rdi + 0x38]
+push r12
+push rbp
+mov rbp, rdi
+push rbx
+mov rbx, rsi
+lea r12, [arg_70h]
+sub rsp, 0x18
+mov qword [rdi], r14
+movq xmm1, qword [0x08003bea]
+mov qword [rdi + 8], 0
+mov qword [rdi + 0x10], 0
+punpcklqdq xmm1, xmm2
+mov qword [rdi + 0x18], 0
+mov qword [rdi + 0x20], 0
+mov qword [rdi + 0x28], 0
+mov qword [rdi + 0x30], 0
+mov rdi, r13
+movaps xmmword [rsp], xmm1
+call _ZNSt6localeC1Ev
+lea rax, [0x08003c31]
+mov byte [arg_50h], 0
+mov rdi, r12
+mov qword [rbp], rax
+lea rax, [arg_58h]
+mov qword [arg_28h], rax
+mov qword [arg_20h], rax
+lea rax, [arg_68h]
+mov qword [arg_30h], rax
+mov qword [arg_40h], 0
+mov qword [arg_48h], 0
+call _ZNSt8ios_baseC2Ev
+xor eax, eax
+movdqa xmm1, xmmword [rsp]
+pxor xmm0, xmm0
+mov word [arg_150h], ax
+mov rsi, rbp
+mov rdi, r12
+mov qword [arg_148h], 0
+movups xmmword [arg_158h], xmm0
+movups xmmword [arg_168h], xmm0
+movups xmmword [arg_68h], xmm1
+call _ZNSt9basic_iosIcSt11char_traitsIcEE4initEPSt15basic_streambufIcS1_E
+mov dword [arg_8ch], 0
+mov esi, dword [arg_90h]
+mov rdi, r12
+call _ZNSt9basic_iosIcSt11char_traitsIcEE5clearESt12_Ios_Iostate
+xor esi, esi
+cmp qword [arg_40h], 0
+mov rdi, r12
+sete sil
+call _ZNSt9basic_iosIcSt11char_traitsIcEE5clearESt12_Ios_Iostate
+movdqa xmm0, xmmword [0x08003cd2]
+cmp byte [arg_151h], 0
+mov dword [arg_88h], 0x1003
+movups xmmword [arg_78h], xmm0
+je 0x8003d10
+mov byte [arg_150h], 0x20
+mov rdi, rbp
+mov qword [arg_178h], rbx
+call _ZN5boost3log12v2s_mt_posix20basic_record_ostreamIcE11init_streamEv
+add rsp, 0x18
+pop rbx
+pop rbp
+pop r12
+pop r13
+pop r14
+pop r15
+ret
+nop
+mov r15, qword [arg_160h]
+test r15, r15
+je _ZSt16__throw_bad_castv
+cmp byte [r15 + 0x38], 0
+je 0x8003d30
+mov byte [arg_151h], 1
+jmp 0x8003ce9
+nop dword [rax]
+mov rdi, r15
+call _ZNKSt5ctypeIcE13_M_widen_initEv
+mov rax, qword [r15]
+lea rdx, [0x08003d42]
+mov rax, qword [rax + 0x30]
+cmp rax, rdx
+je 0x8003d23
+mov esi, 0x20
+mov rdi, r15
+call rax
+jmp 0x8003d23
+call _ZSt16__throw_bad_castv
+mov r12, rax
+jmp 0x8003d6b
+mov rbx, rax
+jmp 0x8003d7b
+mov rbx, rax
+jmp 0x8003db3
+mov rdi, rbp
+call _ZN5boost3log12v2s_mt_posix24basic_formatting_ostreamIcSt11char_traitsIcESaIcEED2Ev
+mov rdi, r12
+call _Unwind_Resume
+movq xmm0, qword [0x08003d83]
+lea rax, [0x08003d8a]
+mov rdi, r12
+movq xmm3, rax
+punpcklqdq xmm0, xmm3
+movups xmmword [arg_68h], xmm0
+call _ZNSt8ios_baseD2Ev
+mov qword [rbp], r14
+mov rdi, r13
+call _ZNSt6localeD1Ev
+mov rdi, rbx
+call _Unwind_Resume
+lea rax, [0x08003dba]
+mov rdi, r12
+mov qword [arg_70h], rax
+call _ZNSt8ios_baseD2Ev
+jmp 0x8003d9f

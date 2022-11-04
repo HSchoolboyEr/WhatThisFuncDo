@@ -1,0 +1,123 @@
+push r13
+push r12
+push rbp
+mov rbp, rdi
+push rbx
+mov rbx, rsi
+sub rsp, 8
+mov rsi, qword [rsi]
+mov rcx, qword [rdi + 0x10]
+mov rdi, qword [rdi + 8]
+mov r13, qword [rsi]
+mov rdx, rdi
+mov rax, r13
+cmp rcx, rdi
+jne 0x8003ffc
+jmp 0x80040c0
+nop
+mov r8d, dword [rax]
+cmp dword [rdx], r8d
+jne 0x8004002
+add rax, 4
+add rdx, 4
+mov qword [rsi], rax
+cmp rcx, rdx
+je 0x80040c0
+cmp qword [rbx + 8], rax
+jne 0x8003fe0
+mov rax, qword [arg_18h]
+mov qword [rsi], r13
+mov rdi, qword [rax]
+test rdi, rdi
+je 0x80040e0
+mov rax, qword [rdi]
+mov rsi, rbx
+call qword [rax + 0x10]
+mov r12, rax
+test rax, rax
+js 0x80040db
+mov rcx, qword [rbx]
+jmp 0x8004048
+nop
+mov rax, qword [rdi]
+mov rsi, rbx
+call qword [rax + 0x10]
+test rax, rax
+js 0x8004120
+mov rcx, qword [rbx]
+add r12, rax
+mov rax, qword [arg_18h]
+mov r13, qword [rcx]
+mov rdx, rcx
+mov rdi, qword [rax]
+test rdi, rdi
+jne 0x8004030
+mov rax, qword [arg_20h]
+mov qword [rdx], r13
+mov rdi, qword [rax]
+test rdi, rdi
+je 0x800407d
+mov rax, qword [rdi]
+mov rsi, rbx
+call qword [rax + 0x10]
+mov rdx, qword [rbx]
+mov rcx, rdx
+test rax, rax
+jns 0x8004045
+mov rax, qword [arg_30h]
+mov rsi, qword [arg_28h]
+mov qword [rdx], r13
+cmp rax, rsi
+je 0x8004128
+mov rcx, rsi
+jmp 0x80040b8
+nop word cs:[rax + rax]
+mov edi, dword [r13]
+cmp dword [rcx], edi
+jne 0x8004104
+add r13, 4
+add rcx, 4
+mov qword [rdx], r13
+cmp rax, rcx
+je 0x8004128
+cmp qword [rbx + 8], r13
+jne 0x80040a0
+jmp 0x8004104
+mov rax, rcx
+sub rax, rdi
+js 0x8004002
+sar rax, 2
+add rsp, 8
+pop rbx
+pop rbp
+pop r12
+pop r13
+ret
+mov rsi, qword [rbx]
+nop
+mov rax, qword [arg_20h]
+mov qword [rsi], r13
+mov rdi, qword [rax]
+test rdi, rdi
+je 0x8004104
+mov rax, qword [rdi]
+mov rsi, rbx
+call qword [rax + 0x10]
+mov r12, rax
+test rax, rax
+jns 0x800402a
+add rsp, 8
+mov rax, 0xffffffffffffffff
+pop rbx
+pop rbp
+pop r12
+pop r13
+ret
+nop word cs:[rax + rax]
+mov rdx, qword [rbx]
+jmp 0x800405a
+sub rax, rsi
+js 0x8004104
+sar rax, 2
+add rax, r12
+jmp 0x80040d0

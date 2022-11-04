@@ -1,0 +1,20 @@
+movq xmm0, rsi
+movq xmm1, rdx
+sub rsp, 0x18
+mov rsi, qword [rdi + 0x108]
+punpcklqdq xmm0, xmm1
+movaps xmmword [rsp], xmm0
+cmp rsi, qword [rdi + 0x110]
+je 0x800a920
+movdqa xmm2, xmmword [rsp]
+add rsi, 0x10
+movups xmmword [rsi - 0x10], xmm2
+mov qword [rdi + 0x108], rsi
+add rsp, 0x18
+ret
+nop
+mov rdx, rsp
+add rdi, 0x100
+call _ZNSt6vectorISt4pairIPN5boost18condition_variableEPNS1_5mutexEESaIS6_EE17_M_realloc_insertIJS6_EEEvN9__gnu_cxx17__normal_iteratorIPS6_S8_EEDpOT_
+add rsp, 0x18
+ret

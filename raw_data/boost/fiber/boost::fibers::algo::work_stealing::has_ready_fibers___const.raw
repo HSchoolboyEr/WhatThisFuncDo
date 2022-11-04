@@ -1,0 +1,11 @@
+push rbx
+mov rbx, rdi
+lea rdi, [rdi + 0x18]
+call _ZN5boost6fibers6detail13spinlock_ttas4lockEv
+mov rax, qword [rbx + 0x20]
+mov rdx, qword [rbx + 0x28]
+mov dword [rbx + 0x18], 1
+cmp rdx, rax
+setne al
+pop rbx
+ret

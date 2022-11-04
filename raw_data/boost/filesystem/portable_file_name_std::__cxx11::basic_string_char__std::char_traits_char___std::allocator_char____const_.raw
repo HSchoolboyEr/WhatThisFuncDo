@@ -1,0 +1,96 @@
+cmp qword [rdi + 8], 0
+jne 0x80003d0
+xor eax, eax
+ret
+nop word [rax + rax]
+push rbp
+lea rsi, [0x080003d8]
+push rbx
+mov rbx, rdi
+sub rsp, 8
+call _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc
+test eax, eax
+jne 0x8000460
+lea rsi, [0x080003f0]
+mov rdi, rbx
+call _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc
+test eax, eax
+jne 0x8000408
+xor eax, eax
+add rsp, 8
+pop rbx
+pop rbp
+ret
+nop dword [rax]
+lea rsi, [0x0800040f]
+mov rdi, rbx
+call _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc
+test eax, eax
+je 0x80003fc
+xor edx, edx
+mov esi, 0x2e
+mov rdi, rbx
+call _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4findEcm
+mov rbp, rax
+mov eax, 1
+cmp rbp, 0xffffffffffffffff
+je 0x80003fe
+lea rdx, [arg_1h]
+mov esi, 0x2e
+mov rdi, rbx
+call _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4findEcm
+cmp rax, 0xffffffffffffffff
+jne 0x80003fc
+add rbp, 5
+cmp rbp, qword [rbx + 8]
+seta al
+jmp 0x80003fe
+nop dword [rax]
+lea rsi, [0x08000467]
+mov rdi, rbx
+call _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc
+test eax, eax
+je .LC7
+cmp qword [rbx + 8], 0
+je 0x80003fc
+mov rax, qword [rbx]
+cmp byte [rax], 0x20
+je 0x80003fc
+xor edx, edx
+mov ecx, 0x27
+lea rsi, [0x0800049c]
+mov rdi, rbx
+call _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13find_first_ofEPKcmm
+cmp rax, 0xffffffffffffffff
+jne 0x80003fc
+mov rax, qword [rbx + 8]
+mov rdx, qword [rbx]
+movzx edx, byte [rdx + rax - 1]
+cmp dl, 0x20
+je 0x80003fc
+cmp dl, 0x2e
+jne 0x80004ce
+cmp rax, 1
+jne 0x800050d
+test rax, rax
+je 0x80003fc
+xor edx, edx
+mov ecx, 0x41
+lea rsi, [0x080004e5]
+mov rdi, rbx
+call _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE17find_first_not_ofEPKcmm
+cmp rax, 0xffffffffffffffff
+jne 0x80003fc
+mov rax, qword [rbx]
+movzx eax, byte [rax]
+sub eax, 0x2d
+cmp al, 1
+jbe 0x80003fc
+jmp .LC7
+lea rsi, [0x08000514]
+mov rdi, rbx
+call _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc
+test eax, eax
+jne 0x80003fc
+mov rax, qword [rbx + 8]
+jmp 0x80004ce

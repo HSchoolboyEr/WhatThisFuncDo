@@ -1,0 +1,104 @@
+push r12
+mov esi, 0x80800
+push rbp
+push rbx
+mov rbx, rdi
+xor edi, edi
+add rsp, 0xffffffffffffff80
+call eventfd
+movd xmm0, eax
+pshufd xmm0, xmm0, 0
+movq qword [rbx], xmm0
+cmp eax, 0xffffffff
+je __errno_location
+sub rsp, 0xffffffffffffff80
+pop rbx
+pop rbp
+pop r12
+ret
+nop word [rax + rax]
+call __errno_location
+cmp dword [rax], 0x16
+mov rbp, rax
+je eventfd
+lea rdi, [var_8h]
+call pipe
+test eax, eax
+je 0x800caf0
+mov edx, dword [rbp]
+mov eax, 2
+cmp edx, 1
+mov dword [var_10h], edx
+lea rdx, [0x0800ca81]
+sbb eax, 0xffffffff
+movq xmm1, rdx
+mov rdx, qword [0x0800ca90]
+movsxd rcx, eax
+mov qword [var_20h], rcx
+lea rcx, [0x0800ca9f]
+mov qword [var_18h], rcx
+lea rcx, [0x0800caab]
+movq xmm0, rcx
+mov qword [var_40h], rdx
+punpcklqdq xmm0, xmm1
+movaps xmmword [var_30h], xmm0
+cmp eax, 2
+je 0x800ca39
+lea rbp, [var_50h]
+lea rsi, [var_10h]
+mov rdi, rbp
+lea rdx, [0x0800cadb]
+call _ZN5boost6system12system_errorC1ERKNS0_10error_codeEPKc
+lea rsi, [var_30h]
+mov rdi, rbp
+call _ZN5boost15throw_exceptionINS_6system12system_errorEEEvRKT_RKNS_15source_locationE
+nop dword [rax]
+mov edi, dword [var_8h]
+mov edx, 0x800
+mov esi, 4
+xor eax, eax
+mov dword [rbx], edi
+call fcntl
+mov edi, dword [rbx]
+mov edx, 1
+xor eax, eax
+mov esi, 2
+call fcntl
+mov edi, dword [var_ch]
+mov edx, 0x800
+xor eax, eax
+mov esi, 4
+mov dword [rbx + 4], edi
+call fcntl
+mov edi, dword [rbx + 4]
+mov edx, 1
+xor eax, eax
+mov esi, 2
+call fcntl
+jmp 0x800ca39
+nop dword [rax + rax]
+xor edi, edi
+xor esi, esi
+call eventfd
+movd xmm0, eax
+mov edi, eax
+pshufd xmm0, xmm0, 0
+movq qword [rbx], xmm0
+cmp eax, 0xffffffff
+je 0x800ca59
+mov edx, 0x800
+mov esi, 4
+xor eax, eax
+call fcntl
+mov edi, dword [rbx]
+xor eax, eax
+mov edx, 1
+mov esi, 2
+call fcntl
+cmp dword [rbx], 0xffffffff
+je 0x800ca59
+sub rsp, 0xffffffffffffff80
+pop rbx
+pop rbp
+pop r12
+ret

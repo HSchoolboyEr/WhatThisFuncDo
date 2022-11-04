@@ -1,0 +1,97 @@
+push r15
+mov r15, rdi
+push r14
+push r13
+push r12
+push rbp
+push rbx
+mov ebx, edx
+sub rsp, 0x88
+mov r13, qword [rsi]
+mov r12, qword [rsi + 8]
+lea rbp, [var_40h]
+mov rax, r13
+mov qword [var_30h], rbp
+add rax, r12
+je 0x8001d18
+test r13, r13
+je .LC27
+mov qword [var_10h], r12
+cmp r12, 0xf
+ja 0x8001df0
+cmp r12, 1
+jne 0x8001dd0
+movzx eax, byte [r13]
+lea r14, [var_30h]
+mov byte [var_40h], al
+mov rax, rbp
+mov qword [var_38h], r12
+mov byte [rax + r12], 0
+lea r12, [var_60h]
+mov qword [var_50h], r12
+mov qword [var_58h], 0
+mov dword [var_60h], 0
+mov byte [var_70h], 0
+test bl, 8
+jne _ZSt17iostream_categoryv
+or ebx, 0x10
+mov rdi, qword [r15]
+mov rsi, r14
+mov edx, ebx
+call _ZN5boost9iostreams6detail20file_descriptor_impl4openERKNS1_4pathESt13_Ios_Openmode
+mov rdi, qword [var_50h]
+cmp rdi, r12
+je 0x8001da1
+mov rax, qword [var_60h]
+lea rsi, [rax*4 + 4]
+call _ZdlPvm
+mov rdi, qword [var_30h]
+cmp rdi, rbp
+je 0x8001db9
+mov rax, qword [var_40h]
+lea rsi, [rax + 1]
+call _ZdlPvm
+add rsp, 0x88
+pop rbx
+pop rbp
+pop r12
+pop r13
+pop r14
+pop r15
+ret
+nop dword [rax + rax]
+test r12, r12
+jne 0x8001e69
+mov rax, rbp
+lea r14, [var_30h]
+jmp 0x8001d42
+nop word cs:[rax + rax]
+lea r14, [var_30h]
+lea rsi, [var_10h]
+xor edx, edx
+mov rdi, r14
+call _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm
+mov qword [var_30h], rax
+mov rdi, rax
+mov rax, qword [var_10h]
+mov qword [var_40h], rax
+mov rdx, r12
+mov rsi, r13
+call memcpy
+mov r12, qword [var_10h]
+mov rax, qword [var_30h]
+jmp 0x8001d42
+lea rdi, [0x08001e37]
+call _ZSt19__throw_logic_errorPKc
+call _ZSt17iostream_categoryv
+lea r12, [var_10h]
+mov rdx, rsp
+lea rsi, [0x08001e50]
+mov rdi, r12
+mov dword [rsp], 1
+mov qword [var_8h], rax
+call _ZNSt8ios_base7failureB5cxx11C1EPKcRKSt10error_code
+jmp .text.unlikely
+mov rdi, rbp
+lea r14, [var_30h]
+jmp 0x8001e16

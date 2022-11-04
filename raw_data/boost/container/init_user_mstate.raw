@@ -1,0 +1,65 @@
+mov r10, rsi
+mov r8, rdi
+lea r9, [rdi + 0x10]
+mov rsi, rdi
+test dil, 0xf
+je 0x8001932
+neg r9
+and r9d, 0xf
+lea rsi, [rdi + r9]
+lea r9, [rsi + 0x10]
+lea rdi, [r9 + 8]
+mov rcx, r9
+xor eax, eax
+mov qword [r9], 0
+and rdi, 0xfffffffffffffff8
+movq xmm0, r10
+mov qword [r9 + 0x3a8], 0
+lea rdx, [rsi + 0x258]
+sub rcx, rdi
+punpcklqdq xmm0, xmm0
+add ecx, 0x3b0
+shr ecx, 3
+rep stosq qword [rdi], rax
+mov qword [rsi + 8], 0x3b3
+mov qword [rsi + 0x28], r8
+mov rax, qword [0x08001983]
+mov qword [rsi + 0x388], r8
+mov qword [rsi + 0x390], r10
+mov qword [rsi + 0x50], rax
+mov eax, dword [0x0800199b]
+mov qword [rsi + 0x48], 0xfff
+or eax, 4
+movups xmmword [rsi + 0x368], xmm0
+mov dword [rsi + 0x380], eax
+lea rax, [rsi + 0x58]
+nop word [rax + rax]
+mov qword [rax + 0x18], rax
+mov qword [rax + 0x10], rax
+add rax, 0x10
+cmp rax, rdx
+jne 0x80019c0
+lea rdx, [rsi + 0x3b0]
+lea rcx, [rsi + 0x3c0]
+sub r8, rdx
+lea rdi, [r8 + r10 - 0x50]
+test sil, 0xf
+je 0x8001a28
+neg rcx
+mov rax, rdi
+and ecx, 0xf
+lea r8, [rdx + rcx]
+sub rax, rcx
+mov qword [rsi + 0x20], rax
+or rax, 1
+mov qword [rsi + 0x38], r8
+mov qword [r8 + 8], rax
+mov rax, qword [0x08001a14]
+mov qword [rdx + rdi + 8], 0x50
+mov qword [rsi + 0x40], rax
+mov rax, r9
+ret
+nop dword [rax]
+mov rax, rdi
+mov r8, rdx
+jmp 0x80019fd

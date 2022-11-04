@@ -1,0 +1,4 @@
+mov rax, qword [rdi + 0x90]
+movzx eax, byte [rax + 0x21c]
+mov byte [rsi], al
+ret

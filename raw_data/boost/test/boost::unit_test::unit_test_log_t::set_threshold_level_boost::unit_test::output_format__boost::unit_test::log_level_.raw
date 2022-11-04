@@ -1,0 +1,65 @@
+push r12
+mov r12d, esi
+push rbp
+mov ebp, edx
+push rbx
+call method boost::unit_test::(anonymous namespace)::s_log_impl()
+mov rdx, rax
+mov rax, qword [rax + 0x18]
+mov rcx, qword [rdx + 0x20]
+cmp rcx, rax
+ja 0x80022c9
+jmp 0x80022e0
+add rax, 8
+cmp rcx, rax
+jbe 0x80022e0
+mov rdx, qword [rax]
+cmp byte [rdx + 0x30], 0
+je 0x80022c0
+mov r12d, 0xffffffff
+pop rbx
+pop rbp
+mov eax, r12d
+pop r12
+ret
+cmp ebp, 0xffffffff
+je 0x80022d2
+call method boost::unit_test::(anonymous namespace)::s_log_impl()
+mov rbx, qword [rax]
+mov rax, qword [rax + 8]
+cmp rax, rbx
+ja 0x8002309
+jmp 0x8002340
+nop dword [rax + rax]
+add rbx, 0x38
+cmp rax, rbx
+jbe 0x8002340
+cmp dword [rbx + 4], r12d
+jne 0x8002300
+mov rdi, qword [rbx + 0x20]
+lea rcx, [0x0800231a]
+mov rax, qword [rdi]
+mov rdx, qword [rax + 0xa8]
+cmp rdx, rcx
+jne 0x8002350
+mov r12d, dword [rdi + 8]
+mov esi, ebp
+call qword [rax + 0xa0]
+mov eax, r12d
+pop rbx
+pop rbp
+pop r12
+ret
+nop dword [rax]
+mov r12d, 8
+pop rbx
+pop rbp
+mov eax, r12d
+pop r12
+ret
+nop
+call rdx
+mov rdi, qword [rbx + 0x20]
+mov r12d, eax
+mov rax, qword [rdi]
+jmp 0x800232d

@@ -1,0 +1,51 @@
+lea rax, [0x08001a37]
+push rbp
+mov rbp, rdi
+lea rdx, [rax - 0x30]
+movq xmm1, rax
+lea rax, [0x08001a4b]
+movq xmm0, rdx
+mov qword [rdi + 0x28], rax
+punpcklqdq xmm0, xmm1
+movups xmmword [rdi], xmm0
+mov rdi, qword [rdi + 0x30]
+test rdi, rdi
+je 0x8001a6a
+mov rax, qword [rdi]
+call qword [rax + 0x20]
+lea rdi, [arg_8h]
+call _ZNSt8ios_base7failureB5cxx11D2Ev
+mov rdi, rbp
+mov esi, 0x50
+pop rbp
+jmp _ZdlPvm
+nop word cs:[rax + rax]
+nop dword [rax]
+lea rax, [0x08001a97]
+push r12
+lea r12, [rdi - 8]
+push rbp
+lea rdx, [rax - 0x30]
+movq xmm1, rax
+mov rbp, rdi
+movq xmm0, rdx
+lea rax, [0x08001ab6]
+punpcklqdq xmm0, xmm1
+sub rsp, 8
+mov qword [rdi + 0x20], rax
+movups xmmword [rdi - 8], xmm0
+mov rdi, qword [rdi + 0x28]
+test rdi, rdi
+je 0x8001ad5
+mov rax, qword [rdi]
+call qword [rax + 0x20]
+mov rdi, rbp
+call _ZNSt8ios_base7failureB5cxx11D2Ev
+add rsp, 8
+mov rdi, r12
+mov esi, 0x50
+pop rbp
+pop r12
+jmp _ZdlPvm
+nop word cs:[rax + rax]
+nop dword [rax]

@@ -1,0 +1,31 @@
+lea rax, [0x080025e7]
+movq xmm0, rdx
+mov r8, rsi
+mov qword [rdi + 0x20], 0
+mov qword [rdi], rax
+punpcklqdq xmm0, xmm0
+lea rax, [rdi + 8]
+mov rsi, rdx
+mov qword [rdi + 8], r8
+mov qword [rdi + 0x28], rax
+movups xmmword [rdi + 0x10], xmm0
+cmp rdx, 0x3ff
+jbe 0x8002659
+mov edx, 0x35
+mov eax, 0x400
+jmp 0x8002635
+nop word cs:[rax + rax]
+sub edx, 1
+je 0x8002650
+add rax, rax
+cmp rsi, rax
+jae 0x8002630
+mov qword [rdi + 0x30], rax
+mov rax, qword [rcx]
+mov qword [rcx], 0
+mov qword [rdi + 0x38], rax
+ret
+mov rax, 0xffffffffffffffdf
+jmp 0x800263d
+mov eax, 0x400
+jmp 0x800263d

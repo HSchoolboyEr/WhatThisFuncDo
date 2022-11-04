@@ -1,0 +1,6 @@
+lea rax, [0x08001feb]
+mov rdi, rbp
+mov qword [arg_10h], rax
+call _ZNSt13runtime_errorD2Ev
+mov rdi, r12
+call _Unwind_Resume

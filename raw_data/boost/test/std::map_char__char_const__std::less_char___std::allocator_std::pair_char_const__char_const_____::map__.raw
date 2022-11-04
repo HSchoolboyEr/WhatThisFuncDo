@@ -1,0 +1,14 @@
+push rbx
+mov rbx, qword [rdi + 0x10]
+test rbx, rbx
+je 0x8001019
+mov rdi, qword [rbx + 0x18]
+call .text
+mov rdi, rbx
+mov rbx, qword [rbx + 0x10]
+mov esi, 0x30
+call _ZdlPvm
+test rbx, rbx
+jne 0x8000ffa
+pop rbx
+ret

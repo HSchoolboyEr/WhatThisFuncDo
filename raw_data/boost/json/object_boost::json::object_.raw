@@ -1,0 +1,14 @@
+mov rax, qword [rsi]
+mov qword [rdi], rax
+test al, 1
+jne 0x80033d8
+mov rax, qword [rsi + 0x10]
+lea rdx, [0x080033c5]
+mov byte [rdi + 8], 7
+mov qword [rsi + 0x10], rdx
+mov qword [rdi + 0x10], rax
+ret
+nop word [rax + rax]
+and rax, 0xfffffffffffffffc
+lock add qword [rax + 8], 1
+jmp 0x80033ba

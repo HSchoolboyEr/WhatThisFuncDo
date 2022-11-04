@@ -1,0 +1,12 @@
+cmp byte [rdi + 0x18], 0
+je 0x8003250
+push rbx
+mov rbx, rdi
+lea rdi, [rdi + 0x20]
+mov rax, qword [rbx + 0x20]
+call qword [rax]
+mov byte [rbx + 0x18], 0
+pop rbx
+ret
+nop word [rax + rax]
+ret

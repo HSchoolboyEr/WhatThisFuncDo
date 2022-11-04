@@ -1,0 +1,9 @@
+cmp byte [rsi + 8], 0
+push r12
+mov r12, rdi
+jne 0x8001f13
+mov rdi, rsi
+call method boost::unit_test::unit_test_log_t::operator<<(boost::unit_test::lazy_ostream const&) [clone .part.0]
+mov rax, r12
+pop r12
+ret

@@ -1,0 +1,213 @@
+push r15
+push r14
+mov r14, rsi
+push r13
+push r12
+mov r12, rdi
+push rbp
+mov rbp, rdx
+push rbx
+sub rsp, 0xb8
+mov rbx, qword [rdi + 0x20]
+cmp rsi, qword [rbx + 0x98]
+je 0x8000b10
+mov rax, qword [rbx + 0x60]
+lea r13, [var_20h]
+lea rdi, [rbx + 0x38]
+mov qword [var_20h], rbp
+mov rsi, r13
+mov byte [var_2ah], 0
+mov word [var_28h], ax
+call _ZNSt8_Rb_treeIN5boost7archive6detail19basic_oarchive_impl12cobject_typeES4_St9_IdentityIS4_ESt4lessIS4_ESaIS4_EE16_M_insert_uniqueIRKS4_EESt4pairISt17_Rb_tree_iteratorIS4_EbEOT_
+lea rsi, [0x08000ac2]
+lea rdx, [0x08000ac9]
+mov r15, rax
+mov rax, qword [rbp]
+mov rcx, qword [rax + 0x18]
+cmp rcx, rsi
+jne 0x8000b50
+mov rcx, qword [rax + 0x20]
+cmp rcx, rdx
+jne 0x8000c18
+mov rax, qword [rax + 0x10]
+lea rdx, [0x08000af1]
+cmp rax, rdx
+jne 0x8000b31
+add rsp, 0xb8
+pop rbx
+pop rbp
+pop r12
+pop r13
+pop r14
+pop r15
+ret
+nop dword [rax + rax]
+cmp rdx, qword [rbx + 0xa0]
+jne 0x8000a97
+mov rax, qword [rbp]
+lea rdx, [0x08000b28]
+mov rax, qword [rax + 0x10]
+cmp rax, rdx
+je 0x8000af6
+add rsp, 0xb8
+mov rdx, r14
+mov rsi, r12
+mov rdi, rbp
+pop rbx
+pop rbp
+pop r12
+pop r13
+pop r14
+pop r15
+jmp rax
+nop dword [rax]
+mov qword [rsp], rdx
+mov rdi, rbp
+call rcx
+mov rdx, qword [rsp]
+test al, al
+je 0x8000ca0
+movzx eax, byte [r15 + 0x2a]
+mov qword [var_8h], rdx
+test al, al
+mov byte [rsp], al
+jne 0x8000ca0
+movzx esi, word [r15 + 0x28]
+mov rcx, qword [r12]
+mov rdi, r12
+mov rcx, qword [rcx + 0x20]
+mov word [var_20h], si
+mov rsi, r13
+call rcx
+mov rcx, qword [r12]
+mov rdx, qword [var_8h]
+movzx eax, byte [rsp]
+mov r8, qword [rcx + 0x38]
+mov rcx, qword [rbp]
+mov rcx, qword [rcx + 0x20]
+cmp rcx, rdx
+jne 0x8000d40
+mov qword [rsp], rdx
+mov rsi, r13
+mov rdi, r12
+mov byte [var_20h], al
+call r8
+mov rax, qword [r12]
+lea rsi, [0x08000bd2]
+mov rdx, qword [rsp]
+mov rcx, qword [rax]
+mov rax, qword [rbp]
+mov rax, qword [rax + 0x28]
+cmp rax, rsi
+jne 0x8000d20
+mov dword [var_20h], 0
+mov qword [rsp], rdx
+mov rsi, r13
+mov rdi, r12
+call rcx
+mov rax, qword [rbp]
+mov rdx, qword [rsp]
+mov byte [r15 + 0x2a], 1
+mov rcx, qword [rax + 0x20]
+cmp rcx, rdx
+je 0x8000ae6
+mov esi, dword [rbx]
+mov rdi, rbp
+call rcx
+test al, al
+je 0x8000b1d
+mov rax, qword [rbx + 0x30]
+movzx edx, word [r15 + 0x28]
+lea rsi, [var_10h]
+lea rdi, [rbx + 8]
+mov qword [var_10h], r14
+mov word [var_18h], dx
+mov dword [var_1ch], eax
+call _ZNSt8_Rb_treeIN5boost7archive6detail19basic_oarchive_impl7aobjectES4_St9_IdentityIS4_ESt4lessIS4_ESaIS4_EE16_M_insert_uniqueIRKS4_EESt4pairISt17_Rb_tree_iteratorIS4_EbEOT_
+mov esi, dword [rax + 0x2c]
+test dl, dl
+jne 0x8000ce0
+mov rax, qword [rbx + 0x78]
+lea r8, [rbx + 0x70]
+test rax, rax
+je 0x8000cc1
+mov rdi, r8
+nop word [rax + rax]
+mov rcx, qword [rax + 0x10]
+mov rdx, qword [rax + 0x18]
+cmp dword [rax + 0x20], esi
+jb 0x8000c95
+test rcx, rcx
+je 0x8000cb3
+mov rdi, rax
+mov rax, rcx
+mov rcx, qword [rax + 0x10]
+mov rdx, qword [rax + 0x18]
+cmp dword [rax + 0x20], esi
+jae 0x8000c7d
+test rdx, rdx
+je 0x8000cb0
+mov rax, rdx
+jmp 0x8000c70
+nop
+mov rax, qword [rbp]
+lea rdx, [0x08000cab]
+jmp 0x8000ad9
+mov rax, rdi
+cmp r8, rax
+je 0x8000cc1
+cmp esi, dword [rax + 0x20]
+jae 0x8000d59
+mov rax, qword [r12]
+mov rdi, r12
+mov rax, qword [rax + 0x10]
+mov dword [var_20h], esi
+mov rsi, r13
+call rax
+jmp 0x8000af6
+nop word [rax + rax]
+mov rax, qword [r12]
+mov rdi, r12
+mov rax, qword [rax + 8]
+mov dword [var_20h], esi
+mov rsi, r13
+call rax
+mov rax, qword [rbp]
+lea rdx, [0x08000cff]
+mov rax, qword [rax + 0x10]
+cmp rax, rdx
+je 0x8000af6
+mov rdx, r14
+mov rsi, r12
+mov rdi, rbp
+call rax
+jmp 0x8000af6
+nop dword [rax]
+mov qword [var_8h], rdx
+mov rsi, rbp
+mov rdi, r13
+mov qword [rsp], rcx
+call rax
+mov rdx, qword [var_8h]
+mov rcx, qword [rsp]
+jmp 0x8000bf2
+nop
+mov qword [rsp], r8
+mov esi, dword [rbx]
+mov rdi, rbp
+call rcx
+mov rdx, qword [var_8h]
+mov r8, qword [rsp]
+jmp 0x8000bb6
+mov rdi, r13
+xor ecx, ecx
+xor edx, edx
+mov esi, 5
+call _ZN5boost7archive17archive_exceptionC1ENS1_14exception_codeEPKcS4_
+mov rdi, r13
+call _ZN5boost13serialization15throw_exceptionINS_7archive17archive_exceptionEEEvRKT_
+add byte [rax], al
+add byte [rax], al
+mov rbp, rax
+jmp .text.unlikely
+nop word [rax + rax]

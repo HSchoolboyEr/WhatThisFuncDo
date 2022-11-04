@@ -1,0 +1,61 @@
+push rbp
+push rbx
+mov rbx, rdi
+sub rsp, 8
+mov rax, qword [rdi + 0x10]
+mov rdx, qword [rax + 0x70]
+test rdx, rdx
+jle 0x800b245
+mov rax, qword [rdi]
+lock add qword [rax + 0xd8], rdx
+mov rax, qword [rdi + 0x10]
+mov qword [rax + 0x70], 0
+mov rbp, qword [rbx + 8]
+mov rdi, qword [rbp]
+cmp byte [rdi + 0x30], 0
+je 0x800b265
+cmp byte [arg_8h], 0
+je pthread_mutex_lock
+mov rax, qword [rbx]
+mov byte [rax + 0xd0], 1
+mov rdx, qword [rbx + 0x10]
+mov rax, qword [rbx]
+mov rcx, qword [rdx + 0x60]
+test rcx, rcx
+je 0x800b2a4
+mov rsi, qword [rax + 0xe8]
+test rsi, rsi
+je 0x800b2d8
+mov qword [rsi], rcx
+mov rcx, qword [rdx + 0x68]
+pxor xmm0, xmm0
+mov qword [rax + 0xe8], rcx
+movups xmmword [rdx + 0x60], xmm0
+mov rax, qword [rbx]
+mov rcx, qword [rax + 0xe8]
+lea rdx, [rax + 0xb8]
+mov qword [rax + 0xb8], 0
+test rcx, rcx
+je 0x800b2e8
+mov qword [rcx], rdx
+mov qword [rax + 0xe8], rdx
+add rsp, 8
+pop rbx
+pop rbp
+ret
+nop dword [rax + rax]
+mov qword [rax + 0xe0], rcx
+jmp 0x800b28e
+nop dword [rax]
+movq xmm0, rdx
+punpcklqdq xmm0, xmm0
+movups xmmword [rax + 0xe0], xmm0
+add rsp, 8
+pop rbx
+pop rbp
+ret
+nop
+add rdi, 8
+call pthread_mutex_lock
+mov byte [arg_8h], 1
+jmp 0x800b265

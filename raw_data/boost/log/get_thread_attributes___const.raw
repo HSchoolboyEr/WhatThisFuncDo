@@ -1,0 +1,271 @@
+push r15
+push r14
+push r13
+push r12
+mov r12, rdi
+push rbp
+push rbx
+sub rsp, 0xb8
+mov r13, qword [rsi]
+lea rbp, [r13 + 0x68]
+mov rdi, rbp
+call _ZN5boost6detail12get_tss_dataEPKv
+mov rsi, rax
+test rax, rax
+je 0x8002410
+mov rdi, r12
+call _ZN5boost3log12v2s_mt_posix13attribute_setC1ERKS2_
+add rsp, 0xb8
+mov rax, r12
+pop rbx
+pop rbp
+pop r12
+pop r13
+pop r14
+pop r15
+ret
+nop dword [rax + rax]
+mov rdi, r13
+call pthread_rwlock_wrlock
+mov rdi, rbp
+call _ZN5boost6detail12get_tss_dataEPKv
+test rax, rax
+je 0x8002440
+mov rdi, r13
+call pthread_rwlock_unlock
+mov rdi, rbp
+call _ZN5boost6detail12get_tss_dataEPKv
+mov rsi, rax
+jmp 0x80023eb
+nop word [rax + rax]
+mov edi, 0x18
+call _Znwm
+mov rdi, rax
+mov r14, rax
+call _ZN5boost3log12v2s_mt_posix13attribute_setC1Ev
+lea rdi, [arg_30h]
+xor esi, esi
+lea r15, [arg_70h]
+call gettimeofday
+mov rax, qword [arg_30h]
+mov rsi, r15
+lea rdi, [arg_28h]
+mov rbx, qword [arg_38h]
+mov qword [arg_28h], rax
+call gmtime_r
+mov rsi, rax
+test rax, rax
+je 0x80027e0
+mov ecx, dword [rax + 0xc]
+test cx, cx
+je 0x80027db
+cmp cx, 0x1f
+ja 0x80027d6
+mov r9d, dword [rax + 0x10]
+mov edx, r9d
+add dx, 1
+je .text.unlikely
+cmp dx, 0xc
+ja .text.unlikely
+mov eax, dword [rax + 0x14]
+lea edi, [rax + 0x76c]
+cmp di, 0x577
+jbe .text.unlikely
+cmp di, 0x270f
+ja .text.unlikely
+cmp dx, 0xb
+ja 0x8002590
+lea r11, [0x080024ef]
+movzx r10d, dx
+movsxd r8, dword [r11 + r10*4]
+add r8, r11
+jmp r8
+nop dword [rax]
+mov r8d, 0x1e
+cmp cx, r8w
+jbe 0x8002590
+lea rbp, [rsp + 0x50]
+lea r12, [rsp + 0x40]
+xor edx, edx
+mov qword [rsp + 0x40], 0x22
+lea rbx, [rsp + 0x60]
+mov rsi, r12
+mov rdi, rbp
+mov qword [rsp + 0x50], rbx
+call _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm
+mov rdx, qword [rsp + 0x40]
+mov qword [rsp + 0x50], rax
+mov rsi, rbp
+mov rdi, r12
+movdqa xmm0, xmmword [0x08002552]
+mov qword [rsp + 0x60], rdx
+mov edx, 0x7261
+movups xmmword [rax], xmm0
+movdqa xmm0, xmmword [0x08002567]
+mov word [rax + 0x20], dx
+movups xmmword [rax + 0x10], xmm0
+mov rax, qword [rsp + 0x40]
+mov rdx, qword [rsp + 0x50]
+mov qword [rsp + 0x58], rax
+mov byte [rdx + rax], 0
+call _ZNSt12out_of_rangeC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE
+jmp .text.unlikely
+nop dword [rax]
+mov ebx, ebx
+movsxd r11, dword [rsi + 4]
+mov qword [arg_8h], rbx
+movsxd rbx, dword [rsi]
+mov rdi, r11
+mov qword [arg_10h], rbx
+mov r8, rbx
+movsxd rbx, dword [rsi + 8]
+mov qword [arg_18h], rbx
+mov rsi, rbx
+shr rbx, 0x3f
+mov r10, rbx
+mov rbx, r11
+shr rbx, 0x3f
+or r10b, bl
+jne 0x80025d4
+cmp qword [arg_10h], 0
+jns 0x80027a9
+mov r10d, esi
+sar r10d, 0x1f
+xor esi, r10d
+sub esi, r10d
+mov r10d, edi
+sar r10d, 0x1f
+imul rsi, rsi, 0xe10
+xor edi, r10d
+sub edi, r10d
+mov r10, rdi
+shl r10, 4
+sub r10, rdi
+mov edi, r8d
+sar edi, 0x1f
+lea rsi, [rsi + r10*4]
+xor r8d, edi
+sub r8d, edi
+add rsi, r8
+imul rsi, rsi, 0xfffffffffff0bdc0
+sub rsi, qword [arg_8h]
+movzx edi, dx
+mov edx, 0xe
+add ax, 0x1a2c
+movzx ecx, cx
+sub edx, edi
+mov edi, 0xaaaaaaab
+imul rdx, rdi
+shr rdx, 0x23
+sub eax, edx
+mov edi, eax
+shr di, 4
+movzx edi, di
+imul edi, edi, 0xa3e
+shr edi, 0x10
+movzx edi, di
+lea rcx, [rdi + rcx - 0x7d2d]
+mov edi, eax
+movzx eax, ax
+shr di, 2
+imul rax, rax, 0x16d
+movzx r8d, di
+add rcx, r8
+add rcx, rax
+movzx eax, di
+movabs rdi, 0x141dd76000
+imul eax, eax, 0x147b
+shr eax, 0x11
+movzx eax, ax
+sub rcx, rax
+lea eax, [rdx + rdx*2]
+mov edx, 0xcccccccd
+lea eax, [r9 + rax*4 - 2]
+movzx eax, ax
+imul eax, eax, 0x99
+add eax, 2
+imul rax, rdx
+movabs rdx, 0x32e73fb956a1b897
+shr rax, 0x22
+lea rbx, [rcx + rax]
+imul rbx, rdi
+add rbx, rsi
+mov rax, rbx
+imul rdx
+mov rax, rbx
+sar rax, 0x3f
+sar rdx, 0x22
+sub rdx, rax
+imul rdx, rdi
+sub rbx, rdx
+call _ZN5boost3log12v2s_mt_posix3aux11this_thread6get_idEv
+add ebx, dword [rax]
+mov dword [r14 + 8], ebx
+cmp ebx, 1
+jbe 0x800278f
+mov dword [r14 + 0xc], ebx
+cmp ebx, 7
+jbe 0x8002796
+mov dword [r14 + 0x10], ebx
+cmp ebx, 0xf
+jbe 0x800279d
+mov rdi, rbp
+mov qword [arg_70h], r14
+call _ZN5boost6detail12get_tss_dataEPKv
+cmp r14, rax
+je pthread_rwlock_unlock
+mov rdx, qword [r13 + 0x68]
+mov r8d, 1
+mov rcx, r14
+mov rdi, rbp
+lea rsi, [0x0800273d]
+call _ZN5boost6detail12set_tss_dataEPKvPFvPFvPvES3_ES5_S3_b
+jmp pthread_rwlock_unlock
+mov r8d, 0x1c
+test dil, 3
+jne 0x8002506
+imul di, di, 0x5c29
+mov r8d, 0x1d
+mov r10d, edi
+ror r10w, 2
+cmp r10w, 0x28f
+ja 0x8002506
+ror di, 4
+xor r8d, r8d
+cmp di, 0xa4
+setb r8b
+add r8d, 0x1c
+jmp 0x8002506
+lea eax, [rbx + 2]
+mov dword [r14 + 8], eax
+lea eax, [rbx + 8]
+mov dword [r14 + 0xc], eax
+add ebx, 0x10
+mov dword [r14 + 0x10], ebx
+jmp 0x8002710
+imul r10, qword [arg_18h], 0xe10
+mov rsi, r11
+shl rsi, 4
+sub rsi, r11
+lea rsi, [r10 + rsi*4]
+add rsi, qword [arg_10h]
+imul rsi, rsi, 0xf4240
+add rsi, qword [arg_8h]
+jmp 0x800261e
+call method boost::CV::simple_exception_policy<unsigned short, (unsigned short)1, (unsigned short)31, boost::gregorian::bad_day_of_month>::on_error(unsigned short, unsigned short, boost::CV::violation_enum) [clone .isra.0]
+call method boost::CV::simple_exception_policy<unsigned short, (unsigned short)1, (unsigned short)31, boost::gregorian::bad_day_of_month>::on_error(unsigned short, unsigned short, boost::CV::violation_enum) [clone .isra.0]
+lea rbp, [arg_50h]
+lea rsi, [0x080027ec]
+mov rdi, rbp
+call _ZNSt13runtime_errorC1EPKc
+jmp .text.unlikely
+mov rbx, rax
+jmp .text.unlikely
+mov rbp, rax
+jmp .text.unlikely
+mov rbp, rax
+jmp .text.unlikely
+jmp .text.unlikely
+mov rbp, rax
+jmp .text.unlikely
+nop

@@ -1,0 +1,40 @@
+push r12
+push rbp
+mov rbp, rsi
+push rbx
+mov rbx, rdi
+sub rsp, 0x90
+call _ZN5boost7archive6detail14basic_oarchive12end_preambleEv
+mov rdi, qword [rbx + 0x28]
+mov edx, 4
+mov rsi, rbp
+mov rax, qword [rdi]
+call qword [rax + 0x60]
+cmp rax, 4
+jne 0x80007aa
+add rsp, 0x90
+pop rbx
+pop rbp
+pop r12
+ret
+mov r12, rsp
+xor edx, edx
+xor ecx, ecx
+mov esi, 0xd
+mov rdi, r12
+call _ZN5boost7archive17archive_exceptionC1ENS1_14exception_codeEPKcS4_
+mov edi, 0x90
+call __cxa_allocate_exception
+mov rsi, r12
+mov rdi, rax
+mov rbp, rax
+call _ZN5boost7archive17archive_exceptionC1ERKS1_
+mov rdx, qword [0x080007dd]
+lea rsi, [0x080007e4]
+mov rdi, rbp
+call __cxa_throw
+mov rbp, rax
+mov rdi, r12
+call _ZN5boost7archive17archive_exceptionD1Ev
+mov rdi, rbp
+call _Unwind_Resume

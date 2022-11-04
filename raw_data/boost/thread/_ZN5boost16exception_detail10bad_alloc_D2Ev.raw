@@ -1,0 +1,19 @@
+lea rax, [0x08004e67]
+push rbx
+mov rbx, rdi
+add rdi, 0x28
+mov qword [rdi - 0x28], rax
+add rax, 0x20
+mov qword [rdi], rax
+call _ZNSt9bad_allocD2Ev
+add byte [rax], al
+add byte [rax], al
+mov rdi, qword [rbx + 8]
+lea rax, [0x08004e8a]
+mov qword [rbx], rax
+test rdi, rdi
+je 0x8004e98
+mov rax, qword [rdi]
+call qword [rax + 0x20]
+pop rbx
+ret

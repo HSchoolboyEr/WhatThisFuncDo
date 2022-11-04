@@ -1,0 +1,87 @@
+push r12
+push rbp
+mov rbp, rsi
+push rbx
+movzx ecx, byte [rdi + 8]
+mov rbx, rdi
+cmp cl, 5
+je 0x8006c80
+movsx rsi, byte [rdi + 0x17]
+mov eax, 0xe
+sub rax, rsi
+cmp rbp, rax
+jbe 0x8006c68
+movsx r12d, dl
+cmp rbp, 0xe
+ja 0x8006c97
+lea rdx, [rsi + rbp - 0xe]
+cmp cl, 0x85
+je 0x8006cc6
+mov rcx, qword [rbx + 0x10]
+test rdx, rdx
+je 0x8006c3b
+lea rdi, [rcx + rax + 8]
+mov esi, r12d
+call memset
+cmp byte [rbx + 8], 0x85
+je 0x8006cd4
+mov rax, qword [rbx + 0x10]
+mov dword [rax], ebp
+cmp byte [rbx + 8], 0x85
+je 0x8006c79
+mov rbx, qword [rbx + 0x10]
+add rbx, 8
+mov byte [rbx + rbp], 0
+pop rbx
+pop rbp
+pop r12
+ret
+nop word [rax + rax]
+cmp cl, 0x85
+je 0x8006cd4
+mov rcx, qword [rdi + 0x10]
+mov dword [rcx], ebp
+cmp byte [rbx + 8], 0x85
+jne 0x8006c51
+add rbx, 9
+jmp 0x8006c59
+nop
+mov rcx, qword [rdi + 0x10]
+mov eax, dword [rcx]
+cmp rax, rsi
+jae 0x8006c71
+movsx r12d, dl
+mov edx, dword [rcx + 4]
+cmp rsi, rdx
+jbe 0x8006cf6
+mov rsi, rbp
+mov rdi, rbx
+call _ZN5boost4json6string12reserve_implEm
+add byte [rax], al
+add byte [rax], al
+movzx ecx, byte [rbx + 8]
+cmp cl, 5
+je 0x8006cf0
+movsx rsi, byte [rbx + 0x17]
+mov eax, 0xe
+sub rax, rsi
+lea rdx, [rsi + rbp - 0xe]
+cmp cl, 0x85
+jne 0x8006c25
+lea rdi, [rbx + rax + 9]
+test rdx, rdx
+jne memset
+mov eax, 0xe
+sub eax, ebp
+mov byte [rbx + 0x17], al
+mov byte [rbx + rbp + 9], 0
+pop rbx
+pop rbp
+pop r12
+ret
+nop dword [rax + rax]
+mov rcx, qword [rbx + 0x10]
+mov eax, dword [rcx]
+mov rdx, rbp
+sub rdx, rax
+jmp 0x8006c29

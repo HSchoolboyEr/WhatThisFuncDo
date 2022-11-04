@@ -1,0 +1,48 @@
+push r12
+push rbp
+push rbx
+movzx ebp, byte [rdi + 0x60]
+mov rbx, rdi
+test bpl, bpl
+jne 0x800b370
+movzx ebp, byte [rdi + 0xd0]
+mov byte [rdi + 0xf0], 1
+test bpl, bpl
+jne 0x800b365
+mov rdi, qword [rbx + 0xa8]
+test rdi, rdi
+je 0x800b35c
+mov byte [rbx + 0xd0], 1
+mov rax, qword [rdi]
+call qword [rax + 8]
+lea r12, [rbx + 0x38]
+test bpl, bpl
+jne 0x800b3a3
+pop rbx
+pop rbp
+pop r12
+ret
+nop word [rax + rax]
+lea r12, [rdi + 0x38]
+mov rdi, r12
+call pthread_mutex_lock
+cmp byte [rbx + 0x60], 0
+mov byte [rbx + 0xf0], 1
+je 0x800b39a
+or qword [rbx + 0xa0], 1
+lea rdi, [rbx + 0x70]
+call pthread_cond_broadcast
+cmp byte [rbx + 0xd0], 0
+je 0x800b343
+pop rbx
+mov rdi, r12
+pop rbp
+pop r12
+jmp pthread_mutex_unlock
+mov r12, rax
+test bpl, bpl
+je 0x800b3c0
+lea rdi, [rbx + 0x38]
+call pthread_mutex_unlock
+mov rdi, r12
+call _Unwind_Resume

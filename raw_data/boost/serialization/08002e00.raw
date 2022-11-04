@@ -1,0 +1,99 @@
+push r12
+mov r12, rdi
+push rbp
+push rbx
+mov rcx, qword [rdi + 0x10]
+mov rbx, rsi
+mov rdi, qword [rdi + 8]
+mov rsi, qword [rsi]
+cmp rcx, rdi
+je 0x8002e58
+mov rax, qword [rsi]
+mov rdx, rdi
+jmp 0x8002e41
+nop word [rax + rax]
+movzx r11d, byte [rax]
+cmp byte [rdx], r11b
+jne 0x8002e47
+add rax, 1
+add rdx, 1
+mov qword [rsi], rax
+cmp rcx, rdx
+je 0x8002e58
+cmp qword [rbx + 8], rax
+jne 0x8002e28
+pop rbx
+mov rax, 0xffffffffffffffff
+pop rbp
+pop r12
+ret
+nop dword [rax + rax]
+sub rcx, rdi
+mov rbp, rcx
+js 0x8002e47
+mov rax, qword [r12 + 0x18]
+mov rdi, qword [rax]
+test rdi, rdi
+je 0x8002e47
+mov rax, qword [rdi]
+mov rsi, rbx
+call qword [rax + 0x10]
+mov rdx, rax
+test rax, rax
+js 0x8002e47
+mov rsi, qword [rbx]
+mov rax, qword [rsi]
+cmp rax, qword [rbx + 8]
+je 0x8002e47
+movsx ecx, byte [rax]
+cmp ecx, dword [r12 + 0x20]
+jne 0x8002e47
+add rax, 1
+lea rdx, [rbp + rdx + 1]
+mov qword [rsi], rax
+mov r8, qword [rbx + 8]
+cmp rax, r8
+je 0x8002e47
+xor ecx, ecx
+xor r10d, r10d
+movzx r9d, byte [rax]
+mov edi, r9d
+sub r9d, 0x30
+cmp r9d, 9
+ja 0x8002ef8
+cmp ecx, 0x19999999
+ja 0x8002e47
+movsx edi, dil
+lea ecx, [rcx + rcx*4]
+sub edi, 0x30
+add ecx, ecx
+mov r8d, edi
+not r8d
+cmp ecx, r8d
+ja 0x8002e47
+add rax, 1
+add ecx, edi
+add r10, 1
+mov qword [rsi], rax
+mov r8, qword [rbx + 8]
+cmp r8, rax
+jne 0x8002eae
+test r10, r10
+je 0x8002e47
+js 0x8002e47
+mov rdi, qword [r12 + 0x30]
+test ecx, ecx
+setne byte [rdi]
+add rdx, r10
+cmp rax, r8
+je 0x8002e47
+movsx ecx, byte [rax]
+cmp ecx, dword [r12 + 0x38]
+jne 0x8002e47
+add rax, 1
+mov qword [rsi], rax
+lea rax, [rdx + 1]
+pop rbx
+pop rbp
+pop r12
+ret
