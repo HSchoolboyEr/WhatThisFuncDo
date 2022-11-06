@@ -28,7 +28,7 @@ I use that classes of funcs:
 
 ## Steps
 
-* get or add the data: in progress...
+* get or add the data: go there https://github.com/HSchoolboyEr/WhatThisFuncDo/tree/main/tools/raw_data_prepare
 * data preparation: soon
 * 
 
