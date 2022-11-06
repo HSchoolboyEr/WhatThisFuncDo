@@ -25,10 +25,10 @@ $python r2_metaData_extractor.py -i /path/to/binary/file.o -o /path/to/folder/fo
 
 *For this time* it extract only:
 * disasm code
-* flow grapf (in format Graph Modelling Language https://gephi.org/users/supported-graph-formats/gml-format/)
+* flow grapf (in format [Graph Modelling Language](https://gephi.org/users/supported-graph-formats/gml-format/))
 * all the data in JSON
 
-During extract metadata sometimes it's necessary to de-mangle function's names. The easiest way  - use `c++filt` or python packeges (`cxxfilt` (https://github.com/afq984/python-cxxfilt) or `itanium_demangler` (https://github.com/whitequark/python-itanium_demangler)), but in my way it isn't always works correctly. I use it in func `my_demangle`.
+During extract metadata sometimes it's necessary to de-mangle function's names. The easiest way  - use `c++filt` or python packeges ([cxxfilt](https://github.com/afq984/python-cxxfilt) or [itanium_demangler](https://github.com/whitequark/python-itanium_demangler)), but in my way it isn't always works correctly. I use it in func `my_demangle`.
 
 *Note* (https://en.wikipedia.org/wiki/Name_mangling): 
 >"Because C++ symbols are routinely exported from DLL and shared object files, the name mangling scheme is not merely a compiler-internal matter. Different compilers (or different versions of the same compiler, in many cases) produce such binaries under different name decoration schemes, meaning that symbols are frequently unresolved if the compilers used to create the library and the program using it employed different schemes. For example, if a system with multiple C++ compilers installed (e.g., GNU GCC and the OS vendor's compiler) wished to install the Boost C++ Libraries, it would have to be compiled multiple times (once for GCC and once for the vendor compiler)".
@@ -38,12 +38,12 @@ Boost in default use a generic source file dummy_demangler.cpp. If you know abou
 ### Step 3 
 If you neen more files, use the `boost_tree_walker.sh` for recursive walking by library's folders.
 
-*For this time* it use boost (https://www.boost.org/) folders structure and only Linux *.o binary
+*For this time* it use [boost](https://www.boost.org/) folders structure and only Linux *.o binary
 
 
 ## ToDo
 
-- [x] demangle ABI (https://en.wikipedia.org/wiki/Application_binary_interface)
+- [x] demangle [ABI](https://en.wikipedia.org/wiki/Application_binary_interface)
 - [x] control function's names len
 - [ ] Add more libraries
 - [ ] Prepare (trim, strip, normalize and ather) all the data from forlder `raw_data`

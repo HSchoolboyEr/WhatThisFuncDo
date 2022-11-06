@@ -28,8 +28,12 @@ I use that classes of funcs:
 
 ## Steps
 
-* get or add the data: go there https://github.com/HSchoolboyEr/WhatThisFuncDo/tree/main/tools/raw_data_prepare
-* data preparation: soon
-* 
+* get or add the data: go [there](https://github.com/HSchoolboyEr/WhatThisFuncDo/tree/main/tools/raw_data_prepare)
+* data preparation: *very soon*
+* data visualization: *soon*
+* standart Ml algorithms: *not soon*
+* DL 
+* conclusion
 
+## Results
 
