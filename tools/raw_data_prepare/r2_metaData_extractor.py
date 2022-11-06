@@ -10,6 +10,7 @@ import os
 
 try:
     import r2pipe
+    from itanium_demangler import parse as demangle
 except ImportError as err:
     print("Error while importing module: %s" % str(err))
     sys.exit(0)
@@ -28,6 +29,26 @@ def save_data(dir , filename , metadata , type  = 'raw'):
     pass
 
 
+def my_demangle(mangled_func_name):
+
+
+    if demangle(mangled_func_name) != None:
+        mangled_func_name = demangle(mangled_func_name)
+
+
+    if len(mangled_func_name) > 255: # too long name for save in OS filesystem. try some cut
+        rem_words = ["_void_", "const_", "volatile_", "_anonymous_namespace_::", "_unsigned_", "long_", "_int_", "_const", "cxx11_", "message_abi:",
+                     "_char_", "_unsigned_long_" ]
+        for word in rem_words:
+            mangled_func_name = mangled_func_name.replace(word, "")
+            mangled_func_name.strip("_")
+            if len(mangled_func_name) < 255:
+                break
+
+    if len(mangled_func_name) > 255:
+        return mangled_func_name[:250] # + 5 symbols for  .json
+
+    return mangled_func_name
 
 
 def main():
@@ -49,7 +70,7 @@ def main():
     i = 0
     for cur_fun in funcs_name:
         if cur_fun[:19] not in  FUNCS_PREFIX_EXCLUD:
-            func_clear_name = cur_fun.split('.')[len(cur_fun.split('.')) -1] # remove sys., fcall. and other prefixes
+            func_clear_name = my_demangle(cur_fun)
             r2.cmd("s {0}".format(funcs_addresses[i]))
             asm_code = r2.cmd("pif")
             cfg_agfg = r2.cmd("agfg")
