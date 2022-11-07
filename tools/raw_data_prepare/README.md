@@ -2,7 +2,7 @@
 
 All scripts for data preparation are located in this folder
 
-In this section decribed how to prepare the existed data or add new. If you wont to use already preparead data - go to `./data/`  folder of this repo.
+In this section decribed how to prepare the existed data or add new. If you wont to use already preparead data - go to `./data/`  [folder](../../data/) of this repo.
 
 ## Using 
 
@@ -15,6 +15,10 @@ In this section decribed how to prepare the existed data or add new. If you wont
 First you need to prepare the binaries on your computer according to the instructions of the libraries you have selected 
 
 It is highly desirable to compile several libraries with several  optimization options (for example, standard O0, O1 and O2) and different compilers and their versions. This may allow you to create slightly different code for the same function in some of its places. The various options must be placed in a separate folder in the main folder with the name of the library in the form of "Compiler_version_option". For example, `./raw_data/boost/gcc_10_O1/`. Saving data in this form will make it easy to supplement new data and easily use the script `raw_data_aggregator.sh ` to collect them into a single file in the ./data/ folder.
+
+My Boost's native [b2](https://www.bfgroup.xyz/b2/) compile-setting file is also here: `boost_project-config.jam`
+
+*Note* The GCC v4.7 has 2^82 possible optimization combinations...see [there](https://gcc.gnu.org/onlinedocs/gcc/Optimize-Options.html)
 
 ### Step 2
 
@@ -38,7 +42,7 @@ Boost in default use a generic source file dummy_demangler.cpp. If you know abou
 ### Step 3 
 If you neen more files, use the `boost_tree_walker.sh` for recursive walking by library's folders.
 
-*For this time* it use [boost](https://www.boost.org/) folders structure and only Linux *.o binary
+*For this time* it use [boost](https://www.boost.org/) folders structure and only Linux *.o binary. But most Boost libraries are header-only: they consist entirely of header files containing templates and inline functions, and require no separately-compiled library binaries or special treatment when linking.
 
 
 ## ToDo
