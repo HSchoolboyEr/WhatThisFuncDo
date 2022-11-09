@@ -15,11 +15,21 @@ import feature ;
 
 
 #using gcc : 10.2.1 : : <cxxflags>"-std=c++14 -O0" ;
-using gcc : 10.2.1 : : <cxxflags>"-std=c++14 -O1" ;
+#using gcc : 10.2.1 : : <cxxflags>"-std=c++14 -O1" ;
 #using gcc : 10.2.1 : : <cxxflags>"-std=c++14 -O2" ;
 #using gcc : 10.2.1 : : <cxxflags>"-std=c++14 -O3" ;
 #using gcc : 10.2.1 : : <cxxflags>"-std=c++14 -Os" ;
-#using gcc : 10.2.1 : : <cxxflags>"-std=c++14 -Oz" ;
+#using gcc : 10.2.1 : : <cxxflags>"-std=c++14 -Og" ;
+using gcc : 10.2.1 : : <cxxflags>"-std=c++14 -Ofast" ;
+
+
+#using gcc : : : <cxxflags>"-std=c++14 -Ofast" ;
+#using gcc : 9.3.0 : : <cxxflags>"-std=c++14 -O1" ;
+#using gcc : 9.3.0 : : <cxxflags>"-std=c++14 -O2" ;
+#using gcc : 9.3.0 : : <cxxflags>"-std=c++14 -O3" ;
+#using gcc : 9.3.0 : : <cxxflags>"-std=c++14 -Os" ;
+#using gcc : 9.3.0 : : <cxxflags>"-std=c++14 -Og" ;
+#using gcc : 9.3.0 : : <cxxflags>"-std=c++14 -Ofast" ;
 
 
 # List of --with-<library> and --without-<library>

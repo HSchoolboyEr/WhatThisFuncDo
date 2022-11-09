@@ -32,18 +32,20 @@ I use that classes of funcs:
 * get or add the data for training: go [there](./tools/raw_data_prepare/)
 
 #### Boost (with std=c++14)
-- [x] gcc 10 O0
-- [x] gcc 10 O1
-- [x] gcc 10 O2
-- [x] gcc 10 O3
-- [x] gcc 10 Os
-- [x] gcc 10 Oz
-- [ ] gcc 9 O0
-- [ ] gcc 9 O1
-- [ ] gcc 9 O2
-- [ ] gcc 9 O3
-- [ ] gcc 9 Os
-- [ ] gcc 9 Oz
+- [x] gcc 10.2.1 O0
+- [x] gcc 10.2.1 O1
+- [x] gcc 10.2.1 O2
+- [x] gcc 10.2.1 O3
+- [x] gcc 10.2.1 Os
+- [x] gcc 10.2.1 Og
+- [x] gcc 10.2.1 Ofast
+- [x] gcc 9.3.0 O0
+- [x] gcc 9.3.0 O1
+- [x] gcc 9.3.0 O2
+- [x] gcc 9.3.0 O3
+- [x] gcc 9.3.0 Os
+- [x] gcc 9.3.0 Og
+- [x] gcc 9.3.0 Ofast
 - [ ] gcc 8 O1
 - [ ] gcc 8 O2
 - [ ] gcc 8 O3
@@ -61,6 +63,13 @@ I use that classes of funcs:
 - [ ] gcc 6 O3
 - [ ] gcc 6 Os
 - [ ] gcc 6 Oz
+
+....
+
+- [ ] clang
+- [ ] icc
+- [ ] gcc-mingw
+- [ ] Cygwin
 * data preparation: *very soon*
 * data visualization: *soon*
 * standart Ml algorithms: *not soon*
