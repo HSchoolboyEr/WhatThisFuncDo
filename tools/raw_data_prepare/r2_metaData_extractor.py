@@ -38,7 +38,7 @@ def my_demangle(mangled_func_name):
 
     if len(mangled_func_name) > 255: # too long name for save in OS filesystem. try some cut
         rem_words = ["_void_", "const_", "volatile_", "_anonymous_namespace_::", "_unsigned_", "long_", "_int_", "_const", "cxx11_", "message_abi:",
-                     "_char_", "_unsigned_long_" ]
+                     "_char_", "_unsigned_long_", "basic_string_char_" , "char_traits_char_" , "_______", "_unsigned_long_", "allocator_std"]
         for word in rem_words:
             mangled_func_name = mangled_func_name.replace(word, "")
             mangled_func_name.strip("_")
