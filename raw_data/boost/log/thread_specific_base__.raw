@@ -1,3 +1,0 @@
-mov rdi, qword [rdi]
-jmp pthread_key_delete
-nop dword [rax + rax]

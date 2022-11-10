@@ -1,8 +1,0 @@
-mov r9, rdi
-mov rdi, qword [rdi + 0x38]
-mov r8, rcx
-mov rcx, rdx
-mov rdx, rsi
-mov rsi, r9
-jmp _ZN5boost6fibers9scheduler10wait_untilEPNS0_7contextERKNSt6chrono10time_pointINS4_3_V212steady_clockENS4_8durationIlSt5ratioILl1ELl1000000000EEEEEERSt11unique_lockINS0_6detail13spinlock_ttasEEONS0_5wakerE
-nop dword [rax + rax]

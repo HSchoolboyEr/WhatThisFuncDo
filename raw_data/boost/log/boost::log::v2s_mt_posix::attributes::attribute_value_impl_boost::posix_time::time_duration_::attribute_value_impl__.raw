@@ -1,2 +1,0 @@
-mov esi, 0x18
-jmp _ZN5boost3log12v2s_mt_posix9attribute4impldlEPvm

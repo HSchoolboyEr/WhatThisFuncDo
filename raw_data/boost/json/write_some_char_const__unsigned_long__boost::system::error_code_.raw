@@ -1,8 +1,0 @@
-mov r8, rcx
-mov rcx, rdx
-mov rdx, rsi
-mov esi, 1
-jmp _ZN5boost4json12basic_parserINS0_6detail7handlerEE10write_someEbPKcmRNS_6system10error_codeE
-nop
-nop word cs:[rax + rax]
-nop

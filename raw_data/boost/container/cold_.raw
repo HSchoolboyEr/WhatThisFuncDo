@@ -1,4 +1,0 @@
-mov rdi, rbp
-call pthread_mutex_unlock
-mov rdi, r12
-call _Unwind_Resume

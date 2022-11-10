@@ -1,5 +1,0 @@
-mov rax, qword [rdi + 0x368]
-mov rdx, 0xffffffffffffffff
-test rax, rax
-cmove rax, rdx
-ret

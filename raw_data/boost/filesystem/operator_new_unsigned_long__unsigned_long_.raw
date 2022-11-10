@@ -1,8 +1,0 @@
-lea rax, [rdi + 0xf]
-and rax, 0xfffffffffffffff0
-test rsi, rsi
-cmovne rdi, rax
-add rdi, rsi
-mov esi, 1
-jmp calloc
-nop dword [rax]

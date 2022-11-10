@@ -1,3 +1,0 @@
-mov rax, qword [rdi]
-add rax, 8
-ret

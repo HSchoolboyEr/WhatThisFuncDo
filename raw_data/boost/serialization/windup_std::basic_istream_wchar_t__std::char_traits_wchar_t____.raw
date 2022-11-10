@@ -1,3 +1,0 @@
-lea rdx, [rdi + 0x18]
-mov ecx, 0x3e
-jmp sym void boost::serialization::throw_exception<boost::archive::xml_archive_exception>(boost::archive::xml_archive_exception const&)

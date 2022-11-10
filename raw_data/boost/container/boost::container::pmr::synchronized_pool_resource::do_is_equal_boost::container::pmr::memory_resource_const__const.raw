@@ -1,3 +1,0 @@
-cmp rsi, rdi
-sete al
-ret

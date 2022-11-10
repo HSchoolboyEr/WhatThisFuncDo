@@ -1,4 +1,0 @@
-add qword [rdi + 0xd8], 8
-xor eax, eax
-mov qword [rdi + 0x58], 0
-ret

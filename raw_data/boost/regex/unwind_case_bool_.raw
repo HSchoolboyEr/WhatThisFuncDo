@@ -1,7 +1,0 @@
-mov rax, qword [rdi + 0xd8]
-movzx edx, byte [rax + 8]
-add rax, 0x10
-mov qword [rdi + 0xd8], rax
-mov eax, 1
-mov byte [rdi + 0x78], dl
-ret

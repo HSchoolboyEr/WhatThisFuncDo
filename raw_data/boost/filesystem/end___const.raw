@@ -1,9 +1,0 @@
-lea rdx, [rdi + 0x10]
-mov qword [rdi + 8], 0
-mov rax, rdi
-mov qword [rdi], rdx
-mov byte [rdi + 0x10], 0
-mov rdx, qword [rsi + 8]
-mov qword [rdi + 0x20], rsi
-mov qword [rdi + 0x28], rdx
-ret

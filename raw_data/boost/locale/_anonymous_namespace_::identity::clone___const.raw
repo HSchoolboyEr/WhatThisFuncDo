@@ -1,7 +1,0 @@
-sub rsp, 8
-mov edi, 8
-call _Znwm
-lea rdx, [0x080008e5]
-mov qword [rax], rdx
-add rsp, 8
-ret

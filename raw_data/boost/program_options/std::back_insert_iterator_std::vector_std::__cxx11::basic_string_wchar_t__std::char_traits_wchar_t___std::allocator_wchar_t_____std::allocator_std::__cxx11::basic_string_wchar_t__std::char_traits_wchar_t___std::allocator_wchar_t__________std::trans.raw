@@ -1,8 +1,0 @@
-mov rdi, qword [arg_10h]
-cmp rdi, r13
-je 0x8007da4
-mov rax, qword [arg_20h]
-lea rsi, [rax*4 + 4]
-call _ZdlPvm
-mov rdi, rbp
-call method boost::program_options::basic_parsed_options<wchar_t>::basic_parsed_options(boost::program_options::basic_parsed_options<char> const&) [clone .cold]

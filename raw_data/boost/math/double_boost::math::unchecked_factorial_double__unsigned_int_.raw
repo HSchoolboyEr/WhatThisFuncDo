@@ -1,9 +1,0 @@
-sub rsp, 0x4e8
-mov r8d, edi
-mov ecx, 0xab
-lea rdi, [rsp - 0x78]
-lea rsi, [0x08000f5b]
-rep movsq qword [rdi], qword [rsi]
-movsd xmm0, qword [rsp + r8*8 - 0x78]
-add rsp, 0x4e8
-ret

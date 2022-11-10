@@ -1,6 +1,0 @@
-add rdi, 8
-jmp _ZNK5boost9container3pmr13pool_resource10pool_countEv
-add byte [rax], al
-add byte [rax], al
-nop
-nop word [rax + rax]

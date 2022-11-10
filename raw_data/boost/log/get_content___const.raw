@@ -1,3 +1,0 @@
-mov rdi, qword [rdi]
-jmp pthread_getspecific
-nop dword [rax + rax]

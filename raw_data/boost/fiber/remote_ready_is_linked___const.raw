@@ -1,9 +1,0 @@
-mov rdx, qword [rdi + 0x10]
-test rdx, rdx
-sete al
-add rdi, 0x10
-cmp rdx, rdi
-sete dl
-or eax, edx
-xor eax, 1
-ret

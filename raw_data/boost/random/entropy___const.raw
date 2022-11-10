@@ -1,2 +1,0 @@
-movsd xmm0, qword [0x080002c8]
-ret

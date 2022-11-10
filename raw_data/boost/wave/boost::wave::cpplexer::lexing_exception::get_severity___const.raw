@@ -1,2 +1,0 @@
-mov eax, dword [rdi + 0x418]
-ret

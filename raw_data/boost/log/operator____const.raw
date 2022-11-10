@@ -1,6 +1,0 @@
-cmp qword [rdi + 0x1a8], 0
-mov eax, 1
-je 0x8002c79
-test byte [rdi + 0xc0], 5
-setne al
-ret

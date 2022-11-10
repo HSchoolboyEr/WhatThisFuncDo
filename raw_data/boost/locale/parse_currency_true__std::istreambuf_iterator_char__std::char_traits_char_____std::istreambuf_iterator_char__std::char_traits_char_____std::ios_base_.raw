@@ -1,4 +1,0 @@
-mov rdi, r12
-call _ZNSt6localeD1Ev
-mov rdi, rbx
-call method std::istreambuf_iterator<char, std::char_traits<char> > boost::locale::util::base_num_parse<char>::parse_currency<false>(std::istreambuf_iterator<char, std::char_traits<char> >, std::istreambuf_iterator<char, std::char_traits<char> >, std::ios_base&, std::_Ios_Iostate&, long double&) const [clone .isra.0] [clone .cold]

@@ -1,6 +1,0 @@
-mov rax, qword [rdi]
-movzx esi, sil
-xchg byte [rax + 0x70], sil
-test sil, sil
-setne al
-ret

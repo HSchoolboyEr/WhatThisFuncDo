@@ -1,2 +1,0 @@
-lea rax, [rdi - 0x28]
-ret

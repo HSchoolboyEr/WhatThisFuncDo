@@ -1,5 +1,0 @@
-mov rdi, rsi
-jmp _ZNSo5flushEv
-add byte [rax], al
-add byte [rax], al
-nop dword [rax + rax]

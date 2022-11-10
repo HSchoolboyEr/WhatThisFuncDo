@@ -1,9 +1,0 @@
-lea rax, [0x08000ae7]
-push rbp
-mov rbp, rdi
-mov qword [rdi], rax
-call _ZNSt8bad_castD2Ev
-mov rdi, rbp
-mov esi, 0x18
-pop rbp
-jmp _ZdlPvm

@@ -1,7 +1,0 @@
-mov rax, qword [rsi]
-mov rdx, qword [rsi + 8]
-mov qword [rdi], rax
-mov rax, qword [rax - 0x28]
-mov qword [rdi + rax], rdx
-mov dword [rdi + 0x88], 0
-ret

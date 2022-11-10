@@ -1,7 +1,0 @@
-fld xword [rsp + 8]
-fabs
-fld xword [0x080000dc]
-fucompi st(1)
-fstp st(0)
-setae al
-ret

@@ -1,9 +1,0 @@
-sub rsp, 8
-mov rdi, qword [rdi]
-mov esi, 1
-mov rax, qword [rdi]
-call qword [rax + 0x38]
-test eax, eax
-setne al
-add rsp, 8
-ret

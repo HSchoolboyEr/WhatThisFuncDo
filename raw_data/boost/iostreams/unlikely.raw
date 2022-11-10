@@ -1,8 +1,0 @@
-mov rdi, r14
-call _ZN5boost9iostreams6detail4pathD1Ev
-add byte [rax], al
-add byte [rax], al
-mov rdi, r13
-call _ZN5boost9iostreams6detail4pathD1Ev
-mov rdi, rbp
-call method boost::iostreams::detail::mapped_file_impl::clear(bool) [clone .cold]

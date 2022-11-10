@@ -1,9 +1,0 @@
-cmp qword [0x08009728], 0
-je 0x8009730
-mov eax, 1
-ret
-sub rsp, 8
-call sym.init_mparams.isra.0
-mov eax, 1
-add rsp, 8
-ret

@@ -1,3 +1,0 @@
-jmp sched_yield
-nop
-nop word cs:[rax + rax]

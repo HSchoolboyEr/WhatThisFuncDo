@@ -1,9 +1,0 @@
-lea rax, [0x08003017]
-push rbp
-mov rbp, rdi
-mov qword [rdi], rax
-call _ZNSt7__cxx1110moneypunctIcLb1EED2Ev
-mov rdi, rbp
-mov esi, 0x18
-pop rbp
-jmp _ZdlPvm

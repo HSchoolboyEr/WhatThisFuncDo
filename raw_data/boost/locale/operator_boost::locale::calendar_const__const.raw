@@ -1,4 +1,0 @@
-mov rdi, qword [rdi + 0x28]
-mov rsi, qword [rsi + 0x28]
-mov rax, qword [rdi]
-jmp qword [rax + 0x60]

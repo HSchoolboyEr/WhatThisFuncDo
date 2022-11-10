@@ -1,2 +1,0 @@
-jmp boost_cont_multialloc_arrays
-nop word cs:[rax + rax]

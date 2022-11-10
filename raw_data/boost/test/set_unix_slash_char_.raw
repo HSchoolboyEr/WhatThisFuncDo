@@ -1,4 +1,0 @@
-cmp dil, 0x5c
-mov eax, 0x2f
-cmovne eax, edi
-ret

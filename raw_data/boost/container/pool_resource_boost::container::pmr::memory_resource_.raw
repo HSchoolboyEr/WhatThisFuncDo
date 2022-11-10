@@ -1,9 +1,0 @@
-movdqa xmm0, xmmword [0x08000468]
-lea rax, [rdi + 0x18]
-mov qword [rdi + 0x10], rsi
-mov qword [rdi + 0x18], rax
-mov qword [rdi + 0x20], rax
-mov qword [rdi + 0x28], 0
-mov qword [rdi + 0x30], 0
-movups xmmword [rdi], xmm0
-ret

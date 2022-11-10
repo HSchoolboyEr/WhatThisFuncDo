@@ -1,5 +1,0 @@
-lea rax, [0x080002a7]
-mov qword [rdi], rax
-jmp _ZN5boost7archive6detail14basic_iarchiveD2Ev
-add byte [rax], al
-add byte [rax], al

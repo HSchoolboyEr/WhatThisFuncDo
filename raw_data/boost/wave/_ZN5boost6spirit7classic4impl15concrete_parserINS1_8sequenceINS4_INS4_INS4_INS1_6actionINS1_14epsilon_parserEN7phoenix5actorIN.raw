@@ -1,2 +1,0 @@
-mov esi, 0x3d0
-jmp _ZdlPvm

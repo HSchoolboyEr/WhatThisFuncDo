@@ -1,3 +1,0 @@
-lea rax, [0x080045e7]
-mov qword [rdi], rax
-jmp _ZNSt13runtime_errorD2Ev

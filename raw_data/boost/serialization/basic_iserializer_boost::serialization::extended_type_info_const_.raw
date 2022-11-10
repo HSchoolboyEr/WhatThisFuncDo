@@ -1,5 +1,0 @@
-lea rax, [0x080000a7]
-mov qword [rdi + 8], rsi
-mov qword [rdi], rax
-mov qword [rdi + 0x10], 0
-ret

@@ -1,9 +1,0 @@
-push rbx
-mov rbx, rdi
-nop dword [rax]
-mov rdi, rbx
-call pthread_mutex_destroy
-cmp eax, 4
-je 0x8004f58
-pop rbx
-ret

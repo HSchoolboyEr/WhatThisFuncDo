@@ -1,3 +1,0 @@
-lea rax, [0x080003d7]
-mov qword [rdi], rax
-jmp _ZNSt12system_errorD2Ev

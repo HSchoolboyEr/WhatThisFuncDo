@@ -1,4 +1,0 @@
-mov rax, qword [rdi + 0x90]
-movzx eax, word [rax + 0x210]
-mov word [rsi], ax
-ret

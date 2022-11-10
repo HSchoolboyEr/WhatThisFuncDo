@@ -1,3 +1,0 @@
-push r15
-mov r15, rdi
-push r14

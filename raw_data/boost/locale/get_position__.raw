@@ -1,3 +1,0 @@
-mov rax, qword [rdi + 8]
-mov eax, dword [rax]
-ret

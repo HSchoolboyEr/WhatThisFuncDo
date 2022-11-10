@@ -1,9 +1,0 @@
-andps xmm0, xmmword [0x08000117]
-movss xmm1, dword [0x0800011f]
-ucomiss xmm1, xmm0
-setb al
-ucomiss xmm0, dword [0x0800012c]
-setb dl
-or eax, edx
-xor eax, 1
-ret

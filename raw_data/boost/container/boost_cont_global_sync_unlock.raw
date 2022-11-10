@@ -1,2 +1,0 @@
-mov dword [0x08009cca], 0
-ret

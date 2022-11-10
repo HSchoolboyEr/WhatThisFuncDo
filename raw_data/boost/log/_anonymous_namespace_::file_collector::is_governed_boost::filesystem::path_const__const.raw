@@ -1,4 +1,0 @@
-add rdi, 0x98
-xor edx, edx
-jmp _ZN5boost10filesystem6detail10equivalentERKNS0_4pathES4_PNS_6system10error_codeE
-nop

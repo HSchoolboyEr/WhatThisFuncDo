@@ -1,2 +1,0 @@
-mov byte [rdi + 0xc8], dl
-ret

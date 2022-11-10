@@ -1,3 +1,0 @@
-lea rax, [0x08005197]
-mov qword [rdi], rax
-jmp _ZNSt9exceptionD2Ev

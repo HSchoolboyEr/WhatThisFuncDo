@@ -1,3 +1,0 @@
-lea rdx, [0x08002327]
-mov eax, edi
-ret

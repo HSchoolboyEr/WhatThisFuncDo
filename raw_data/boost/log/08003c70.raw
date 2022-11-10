@@ -1,9 +1,0 @@
-lea rdx, [0x08003c77]
-lea rcx, [0x08003c7e]
-mov rax, rdi
-mov qword [rdi + 0x20], 0
-lea rsi, [0x08003c90]
-mov qword [rdi + 0x18], rdx
-mov qword [rdi + 0x28], rcx
-mov qword [rdi + 0x30], rsi
-ret

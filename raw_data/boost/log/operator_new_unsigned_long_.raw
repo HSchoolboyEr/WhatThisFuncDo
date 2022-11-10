@@ -1,6 +1,0 @@
-sub rsp, 8
-call malloc
-test rax, rax
-je .text.unlikely
-add rsp, 8
-ret

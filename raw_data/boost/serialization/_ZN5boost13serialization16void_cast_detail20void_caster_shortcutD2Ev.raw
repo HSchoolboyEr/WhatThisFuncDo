@@ -1,7 +1,0 @@
-lea rax, [0x08001297]
-cmp byte [0x0800129e], 0
-mov qword [rdi], rax
-je .text
-ret
-nop dword [rax]
-jmp .text

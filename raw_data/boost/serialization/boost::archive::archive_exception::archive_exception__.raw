@@ -1,4 +1,0 @@
-lea rax, [0x08001417]
-mov dword [rdi + 0x88], 0
-mov qword [rdi], rax
-ret

@@ -1,8 +1,0 @@
-mov r9, rdi
-mov rdi, qword [rdi + 0x20]
-mov r8, rcx
-mov rcx, rdx
-mov rdx, rsi
-mov rsi, r9
-jmp _ZN5boost7archive6detail19basic_iarchive_impl12load_pointerERNS1_14basic_iarchiveERPvPKNS1_25basic_pointer_iserializerEPFS9_RKNS_13serialization18extended_type_infoEE
-nop dword [rax + rax]

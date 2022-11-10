@@ -1,5 +1,0 @@
-sub rsp, 8
-mov edi, 0x1e
-call sysconf
-add rsp, 8
-ret

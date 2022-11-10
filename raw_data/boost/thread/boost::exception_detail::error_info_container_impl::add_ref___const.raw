@@ -1,2 +1,0 @@
-add dword [rdi + 0x58], 1
-ret

@@ -1,2 +1,0 @@
-sub dword [rdi + 0x10], 4
-ret

@@ -1,7 +1,0 @@
-sub rax, 1
-cmp rax, 1
-ja _Unwind_Resume
-call __cxa_begin_catch
-call __cxa_end_catch
-jmp .text
-call sym.boost_riemann_zetaf.cold

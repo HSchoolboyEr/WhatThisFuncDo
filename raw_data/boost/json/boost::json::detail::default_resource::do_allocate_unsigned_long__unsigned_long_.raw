@@ -1,3 +1,0 @@
-mov rdi, rsi
-jmp _Znwm
-nop dword [rax + rax]

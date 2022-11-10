@@ -1,8 +1,0 @@
-mov rdi, qword [arg_20h]
-cmp rdi, rbx
-je 0x800a6c2
-mov rax, qword [arg_30h]
-lea rsi, [rax + 1]
-call _ZdlPvm
-mov rdi, rbp
-call sym.regcompW.cold

@@ -1,8 +1,0 @@
-push r12
-movsx edx, dx
-mov r12, rdi
-lea rcx, [0x0800110f]
-call _ZN5boost5timer6formatERKNS0_9cpu_timesEsRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE
-mov rax, r12
-pop r12
-ret

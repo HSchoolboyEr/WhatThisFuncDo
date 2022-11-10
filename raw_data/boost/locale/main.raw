@@ -1,7 +1,0 @@
-sub rsp, 8
-xor esi, esi
-xor edi, edi
-call iconv_open
-xor eax, eax
-add rsp, 8
-ret

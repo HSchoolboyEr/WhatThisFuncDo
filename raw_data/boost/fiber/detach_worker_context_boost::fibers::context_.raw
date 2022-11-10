@@ -1,7 +1,0 @@
-push rbx
-mov rdi, rsi
-mov rbx, rsi
-call _ZN5boost6fibers7context13worker_unlinkEv
-mov qword [rbx + 0x38], 0
-pop rbx
-ret

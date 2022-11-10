@@ -1,8 +1,0 @@
-mov rdx, qword [rsi + 8]
-movdqu xmm0, xmmword [rsi]
-mov rax, rdi
-movups xmmword [rdi], xmm0
-test rdx, rdx
-je 0x80017a8
-lock add dword [rdx + 8], 1
-ret

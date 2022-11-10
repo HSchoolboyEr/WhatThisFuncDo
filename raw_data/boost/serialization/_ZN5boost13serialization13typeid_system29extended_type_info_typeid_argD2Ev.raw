@@ -1,4 +1,0 @@
-lea rax, [0x080006f7]
-mov qword [rdi + 0x18], 0
-mov qword [rdi], rax
-jmp _ZN5boost13serialization18extended_type_infoD2Ev

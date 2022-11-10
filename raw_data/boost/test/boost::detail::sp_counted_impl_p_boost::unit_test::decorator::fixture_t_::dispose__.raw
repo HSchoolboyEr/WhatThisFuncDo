@@ -1,7 +1,0 @@
-mov rdi, qword [rdi + 0x10]
-test rdi, rdi
-je 0x8001ce0
-mov rax, qword [rdi]
-jmp qword [rax + 0x20]
-nop
-ret

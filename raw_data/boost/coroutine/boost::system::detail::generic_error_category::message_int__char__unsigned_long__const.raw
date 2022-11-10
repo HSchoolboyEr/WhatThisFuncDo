@@ -1,4 +1,0 @@
-mov edi, esi
-mov rsi, rdx
-mov rdx, rcx
-jmp strerror_r

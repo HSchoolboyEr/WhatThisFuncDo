@@ -1,8 +1,0 @@
-push rbp
-mov rbp, rdi
-mov rdi, qword [rdi + 0x48]
-call method std::_Rb_tree<boost::log::v2s_mt_posix::attribute_name, std::pair<boost::log::v2s_mt_posix::attribute_name const, boost::shared_ptr<boost::log::v2s_mt_posix::filter_factory<char> > >, std::_Select1st<std::pair<boost::log::v2s_mt_posix::attribute_name const, boost::shared_ptr<boost::log::v2s_mt_posix::filter_factory<char> > > >, boost::log::v2s_mt_posix::(anonymous namespace)::filters_repository<char>::attribute_name_order, std::allocator<std::pair<boost::log::v2s_mt_posix::attribute_name const, boost::shared_ptr<boost::log::v2s_mt_posix::filter_factory<> > > > >::() [clone ]
-mov rdi, rbp
-pop rbp
-jmp pthread_rwlock_destroy
-nop word cs:[rax + rax]

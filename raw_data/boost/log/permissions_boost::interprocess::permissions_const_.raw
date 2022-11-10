@@ -1,3 +1,0 @@
-mov eax, dword [rsi]
-mov dword [rdi], eax
-ret

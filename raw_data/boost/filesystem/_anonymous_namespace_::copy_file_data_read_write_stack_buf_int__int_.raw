@@ -1,6 +1,0 @@
-sub rsp, 0x2008
-mov ecx, 0x2000
-mov rdx, rsp
-call method boost::filesystem::detail::(anonymous namespace)::copy_file_data_read_write_impl(int, int, char*, unsigned long)
-add rsp, 0x2008
-ret

@@ -1,5 +1,0 @@
-lea rax, [0x08000547]
-mov qword [rdi], rax
-jmp _ZNSt9exceptionD2Ev
-add byte [rax], al
-add byte [rax], al

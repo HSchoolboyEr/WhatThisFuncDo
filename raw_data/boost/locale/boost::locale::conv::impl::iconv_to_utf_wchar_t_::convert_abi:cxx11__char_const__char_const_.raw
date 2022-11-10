@@ -1,7 +1,0 @@
-push r12
-add rsi, 8
-mov r12, rdi
-call _ZN5boost6locale4conv4impl15iconverter_base12real_convertIwcEENSt7__cxx1112basic_stringIT_St11char_traitsIS7_ESaIS7_EEEPKT0_SE_
-mov rax, r12
-pop r12
-ret

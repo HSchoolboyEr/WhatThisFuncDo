@@ -1,2 +1,0 @@
-jmp unsetenv
-nop word cs:[rax + rax]

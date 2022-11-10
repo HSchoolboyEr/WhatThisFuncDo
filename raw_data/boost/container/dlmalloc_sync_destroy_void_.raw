@@ -1,2 +1,0 @@
-jmp boost_cont_sync_destroy
-nop word cs:[rax + rax]

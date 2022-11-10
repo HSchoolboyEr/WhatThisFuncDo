@@ -1,3 +1,0 @@
-mov rax, qword [rdi]
-and eax, 0x60
-ret

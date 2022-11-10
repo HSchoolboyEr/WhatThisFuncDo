@@ -1,5 +1,0 @@
-mov rax, qword [rsi]
-mov rdx, qword [rdi]
-mov qword [rsi], rdx
-mov qword [rdi], rax
-ret

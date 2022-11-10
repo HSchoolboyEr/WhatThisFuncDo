@@ -1,9 +1,0 @@
-push rax
-mov edi, 8
-call __cxa_allocate_exception
-mov rdx, qword [0x0800037a]
-lea rsi, [0x08000381]
-mov rdi, rax
-lea rax, [0x0800038b]
-mov qword [rdi], rax
-call __cxa_throw

@@ -1,4 +1,0 @@
-andps xmm0, xmmword [0x080000e7]
-ucomiss xmm0, dword [0x080000ee]
-seta al
-ret

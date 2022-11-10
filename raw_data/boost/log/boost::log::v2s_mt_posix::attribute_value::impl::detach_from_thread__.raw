@@ -1,4 +1,0 @@
-mov rax, rdi
-mov qword [rdi], rsi
-lock add dword [rsi + 8], 1
-ret

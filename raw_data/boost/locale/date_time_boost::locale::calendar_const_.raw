@@ -1,8 +1,0 @@
-push rbx
-mov rbx, rdi
-mov rdi, qword [rsi + 0x28]
-mov rax, qword [rdi]
-call qword [rax]
-mov qword [rbx], rax
-pop rbx
-ret

@@ -1,4 +1,0 @@
-sub qword [rdi], 1
-mov rax, rdi
-sub qword [rdi + 8], 1
-ret

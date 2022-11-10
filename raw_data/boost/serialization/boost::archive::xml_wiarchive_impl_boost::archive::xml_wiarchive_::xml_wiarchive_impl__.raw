@@ -1,9 +1,0 @@
-push rbp
-mov rbp, rdi
-call _ZN5boost7archive18xml_wiarchive_implINS0_13xml_wiarchiveEED1Ev
-add byte [rax], al
-add byte [rax], al
-mov rdi, rbp
-mov esi, 0x98
-pop rbp
-jmp _ZdlPvm

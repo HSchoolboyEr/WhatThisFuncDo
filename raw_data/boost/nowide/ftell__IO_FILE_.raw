@@ -1,5 +1,0 @@
-sub rsp, 8
-call ftello64
-xor edx, edx
-add rsp, 8
-ret

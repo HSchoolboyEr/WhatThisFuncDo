@@ -1,3 +1,0 @@
-mov rax, qword [rdi + 0x20]
-mov qword [rax + 0x78], rsi
-ret

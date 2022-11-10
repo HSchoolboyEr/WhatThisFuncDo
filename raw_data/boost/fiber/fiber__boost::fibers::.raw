@@ -1,8 +1,0 @@
-sub rsp, 8
-mov rdi, qword [rsi + 8]
-sub rdi, qword [rsi]
-call free
-xor eax, eax
-xor edx, edx
-add rsp, 8
-ret

@@ -1,9 +1,0 @@
-mov rdi, qword [rdi]
-test rdi, rdi
-je 0x80008a8
-lock sub dword [rdi + 8], 1
-jne 0x80008a8
-mov rax, qword [rdi]
-jmp qword [rax + 8]
-nop dword [rax]
-ret

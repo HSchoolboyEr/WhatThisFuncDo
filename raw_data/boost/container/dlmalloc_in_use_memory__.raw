@@ -1,2 +1,0 @@
-jmp boost_cont_in_use_memory
-nop word cs:[rax + rax]

@@ -1,2 +1,0 @@
-jmp boost_cont_alloc
-nop word cs:[rax + rax]

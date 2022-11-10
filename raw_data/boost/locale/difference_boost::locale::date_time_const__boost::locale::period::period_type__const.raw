@@ -1,5 +1,0 @@
-mov rdi, qword [rdi]
-mov rsi, qword [rsi]
-mov rax, qword [rdi]
-mov rax, qword [rax + 0x48]
-jmp rax

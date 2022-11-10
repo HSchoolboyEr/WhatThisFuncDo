@@ -1,3 +1,0 @@
-mov rax, qword [rdi]
-movzx eax, byte [rax + 0x61]
-ret

@@ -1,9 +1,0 @@
-lea rax, [0x080016c7]
-push rbp
-mov rbp, rdi
-mov qword [rdi], rax
-call _ZNSt7codecvtIcc11__mbstate_tED2Ev
-mov rdi, rbp
-mov esi, 0x18
-pop rbp
-jmp _ZdlPvm

@@ -1,6 +1,0 @@
-sub rsp, 8
-call boost_cont_sync_lock
-test eax, eax
-setne al
-add rsp, 8
-ret

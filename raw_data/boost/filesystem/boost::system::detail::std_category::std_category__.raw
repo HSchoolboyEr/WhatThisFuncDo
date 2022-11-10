@@ -1,9 +1,0 @@
-lea rax, [0x080025a7]
-push rbp
-mov rbp, rdi
-mov qword [rdi], rax
-call _ZNSt3_V214error_categoryD2Ev
-mov rdi, rbp
-mov esi, 0x10
-pop rbp
-jmp _ZdlPvm

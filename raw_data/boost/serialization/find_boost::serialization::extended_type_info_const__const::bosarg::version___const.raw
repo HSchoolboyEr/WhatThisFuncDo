@@ -1,3 +1,0 @@
-mov dword [rdi], 0
-mov rax, rdi
-ret

@@ -1,9 +1,0 @@
-push rbx
-mov rbx, rdi
-call _ZNSt7codecvtIwc11__mbstate_tEC2Em
-add byte [rax], al
-add byte [rax], al
-lea rax, [0x080004c0]
-mov qword [rbx], rax
-pop rbx
-ret

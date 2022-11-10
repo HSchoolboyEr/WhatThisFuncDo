@@ -1,7 +1,0 @@
-mov rax, qword [rdi + 0x18]
-add rax, rsi
-add rsi, rdx
-sub qword [rdi + 0x20], rsi
-lea rcx, [rax + rdx]
-mov qword [rdi + 0x18], rcx
-ret

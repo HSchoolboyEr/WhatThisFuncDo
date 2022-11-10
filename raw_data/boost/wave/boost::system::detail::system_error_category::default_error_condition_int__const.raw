@@ -1,3 +1,0 @@
-xor edx, edx
-mov eax, esi
-ret

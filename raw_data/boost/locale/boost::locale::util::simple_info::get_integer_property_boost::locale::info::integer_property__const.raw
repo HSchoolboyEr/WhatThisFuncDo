@@ -1,5 +1,0 @@
-xor eax, eax
-test esi, esi
-jne 0x800029d
-movzx eax, byte [rdi + 0x90]
-ret

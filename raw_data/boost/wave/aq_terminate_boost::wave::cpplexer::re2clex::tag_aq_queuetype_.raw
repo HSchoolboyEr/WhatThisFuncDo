@@ -1,7 +1,0 @@
-push rbp
-mov rbp, rdi
-mov rdi, qword [rdi + 0x20]
-call free
-mov rdi, rbp
-pop rbp
-jmp free

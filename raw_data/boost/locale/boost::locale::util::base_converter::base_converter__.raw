@@ -1,3 +1,0 @@
-mov esi, 8
-jmp _ZdlPvm
-nop word [rax + rax]

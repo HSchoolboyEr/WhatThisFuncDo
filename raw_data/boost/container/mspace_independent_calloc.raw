@@ -1,6 +1,0 @@
-sub rsp, 0x18
-mov qword [var_8h], rdx
-lea rdx, [var_8h]
-call sym.ialloc.constprop.0
-add rsp, 0x18
-ret

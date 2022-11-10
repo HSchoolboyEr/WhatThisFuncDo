@@ -1,9 +1,0 @@
-lea rax, [0x080022d7]
-push rbp
-mov rbp, rdi
-mov qword [rdi], rax
-call _ZN5boost6fibers7contextD2Ev
-mov rdi, rbp
-mov esi, 0xe8
-pop rbp
-jmp _ZdlPvm

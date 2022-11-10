@@ -1,2 +1,0 @@
-mov rax, qword [rdi]
-jmp qword [rax]

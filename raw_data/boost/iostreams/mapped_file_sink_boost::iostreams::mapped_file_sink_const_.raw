@@ -1,8 +1,0 @@
-mov rax, qword [rsi + 8]
-mov qword [rdi + 8], rax
-mov rax, qword [rsi + 0x10]
-mov qword [rdi + 0x10], rax
-test rax, rax
-je 0x800059a
-lock add dword [rax + 8], 1
-ret

@@ -1,5 +1,0 @@
-mov rax, qword [rdi]
-and rax, 0xffffffffffffffe0
-or rax, rsi
-mov qword [rdi], rax
-ret

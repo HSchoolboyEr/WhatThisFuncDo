@@ -1,4 +1,0 @@
-fld xword [rsp + 8]
-fucompi st(0)
-setp al
-ret

@@ -1,7 +1,0 @@
-mov r8, rdi
-mov rdi, rsi
-lea rsi, [r8 + 8]
-jmp _ZN5boost9unit_test9test_unit16add_preconditionERKNS_8functionIFNS_10test_tools16assertion_resultEmEEE
-add byte [rax], al
-add byte [rax], al
-nop

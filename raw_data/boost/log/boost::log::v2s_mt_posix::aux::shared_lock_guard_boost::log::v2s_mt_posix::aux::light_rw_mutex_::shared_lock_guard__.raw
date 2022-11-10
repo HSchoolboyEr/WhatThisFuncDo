@@ -1,2 +1,0 @@
-mov rdi, qword [rdi]
-jmp pthread_rwlock_unlock

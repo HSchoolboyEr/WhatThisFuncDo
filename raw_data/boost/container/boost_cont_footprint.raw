@@ -1,2 +1,0 @@
-mov rax, qword [0x08008d27]
-ret

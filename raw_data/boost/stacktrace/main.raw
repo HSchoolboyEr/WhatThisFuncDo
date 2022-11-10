@@ -1,9 +1,0 @@
-sub rsp, 8
-xor ecx, ecx
-xor edx, edx
-mov esi, 1
-xor edi, edi
-call backtrace_create_state
-xor eax, eax
-add rsp, 8
-ret

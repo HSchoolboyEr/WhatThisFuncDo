@@ -1,2 +1,0 @@
-movzx eax, byte [rdi + 0x58]
-ret

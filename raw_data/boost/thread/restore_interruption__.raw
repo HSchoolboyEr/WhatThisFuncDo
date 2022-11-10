@@ -1,8 +1,0 @@
-sub rsp, 8
-call _ZN5boost6detail23get_current_thread_dataEv
-test rax, rax
-je 0x800190a
-call _ZN5boost6detail23get_current_thread_dataEv
-mov byte [rax + 0x130], 0
-add rsp, 8
-ret

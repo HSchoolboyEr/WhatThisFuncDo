@@ -1,3 +1,0 @@
-mov qword [r8], rdx
-xor eax, eax
-ret

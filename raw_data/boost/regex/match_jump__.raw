@@ -1,5 +1,0 @@
-mov rax, qword [rdi + 0x58]
-mov rax, qword [rax + 0x10]
-mov qword [rdi + 0x58], rax
-mov eax, 1
-ret

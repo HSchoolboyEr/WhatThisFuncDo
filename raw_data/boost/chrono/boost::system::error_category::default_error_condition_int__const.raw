@@ -1,3 +1,0 @@
-mov rdx, rdi
-mov eax, esi
-ret

@@ -1,5 +1,0 @@
-lea rax, [0x08000397]
-mov qword [rdi], rax
-jmp _ZNSt12system_errorD2Ev
-add byte [rax], al
-add byte [rax], al

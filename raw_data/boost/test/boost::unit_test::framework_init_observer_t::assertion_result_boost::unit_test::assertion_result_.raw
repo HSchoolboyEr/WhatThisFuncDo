@@ -1,4 +1,0 @@
-test esi, esi
-jne 0x80000e8
-mov byte [rdi + 8], 1
-ret

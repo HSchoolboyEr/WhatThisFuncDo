@@ -1,9 +1,0 @@
-sub rsp, 8
-mov r8d, 1
-xor ecx, ecx
-xor edx, edx
-xor esi, esi
-lea rdi, [0x08002347]
-call _ZN5boost6detail12set_tss_dataEPKvPFvPFvPvES3_ES5_S3_b
-add rsp, 8
-ret

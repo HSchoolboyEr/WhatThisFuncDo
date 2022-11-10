@@ -1,3 +1,0 @@
-lea rax, [0x08000ae7]
-mov qword [rdi], rax
-jmp _ZNSt12out_of_rangeD2Ev

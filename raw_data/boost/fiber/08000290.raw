@@ -1,9 +1,0 @@
-push rbp
-mov rbp, rdi
-call _ZN5boost6fibers9schedulerD1Ev
-mov rdi, rbp
-mov esi, 0x90
-pop rbp
-jmp _ZdlPvm
-nop
-nop dword [rax + rax]

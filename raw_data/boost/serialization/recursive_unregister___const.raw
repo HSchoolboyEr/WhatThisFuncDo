@@ -1,5 +1,0 @@
-cmp byte [0x080008b7], 0
-je 0x80008c0
-ret
-nop word [rax + rax]
-jmp method boost::serialization::void_cast_detail::void_caster::recursive_unregister() const [clone .part.0]

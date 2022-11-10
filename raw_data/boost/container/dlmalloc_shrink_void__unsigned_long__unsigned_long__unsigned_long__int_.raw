@@ -1,2 +1,0 @@
-jmp boost_cont_shrink
-nop word cs:[rax + rax]

@@ -1,6 +1,0 @@
-mov rdx, qword [rsi + 0x20]
-mov rax, qword [rdi + 0x20]
-mov rax, qword [rax]
-cmp qword [rdx], rax
-sete al
-ret

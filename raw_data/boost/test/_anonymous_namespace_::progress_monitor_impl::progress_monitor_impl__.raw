@@ -1,7 +1,0 @@
-mov rdi, qword [rdi + 8]
-test rdi, rdi
-je 0x80002c8
-mov esi, 0x28
-jmp _ZdlPvm
-nop dword [rax + rax]
-ret

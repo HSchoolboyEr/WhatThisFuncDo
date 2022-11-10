@@ -1,4 +1,0 @@
-andpd xmm0, xmmword [0x080000e8]
-ucomisd xmm0, qword [0x080000f0]
-seta al
-ret

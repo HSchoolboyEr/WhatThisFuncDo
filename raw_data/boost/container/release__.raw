@@ -1,6 +1,0 @@
-add rdi, 8
-jmp _ZN5boost9container3pmr13pool_resource7releaseEv
-add byte [rax], al
-add byte [rax], al
-nop
-nop word [rax + rax]

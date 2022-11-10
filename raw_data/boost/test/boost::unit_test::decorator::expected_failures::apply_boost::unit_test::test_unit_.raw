@@ -1,7 +1,0 @@
-mov r8, rdi
-mov rdi, rsi
-mov rsi, qword [r8 + 8]
-jmp _ZN5boost9unit_test9test_unit17increase_exp_failEm
-add byte [rax], al
-add byte [rax], al
-nop

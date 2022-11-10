@@ -1,8 +1,0 @@
-sub rsp, 8
-mov rdi, qword [rdi + 0x28]
-mov rax, qword [rdi]
-call qword [rax + 0x18]
-add rsp, 8
-mov rdi, rax
-jmp _ZN5boost6fibers7context6resumeEv
-nop word [rax + rax]

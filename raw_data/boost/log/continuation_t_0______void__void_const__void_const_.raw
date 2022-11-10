@@ -1,2 +1,0 @@
-push rax
-call method void boost::asio::execution::detail::any_executor_base::query_fn<void, boost::asio::execution::prefer_only<boost::asio::execution::detail::relationship::fork_t<0> > >(void*, void const*, void const*)

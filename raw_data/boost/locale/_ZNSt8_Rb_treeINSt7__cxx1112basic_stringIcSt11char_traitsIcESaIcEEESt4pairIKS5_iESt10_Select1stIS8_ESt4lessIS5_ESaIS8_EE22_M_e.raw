@@ -1,9 +1,0 @@
-call __cxa_begin_catch
-mov esi, 0x48
-mov rdi, rbp
-call _ZdlPvm
-call __cxa_rethrow
-mov rbp, rax
-call __cxa_end_catch
-mov rdi, rbp
-call method boost::locale::message_format<char>* boost::locale::gnu_gettext::create_messages_facet<char>(boost::locale::gnu_gettext::messages_info const&) [clone .cold]

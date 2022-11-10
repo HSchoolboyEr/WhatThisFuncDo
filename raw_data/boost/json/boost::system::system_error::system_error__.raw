@@ -1,9 +1,0 @@
-lea rax, [0x080121e7]
-push rbp
-mov rbp, rdi
-mov qword [rdi], rax
-call _ZNSt13runtime_errorD2Ev
-mov rdi, rbp
-mov esi, 0x28
-pop rbp
-jmp _ZdlPvm

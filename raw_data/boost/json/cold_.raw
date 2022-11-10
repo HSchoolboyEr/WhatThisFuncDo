@@ -1,8 +1,0 @@
-mov rdi, r12
-call _ZN5boost4json5valueD1Ev
-mov rdi, rbp
-call _Unwind_Resume
-mov rdi, rbp
-call _ZNK5boost4json11storage_ptr7releaseEv
-mov rdi, r12
-call _Unwind_Resume

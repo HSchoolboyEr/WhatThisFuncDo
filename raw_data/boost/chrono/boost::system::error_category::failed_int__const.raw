@@ -1,3 +1,0 @@
-test esi, esi
-setne al
-ret

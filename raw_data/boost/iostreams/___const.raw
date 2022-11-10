@@ -1,6 +1,0 @@
-mov rax, qword [rdi]
-cmp byte [rax + 0x84], 0
-setne al
-movzx eax, al
-sub rax, 1
-ret

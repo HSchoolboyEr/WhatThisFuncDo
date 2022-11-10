@@ -1,4 +1,0 @@
-add rax, 1
-jne _Unwind_Resume
-call __cxa_call_unexpected
-call sym._ZN5boost4math6detail8zeta_impIeNS0_8policies6policyINS3_12domain_errorILNS3_17error_policy_typeE1EEENS3_10pole_errorILS6_1EEE

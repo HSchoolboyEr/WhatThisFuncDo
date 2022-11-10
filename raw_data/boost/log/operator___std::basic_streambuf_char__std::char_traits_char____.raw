@@ -1,9 +1,0 @@
-push r12
-mov r12, rdi
-lea rdi, [rdi + 0x68]
-call _ZNSolsEPSt15basic_streambufIcSt11char_traitsIcEE
-add byte [rax], al
-add byte [rax], al
-mov rax, r12
-pop r12
-ret

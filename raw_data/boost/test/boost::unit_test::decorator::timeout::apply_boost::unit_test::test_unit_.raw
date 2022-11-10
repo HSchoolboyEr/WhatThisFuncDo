@@ -1,3 +1,0 @@
-mov eax, dword [rdi + 8]
-mov dword [rsi + 0xc8], eax
-ret

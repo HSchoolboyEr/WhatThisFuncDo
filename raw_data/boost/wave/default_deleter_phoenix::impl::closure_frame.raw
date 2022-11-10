@@ -1,6 +1,0 @@
-test rdi, rdi
-je 0x8000d40
-mov esi, 8
-jmp _ZdlPvm
-nop
-ret

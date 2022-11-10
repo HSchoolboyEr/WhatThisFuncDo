@@ -1,5 +1,0 @@
-mov rdi, qword [rdi + 0x28]
-mov edx, 4
-mov rax, qword [rdi]
-mov rax, qword [rax + 0x18]
-jmp rax

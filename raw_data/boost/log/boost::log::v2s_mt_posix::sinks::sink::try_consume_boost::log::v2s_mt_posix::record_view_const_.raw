@@ -1,6 +1,0 @@
-sub rsp, 8
-mov rax, qword [rdi]
-call qword [rax + 0x18]
-mov eax, 1
-add rsp, 8
-ret

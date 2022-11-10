@@ -1,3 +1,0 @@
-push rax
-call method boost::nfp::nil::inst() [clone .isra.0]
-call method void boost::unit_test::ut_detail::throw_exception<boost::nfp::nfp_detail::access_to_invalid_parameter>(boost::nfp::nfp_detail::access_to_invalid_parameter const&) [clone .constprop.0]

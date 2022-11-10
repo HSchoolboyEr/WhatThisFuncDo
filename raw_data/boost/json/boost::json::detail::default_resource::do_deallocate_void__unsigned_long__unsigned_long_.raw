@@ -1,3 +1,0 @@
-mov rdi, rsi
-jmp _ZdlPv
-nop dword [rax + rax]

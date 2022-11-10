@@ -1,8 +1,0 @@
-mov rax, qword [rdi + 0x10]
-movzx eax, byte [rax + 0x49]
-test al, al
-jns 0x8002b54
-cmp al, 0xa0
-sete al
-shl eax, 5
-ret

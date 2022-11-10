@@ -1,4 +1,0 @@
-movzx eax, byte [rdi + 8]
-xor eax, 1
-movzx eax, al
-ret

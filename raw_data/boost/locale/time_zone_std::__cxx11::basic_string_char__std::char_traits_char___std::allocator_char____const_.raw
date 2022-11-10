@@ -1,4 +1,0 @@
-add rdi, 0x10
-jmp _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_assignERKS4_
-nop
-nop word [rax + rax]

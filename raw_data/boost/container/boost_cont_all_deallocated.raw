@@ -1,4 +1,0 @@
-xor eax, eax
-cmp qword [0x08008eca], 0
-sete al
-ret

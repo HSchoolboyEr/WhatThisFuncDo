@@ -1,3 +1,0 @@
-lea rax, [0x08002307]
-mov qword [rdi], rax
-jmp _ZN5boost6fibers7contextD2Ev

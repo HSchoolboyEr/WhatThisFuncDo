@@ -1,3 +1,0 @@
-mov rax, qword [rdi]
-mov byte [rax + 0x1c], sil
-ret

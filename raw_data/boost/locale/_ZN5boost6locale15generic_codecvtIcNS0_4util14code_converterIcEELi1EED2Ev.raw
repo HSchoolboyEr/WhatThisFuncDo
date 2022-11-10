@@ -1,5 +1,0 @@
-lea rax, [0x08001677]
-mov qword [rdi], rax
-jmp _ZNSt7codecvtIcc11__mbstate_tED2Ev
-add byte [rax], al
-add byte [rax], al

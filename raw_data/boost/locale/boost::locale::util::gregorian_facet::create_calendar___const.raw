@@ -1,2 +1,0 @@
-add rdi, 0x10
-jmp _ZN5boost6locale4util25create_gregorian_calendarERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE

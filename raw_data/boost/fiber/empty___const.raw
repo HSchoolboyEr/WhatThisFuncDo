@@ -1,3 +1,0 @@
-cmp qword [rdi], rdi
-sete al
-ret

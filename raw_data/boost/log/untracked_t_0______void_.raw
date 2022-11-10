@@ -1,8 +1,0 @@
-push rbx
-mov rbx, rdi
-mov edi, 4
-call _Znwm
-mov dword [rax], 1
-mov qword [rbx], rax
-pop rbx
-ret

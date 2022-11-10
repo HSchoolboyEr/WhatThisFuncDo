@@ -1,4 +1,0 @@
-cmp byte [rdi + 0x18], 0
-je 0x8001a6a
-mov byte [rdi + 0x18], 0
-ret

@@ -1,4 +1,0 @@
-lea rax, [0x08001007]
-add rdi, 0x38
-mov qword [rdi - 0x38], rax
-jmp _ZNSt6localeD1Ev
