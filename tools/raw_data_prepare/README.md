@@ -6,7 +6,7 @@ In this section decribed how to prepare the existed data or add new. If you wont
 
 ## Using 
 
-*Requirements*: Python 3 (with r2pipe, itanium_demangler), radare2
+*Requirements*: Python 3 (with r2pipe, itanium_demangler, hashlib), radare2
 
 
 
