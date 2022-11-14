@@ -12,12 +12,17 @@ path_to_save_func_hash="../../raw_data/"
 
 
 
-for COMPILER_VER in  "10.2.1" "9.3.0"; do
+for COMPILER_VER in "9.3.0" "10.2.1"; do
   for COMPILER_OPTION in  "O0" "O1" "O2" "O3" "Os" "Og" "Ofast";do
 
         COMPILER_CONF=$COMPILER"_"$COMPILER_VER"_"$COMPILER_OPTION
         prefix_lib="/home/user/boost/binary_"$COMPILER_CONF"/boost/bin.v2/libs"
-        lib_into_path="/build/"$COMPILER"-"$COMPILER_VER"/release/link-static/"
+	if [[ $COMPILER_VER == "9.3.0" ]]; then
+            lib_into_path="/build/"$COMPILER"-9/release/link-static/"
+	else
+            lib_into_path="/build/"$COMPILER"-"$COMPILER_VER"/release/link-static/"
+	fi
+
         path_to_save="../../raw_data/$LIB/$COMPILER_CONF/"
 
 

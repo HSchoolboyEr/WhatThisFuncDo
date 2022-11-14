@@ -61,7 +61,6 @@ def my_demangle(mangled_func_name):
 
 
 def hash_the_func(mangled_func_name):
-    #origin_name = mangled_func_name
     if demangle(mangled_func_name) != None:
         mangled_func_name = demangle(mangled_func_name)
 
@@ -81,7 +80,7 @@ def main():
     if args.outputDir:
         cur_dir = args.outputDir
 
-    r2 = r2pipe.open(args.inputFile)
+    r2 = r2pipe.open(args.inputFile,  ["-e bin.cache=true"]) # For disable stderr messages use flags=['-2']
     r2.cmd('aa')
 
     funcs_name = [funcs_line.strip().split()[3] for funcs_line in r2.cmd("afl").split("\n") if len(funcs_line) > 0]
@@ -103,6 +102,8 @@ def main():
             if args.fileHashDir:
                 save_data(dir=args.fileHashDir, filename="hashedNames", metadata="{}\t{}\n".format(func_clear_name,cur_fun ), type='txt',flag='a')
         i+=1
+
+    r2.quit()
 
 
 
