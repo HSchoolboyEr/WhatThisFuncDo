@@ -28,7 +28,7 @@ $python r2_metaData_extractor.py -i /path/to/binary/file.o -o /path/to/folder/fo
 ```
 
 *For this time* it extract only:
-* disasm code
+* disassm code
 * flow grapf (in format [Graph Modelling Language](https://gephi.org/users/supported-graph-formats/gml-format/))
 * all the data in JSON
 
@@ -44,15 +44,21 @@ If you neen more files, use the `boost_tree_walker.sh` for recursive walking by 
 
 *For this time* it use [boost](https://www.boost.org/) folders structure and only Linux *.o binary. But most Boost libraries are header-only: they consist entirely of header files containing templates and inline functions, and require no separately-compiled library binaries or special treatment when linking.
 
+Also it produce the file `hashedNames.txt` that contain real demangled function's name (where it possible) and their hashed names. This file will use by `common_dataset_maker.py` in next step
+
+### Step 4
+
+When all the data prepeare corresponding to the specified structure run `common_dataset_maker.py` to get one numpy file in folder `./data/` 
+
 
 ## ToDo
 
-- [x] demangle [ABI](https://en.wikipedia.org/wiki/Application_binary_interface)
+- [x] demangle [ABI](https://en.wikipedia.org/wiki/Application_binary_interface) or hash func's name
 - [x] control function's names len
-- [ ] Add more libraries
+- [x] Add more libraries
 - [ ] Prepare (trim, strip, normalize and ather) all the data from forlder `raw_data`
-- [ ] Create script `raw_data_aggregator.sh `
-- [ ] Work with funcs name and folders structure
-- [ ] Check the size if func: short funcs doesn't need
+- [x] Create script `common_dataset_maker.py`
+- [x] Work with funcs name and folders structure
+- [x] Check the size if func: short funcs doesn't need
 
 
