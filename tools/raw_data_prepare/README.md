@@ -14,7 +14,15 @@ In this section decribed how to prepare the existed data or add new. If you wont
 
 First you need to prepare the binaries on your computer according to the instructions of the libraries you have selected 
 
-It is highly desirable to compile several libraries with several  optimization options (for example, standard O0, O1 and O2) and different compilers and their versions. This may allow you to create slightly different code for the same function in some of its places. The various options must be placed in a separate folder in the main folder with the name of the library in the form of "Compiler_version_option". For example, `./raw_data/boost/gcc_10_O1/`. Saving data in this form will make it easy to supplement new data and easily use the script `raw_data_aggregator.sh ` to collect them into a single file in the ./data/ folder.
+It is highly desirable to compile several libraries with several  optimization options (for example, standard O0, O1 and O2) and different compilers and their versions. This may allow you to create slightly different code for the same function in some of its places. 
+
+For example, its the same function `find_address_dispatch` from `Boost::atomic` compiled by varios version gcc-9 ang gcc-10:
+
+![example](./images/function_diff)
+
+
+
+The various options must be placed in a separate folder in the main folder with the name of the library in the form of "Compiler_version_option". For example, `./raw_data/boost/gcc_10_O1/`. Saving data in this form will make it easy to supplement new data and easily use the script `common_dataset_maker.py` to collect them into a single file in the ./data/ folder.
 
 My Boost's native [b2](https://www.bfgroup.xyz/b2/) compile-setting file is also here: `boost_project-config.jam`
 

@@ -1,0 +1,18 @@
+atomic:'String and text processing'
+container:Containers
+random:Algorithms
+serialization:Programming
+thread:Programming
+stacktrace:Programming
+iostreams:Programming
+exception:Programming
+chrono:'Math and numerics'
+timer:'Math and numerics'
+math:'Math and numerics'
+regex:'Data structures'
+json:'Data structures'
+graph:'Data structures'
+system:System
+log:System
+locale:System
+filesystem:System

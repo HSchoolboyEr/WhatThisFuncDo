@@ -1,13 +1,22 @@
 import numpy as np
 import os
 
+real_func_names = np.loadtxt("../../raw_data/hashedNames.txt" , dtype="str",  delimiter='\t')
+classes= np.loadtxt("../../raw_data/boost/classes_mapping.txt" , dtype="str",  delimiter=':')
+
+
+
 
 def get_name_by_hash(hashed_name):
-    return "name_TODO" # TODO: get func name by hash
+    result = np.where((real_func_names[0:, 0] == hashed_name))
+    return (real_func_names[result[0], 1][0])
 
 
 def get_clas_by_module(module_name):
-    return "class_TODO" # TODO add class selection here
+    result = np.where((classes[0:, 0] == module_name))
+    if (result[0].size == 0):
+        return "Another"
+    return(classes[result[0], 1][0])
 
 
 def list_files(startpath):
@@ -24,6 +33,8 @@ def list_files(startpath):
     func_body = ""
     func_graph = ""
 
+
+    first = True
 
     for root, dirs, files in os.walk(startpath):
         level = root.replace(startpath, '').count(os.sep)
@@ -42,7 +53,6 @@ def list_files(startpath):
 
 
             for f in files:
-
                 if f[-4:] == ".raw":
                     func_name = get_name_by_hash(f[:-4])
 
@@ -54,7 +64,32 @@ def list_files(startpath):
                     #with open(root+os.sep+f[:-4]+".gml") as fl:
                     #    func_graph = fl.readlines()
 
-                    print(library, compiller,version, compiler_option, func_class, func_name, f[:-4],instructions_count, func_body, func_graph )
+                    dict = {'library' : library ,
+                            'bin' : bin,
+                            'compiller' : compiller,
+                            'version' : version,
+                            'compiler_option' : compiler_option,
+                            'func_class' :  func_class,
+                            'func_name' : func_name,
+                            'name_hash' : f[:-4],
+                            'instructions_count' : instructions_count,
+                            'func_body' : func_body,
+                            'func_graph' : func_graph }
+
+                    result = dict.items()
+                    data = list(result)
+
+                    if first:
+                        numpyArrayLine = np.array(data)
+                        #numpyArrayLine.reshape(11,2)
+                        first = False
+                    else:
+                        numpyArrayLine = np.hstack((numpyArrayLine, np.array(data)))
+
+                    print("=======")
+                    print(numpyArrayLine.shape)
+
+            numpyArrayLine.tofile('../../data/extracted', sep = ';')
 
 
 
