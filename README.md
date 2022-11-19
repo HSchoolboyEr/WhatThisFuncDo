@@ -70,8 +70,8 @@ I use that classes of funcs:
 - [ ] icc
 - [ ] gcc-mingw
 - [ ] Cygwin
-* data preparation: *very soon*
-* data visualization: *soon*
+* data preparation: *will be ready later*
+* data visualization: go [there](./tools/data_visualisation/)
 * standart Ml algorithms: *not soon*
 * DL 
 * conclusion
