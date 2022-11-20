@@ -12,10 +12,10 @@ Some data details present forward:
 
 ![example](./images/funcs_len.png)
 
-
+![example](./images/instructions_distribution.png)
 ## ToDo
 
-- [ ] more butiful plots (seaborn)
-- [ ] more informative plots
-- [ ] correct some visualisation wrongs
-- [ ] work with asm instruction (hot-map)
+- [x] more beautiful plots (seaborn)
+- [x] more informative plots
+- [x] correct some visualisation wrongs
+- [ ] visualise the graph
