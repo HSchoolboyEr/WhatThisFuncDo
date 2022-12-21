@@ -31,6 +31,17 @@ I use that classes of funcs:
 
 * get or add the data for training: go [there](./tools/raw_data_prepare/)
 
+
+| Number | Library     | Source                          |
+|--------|-------------|---------------------------------|
+| 1      | `boost`      | [boost](https://www.boost.org/) |
+| 2      | `STL`       | ...                             |
+| 3      | `Asio`  | ...                             |
+| 4      | `Silicon` | ...                             |
+
+
+
+
 #### Boost (with std=c++14)
 - [x] gcc 10.2.1 O0
 - [x] gcc 10.2.1 O1
@@ -70,9 +81,9 @@ I use that classes of funcs:
 - [ ] icc
 - [ ] gcc-mingw
 - [ ] Cygwin
-* data preparation: *will be ready later*
+* data preparation: *ready*
 * data visualization: go [there](./tools/data_visualisation/)
-* standart Ml algorithms: *not soon*
+* standart (linear) Ml algorithms: *soon*
 * DL 
 * conclusion
 
