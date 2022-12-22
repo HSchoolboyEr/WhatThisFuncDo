@@ -9,13 +9,16 @@ Some data details present forward:
 
 ![example](./images/classes.png)
 
+![example](./images/data_distribution.png)
 
 ![example](./images/funcs_len.png)
 
 ![example](./images/instructions_distribution.png)
+
+![example](./images/graph.png)
 ## ToDo
 
 - [x] more beautiful plots (seaborn)
 - [x] more informative plots
 - [x] correct some visualisation wrongs
-- [ ] visualise the graph
+- [x] visualise the graph

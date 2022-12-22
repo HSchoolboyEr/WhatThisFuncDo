@@ -81,11 +81,11 @@ I use that classes of funcs:
 - [ ] icc
 - [ ] gcc-mingw
 - [ ] Cygwin
-* data preparation: *ready*
+* data preparation: go [there](./tools/linear_models/)
 * data visualization: go [there](./tools/data_visualisation/)
-* standart (linear) Ml algorithms: *soon*
-* DL 
-* conclusion
+* standart (linear) Ml algorithms: go [there](./tools/linear_models/)
+* DL : *soon*
+* conclusion: *not soon*
 
 ## Results
 

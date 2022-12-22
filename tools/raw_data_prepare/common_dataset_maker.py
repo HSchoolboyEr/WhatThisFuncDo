@@ -4,7 +4,7 @@ import pandas as pd
 
 real_func_names = np.loadtxt("../../raw_data/hashedNames.txt" , dtype="str",  delimiter='\t')
 classes= np.loadtxt("../../raw_data/boost/classes_mapping.txt" , dtype="str",  delimiter=':')
-file_to_save_result = '../../data/extracted.csv'
+file_to_save_result = '../../data/extracted_with_graph.csv'
 
 
 
@@ -69,8 +69,11 @@ def list_files(startpath):
                     instructions_count = len(func_body)
                     func_body = str([elem.strip("\n") for elem in func_body])
 
-                    #with open(root+os.sep+f[:-4]+".gml") as fl:
-                    #    func_graph = fl.readlines()
+                    try:
+                        with open(root+os.sep+f[:-4]+".gml") as fl:
+                            func_graph = fl.readlines()
+                    except:
+                        func_graph = ""
 
                     list_line = np.array([[library], [bin], [compiller], [version],[compiler_option],
                                           [func_class], [func_name], [f[:-4]], [instructions_count], [func_body], [func_graph]]).T

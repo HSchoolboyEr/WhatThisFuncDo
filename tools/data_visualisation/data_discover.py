@@ -6,7 +6,6 @@ from collections import Counter
 
 
 
-
 file_with_data = '../../data/extracted.csv'
 
 
