@@ -40,6 +40,7 @@ I use that classes of funcs:
 | 4      | `Silicon` | ...                             |
 
 
+In future I plan get also data from this [list of open source C++ libraries](https://en.cppreference.com/w/cpp/links/libs)
 
 
 #### Boost (with std=c++14)
