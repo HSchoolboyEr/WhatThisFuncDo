@@ -13,7 +13,7 @@ The repo consist of several part: data and data preparation instruments, data vi
 
 You can use the already existed data or add new and train then you own network.
 
-All models in pickle format and score results [here](./models_pickle)
+All models in pickle format and score results [here](./models_pickle). Presentations [here](./tools/pdf).
 
 In the future, I plan get also data from this [list of open source C++ libraries](https://en.cppreference.com/w/cpp/links/libs)
 
@@ -33,7 +33,7 @@ I use that classes of funcs (no best choose, I know):
 
 # Steps
 
-* data preparation: go [there](./tools/linear_models/)
+* data preparation: go [there](./tools/raw_data_prepare/)
 * data visualization: go [there](./tools/data_visualisation/)
 * standart (linear) Ml algorithms: go [there](./tools/linear_models/)
 * advanced (no only linear) ML algorithms: go [there](./tools/no_only_linear_models/)
