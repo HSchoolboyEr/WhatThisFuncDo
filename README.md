@@ -7,6 +7,8 @@ This project is designed for learning aims to explore func's behavior with ML us
 Its purpose: to answer  **what does this func do?**
 
 
+![ML_magic](./ML_magic2.png)
+
 # Observe the repo
 
 The repo consist of several part: data and data preparation instruments, data visualisation, some standard ML algorithms implementatin and DL algorithmsa, trained on existed data neuralnetwork (prepared to use).
