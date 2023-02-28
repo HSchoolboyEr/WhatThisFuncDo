@@ -15,6 +15,8 @@ You can use the already existed data or add new and train then you own network.
 
 All models in pickle format and score results [here](./models_pickle)
 
+In the future, I plan get also data from this [list of open source C++ libraries](https://en.cppreference.com/w/cpp/links/libs)
+
 
 # Func's classes
 
@@ -53,7 +55,6 @@ I use that classes of funcs (no best choose, I know):
 | 4      | `Silicon` | ...                             |
 
 
-In future, I plan get also data from this [list of open source C++ libraries](https://en.cppreference.com/w/cpp/links/libs)
 
 
 #### Boost (with std=c++14)
