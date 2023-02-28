@@ -27,8 +27,18 @@ I use that classes of funcs:
 * Data structures
 * System
 
-## Steps
+# Steps
 
+* data preparation: go [there](./tools/linear_models/)
+* data visualization: go [there](./tools/data_visualisation/)
+* standart (linear) Ml algorithms: go [there](./tools/linear_models/)
+* advanced (no only linear) ML algorithms: go [there](./tools/no_only_linear_models/)
+* DL : *soon*
+* conclusion: *not soon*
+
+
+
+## Data preparation:
 * get or add the data for training: go [there](./tools/raw_data_prepare/)
 
 
@@ -82,11 +92,7 @@ In future I plan get also data from this [list of open source C++ libraries](htt
 - [ ] icc
 - [ ] gcc-mingw
 - [ ] Cygwin
-* data preparation: go [there](./tools/linear_models/)
-* data visualization: go [there](./tools/data_visualisation/)
-* standart (linear) Ml algorithms: go [there](./tools/linear_models/)
-* DL : *soon*
-* conclusion: *not soon*
+
 
 ## Results
 
