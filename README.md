@@ -2,21 +2,23 @@
 
 This is another attempt to push ML wherever you can :)
 
-Yhis project is designed to explore func's behavior using only their low-level code.
+This project is designed for learning aims to explore func's behavior with ML using only their low-level code.
 
 Its purpose: to answer  **what does this func do?**
 
 
 # Observe the repo
 
-The repo consist of several part: data and data preparation instruments, data visualisation, some standart ML algorithms implementatin and DL algorithmsa, trained on existed data neuralnetwork (prepared to use).
+The repo consist of several part: data and data preparation instruments, data visualisation, some standard ML algorithms implementatin and DL algorithmsa, trained on existed data neuralnetwork (prepared to use).
 
 You can use the already existed data or add new and train then you own network.
+
+All models in pickle format and score results [here](./models_pickle)
 
 
 # Func's classes
 
-I use that classes of funcs:
+I use that classes of funcs (no best choose, I know):
 
 * String and text processing
 * Networking
@@ -35,6 +37,7 @@ I use that classes of funcs:
 * advanced (no only linear) ML algorithms: go [there](./tools/no_only_linear_models/)
 * DL : *soon*
 * conclusion: *not soon*
+* completed models and their score: go [there](./models_pickle)
 
 
 
@@ -50,7 +53,7 @@ I use that classes of funcs:
 | 4      | `Silicon` | ...                             |
 
 
-In future I plan get also data from this [list of open source C++ libraries](https://en.cppreference.com/w/cpp/links/libs)
+In future, I plan get also data from this [list of open source C++ libraries](https://en.cppreference.com/w/cpp/links/libs)
 
 
 #### Boost (with std=c++14)
