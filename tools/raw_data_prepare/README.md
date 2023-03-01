@@ -2,7 +2,7 @@
 
 All scripts for data preparation are located in this folder
 
-In this section decribed how to prepare the existed data or add new. If you wont to use already preparead data - go to `./data/`  [folder](../../data/) of this repo.
+In this section described how to prepare the existed data or add new. If you wont to use already prepared data - go to `./data/`  [folder](../../data/) of this repo.
 
 ## Using 
 
@@ -16,7 +16,7 @@ First you need to prepare the binaries on your computer according to the instruc
 
 It is highly desirable to compile several libraries with several  optimization options (for example, standard O0, O1 and O2) and different compilers and their versions. This may allow you to create slightly different code for the same function in some of its places. 
 
-For example, its the same function `find_address_dispatch` from `Boost::atomic` compiled by varios version gcc-9 ang gcc-10:
+For example, it's the same function `find_address_dispatch` from `Boost::atomic` compiled by various version gcc-9 ang gcc-10:
 
 ![example](./images/function_diff)
 
@@ -40,7 +40,7 @@ $python r2_metaData_extractor.py -i /path/to/binary/file.o -o /path/to/folder/fo
 * flow grapf (in format [Graph Modelling Language](https://gephi.org/users/supported-graph-formats/gml-format/))
 * all the data in JSON
 
-During extract metadata sometimes it's necessary to de-mangle function's names. The easiest way  - use `c++filt` or python packeges ([cxxfilt](https://github.com/afq984/python-cxxfilt) or [itanium_demangler](https://github.com/whitequark/python-itanium_demangler)), but in my way it isn't always works correctly. I use it in func `my_demangle`.
+During extract metadata sometimes it's necessary to de-mangle function's names. The easiest way  - use `c++filt` or python packages ([cxxfilt](https://github.com/afq984/python-cxxfilt) or [itanium_demangler](https://github.com/whitequark/python-itanium_demangler)), but in my way it isn't always works correctly. I use it in func `my_demangle`.
 
 *Note* (https://en.wikipedia.org/wiki/Name_mangling): 
 >"Because C++ symbols are routinely exported from DLL and shared object files, the name mangling scheme is not merely a compiler-internal matter. Different compilers (or different versions of the same compiler, in many cases) produce such binaries under different name decoration schemes, meaning that symbols are frequently unresolved if the compilers used to create the library and the program using it employed different schemes. For example, if a system with multiple C++ compilers installed (e.g., GNU GCC and the OS vendor's compiler) wished to install the Boost C++ Libraries, it would have to be compiled multiple times (once for GCC and once for the vendor compiler)".
@@ -48,15 +48,15 @@ During extract metadata sometimes it's necessary to de-mangle function's names. 
 Boost in default use a generic source file dummy_demangler.cpp. If you know about this ABI dialect, please, write me: `dlmalloc_allocation_command_unsigned_int__unsigned_long__unsigned_long__unsigned_long__unsigned_long__void_` 
 
 ### Step 3 
-If you neen more files, use the `boost_tree_walker.sh` for recursive walking by library's folders.
+If you need more files, use the `boost_tree_walker.sh` for recursive walking by library's folders.
 
 *For this time* it use [boost](https://www.boost.org/) folders structure and only Linux *.o binary. But most Boost libraries are header-only: they consist entirely of header files containing templates and inline functions, and require no separately-compiled library binaries or special treatment when linking.
 
-Also it produce the file `hashedNames.txt` that contain real demangled function's name (where it possible) and their hashed names. This file will use by `common_dataset_maker.py` in next step
+Also, it produces the file `hashedNames.txt` that contain real demangled function's name (where it possible) and their hashed names. This file will use by `common_dataset_maker.py` in next step
 
 ### Step 4
 
-When all the data prepeare corresponding to the specified structure run `common_dataset_maker.py` to get one numpy file in folder `./data/` 
+When all the data prepare corresponding to the specified structure run `common_dataset_maker.py` to get one numpy file in folder `./data/` 
 
 
 ## ToDo

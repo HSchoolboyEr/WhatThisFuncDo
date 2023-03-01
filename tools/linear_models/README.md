@@ -7,7 +7,7 @@
 - Extracting graph characteristics by `igraph` (example in `graph_worker.py`)
 - data with graph structure also [here](../../data/for_linear_models/) with postfix `_feature`
 - in file `linear_model` presented results of experiments with only LINEAR models
-- all resulst with graphics you can see in this [presentation](../pdf/)
+- all result with graphics you can see in this [presentation](../pdf/)
 
 
 
@@ -31,4 +31,5 @@
 - how use more data from graph structure
 - separate operands and operators
 - classes disbalansed
+- how distributed duplicated functions and how much
 - how get more data...and more...and more :)

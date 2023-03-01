@@ -11,7 +11,7 @@ Its purpose: to answer  **what does this func do?**
 
 # Observe the repo
 
-The repo consist of several part: data and data preparation instruments, data visualisation, some standard ML algorithms implementatin and DL algorithmsa, trained on existed data neuralnetwork (prepared to use).
+The repo consist of several part: data and data preparation instruments, data visualisation, some standard ML algorithms implementation and DL algorithms, trained on existed data neuralnetwork (prepared to use).
 
 You can use the already existed data or add new and train then you own network.
 
@@ -37,7 +37,7 @@ I use that classes of funcs (no best choose, I know):
 
 * data preparation: go [there](./tools/raw_data_prepare/)
 * data visualization: go [there](./tools/data_visualisation/)
-* standart (linear) Ml algorithms: go [there](./tools/linear_models/)
+* standard (linear) Ml algorithms: go [there](./tools/linear_models/)
 * advanced (no only linear) ML algorithms: go [there](./tools/no_only_linear_models/)
 * DL : *soon*
 * conclusion: *not soon*
