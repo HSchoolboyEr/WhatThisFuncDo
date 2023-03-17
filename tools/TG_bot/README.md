@@ -25,7 +25,7 @@ This Telegram bot will extract the binary content of an bin given file in ELF fo
 Clone the repo
 
 ```shell
-git clone
+git clone https://github.com/HSchoolboyEr/WhatThisFuncDo.git
 cd ./WhatDoesThisFuncDo
 export BOT_TOKEN=<YOUR_TOKEN>
 python -m venv venv
