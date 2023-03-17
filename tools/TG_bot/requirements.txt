@@ -1,0 +1,13 @@
+r2pipe
+itanium_demangler
+aiogram
+pandas
+scikit-learn
+lightgbm
+scipy
+seaborn
+matplotlib
+asyncio
+argparse
+igraph
+

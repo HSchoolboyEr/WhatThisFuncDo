@@ -11,7 +11,7 @@ Its purpose: to answer  **what does this func do?**
 
 # Observe the repo
 
-The repo consist of several part: data and data preparation instruments, data visualisation, some standard ML algorithms implementation and DL algorithms, trained on existed data neuralnetwork (prepared to use).
+The repo consist of several part: data and data  [preparation](./tools/raw_data_prepare/) instruments (in future with [dvc](https://dvc.org/doc/api-reference)), data visualisation and experiments (with  [autoML](./tools/auto_ml_LAMA/auto_ML_LAMA.ipynb) and in future [mlflow](./tools/)), some standard ML algorithms implementation and DL algorithms, trained on existed data neuralnetwork (prepared to use with [pikle](./models_pickle) format ), some tools (Telegram  [Bot](./tools/TG_bot/README.md) in [docker](./tools/TG_bot/Dockerfile))
 
 You can use the already existed data or add new and train then you own network.
 
@@ -105,3 +105,5 @@ I use that classes of funcs (no best choose, I know):
 # Literature
 
 [arXiv:1903.11397v3 [cs.PL] 7 Jul 2020: Lost in translation: Exposing hidden compiler optimization opportunities](https://arxiv.org/pdf/1903.11397.pdf)
+
+For bot ideas thanks [Galina Perovich](https://github.com/galinaalperovich/ai_summary_tg_bot)

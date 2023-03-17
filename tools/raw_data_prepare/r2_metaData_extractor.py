@@ -106,6 +106,81 @@ def main():
     r2.quit()
 
 
+class WTF:
+        ''' 
+    Class: What does this func do? 
+    '''
+        def __init__(self, binary_file = None, path_to_binary_file = "...") -> None:
+            if (binary_file == None) and (path_to_binary_file == "..."):
+                print("Not setted file to analyse!")
+                exit(0)
+            if path_to_binary_file != "...":
+                #print("TRY: {}".format(os.path.join(os.path.dirname(__file__), path_to_binary_file)))
+                self.__path_to_file = os.path.join(os.path.dirname(__file__), path_to_binary_file)
+                #print("TRY: {}".format(self.__path_to_file))
+                self.__r2 = r2pipe.open( self.__path_to_file , ["-e bin.cache=true"])
+
+            else:
+                #self.__r2 = r2pipe.open()
+                self.__r2 = r2pipe.open(binary_file)
+
+            self.__r2.cmd('aa')
+            self.__funcs_names = []
+            self.__funcs_addresses = []
+
+        def __get_funcs_names(self):
+            self.__funcs_names = [funcs_line.strip().split()[3] for funcs_line in self.__r2.cmd("afl").split("\n") if len(funcs_line) > 0]
+
+
+        def __get_funcs_addresses(self):
+            self.__funcs_addresses = [funcs_line.strip().split()[0] for funcs_line in self.__r2.cmd("afl").split("\n") if len(funcs_line) > 0]
+
+
+        async def get_functions_count(self):
+            if self.__funcs_names == []:
+                self.__get_funcs_names()
+            return len(self.__funcs_names)
+
+        async def get_functions_names(self):
+            if self.__funcs_names == []:
+                self.__get_funcs_names()
+            return self.__funcs_names
+        
+
+        async def get_functions_asm_code(self, get_the_graph = False):
+            """
+            return dictionary of list {"real_func_name": ["raw_code", "cfg"]}
+            example : return  {"boost::set_params<bool>": ["POP PUSH ADD...", "[1] [1-3]...."]}
+            """
+            if self.__funcs_names == []:
+               self.__get_funcs_names()
+            if self.__funcs_addresses == []:
+               self.__get_funcs_addresses()
+            
+            funcs = {}
+            cfg_agfg = ""
+
+            i = 0   
+            for cur_fun in self.__funcs_names:
+                if cur_fun[:19] not in  FUNCS_PREFIX_EXCLUD:
+                    func_clear_name = hash_the_func(cur_fun)
+                    self.__r2.cmd("s {0}".format(self.__funcs_addresses[i])) 
+                    asm_code = self.__r2.cmd("pif") # get asm raw code
+                    if get_the_graph:
+                        cfg_agfg = self.__r2.cmd("agfg") # get asm cfg
+
+                    funcs[func_clear_name] = [asm_code, cfg_agfg]
+                i+=1
+            return funcs
+
+        def __del__(self):
+            # body of destructor
+            try:
+                self.__r2.quit()
+            except:
+                pass
+
+
 
 if __name__ == "__main__":
     main()

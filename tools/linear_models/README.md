@@ -27,9 +27,13 @@
 
 
 # TODO (think about):
-- how use information about address for best score
+- how use information about address for best score (how many count it used, level of values, distance bitween adresses and other)
 - how use more data from graph structure
 - separate operands and operators
 - classes disbalansed
 - how distributed duplicated functions and how much
+- use combination of graph's feature
+- add len feature
+- traing use autoML. Forexample, from [sber](github.com/sberbank-ai-lab/LightautoMl)
+- what about not only  multiclass - why not multilabel variant
 - how get more data...and more...and more :)
