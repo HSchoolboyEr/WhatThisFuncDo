@@ -10,4 +10,4 @@ matplotlib
 asyncio
 argparse
 igraph
-
+pytest
