@@ -1,22 +1,13 @@
 import os
 import sys
-from io import BytesIO
 sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), '../../..')))
-from  tools.raw_data_prepare.r2_metaData_extractor  import WTF
+from tools.raw_data_prepare.r2_metaData_extractor import WTF
 from model_worker import predict_class_in_text, predict_class_in_photo
-from collections import Counter
-
-
 from aiogram import Bot, Dispatcher, executor, types
-from aiogram.utils.markdown import text, bold, italic, code, pre
+from aiogram.utils.markdown import text, bold  # , italic, code, pre
 from aiogram.types import ParseMode
-#from aiogram.types import BufferedInputFile
 from aiogram.types.message import ContentType
-
-from settings import BOT_TOKEN, MODEL_NAME, logger, TMP_FILE_LOCATION
-
-
-
+from settings import BOT_TOKEN, logger, TMP_FILE_LOCATION  # , MODEL_NAME
 
 
 bot = Bot(token=BOT_TOKEN, parse_mode=types.ParseMode.HTML)
@@ -32,8 +23,8 @@ async def welcome(message: types.Message):
 
 @dp.message_handler(commands=["help"])
 async def process_help_command(message: types.Message):
-    message_text = text( bold('There is '), '`ELF_bot v0.0.1.`', bold(' What I can do today: \n'),
-      '\t`/start`  - in first send me a file in ELF format (usally, with .o extension)\n', 
+    message_text = text(bold('There is '), '`ELF_bot v0.0.1.`', bold(' What I can do today: \n'),
+      '\t`/start` - in first send me a file in ELF format (usally, with .o extension)\n', 
       '\t`/funcs_list` - I return to you a list of funcs what I can found\n',
       '\t`/funcs_count` - I return to you a count of funcs what I can found\n',
       '\t`/what_the_func` - with a ML magic I try to predict a classes of all you func and return a pictire\n')
@@ -47,7 +38,7 @@ async def process_help_command(message: types.Message):
             return
 
         try: 
-            wtf = WTF(path_to_binary_file= "../." + TMP_FILE_LOCATION)
+            wtf = WTF(path_to_binary_file="../." + TMP_FILE_LOCATION)
             founded_func_count = await wtf.get_functions_count()
             if founded_func_count == 0:
                 await message.answer("Sorry, I'm not found functions in your file, try another file with /start")
@@ -61,11 +52,11 @@ async def process_help_command(message: types.Message):
 
 @dp.message_handler(commands=["funcs_list"])
 async def process_help_command(message: types.Message):
-        if not(os.path.exists(TMP_FILE_LOCATION)):
+        if not (os.path.exists(TMP_FILE_LOCATION)):
             await message.answer("In first you need to upload me ELF file. Use command /help for more information")
             return
 
-        try: 
+        try:
             wtf = WTF(path_to_binary_file= "../." + TMP_FILE_LOCATION)
             founded_funcs_list = await wtf.get_functions_names()
             if len(founded_funcs_list) == 0:
@@ -76,15 +67,15 @@ async def process_help_command(message: types.Message):
                                           parse_mode=ParseMode.MARKDOWN)
                     text_list = ""
                     for func in founded_funcs_list:
-                        text_list+= "\t" + ("{}".format(func)) + "\n"                    
+                        text_list += "\t" + ("{}".format(func)) + "\n"                    
                 else:
                     await message.answer("In you file I can fount `{}` functions. But I can show you only first `10` of them: ".format(len(founded_funcs_list)),
                                           parse_mode=ParseMode.MARKDOWN)
                     text_list = ""
                     list_10 = founded_funcs_list[slice(10)]
                     for func in list_10:
-                        text_list+= "\t" + ("{}".format(func)) + "\n"
-                await message.answer(text_list)#, parse_mode=ParseMode.MARKDOWN)
+                        text_list += "\t" + ("{}".format(func)) + "\n"
+                await message.answer(text_list)  # , parse_mode=ParseMode.MARKDOWN)
 
 
         except Exception as err:
@@ -123,14 +114,11 @@ async def process_help_command(message: types.Message):
                          caption= "Predictions for all funcs in your ELF file", 
                          reply_to_message_id=message.message_id)
 
-
-
             logger.info("All jobs is done!!!!") 
 
         except Exception as err:
             logger.error("Error while parsing file", exc_info=err)
             await message.reply(f"Error while parsing file:\n\n{err}")
-
 
 
 @dp.message_handler()
@@ -150,9 +138,7 @@ async def get_summary(message: types.Message):
             )
             return
 
-
         await message.reply("OK! But I'm not a chart-bot. See /help") 
-
 
     except Exception as err:
         logger.error("Error while parsing file", exc_info=err)
@@ -175,18 +161,14 @@ async def unknown_message(msg: types.Message):
 
         file = await bot.get_file(file_id)
         file_path = file.file_path
-        my_object = await bot.download_file(file_path = file_path) ## Getting the File represented as a BytesIO Object
+        my_object = await bot.download_file(file_path = file_path)  # Getting the File represented as a BytesIO Object
         
         logger.info("Saved tmp file to : {}".format(TMP_FILE_LOCATION))
-        with open(TMP_FILE_LOCATION,'wb') as out: ## Open temporary file as bytes
-            out.write(my_object.read())                ## Read bytes into file
-
-
-
+        with open(TMP_FILE_LOCATION, 'wb') as out:  # Open temporary file as bytes
+            out.write(my_object.read())                # Read bytes into file
 
 
 if __name__ == "__main__":
     if (os.path.exists(TMP_FILE_LOCATION)): # remove last file. TODO: store in DB
         os.remove(TMP_FILE_LOCATION)
     executor.start_polling(dp, skip_updates=True)
-
