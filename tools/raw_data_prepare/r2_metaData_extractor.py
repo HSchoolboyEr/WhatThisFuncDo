@@ -18,19 +18,10 @@ except ImportError as err:
     sys.exit(0)
 
 
-
-
-
-
-
-
-
-
 FUNCS_PREFIX_EXCLUD = ["sym._GLOBAL__sub_I_"]
 
 
-
-def save_data(dir , filename , metadata , type  = 'raw', flag = 'w'):
+def save_data(dir, filename, metadata, type='raw', flag='w'):
     filename = filename + '.' + type
     file_path = os.path.join(dir, filename)
     with open(file_path, flag) as file:
@@ -39,15 +30,13 @@ def save_data(dir , filename , metadata , type  = 'raw', flag = 'w'):
 
 
 def my_demangle(mangled_func_name):
-
-
-    if demangle(mangled_func_name) != None:
+    if demangle(mangled_func_name) is not None:
         mangled_func_name = demangle(mangled_func_name)
 
 
     if len(mangled_func_name) > 255: # too long name for save in OS filesystem. try some cut
         rem_words = ["_void_", "const_", "volatile_", "_anonymous_namespace_::", "_unsigned_", "long_", "_int_", "_const", "cxx11_", "message_abi:",
-                     "_char_", "_unsigned_long_", "basic_string_char_" , "char_traits_char_" , "_______", "_unsigned_long_", "allocator_std"]
+                     "_char_", "_unsigned_long_", "basic_string_char_", "char_traits_char_", "_______", "_unsigned_long_", "allocator_std"]
         for word in rem_words:
             mangled_func_name = mangled_func_name.replace(word, "")
             mangled_func_name.strip("_")
@@ -61,7 +50,7 @@ def my_demangle(mangled_func_name):
 
 
 def hash_the_func(mangled_func_name):
-    if demangle(mangled_func_name) != None:
+    if demangle(mangled_func_name) is not None:
         mangled_func_name = demangle(mangled_func_name)
 
     md5 = hashlib.md5(mangled_func_name.encode())
@@ -100,7 +89,7 @@ def main():
             save_data(dir=cur_dir, filename=func_clear_name, metadata=asm_code)
             save_data(dir=cur_dir, filename=func_clear_name, metadata=asm_all, type='json')
             if args.fileHashDir:
-                save_data(dir=args.fileHashDir, filename="hashedNames", metadata="{}\t{}\n".format(func_clear_name,cur_fun ), type='txt',flag='a')
+                save_data(dir=args.fileHashDir, filename="hashedNames", metadata="{}\t{}\n".format(func_clear_name, cur_fun), type='txt',flag='a')
         i+=1
 
     r2.quit()
@@ -109,19 +98,24 @@ def main():
 class WTF:
         ''' 
     Class: What does this func do? 
+    Class get the path to binary file and return some information about it:
+        - get_functions_count()
+        - get_functions_names()
+        - get_functions_asm_code()
+        - other internal funcs
     '''
         def __init__(self, binary_file = None, path_to_binary_file = "...") -> None:
             if (binary_file == None) and (path_to_binary_file == "..."):
                 print("Not setted file to analyse!")
                 exit(0)
             if path_to_binary_file != "...":
-                #print("TRY: {}".format(os.path.join(os.path.dirname(__file__), path_to_binary_file)))
+                # print("TRY: {}".format(os.path.join(os.path.dirname(__file__), path_to_binary_file)))
                 self.__path_to_file = os.path.join(os.path.dirname(__file__), path_to_binary_file)
-                #print("TRY: {}".format(self.__path_to_file))
-                self.__r2 = r2pipe.open( self.__path_to_file , ["-e bin.cache=true"])
+                # print("TRY: {}".format(self.__path_to_file))
+                self.__r2 = r2pipe.open(self.__path_to_file, ["-e bin.cache=true"])
 
             else:
-                #self.__r2 = r2pipe.open()
+                # self.__r2 = r2pipe.open()
                 self.__r2 = r2pipe.open(binary_file)
 
             self.__r2.cmd('aa')
@@ -131,10 +125,8 @@ class WTF:
         def __get_funcs_names(self):
             self.__funcs_names = [funcs_line.strip().split()[3] for funcs_line in self.__r2.cmd("afl").split("\n") if len(funcs_line) > 0]
 
-
         def __get_funcs_addresses(self):
             self.__funcs_addresses = [funcs_line.strip().split()[0] for funcs_line in self.__r2.cmd("afl").split("\n") if len(funcs_line) > 0]
-
 
         async def get_functions_count(self):
             if self.__funcs_names == []:
@@ -146,7 +138,6 @@ class WTF:
                 self.__get_funcs_names()
             return self.__funcs_names
         
-
         async def get_functions_asm_code(self, get_the_graph = False):
             """
             return dictionary of list {"real_func_name": ["raw_code", "cfg"]}
@@ -165,12 +156,12 @@ class WTF:
                 if cur_fun[:19] not in  FUNCS_PREFIX_EXCLUD:
                     func_clear_name = hash_the_func(cur_fun)
                     self.__r2.cmd("s {0}".format(self.__funcs_addresses[i])) 
-                    asm_code = self.__r2.cmd("pif") # get asm raw code
+                    asm_code = self.__r2.cmd("pif")  # get asm raw code
                     if get_the_graph:
-                        cfg_agfg = self.__r2.cmd("agfg") # get asm cfg
+                        cfg_agfg = self.__r2.cmd("agfg")  # get asm cfg
 
                     funcs[func_clear_name] = [asm_code, cfg_agfg]
-                i+=1
+                i += 1
             return funcs
 
         def __del__(self):
@@ -179,7 +170,6 @@ class WTF:
                 self.__r2.quit()
             except:
                 pass
-
 
 
 if __name__ == "__main__":
