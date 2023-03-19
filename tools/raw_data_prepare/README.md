@@ -64,7 +64,7 @@ When all the data prepare corresponding to the specified structure run `common_d
 - [x] demangle [ABI](https://en.wikipedia.org/wiki/Application_binary_interface) or hash func's name
 - [x] control function's names len
 - [x] Add more libraries
-- [ ] Prepare (trim, strip, normalize and ather) all the data from forlder `raw_data`
+- [x] Prepare (trim, strip, normalize and ather) all the data from forlder `raw_data`
 - [x] Create script `common_dataset_maker.py`
 - [x] Work with funcs name and folders structure
 - [x] Check the size if func: short funcs doesn't need
