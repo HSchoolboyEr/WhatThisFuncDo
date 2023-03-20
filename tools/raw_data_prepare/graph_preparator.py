@@ -7,11 +7,20 @@ import math
 def get_graph_features(raw_cfg):
     graph_all_item_char = []
     for graph_item_in_gml in raw_cfg:
+        try:
+            os.remove("/tmp/gml.gml")
+        except FileNotFoundError:
+            pass
+
         with open("/tmp/gml.gml", "a") as bibfile:
             for line in graph_item_in_gml:
                 bibfile.writelines(line)
-        g = igraph.read("/tmp/gml.gml")
-        os.remove("/tmp/gml.gml")
+        try:
+            g = igraph.read("/tmp/gml.gml")
+        except igraph._igraph.InternalError:
+            raise AttributeError('Incorrect QML format')    
+        finally:
+            os.remove("/tmp/gml.gml")
         graph_one_item_char = []
         graph_one_item_char.append(0 if (pd.isna(g.vcount())) else g.vcount())
         # graph_one_item_char.append( 0 if (pd.isna(g.degree(0))) else g.degree(0))
