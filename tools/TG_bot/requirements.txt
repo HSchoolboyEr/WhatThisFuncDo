@@ -11,3 +11,4 @@ asyncio
 argparse
 igraph
 pytest
+pytest-asyncio
