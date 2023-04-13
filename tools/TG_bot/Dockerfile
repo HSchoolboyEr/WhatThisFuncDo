@@ -1,25 +1,27 @@
 
-FROM alpine:3.14
+# FROM alpine:3.14
 
-RUN apk add --upgrade apk-tools && apk upgrade --available
-RUN apk add g++ python3-dev cmake gfortran patchelf openblas
-RUN apk add openblas-dev  
-RUN apk add gcc make cmake
-RUN export CXX=g++ CC=gcc 
-#RUN export PKG_CONFIG_PATH="/opt/homebrew/opt/openblas/lib/pkgconfig"
-#ENV PYTHONUNBUFFERED=1
-#RUN apk add --update --no-cache python3 && ln -sf python3 /usr/bin/python
-RUN apk add --update --no-cache curl py-pip
-RUN python3 -m ensurepip
-RUN pip3 install --no-cache --upgrade pip setuptools
-RUN pip3 install --upgrade pip
-#RUN python -m pip install wheel setuptools 
-RUN export PIP_DEFAULT_TIMEOUT=500
-RUN pip --default-timeout=1000 install scipy --only-binary=:all
-RUN apk add --no-cache --virtual .build-deps zlib-dev jpeg-dev && \
-    pip3 --default-timeout=2000 install matplotlib && \
-    apk del .build-deps
-RUN pip3 --default-timeout=2000 install wheel
+# RUN apk add --upgrade apk-tools && apk upgrade --available
+# RUN apk add g++ python3-dev cmake gfortran patchelf openblas
+# RUN apk add openblas-dev  
+# RUN apk add gcc make cmake
+# RUN export CXX=g++ CC=gcc 
+# RUN apk add --update --no-cache curl py-pip
+# RUN python3 -m ensurepip
+# RUN pip3 install --no-cache --upgrade pip setuptools
+# RUN pip3 install --upgrade pip
+# RUN export PIP_DEFAULT_TIMEOUT=500
+# RUN pip --default-timeout=1000 install scipy --only-binary=:all
+# RUN apk add --no-cache --virtual .build-deps zlib-dev jpeg-dev && \
+#     pip3 --default-timeout=2000 install matplotlib && \
+#     apk del .build-deps
+# RUN pip3 --default-timeout=2000 install wheel
+
+FROM --platform=linux/amd64 python:3.8
+
+RUN apt-get update -y \
+    && apt-get install -y curl  py-pip \
+      --no-install-recommends 
 
 
 
