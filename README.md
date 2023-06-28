@@ -107,3 +107,6 @@ I use that classes of funcs (no best choose, I know):
 [arXiv:1903.11397v3 [cs.PL] 7 Jul 2020: Lost in translation: Exposing hidden compiler optimization opportunities](https://arxiv.org/pdf/1903.11397.pdf)
 
 For bot ideas thanks [Galina Perovich](https://github.com/galinaalperovich/ai_summary_tg_bot)
+
+
+[arXiv:1607.00653v1 [cs.SI] 3 Jul 2016: node2vec: Scalable Feature Learning for Networks](https://arxiv.org/pdf/1607.00653.pdf)
